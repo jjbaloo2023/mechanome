@@ -31,6 +31,48 @@ is at the 0.10 bar on n=13 — firmed up by expanding the candidate set.
 
 ---
 
+## Stage 1b — the input-space fix (the honest headline)
+
+The curated study above has a structural flaw that the enrichment result quietly depends on: **its 13
+proteins and its 9 GO labels are both drawn from the same well-studied mammalian-endocytosis
+literature.** A screen fed the known curvature generators can only rank known curvature generators; the
+AUROC 0.75 "support" is therefore partly circular — the physics is being tested against the same
+attention bias that chose its inputs. The novelty was filtered out at Stage 1, before the physics ever
+ran.
+
+So we replaced Stage 1 with a **query, not a hand-list**, and left Stages 0/2/3/4 unchanged:
+
+- **Input:** every OPM-annotated membrane-protein entity in the RCSB PDB (18,982 entities → 7,653
+  structures → **5,317 distinct proteins**; 4,639 at ≤4.0 Å), deduplicated by UniProt. From 13 curated
+  candidates to a **1,669-assembly unbiased structural census**.
+- **One uniform metric, zero curation:** the Stage-2 TM-cone c₀ + footprint, applied identically to
+  every structure from its OPM-oriented coordinates (membrane normal = z, DUM-marked bilayer center).
+  A contamination guard (modal-size TM-spanning-chain class, the automated form of the stoichiometry
+  cross-check that caught RhoA in TRPV4) plus physical-validity bounds (A ≥ 2 nm², |c₀| ≤ 0.2 /nm) run
+  at scale without a hand table.
+- **48 of 1,669 assemblies clear the 10 k_BT gate.** The top hits are **not** the endocytic canon —
+  they are bacterial secretion secretins (T2SS/T3SS protein D, MxiD, PilQ), pore-formers
+  (Gasdermin-B, hemolysin E), fungal cell-wall/lipid synthases (chitin synthase, FKS1 β-glucan
+  synthase, seipin), and ERAD/autophagy remodelers (Derlin-1, ATG9A). MscS, a positive control from
+  the curated set, reappears organically at rank 22.
+
+**The re-frozen pre-committed test (hash `e2871f10cd5faf00`; the curated hash is void for this
+population) is NOT SUPPORTED on the unbiased census: AUROC 0.384, Spearman ρ = −0.072 (p = 0.003).**
+The mechanical rank does not track the mammalian-endocentric GO labels — and **47 of 48 gate-clearers
+carry zero of the 9 pre-declared terms.** This is not a failure of the physics; it is direct evidence
+that the GO label set is an attention-biased ground truth. Curvature-generating capacity, measured from
+structure, identifies membrane-deforming machines that lie *outside* the curated curvature vocabulary.
+Those **35 novel candidates** (`stage3b_novel_candidates.csv`) — seipin, ATG9A, Derlin-1, the
+secretins, Gasdermin-B — are exactly the mechanically-plausible, functionally-implicated,
+under-attention predictions the curated 13 could not have surfaced. The flip from AUROC 0.75 (curated)
+to 0.38 (unbiased) **is the finding**: it quantifies how much of the "support" was circularity.
+
+Stage-1b artifacts: `stage1b_opm_catalog.csv`, `stage2b_geometry.csv`, `stage3b_ranking.csv`,
+`stage3b_novel_candidates.csv`, `stage4b_prereg.md`/`.json`, `stage4b_enrichment.csv`,
+`fig_stage3b_proteome_ranking.png`, `fig_stage3b_novel_candidates.png`, `fig_stage4b_enrichment.png`.
+
+---
+
 ## Pipeline (each stage → artifact)
 
 | Stage | What | Key artifact |
