@@ -144,10 +144,12 @@ energy at a pre-fixed scale. That is what makes it defensible under adversarial 
 If the mechanical rank had *no* relationship to independent curvature/entry annotation (AUROC ≈ 0.5),
 the premise — that structure-derived curvature capacity marks entry-coupling candidates — would be
 unsupported. We pre-registered this test before scoring (original hash `7e6777a655b068e9`; corrected
-`41d49328960d4083` after the RhoA-contamination fix and the label-set reconciliation, labels never
-re-chosen). The corrected result **supports** the hypothesis at the pre-set bar (AUROC 0.750, p 0.085,
-scored against exactly the 9 pre-declared GO terms) — but the pass is at 0.10, not 0.05, so it is
-support, not proof.
+`41d49328960d4083` after the RhoA-contamination fix). An intervening scoring run diverged from the
+original 9 pre-declared GO IDs to a different 14-term set (a bug — 2 were dropped, 7 unrelated generic
+terms added); that divergence was caught and reverted back to exactly the original 9 before the result
+below was computed — see `stage4_prediction_prereg.md` for the full trace. The corrected result
+**supports** the hypothesis at the pre-set bar (AUROC 0.750, p 0.085, scored against exactly the 9
+pre-declared GO terms) — but the pass is at 0.10, not 0.05, so it is support, not proof.
 
 ## Reproducibility
 

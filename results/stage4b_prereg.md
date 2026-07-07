@@ -9,9 +9,17 @@
 (A_footprint ≥ 2 nm², radii ≥ 5 Å) and plausible-curvature (|c₀| ≤ 0.2 /nm) QC. This is an
 **unbiased structural census**, not a curated candidate list — the whole point of the fine-tune.
 
-## Pre-declared label GO terms (EXACTLY these 9, unchanged from the curated study, not re-chosen)
+## Pre-declared label GO terms (EXACTLY these 9)
 GO:0046718, GO:0007009, GO:0030100, GO:0006897, GO:0016050, GO:0001778, GO:0097320,
 GO:0072659, GO:0030674. An assembly is label-positive if any subunit UniProt carries ≥1 term.
+
+**Provenance of this list, stated precisely:** these 9 IDs are the original Stage-4 pre-registration
+for the curated study, written before any label was fetched. An *intervening* scoring run in the
+curated study's history used a diverged 14-term set (a bug: 2 of these 9 were dropped, 7 unrelated
+generic terms were added) — that run was caught and reverted earlier in the same working session,
+back to exactly these 9 IDs, before this proteome-scale test was frozen. So this list is "the original
+9, restored" rather than "never touched" — flagged here so the label set's history is fully auditable
+rather than glossed as untouched.
 
 ## Decision rule (pre-committed, identical to the curated study)
 SUPPORT iff **AUROC > 0.5 AND one-sided p < 0.10 AND Spearman ρ > 0**; else null/refute.

@@ -23,5 +23,6 @@
   ],
   "decision_rule": "SUPPORT iff AUROC>0.5 AND one-sided p<0.10 AND Spearman rho>0; else null/refute; reported per rule, not re-tuned",
   "supersedes": "41d49328960d4083 (13-protein curated study); that hash is VOID for this population",
-  "note": "Frozen BEFORE fetching any GO label for the proteome-scale population. Labels fetched next cell."
+  "note": "Frozen BEFORE fetching any GO label for the proteome-scale population. Labels fetched next cell.",
+  "label_go_terms_provenance": "original 9-ID Stage-4 curated-study prereg, restored to exactly these 9 after an intervening run diverged to a different 14-term set (bug: dropped 2, added 7 generic terms); that divergence was caught and reverted within the same working session, before this proteome-scale freeze"
 }
