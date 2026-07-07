@@ -4,8 +4,14 @@ ONE metric applied identically to every protein (no per-protein curation):
   - OPM files already place the membrane normal on z and mark bilayer boundaries with DUM atoms.
   - Center on the DUM midplane, restrict to the TM slab (|z|<15 A), take convex-hull cross-sections,
     and fit a cone taper c0 = ((r_out - r_in)/(2*dz)) / r_mid.
-  - TM-spanning chains only: keep chains whose CA reach both above +10 and below -10 A (strips
-    soluble partners/peripheral chains). Report n_chains as an oligomer flag (NOT hand-curated).
+  - Chain selection is TWO stages, because the TM-span test alone does NOT strip soluble partners:
+    a bound partner (e.g. RhoA in TRPV4 8FC7) can itself straddle the bilayer plane and pass the span
+    test (all 8 chains of 8FC7 test TMspan=True). Stage 1: keep chains whose CA reach both above +10
+    and below -10 A (drops peripheral/one-leaflet chains). Stage 2 CONTAMINATION GUARD: among the
+    spanning chains, restrict to the modal-size subunit class (CA count >= 0.8*max), so a smaller
+    hetero-partner is dropped without a hand-curated oligomer table. This is the automated form of the
+    stoichiometry cross-check that caught RhoA; validated on the 8FC7 chain composition (keeps the 4
+    TRPV4 subunits, drops the 4 RhoA copies, sets contam_flag=True). Report n_chains + contam_flag.
 
 Scope caveat (bank it honestly): this metric is sensitive to transmembrane conical shape. It
 UNDERRATES scaffold- (BAR) and crowding- (IDP) based curvature generation, which act outside the
