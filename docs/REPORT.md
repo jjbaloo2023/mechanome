@@ -26,7 +26,7 @@ channels (inward/endocytic) from the curvature-generating scaffolds (outward/exo
 the mechanical layer transcriptomic virtual-cell models structurally cannot represent. A
 **pre-committed** enrichment test against external, ranking-blind GO curvature/entry annotations
 **supports** the central hypothesis by the frozen decision rule (AUROC 0.750, one-sided p 0.085, Spearman
-rho 0.33; gate-clearers 75% curvature-annotated vs 38% base rate), with the honest caveat that the pass
+rho 0.273; gate-clearers 75% curvature-annotated vs 38% base rate), with the honest caveat that the pass
 is at the 0.10 bar on n=13 — firmed up by expanding the candidate set.
 
 ---
