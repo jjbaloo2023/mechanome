@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+structures/
+structures_opm/
+assemblies/
+stage2_aligned/
+.ipynb_checkpoints/
+*.cif
+*.pdb
+*.pdb1
+*.gz
