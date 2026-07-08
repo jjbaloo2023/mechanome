@@ -18,18 +18,19 @@ not a lumped constant.
 
 **Borrowed and cited — foundations, not claimed:**
 - **Helfrich–Canham** membrane mechanics (bending + tension + spontaneous curvature).
-- **Rangamani et al., *Design principles for robust vesiculation*, PNAS 2017** — forward
-  model: coat area / C₀ / tension / actin → bud; the flat→budded transition is
-  tension-dependent.
-- **Akamatsu & Rangamani et al., eLife 2020** — spontaneous curvature lowers the tension
-  energy barrier; actin force model.
+- **Hassinger, Oster, Drubin & Rangamani, *Design principles for robust vesiculation in
+  clathrin-mediated endocytosis*, PNAS 114:E1118–E1127 (2017)** — forward model: coat area /
+  C₀ / tension / actin → bud; the flat→budded transition is tension-dependent (snap-through).
+- **Akamatsu, Vasan, Serwas, Ferrin, Rangamani & Drubin, eLife 9:e49840 (2020)** —
+  continuum-mechanics pit under tension + actin force model; Helfrich-based.
 - **Busch, Houser, Hayden, Sherman, Lafer & Stachowiak, *Intrinsically disordered proteins
   drive membrane curvature*, Nat Commun 2015** — disordered domains of Epsin1/AP180 generate
   curvature by **steric pressure** from their large hydrodynamic radius; coverage-dependent.
   Source of the ENTH (≈16 nm²) and disordered-CTD (≈70 nm²) footprints.
 - **Snead/Stachowiak steric-force measurements** — steric-pressure magnitude / scale.
-- **Ramakrishnan & Radhakrishnan et al., PNAS 2016** — curvature–undulation coupling
-  recovers an effective C₀ from CG-MD undulation spectra (the MD→C₀→Helfrich provenance).
+- **Bradley & Radhakrishnan, PNAS 113:E5117–E5124 (2016)** — curvature–undulation coupling
+  recovers an effective C₀ from CG-MD undulation spectra of the epsin ENTH domain on a
+  bilayer (the MD→C₀→Helfrich provenance).
 - **Own 2020 (Commun Biol)** — characterized epsin's tension-responsive recruitment and
   reported the abortive-fraction-vs-tension phenomenon; did **not** build a decision model.
 
@@ -109,7 +110,7 @@ The one order-of-magnitude-uncertain physical quantity, η, is exposed and swept
 uncertainty scales the magnitude of the steric effect but not its direction.
 
 **MD→C₀→Helfrich provenance chain** (cited, not run here): CG-MD undulation spectrum →
-effective C₀(φ) via curvature–undulation coupling (Ramakrishnan–Radhakrishnan) → consumed by
+effective C₀(φ) via curvature–undulation coupling (Bradley–Radhakrishnan 2016) → consumed by
 the continuum Helfrich barrier. MD parameterizes C₀ offline; no inline MD.
 
 ---
