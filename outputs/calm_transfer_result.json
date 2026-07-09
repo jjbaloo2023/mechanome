@@ -1,0 +1,31 @@
+{
+  "transfer_test": "CALM/PICALM (registry #4): same wedge+crowding+coat decomposition, different observable (vesicle size)",
+  "picalm_representation": [
+    [
+      3,
+      315,
+      "rigid_inclusion",
+      "folded_confirmed"
+    ],
+    [
+      326,
+      345,
+      "ensemble_flagged",
+      "conditional_fold_suspect"
+    ],
+    [
+      346,
+      652,
+      "polymer_brush_crowding",
+      "disorder_confirmed"
+    ]
+  ],
+  "guardrail_flag": "PICALM linker 326-345 flagged conditional_fold_suspect; coat role=size_regularity (Kaksonen subtlety)",
+  "target_curvature_inv_nm": 0.025,
+  "achieved_H": 0.02501432269780974,
+  "predicted_vesicle_radius_nm": 40.0,
+  "regime": "sub-100nm (documented CALM size control)",
+  "target_met": true,
+  "generalizes": "same pipeline, different protein & observable -> not epsin overfit",
+  "provenance_note": "CALM/PICALM size-control mechanism (registry #4) as described in the user-provided plan; reproduced qualitatively."
+}

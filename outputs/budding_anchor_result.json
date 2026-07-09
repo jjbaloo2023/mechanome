@@ -1,0 +1,64 @@
+{
+  "budding_anchor": {
+    "description": "Loop recovers closed-form budding boundary a*=4kappa/lambda via evaluator-driven search",
+    "rows": [
+      {
+        "lam": 0.5,
+        "a_found": 160.07,
+        "a_closed_form": 160.0,
+        "rel_err": 0.0005
+      },
+      {
+        "lam": 1.0,
+        "a_found": 80.04,
+        "a_closed_form": 80.0,
+        "rel_err": 0.0005
+      },
+      {
+        "lam": 2.0,
+        "a_found": 40.02,
+        "a_closed_form": 40.0,
+        "rel_err": 0.0004
+      },
+      {
+        "lam": 3.0,
+        "a_found": 26.68,
+        "a_closed_form": 26.67,
+        "rel_err": 0.0005
+      },
+      {
+        "lam": 4.0,
+        "a_found": 20.01,
+        "a_closed_form": 20.0,
+        "rel_err": 0.0004
+      }
+    ],
+    "max_rel_error": 0.0005
+  },
+  "ccs_anchor_llm": {
+    "description": "LLM chooses representations; solver nails magnitude; evaluator is ground truth",
+    "target_curvature_inv_nm": 0.025,
+    "achieved": 0.024993252635531097,
+    "target_met": true,
+    "n_iter": 1,
+    "reasoning_trace": "[wedge\u2192c0_plus_kappa_softening] ENTH/H0 amphipathic helix insertion gives a moderate intrinsic curvature contribution. Tension_half set near the case sigma (0.005 kBT/nm^2) so the sensor is partially gated (softened) at this tension, consistent with 'higher tension flattens the wedge'. Contribution kept below the 0.08 ceiling since it must combine with crowding and coat rather than saturate alone. || [crowding\u2192saturating_surface_pressure] Disordered IDP tail entropic crowding contributes a saturating pressure-driven curvature. Coverage set high (0.75) since the coat patch (11310 nm^2) provides ample area for tail accumulation; phi_half moderate so we are past half-saturation, contributing meaningfully without being fully maxed, leaving room for coat-mediated concentration to push it further via the coupling term. || [coat\u2192rigidity_area_constraint] AP2/clathrin coat stiffens and concentrates the wedge and crowding players over the patch, pushing the assembly toward a dome/Omega stage. A modest intrinsic_c0 reflects a maturing (but not fully rigid) curved lattice. Rigidity_factor of 3.2 is mid-range, sufficient to concentrate players and compensate for the flattening effect of tension without assuming a fully formed rigid cage. || [tension\u2192constant_tension_frame] Case-fixed membrane tension of 0.005 kBT/nm^2, held constant as the frame within which wedge gating and dome/Omega progression are evaluated. || coupling_correction=0.25 (coat concentrates wedge/crowd \u2192 >additive synergy)",
+    "players": [
+      {
+        "player": "wedge",
+        "representation": "c0_plus_kappa_softening"
+      },
+      {
+        "player": "crowding",
+        "representation": "saturating_surface_pressure"
+      },
+      {
+        "player": "coat",
+        "representation": "rigidity_area_constraint"
+      },
+      {
+        "player": "tension",
+        "representation": "constant_tension_frame"
+      }
+    ]
+  }
+}

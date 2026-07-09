@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e08214"/></marker></defs>
+<rect width="900" height="620" fill="white"/>
+<text x="450.0" y="32.0" font-size="18" fill="#222222" font-weight="bold" font-style="normal" text-anchor="middle">Orchestration for epsin_ccs_highTension</text>
+<text x="450.0" y="52.0" font-size="12" fill="#888888" font-weight="normal" font-style="normal" text-anchor="middle">iteration 0  ·  achieved mean curvature 0.0285 nm⁻¹  ·  stage: dome</text>
+<path d="M 70.0,150.7 L 76.3,151.0 L 82.7,151.3 L 89.0,151.8 L 95.3,152.4 L 101.7,153.2 L 108.0,154.1 L 114.3,155.3 L 120.7,156.8 L 127.0,158.5 L 133.3,160.6 L 139.7,163.1 L 146.0,166.0 L 152.3,169.3 L 158.7,173.1 L 165.0,177.3 L 171.3,181.9 L 177.7,189.5 L 184.0,195.2 L 190.3,201.2 L 196.7,207.3 L 203.0,213.5 L 209.3,219.5 L 215.7,225.4 L 222.0,230.8 L 228.3,235.8 L 234.7,240.0 L 241.0,243.5 L 247.3,246.0 L 253.7,247.6 L 260.0,248.1 L 266.3,247.6 L 272.7,246.0 L 279.0,243.5 L 285.3,240.0 L 291.7,235.8 L 298.0,230.8 L 304.3,225.4 L 310.7,219.5 L 317.0,213.5 L 323.3,207.3 L 329.7,201.2 L 336.0,195.2 L 342.3,189.5 L 348.7,181.9 L 355.0,177.3 L 361.3,173.1 L 367.7,169.3 L 374.0,166.0 L 380.3,163.1 L 386.7,160.6 L 393.0,158.5 L 399.3,156.8 L 405.7,155.3 L 412.0,154.1 L 418.3,153.2 L 424.7,152.4 L 431.0,151.8 L 437.3,151.3 L 443.7,151.0 L 450.0,150.7 L 450.0,330.0 L 70.0,330.0 Z" fill="#d9ecff" opacity="0.5"/>
+<path d="M 70.0,150.7 L 76.3,151.0 L 82.7,151.3 L 89.0,151.8 L 95.3,152.4 L 101.7,153.2 L 108.0,154.1 L 114.3,155.3 L 120.7,156.8 L 127.0,158.5 L 133.3,160.6 L 139.7,163.1 L 146.0,166.0 L 152.3,169.3 L 158.7,173.1 L 165.0,177.3 L 171.3,181.9 L 177.7,189.5 L 184.0,195.2 L 190.3,201.2 L 196.7,207.3 L 203.0,213.5 L 209.3,219.5 L 215.7,225.4 L 222.0,230.8 L 228.3,235.8 L 234.7,240.0 L 241.0,243.5 L 247.3,246.0 L 253.7,247.6 L 260.0,248.1 L 266.3,247.6 L 272.7,246.0 L 279.0,243.5 L 285.3,240.0 L 291.7,235.8 L 298.0,230.8 L 304.3,225.4 L 310.7,219.5 L 317.0,213.5 L 323.3,207.3 L 329.7,201.2 L 336.0,195.2 L 342.3,189.5 L 348.7,181.9 L 355.0,177.3 L 361.3,173.1 L 367.7,169.3 L 374.0,166.0 L 380.3,163.1 L 386.7,160.6 L 393.0,158.5 L 399.3,156.8 L 405.7,155.3 L 412.0,154.1 L 418.3,153.2 L 424.7,152.4 L 431.0,151.8 L 437.3,151.3 L 443.7,151.0 L 450.0,150.7" fill="none" stroke="#4d4d4d" stroke-width="3"/>
+<text x="74.0" y="308.0" font-size="11" fill="#4d4d4d" font-weight="bold" font-style="normal" text-anchor="start">membrane profile</text>
+<polygon points="144.8,184.5 162.4,184.5 153.6,202.1" fill="#2166ac" opacity="0.9"/>
+<text x="153.6" y="178.5" font-size="10" fill="#2166ac" font-weight="bold" font-style="normal" text-anchor="middle">H0 wedge</text>
+<line x1="256.0" y1="230.7" x2="250.8" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="263.0" y1="230.7" x2="258.4" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="270.0" y1="230.7" x2="266.1" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="277.0" y1="230.7" x2="274.0" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="284.0" y1="230.7" x2="281.9" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="291.0" y1="230.7" x2="290.0" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="298.0" y1="230.7" x2="298.0" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="305.0" y1="230.7" x2="306.0" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="312.0" y1="230.7" x2="314.1" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="319.0" y1="230.7" x2="322.0" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="326.0" y1="230.7" x2="329.9" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="333.0" y1="230.7" x2="337.6" y2="208.7" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<text x="298.0" y="246.7" font-size="10" fill="#b2182b" font-weight="bold" font-style="normal" text-anchor="middle">IDP crowding</text>
+<path d="M 165.0,146.0 Q 260.0,104.0 355.0,146.0" fill="none" stroke="#7d5ba6" stroke-width="2.7" opacity="0.85" stroke-dasharray="6,3"/>
+<text x="260.0" y="98.0" font-size="10" fill="#7d5ba6" font-weight="bold" font-style="normal" text-anchor="middle">clathrin coat</text>
+<line x1="93.0" y1="150.0" x2="64.0" y2="150.0" stroke="#e08214" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="427.0" y1="150.0" x2="456.0" y2="150.0" stroke="#e08214" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="260.0" y="348.0" font-size="10" fill="#e08214" font-weight="bold" font-style="normal" text-anchor="middle">membrane tension σ = 0.030 kBT/nm²</text>
+<path d="M 153.6,180.0 Q 260.0,130.0 260.0,146.0" fill="none" stroke="#888888" stroke-width="1.5" stroke-dasharray="3,3"/>
+<text x="190.0" y="216.0" font-size="9" fill="#888888" font-weight="italic" font-style="italic" text-anchor="middle">synergy +25%</text>
+<text x="775.0" y="134.0" font-size="12" fill="#222222" font-weight="bold" font-style="normal" text-anchor="middle">curvature contribution</text>
+<rect x="690.0" y="287.3" width="93.5" height="62.7" fill="#2166ac" opacity="0.85"/>
+<text x="792.0" y="321.6" font-size="9" fill="#2166ac" font-weight="bold" font-style="normal" text-anchor="start">wedge 0.032</text>
+<rect x="690.0" y="226.9" width="93.5" height="60.3" fill="#b2182b" opacity="0.85"/>
+<text x="792.0" y="260.1" font-size="9" fill="#b2182b" font-weight="bold" font-style="normal" text-anchor="start">crowding 0.031</text>
+<rect x="690.0" y="226.9" width="93.5" height="1.0" fill="#7d5ba6" opacity="0.85"/>
+<text x="792.0" y="229.9" font-size="9" fill="#7d5ba6" font-weight="bold" font-style="normal" text-anchor="start">coat 0.000</text>
+<rect x="690.0" y="196.2" width="93.5" height="30.8" fill="#888888" opacity="0.6"/>
+<text x="792.0" y="214.5" font-size="9" fill="#888888" font-weight="italic" font-style="italic" text-anchor="start">synergy 0.016</text>
+<line x1="686.0" y1="196.2" x2="792.0" y2="196.2" stroke="#222222" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="690.0" y="366.0" font-size="10" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">c_eff = 0.078 nm⁻¹</text>
+<text x="90.0" y="432.0" font-size="12" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">target vs achieved mean curvature</text>
+<rect x="90" y="440" width="400.0" height="16" fill="#888888" opacity="0.5"/>
+<text x="496.0" y="453.0" font-size="10" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">target 0.0300</text>
+<rect x="90" y="464" width="380.4" height="16" fill="#1b7837" opacity="0.9"/>
+<text x="476.4" y="477.0" font-size="10" fill="#1b7837" font-weight="bold" font-style="normal" text-anchor="start">achieved 0.0285</text>
+<text x="90.0" y="510.0" font-size="13" fill="#1b7837" font-weight="bold" font-style="normal" text-anchor="start">● TARGET MET  (dome stage)</text>
+<text x="90.0" y="540.0" font-size="10" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">orchestrator reasoning (excerpt):</text>
+<text x="90.0" y="556.0" font-size="9" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">offline deterministic guardrail-guided hill-climb  ·  [wedge→c0_plus_kappa_softening] amphipathic H0 wedge, tension-</text>
+<text x="90.0" y="570.0" font-size="9" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">gated (offline prior)  ·  [crowding→saturating_surface_pressure] disordered IDP saturating crowding (offline prior)  ·</text>
+<text x="90.0" y="584.0" font-size="9" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">[coat→rigidity_area_constraint] clathrin coat rigidity/localization (offline prior)  ·</text>
+<text x="90.0" y="604.0" font-size="8" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">content_hash ee979b41dab6d9d8  ·  evaluator: tier0_analytic  ·  generated from OrchestrationRecord</text>
+</svg>

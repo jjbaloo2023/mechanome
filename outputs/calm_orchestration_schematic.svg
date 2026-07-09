@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e08214"/></marker></defs>
+<rect width="900" height="620" fill="white"/>
+<text x="450.0" y="32.0" font-size="18" fill="#222222" font-weight="bold" font-style="normal" text-anchor="middle">Orchestration for CALM_vesicle_size</text>
+<text x="450.0" y="52.0" font-size="12" fill="#888888" font-weight="normal" font-style="normal" text-anchor="middle">iteration 0  ·  achieved mean curvature 0.0250 nm⁻¹  ·  stage: dome</text>
+<path d="M 70.0,150.5 L 76.3,150.6 L 82.7,150.8 L 89.0,151.1 L 95.3,151.5 L 101.7,152.0 L 108.0,152.6 L 114.3,153.3 L 120.7,154.2 L 127.0,155.3 L 133.3,156.6 L 139.7,158.2 L 146.0,160.0 L 152.3,162.1 L 158.7,164.4 L 165.0,167.0 L 171.3,169.9 L 177.7,173.0 L 184.0,176.3 L 190.3,179.8 L 196.7,183.3 L 203.0,186.9 L 209.3,190.5 L 215.7,193.9 L 222.0,197.0 L 228.3,199.9 L 234.7,202.4 L 241.0,204.4 L 247.3,205.9 L 253.7,206.8 L 260.0,207.1 L 266.3,206.8 L 272.7,205.9 L 279.0,204.4 L 285.3,202.4 L 291.7,199.9 L 298.0,197.0 L 304.3,193.9 L 310.7,190.5 L 317.0,186.9 L 323.3,183.3 L 329.7,179.8 L 336.0,176.3 L 342.3,173.0 L 348.7,169.9 L 355.0,167.0 L 361.3,164.4 L 367.7,162.1 L 374.0,160.0 L 380.3,158.2 L 386.7,156.6 L 393.0,155.3 L 399.3,154.2 L 405.7,153.3 L 412.0,152.6 L 418.3,152.0 L 424.7,151.5 L 431.0,151.1 L 437.3,150.8 L 443.7,150.6 L 450.0,150.5 L 450.0,330.0 L 70.0,330.0 Z" fill="#d9ecff" opacity="0.5"/>
+<path d="M 70.0,150.5 L 76.3,150.6 L 82.7,150.8 L 89.0,151.1 L 95.3,151.5 L 101.7,152.0 L 108.0,152.6 L 114.3,153.3 L 120.7,154.2 L 127.0,155.3 L 133.3,156.6 L 139.7,158.2 L 146.0,160.0 L 152.3,162.1 L 158.7,164.4 L 165.0,167.0 L 171.3,169.9 L 177.7,173.0 L 184.0,176.3 L 190.3,179.8 L 196.7,183.3 L 203.0,186.9 L 209.3,190.5 L 215.7,193.9 L 222.0,197.0 L 228.3,199.9 L 234.7,202.4 L 241.0,204.4 L 247.3,205.9 L 253.7,206.8 L 260.0,207.1 L 266.3,206.8 L 272.7,205.9 L 279.0,204.4 L 285.3,202.4 L 291.7,199.9 L 298.0,197.0 L 304.3,193.9 L 310.7,190.5 L 317.0,186.9 L 323.3,183.3 L 329.7,179.8 L 336.0,176.3 L 342.3,173.0 L 348.7,169.9 L 355.0,167.0 L 361.3,164.4 L 367.7,162.1 L 374.0,160.0 L 380.3,158.2 L 386.7,156.6 L 393.0,155.3 L 399.3,154.2 L 405.7,153.3 L 412.0,152.6 L 418.3,152.0 L 424.7,151.5 L 431.0,151.1 L 437.3,150.8 L 443.7,150.6 L 450.0,150.5" fill="none" stroke="#4d4d4d" stroke-width="3"/>
+<text x="74.0" y="308.0" font-size="11" fill="#4d4d4d" font-weight="bold" font-style="normal" text-anchor="start">membrane profile</text>
+<polygon points="148.1,174.3 159.1,174.3 153.6,185.3" fill="#2166ac" opacity="0.9"/>
+<text x="153.6" y="168.3" font-size="10" fill="#2166ac" font-weight="bold" font-style="normal" text-anchor="middle">H0 wedge</text>
+<line x1="273.5" y1="202.0" x2="270.1" y2="189.3" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="280.5" y1="202.0" x2="278.0" y2="189.3" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="287.5" y1="202.0" x2="285.9" y2="189.3" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="294.5" y1="202.0" x2="294.0" y2="189.3" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="301.5" y1="202.0" x2="302.0" y2="189.3" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="308.5" y1="202.0" x2="310.1" y2="189.3" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="315.5" y1="202.0" x2="318.0" y2="189.3" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<text x="298.0" y="218.0" font-size="10" fill="#b2182b" font-weight="bold" font-style="normal" text-anchor="middle">IDP crowding</text>
+<path d="M 165.0,146.0 Q 260.0,95.0 355.0,146.0" fill="none" stroke="#7d5ba6" stroke-width="3.6" opacity="0.85" stroke-dasharray="6,3"/>
+<text x="260.0" y="89.0" font-size="10" fill="#7d5ba6" font-weight="bold" font-style="normal" text-anchor="middle">clathrin coat</text>
+<line x1="85.5" y1="150.0" x2="64.0" y2="150.0" stroke="#e08214" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="434.5" y1="150.0" x2="456.0" y2="150.0" stroke="#e08214" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="260.0" y="348.0" font-size="10" fill="#e08214" font-weight="bold" font-style="normal" text-anchor="middle">membrane tension σ = 0.005 kBT/nm²</text>
+<path d="M 153.6,180.0 Q 260.0,130.0 260.0,146.0" fill="none" stroke="#888888" stroke-width="1.5" stroke-dasharray="3,3"/>
+<text x="190.0" y="216.0" font-size="9" fill="#888888" font-weight="italic" font-style="italic" text-anchor="middle">synergy +25%</text>
+<text x="775.0" y="134.0" font-size="12" fill="#222222" font-weight="bold" font-style="normal" text-anchor="middle">curvature contribution</text>
+<rect x="690.0" y="303.5" width="93.5" height="46.5" fill="#2166ac" opacity="0.85"/>
+<text x="792.0" y="329.7" font-size="9" fill="#2166ac" font-weight="bold" font-style="normal" text-anchor="start">wedge 0.015</text>
+<rect x="690.0" y="242.0" width="93.5" height="61.5" fill="#b2182b" opacity="0.85"/>
+<text x="792.0" y="275.7" font-size="9" fill="#b2182b" font-weight="bold" font-style="normal" text-anchor="start">crowding 0.020</text>
+<rect x="690.0" y="226.9" width="93.5" height="15.0" fill="#7d5ba6" opacity="0.85"/>
+<text x="792.0" y="237.4" font-size="9" fill="#7d5ba6" font-weight="bold" font-style="normal" text-anchor="start">coat 0.005</text>
+<rect x="690.0" y="196.2" width="93.5" height="30.8" fill="#888888" opacity="0.6"/>
+<text x="792.0" y="214.5" font-size="9" fill="#888888" font-weight="italic" font-style="italic" text-anchor="start">synergy 0.010</text>
+<line x1="686.0" y1="196.2" x2="792.0" y2="196.2" stroke="#222222" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="690.0" y="366.0" font-size="10" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">c_eff = 0.051 nm⁻¹</text>
+<text x="90.0" y="432.0" font-size="12" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">target vs achieved mean curvature</text>
+<rect x="90" y="440" width="399.8" height="16" fill="#888888" opacity="0.5"/>
+<text x="495.8" y="453.0" font-size="10" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">target 0.0250</text>
+<rect x="90" y="464" width="400.0" height="16" fill="#1b7837" opacity="0.9"/>
+<text x="496.0" y="477.0" font-size="10" fill="#1b7837" font-weight="bold" font-style="normal" text-anchor="start">achieved 0.0250</text>
+<text x="90.0" y="510.0" font-size="13" fill="#1b7837" font-weight="bold" font-style="normal" text-anchor="start">● TARGET MET  (dome stage)</text>
+<text x="90.0" y="540.0" font-size="10" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">orchestrator reasoning (excerpt):</text>
+<text x="90.0" y="556.0" font-size="9" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">[wedge→c0_plus_kappa_softening] ENTH amphipathic helix insertion gives a base spontaneous curvature contribution;</text>
+<text x="90.0" y="570.0" font-size="9" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">tension_half set above the case tension (0.005 kBT/nm^2) so the wedge is only partially gated/softened, retaining most</text>
+<text x="90.0" y="584.0" font-size="9" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">of its sensing efficacy while leaving room for crowding/coat to compensate for the softening.  ·</text>
+<text x="90.0" y="604.0" font-size="8" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">content_hash a4cd1918d860cca1  ·  evaluator: tier0_analytic  ·  generated from OrchestrationRecord</text>
+</svg>

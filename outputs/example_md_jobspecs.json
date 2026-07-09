@@ -1,0 +1,18 @@
+[
+  {
+    "param": "c0",
+    "system": "PI(4,5)P2",
+    "observable": "c0",
+    "estimator": "first moment of the lateral pressure profile (kappa*c0 = -integral z*[pL-pN] dz)",
+    "target_state_point": {
+      "temperature_K": 330,
+      "tension_mN_per_m": 0.5,
+      "composition": "PIP2",
+      "notes": ""
+    },
+    "reason": "state-point mismatch: temperature_K=330 outside valid_range [293, 310] (+/-0.0)",
+    "priority": "normal",
+    "ensemble": "CG-Martini3",
+    "job_id": "md_25475152d3"
+  }
+]

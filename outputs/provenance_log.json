@@ -1,0 +1,56 @@
+{
+  "pipeline": "curvo \u2014 bitter-lesson curvature-orchestration",
+  "generated_at": "2026-07-09T00:37:59Z",
+  "module_version_hashes": {
+    "curvo.schemas": "f8558c2b533c",
+    "curvo.structure_provider": "16de2ff81fc8",
+    "curvo.parameter_store": "1c2db4a9944f",
+    "curvo.evaluator_tier0": "4cb4320d14eb",
+    "curvo.players": "8c9787bfa57f",
+    "curvo.orchestrator": "1aca93211a09",
+    "curvo.schematic": "999fbb45583e",
+    "curvo.md_gap_queue": "1f55515e4563"
+  },
+  "data_sources": {
+    "AlphaFold_DB": {
+      "access": "live_api",
+      "ids": [
+        "Q9Y6I3 (EPN1)",
+        "Q13492 (PICALM)"
+      ],
+      "model_version": "6",
+      "citation": "Jumper 2021 Nature; Varadi 2022 NAR"
+    },
+    "NMRlipids_FAIRMD": {
+      "access": "live_api (GitHub-hosted databank)",
+      "observable": "area_per_lipid, thickness",
+      "citation": "Kiirikki 2024 Nat Commun"
+    },
+    "literature_curated": {
+      "access": "cached",
+      "params": [
+        "c0 (Kollmitzer 2013)",
+        "kappa (Dimova 2014)",
+        "lambda (Garcia-Saez 2007, Honerkamp-Smith 2008)"
+      ]
+    },
+    "OPM": {
+      "access": "cached (host serves JS SPA, no open JSON)",
+      "param": "insertion_depth"
+    },
+    "MemProtMD": {
+      "access": "stub (host not on allowlist)",
+      "param": "scaffold_deformation (P2, not a demo player)"
+    }
+  },
+  "citations_provenance": "Joseph et al. 2020 (Commun Biol) is the user's own paper, named in the attached sprint plan (epsin tension-responsive recruitment; abortive-fraction-vs-tension). Joseph et al. 2022, Membranes 12(9):859 (doi:10.3390/membranes12090859) is a real related paper supplied by the user for the IAV spherical/filamentous case; it is NOT named in the sprint plan. Both mechanisms are reproduced QUALITATIVELY, not quantitatively validated against the papers' data.",
+  "evaluator": "Tier-0 analytic (Helfrich tube + spherical-cap budding/CCS); validated vs closed forms (tube R* rel_err ~1e-8; budding a*=4k/lambda rel_err <0.05%).",
+  "ground_truth_discipline": "LLM proposes representations + interprets; evaluator is sole source of curvature/energy numbers; guardrails prune physically-invalid proposals before evaluation.",
+  "results": {
+    "epsin_ccs_target_met": true,
+    "complementarity_confirmed": true,
+    "iav_divergence_confirmed": true,
+    "calm_transfer_met": true,
+    "budding_anchor_max_rel_err": 0.0005
+  }
+}

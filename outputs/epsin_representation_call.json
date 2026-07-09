@@ -1,0 +1,146 @@
+{
+  "primary": {
+    "uniprot_id": "Q9Y6I3",
+    "n_residues": 576,
+    "mean_pLDDT": 63.8,
+    "provenance": {
+      "source": "AlphaFoldDB",
+      "access": "live_api",
+      "identifier": "Q9Y6I3",
+      "model_version": 6,
+      "retrieved_at": 1783554544.9181023,
+      "citation": "Jumper et al. 2021 Nature; Varadi et al. 2022 NAR (AlphaFold DB)"
+    },
+    "signals_used": [
+      "per_residue_pLDDT (AlphaFold)",
+      "TOP-IDP composition disorder (Campen 2008)",
+      "Eisenberg hydrophobic moment"
+    ],
+    "segments": [
+      {
+        "start": 2,
+        "end": 158,
+        "n": 157,
+        "mean_pLDDT": 92.3,
+        "disorder_z": -1.1,
+        "hydrophobic_moment": 0.459,
+        "amphipathic": true,
+        "verdict": "folded_confirmed",
+        "representation": "rigid_inclusion_wedge",
+        "guardrail_flag": null
+      },
+      {
+        "start": 159,
+        "end": 179,
+        "n": 21,
+        "mean_pLDDT": 53.7,
+        "disorder_z": 1.07,
+        "hydrophobic_moment": 0.074,
+        "amphipathic": false,
+        "verdict": "disorder_confirmed",
+        "representation": "polymer_brush_crowding",
+        "guardrail_flag": null
+      },
+      {
+        "start": 180,
+        "end": 199,
+        "n": 20,
+        "mean_pLDDT": 81.6,
+        "disorder_z": 0.24,
+        "hydrophobic_moment": 0.056,
+        "amphipathic": false,
+        "verdict": "folded_confirmed",
+        "representation": "rigid_inclusion",
+        "guardrail_flag": null
+      },
+      {
+        "start": 208,
+        "end": 247,
+        "n": 40,
+        "mean_pLDDT": 87.7,
+        "disorder_z": -0.0,
+        "hydrophobic_moment": 0.188,
+        "amphipathic": false,
+        "verdict": "folded_confirmed",
+        "representation": "rigid_inclusion",
+        "guardrail_flag": null
+      },
+      {
+        "start": 248,
+        "end": 576,
+        "n": 329,
+        "mean_pLDDT": 47.2,
+        "disorder_z": 0.42,
+        "hydrophobic_moment": 0.301,
+        "amphipathic": false,
+        "verdict": "disorder_confirmed",
+        "representation": "polymer_brush_crowding",
+        "guardrail_flag": null
+      }
+    ],
+    "H0_analysis": {
+      "region": "res 1-15 (N-terminal amphipathic helix H0 of ENTH)",
+      "sequence": "MSTSSLRRQMKNIVH",
+      "hydrophobic_moment": 0.462,
+      "amphipathic": true,
+      "role": "membrane-inserting wedge + curvature SENSOR (tension-gated); Joseph 2020/2022"
+    },
+    "control_note": "PICALM (Q13492) fetched as H0-comparison control per 2022 paper"
+  },
+  "control_PICALM": {
+    "uniprot_id": "Q13492",
+    "n_residues": 652,
+    "mean_pLDDT": 66.2,
+    "provenance": {
+      "source": "AlphaFoldDB",
+      "access": "live_api",
+      "identifier": "Q13492",
+      "model_version": 6,
+      "retrieved_at": 1783554545.1531787,
+      "citation": "Jumper et al. 2021 Nature; Varadi et al. 2022 NAR (AlphaFold DB)"
+    },
+    "signals_used": [
+      "per_residue_pLDDT (AlphaFold)",
+      "TOP-IDP composition disorder (Campen 2008)",
+      "Eisenberg hydrophobic moment"
+    ],
+    "segments": [
+      {
+        "start": 3,
+        "end": 315,
+        "n": 313,
+        "mean_pLDDT": 92.0,
+        "disorder_z": -0.57,
+        "hydrophobic_moment": 0.25,
+        "amphipathic": false,
+        "verdict": "folded_confirmed",
+        "representation": "rigid_inclusion",
+        "guardrail_flag": null
+      },
+      {
+        "start": 326,
+        "end": 345,
+        "n": 20,
+        "mean_pLDDT": 80.6,
+        "disorder_z": 1.8,
+        "hydrophobic_moment": 0.056,
+        "amphipathic": false,
+        "verdict": "conditional_fold_suspect",
+        "representation": "ensemble_flagged",
+        "guardrail_flag": "high_pLDDT_but_disorder_promoting_composition"
+      },
+      {
+        "start": 346,
+        "end": 652,
+        "n": 307,
+        "mean_pLDDT": 39.1,
+        "disorder_z": 0.42,
+        "hydrophobic_moment": 0.34,
+        "amphipathic": false,
+        "verdict": "disorder_confirmed",
+        "representation": "polymer_brush_crowding",
+        "guardrail_flag": null
+      }
+    ]
+  }
+}

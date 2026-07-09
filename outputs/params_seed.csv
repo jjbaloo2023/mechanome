@@ -1,0 +1,12 @@
+param,system,value,uncertainty,units,access,source,T_K,composition,valid_range,citation,flags
+area_per_lipid,POPC,0.6121,0.0121,nm^2,live_api,NMRlipids/FAIRMD databank,303.0,POPC,"{""temperature_K"": [298, 320]}",Kiirikki et al. 2024 Nat Commun (NMRlipids Databank),
+c0,PIP2,-0.05,0.04,nm^-1,cached,literature:estimate,298.0,"PI(4,5)P2","{""temperature_K"": [293, 310]}",estimate from headgroup geometry; conical (Kooijman 2009 JBC),
+c0,POPC,-0.022,0.02,nm^-1,cached,literature:Kollmitzer,308.0,POPC,"{""temperature_K"": [298, 320]}",Kollmitzer et al. 2013 Soft Matter 9:10877,
+c0,DOPE,-0.399,0.03,nm^-1,cached,literature:Kollmitzer,308.0,DOPE,"{""temperature_K"": [298, 320]}",Kollmitzer et al. 2013 Soft Matter 9:10877,
+c0,DOPC,-0.091,0.02,nm^-1,cached,literature:Kollmitzer,308.0,DOPC,"{""temperature_K"": [298, 320]}",Kollmitzer et al. 2013 Soft Matter 9:10877,
+kappa,POPC,20.0,3.0,kBT,cached,literature:Dimova,303.0,POPC,"{""temperature_K"": [298, 320]}",Dimova 2014 Adv Colloid Interface Sci 208:225,
+kappa,SOPC,25.0,4.0,kBT,cached,literature:Dimova,303.0,SOPC,"{""temperature_K"": [298, 320]}",Dimova 2014,
+insertion_depth,ENTH_H0,0.9,0.3,nm,cached,OPM-class / literature,,PIP2-containing bilayer,{},Ford et al. 2002 Nature 419:361; Lai et al. 2012 JMB,curated_OPM_SPA_no_open_json
+lambda_line,DPPC/DOPC/Chol,1.0,0.5,pN,cached,literature:Garcia-Saez,298.0,DPPC:DOPC:Chol coexistence,"{""temperature_K"": [293, 300]}",Garcia-Saez et al. 2007 JBC 282:33537,
+lambda_line,DSPC/DOPC/Chol,3.3,1.0,pN,cached,literature:Honerkamp-Smith,298.0,DSPC:DOPC:Chol coexistence,"{""temperature_K"": [293, 300]}",Honerkamp-Smith et al. 2008 Biophys J,
+scaffold_deformation,ENTH,0.0,0.5,nm,stub,MemProtMD,,,{},Newport et al. 2019 NAR (MemProtMD) — host not reachable this sprint,stub_domain_not_on_allowlist;P2_not_a_demo_player
