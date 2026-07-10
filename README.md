@@ -261,7 +261,7 @@ experiment and **no force value**.
   "object":"tether_force", "forward_model":"helfrich_v1",
   "value":{"estimate":24.1,"uncertainty":7.47,"units":"pN"},
   "identifiability":"constrained", "epistemic_tier":"GROUNDED",
-  "evidence":["STED tube radius 51 nm (Roy et al. 2020, doi:10.1021/acs.nanolett.9b05232)",
+  "evidence":["STED tube diameter 51 nm (Roy et al. 2020, doi:10.1021/acs.nanolett.9b05232)",
               "curvo:inverse","real_force_paired_validation:pass (mean |bias| 3.8%)"] }
 
 // LINKED (note: no value; chain + experiment required)
