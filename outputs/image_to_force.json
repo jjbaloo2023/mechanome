@@ -1,0 +1,121 @@
+{
+  "summary": {
+    "n": 8,
+    "n_identified": 4,
+    "identified_frac": 0.5,
+    "rel_bias_identified": 0.05997180556852208,
+    "coverage68": 0.375,
+    "forces_tested": [
+      25.0,
+      40.0,
+      55.0,
+      70.0
+    ]
+  },
+  "rows": [
+    {
+      "f_true": 25.0,
+      "rep": 0,
+      "recovered": 26.952896418174323,
+      "point_estimate": 26.952896418174323,
+      "ci68": [
+        25.613866889381494,
+        28.267397988126472
+      ],
+      "identified": true,
+      "covered68": false,
+      "favored": "wedge+actin"
+    },
+    {
+      "f_true": 25.0,
+      "rep": 1,
+      "recovered": 27.00250700870636,
+      "point_estimate": 27.00250700870636,
+      "ci68": [
+        25.721864970611907,
+        28.238089278122633
+      ],
+      "identified": true,
+      "covered68": false,
+      "favored": "wedge+actin"
+    },
+    {
+      "f_true": 40.0,
+      "rep": 0,
+      "recovered": 41.84208359128564,
+      "point_estimate": 41.84208359128564,
+      "ci68": [
+        40.163668704861415,
+        43.66583426832271
+      ],
+      "identified": true,
+      "covered68": false,
+      "favored": "wedge+actin"
+    },
+    {
+      "f_true": 40.0,
+      "rep": 1,
+      "recovered": 41.4247598166688,
+      "point_estimate": 41.4247598166688,
+      "ci68": [
+        39.630532433846014,
+        43.216195780358035
+      ],
+      "identified": true,
+      "covered68": true,
+      "favored": "wedge+actin"
+    },
+    {
+      "f_true": 55.0,
+      "rep": 0,
+      "recovered": 56.33285958045856,
+      "point_estimate": null,
+      "ci68": [
+        54.181423977499286,
+        58.16578879609569
+      ],
+      "identified": false,
+      "covered68": true,
+      "favored": "UNDETERMINED"
+    },
+    {
+      "f_true": 55.0,
+      "rep": 1,
+      "recovered": 56.32589198419108,
+      "point_estimate": null,
+      "ci68": [
+        54.065862494063104,
+        58.13099952301466
+      ],
+      "identified": false,
+      "covered68": true,
+      "favored": "UNDETERMINED"
+    },
+    {
+      "f_true": 70.0,
+      "rep": 0,
+      "recovered": 59.54462360295516,
+      "point_estimate": null,
+      "ci68": [
+        58.91067369910769,
+        59.87877338210453
+      ],
+      "identified": false,
+      "covered68": false,
+      "favored": "UNDETERMINED"
+    },
+    {
+      "f_true": 70.0,
+      "rep": 1,
+      "recovered": 59.47988655307584,
+      "point_estimate": null,
+      "ci68": [
+        58.709275390206216,
+        59.87132805338753
+      ],
+      "identified": false,
+      "covered68": false,
+      "favored": "UNDETERMINED"
+    }
+  ]
+}

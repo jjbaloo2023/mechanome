@@ -1,0 +1,32 @@
+{
+  "baseline": {
+    "n": 20,
+    "rel_err_med": 0.13457946582274172,
+    "signed_bias_med": -0.000330972307730543,
+    "degradation_x": 1.0
+  },
+  "background_gradient": {
+    "n": 20,
+    "rel_err_med": 0.2555070827202658,
+    "signed_bias_med": 0.0016901526356249818,
+    "degradation_x": 1.8985591981528678
+  },
+  "neighboring_structure": {
+    "n": 20,
+    "rel_err_med": 0.2637847007061466,
+    "signed_bias_med": -0.004692357300360037,
+    "degradation_x": 1.9600664863210606
+  },
+  "partial_occlusion": {
+    "n": 20,
+    "rel_err_med": 0.11446510337784449,
+    "signed_bias_med": 0.0013486073306466975,
+    "degradation_x": 0.8505391418970975
+  },
+  "shot_noise_x2": {
+    "n": 20,
+    "rel_err_med": 0.13438584036107193,
+    "signed_bias_med": 0.0007653016323113226,
+    "degradation_x": 0.998561255534148
+  }
+}

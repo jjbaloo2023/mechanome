@@ -1,0 +1,29 @@
+{
+  "entry": "EMD-65182",
+  "modality": "cryo-ET subtomogram average (density map)",
+  "nm_per_px": 0.906,
+  "image_shape": [
+    144,
+    144
+  ],
+  "modality_gap": [
+    "contrast: membrane dark not bright",
+    "geometry: top-down ring not side-view cap",
+    "sample: subtomogram average not single fluorescence frame"
+  ],
+  "native_extractor": {
+    "applied": false,
+    "reason": "curvo's extract_geometry_analytic expects a fluorescence side-view movie [T,C,H,W] with a BRIGHT membrane band and a contiguous central DIP (spherical-cap projection). This image is a top-down DARK-contrast density RING from a subtomogram average \u2014 the cap-dip model does not apply and the channel/contrast assumptions are inverted."
+  },
+  "transferable_primitive": {
+    "method": "radial ring fit (contrast-flipped)",
+    "membrane_R_nm": 9.06,
+    "membrane_band_nm": [
+      6.34,
+      14.5
+    ],
+    "ring_mean_curvature_inv_nm": 0.1104,
+    "contrast_snr": 5.03
+  },
+  "verdict": "NATIVE front end does NOT transfer (modality mismatch, as expected). The underlying curvature-measurement PRIMITIVE DOES transfer: a contrast-flipped radial fit recovers a physically sensible membrane radius. Closing the gap requires a modality adapter (contrast flip + ring/cap geometry), the documented seam for a real super-res dataset."
+}

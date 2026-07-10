@@ -220,6 +220,83 @@ second orthogonal source for structural inputs. Neither replaces the synthetic
 recovery gate for the CCS spherical-cap `analyze()` pipeline — they are
 complementary evidence, at different points in the pipeline.
 
+## Perception validation on image data
+
+The tether/STED test above inverts *reported* radii. The one piece it does not
+exercise is **perception** — pixels → geometry — the front end that every image
+analysis depends on. `validation/perception_benchmark.py` is a held-out image
+benchmark that closes that gap. Because measuring recovery accuracy requires exact
+geometry ground truth, and only rendered images carry it, the benchmark images are
+synthetic *by necessity*; the companion probe below is an honest look at a real
+image.
+
+**Operating envelope (exact ground truth).** Single clathrin-coated-pit images are
+rendered across conditions *outside* the calibration set — PSF width, pixel size,
+photon budget, cap depth, off-center — and the extractor recovers mean curvature H
+from the resolvable band (cap depth 1.3–2.2 × PSF σ, a data-driven reliable
+window).
+
+![operating envelope](outputs/envelope_recovery.png)
+
+- **Core envelope: H recovered to ~10–22% (median 13%)** across the 13
+  resolution-matched conditions — PSF σ = 18 nm, pixel size 2–4 nm/px, photons
+  40–400, cap depth c_eff 0.045–0.08, off-center ≤ 6 px — robust to SNR (photons
+  40–400: 13–18%) and moderate off-center (6 px: 22%).
+- **Degradation edges, characterized honestly:** at PSF σ = 10 nm the reliable band
+  nearly vanishes (few frames clear the resolvability floor → 76%);
+  under-sampling at 1 nm/px → 98%; large off-center (12 px) → 42%; and the
+  **deep-Ω plateau** (depth > 2.2 σ) under-reads by ~25–38% because the
+  spherical-cap-on-projection assumption saturates. (Note PSF σ = 10 nm and
+  1 nm/px each satisfy a naive "fine-resolution" reading yet sit far outside the
+  core band — they are excluded from it by measurement, not by the σ/sampling
+  numbers alone.)
+- **Uncertainty caveat, flagged not hidden:** the per-frame bootstrap CI
+  *under-covers* (coverage68 ≈ 0.33 vs 0.68 nominal) in this band. The point
+  estimate is trustworthy; the per-frame σ needs widening. This is reported as a
+  known limitation, not glossed as a pass.
+
+**Robustness stressors.** The failure modes a real micrograph carries:
+
+![robustness stressors](outputs/stressor_panels.png)
+
+Partial occlusion is tolerated (~0.9× baseline — the extractor keys on the
+contiguous central dip, so a cropped edge is harmless) and doubled shot noise is
+absorbed (~1.0×). Background gradients and neighboring bright structures roughly
+double the error (~1.9–2.0×): they shift the intensity baseline the cap-fit
+references.
+
+**End-to-end image → force (closing the pixels→force gap).** The STED test used
+reported radii; here the *full* pipeline runs from pixels — perception extracts the
+geometry, the inverse recovers the force — on held-out actin-driven movies with
+known force.
+
+![image to force](outputs/image_to_force.png)
+
+Identified forces (25, 40 pN) are recovered at **6% bias from pixels alone**; 55
+and 70 pN are correctly **refused as UNDETERMINED** by the anti-force-astrology
+guardrail rather than reporting a biased point value (at 70 pN the posterior median
+drops to ~60). The guardrail that licenses force claims survives the move from
+reported numbers to extracted geometry.
+
+**Honest real-image transfer probe.** One accessible real curved-membrane image —
+a cryo-ET synaptic-vesicle subtomogram average (EMDB EMD-65182, 0.906 nm/px) —
+tests whether the front end transfers.
+
+![real-image probe](outputs/real_image_probe.png)
+
+It does **not**, and that is the finding: the modality differs on three axes at
+once — density contrast (membrane *dark*, not bright), top-down *ring* geometry
+(not a side-view *cap*), and a subtomogram *average* (not a single fluorescence
+frame). curvo's native cap-extractor is inapplicable and correctly declines. The
+underlying **curvature-measurement primitive does transfer**: a contrast-flipped
+radial fit recovers a physical membrane radius (R ≈ 9 nm, band 6–15 nm, SNR 5).
+Closing the gap needs a modality adapter (contrast flip + ring/cap geometry) — the
+documented seam for a real super-resolution dataset when one is in hand.
+
+*Full report:* `outputs/perception_benchmark.json`. *Reproduce:*
+`python validation/perception_benchmark.py` (sweep + stressors),
+`python validation/image_to_force.py`, `python validation/real_image_probe.py`.
+
 ## The mechanome: the schema curvo is the reference implementation of
 
 curvo grounds *one* edge of the cell's mechanical layer. The `mechanome/` package
@@ -452,6 +529,10 @@ curvo/
   --- real-data validation (validation/) ---
   validation/tether_sted.py    inverse vs force-paired STED nanotubes (Roy et al. 2020)
   validation/mddb_adapter.py   live Molecular Dynamics Data Bank membrane-parameter adapter
+  validation/perception_benchmark.py  held-out image operating-envelope sweep + robustness stressors
+  validation/plot_envelope.py  operating-envelope figure renderer
+  validation/image_to_force.py end-to-end pixels->force on EXTRACTED geometry
+  validation/real_image_probe.py  honest transfer probe on a real cryo-ET membrane (EMD-65182)
   --- mechanome schema (mechanome/) ---
   mechanome/schema.py          MechanoClaim + epistemic-tier firewall (GROUNDED/MEASURED/LINKED)
   mechanome/emit.py            curvo outputs -> GROUNDED claims (tether force, family capacity)

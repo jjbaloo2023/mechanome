@@ -17,9 +17,16 @@ env/
 cache/*.pdb
 cache/*.json
 
+# Real-image probe: raw EMDB map + parsed volume (re-fetchable from the EMD-65182
+# URL documented in validation/real_image_probe.py; the slice PNG is kept)
+cache/real_images/*.map.gz
+cache/real_images/*.npy
+
 # Large synthetic movie arrays (regenerable from synth_movie.py with fixed seeds;
 # ground-truth JSON + montage/validation figures are kept)
 outputs/*.npz
 
 # OS
 .DS_Store
+outputs/_sweep_log.txt
+cache/real_images/emd_53909.png
