@@ -1,0 +1,74 @@
+[
+  {
+    "name": "EPN1",
+    "family": "ENTH/epsin",
+    "uniprot": "Q9Y6I3",
+    "muH": 0.672,
+    "at_nterm": true,
+    "idr": 350,
+    "H_med": 0.03333332916666675,
+    "H_lo": 0.03333332916666675,
+    "H_hi": 0.03333332916666675,
+    "p_cross_Omega": 0.96725
+  },
+  {
+    "name": "EPN2",
+    "family": "ENTH/epsin",
+    "uniprot": "O95208",
+    "muH": 0.736,
+    "at_nterm": true,
+    "idr": 439,
+    "H_med": 0.03333332916666675,
+    "H_lo": 0.03333332916666675,
+    "H_hi": 0.03333332916666675,
+    "p_cross_Omega": 0.98675
+  },
+  {
+    "name": "EPN3",
+    "family": "ENTH/epsin",
+    "uniprot": "Q9H201",
+    "muH": 0.692,
+    "at_nterm": true,
+    "idr": 370,
+    "H_med": 0.03333332916666675,
+    "H_lo": 0.03333332916666675,
+    "H_hi": 0.03333332916666675,
+    "p_cross_Omega": 0.97
+  },
+  {
+    "name": "HIP1R",
+    "family": "ANTH",
+    "uniprot": "O75146",
+    "muH": 0.546,
+    "at_nterm": true,
+    "idr": 173,
+    "H_med": 0.03152906827447078,
+    "H_lo": 0.02747413266032437,
+    "H_hi": 0.03333332916666675,
+    "p_cross_Omega": 0.651
+  },
+  {
+    "name": "PICALM",
+    "family": "ANTH",
+    "uniprot": "Q13492",
+    "muH": 0.471,
+    "at_nterm": false,
+    "idr": 307,
+    "H_med": 0.019242064910921668,
+    "H_lo": 0.01535344242600831,
+    "H_hi": 0.023289296824061813,
+    "p_cross_Omega": 0.00575
+  },
+  {
+    "name": "HIP1",
+    "family": "ANTH",
+    "uniprot": "O00291",
+    "muH": 0.633,
+    "at_nterm": false,
+    "idr": 108,
+    "H_med": 0.012697552723819951,
+    "H_lo": 0.010129890115039968,
+    "H_hi": 0.015295635608742086,
+    "p_cross_Omega": 0.0
+  }
+]

@@ -67,12 +67,20 @@ def helfrich_tube(kappa_kBT: float, sigma_kBT_nm2: float, c0: float = 0.0,
 # --------------------------------------------------------------------------
 # Spherical-cap shape family (shared by budding + CCS)
 # --------------------------------------------------------------------------
-def _cap_energy(psi, A, kappa, lam, sigma, c0):
-    """Helfrich + line + tension energy of a spherical cap of fixed area A.
+def _cap_energy(psi, A, kappa, lam, sigma, c0, active_force_pN=0.0):
+    """Helfrich + line + tension + active-cortex energy of a spherical cap of area A.
 
     psi in (0, pi): opening angle. psi->0 flat disk, psi=pi complete sphere.
     R(psi) = sqrt(A / (2 pi (1 - cos psi))).  H = 1/R.  perimeter = 2 pi R sin psi.
     tension term = sigma (A - footprint), footprint = pi (R sin psi)^2.
+
+    active_force_pN: a minimal cortical active-stress actor. A cortical/actin
+    machine applies an axial force pulling the cap inward; the work it does as
+    the cap invaginates is -f * d, where the invagination depth d = R(1 - cos psi).
+    A positive force lowers the energy of deeper caps, driving psi toward closure
+    (actin-driven invagination) -- physically distinct from tension (which opposes
+    footprint) and from c0 (which sets the preferred curvature). f is in pN, d in
+    nm, so f*d is in pN*nm = zJ; divide by kBT_zJ to match the kBT energy units.
     """
     one_minus_cos = 1.0 - np.cos(psi)
     one_minus_cos = max(one_minus_cos, 1e-9)
@@ -81,7 +89,9 @@ def _cap_energy(psi, A, kappa, lam, sigma, c0):
     line = lam * 2 * np.pi * R * np.sin(psi)
     footprint = np.pi * (R * np.sin(psi)) ** 2
     tension = sigma * (A - footprint)
-    return bending + line + tension, R
+    depth = R * one_minus_cos                       # invagination depth (nm)
+    active = -(active_force_pN * depth) / kBT_zJ     # work by cortical force (kBT)
+    return bending + line + tension + active, R
 
 
 def budding_cap(A_nm2: float, kappa_kBT: float, lam_kBT_nm: float,
@@ -124,7 +134,7 @@ def budding_critical_radius(kappa_kBT: float, lam_kBT_nm: float) -> float:
 # --------------------------------------------------------------------------
 def ccs_curvature(c_eff_inv_nm: float, sigma_kBT_nm2: float, kappa_kBT: float,
                   A_coat_nm2: float, coat_rigidity_factor: float = 1.0,
-                  lam_kBT_nm: float = 0.0):
+                  lam_kBT_nm: float = 0.0, active_force_pN: float = 0.0):
     """Achieved membrane curvature for a clathrin-coated patch.
 
     The active players supply an effective spontaneous curvature c_eff and the
@@ -136,11 +146,11 @@ def ccs_curvature(c_eff_inv_nm: float, sigma_kBT_nm2: float, kappa_kBT: float,
     kappa_eff = kappa_kBT * coat_rigidity_factor
     psis = np.linspace(0.02, np.pi - 0.001, 800)
     E = np.array([_cap_energy(p, A_coat_nm2, kappa_eff, lam_kBT_nm,
-                              sigma_kBT_nm2, c_eff_inv_nm)[0] for p in psis])
+                              sigma_kBT_nm2, c_eff_inv_nm, active_force_pN)[0] for p in psis])
     i = int(np.argmin(E))
     psi_opt = float(psis[i])
     _, R = _cap_energy(psi_opt, A_coat_nm2, kappa_eff, lam_kBT_nm,
-                       sigma_kBT_nm2, c_eff_inv_nm)
+                       sigma_kBT_nm2, c_eff_inv_nm, active_force_pN)
     H = 1.0 / float(R)
     op = psi_opt / np.pi   # dome/Omega order parameter
     if op < 0.33:
@@ -157,6 +167,7 @@ def ccs_curvature(c_eff_inv_nm: float, sigma_kBT_nm2: float, kappa_kBT: float,
         "stage": stage,
         "kappa_eff_kBT": kappa_eff,
         "c_eff_inv_nm": c_eff_inv_nm,
+        "active_force_pN": active_force_pN,
     }
 
 

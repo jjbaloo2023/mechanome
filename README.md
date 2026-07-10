@@ -1,16 +1,32 @@
-# curvo — a bitter-lesson curvature-orchestration pipeline
+# curvo — bitter-lesson curvature orchestration **and mechanistic inference**
 
-A closed loop that, given a UniProt ID and a target membrane curvature, decides
-**which physical representation to use for each player**, resolves parameters
-from pre-existing data, evaluates against ground truth, and revises — until it
-finds an orchestration that meets the target. Demonstrated end-to-end on the
-epsin clathrin-coated-structure (CCS) case.
+curvo has two coupled halves:
+
+1. **Forward / orchestration (v0.1).** Given a UniProt ID and a target membrane
+   curvature, a closed loop decides **which physical representation to use for
+   each player**, resolves parameters from pre-existing data, evaluates against
+   closed-form ground truth, and revises — until it meets the target.
+   Demonstrated on the epsin clathrin-coated-structure (CCS) case.
+2. **Inverse / mechanistic inference (v0.2).** The north-star endpoint
+   **`analyze(video, question)`** runs the loop *backwards*: a microscopy movie
+   and a mechanistic question in → **inferred forces, the favored mechanism,
+   calibrated uncertainty, an identifiability report, and a suggested
+   disambiguating experiment** out. It inverts the same biophysical forward
+   model under MD-derived priors with a proper Bayesian engine (nested sampling
+   + MCMC), and it **refuses to report a force it cannot identify** — returning a
+   posterior flagged *underdetermined* instead of a confident wrong number.
+
+The v2 build (Phases 0–8) is documented in
+[**§ The inverse engine**](#the-inverse-engine-analyzevideo-question) below;
+the whole synthetic-recovery validation gate that licenses every force claim is
+in [§ The credibility gate](#the-credibility-gate-synthetic-recovery-validation).
 
 ```bash
 git clone https://github.com/jjbaloo2023/curvo.git
 cd curvo
 pip install -e .              # numpy, scipy, requests
 pip install -e ".[plots]"     # + matplotlib for the figure scripts
+pip install -e ".[inference]" # + dynesty, emcee, corner for the inverse engine
 python run_demo.py            # offline, deterministic — no network/LLM needed
 python run_demo.py --llm      # use the host.llm proposer for the search
 ```
@@ -46,6 +62,113 @@ and target-vs-achieved with a pass/fail verdict.
 | Parameter-store coverage (live / cached / stub) | `outputs/param_coverage.png` |
 
 ---
+
+## The inverse engine: `analyze(video, question)`
+
+This is the v2 north star — the endpoint an agent calls.
+
+```python
+from curvo.analyze import analyze
+result = analyze(movie,                       # np.ndarray [T, C, H, W]
+                 question="Is the invagination driven by the wedge or by actin?",
+                 channels=["membrane", "coat", "actin"], nm_per_px=2.0)
+# -> {forces, favored_mechanism, uncertainty, identifiability,
+#     suggested_experiment, provenance}
+```
+
+The pipeline is four honest stages:
+
+```
+video ──PerceptionProvider──▶ geometry(t) ──inverse (nested sampling)──▶ force posterior
+                              + per-frame σ         + identifiability
+                                                          │
+                                              mechanism core ──▶ evidence ranking
+                                                          │         + disambiguating experiment
+                                                          ▼
+                                                  structured result
+```
+
+![analyze() endpoint](outputs/analyze_endpoint.png)
+
+1. **PerceptionProvider** (`perception.py`) turns pixels into a geometry
+   trajectory: a PSF-corrected spherical-cap fit on the *contiguous central
+   invagination* (rejecting flat-membrane wings), giving `R(t)`, mean curvature
+   `H(t)`, neck, depth, and the coat/actin density channels — each with a
+   **per-frame uncertainty**. Caps shallower than one PSF σ are flagged and their
+   `H` uncertainty inflated (a resolvability gate), so the downstream likelihood
+   down-weights them rather than trusting a spurious point value. The
+   model-choice step is LLM-orchestrated behind a guardrail fallback (only the
+   analytic extractor is installed; the seam is there).
+2. **Bayesian inverse** (`inverse.py`) inverts the forward model — the same
+   spherical-cap Helfrich energetics as the evaluator, plus the new
+   **active-stress / cortex term** (a cortical force pulling the cap inward, work
+   `−f·d`) — for the posterior over `{c_eff_max, active_force_max, σ}`. A
+   vectorized fast forward model matches the evaluator to `7e-5` and runs ~350×
+   faster, so a full nested-sampling run finishes in seconds on a CPU. **dynesty**
+   (nested sampling, exact log-evidence) is the primary engine; **emcee** (MCMC)
+   is an independent cross-check (active-force medians agree to <0.3%); **SBI** is
+   a documented seam (`fit_sbi`), not built — the cheap forward model makes exact
+   inference tractable, so hardware pointed us at exact-first (this inverts the
+   plan's SBI-primary recommendation, on purpose).
+3. **Identifiability & the anti-force-astrology guardrail.** `identifiability()`
+   reports per-parameter interval width, information gain, **joint degeneracy**
+   (two actors can each have a tight marginal yet trade off — detected from the
+   posterior correlation and both demoted to *unidentified*), and **prior
+   railing** (a posterior piled against a bound is not data-driven). `analyze()`
+   then returns a **point estimate only for forces the recovery-validation gate
+   certified calibrated**; everything else comes back as a posterior with the
+   reason it is underdetermined. This is the difference between an inference
+   engine and a horoscope.
+4. **Mechanism discrimination** (`mechanism.py`) fits competing hypotheses —
+   `tension_only`, `wedge_only`, `actin_only`, `wedge+actin` — each a restricted
+   forward model, and ranks them by **Bayesian evidence** (nested sampling's
+   built-in Occam penalty). A decisive winner needs a log-Bayes-factor ≥ 2.5 over
+   the runner-up *and* must not have won only via an unidentifiable extra actor
+   (an overfit guard). Otherwise the verdict is **UNDETERMINED** and the engine
+   **proposes the disambiguating experiment**.
+
+**The headline result — the same movie, two answers, honestly:**
+
+![mechanism discrimination](outputs/mechanism_discrimination.png)
+
+| analysis of the *same* actin-driven movie | favored mechanism | active force | verdict |
+|---|---|---|---|
+| **with** the cortical-actin channel | wedge+actin (lnB ≈ 18) | **41 pN** (truth 40, identified) | decisive |
+| **geometry only** (actin channel withheld) | — | *underdetermined* | UNDETERMINED → **suggests** co-imaging actin / latrunculin / H0-mutation |
+
+From membrane geometry alone, spontaneous curvature and cortical force are
+**mathematically degenerate** — they trade off in the cap energy. curvo does not
+paper over this: it flags both as unidentified and tells you the one measurement
+that would separate them. Add the actin channel and the force becomes
+identifiable, calibrated, and reported.
+
+## The credibility gate: synthetic recovery validation
+
+**No force claim ships without this.** `recovery.py` sweeps known ground-truth
+forces through the *entire* pipeline (`forces → render → perceive → invert`)
+across five regimes × eight independent noise realizations (40 inversions), and
+checks the recovered posteriors against truth:
+
+![recovery validation](outputs/recovery_validation.png)
+
+| force | identified | coverage of 68% CI \| identified | bias \| identified | verdict |
+|-------|-----------|-------------------------------|-------------------|---------|
+| `active_force_max` | 24/40 (only with actin channel) | **0.96** | **+2.0%** | **calibrated** ✅ |
+| `c_eff_max` | 0/40 | — | — | degenerate from geometry alone |
+| `sigma` (tension) | 0/40 | — | — | not identifiable from one CCP's geometry |
+
+Cortical force is recovered with correct calibration **only where the actin
+channel constrains it** — never from geometry alone, exactly as the degeneracy
+structure demands. Spontaneous curvature and tension are honestly reported as
+unidentifiable from this observable set. Two calibration bugs were caught *by
+this gate* and fixed at source (a max-of-noise actin-peak bias → robust top-k
+peak + a measured estimator-gain correction; a railed-σ false positive → prior-
+rail detection). The gate is what licenses `analyze()` to return `active_force`
+as a number at all.
+
+Reproduce: `python -c "from curvo import recovery as r; recs=r.recovery_grid(); print(r.calibration_summary(recs))"`
+(≈13 min, 40 nested-sampling inversions). Guardrail contract tests:
+`python tests/test_analyze_guardrails.py`.
 
 ## The one idea (design_note.md)
 
@@ -202,11 +325,27 @@ curvo/
   orchestrator.py       propose→prune→resolve→EVALUATE→revise search loop
   md_gap_queue.py       MD-gap detector + job specs; FreeDTS Tier-1 seam (stub)
   schematic.py          SVG orchestration schematic, generated from OrchestrationRecord
+  --- v2 inverse engine ---
+  synth_movie.py        forces -> spherical-cap trajectory -> noisy multi-channel movie + ground truth
+  perception.py         PerceptionProvider: pixels -> geometry(t) with per-frame uncertainty
+  inverse.py            Bayesian inverse: fast forward model + dynesty/emcee + identifiability
+  mechanism.py          competing-hypothesis evidence ranking + disambiguating-experiment proposer
+  recovery.py           synthetic recovery validation — the credibility gate
+  analyze.py            analyze(video, question) — the north-star agent endpoint
 run_demo.py             one-command end-to-end demo (offline by default)
 family_screen.py        ENTH-vs-ANTH family screen -> falsifiable ranked prediction
-tests/test_players.py   guardrail validator unit tests
+tests/test_players.py   guardrail validator unit tests (12)
+tests/test_analyze_guardrails.py  anti-force-astrology endpoint contract tests (4)
 design_note.md          the bitter-lesson reframing in full
 ```
+
+The forward evaluator gained an **active-stress / cortex term** this build
+(`evaluator_tier0.ccs_curvature(..., active_force_pN=...)`): a cortical machine
+applies an axial force pulling the cap inward, contributing work `−f·d` (depth
+`d = R(1−cos ψ)`) to the cap energy — physically distinct from tension (which
+opposes footprint growth) and from spontaneous curvature (which sets the
+preferred shape). This is what makes actin an inferable actor and is the origin
+of the c_eff/active degeneracy the inverse engine must confront.
 
 ## Key results (all reproduced by `run_demo.py`)
 
@@ -222,3 +361,21 @@ design_note.md          the bitter-lesson reframing in full
   — proving the method generalizes rather than overfitting epsin.
 - **Closed-form anchors**: the loop recovers the budding phase boundary
   a\* = 4κ/λ to <0.05% before being trusted on epsin.
+
+### v2 inverse-engine results
+
+- **Recovery calibration**: cortical `active_force` is recovered with 96% CI
+  coverage and +2% bias — but **only where the actin channel constrains it**
+  (24/40 grid cells). `c_eff` and tension are honestly reported unidentifiable
+  from geometry alone (0/40).
+- **Degeneracy, flagged not hidden**: from `H(t)` alone, spontaneous curvature
+  and cortical force have posterior correlation ≈ −0.74; both are demoted to
+  *underdetermined* rather than reported as confident (wrong) point values.
+- **Mechanism discrimination**: the same actin-driven movie is decisively
+  `wedge+actin` (log-Bayes-factor ≈ 18) with the actin channel, but UNDETERMINED
+  from geometry alone — where the engine instead **proposes the disambiguating
+  experiment** (co-image actin / latrunculin / H0-mutation).
+- **Engine cross-check**: dynesty (nested sampling) and emcee (MCMC) active-force
+  medians agree to <0.3%.
+- **Guardrail contracts**: 12/12 player-validator tests + 4/4 anti-force-astrology
+  endpoint tests pass.

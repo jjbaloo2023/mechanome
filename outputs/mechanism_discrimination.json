@@ -1,0 +1,99 @@
+{
+  "case_A_with_actin": {
+    "ground_truth": {
+      "c_eff_max": 0.008,
+      "active_force_max": 40.0,
+      "sigma": 0.02,
+      "has_actin_channel": true
+    },
+    "verdict": {
+      "favored": "wedge+actin",
+      "top_two": [
+        "wedge+actin",
+        "wedge_only"
+      ],
+      "ln_bayes_factor": 19.931669812247033,
+      "decisive": true,
+      "decisive_threshold": 2.5,
+      "ranking": [
+        {
+          "name": "wedge+actin",
+          "logz": 3.4742372644005615,
+          "model_prob": 0.9999999977798892,
+          "n_params": 3
+        },
+        {
+          "name": "wedge_only",
+          "logz": -16.457432547846473,
+          "model_prob": 2.2069159043189362e-09,
+          "n_params": 2
+        },
+        {
+          "name": "actin_only",
+          "logz": -21.576965921140744,
+          "model_prob": 1.3194735551255328e-11,
+          "n_params": 2
+        },
+        {
+          "name": "tension_only",
+          "logz": -89.42770329238621,
+          "model_prob": 4.4998688582881774e-41,
+          "n_params": 1
+        }
+      ]
+    }
+  },
+  "case_B_geometry_only": {
+    "ground_truth": {
+      "c_eff_max": 0.008,
+      "active_force_max": 40.0,
+      "sigma": 0.02,
+      "has_actin_channel": false
+    },
+    "verdict": {
+      "favored": "UNDETERMINED",
+      "top_two": [
+        "wedge+actin",
+        "wedge_only"
+      ],
+      "ln_bayes_factor": 0.2455276111778142,
+      "decisive": false,
+      "decisive_threshold": 2.5,
+      "ranking": [
+        {
+          "name": "wedge+actin",
+          "logz": 3.5440064006240033,
+          "model_prob": 0.5610753891682779,
+          "n_params": 3
+        },
+        {
+          "name": "wedge_only",
+          "logz": 3.298478789446189,
+          "model_prob": 0.4389246107637289,
+          "n_params": 2
+        },
+        {
+          "name": "actin_only",
+          "logz": -19.28970927856301,
+          "model_prob": 6.799304617384261e-11,
+          "n_params": 2
+        },
+        {
+          "name": "tension_only",
+          "logz": -69.67179195509355,
+          "model_prob": 8.949607836196567e-33,
+          "n_params": 1
+        }
+      ],
+      "suggested_experiment": {
+        "question": "Is the invagination driven by spontaneous curvature (wedge) or cortical force (actin)?",
+        "observable": "cortical actin-density channel co-imaged with the membrane",
+        "intervention": "acute actin depolymerization (e.g. latrunculin) OR amphipathic-helix (H0) mutation",
+        "predicted_contrast": "actin_only / wedge+actin: invagination stalls or reverses when actin is depolymerized; wedge_only: invagination proceeds. H0 mutation removes curvature drive in the wedge models only.",
+        "rationale": "c_eff_max and active_force_max are degenerate from geometry(t) alone (they trade off in the cap energy). An independent actin readout or a targeted perturbation breaks the degeneracy, which the recovery validation shows lifts active_force to identified."
+      }
+    }
+  },
+  "method": "Each hypothesis is a restricted forward model (subset of free forces; others at null). Ranked by nested-sampling log-evidence logZ (built-in Occam penalty). Decisive if top model's ln Bayes factor over runner-up >= 2.5. The actin-density likelihood term applies to ALL hypotheses (wedge-only predicts zero actin, penalized against real signal) so evidence is compared on identical data. When UNDETERMINED, a disambiguating experiment is proposed.",
+  "headline": "The SAME movie is decisively wedge+actin WITH the actin channel (lnB=19.9) but UNDETERMINED from geometry alone (lnB=0.25) -> engine proposes actin imaging / latrunculin / H0-mutation."
+}

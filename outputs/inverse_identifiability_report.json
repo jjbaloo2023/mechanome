@@ -1,0 +1,165 @@
+{
+  "with_actin": {
+    "ground_truth": {
+      "c_eff_max": 0.015,
+      "active_force_max": 40.0,
+      "sigma": 0.02
+    },
+    "logz": 55.189543581061265,
+    "logz_err": 0.21193090206415272,
+    "identifiability": {
+      "c_eff_max": {
+        "median": 0.03055193594807572,
+        "ci68": [
+          0.025425692044069487,
+          0.03542130048775519
+        ],
+        "ci95": [
+          0.02221962617627546,
+          0.038365090625654734
+        ],
+        "post_std": 0.004507129086263774,
+        "prior_std": 0.023094010767585032,
+        "width_ratio": 0.19516441434200865,
+        "info_gain_bits": 2.357238038918378,
+        "marginal_constrained": true,
+        "degenerate_with": [
+          {
+            "partner": "sigma",
+            "corr": 0.9297358689788386
+          }
+        ],
+        "identified": false,
+        "units": "nm^-1"
+      },
+      "active_force_max": {
+        "median": 47.694057819002026,
+        "ci68": [
+          46.402345292511534,
+          48.87301059531122
+        ],
+        "ci95": [
+          45.23324083416047,
+          50.00399982408915
+        ],
+        "post_std": 1.229191727691896,
+        "prior_std": 17.320508075688775,
+        "width_ratio": 0.07096741748685773,
+        "info_gain_bits": 3.8166993823302415,
+        "marginal_constrained": true,
+        "degenerate_with": [],
+        "identified": true,
+        "units": "pN"
+      },
+      "sigma": {
+        "median": 0.027244622813945744,
+        "ci68": [
+          0.01030114979573608,
+          0.04263651182788607
+        ],
+        "ci95": [
+          0.0029693790377463055,
+          0.04854011319099549
+        ],
+        "post_std": 0.013819418337163856,
+        "prior_std": 0.014145081595145832,
+        "width_ratio": 0.9769769261639513,
+        "info_gain_bits": 0.03360360148761544,
+        "marginal_constrained": false,
+        "degenerate_with": [
+          {
+            "partner": "c_eff_max",
+            "corr": 0.9297358689788386
+          }
+        ],
+        "identified": false,
+        "units": "kBT/nm^2"
+      }
+    },
+    "engine_crosscheck": {
+      "dynesty_active": 47.694057819002026,
+      "emcee_active": 47.58492532191767,
+      "emcee_acceptance": 0.5923125
+    }
+  },
+  "notes": "Degeneracy c_eff<->active_force from H(t) alone (corr -0.74) is real and correctly flagged unidentified. The actin-density channel breaks it by constraining active_force directly. sigma remains weakly identified (low-tension regime). Actin absolute calibration shows a mild high bias (neck-rim blob overlap); recovery validation (Step 5) quantifies coverage/bias across the force grid.",
+  "H_only_dome_capped": {
+    "ground_truth": {
+      "c_eff_max": 0.045,
+      "active_force_max": 0.0,
+      "sigma": 0.02
+    },
+    "logz": 51.05687837553279,
+    "logz_err": 0.21565105982245167,
+    "identifiability": {
+      "c_eff_max": {
+        "median": 0.023479478409507686,
+        "ci68": [
+          0.020945722004998727,
+          0.02761676972823555
+        ],
+        "ci95": [
+          0.019368082233483686,
+          0.033600788014521744
+        ],
+        "post_std": 0.003607309913555981,
+        "prior_std": 0.023094010767585032,
+        "width_ratio": 0.15620110122314632,
+        "info_gain_bits": 2.6785234148876844,
+        "marginal_constrained": true,
+        "degenerate_with": [
+          {
+            "partner": "active_force_max",
+            "corr": -0.7395690765757786
+          }
+        ],
+        "identified": false,
+        "units": "nm^-1"
+      },
+      "active_force_max": {
+        "median": 54.19302897758733,
+        "ci68": [
+          45.157961751521896,
+          58.463835055253575
+        ],
+        "ci95": [
+          31.79961092792287,
+          59.78053242171089
+        ],
+        "post_std": 7.544520597970949,
+        "prior_std": 17.320508075688775,
+        "width_ratio": 0.4355830998145203,
+        "info_gain_bits": 1.1989801148609285,
+        "marginal_constrained": true,
+        "degenerate_with": [
+          {
+            "partner": "c_eff_max",
+            "corr": -0.7395690765757786
+          }
+        ],
+        "identified": false,
+        "units": "pN"
+      },
+      "sigma": {
+        "median": 0.005616839443668326,
+        "ci68": [
+          0.0020653797449682876,
+          0.013286292271009519
+        ],
+        "ci95": [
+          0.0011664576928362236,
+          0.028184690833992485
+        ],
+        "post_std": 0.00720910862563219,
+        "prior_std": 0.014145081595145832,
+        "width_ratio": 0.5096547925256324,
+        "info_gain_bits": 0.972407692236764,
+        "marginal_constrained": true,
+        "degenerate_with": [],
+        "identified": true,
+        "units": "kBT/nm^2"
+      }
+    },
+    "config_note": "dome-capped single-actor movie, c_eff_max=0.045 (distinct from the Step-2 'wedge' movie at c_eff_max=0.065); capped sub-hemisphere so side-view geometry is single-valued/resolvable"
+  }
+}

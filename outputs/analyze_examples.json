@@ -1,0 +1,280 @@
+{
+  "example_1_with_actin_channel": {
+    "question": "Is the invagination driven by the wedge (spontaneous curvature) or by actin force?",
+    "forces": {
+      "c_eff_max": {
+        "units": "nm^-1",
+        "posterior_median": 0.031977784131084735,
+        "ci68": [
+          0.026105065750136536,
+          0.03863305426254003
+        ],
+        "ci95": [
+          0.02019347259520418,
+          0.0450041182919524
+        ],
+        "identified": false,
+        "single_shot_identified": true,
+        "recovery_calibrated": false,
+        "point_estimate": null,
+        "status": "underdetermined",
+        "reason": "single-shot posterior looks narrow but recovery validation shows this actor is NOT calibrated from this observable set (biased); returning posterior, not a point value"
+      },
+      "active_force_max": {
+        "units": "pN",
+        "posterior_median": 41.00843293968994,
+        "ci68": [
+          34.68110311793623,
+          47.700363519032436
+        ],
+        "ci95": [
+          28.706236482196097,
+          53.23363486858227
+        ],
+        "identified": true,
+        "single_shot_identified": true,
+        "recovery_calibrated": true,
+        "point_estimate": 41.00843293968994,
+        "status": "identified"
+      },
+      "sigma": {
+        "units": "kBT/nm^2",
+        "posterior_median": 0.02687022684567753,
+        "ci68": [
+          0.009808936688920664,
+          0.04277383763085744
+        ],
+        "ci95": [
+          0.0020533140644342766,
+          0.04924080676385107
+        ],
+        "identified": false,
+        "single_shot_identified": false,
+        "recovery_calibrated": false,
+        "point_estimate": null,
+        "status": "underdetermined",
+        "reason": "posterior ~ prior (no information gain)"
+      }
+    },
+    "favored_mechanism": {
+      "favored": "wedge+actin",
+      "decisive": true,
+      "ln_bayes_factor": 18.09888158980143,
+      "ranking": [
+        {
+          "name": "wedge+actin",
+          "logz": 3.4384218100293618,
+          "model_prob": 0.9999999833464559,
+          "n_params": 3
+        },
+        {
+          "name": "actin_only",
+          "logz": -14.660459779772067,
+          "model_prob": 1.3796076366822128e-08,
+          "n_params": 2
+        },
+        {
+          "name": "wedge_only",
+          "logz": -16.234908137485615,
+          "model_prob": 2.8574678707108413e-09,
+          "n_params": 2
+        }
+      ]
+    },
+    "uncertainty": {
+      "n_frames": 24,
+      "n_resolved_frames": 1,
+      "note": "unresolved frames (cap shallower than the PSF) are down-weighted with inflated H uncertainty, not trusted as point values"
+    },
+    "identifiability": {
+      "c_eff_max": {
+        "identified": true,
+        "width_ratio": 0.2750122553183815,
+        "info_gain_bits": 1.8624321663921113,
+        "degenerate_with": [],
+        "railed": false
+      },
+      "active_force_max": {
+        "identified": true,
+        "width_ratio": 0.36841274307173927,
+        "info_gain_bits": 1.4406051310464492,
+        "degenerate_with": [],
+        "railed": false
+      },
+      "sigma": {
+        "identified": false,
+        "width_ratio": 0.9991505128958486,
+        "info_gain_bits": 0.0012260680608892026,
+        "degenerate_with": [],
+        "railed": false
+      }
+    },
+    "suggested_experiment": null,
+    "provenance": {
+      "movie_sha256_16": "2fd0a7c9eecf6d4f",
+      "channels": [
+        "membrane",
+        "coat",
+        "actin"
+      ],
+      "has_actin": true,
+      "nm_per_px": 2.0,
+      "psf_sigma_nm": 18.0,
+      "A_coat_nm2": 11309.733552923255,
+      "extractor": "analytic_circle_fit",
+      "engine": "dynesty-nested+identifiability",
+      "module_versions": {
+        "curvo.perception": "c16f46e45346",
+        "curvo.inverse": "dd76fe51fc20",
+        "curvo.mechanism": "247312f21e3b"
+      },
+      "logz_full_model": 3.5306289563936866,
+      "runtime_s": 14.81,
+      "credibility_note": "force point-estimates are returned ONLY for actors the recovery-validation gate shows calibrated; all others are returned as posteriors flagged underdetermined"
+    }
+  },
+  "example_2_geometry_only": {
+    "question": "Is the invagination driven by the wedge or by actin force?",
+    "forces": {
+      "c_eff_max": {
+        "units": "nm^-1",
+        "posterior_median": 0.021810294656594467,
+        "ci68": [
+          0.020076347002068676,
+          0.024831647024144005
+        ],
+        "ci95": [
+          0.01867182935969376,
+          0.028819587958170825
+        ],
+        "identified": false,
+        "single_shot_identified": false,
+        "recovery_calibrated": false,
+        "point_estimate": null,
+        "status": "underdetermined",
+        "reason": "degenerate with active_force_max"
+      },
+      "active_force_max": {
+        "units": "pN",
+        "posterior_median": 56.07005859170308,
+        "ci68": [
+          49.42904680134862,
+          58.98056333270435
+        ],
+        "ci95": [
+          39.86088360438661,
+          59.85813798498707
+        ],
+        "identified": false,
+        "single_shot_identified": false,
+        "recovery_calibrated": true,
+        "point_estimate": null,
+        "status": "underdetermined",
+        "reason": "degenerate with c_eff_max; posterior railed against prior bound (data uninformative)"
+      },
+      "sigma": {
+        "units": "kBT/nm^2",
+        "posterior_median": 0.004232803925810859,
+        "ci68": [
+          0.001705584889462746,
+          0.00984978579948777
+        ],
+        "ci95": [
+          0.0010941518675402972,
+          0.020644804636230727
+        ],
+        "identified": false,
+        "single_shot_identified": false,
+        "recovery_calibrated": false,
+        "point_estimate": null,
+        "status": "underdetermined",
+        "reason": "posterior railed against prior bound (data uninformative)"
+      }
+    },
+    "favored_mechanism": {
+      "favored": "UNDETERMINED",
+      "decisive": false,
+      "ln_bayes_factor": 8.669339053538792,
+      "ranking": [
+        {
+          "name": "wedge+actin",
+          "logz": 47.699841712206506,
+          "model_prob": 0.9998282569015534,
+          "n_params": 3
+        },
+        {
+          "name": "wedge_only",
+          "logz": 39.030502658667714,
+          "model_prob": 0.00017174309844650724,
+          "n_params": 2
+        },
+        {
+          "name": "actin_only",
+          "logz": -218.92529823581165,
+          "model_prob": 1.6073053504698331e-116,
+          "n_params": 2
+        }
+      ]
+    },
+    "uncertainty": {
+      "n_frames": 24,
+      "n_resolved_frames": 13,
+      "note": "unresolved frames (cap shallower than the PSF) are down-weighted with inflated H uncertainty, not trusted as point values"
+    },
+    "identifiability": {
+      "c_eff_max": {
+        "identified": false,
+        "width_ratio": 0.11438640849641785,
+        "info_gain_bits": 3.1280123516357485,
+        "degenerate_with": [
+          "active_force_max"
+        ],
+        "railed": false
+      },
+      "active_force_max": {
+        "identified": false,
+        "width_ratio": 0.31773298223622426,
+        "info_gain_bits": 1.6541132382672745,
+        "degenerate_with": [
+          "c_eff_max"
+        ],
+        "railed": true
+      },
+      "sigma": {
+        "identified": false,
+        "width_ratio": 0.3805133766651956,
+        "info_gain_bits": 1.3939808984945359,
+        "degenerate_with": [],
+        "railed": true
+      }
+    },
+    "suggested_experiment": {
+      "question": "Is the invagination driven by spontaneous curvature (wedge) or cortical force (actin)?",
+      "observable": "cortical actin-density channel co-imaged with the membrane",
+      "intervention": "acute actin depolymerization (e.g. latrunculin) OR amphipathic-helix (H0) mutation",
+      "predicted_contrast": "actin_only / wedge+actin: invagination stalls or reverses when actin is depolymerized; wedge_only: invagination proceeds. H0 mutation removes curvature drive in the wedge models only.",
+      "rationale": "c_eff_max and active_force_max are degenerate from geometry(t) alone (they trade off in the cap energy). An independent actin readout or a targeted perturbation breaks the degeneracy, which the recovery validation shows lifts active_force to identified."
+    },
+    "provenance": {
+      "movie_sha256_16": "219aae846015ce0d",
+      "channels": [
+        "membrane",
+        "coat"
+      ],
+      "has_actin": false,
+      "nm_per_px": 2.0,
+      "psf_sigma_nm": 18.0,
+      "A_coat_nm2": 11309.733552923255,
+      "extractor": "analytic_circle_fit",
+      "engine": "dynesty-nested+identifiability",
+      "module_versions": {
+        "curvo.perception": "c16f46e45346",
+        "curvo.inverse": "dd76fe51fc20",
+        "curvo.mechanism": "247312f21e3b"
+      },
+      "logz_full_model": 47.76403302767242,
+      "runtime_s": 31.94,
+      "credibility_note": "force point-estimates are returned ONLY for actors the recovery-validation gate shows calibrated; all others are returned as posteriors flagged underdetermined"
+    }
+  }
+}

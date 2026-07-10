@@ -19,7 +19,17 @@
         "Q13492 (PICALM)"
       ],
       "model_version": "6",
-      "citation": "Jumper 2021 Nature; Varadi 2022 NAR"
+      "citation": "Jumper 2021 Nature; Varadi 2022 NAR",
+      "retrieval_date_UTC": "2026-07-09",
+      "api": "https://alphafold.ebi.ac.uk/api/prediction/{uniprot}",
+      "family_screen_ids": [
+        "Q9Y6I3",
+        "O95208",
+        "Q9H201",
+        "Q13492",
+        "O00291",
+        "O75146"
+      ]
     },
     "NMRlipids_FAIRMD": {
       "access": "live_api (GitHub-hosted databank)",
@@ -51,6 +61,13 @@
     "complementarity_confirmed": true,
     "iav_divergence_confirmed": true,
     "calm_transfer_met": true,
-    "budding_anchor_max_rel_err": 0.0005
+    "budding_anchor_max_rel_err": 0.0005,
+    "family_screen_MC": {
+      "method": "Monte-Carlo propagation of ParameterRecord uncertainties through evaluator (n=4000)",
+      "epsins_EPN1_2_3": "saturate at geometric ceiling (hemisphere cap), P(cross Omega) 0.97-0.99",
+      "HIP1R": "H_med 0.032, 68% CI [0.028,0.033], P(cross Omega)=0.65 (straddles threshold; predicted ANTH wedge)",
+      "PICALM": "H_med 0.019 dome, P=0.01",
+      "HIP1": "H_med 0.013 flat, P=0.00"
+    }
   }
 }

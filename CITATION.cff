@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: "If you use curvo, please cite it as below."
+title: "curvo: a curvature-orchestration and mechanistic-inference pipeline for membrane biology"
+abstract: >-
+  curvo searches over physical representations of membrane-curvature players
+  (amphipathic-helix wedge, disordered-region crowding, clathrin coat, tension,
+  cortical active stress) against a cheap analytic evaluator, using physics rules
+  as guardrails rather than fixed decisions. It runs both forward
+  (players + parameters -> shape) and inverse (observed shape(t) -> forces +
+  favored mechanism + calibrated uncertainty + a disambiguating experiment).
+type: software
+authors:
+  - family-names: Joseph
+    given-names: Jophin
+version: 0.2.0
+license: MIT
+repository-code: "https://github.com/jjbaloo2023/curvo"
+keywords:
+  - membrane curvature
+  - clathrin-mediated endocytosis
+  - epsin
+  - Helfrich energy
+  - Bayesian inference
+  - mechanistic inference
+references:
+  - type: article
+    authors:
+      - family-names: Miller
+        given-names: S. E.
+    title: "CALM Regulates Clathrin-Coated Vesicle Size and Maturation by Directly Sensing and Driving Membrane Curvature"
+    journal: "Developmental Cell"
+    year: 2015
+    volume: 33
+    doi: 10.1016/j.devcel.2015.02.011
+  - type: article
+    authors:
+      - family-names: Belessiotis-Richards
+        given-names: A.
+    title: "Coarse-Grained Simulations Suggest Potential Competing Roles of Phosphoinositides and Amphipathic Helix Structures in Membrane Curvature Sensing of the AP180 N-Terminal Homology Domain"
+    journal: "The Journal of Physical Chemistry B"
+    year: 2022
+    doi: 10.1021/acs.jpcb.2c00239
+  - type: article
+    authors:
+      - family-names: Jumper
+        given-names: J.
+    title: "Highly accurate protein structure prediction with AlphaFold"
+    journal: "Nature"
+    year: 2021
+    doi: 10.1038/s41586-021-03819-2
+  - type: article
+    authors:
+      - family-names: Campen
+        given-names: A.
+    title: "TOP-IDP-scale: a new amino acid scale measuring propensity for intrinsic disorder"
+    journal: "Protein and Peptide Letters"
+    year: 2008
+    doi: 10.2174/092986608785849164

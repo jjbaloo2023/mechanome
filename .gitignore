@@ -17,5 +17,9 @@ env/
 cache/*.pdb
 cache/*.json
 
+# Large synthetic movie arrays (regenerable from synth_movie.py with fixed seeds;
+# ground-truth JSON + montage/validation figures are kept)
+outputs/*.npz
+
 # OS
 .DS_Store
