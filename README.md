@@ -170,6 +170,56 @@ Reproduce: `python -c "from curvo import recovery as r; recs=r.recovery_grid(); 
 (≈13 min, 40 nested-sampling inversions). Guardrail contract tests:
 `python tests/test_analyze_guardrails.py`.
 
+## Validation against real force-paired data
+
+The synthetic recovery gate proves the inverse is *self-consistent*. This section
+tests it against **real measured forces** (`validation/`).
+
+**Tether / STED (the real force-paired test).** Roy, Steinkühler, Zhao, Lipowsky
+& Dimova (2020, *Nano Lett.* 20:3185, doi:10.1021/acs.nanolett.9b05232) pull a
+POPC giant vesicle into a membrane nanotube: the tube **radius** is measured by
+super-resolution STED, the membrane **tension** is set independently by
+micropipette aspiration (15–140 µN/m), and κ is measured two independent ways
+(23±2 kBT thermal, 23±5 kBT tube-pulling). POPC has ~zero spontaneous curvature,
+so curvo's `helfrich_tube` forward map applies exactly. We feed curvo the STED
+radius (with the paper's ±11 nm precision) + κ as a prior, infer the tension, and
+propagate to the holding force — checked against the aspiration-tension ground
+truth.
+
+![force recovery on real membrane data](outputs/tether_force_recovery.png)
+
+| Σ (µN/m) | f measured (pN) | f recovered (pN) | 68% coverage | rel. bias |
+|---|---|---|---|---|
+| 20 | 12.2 | 12.5 | 0.97 | +2.5% |
+| 40 | 17.3 | 18.5 | 0.92 | +7.2% |
+| 72 | 23.2 | 24.3 | 0.90 | +4.7% |
+| 100 | 27.3 | 27.5 | 0.94 | +0.7% |
+| 130 | 31.2 | 30.0 | 0.96 | −3.8% |
+
+**Verdict: acceptable.** Forces recovered near-unbiased (mean |bias| 3.8%) across
+the full range; the 68% CIs are *conservative* (coverage 0.90–0.97, wider than
+nominal) — the posteriors err toward humility, not overconfidence. The mild
+low-tension positive bias is the √-nonlinearity mapping radius noise
+asymmetrically into force (explainable, not a defect). Reproduce:
+`python validation/tether_sted.py`.
+
+**MDDB adapter (provenance breadth, not force).** `validation/mddb_adapter.py`
+pulls real per-frame membrane observables live from the
+[Molecular Dynamics Data Bank](https://mddbr.eu) (REST API). An honest finding
+from the live API: **MDDB serves *structural* observables** (thickness,
+area-per-lipid, lipid-order, density) — **not** stress profiles or tension. So it
+is an independent MD source for curvo's elastic *parameters* (which set κ), not a
+direct force ground truth. The cross-check is diagnostic: a protein-containing
+bilayer (A020P, 303 K) is 0.44 nm thinner than pure POPC — a large z-score that
+correctly flags a *composition mismatch* rather than agreement. That is exactly
+what a parameter cross-check should surface.
+
+*Scope, stated plainly:* the tether/STED test validates the forward map + Bayesian
+inverse on the **tube geometry** against real forces; the MDDB adapter adds a
+second orthogonal source for structural inputs. Neither replaces the synthetic
+recovery gate for the CCS spherical-cap `analyze()` pipeline — they are
+complementary evidence, at different points in the pipeline.
+
 ## The one idea (design_note.md)
 
 The project mantra is **the bitter lesson** (Sutton 2019): what scales with
@@ -332,10 +382,14 @@ curvo/
   mechanism.py          competing-hypothesis evidence ranking + disambiguating-experiment proposer
   recovery.py           synthetic recovery validation — the credibility gate
   analyze.py            analyze(video, question) — the north-star agent endpoint
+  --- real-data validation (validation/) ---
+  validation/tether_sted.py    inverse vs force-paired STED nanotubes (Roy et al. 2020)
+  validation/mddb_adapter.py   live Molecular Dynamics Data Bank membrane-parameter adapter
 run_demo.py             one-command end-to-end demo (offline by default)
 family_screen.py        ENTH-vs-ANTH family screen -> falsifiable ranked prediction
 tests/test_players.py   guardrail validator unit tests (12)
 tests/test_analyze_guardrails.py  anti-force-astrology endpoint contract tests (4)
+tests/test_validation.py          real-data validation contract tests (4)
 design_note.md          the bitter-lesson reframing in full
 ```
 

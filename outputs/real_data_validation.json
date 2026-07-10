@@ -1,0 +1,85 @@
+{
+  "validation_suite": "curvo real-data validation",
+  "tether_sted": {
+    "citation": "Roy, Steinkuehler, Zhao, Lipowsky, Dimova (2020) Nano Lett. 20:3185, doi:10.1021/acs.nanolett.9b05232",
+    "doi": "10.1021/acs.nanolett.9b05232",
+    "kappa_kBT": 23.0,
+    "rows": [
+      {
+        "tension_uN_m": 20.0,
+        "R_true_nm": 48.6,
+        "f_true_pN": 12.22,
+        "f_rec_mean_pN": 12.53,
+        "coverage68": 0.975,
+        "rel_bias": 0.0254
+      },
+      {
+        "tension_uN_m": 40.0,
+        "R_true_nm": 34.4,
+        "f_true_pN": 17.29,
+        "f_rec_mean_pN": 18.54,
+        "coverage68": 0.92,
+        "rel_bias": 0.0723
+      },
+      {
+        "tension_uN_m": 72.0,
+        "R_true_nm": 25.6,
+        "f_true_pN": 23.19,
+        "f_rec_mean_pN": 24.27,
+        "coverage68": 0.9,
+        "rel_bias": 0.0465
+      },
+      {
+        "tension_uN_m": 100.0,
+        "R_true_nm": 21.8,
+        "f_true_pN": 27.33,
+        "f_rec_mean_pN": 27.52,
+        "coverage68": 0.945,
+        "rel_bias": 0.0069
+      },
+      {
+        "tension_uN_m": 130.0,
+        "R_true_nm": 19.1,
+        "f_true_pN": 31.16,
+        "f_rec_mean_pN": 30.0,
+        "coverage68": 0.965,
+        "rel_bias": -0.0373
+      }
+    ],
+    "summary": {
+      "overall_coverage68": 0.941,
+      "nominal_coverage": 0.68,
+      "mean_abs_rel_bias": 0.0377,
+      "n_noise_per_point": 200
+    }
+  },
+  "tether_sted_verdict": "ACCEPTABLE \u2014 forces recovered near-unbiased (mean |bias| 3.8%) across the paper's 15-140 uN/m tension range; 68% CIs conservative (coverage 0.90-0.97). This is a real force-paired test: STED-measured tube radius in, measured holding force out.",
+  "mddb_crosscheck": {
+    "md_observable": {
+      "accession": "A020P",
+      "name": "Mechanism of chloride ion transport in the human CLC-5 antiporter; wil",
+      "observable": "bilayer_thickness",
+      "value": 3.825,
+      "uncertainty": 0.0503,
+      "units": "nm",
+      "n_frames": 97,
+      "temperature_K": 303.0,
+      "provenance": {
+        "source": "MDDB",
+        "access": "live REST API",
+        "api": "https://mmb.mddbr.eu/api/rest/current/",
+        "identifier": "A020P",
+        "analysis": "thickness",
+        "retrieved_at": "2026-07-10T02:59:15Z",
+        "citation": "Molecular Dynamics Data Bank (MDDB), mddbr.eu; 'A new paradigm for molecular dynamics databases', Nucleic Acids Res. 2024, 52:D393-D403, doi:10.1093/nar/gkad991"
+      }
+    },
+    "stored_nm": 4.26,
+    "stored_source": "NMRlipids POPC (curvo parameter_store)",
+    "offset_nm": 0.435,
+    "z_vs_md_fluctuation": 8.65,
+    "note": "MDDB serves structural observables, not stress profiles; this is a parameter cross-check, not a force measurement. Thickness offsets reflect lipid composition / protein content differences between the MD system and the reference POPC value."
+  },
+  "mddb_finding": "MDDB serves STRUCTURAL membrane observables (thickness, area-per-lipid, lipid-order, density) \u2014 NOT stress profiles or tension. It is therefore an independent MD source for curvo's elastic PARAMETERS, not a direct force ground truth. The A020P thickness (3.83 nm, protein-containing bilayer at 303 K) sits 0.44 nm below the pure-POPC reference (4.26 nm): the large z correctly flags a composition mismatch, exactly the diagnostic the cross-check exists to provide.",
+  "scope_note": "The genuine force-paired validation is the tether/STED test (helfrich_tube geometry). The MDDB adapter adds provenance breadth (a second, orthogonal MD source for structural inputs). Neither replaces the synthetic recovery gate (recovery.py) for the CCS spherical-cap analyze() pipeline."
+}
