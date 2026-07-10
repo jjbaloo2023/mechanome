@@ -57,7 +57,7 @@ def emit_tether_force_claim(tension_uN_m: float = 72.0) -> MechanoClaim:
         forward_model="helfrich_v1",
         value=Value(round(float(f_med), 2), round(float(unc), 2), "pN"),
         identifiability=Identifiability.CONSTRAINED,
-        evidence=[f"STED tube radius {2*R_true:.0f} nm (Roy et al. 2020, "
+        evidence=[f"STED tube diameter {2*R_true:.0f} nm (Roy et al. 2020, "
                   "doi:10.1021/acs.nanolett.9b05232)",
                   "kappa prior 23+/-5 kBT (tube-pulling, same paper)",
                   "curvo:inverse", "synthetic_recovery:pass",
