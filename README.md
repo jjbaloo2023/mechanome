@@ -220,6 +220,73 @@ second orthogonal source for structural inputs. Neither replaces the synthetic
 recovery gate for the CCS spherical-cap `analyze()` pipeline — they are
 complementary evidence, at different points in the pipeline.
 
+## The mechanome: the schema curvo is the reference implementation of
+
+curvo grounds *one* edge of the cell's mechanical layer. The `mechanome/` package
+promotes curvo's `ParameterRecord` discipline — provenance + uncertainty +
+validity — into the organizing principle of a whole federated schema, where every
+mechano-relationship wears its **epistemic tier** on its face.
+
+**The invariant (the whole design rests on it):** every claim is **GROUNDED**
+(a forward-model inverse run against data, carrying value + uncertainty +
+identifiability), **MEASURED** (a cited experimental value with provenance), or
+**LINKED** (a flagged mechanotransduction hypothesis with an explicit causal
+chain and a proposed test, and **no physical value**). The system never silently
+promotes a lower tier to a higher one — the schema raises rather than emit a claim
+that would.
+
+| Tier | Produced by | Carries |
+|------|-------------|---------|
+| **GROUNDED** | a module's forward+inverse against data | value + uncertainty + identifiability |
+| **MEASURED** | retrieval of a cited measurement | value + uncertainty + citation |
+| **LINKED** | a mechanotransduction chain | causal chain + proposed experiment; **no value** |
+
+The GROUNDED↔LINKED boundary is the **credibility firewall**: force-to-shape is
+force balance (a well-posed inverse); force-to-transcription-factor-activity is
+multi-step signaling (correlative). Mixing them is how a knowledge graph launders
+correlation into physics — `mechanome/schema.py` forbids it structurally, in
+`__post_init__`.
+
+![tiered mechanome walk](outputs/mechanome_schematic.png)
+
+The figure is the walk: a GROUNDED force (curvo's real force-paired tether result,
+solid), a GROUNDED capacity prediction (epsin EPN1, tiered honestly as
+grounded-on-*synthetic-recovery*, **not** on an EPN1 trajectory we never had), and
+a dashed LINKED node (membrane tension → Piezo1 → YAP) that carries a proposed
+experiment and **no force value**.
+
+```json
+// GROUNDED (real force-paired) — from mechanome.emit
+{ "subject": {"id":"POPC_bilayer","type":"lipid"}, "relation":"bears",
+  "object":"tether_force", "forward_model":"helfrich_v1",
+  "value":{"estimate":24.1,"uncertainty":7.47,"units":"pN"},
+  "identifiability":"constrained", "epistemic_tier":"GROUNDED",
+  "evidence":["STED tube radius 51 nm (Roy et al. 2020, doi:10.1021/acs.nanolett.9b05232)",
+              "curvo:inverse","real_force_paired_validation:pass (mean |bias| 3.8%)"] }
+
+// LINKED (note: no value; chain + experiment required)
+{ "subject":{"id":"membrane_tension"}, "relation":"modulates",
+  "object":"YAP_nuclear_localization", "value":null, "epistemic_tier":"LINKED",
+  "evidence":["chain: membrane_tension -> Piezo1 -> [Ca2+] -> ... -> YAP (correlative, lit)"],
+  "reasoning_trace":"proposed test: hyperosmotic shock + YAP reporter" }
+```
+
+**What is real vs stub in the mechanome (stated openly):**
+
+| Component | Status |
+|-----------|--------|
+| `MechanoClaim` schema + tier enforcement + provenance | **REAL** |
+| curvo membrane module (GROUNDED, force-paired + synthetic-recovery validated) | **REAL** |
+| GROUNDED emitters (tether force, family capacity) | **REAL (run live)** |
+| `helfrich_v1` forward-model registry entry | **REAL (executable)** |
+| tension→Piezo1→YAP edge | **LINKED — curated from literature, not learned; no value** |
+| tissue / cortex / bond / channel modules | **REGISTERED STUBS — cannot emit GROUNDED until they pass `validate()`** |
+
+A module that can't pass `validate()` (synthetic recovery + an analytic anchor)
+is blocked from emitting GROUNDED claims (`registry.can_emit_grounded`) — it may
+register MEASURED literature or LINKED hypotheses only. Reproduce the walk:
+`python -m mechanome.mechano_schematic`.
+
 ## The one idea (design_note.md)
 
 The project mantra is **the bitter lesson** (Sutton 2019): what scales with
@@ -385,6 +452,12 @@ curvo/
   --- real-data validation (validation/) ---
   validation/tether_sted.py    inverse vs force-paired STED nanotubes (Roy et al. 2020)
   validation/mddb_adapter.py   live Molecular Dynamics Data Bank membrane-parameter adapter
+  --- mechanome schema (mechanome/) ---
+  mechanome/schema.py          MechanoClaim + epistemic-tier firewall (GROUNDED/MEASURED/LINKED)
+  mechanome/emit.py            curvo outputs -> GROUNDED claims (tether force, family capacity)
+  mechanome/links.py           curated LINKED edge (tension -> Piezo1 -> YAP), no value
+  mechanome/registry.py        forward-model + module registry (helfrich_v1 real; rest stubs)
+  mechanome/mechano_schematic.py  tiered walk renderer (solid=GROUNDED, dashed=LINKED)
 run_demo.py             one-command end-to-end demo (offline by default)
 family_screen.py        ENTH-vs-ANTH family screen -> falsifiable ranked prediction
 tests/test_players.py   guardrail validator unit tests (12)

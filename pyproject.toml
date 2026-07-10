@@ -39,5 +39,5 @@ Homepage = "https://github.com/jjbaloo2023/curvo"
 curvo-demo = "run_demo:main"
 
 [tool.setuptools]
-packages = ["curvo", "validation"]
+packages = ["curvo", "validation", "mechanome"]
 py-modules = ["run_demo"]

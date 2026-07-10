@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="418" viewBox="0 0 900 418" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#888"/></marker></defs>
+<rect width="900" height="418" fill="white"/>
+<text x="450.0" y="34" font-size="16" fill="#222" font-weight="bold" text-anchor="middle">Mechanome walk — one query, tiered by how we know it</text>
+<rect x="60" y="50" width="16" height="12" fill="#e5f4ea" stroke="#1a7d3c" stroke-width="2"/>
+<text x="82" y="60" font-size="11" fill="#1a7d3c" font-weight="bold" text-anchor="start">GROUNDED</text>
+<rect x="270" y="50" width="16" height="12" fill="#e7f0fb" stroke="#2c6fbb" stroke-width="2"/>
+<text x="292" y="60" font-size="11" fill="#2c6fbb" font-weight="bold" text-anchor="start">MEASURED</text>
+<rect x="480" y="50" width="16" height="12" fill="#fbeaf0" stroke="#b03a5b" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="502" y="60" font-size="11" fill="#b03a5b" font-weight="bold" text-anchor="start">LINKED (hypothesis)</text>
+<rect x="60" y="92" width="780" height="74" rx="8" fill="#e5f4ea" stroke="#1a7d3c" stroke-width="2.5"/>
+<text x="74" y="116" font-size="13" fill="#1a1a1a" font-weight="bold" text-anchor="start">POPC_bilayer bears tether_force</text>
+<text x="74" y="136" font-size="11.5" fill="#1a7d3c" font-weight="normal" text-anchor="start">24.1 ± 7.47 pN  (constrained)</text>
+<text x="74" y="154" font-size="9.5" fill="#666" font-weight="italic" text-anchor="start">prov: STED tube radius 51 nm (Roy et al. 2020, doi:10.1021/acs.nanolett.9b05232)</text>
+<text x="830" y="112" font-size="10" fill="#1a7d3c" font-weight="bold" text-anchor="end">GROUNDED</text>
+<rect x="60" y="188" width="780" height="74" rx="8" fill="#e5f4ea" stroke="#1a7d3c" stroke-width="2.5"/>
+<text x="74" y="212" font-size="13" fill="#1a1a1a" font-weight="bold" text-anchor="start">Q9Y6I3 generates membrane_curvature</text>
+<text x="74" y="232" font-size="11.5" fill="#1a7d3c" font-weight="normal" text-anchor="start">0.0333 ± 0.0 nm^-1  (constrained)</text>
+<text x="74" y="250" font-size="9.5" fill="#666" font-weight="italic" text-anchor="start">prov: AlphaFold:Q9Y6I3 (pLDDT-&gt;representation split)</text>
+<text x="830" y="208" font-size="10" fill="#1a7d3c" font-weight="bold" text-anchor="end">GROUNDED</text>
+<rect x="60" y="284" width="780" height="74" rx="8" fill="#fbeaf0" stroke="#b03a5b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<text x="74" y="308" font-size="13" fill="#1a1a1a" font-weight="bold" text-anchor="start">membrane_tension modulates YAP_nuclear_localization</text>
+<text x="74" y="328" font-size="11.5" fill="#b03a5b" font-weight="normal" text-anchor="start">no value (hypothesis) — experiment proposed</text>
+<text x="74" y="346" font-size="9.5" fill="#666" font-weight="italic" text-anchor="start">prov: chain: membrane_tension -&gt; Piezo1 gating -&gt; [Ca2+] influx -&gt; cytoskeletal/Hippo modulation -&gt; YA</text>
+<text x="830" y="304" font-size="10" fill="#b03a5b" font-weight="bold" text-anchor="end">LINKED (hypothesis)</text>
+<line x1="450.0" y1="166" x2="450.0" y2="188" stroke="#888" stroke-width="2" marker-end="url(#a)"/>
+<line x1="450.0" y1="262" x2="450.0" y2="284" stroke="#888" stroke-width="2" marker-end="url(#a)"/>
+</svg>

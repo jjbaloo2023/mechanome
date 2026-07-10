@@ -1,0 +1,60 @@
+{
+  "_note": "The MechanoClaim contract on one screen: one GROUNDED (real force-paired), one LINKED (flagged hypothesis, no value).",
+  "grounded_example": {
+    "subject": {
+      "id": "POPC_bilayer",
+      "type": "lipid",
+      "structure_ref": "",
+      "sequence_ref": ""
+    },
+    "relation": "bears",
+    "object": "tether_force",
+    "context": {
+      "scale": "membrane",
+      "location": "",
+      "cell_type": "",
+      "mech_environment": "tension=72uN/m (aspiration-set)"
+    },
+    "forward_model": "helfrich_v1",
+    "value": {
+      "estimate": 24.1,
+      "uncertainty": 7.47,
+      "units": "pN"
+    },
+    "identifiability": "constrained",
+    "epistemic_tier": "GROUNDED",
+    "evidence": [
+      "STED tube radius 51 nm (Roy et al. 2020, doi:10.1021/acs.nanolett.9b05232)",
+      "kappa prior 23+/-5 kBT (tube-pulling, same paper)",
+      "curvo:inverse",
+      "synthetic_recovery:pass",
+      "real_force_paired_validation:pass (mean |bias| 3.8%, cov68 0.90-0.98)"
+    ],
+    "reasoning_trace": "aspiration tension 72 uN/m -> STED radius 25.6 nm -> Bayesian inverse -> force 24.1 pN [17.6,32.6] (68%); ground-truth aspiration force 23.2 pN lies in CI."
+  },
+  "linked_example": {
+    "subject": {
+      "id": "membrane_tension",
+      "type": "observable",
+      "structure_ref": "",
+      "sequence_ref": ""
+    },
+    "relation": "modulates",
+    "object": "YAP_nuclear_localization",
+    "context": {
+      "scale": "cell",
+      "location": "",
+      "cell_type": "epithelial",
+      "mech_environment": ""
+    },
+    "forward_model": null,
+    "value": null,
+    "identifiability": null,
+    "epistemic_tier": "LINKED",
+    "evidence": [
+      "chain: membrane_tension -> Piezo1 gating -> [Ca2+] influx -> cytoskeletal/Hippo modulation -> YAP dephosphorylation -> YAP nuclear translocation (correlative, literature)",
+      "hub: Piezo1, YAP/TAZ mechanotransduction (well-attested but multi-step)"
+    ],
+    "reasoning_trace": "PROPOSED TEST (disambiguating): apply hyperosmotic shock to drop membrane tension while imaging a YAP-nuclear-localization reporter; a tension-driven link predicts YAP exits the nucleus as tension falls. Latrunculin (actin disassembly) and a Piezo1 knockdown separate the channel-dependent path from bulk-cytoskeletal effects. This edge is a HYPOTHESIS: it consumes curvo's GROUNDED tension output but asserts no force value of its own \u2014 force-to-transcription is correlative, and the schema forbids a value here."
+  }
+}
