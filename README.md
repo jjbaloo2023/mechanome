@@ -194,7 +194,7 @@ truth.
 | 40 | 17.3 | 18.5 | 0.92 | +7.2% |
 | 72 | 23.2 | 24.3 | 0.90 | +4.7% |
 | 100 | 27.3 | 27.5 | 0.94 | +0.7% |
-| 130 | 31.2 | 30.0 | 0.96 | −3.8% |
+| 130 | 31.2 | 30.0 | 0.96 | −3.7% |
 
 **Verdict: acceptable.** Forces recovered near-unbiased (mean |bias| 3.8%) across
 the full range; the 68% CIs are *conservative* (coverage 0.90–0.97, wider than
