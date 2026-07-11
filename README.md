@@ -604,10 +604,13 @@ a nuanced, honest answer:
   (40–49 pN) with a tight CI68 (~±10 pN), a real improvement over the SIM
   footprint proxy, which railed against the force ceiling (0/18).
 - **But force is not *formally* identified from a single observable at any SNR.**
-  The force width-ratio floors at ≈0.55 regardless of ratiometric noise or pit
-  count (population averaging N = 1→40 does not cross it). The residual
-  non-identifiability is **structural, not statistical**: force and membrane
-  tension trade off in the depth trajectory. Formal identification needs a second
+  The single-trajectory force width-ratio floors at ≈0.55–0.56 even at excellent
+  ratiometric SNR, and population averaging (N = 1→40 pits, effective noise
+  shrinking 6×) does not help — it plateaus at ≈0.61–0.71, a *higher* (worse)
+  floor, not the single-shot optimum. Either way the threshold (0.5) is never
+  crossed. The residual non-identifiability is **structural, not statistical**:
+  force and membrane tension trade off in the depth trajectory, so neither lower
+  noise nor more pits separates them. Formal identification needs a second
   degeneracy-breaking observable (co-imaged actin, or an independent tension
   measurement).
 - **Data spec** for a real dataset: registered same-field epi + TIRF CCP
