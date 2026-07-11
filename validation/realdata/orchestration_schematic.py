@@ -6,13 +6,17 @@ coded. Here the three panels are not genetic variants but the three MATURATION
 STAGES curvo reasons about (flat -> dome -> Omega/scission), showing which actor
 does what and what curvo can/cannot recover at each stage.
 
-Colour key (kept consistent with the 2020 figure where the molecule is shared):
-  clathrin coat      green   (triskelion lattice, the scaffold)
-  epsin ENTH sheet   blue    (structured N-terminus)
-  epsin H0 wedge     purple  (amphipathic helix inserted into the bilayer)
-  epsin adaptor arm  orange  (C-terminal binding arms)
-  epsin IDP tail     red     (disordered linker)
-  actin              crimson (active force at the neck)
+Colour key. Four colours follow the 2020 figure's own scheme (green clathrin
+coil, orange adaptor arm, blue ENTH sheet, purple/magenta H0 wedge); the IDP
+tail and actin colours below are our additions (in the 2020 Fig. 3g the
+disordered linker is drawn as a plain grey/white squiggle, and actin is not
+shown at all):
+  clathrin coat      green   (triskelion lattice, the scaffold)  [2020]
+  epsin ENTH sheet   blue    (structured N-terminus)             [2020]
+  epsin H0 wedge     purple  (amphipathic helix inserted)        [2020]
+  epsin adaptor arm  orange  (C-terminal binding arms)           [2020]
+  epsin IDP tail     red     (disordered linker; our colour)
+  actin              crimson (active force at the neck; our addition)
   bilayer heads      tan
 """
 import numpy as np
