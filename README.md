@@ -575,6 +575,50 @@ firewall reports the bound and refuses the point value. The lesson sharpens the
 thesis: absolute cortical force needs an *absolute curvature calibration*
 (verified pixel size or 3D depth), not merely a structural prior.
 
+### Resolving the dynamic-vs-resolution tension: epi-TIRF depth (observable #2)
+
+The benchmark above exposes a genuine tension. Live dynamics (frame every 1–2 s)
+and sub-20 nm *lateral* resolution are mutually exclusive with today's mature
+modalities: TIRF-SIM gives dynamics at ~130 nm; localization microscopy
+(STORM/PALM/DNA-PAINT) gives ~15 nm but is effectively fixed-cell (one super-res
+frame is reconstructed from 10³–10⁴ camera frames — it spends the time axis);
+cryo-ET gives ~1 nm but is a frozen snapshot.
+
+The resolution wall is *lateral*, but the mechanically-relevant invagination
+signal is *axial* — and the axial signature needs no lateral super-resolution.
+In TIRF the excitation decays into the cell as exp(−z/d_pen); as a coat
+invaginates it moves up through the evanescent field, so its TIRF intensity
+drops relative to epifluorescence. The **TIRF/epi ratio reads the coat's mean
+axial depth as a calibrated length** (via the known penetration depth d_pen),
+at diffraction-limited lateral resolution and live frame rates.
+`epitirf_depth_model.py` encodes this on curvo's own spherical-cap geometry
+(same energy minimization as the inverse) and provides a ratio-trajectory
+inverse.
+
+![epi-TIRF depth model]({{artifact:art_9ae5117f-0310-4f5b-831e-e21fd62d2452}})
+
+A recovery-spec study (inject known 40 pN, add ratiometric noise, invert) gives
+a nuanced, honest answer:
+
+- **The estimate is calibrated, bounded, and NOT railed** — median tracks truth
+  (40–49 pN) with a tight CI68 (~±10 pN), a real improvement over the SIM
+  footprint proxy, which railed against the force ceiling (0/18).
+- **But force is not *formally* identified from a single observable at any SNR.**
+  The force width-ratio floors at ≈0.55 regardless of ratiometric noise or pit
+  count (population averaging N = 1→40 does not cross it). The residual
+  non-identifiability is **structural, not statistical**: force and membrane
+  tension trade off in the depth trajectory. Formal identification needs a second
+  degeneracy-breaking observable (co-imaged actin, or an independent tension
+  measurement).
+- **Data spec** for a real dataset: registered same-field epi + TIRF CCP
+  time-lapse, ratiometric noise σ ≲ 0.012/frame, d_pen calibrated per microscope.
+
+This is why the IAV 2022 epi-TIRF data (caveat 5) was the right *kind* of data —
+it had both channels — and why its lack of same-field registration was the only
+thing that broke it. Observable #2 is the path to dynamic force inference that
+sidesteps the lateral-resolution wall; the model and its data spec are now in
+hand, awaiting a registered dataset.
+
 ### Honest caveats
 
 1. Most public CME imaging is observable #1 — a coat-assembly proxy that cannot

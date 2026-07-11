@@ -175,6 +175,44 @@ def test_resolution_regime_biotisr_out_of_band():
            "BioTISR-scale must yield ZERO resolvable frames (out of validated band)")
 
 
+def test_epitirf_ratio_monotone_and_calibrated():
+    """The epi-TIRF depth model: ratio starts near 1 (flat coat) and drops
+    monotonically as the pit invaginates, and the drop scales with penetration
+    depth. This is the physics that makes observable #2 dynamic AND
+    resolution-compatible."""
+    import numpy as _np
+    from validation.realdata.epitirf_depth_model import (
+        cap_geometry, tirf_epi_ratio_from_psi)
+    A = _np.pi * 60 ** 2
+    psi, R, depth = cap_geometry(0.02, 0.02, 40.0, A)
+    ratio = tirf_epi_ratio_from_psi(psi, R)
+    _check(ratio[0] > 0.98, f"flat coat ratio should be ~1, got {ratio[0]:.3f}")
+    _check(ratio[-1] < ratio[0], "ratio must drop as the pit invaginates")
+    _check(_np.all(depth >= -1e-6), "invagination depth must be non-negative")
+    # shallower penetration depth -> larger relative drop (stronger axial contrast)
+    r_shallow = tirf_epi_ratio_from_psi(psi, R, d_pen=60.0)
+    _check(r_shallow[-1] < ratio[-1],
+           "shallower d_pen must yield a larger ratio drop")
+
+
+def test_epitirf_force_nonrailed():
+    """A force recovered from a clean ratio trajectory must track truth and NOT
+    rail against the prior ceiling (the improvement over the SIM footprint proxy).
+    Formal identification is not required -- force/tension degeneracy is
+    structural -- but the estimate must be bounded and centered."""
+    import numpy as _np
+    from validation.realdata.epitirf_depth_model import predict_ratio, run_ratio_inverse
+    from curvo import inverse as _inv
+    A = _np.pi * 60 ** 2
+    params = _inv.DEFAULT_PARAMS
+    ratio = predict_ratio([0.02, 40.0, 0.02], params, A)
+    res = run_ratio_inverse(ratio, _np.full_like(ratio, 0.006), A, params=params,
+                            nlive=150, seed=0)
+    af = _inv.identifiability(res["samples"], res["params"])["active_force_max"]
+    _check(20 < af["median"] < 60, f"force median should be near truth 40, got {af['median']:.0f}")
+    _check(not af["railed"], "force posterior must NOT be railed against the ceiling")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0

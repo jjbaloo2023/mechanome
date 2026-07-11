@@ -1,0 +1,93 @@
+{
+  "model": "epi-TIRF ratiometric invagination depth (observable #2)",
+  "physics": "TIRF/epi ratio = <exp(-z/d_pen)>_coat over spherical-cap surface; d_pen=110nm; calibrated axial length at diffraction-limited lateral resolution + live frame rate",
+  "true_forces": {
+    "c_eff": 0.02,
+    "active_pN": 40.0,
+    "sigma": 0.02
+  },
+  "ratio_dynamic_range": 0.1057995586506586,
+  "snr_spec_flat_prior": [
+    {
+      "ratio_sigma": 0.003,
+      "wr": 0.56
+    },
+    {
+      "ratio_sigma": 0.006,
+      "wr": 0.57
+    },
+    {
+      "ratio_sigma": 0.012,
+      "wr": 0.76
+    },
+    {
+      "ratio_sigma": 0.025,
+      "wr": 0.96
+    },
+    {
+      "ratio_sigma": 0.05,
+      "wr": 0.95
+    }
+  ],
+  "snr_spec_coat_prior": [
+    {
+      "ratio_sigma": 0.003,
+      "force_med": 49.279203149002726,
+      "ci68": [
+        35.664337909850325,
+        56.49192543548122
+      ],
+      "wr": 0.5585609551667184,
+      "railed": false,
+      "identified": false
+    },
+    {
+      "ratio_sigma": 0.006,
+      "force_med": 44.448150174829934,
+      "ci68": [
+        33.17196738286371,
+        54.05889720345882
+      ],
+      "wr": 0.5546160541245996,
+      "railed": false,
+      "identified": false
+    },
+    {
+      "ratio_sigma": 0.012,
+      "force_med": 42.96071687149702,
+      "ci68": [
+        29.38662386239633,
+        53.05012843186294
+      ],
+      "wr": 0.6596616761612927,
+      "railed": false,
+      "identified": false
+    },
+    {
+      "ratio_sigma": 0.025,
+      "force_med": 37.396498358553856,
+      "ci68": [
+        23.262297647804946,
+        50.49615045268655
+      ],
+      "wr": 0.7402338426270852,
+      "railed": false,
+      "identified": false
+    },
+    {
+      "ratio_sigma": 0.05,
+      "force_med": 35.39220169925703,
+      "ci68": [
+        21.112458987560785,
+        50.450721562435355
+      ],
+      "wr": 0.7737867523412701,
+      "railed": false,
+      "identified": false
+    }
+  ],
+  "population_finding": "width-ratio plateaus ~0.61-0.71 as effective noise shrinks 6x (N=1->40): non-identifiability is STRUCTURAL not statistical",
+  "verdict": "epi-TIRF depth gives a CALIBRATED, BOUNDED, NON-RAILED force estimate (median accurate, CI68 ~\u00b110 pN) at diffraction-limited resolution + live frame rate \u2014 resolving the dynamic-vs-resolution tension. But force is NOT formally identified from a single observable at any SNR: force/tension trade off in the depth trajectory. Formal identification requires a second degeneracy-breaking observable (co-imaged actin, or independent tension).",
+  "data_spec": "ratiometric noise sigma <= ~0.012 per frame; registered same-field epi+TIRF CCP time-lapse; d_pen calibrated per microscope",
+  "compares_to_sim": "SIM footprint proxy railed against the force ceiling (0/18); epi-TIRF depth is non-railed with an accurate median \u2014 strictly better for force, and resolution-compatible with live imaging"
+}
