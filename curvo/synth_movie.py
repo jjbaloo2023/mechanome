@@ -78,15 +78,25 @@ def _sigmoid(x, x0, k):
 def simulate_trajectory(sigma_kBT_nm2=0.02, c_eff_max_inv_nm=0.06,
                         active_force_max_pN=0.0, kappa_kBT=20.0,
                         coat_rigidity_factor=3.0, A_coat_nm2=None,
-                        T=24, ramp_mid=0.45, ramp_width=0.12):
-    """Evolve the cap geometry as the coat assembles (coverage 0 -> plateau)."""
+                        T=24, ramp_mid=0.45, ramp_width=0.12, active_delay=0.0):
+    """Evolve the cap geometry as the coat assembles (coverage 0 -> plateau).
+
+    active_delay (in units of the normalized time axis, 0..1) phase-shifts the
+    ACTIVE (actin) force ramp LATER than the coat-curvature ramp. Default 0 keeps
+    curvature and force perfectly coupled (the single-CCP recovery gate assumes this
+    and is unaffected). A positive delay models sequential orchestration — coat
+    curvature first, actin force after — giving a ground-truth onset lag for the
+    orchestration model to recover rather than a coupling built in by construction."""
     if A_coat_nm2 is None:
         A_coat_nm2 = np.pi * 60 ** 2
     t = np.linspace(0, 1, T)
     coverage = _sigmoid(t, ramp_mid, ramp_width)
     coverage = (coverage - coverage.min()) / (coverage.max() - coverage.min())
     c_eff = c_eff_max_inv_nm * coverage
-    active = active_force_max_pN * coverage
+    # actin force follows a ramp shifted later by active_delay
+    active_ramp = _sigmoid(t, ramp_mid + active_delay, ramp_width)
+    active_ramp = (active_ramp - active_ramp.min()) / (active_ramp.max() - active_ramp.min() + 1e-12)
+    active = active_force_max_pN * active_ramp
     # coat rigidity ramps in with coverage too (1 -> plateau)
     rig = 1.0 + (coat_rigidity_factor - 1.0) * coverage
     R, psi, neck, depth, H, stage = [], [], [], [], [], []

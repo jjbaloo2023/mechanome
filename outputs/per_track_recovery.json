@@ -1,0 +1,372 @@
+{
+  "rows": [
+    {
+      "sid": 0,
+      "true_force": 24.971331059982557,
+      "point_estimate": null,
+      "posterior_median": 59.223771801439796,
+      "ci68": [
+        58.44180565905743,
+        59.78079260605888
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 64.5,
+      "seed": 0
+    },
+    {
+      "sid": 1,
+      "true_force": 44.61540445925016,
+      "point_estimate": null,
+      "posterior_median": 33.787495776673225,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.9,
+      "seed": 0
+    },
+    {
+      "sid": 2,
+      "true_force": 47.42167937922779,
+      "point_estimate": null,
+      "posterior_median": 58.93688160007893,
+      "ci68": [
+        57.31802987526727,
+        59.72730514505178
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 71.5,
+      "seed": 0
+    },
+    {
+      "sid": 3,
+      "true_force": 35.55685695916415,
+      "point_estimate": null,
+      "posterior_median": 33.787495776673225,
+      "ci68": [
+        13.875342868139152,
+        50.686788398688314
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.9,
+      "seed": 0
+    },
+    {
+      "sid": 4,
+      "true_force": 32.40967502235823,
+      "point_estimate": 27.652397332131045,
+      "posterior_median": 27.652397332131045,
+      "ci68": [
+        24.130454274548097,
+        31.352509226674446
+      ],
+      "identified": true,
+      "favored": "wedge+actin",
+      "rec_lifetime": 24,
+      "secs": 27.1,
+      "seed": 0
+    },
+    {
+      "sid": 5,
+      "true_force": 57.361740638249984,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.8,
+      "seed": 0
+    },
+    {
+      "sid": 6,
+      "true_force": 43.77200120798787,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": -1.7,
+      "seed": 0
+    },
+    {
+      "sid": 7,
+      "true_force": 55.610974080191696,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.8,
+      "seed": 0
+    },
+    {
+      "sid": 0,
+      "true_force": 31.075648161814833,
+      "point_estimate": 32.54584155314261,
+      "posterior_median": 32.54584155314261,
+      "ci68": [
+        26.83979207650671,
+        38.151440650711905
+      ],
+      "identified": true,
+      "favored": "wedge+actin",
+      "rec_lifetime": 24,
+      "secs": 26.1,
+      "seed": 1
+    },
+    {
+      "sid": 1,
+      "true_force": 40.64274342191515,
+      "point_estimate": 41.387825080546904,
+      "posterior_median": 41.387825080546904,
+      "ci68": [
+        38.506068488421874,
+        44.51832248627853
+      ],
+      "identified": true,
+      "favored": "wedge+actin",
+      "rec_lifetime": 24,
+      "secs": 30.7,
+      "seed": 1
+    },
+    {
+      "sid": 2,
+      "true_force": 44.52013204212162,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.9,
+      "seed": 1
+    },
+    {
+      "sid": 3,
+      "true_force": 41.143570530400865,
+      "point_estimate": 46.46448907582872,
+      "posterior_median": 46.46448907582872,
+      "ci68": [
+        39.9877305970928,
+        52.780573226118584
+      ],
+      "identified": true,
+      "favored": "wedge+actin",
+      "rec_lifetime": 24,
+      "secs": 32.5,
+      "seed": 1
+    },
+    {
+      "sid": 4,
+      "true_force": 54.10531353922627,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 1.0,
+      "seed": 1
+    },
+    {
+      "sid": 5,
+      "true_force": 53.59526084125635,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 1.0,
+      "seed": 1
+    },
+    {
+      "sid": 6,
+      "true_force": 25.916881431398263,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.8,
+      "seed": 1
+    },
+    {
+      "sid": 7,
+      "true_force": 51.48387766219204,
+      "point_estimate": 39.73996186661164,
+      "posterior_median": 39.73996186661164,
+      "ci68": [
+        33.57548449422137,
+        46.59423178728312
+      ],
+      "identified": true,
+      "favored": "wedge+actin",
+      "rec_lifetime": 24,
+      "secs": 23.5,
+      "seed": 1
+    },
+    {
+      "sid": 0,
+      "true_force": 47.750353688089206,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.805080231205316,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.8,
+      "seed": 2
+    },
+    {
+      "sid": 1,
+      "true_force": 28.076297901178012,
+      "point_estimate": null,
+      "posterior_median": 33.787495776673225,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 1.0,
+      "seed": 2
+    },
+    {
+      "sid": 2,
+      "true_force": 45.7774507682207,
+      "point_estimate": null,
+      "posterior_median": 53.18581520302256,
+      "ci68": [
+        51.872076758354154,
+        54.624539368603806
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 294.6,
+      "seed": 2
+    },
+    {
+      "sid": 3,
+      "true_force": 43.73774071023625,
+      "point_estimate": 35.88789909307225,
+      "posterior_median": 35.88789909307225,
+      "ci68": [
+        29.389848006367675,
+        42.42482230814106
+      ],
+      "identified": true,
+      "favored": "wedge+actin",
+      "rec_lifetime": 24,
+      "secs": 23.8,
+      "seed": 2
+    },
+    {
+      "sid": 4,
+      "true_force": 44.54867753610349,
+      "point_estimate": null,
+      "posterior_median": 59.663499029678874,
+      "ci68": [
+        59.26696387730256,
+        59.90804017754934
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 54.9,
+      "seed": 2
+    },
+    {
+      "sid": 5,
+      "true_force": 47.70072527319894,
+      "point_estimate": null,
+      "posterior_median": 59.70301822132799,
+      "ci68": [
+        59.37727358597258,
+        59.91177688750375
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 77.7,
+      "seed": 2
+    },
+    {
+      "sid": 6,
+      "true_force": 24.028144080739075,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.8,
+      "seed": 2
+    },
+    {
+      "sid": 7,
+      "true_force": 38.25722483526224,
+      "point_estimate": null,
+      "posterior_median": 33.51934326180528,
+      "ci68": [
+        13.875342868139152,
+        50.59140691043033
+      ],
+      "identified": false,
+      "favored": "UNDETERMINED",
+      "rec_lifetime": 24,
+      "secs": 0.8,
+      "seed": 2
+    }
+  ],
+  "summary": {
+    "n_tracks": 24,
+    "n_identified": 6,
+    "identified_frac": 0.25,
+    "rel_bias_identified": -0.059900221941152076,
+    "coverage68_identified": 0.5,
+    "n_median_pairs": 24
+  }
+}

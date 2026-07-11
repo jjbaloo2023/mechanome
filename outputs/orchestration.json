@@ -1,0 +1,241 @@
+{
+  "model": {
+    "median_lag_frames": 3.0,
+    "mean_lag_frames": 3.2916666666666665,
+    "force_vs_stage": {
+      "flat": {
+        "mean": 41.83665438457357,
+        "n": 24
+      },
+      "dome": {
+        "mean": 41.83665438457357,
+        "n": 24
+      },
+      "Omega": {
+        "mean": 43.42241889042333,
+        "n": 19
+      }
+    },
+    "timing": [
+      {
+        "sid": 0,
+        "curv_onset": 9,
+        "force_onset": 13,
+        "lag": 4,
+        "force": 24.971331059982557,
+        "active_delay": 0.2117973778935625
+      },
+      {
+        "sid": 1,
+        "curv_onset": 10,
+        "force_onset": 15,
+        "lag": 5,
+        "force": 44.61540445925016,
+        "active_delay": 0.29930248394730274
+      },
+      {
+        "sid": 2,
+        "curv_onset": 9,
+        "force_onset": 13,
+        "lag": 4,
+        "force": 47.42167937922779,
+        "active_delay": 0.222111682642735
+      },
+      {
+        "sid": 3,
+        "curv_onset": 10,
+        "force_onset": 14,
+        "lag": 4,
+        "force": 35.55685695916415,
+        "active_delay": 0.23037208504852041
+      },
+      {
+        "sid": 4,
+        "curv_onset": 10,
+        "force_onset": 14,
+        "lag": 4,
+        "force": 32.40967502235823,
+        "active_delay": 0.27237195858725005
+      },
+      {
+        "sid": 5,
+        "curv_onset": 10,
+        "force_onset": 13,
+        "lag": 3,
+        "force": 57.361740638249984,
+        "active_delay": 0.19288245768244022
+      },
+      {
+        "sid": 6,
+        "curv_onset": 9,
+        "force_onset": 12,
+        "lag": 3,
+        "force": 43.77200120798787,
+        "active_delay": 0.1479047501320403
+      },
+      {
+        "sid": 7,
+        "curv_onset": 10,
+        "force_onset": 13,
+        "lag": 3,
+        "force": 55.610974080191696,
+        "active_delay": 0.2057967861715106
+      },
+      {
+        "sid": 0,
+        "curv_onset": 10,
+        "force_onset": 15,
+        "lag": 5,
+        "force": 31.075648161814833,
+        "active_delay": 0.29248135330403313
+      },
+      {
+        "sid": 1,
+        "curv_onset": 10,
+        "force_onset": 13,
+        "lag": 3,
+        "force": 40.64274342191515,
+        "active_delay": 0.20587243888437512
+      },
+      {
+        "sid": 2,
+        "curv_onset": 9,
+        "force_onset": 10,
+        "lag": 1,
+        "force": 44.52013204212162,
+        "active_delay": 0.05989821916605072
+      },
+      {
+        "sid": 3,
+        "curv_onset": 9,
+        "force_onset": 10,
+        "lag": 1,
+        "force": 41.143570530400865,
+        "active_delay": 0.0655873947874689
+      },
+      {
+        "sid": 4,
+        "curv_onset": 9,
+        "force_onset": 11,
+        "lag": 2,
+        "force": 54.10531353922627,
+        "active_delay": 0.1150243619343058
+      },
+      {
+        "sid": 5,
+        "curv_onset": 9,
+        "force_onset": 12,
+        "lag": 3,
+        "force": 53.59526084125635,
+        "active_delay": 0.17772222111663327
+      },
+      {
+        "sid": 6,
+        "curv_onset": 9,
+        "force_onset": 13,
+        "lag": 4,
+        "force": 25.916881431398263,
+        "active_delay": 0.22082172650081427
+      },
+      {
+        "sid": 7,
+        "curv_onset": 10,
+        "force_onset": 14,
+        "lag": 4,
+        "force": 51.48387766219204,
+        "active_delay": 0.2505910402836325
+      },
+      {
+        "sid": 0,
+        "curv_onset": 9,
+        "force_onset": 10,
+        "lag": 1,
+        "force": 47.750353688089206,
+        "active_delay": 0.07613588960823538
+      },
+      {
+        "sid": 1,
+        "curv_onset": 9,
+        "force_onset": 13,
+        "lag": 4,
+        "force": 28.076297901178012,
+        "active_delay": 0.2199528653711459
+      },
+      {
+        "sid": 2,
+        "curv_onset": 9,
+        "force_onset": 13,
+        "lag": 4,
+        "force": 45.7774507682207,
+        "active_delay": 0.17914454853124917
+      },
+      {
+        "sid": 3,
+        "curv_onset": 9,
+        "force_onset": 12,
+        "lag": 3,
+        "force": 43.73774071023625,
+        "active_delay": 0.15954654153978126
+      },
+      {
+        "sid": 4,
+        "curv_onset": 9,
+        "force_onset": 12,
+        "lag": 3,
+        "force": 44.54867753610349,
+        "active_delay": 0.17451401372931197
+      },
+      {
+        "sid": 5,
+        "curv_onset": 10,
+        "force_onset": 13,
+        "lag": 3,
+        "force": 47.70072527319894,
+        "active_delay": 0.18070712598094096
+      },
+      {
+        "sid": 6,
+        "curv_onset": 10,
+        "force_onset": 13,
+        "lag": 3,
+        "force": 24.028144080739075,
+        "active_delay": 0.22548736909649736
+      },
+      {
+        "sid": 7,
+        "curv_onset": 9,
+        "force_onset": 14,
+        "lag": 5,
+        "force": 38.25722483526224,
+        "active_delay": 0.25879580117306994
+      }
+    ]
+  },
+  "falsifiable": {
+    "statement": "Curvature generation (coat/wedge) and active (actin) force are ORDERED in time within a structure: coat-driven curvature onset PRECEDES actin-force onset by a positive lag (field median 3 frames). Orchestration is sequential (curvature-first), not simultaneous.",
+    "prediction": "In every structure, the coat-coverage onset frame is <= the actin-force onset frame; a structure with actin-force onset strictly before curvature onset would REFUTE the curvature-first model.",
+    "refuting_observation": "A dual-color live-cell time-lapse (coat marker + actin marker, e.g. clathrin-GFP / Lifeact-mCherry) in which actin intensity rises before coat curvature in a statistically significant fraction of pits.",
+    "proposed_experiment": "Two-color TIRF time-lapse of CME with a coat marker and an actin marker; measure per-pit onset times of coat curvature vs actin recruitment and test the sign of the lag distribution against zero.",
+    "field_median_lag_frames": 3.0,
+    "field_mean_lag_frames": 3.2916666666666665,
+    "n_structures": 24,
+    "fraction_curvature_first": 1.0
+  },
+  "timing_readout_validation": {
+    "recovered_lag_vs_true_delay_pearson_r": 0.9370569988309664,
+    "p": 1.5795636600392864e-11,
+    "n": 24,
+    "note": "recovered onset lag tracks the ground-truth actin delay -> the readout measures real coordination, not a built-in coupling"
+  },
+  "mechano_claim": {
+    "emitted": true,
+    "tier": "LINKED",
+    "relation": "modulates",
+    "subject": "clathrin_coat",
+    "object": "actin_active_force",
+    "passes_firewall": true,
+    "value_carried": false,
+    "note": "LINKED tier carries NO physical value (credibility firewall); the lag magnitude lives in the model block, the claim asserts only the causal ORDER + a refuting experiment"
+  },
+  "scope_note": "Timing lag read from GT geometry(t)/force(t) of the synthetic field; per-structure FORCE MAGNITUDE recovered by the guarded inverse (per_track_recovery, 25% identified in-crowd)."
+}

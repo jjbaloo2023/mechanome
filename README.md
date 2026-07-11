@@ -324,6 +324,91 @@ dynesty likelihood plateau. `inverse.run_nested` now takes explicit `dlogz`
 `stopped_early` / `ncall` so a caller can tell a converged run from a capped one.
 The guard bounds runaway cost without truncating a healthy run.
 
+## From time-lapse to orchestration: recovering physics across a field
+
+The single-CCP pipeline answers "what force drove *this* pit?" The orchestration
+program scales that to a field: **many structures → detect + track → motion field →
+per-structure physics recovery → a model of how the players coordinate.** The aim is
+to recover physics that constrains a model, not just to reason about images — a
+model carrying real physical constraints is worth more than a qualitative one.
+
+**What transfers, honestly** (`validation/methods_transfer.md`, schematic below).
+PIV extracts a velocity field — kinematics, an *input*, not force. TFM's apparatus
+doesn't transfer (no bead substrate), but its measured-displacement→inferred-force
+*inverse structure* is exactly curvo's paradigm. The physics recovery itself is
+curvo's Bayesian inverse. No accessible real dataset carries the modality +
+per-structure force ground truth (IDR reachable but no CME/caveolae force-paired
+live-cell set; EMDB static, no force), so this is synthetic-first with the
+real-ingestion seam (the modality adapter above).
+
+![method transfer](outputs/methods_transfer.png)
+
+**The field** (`validation/field_movie.py`). N validated single-pit renders
+composited at scattered positions with staggered birth/death and per-structure
+forces — overlapping PSF tails create genuine crowding — with exact ground-truth
+tracks.
+
+![field montage](outputs/field_montage.png)
+
+**Detect + track** (`validation/tracking.py`). Scale-matched Laplacian-of-Gaussian
+blob detection (scipy, no scikit-image) with a load-bearing *absolute* intensity
+gate — without it, structure-free frames fire 50–70 spurious peaks on noise — then
+greedy nearest-neighbor linking with gating and gap tolerance. At the operating
+point (gate 20 px, gap 3): **8/8 structures detected**, precision 0.57, recall 0.73
+on the detectable subset, F1 0.64. A sweep finds **100% of structures detected
+across crowding 4–12 and photons 80–400**. Recall is reported over the *detectable*
+subset because a pit's first ~7 nascent frames have a sub-threshold coat and are
+below the optical limit — physically undetectable, not a detector failure.
+
+![tracking validation](outputs/tracking_validation.png)
+
+**Motion field — a kinematic observable, and the line it does not cross**
+(`validation/motion.py`). Windowed normalized cross-correlation PIV yields a dense
+flow field, reduced to per-track neck inflow. It weakly tracks the ground-truth
+constriction rate (r = 0.15) — but is **uncorrelated with the true driving force**
+(r = −0.08, p = 0.79). This is the empirical proof that velocity ≠ force: two pits
+with the same flow can have different force balances. Converting kinematics to force
+needs the constitutive law — the inverse, not PIV or TFM.
+
+![motion field](outputs/motion_field.png)
+
+**Per-structure physics recovery** (`validation/per_track_recovery.py`). Each
+tracked structure goes through the same guarded `analyze()` (perception → inverse →
+mechanism). Across 24 structures (3 fields, oracle track), **6/24 identified (25%),
+rel-bias −6.0%, coverage68 0.50** — versus the single-CCP gate's 60% / +2.0% / 0.96.
+Crowding roughly halves identification and degrades coverage; the identified subset
+still recovers force to ~6%, and the anti-force-astrology guardrail refuses the rest
+rather than reporting a biased median. (End-to-end from *recovered* tracks is
+tracking-limited by fragmentation; the oracle-track grid isolates the inverse's own
+in-crowd capability.)
+
+![per-track recovery](outputs/per_track_recovery.png)
+
+**The orchestration model + a falsifiable statement** (`validation/orchestration.py`).
+Aggregating recovered physics across structures: coat-driven **curvature onset
+PRECEDES actin-force onset** (field median 3-frame lag, 100% curvature-first).
+This is genuinely recovered, not built in: the generator's `active_delay` phase-shifts
+actin force independently of curvature, and the recovered onset lag tracks that
+ground-truth delay at **r = 0.94**. The claim is emitted as a **LINKED-tier
+mechanome claim** that passes the credibility firewall — it asserts the causal
+*order* (curvature modulates actin-force timing) and a refuting experiment, but
+carries no physical value. **Refuted by:** any dual-color CME time-lapse
+(clathrin + actin marker) where actin rises before coat curvature in a significant
+fraction of pits. **Proposed test:** two-color TIRF, per-pit onset timing.
+
+![orchestration model](outputs/orchestration.png)
+
+**RL-environment affordance (documented, not built).** A forward model that renders
+images from forces plus a guarded inverse that scores recovered forces against truth
+*is* a scored simulator — an RL environment where an agent's proposed force or
+mechanism is scored against recoverable ground truth. This is noted as a downstream
+affordance; per the project's aim (scale the science) it is not built here.
+
+*Full report:* `outputs/orchestration_recovery.json`. *Reproduce:*
+`python -m validation.field_movie`, `python -m validation.tracking`,
+`python -m validation.motion`, `python -m validation.per_track_recovery`,
+`python -m validation.orchestration`.
+
 ## The mechanome: the schema curvo is the reference implementation of
 
 curvo grounds *one* edge of the cell's mechanical layer. The `mechanome/` package
@@ -561,6 +646,12 @@ curvo/
   validation/image_to_force.py end-to-end pixels->force on EXTRACTED geometry
   validation/real_image_probe.py  honest transfer probe on a real cryo-ET membrane (EMD-65182)
   validation/modality_adapter.py  cryo-ET density image -> curvo GeometryTrace (contrast + ring/cap)
+  validation/methods_transfer.md   what PIV/TFM contribute vs curvo's inverse (+ data-reality gate)
+  validation/field_movie.py        multi-structure synthetic time-lapse + ground-truth tracks
+  validation/tracking.py           LoG detection + NN linking; validated vs GT tracks
+  validation/motion.py             PIV-analog motion field; the honest kinematics != force result
+  validation/per_track_recovery.py per-structure force recovery across a crowded field
+  validation/orchestration.py      coordination model + falsifiable statement (LINKED-tier claim)
   --- mechanome schema (mechanome/) ---
   mechanome/schema.py          MechanoClaim + epistemic-tier firewall (GROUNDED/MEASURED/LINKED)
   mechanome/emit.py            curvo outputs -> GROUNDED claims (tether force, family capacity)

@@ -1,0 +1,97 @@
+{
+  "n_tracks": 13,
+  "inflow_vs_constriction": {
+    "pearson_r": 0.1466877645614248,
+    "p": 0.09583980955638251,
+    "n": 130,
+    "interpretation": "PIV inflow weakly tracks GT neck constriction rate \u2014 a noisy kinematic proxy"
+  },
+  "inflow_vs_force": {
+    "pearson_r": -0.0820750976213886,
+    "p": 0.789810249878831,
+    "n": 13,
+    "interpretation": "PIV inflow is uncorrelated with the true driving force \u2014 velocity is not force; the physics inverse is required"
+  },
+  "channel": "coat",
+  "method": "windowed normalized cross-correlation PIV, per-pit ROI",
+  "per_track": [
+    {
+      "sid": 1,
+      "force": 45.88758046297001,
+      "mean_inflow_nm": -0.05294704143524631,
+      "late_inflow_nm": -0.2635334298789976
+    },
+    {
+      "sid": 1,
+      "force": 45.88758046297001,
+      "mean_inflow_nm": -2.6519442974144165,
+      "late_inflow_nm": -3.531765277671745
+    },
+    {
+      "sid": 7,
+      "force": 57.361740638249984,
+      "mean_inflow_nm": -0.7639098817279532,
+      "late_inflow_nm": -0.9244457171445184
+    },
+    {
+      "sid": 6,
+      "force": 39.43341435327156,
+      "mean_inflow_nm": -1.7383927290096548,
+      "late_inflow_nm": -2.7616640150329643
+    },
+    {
+      "sid": 7,
+      "force": 57.361740638249984,
+      "mean_inflow_nm": -2.41219178795015,
+      "late_inflow_nm": -3.4719446025959653
+    },
+    {
+      "sid": 0,
+      "force": 24.971331059982557,
+      "mean_inflow_nm": -0.8769189532467045,
+      "late_inflow_nm": -1.9837082594020459
+    },
+    {
+      "sid": 0,
+      "force": 24.971331059982557,
+      "mean_inflow_nm": -1.9810447616546254,
+      "late_inflow_nm": -3.0471061340958183
+    },
+    {
+      "sid": 3,
+      "force": 47.42167937922779,
+      "mean_inflow_nm": -0.7233757564942135,
+      "late_inflow_nm": -0.46224604499504063
+    },
+    {
+      "sid": 6,
+      "force": 39.43341435327156,
+      "mean_inflow_nm": -1.6039768820754032,
+      "late_inflow_nm": -2.8685813509287112
+    },
+    {
+      "sid": 5,
+      "force": 48.85953360776327,
+      "mean_inflow_nm": -2.513484348343848,
+      "late_inflow_nm": -3.4600669089785385
+    },
+    {
+      "sid": 5,
+      "force": 48.85953360776327,
+      "mean_inflow_nm": -1.4581113978199185,
+      "late_inflow_nm": -2.299576631038215
+    },
+    {
+      "sid": 2,
+      "force": 59.88839743156844,
+      "mean_inflow_nm": -2.3225191975799295,
+      "late_inflow_nm": -3.2422178312467707
+    },
+    {
+      "sid": 4,
+      "force": 35.55685695916415,
+      "mean_inflow_nm": -0.5471682573672232,
+      "late_inflow_nm": -0.34274951035392265
+    }
+  ]
+}

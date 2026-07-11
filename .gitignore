@@ -30,3 +30,6 @@ outputs/*.npz
 .DS_Store
 outputs/_sweep_log.txt
 cache/real_images/emd_53909.png
+outputs/field_movie.npy
+outputs/_tracking_sweep.json
+outputs/per_track_recovery_oracle.json

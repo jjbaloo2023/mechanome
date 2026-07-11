@@ -1,0 +1,65 @@
+{
+  "title": "From time-lapse to orchestration: recovering physics across a field of structures",
+  "program": "many-structure time-lapse -> detect+track -> motion field (PIV-analog) -> curvo Bayesian inverse per structure -> orchestration model",
+  "data_reality": "No accessible real dataset carries the modality + per-structure force ground truth; synthetic-first with a real-ingestion seam (modality adapter). IDR reachable but no CME/caveolae force-paired live-cell time-lapse; EMDB static/no-force.",
+  "method_transfer": {
+    "PIV": "kinematics (velocity) input, transfers partially; NOT force",
+    "TFM": "apparatus does not transfer; its measured-displacement->inferred-force INVERSE STRUCTURE does",
+    "curvo_inverse": "the actual physics recovery (Helfrich + active stress, nested sampling, calibrated cov68 0.96 rel_bias +2.0% on the single-CCP gate)"
+  },
+  "step2_field": {
+    "n_struct": 8,
+    "field_px": 256,
+    "T": 48,
+    "actin_channel": true,
+    "note": "N validated single-pit renders composited with staggered lifecycles + per-structure GT tracks"
+  },
+  "step3_tracking": {
+    "operating_point": "gate=20 gap=3",
+    "detected": "8/8",
+    "precision": 0.57,
+    "recall_detectable": 0.73,
+    "f1": 0.64,
+    "n_tracks": 14,
+    "sweep": "100% of structures detected across crowding 4-12 and photons 80-400",
+    "note": "recall reported on detectable subset (coat above optical floor); nascent pits' first ~7 frames physically undetectable"
+  },
+  "step4_motion": {
+    "inflow_vs_constriction_r": 0.1466877645614248,
+    "inflow_vs_force_r": -0.0820750976213886,
+    "inflow_vs_force_p": 0.789810249878831,
+    "finding": "PIV inflow is a noisy kinematic proxy (weakly tracks constriction) but carries NO force information (r=-0.08, p=0.79) -> velocity != force; the physics inverse is required"
+  },
+  "step5_recovery": {
+    "mode": "oracle track (isolates inverse from tracking), 3 seeds",
+    "n_structures": 24,
+    "identified_frac": 0.25,
+    "rel_bias_identified": -0.06,
+    "coverage68_identified": 0.5,
+    "vs_single_CCP_gate": {
+      "identified_frac": 0.6,
+      "coverage68": 0.96,
+      "rel_bias": 0.02
+    },
+    "finding": "crowding roughly halves identification (25% vs 60%) and degrades coverage (0.50 vs 0.96); identified subset still recovers force to ~6%. End-to-end from recovered tracks is tracking-limited (fragmentation)."
+  },
+  "step6_orchestration": {
+    "median_lag_frames": 3.0,
+    "fraction_curvature_first": 1.0,
+    "timing_readout_validation_r": 0.9370569988309664,
+    "falsifiable_statement": "Curvature generation (coat/wedge) and active (actin) force are ORDERED in time within a structure: coat-driven curvature onset PRECEDES actin-force onset by a positive lag (field median 3 frames). Orchestration is sequential (curvature-first), not simultaneous.",
+    "proposed_experiment": "Two-color TIRF time-lapse of CME with a coat marker and an actin marker; measure per-pit onset times of coat curvature vs actin recruitment and test the sign of the lag distribution against zero.",
+    "mechano_claim": {
+      "emitted": true,
+      "tier": "LINKED",
+      "relation": "modulates",
+      "subject": "clathrin_coat",
+      "object": "actin_active_force",
+      "passes_firewall": true,
+      "value_carried": false,
+      "note": "LINKED tier carries NO physical value (credibility firewall); the lag magnitude lives in the model block, the claim asserts only the causal ORDER + a refuting experiment"
+    }
+  },
+  "rl_affordance": "The validated forward model (forces->images) + guarded inverse (images->scored forces) constitute a scored simulator: an RL environment where an agent's proposed force/mechanism is scored against recoverable ground truth. Documented as a downstream affordance; NOT built here (per user: the aim is to scale the science).",
+  "honest_scope": "Anchor = clathrin pits + actin co-player (validated physics). Caveolae/actin-as-object need new first-principles modules, out of scope. Every accuracy number is on synthetic data where truth is known."
+}
