@@ -1,0 +1,90 @@
+{
+  "title": "curvo real-data demonstration",
+  "single_claim": "curvo infers membrane-mechanical parameters and mechanism from CME curvature trajectories with calibrated uncertainty and an identifiability firewall that refuses underdetermined force claims.",
+  "observable_ladder": {
+    "1_intensity": "coat-assembly proxy (any TIRF); NOT curvature; force refused",
+    "2_epitirf_depth": "invagination/axial depth; curvature proxy; needs registered epi+TIRF",
+    "3_superres_curvature": "curvature in real time (SIM/super-res); the inverse's real input"
+  },
+  "datasets_used": {
+    "epsin_2020_commbio": {
+      "doi": "10.1038/s42003-020-01471-6",
+      "observable": "1_intensity",
+      "role": "front-end + tension cross-check",
+      "n_conditions": 14,
+      "source": "user's own raw data (/root/projects), cmeAnalysis .mat"
+    },
+    "iav_2022_membranes": {
+      "observable": "2_epitirf_depth (attempted)",
+      "role": "REJECTED for depth \u2014 tirf/epi not registered same-field (r=0.02)",
+      "source": "user's own raw data (/root/projects), single-timepoint OME-TIFF"
+    },
+    "biotisr_ccp": {
+      "zenodo_record": "13843670",
+      "doi": "10.5281/zenodo.13843670",
+      "collection_doi": "10.5281/zenodo.14760518",
+      "observable": "3_superres_curvature",
+      "role": "force-inverse keystone",
+      "source": "public: BioTISR 2D Data (CCPs), live-cell TIRF-SIM; collection tied to the DPA-TISR paper, Nat Biotech 2025",
+      "pixel_size_nm_assumed": 31.3,
+      "pixel_size_verified": false
+    }
+  },
+  "results": {
+    "tension_crosscheck": {
+      "verdict": "consistent with the 2020 finding (tension impedes maturation)",
+      "direction_checks": {
+        "productive_falls_with_tension": true,
+        "abortive_rises_with_tension": true,
+        "clathrin_peak_falls_at_high_tension": true
+      },
+      "productive_fraction": {
+        "hypo": 0.363,
+        "iso": 0.329,
+        "hyper": 0.311
+      },
+      "abortive_fraction": {
+        "hypo": 0.553,
+        "iso": 0.607,
+        "hyper": 0.627
+      }
+    },
+    "superres_extraction": {
+      "n_tracks": 396,
+      "chosen_track_R_proj_nm": [
+        106,
+        103,
+        92,
+        93,
+        71,
+        83,
+        83,
+        75,
+        66,
+        64,
+        71,
+        47,
+        43,
+        50,
+        50,
+        39
+      ],
+      "maturation": "R_proj falls 106->39 nm start-to-end (non-monotonic frame-to-frame); H_proxy rises 0.0094->0.025 /nm \u2014 overall flat->dome->Omega direction"
+    },
+    "real_inverse": {
+      "n_identified": 0,
+      "n_params": 3,
+      "verdict": "force UNDETERMINED \u2014 geometry-only proxy, actin not co-imaged; firewall refuses point force",
+      "disambiguating_experiment": "co-image actin (dual-color TIRF-SIM) or provide absolute curvature calibration"
+    }
+  },
+  "honest_caveats": [
+    "Most public CME imaging is observable #1 (intensity/lifetime), which is a coat-assembly proxy and cannot support force inference \u2014 curvo refuses it at the data boundary.",
+    "Actin is rarely co-imaged with CCP super-res; without the actin channel the geometry-only inverse cannot break the c_eff/force degeneracy, so cortical force is UNDETERMINED.",
+    "CCS force-inference has NOT been validated on real force ground truth. The only real force-paired validation (tether/STED, mean|bias| 3.8%) is tube geometry, not a coated pit.",
+    "The super-res curvature signal is a projected coat-footprint radius (1/R_proj), a proxy whose absolute 3D scale depends on an ASSUMED pixel size (31.3 nm/px), not read from the file header nor verified against the acquisition paper in this build.",
+    "The IAV epi-TIRF data could not yield depth: tirf/epi images are not registered same-field pairs (punctum correlation r=0.02). Registered epi-TIRF or a z-stack would be needed.",
+    "Raw imaging is never committed \u2014 the repo records provenance (DOIs, paths, retrieval dates) only."
+  ],
+  "what_the_demonstration_shows": "End-to-end: real cmeAnalysis cohorts reproduce the 2020 tension-impedes-maturation finding (front-end, #1); real super-res CCP movies yield genuine curvature trajectories (#3); the inverse fits their shape but its identifiability firewall correctly refuses a force number from geometry alone \u2014 the same discipline that makes curvo trustworthy, demonstrated on real data."
+}

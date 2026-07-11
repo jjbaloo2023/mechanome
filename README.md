@@ -484,6 +484,93 @@ second orthogonal source for structural inputs. Neither replaces the synthetic
 recovery gate for the CCS spherical-cap `analyze()` pipeline — they are
 complementary evidence, at different points in the pipeline.
 
+## Real-data demonstration
+
+The synthetic recovery gate and the tether/STED validation establish that the
+inverse is calibrated. This section applies the whole pipeline to **real
+clathrin-mediated-endocytosis imaging**, under one discipline: match every
+dataset to what it can actually measure before feeding the inverse.
+
+### The observable ladder
+
+Single clathrin-coated pits are diffraction-limited puncta — curvature is not
+readable from ordinary fluorescence. Only three observables are usable, in
+increasing richness:
+
+| Observable | Reads | Force inference |
+|---|---|---|
+| **#1 intensity / lifetime** (any TIRF) | coat-assembly proxy | refused — not a curvature signal |
+| **#2 epi-TIRF ratio** | invagination / axial depth | permitted (needs registered epi+TIRF) |
+| **#3 SIM / super-res** | curvature in real time | permitted — the inverse's real input |
+
+The observable classifier (`validation/realdata/classify_observable.py`) tags
+each dataset and enforces this at the data boundary: it raises rather than route
+an intensity-only dataset to the force inverse. This is the anti-force-astrology
+guardrail applied one level earlier than the posterior.
+
+![Real data classified by observable]({{artifact:art_7408be15-703b-4bdb-b194-c01b34749117}})
+
+### Keystone 1 — front-end + tension cross-check (observable #1)
+
+The 2020 epsin osmotic-shock data (Joseph et al., *Commun Biol*,
+doi:10.1038/s42003-020-01471-6) is cmeAnalysis two-channel TIRF intensity
+cohorts — observable #1. curvo ingests the real cohorts
+(`ingest_cme_mat.py`) and cross-checks the tension dependence against the
+paper's finding that **membrane tension impedes CCP maturation**. Across
+low→high tension (hypotonic → isotonic → hypertonic), all three directions
+hold: productive-pit fraction falls (0.363 → 0.329 → 0.311), abortive fraction
+rises (0.553 → 0.607 → 0.627), and the clathrin peak drops at high tension.
+No force is inferred — the classifier refuses #1.
+
+![Tension cross-check]({{artifact:art_9f22b9f1-410b-42b3-904c-a79b52f19f51}})
+
+### Keystone 2 — super-res curvature → inverse (observable #3)
+
+The force keystone needs a real curvature trajectory. Public live-cell TIRF-SIM
+CCP time-lapse (BioTISR, Zenodo record 13843670, doi:10.5281/zenodo.13843670;
+collection tied to the DPA-TISR paper, *Nat Biotech* 2025) images individual
+clathrin coats as compact puncta — observable #3. `ingest_biotisr_sim.py`
+detects and tracks ~400 CCPs per 20-frame movie and measures an equivalent-disc
+coat footprint radius R_proj(t) (the detector does not test for ring structure),
+converted to a mean-curvature proxy H = 1/R_proj. A representative pit contracts
+from 106 nm to 39 nm start-to-end over 16 frames (H rising 0.009 → 0.025 nm⁻¹,
+non-monotonic frame to frame) — an overall flat→dome→Ω direction.
+
+![Super-res curvature extraction]({{artifact:art_81d4efe3-b418-4f77-8337-7d3afe5c8557}})
+
+Feeding that real trajectory to the nested-sampling inverse produces the honest
+result: **0 of 3 parameters identified**. The forward model fits the sigmoidal
+maturation shape, but geometry alone from a single-channel projected-curvature
+proxy does not pin absolute tension, spontaneous curvature, or cortical force.
+The identifiability firewall refuses a force number and names the disambiguating
+experiment (co-image actin). This is the same discipline the synthetic gate
+enforces, now on real data.
+
+![Inverse on real curvature]({{artifact:art_21453a24-5b48-443b-a229-9a6d41aadc66}})
+
+### Honest caveats
+
+1. Most public CME imaging is observable #1 — a coat-assembly proxy that cannot
+   support force inference. curvo refuses it at the data boundary.
+2. Actin is rarely co-imaged with CCP super-res. Without the actin channel the
+   geometry-only inverse cannot break the c_eff/force degeneracy, so cortical
+   force is UNDETERMINED — as it was here (0/3 identified).
+3. CCS force-inference has not been validated on real force ground truth. The
+   only real force-paired validation (tether/STED, mean |bias| 3.8%) is tube
+   geometry, not a coated pit.
+4. The super-res curvature signal here is a projected coat-footprint radius
+   (1/R_proj), a proxy whose absolute 3D scale depends on an assumed pixel size
+   (31.3 nm/px) that was not read from the file header nor verified against the
+   acquisition paper in this build — so any absolute H is provisional.
+5. The IAV 2022 epi-TIRF data could not yield depth: the TIRF and epi images are
+   not registered same-field pairs (punctum-level correlation r = 0.02, no
+   better than random cell pairings). Registered epi-TIRF or a z-stack would be
+   required. This negative result is reported rather than papered over.
+
+Raw imaging is never committed. The repository records provenance — DOIs,
+source paths, retrieval dates — only; the raw `.mat`, `.ome.tif`, and `.mrc`
+files are git-ignored.
+
 ## Perception validation on image data
 
 The tether/STED test above inverts *reported* radii. The one piece it does not

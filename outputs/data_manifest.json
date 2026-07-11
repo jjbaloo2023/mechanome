@@ -1,0 +1,264 @@
+{
+  "generated": "2026-07-11",
+  "root": "/root/projects",
+  "datasets": [
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 2/Osmotic shock/hyper.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.45e-06,
+      "n_cells": 19,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 2/Osmotic shock/hypo.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.45e-06,
+      "n_cells": 16,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 2/Osmotic shock/iso.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.45e-06,
+      "n_cells": 19,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 2/microcontact print data/25/25um_combined.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.43e-06,
+      "n_cells": 18,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 2/microcontact print data/32/32_combined.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.43e-06,
+      "n_cells": 20,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/Epsin and epsin del ENTH initiation/hypo_enth_epsinmaster.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "EGFP",
+        "RFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.45e-06,
+      "n_cells": 7,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/Epsin and epsin del ENTH initiation/hypo_epsinmaster.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "EGFP",
+        "RFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.45e-06,
+      "n_cells": 7,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/Epsin and epsin del ENTH initiation/iso_epsin_enth_master.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "EGFP",
+        "RFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.43e-06,
+      "n_cells": 12,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/Epsin and epsin del ENTH initiation/iso_epsinfull_master.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "EGFP",
+        "RFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.45e-06,
+      "n_cells": 9,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/epsin del ENTH/hyper.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.43e-06,
+      "n_cells": 12,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/epsin del ENTH/hypo.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.43e-06,
+      "n_cells": 12,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/epsin del mut-H0/hyper_epsinmaster.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "EGFP",
+        "RFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.43e-06,
+      "n_cells": 6,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/epsin del mut-H0/hypo_muth0.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.45e-06,
+      "n_cells": 24,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "Epsin 2020 (Commun Biol)",
+      "rel_path": "Epsin paper comm bio 2020/final figure/data availability/Figure 3/epsin del mut-H0/iso_muth0.mat",
+      "kind": "cmeAnalysis .mat",
+      "observable": "1_intensity",
+      "force_inference": false,
+      "markers": [
+        "RFP",
+        "EGFP"
+      ],
+      "framerate_s": 2.0,
+      "pixel_size_um": 6.45e-06,
+      "n_cells": 19,
+      "has_cohorts": true,
+      "retrieval_date": "2026-07-11"
+    },
+    {
+      "paper": "IAV 2022 (Membranes)",
+      "rel_path": "IAV paper membranes 2022/IAV and NP data/080421 epsin EGFP mchc clc IAV/epsin/IAV",
+      "kind": "paired TIRF+epi OME-TIFF",
+      "observable": "2_epitirf_depth",
+      "force_inference": true,
+      "n_paired_cells": 9,
+      "cells": [
+        "cell_1",
+        "cell_10",
+        "cell_2",
+        "cell_4",
+        "cell_5",
+        "cell_6",
+        "cell_7",
+        "cell_8",
+        "cell_9"
+      ],
+      "n_timepoints": 1,
+      "channels": [
+        "488-epsin",
+        "561-clathrin",
+        "640-membrane"
+      ],
+      "note": "single-timepoint population snapshot, not time-lapse",
+      "retrieval_date": "2026-07-11"
+    }
+  ],
+  "summary": {
+    "n_intensity_datasets": 14,
+    "n_epitirf_conditions": 1,
+    "n_epitirf_paired_cells": 9,
+    "observable_3_present": false,
+    "note": "No observable #3 (SIM curvature) present; 2020 is #1, IAV is #2"
+  }
+}

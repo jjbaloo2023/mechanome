@@ -33,3 +33,11 @@ cache/real_images/emd_53909.png
 outputs/field_movie.npy
 outputs/_tracking_sweep.json
 outputs/per_track_recovery_oracle.json
+
+*.ome.tif
+*.mat
+curvo/validation/realdata/_raw/
+
+# BioTISR raw SIM cache — re-fetchable from Zenodo 13843670 via range requests
+cache/biotisr/
+*.mrc

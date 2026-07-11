@@ -1,0 +1,41 @@
+{
+  "conditions": {
+    "hypo": {
+      "pct_productive": 0.3631758145728905,
+      "pct_abortive": 0.5531605103556703,
+      "init_density": 126.04056655516807,
+      "mean_ccp_lifetime_s": 34.8852400718422,
+      "clathrin_peak": 79.35496439256163,
+      "n_cells": 16
+    },
+    "iso": {
+      "pct_productive": 0.32903678249294177,
+      "pct_abortive": 0.6071928607628629,
+      "init_density": 161.21029109309816,
+      "mean_ccp_lifetime_s": 29.06757258339464,
+      "clathrin_peak": 80.21362411504015,
+      "n_cells": 19
+    },
+    "hyper": {
+      "pct_productive": 0.31137867506387823,
+      "pct_abortive": 0.6273387799220871,
+      "init_density": 103.6611226896506,
+      "mean_ccp_lifetime_s": 29.110030663706482,
+      "clathrin_peak": 63.581509032236305,
+      "n_cells": 19
+    }
+  },
+  "tension_order": [
+    "hypo",
+    "iso",
+    "hyper"
+  ],
+  "direction_checks": {
+    "productive_falls_with_tension": true,
+    "abortive_rises_with_tension": true,
+    "clathrin_peak_falls_at_high_tension": true
+  },
+  "verdict": "consistent with the 2020 finding (tension impedes maturation)",
+  "observable": "1_intensity",
+  "scope": "coat-assembly proxy; NO force inference (classifier refuses #1)"
+}

@@ -1,0 +1,136 @@
+{
+  "dataset": "BioTISR 2D Data (CCPs)",
+  "cell": "Cell_001",
+  "track_id": 132,
+  "observable": "3_superres_curvature",
+  "pixel_size_nm": 31.3,
+  "H_obs": [
+    0.009437986426546943,
+    0.009616435221721994,
+    0.010072698376320048,
+    0.010846463655972962,
+    0.010778513993157685,
+    0.011603055639295794,
+    0.013856517992699869,
+    0.01297914186224184,
+    0.012073112802566018,
+    0.012073112802566018,
+    0.012737920943444203,
+    0.013658131785942546,
+    0.014823644461042567,
+    0.015407683501933042,
+    0.015503744099393894,
+    0.014493670754713783,
+    0.017307571707667335,
+    0.021552463965301832,
+    0.02267088323605309,
+    0.02190628029133977,
+    0.020020992608873803,
+    0.020020992608873803,
+    0.021865786506509055,
+    0.025324775064575145
+  ],
+  "H_sigma": [
+    0.003973677685861462,
+    0.004085915997095074,
+    0.004370748852505265,
+    0.004910966110596365,
+    0.0048656482054389785,
+    0.005369789256313125,
+    0.007246158801368373,
+    0.0065022594183915495,
+    0.005825194555150792,
+    0.005825194555150792,
+    0.006335379475666888,
+    0.0071114777772584665,
+    0.008164216775659126,
+    0.008746581062712599,
+    0.008829449564760509,
+    0.007862679837720073,
+    0.010067851005326204,
+    0.01589947581047122,
+    0.017431957783814234,
+    0.016260430402909608,
+    0.013909894676847914,
+    0.013909894676847914,
+    0.016001599243313912,
+    0.02146367737518231
+  ],
+  "A_coat_nm2": 11309.733552923255,
+  "logz": 76.61408955444593,
+  "ncall": 11330,
+  "stopped_early": false,
+  "identifiability": {
+    "c_eff_max": {
+      "median": 0.039695519665378196,
+      "ci68": [
+        0.029286019234673746,
+        0.05314384859120139
+      ],
+      "ci95": [
+        0.02027509284478478,
+        0.06599651570416726
+      ],
+      "post_std": 0.011845071861078447,
+      "prior_std": 0.023094010767585032,
+      "width_ratio": 0.5129066570673076,
+      "info_gain_bits": 0.9632317934247061,
+      "marginal_constrained": false,
+      "degenerate_with": [],
+      "railed": false,
+      "identified": false,
+      "units": "nm^-1"
+    },
+    "active_force_max": {
+      "median": 43.01293137391295,
+      "ci68": [
+        20.725553772549976,
+        55.31636461587839
+      ],
+      "ci95": [
+        5.0482213622838925,
+        59.32139123198533
+      ],
+      "post_std": 15.627641878117357,
+      "prior_std": 17.320508075688775,
+      "width_ratio": 0.9022623245130124,
+      "info_gain_bits": 0.14838115004014465,
+      "marginal_constrained": false,
+      "degenerate_with": [],
+      "railed": false,
+      "identified": false,
+      "units": "pN"
+    },
+    "sigma": {
+      "median": 0.015140814549763168,
+      "ci68": [
+        0.004538005483059396,
+        0.03366289597431931
+      ],
+      "ci95": [
+        0.001539466862173328,
+        0.047432078246189086
+      ],
+      "post_std": 0.013445725498234634,
+      "prior_std": 0.014145081595145832,
+      "width_ratio": 0.9505583554108874,
+      "info_gain_bits": 0.07315289329480289,
+      "marginal_constrained": false,
+      "degenerate_with": [],
+      "railed": false,
+      "identified": false,
+      "units": "kBT/nm^2"
+    }
+  },
+  "n_identified": 0,
+  "verdict": "force UNDETERMINED \u2014 geometry-only proxy, actin not co-imaged; firewall refuses point force",
+  "disambiguating_experiment": "co-image actin (dual-color TIRF-SIM) or provide absolute curvature calibration",
+  "assumptions": [
+    "pixel 31.3 nm/px ASSUMED (not read from MRC header, not verified vs acquisition paper)",
+    "R_proj is equivalent-disc coat-footprint radius (detector does not test annularity); curvature proxy not absolute 3D H",
+    "H_sigma inflated 30% for proxy-calibration ambiguity"
+  ],
+  "zenodo_record": "13843670",
+  "doi": "10.5281/zenodo.13843670",
+  "collection_doi": "10.5281/zenodo.14760518"
+}
