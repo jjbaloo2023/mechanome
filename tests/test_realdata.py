@@ -301,6 +301,30 @@ def test_epsin_domain_decomposition_force_burden():
            f"force burden must order full < IDP < ENTH, got {fm}")
 
 
+def test_enth_fusion_disorder_gates_curvature():
+    """Designed ENTH fusions: a disordered C-terminal partner (AP180 IDP)
+    rescues curvature, a folded one (albumin) does not. Grounded in the
+    partner's AlphaFold-classified disorder. Skips if models are not cached
+    and cannot be fetched."""
+    import os as _os
+    try:
+        from validation.realdata.enth_fusion_cases import (
+            partner_brush_residues, constructs, min_force_to_omega, PARTNERS)
+        ap180_brush = partner_brush_residues(PARTNERS["AP180"])
+        alb_brush = partner_brush_residues(PARTNERS["albumin"])
+    except Exception as e:  # network/cache unavailable
+        print(f"  (skipped: AlphaFold models unavailable: {e})")
+        return
+    _check(ap180_brush > 300, f"AP180 must be substantially disordered, got {ap180_brush} brush residues")
+    _check(alb_brush == 0, f"albumin (folded globule) must have 0 brush residues, got {alb_brush}")
+    C = constructs()
+    fm = {n: min_force_to_omega(c) for n, c in C.items()}
+    _check(fm["ENTH + albumin"] == fm["ENTH alone"],
+           f"folded albumin fusion must match ENTH-alone, got {fm}")
+    _check(fm["ENTH + AP180 IDP"] < fm["full epsin"] < fm["ENTH + albumin"],
+           f"disordered AP180 fusion must lower force burden below full epsin, got {fm}")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0

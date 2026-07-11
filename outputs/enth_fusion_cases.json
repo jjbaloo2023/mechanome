@@ -1,0 +1,59 @@
+{
+  "title": "Test cases: HIP1R, and designed ENTH fusions (ENTH+AP180-IDP vs ENTH+albumin)",
+  "hip1r": {
+    "uniprot": "O75146",
+    "family": "ANTH",
+    "H_med": 0.0316,
+    "H_CI68": [
+      0.0275,
+      0.0333
+    ],
+    "p_cross_omega": 0.6415,
+    "interpretation": "HIP1R straddles the Omega threshold (P=0.64): it has a strong extreme-N-terminal amphipathic moment (predicted ANTH wedge) plus 173 disordered residues, so unlike PICALM it can nearly reach productive curvature on its structural features -- but the prediction (does its N-terminus insert and tubulate?) needs experimental confirmation."
+  },
+  "designed_fusions": {
+    "rationale": "Probe WHAT KIND of C-terminal partner rescues ENTH-domain curvature: a disordered brush (AP180 assembly domain) vs a folded globule (albumin) of comparable mass. curvo classifies each partner's disorder from its AlphaFold model (pLDDT + composition), so the crowding contribution is grounded, not assumed.",
+    "partner_disorder": {
+      "AP180 (SNAP91, O60641)": {
+        "nres": 907,
+        "brush_residues": 621,
+        "brush_frac": 0.68,
+        "segments": "rigid_inclusion + polymer_brush_crowding"
+      },
+      "albumin (ALB, P02768)": {
+        "nres": 609,
+        "brush_residues": 0,
+        "brush_frac": 0.0,
+        "segments": "rigid_inclusion_wedge + ensemble_flagged (NO polymer-brush)"
+      }
+    },
+    "constructs": {
+      "ENTH + AP180 IDP (test)": {
+        "c_eff": 0.0485,
+        "H_at_coat_plus40": 0.0267,
+        "stage_at_40pN": "dome",
+        "min_actin_force_to_omega_pN": 55
+      },
+      "full epsin (reference)": {
+        "c_eff": 0.035,
+        "H_at_coat_plus40": 0.0208,
+        "stage_at_40pN": "dome",
+        "min_actin_force_to_omega_pN": 100
+      },
+      "ENTH + albumin (counterexample)": {
+        "c_eff": 0.01,
+        "H_at_coat_plus40": 0.0099,
+        "stage_at_40pN": "flat",
+        "min_actin_force_to_omega_pN": 175
+      },
+      "ENTH domain alone (reference)": {
+        "c_eff": 0.01,
+        "H_at_coat_plus40": 0.0099,
+        "stage_at_40pN": "flat",
+        "min_actin_force_to_omega_pN": 175
+      }
+    },
+    "verdict": "A DISORDERED C-terminal partner rescues ENTH curvature; a FOLDED one does not. ENTH+AP180-IDP (c_eff 0.049) needs only 55 pN of actin force to reach Omega -- it behaves like, and slightly exceeds, full epsin (100 pN), because the AP180 assembly-domain brush substitutes for epsin's own crowding tail. ENTH+albumin (c_eff 0.010) is INDISTINGUISHABLE from ENTH-alone (both 175 pN): a folded globular cargo of comparable mass adds zero curvature drive. The mechanistic prediction: what you fuse to the ENTH C-terminus matters through its DISORDER (entropic brush crowding), not its presence or mass.",
+    "caveat": "Stage/threshold calls from the validated forward model. The crowding c_eff is CrowdingPlayer's Hill saturation with coverage set by the classifier's brush-residue count (idr/400 scaling, as in the family screen) -- a representation-level estimate, not a per-construct measurement. The folded-partner result rests on curvo's guardrail that a folded globule is not a polymer brush (0 brush residues), which is the physically correct call but should be confirmed by an in-vitro tubulation assay of the actual fusion."
+  }
+}

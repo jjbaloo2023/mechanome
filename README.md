@@ -556,6 +556,37 @@ tension response, and with epsin acting as a curvature *effector*, not a mere
 adaptor. As with PICALM, these are stage/threshold calls from the forward model,
 not inverses on measured trajectories — no force point-estimate is made.
 
+### Worked test cases — HIP1R, and designed ENTH fusions
+
+**HIP1R** (ANTH, O75146) is the other ANTH-family adaptor curvo characterizes.
+Unlike PICALM it *straddles* the Ω threshold: family-screen H_med ≈ 0.032 with
+P(cross Ω) ≈ 0.64, driven by a strong extreme-N-terminal amphipathic moment
+(predicted ANTH wedge) plus ~173 disordered residues. So HIP1R can nearly reach
+productive curvature on its structural features alone — but that is a testable
+prediction (does its N-terminus insert and tubulate?), not a confirmed force.
+
+**Designed ENTH fusions** ask a sharper, engineered question: does it matter
+*what kind* of partner is fused to the ENTH C-terminus — a disordered chain or a
+folded globule? curvo grounds the answer in the partner's AlphaFold model,
+classifying each segment (pLDDT + composition) into folded vs
+polymer-brush-crowding, so the crowding contribution is measured, not assumed.
+
+![ENTH fusion cases]({{artifact:art_bcc4f542-804e-449a-b93e-a61b8ad621d9}})
+
+The classifier finds **AP180**'s assembly domain (SNAP91, O60641) is 68%
+disordered (621 brush-competent residues), while **albumin** (ALB, P02768) is a
+folded globule with **zero** brush residues. The consequence is decisive:
+**ENTH + AP180-IDP** (c_eff 0.049) reaches Ω with only 55 pN of actin force — it
+behaves like, and slightly exceeds, full epsin (100 pN), because the AP180 brush
+substitutes for epsin's own crowding tail. **ENTH + albumin** (c_eff 0.010) is
+*indistinguishable from ENTH-alone* (both 175 pN): a folded C-terminal cargo of
+comparable mass adds no curvature drive. The prediction: what you fuse to the
+ENTH C-terminus matters through its **disorder** (entropic brush crowding), not
+its presence or mass. As elsewhere in this section these are stage/threshold
+calls from the forward model — no force point-estimate — and the folded-partner
+result rests on curvo's guardrail that a globule is not a polymer brush, which
+should be confirmed by an in-vitro tubulation assay of the actual fusion.
+
 ### The observable ladder
 
 Single clathrin-coated pits are diffraction-limited puncta — curvature is not
