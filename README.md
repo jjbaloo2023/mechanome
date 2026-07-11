@@ -587,6 +587,30 @@ calls from the forward model — no force point-estimate — and the folded-part
 result rests on curvo's guardrail that a globule is not a polymer brush, which
 should be confirmed by an in-vitro tubulation assay of the actual fusion.
 
+### Closing the identifiability loop — inverse recovery for ENTH+AP180
+
+The construct cases above are stage/threshold calls; this closes the loop back
+to a *calibrated force*. ENTH+AP180-IDP is predicted to reach Ω at ~55 pN of
+actin force, so `validation/realdata/enth_ap180_inverse.py` simulates the
+construct forward at a **known** 55 pN, adds realistic ratiometric noise, and
+inverts the trajectory with the Bayesian engine (dynesty nested sampling) — the
+one place in this section where a force *number* is claimed.
+
+![ENTH+AP180 inverse recovery]({{artifact:art_6ec09385-1065-421f-a0ab-ae7f832f4234}})
+
+The result is the anti-force-astrology firewall in action. **With** the
+independent actin-density channel that breaks the c_eff/force degeneracy, the
+engine recovers the force at **55.0 pN median across 8 noise seeds** (true 55.0,
+bias −0.1%) with a **calibrated CI68 (coverage 0.75** vs 0.68 nominal), all
+identified. **Without** that channel, force is degenerate with c_eff (CI68
+[27, 104]) and the identifiability firewall **refuses** it (identified=False)
+rather than reporting the biased median (68.6 pN). Membrane tension (σ) is
+unidentifiable from single-CCP geometry in both cases, as expected. This is a
+synthetic self-consistency test — it validates the inference engine and
+identifiability logic (calibration, degeneracy handling), not the real-imaging
+perception front end; a real ENTH+AP180 experiment would additionally need the
+epi-TIRF/STAR depth observable and a co-imaged actin channel.
+
 ### The observable ladder
 
 Single clathrin-coated pits are diffraction-limited puncta — curvature is not

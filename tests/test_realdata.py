@@ -325,6 +325,23 @@ def test_enth_fusion_disorder_gates_curvature():
            f"disordered AP180 fusion must lower force burden below full epsin, got {fm}")
 
 
+def test_enth_ap180_inverse_identified_only_with_actin_channel():
+    """Closing the loop: the ENTH+AP180 actin force (true 55 pN) is recovered
+    and IDENTIFIED only when the degeneracy-breaking actin channel is present;
+    without it the identifiability firewall refuses the force. Uses a reduced
+    live-point count for test speed."""
+    from validation.realdata.enth_ap180_inverse import make_observation, recover, FORCE_TRUE
+    traj, H_obs, H_sig, a_obs, a_sig = make_observation(seed=7)
+    _, id_yes = recover(H_obs, H_sig, a_obs, a_sig, nlive=200, seed=0)
+    fy = id_yes["active_force_max"]
+    _check(fy["identified"], "force must be identified WITH the actin channel")
+    _check(abs(fy["median"] - FORCE_TRUE) < 5.0,
+           f"recovered force {fy['median']:.1f} must be within 5 pN of true {FORCE_TRUE}")
+    _, id_no = recover(H_obs, H_sig, nlive=200, seed=0)
+    fn = id_no["active_force_max"]
+    _check(not fn["identified"], "force must be REFUSED without the actin channel (degenerate with c_eff)")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0
