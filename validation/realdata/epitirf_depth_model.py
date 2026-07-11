@@ -105,6 +105,52 @@ def predict_ratio(theta_forces, params, A_coat_nm2, d_pen=D_PEN_NM,
     return tirf_epi_ratio_from_psi(psi, R, d_pen)
 
 
+# --------------------------------------------------- STAR two-colour mode ----
+# Real published calibration from Nawara et al., Nat Commun 2022 (STAR
+# microscopy, doi:10.1038/s41467-022-29317-1), read from their released code
+# (github.com/Mattheyses-Lab/Nawara_et_al._NatCommun_2022, D. Beads/
+# dream_tirf_bead_TN.m). STAR dual-tags clathrin with two fluorophores excited
+# at different wavelengths; the wavelength-dependent evanescent penetration
+# depth means the two channels sample axial position differently, and the
+# log-ratio maps to absolute height dz. This is the two-colour generalisation
+# of the single-channel epi/TIRF ratio above -- SAME evanescent physics.
+
+def star_penetration_depth(lambda_nm, n_glass=1.515, n_sample=1.43,
+                           theta_rad=1.2741):
+    """Evanescent penetration depth d = lambda/(4 pi sqrt(n_g^2 sin^2 theta -
+    n_s^2)). Their exact bead-calibration parameters as defaults (TIRF angle
+    73 deg, ~2.3 deg above the 70.7 deg critical angle -> a deep field)."""
+    return lambda_nm / (4 * np.pi * np.sqrt(
+        n_glass ** 2 * np.sin(theta_rad) ** 2 - n_sample ** 2))
+
+
+# Their two channels and the ratio->dz scale gamma (dream_tirf_bead_TN.m l.22-25)
+STAR_D_488 = star_penetration_depth(488.0)   # ~167 nm
+STAR_D_647 = star_penetration_depth(647.0)   # ~221 nm
+STAR_GAMMA = 1.0 / ((STAR_D_647 - STAR_D_488) / (STAR_D_647 * STAR_D_488))  # ~679 nm
+
+
+def star_ratio_from_psi(psi, R, d_short=STAR_D_488, d_long=STAR_D_647):
+    """STAR two-colour intensity ratio I_long / I_short over the coat surface.
+
+    Each channel is a surface-averaged evanescent attenuation at its own
+    penetration depth; the ratio grows as the coat invaginates (the deeper-
+    penetrating long-wavelength channel attenuates less with height). Maps to
+    their dz via dz = gamma * log(ratio / ratio_0)  (their l.204).
+    """
+    I_short = tirf_epi_ratio_from_psi(psi, R, d_pen=d_short)
+    I_long = tirf_epi_ratio_from_psi(psi, R, d_pen=d_long)
+    return I_long / I_short
+
+
+def star_dz_from_psi(psi, R, d_short=STAR_D_488, d_long=STAR_D_647,
+                     gamma=STAR_GAMMA):
+    """Recovered absolute height dz(t) using STAR's own log-ratio*gamma map,
+    referenced to the first frame (as their code does)."""
+    ratio = star_ratio_from_psi(psi, R, d_short, d_long)
+    return np.log(ratio / ratio[0]) * gamma
+
+
 # ------------------------------------------------------------- inverse -------
 
 def _make_ratio_loglike(ratio_obs, ratio_sigma, params, A_coat_nm2, d_pen):

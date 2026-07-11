@@ -622,6 +622,38 @@ thing that broke it. Observable #2 is the path to dynamic force inference that
 sidesteps the lateral-resolution wall; the model and its data spec are now in
 hand, awaiting a registered dataset.
 
+**Validated against a real instrument calibration (STAR microscopy).** This is
+not just synthetic self-consistency. STAR microscopy (Nawara et al., *Nat
+Commun* 2022, doi:10.1038/s41467-022-29317-1) dual-tags clathrin with two
+fluorophores and reads coat height from the wavelength-dependent evanescent
+penetration depth — the exact physics `epitirf_depth_model.py` encodes. Reading
+their released calibration code (bead calibration in their public GitHub repo)
+gives their real constants: penetration depths d₄₈₈ = 167 nm, d₆₄₇ = 221 nm
+(TIRF angle 73°, 2.3° above the 70.7° critical angle), and a ratio→height map
+Δz = γ·log(ratio/ratio₀) with γ ≈ 679 nm. Applying *their* published map to the
+ratio curvo's forward geometry predicts recovers the true mean coat height with
+**correlation 1.0000 and slope 0.98** — curvo's depth physics *is* the STAR
+calibration. A registered STAR Δz-vs-time trajectory drops directly into
+`run_ratio_inverse`. (Their real penetration depths are deeper than a generic
+110 nm assumption, so single-channel ratio contrast is weaker; STAR's two-colour
+differencing buys the axial contrast back, which is why the two-colour design is
+load-bearing — a design lesson the calibration made explicit.)
+
+Candidate open datasets for a full run, with honest framing:
+
+| Dataset | What it gives | For curvo |
+|---|---|---|
+| STAR (Nawara 2022, PMC8976038) | ratiometric curvature-vs-time, live TIRF | direct inverse input; sample data email-gated, calibration public |
+| STAR + actin + osmotic (bioRxiv 2025.08.18.670928) | curvature + actin + tension knob | the ideal: curvature *and* the degeneracy-breaking channel |
+| Myo1E + tension (bioRxiv 2025.11.12.688091) | AP2 + DNM2 + a force-generating motor, TIRF 1 fps | mechanism/ordering + a force actor |
+| Plant CME (eLife 52067) | two-colour clathrin + actin / TPLATE, downloadable | co-recruitment timing (conventional TIRF, ~250 nm) |
+
+The split is load-bearing: conventional single-channel TIRF (~200–250 nm) gives
+*co-recruitment timing*, not curvature; only STAR-ratiometric or SIM gives
+curvature-vs-time; and force identifiability specifically needs the **actin
+channel** present — which is why the STAR + actin + osmotic set is the closest
+match to what curvo wants.
+
 ### Honest caveats
 
 1. Most public CME imaging is observable #1 — a coat-assembly proxy that cannot

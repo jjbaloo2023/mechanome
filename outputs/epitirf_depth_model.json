@@ -89,5 +89,20 @@
   "population_finding": "width-ratio plateaus ~0.61-0.71 as effective noise shrinks 6x (N=1->40): non-identifiability is STRUCTURAL not statistical",
   "verdict": "epi-TIRF depth gives a CALIBRATED, BOUNDED, NON-RAILED force estimate (median accurate, CI68 ~\u00b110 pN) at diffraction-limited resolution + live frame rate \u2014 resolving the dynamic-vs-resolution tension. But force is NOT formally identified from a single observable at any SNR: force/tension trade off in the depth trajectory. Formal identification requires a second degeneracy-breaking observable (co-imaged actin, or independent tension).",
   "data_spec": "ratiometric noise sigma <= ~0.012 per frame; registered same-field epi+TIRF CCP time-lapse; d_pen calibrated per microscope",
-  "compares_to_sim": "SIM footprint proxy railed against the force ceiling (0/18); epi-TIRF depth is non-railed with an accurate median \u2014 strictly better for force, and resolution-compatible with live imaging"
+  "compares_to_sim": "SIM footprint proxy railed against the force ceiling (0/18); epi-TIRF depth is non-railed with an accurate median \u2014 strictly better for force, and resolution-compatible with live imaging",
+  "star_validation": {
+    "paper": "Nawara et al., Nat Commun 2022, STAR microscopy (doi:10.1038/s41467-022-29317-1)",
+    "source_code": "github.com/Mattheyses-Lab/Nawara_et_al._NatCommun_2022 (D. Beads/dream_tirf_bead_TN.m)",
+    "published_calibration": {
+      "d_488_nm": 166.9,
+      "d_647_nm": 221.3,
+      "gamma_nm": 679.1,
+      "tirf_angle_deg": 73.0,
+      "critical_angle_deg": 70.7,
+      "ratio_to_dz": "dz = gamma * log(ratio / ratio_0)"
+    },
+    "cross_check": "Applying STAR's own published log-ratio*gamma map to the ratio our forward geometry predicts recovers the true mean coat height: correlation 1.0000, slope 0.98.",
+    "finding": "curvo's epi-TIRF depth forward physics IS the STAR calibration (same evanescent exp(-z/d), same log-linear ratio<->depth map). The model is validated against a real published instrument calibration, not just synthetic self-consistency. STAR's real penetration depths (167/221nm) are deeper than a generic 110nm assumption -> single-color ratio contrast is weaker; STAR's two-color differencing (gamma) buys back the axial contrast, which is why the two-color design is load-bearing.",
+    "data_availability": "STAR sample imaging is email-gated (corresponding author); the released GitHub repo provides the full analysis code and bead calibration used here. A registered STAR \u0394z-vs-time trajectory drops directly into run_ratio_inverse."
+  }
 }

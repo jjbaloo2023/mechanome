@@ -213,6 +213,31 @@ def test_epitirf_force_nonrailed():
     _check(not af["railed"], "force posterior must NOT be railed against the ceiling")
 
 
+def test_star_calibration_matches_forward_model():
+    """The epi-TIRF depth model reproduces STAR microscopy's published
+    calibration (Nawara et al. 2022): applying STAR's own log-ratio*gamma
+    map to the ratio our forward geometry predicts recovers the true mean coat
+    height. Validates observable #2 against a real instrument calibration."""
+    import numpy as _np
+    from validation.realdata.epitirf_depth_model import (
+        cap_geometry, star_dz_from_psi, STAR_D_488, STAR_D_647, STAR_GAMMA)
+    # published constants (their bead calibration): sanity ranges
+    _check(160 < STAR_D_488 < 175, f"d_488 should be ~167nm, got {STAR_D_488:.0f}")
+    _check(210 < STAR_D_647 < 230, f"d_647 should be ~221nm, got {STAR_D_647:.0f}")
+    _check(600 < STAR_GAMMA < 750, f"gamma should be ~679nm, got {STAR_GAMMA:.0f}")
+    A = _np.pi * 60 ** 2
+    psi, R, _ = cap_geometry(0.02, 0.02, 40.0, A)
+    dz = star_dz_from_psi(psi, R)
+    # true mean coat-surface height above the rim
+    th = _np.linspace(0, 1, 128)[None, :] * psi[:, None]
+    z = R[:, None] * (_np.cos(th) - _np.cos(psi)[:, None]); w = _np.sin(th)
+    z_mean = _np.trapezoid(z * w, th, axis=1) / _np.trapezoid(w, th, axis=1)
+    r = _np.corrcoef(dz, z_mean)[0, 1]
+    slope = _np.polyfit(z_mean, dz, 1)[0]
+    _check(r > 0.999, f"STAR dz must track true mean height, r={r:.4f}")
+    _check(0.9 < slope < 1.1, f"STAR dz slope must be ~1, got {slope:.2f}")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0
