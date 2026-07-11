@@ -175,8 +175,29 @@ def prior_transform(u, params):
 
 # ------------------------------------------------------ nested sampling ------
 def run_nested(H_obs, H_sigma, A_coat_nm2, params=None, mask=None,
-               nlive=250, seed=0, fixed=FIXED, actin_obs=None, actin_sigma=None):
-    """dynesty static nested sampling -> posterior samples + log-evidence."""
+               nlive=250, seed=0, fixed=FIXED, actin_obs=None, actin_sigma=None,
+               dlogz=0.05, maxcall=500_000, maxiter=None):
+    """dynesty static nested sampling -> posterior samples + log-evidence.
+
+    Plateau guard: the loglikelihood can plateau (e.g. an actin channel that is
+    flat across a whole restricted model, or a near-degenerate direction). Without
+    stopping caps, dynesty can spin for hours on such a run. We therefore pass
+    explicit, deterministic bounds:
+      * dlogz    -- early stop when the estimated remaining evidence is negligible.
+                    0.05 is well below the lnB~0.3 resolution the model-comparison
+                    decisions need, so it does not affect a verdict. It is TIGHTER
+                    than dynesty's own nlive-dependent default (1e-3*(nlive-1)+0.01,
+                    ~0.16-0.26 here), so the run samples at least as long as before
+                    the explicit cap -- the guard bounds runaway cost, it does not
+                    truncate a healthy run early.
+      * maxcall  -- hard cap on likelihood evaluations (~0.2 ms each, so 500k bounds
+                    worst-case wall-clock to a few minutes; a healthy run uses
+                    ~10-30k and stops on dlogz long before this).
+      * maxiter  -- optional hard iteration cap (None = governed by dlogz/maxcall).
+    `stopped_early` in the result flags when a cap (not dlogz) terminated the run,
+    so a caller can widen the cap or down-weight that fit rather than trust a
+    truncated evidence.
+    """
     from dynesty import NestedSampler
     from dynesty.utils import resample_equal
     params = params or DEFAULT_PARAMS
@@ -186,13 +207,19 @@ def run_nested(H_obs, H_sigma, A_coat_nm2, params=None, mask=None,
     rng = np.random.default_rng(seed)
     sampler = NestedSampler(loglike, lambda u: prior_transform(u, params), ndim,
                             nlive=nlive, rstate=rng)
-    sampler.run_nested(print_progress=False)
+    sampler.run_nested(print_progress=False, dlogz=dlogz,
+                       maxcall=maxcall, maxiter=maxiter)
     res = sampler.results
+    ncall = int(np.sum(res.ncall)) if hasattr(res, "ncall") else None
+    niter = int(res.niter) if hasattr(res, "niter") else None
+    stopped_early = bool((ncall is not None and ncall >= maxcall) or
+                         (maxiter is not None and niter is not None and niter >= maxiter))
     logwt = res.logwt - res.logz[-1]
     weights = np.exp(logwt)
     samples = resample_equal(res.samples, weights)
     return dict(samples=samples, logz=float(res.logz[-1]),
-                logz_err=float(res.logzerr[-1]), params=params, engine="dynesty")
+                logz_err=float(res.logzerr[-1]), params=params, engine="dynesty",
+                ncall=ncall, niter=niter, stopped_early=stopped_early)
 
 
 # --------------------------------------------------------------- MCMC --------

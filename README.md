@@ -293,9 +293,36 @@ radial fit recovers a physical membrane radius (R ≈ 9 nm, band 6–15 nm, SNR 
 Closing the gap needs a modality adapter (contrast flip + ring/cap geometry) — the
 documented seam for a real super-resolution dataset when one is in hand.
 
+**Modality adapter — the seam, now built.** `validation/modality_adapter.py`
+closes the two axes of that gap that a *single image* can close. It contrast-flips
+the density, fits the membrane ring (radial profile + sub-pixel peak, bootstrap
+uncertainty from ±1 px center jitter), and emits a `GeometryTrace` — the exact
+structure curvo's perception front end produces — so the rest of the stack can
+consume a real cryo-ET image.
+
+![modality adapter](outputs/modality_adapter.png)
+
+On EMD-65182 it yields R = 8.9 ± 0.5 nm and mean curvature H = 0.056 ± 0.003 nm⁻¹
+(cylindrical model; a `spherical` model gives 2×). The **third** axis — dynamics
+and force — it does *not* close and does not pretend to: a static subtomogram
+average has no time series and no actin channel, so the emitted trace carries one
+frame, `has_actin_channel=False`, and `force_applicable=False`. Interpreting a
+composition-set vesicle radius as a tension-set tube would back-calculate a
+meaningless ~500 µN/m — precisely the force-astrology the project forbids — so the
+adapter stops at the curvature measurement. Recovering force from a real sample
+needs a time-resolved series, which the adapter is shaped to accept.
+
 *Full report:* `outputs/perception_benchmark.json`. *Reproduce:*
 `python validation/perception_benchmark.py` (sweep + stressors),
-`python validation/image_to_force.py`, `python validation/real_image_probe.py`.
+`python validation/image_to_force.py`, `python validation/real_image_probe.py`,
+`python -m validation.modality_adapter`.
+
+**Sampler plateau guard.** The end-to-end image→force run once hung ~6 h on a
+dynesty likelihood plateau. `inverse.run_nested` now takes explicit `dlogz`
+(default 0.05, tighter than dynesty's own nlive-dependent default), `maxcall`
+(500k, ≈ minutes worst-case), and `maxiter` stopping caps, and reports
+`stopped_early` / `ncall` so a caller can tell a converged run from a capped one.
+The guard bounds runaway cost without truncating a healthy run.
 
 ## The mechanome: the schema curvo is the reference implementation of
 
@@ -533,6 +560,7 @@ curvo/
   validation/plot_envelope.py  operating-envelope figure renderer
   validation/image_to_force.py end-to-end pixels->force on EXTRACTED geometry
   validation/real_image_probe.py  honest transfer probe on a real cryo-ET membrane (EMD-65182)
+  validation/modality_adapter.py  cryo-ET density image -> curvo GeometryTrace (contrast + ring/cap)
   --- mechanome schema (mechanome/) ---
   mechanome/schema.py          MechanoClaim + epistemic-tier firewall (GROUNDED/MEASURED/LINKED)
   mechanome/emit.py            curvo outputs -> GROUNDED claims (tether force, family capacity)
