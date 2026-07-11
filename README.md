@@ -505,6 +505,28 @@ curvature trajectory** *and* a **degeneracy-breaking channel** (actin, or an
 independent tension measurement) are both present — otherwise the inverse
 returns a bound, never a point estimate.
 
+### Worked test case — can PICALM support a productive pit?
+
+A concrete orchestration query: **PICALM** (an ANTH adaptor) is recruited to the
+membrane — can it drive a *productive* pit (one that reaches Ω / scission)?
+`validation/realdata/picalm_orchestration.py` runs PICALM's autonomous curvature
+capacity (family-screen H_med ≈ 0.019 nm⁻¹, an ANTH amphipathic wedge) through
+the validated forward model across an assembly ladder and reads the stage
+against the Ω threshold (0.030 nm⁻¹).
+
+![PICALM orchestration test case]({{artifact:art_a049f99b-abe7-4e53-bb22-f7ad1344a7e1}})
+
+The verdict is **no — not alone**. PICALM's autonomous probability of crossing Ω
+is 0.005; alone it forms a dome, not a vesicle. Adding the clathrin coat
+(size/regularity, the Kaksonen role) and actin force raises the achieved
+curvature but stays sub-threshold. The pit becomes productive **only in the full
+assembly** — coat + actin + a crowding/curvature partner (epsin's C-terminal IDP
+brush) — which reaches Ω. This reproduces the established division of labour:
+PICALM sets vesicle size, epsin/crowding drives curvature. This is a
+stage/threshold call from the forward model with derived c_eff magnitudes, not
+an inverse on a measured curvature trajectory — so no force point-estimate is
+made.
+
 ### The observable ladder
 
 Single clathrin-coated pits are diffraction-limited puncta — curvature is not

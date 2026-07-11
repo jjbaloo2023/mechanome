@@ -1,0 +1,53 @@
+{
+  "title": "Test case: PICALM (ANTH) orchestration and productive-pit verdict",
+  "question": "PICALM recruited to the membrane \u2014 can it support productive pit formation?",
+  "protein": {
+    "name": "PICALM",
+    "uniprot": "Q13492",
+    "family": "ANTH",
+    "autonomous_H_med_inv_nm": 0.0194,
+    "autonomous_H_CI68": [
+      0.0153,
+      0.0233
+    ],
+    "p_cross_omega": 0.005,
+    "role": "size/regularity setter (Kaksonen); amphipathic ANTH wedge gives dome-level autonomous curvature"
+  },
+  "method": "Ran PICALM's family-screen autonomous curvature as the wedge c_eff through the validated forward model (ccs_curvature), across an assembly ladder; read the dome/Omega stage vs the Omega/scission boundary. No force point-estimate \u2014 a stage/threshold call from the forward model.",
+  "threshold": {
+    "omega_scission_H_inv_nm": 0.03,
+    "dome_omega_OP": 0.66
+  },
+  "assembly_ladder": [
+    {
+      "assembly": "PICALM alone",
+      "achieved_H_inv_nm": 0.0067,
+      "stage": "flat",
+      "dome_omega_OP": 0.128,
+      "productive": false
+    },
+    {
+      "assembly": "+ clathrin coat",
+      "achieved_H_inv_nm": 0.0084,
+      "stage": "flat",
+      "dome_omega_OP": 0.163,
+      "productive": false
+    },
+    {
+      "assembly": "+ coat + actin 40",
+      "achieved_H_inv_nm": 0.0141,
+      "stage": "flat",
+      "dome_omega_OP": 0.277,
+      "productive": false
+    },
+    {
+      "assembly": "+ coat + actin + crowding",
+      "achieved_H_inv_nm": 0.0305,
+      "stage": "Omega",
+      "dome_omega_OP": 0.736,
+      "productive": true
+    }
+  ],
+  "verdict": "NO \u2014 PICALM cannot support a productive pit on its own (autonomous P(cross Omega)=0.005; alone/coat/coat+actin all stay flat-to-dome, sub-threshold). The pit becomes productive (reaches Omega) only in the FULL assembly: clathrin coat + actin force + a crowding/curvature partner (epsin C-terminal IDP brush). This matches the established division of labour: PICALM sets vesicle size, epsin/crowding drives curvature.",
+  "caveat": "Forward-model stage call using published/derived c_eff magnitudes, not an inverse on a measured curvature trajectory. The crowding partner contribution (epsin IDP brush c~0.025) is a representative co-player magnitude, not a measurement of this specific assembly."
+}

@@ -262,6 +262,24 @@ def test_dual_cohort_tension_response_enth_specific():
     _check(0 < s["median_epsin_clath"] < 5, "median epsin:clathrin ratio must be finite/positive")
 
 
+def test_picalm_not_productive_alone_but_in_full_assembly():
+    """Orchestration test case: PICALM (ANTH) cannot cross the Omega/scission
+    stage on its own, coat and actin alone are insufficient, and the pit
+    becomes productive only in the full assembly (coat + actin + crowding)."""
+    from validation.realdata.picalm_orchestration import run_ladder, PICALM_P_CROSS_OMEGA
+    _check(PICALM_P_CROSS_OMEGA < 0.05, "PICALM autonomous P(cross Omega) must be small")
+    ladder = dict(run_ladder())
+    _check(not ladder["PICALM alone"]["productive"], "PICALM alone must NOT be productive")
+    _check(not ladder["+ clathrin coat"]["productive"], "coat alone must not rescue")
+    _check(not ladder["+ coat + actin 40 pN"]["productive"], "coat+actin must still be sub-threshold")
+    full = ladder["+ coat + actin + crowding"]
+    _check(full["productive"], "full assembly must reach Omega (productive)")
+    # monotone rise in achieved curvature along the ladder
+    H = [o["achieved_mean_curvature_inv_nm"] for _, o in run_ladder()]
+    _check(all(H[i] < H[i + 1] for i in range(len(H) - 1)),
+           f"achieved curvature must rise monotonically along the assembly ladder, got {H}")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0
