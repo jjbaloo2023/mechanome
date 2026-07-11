@@ -271,9 +271,12 @@ def test_picalm_not_productive_alone_but_in_full_assembly():
     ladder = dict(run_ladder())
     _check(not ladder["PICALM alone"]["productive"], "PICALM alone must NOT be productive")
     _check(not ladder["+ clathrin coat"]["productive"], "coat alone must not rescue")
-    _check(not ladder["+ coat + actin 40 pN"]["productive"], "coat+actin must still be sub-threshold")
-    full = ladder["+ coat + actin + crowding"]
-    _check(full["productive"], "full assembly must reach Omega (productive)")
+    _check(not ladder["+ actin 40 pN"]["productive"], "coat+actin40 must still be sub-threshold")
+    # crowding at fixed 40 pN actin is NOT sufficient (isolates the confound)
+    _check(not ladder["+ crowding (actin held 40)"]["productive"],
+           "crowding alone (actin held 40) must not reach Omega")
+    full = ladder["+ actin raised to 80 pN"]
+    _check(full["productive"], "full assembly (crowding + actin 80) must reach Omega")
     # monotone rise in achieved curvature along the ladder
     H = [o["achieved_mean_curvature_inv_nm"] for _, o in run_ladder()]
     _check(all(H[i] < H[i + 1] for i in range(len(H) - 1)),

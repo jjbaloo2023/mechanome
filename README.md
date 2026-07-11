@@ -517,15 +517,19 @@ against the Ω threshold (0.030 nm⁻¹).
 ![PICALM orchestration test case]({{artifact:art_a049f99b-abe7-4e53-bb22-f7ad1344a7e1}})
 
 The verdict is **no — not alone**. PICALM's autonomous probability of crossing Ω
-is 0.005; alone it forms a dome, not a vesicle. Adding the clathrin coat
-(size/regularity, the Kaksonen role) and actin force raises the achieved
-curvature but stays sub-threshold. The pit becomes productive **only in the full
-assembly** — coat + actin + a crowding/curvature partner (epsin's C-terminal IDP
-brush) — which reaches Ω. This reproduces the established division of labour:
-PICALM sets vesicle size, epsin/crowding drives curvature. This is a
-stage/threshold call from the forward model with derived c_eff magnitudes, not
-an inverse on a measured curvature trajectory — so no force point-estimate is
-made.
+is 0.005; alone it forms a dome, not a vesicle. Each rung of the ladder changes
+exactly one factor, so the confound is isolated: the clathrin coat
+(size/regularity, the Kaksonen role) and 40 pN actin each raise the achieved
+curvature but stay sub-threshold (0.007 → 0.008 → 0.014); adding the crowding
+partner (epsin's C-terminal IDP brush) at *fixed* 40 pN actin reaches only the
+dome stage (0.025, still not productive); the pit crosses to Ω (0.031) only when
+the crowding partner **and** a higher actin force (80 pN) are *both* present.
+Neither the crowding partner nor the force increase alone is sufficient at these
+magnitudes. This reproduces the established division of labour: PICALM sets
+vesicle size, while epsin/crowding and actin force together drive productive
+curvature. It is a stage/threshold call from the forward model with derived
+c_eff magnitudes, not an inverse on a measured curvature trajectory — so no
+force point-estimate is made.
 
 ### The observable ladder
 

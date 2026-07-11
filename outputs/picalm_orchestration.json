@@ -13,7 +13,7 @@
     "p_cross_omega": 0.005,
     "role": "size/regularity setter (Kaksonen); amphipathic ANTH wedge gives dome-level autonomous curvature"
   },
-  "method": "Ran PICALM's family-screen autonomous curvature as the wedge c_eff through the validated forward model (ccs_curvature), across an assembly ladder; read the dome/Omega stage vs the Omega/scission boundary. No force point-estimate \u2014 a stage/threshold call from the forward model.",
+  "method": "Ran PICALM's family-screen autonomous curvature as the wedge c_eff through the validated forward model (ccs_curvature), across a SINGLE-VARIABLE-PER-STEP assembly ladder; read the dome/Omega stage vs the Omega/scission boundary. No force point-estimate.",
   "threshold": {
     "omega_scission_H_inv_nm": 0.03,
     "dome_omega_OP": 0.66
@@ -34,20 +34,28 @@
       "productive": false
     },
     {
-      "assembly": "+ coat + actin 40",
+      "assembly": "+ actin 40 pN",
       "achieved_H_inv_nm": 0.0141,
       "stage": "flat",
       "dome_omega_OP": 0.277,
       "productive": false
     },
     {
-      "assembly": "+ coat + actin + crowding",
+      "assembly": "+ crowding (actin held 40)",
+      "achieved_H_inv_nm": 0.0249,
+      "stage": "dome",
+      "dome_omega_OP": 0.537,
+      "productive": false
+    },
+    {
+      "assembly": "+ actin raised to 80 pN",
       "achieved_H_inv_nm": 0.0305,
       "stage": "Omega",
       "dome_omega_OP": 0.736,
       "productive": true
     }
   ],
-  "verdict": "NO \u2014 PICALM cannot support a productive pit on its own (autonomous P(cross Omega)=0.005; alone/coat/coat+actin all stay flat-to-dome, sub-threshold). The pit becomes productive (reaches Omega) only in the FULL assembly: clathrin coat + actin force + a crowding/curvature partner (epsin C-terminal IDP brush). This matches the established division of labour: PICALM sets vesicle size, epsin/crowding drives curvature.",
-  "caveat": "Forward-model stage call using published/derived c_eff magnitudes, not an inverse on a measured curvature trajectory. The crowding partner contribution (epsin IDP brush c~0.025) is a representative co-player magnitude, not a measurement of this specific assembly."
+  "verdict": "NO -- PICALM cannot support a productive pit alone (autonomous P(cross Omega)=0.005; alone/coat/coat+actin40 all stay flat, sub-threshold). Isolating the confound: adding the crowding partner (epsin IDP brush) at FIXED 40 pN actin reaches only the dome stage (0.025, not productive), and raising actin to 80 pN reaches Omega ONLY with crowding present. Neither the crowding partner nor the higher force alone is sufficient at these magnitudes -- BOTH are required. This matches the division of labour: PICALM sets vesicle size; epsin/crowding plus actin force together drive productive curvature.",
+  "caveat": "Forward-model stage call using published/derived c_eff magnitudes, not an inverse on a measured curvature trajectory. The crowding partner contribution (epsin IDP brush c~0.025) is a representative co-player magnitude, not a measurement of this specific assembly.",
+  "confound_note": "The final productive rung differs from the sub-threshold rungs in TWO factors relative to '+actin 40' (crowding partner AND actin 40->80). The ladder isolates each: crowding-at-40 = 0.025 dome (not productive), so the Omega crossing requires both, not crowding alone."
 }

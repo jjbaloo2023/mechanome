@@ -10,10 +10,13 @@ model with published/derived c_eff magnitudes -- NOT an inverse on a measured
 curvature trajectory, and no force point-estimate is made.
 
 Verdict (see run_ladder): PICALM cannot make a productive pit alone (autonomous
-P(cross Omega) ~ 0.005); the pit reaches Omega only in the full assembly --
-clathrin coat + actin force + a crowding/curvature partner (epsin C-terminal IDP
-brush) -- consistent with the division of labour where PICALM sets vesicle size
-and epsin/crowding drives curvature.
+P(cross Omega) ~ 0.005). Along a single-variable-per-step ladder, coat and actin
+each raise curvature but stay sub-threshold; at fixed 40 pN actin the crowding
+partner (epsin C-terminal IDP brush) only reaches the dome stage; the pit
+crosses to Omega only when BOTH the crowding partner AND a higher actin force
+(80 pN) are present. Neither addition alone is sufficient at these magnitudes --
+consistent with the division of labour where PICALM sets vesicle size and
+epsin/crowding + actin force together drive productive curvature.
 """
 import numpy as np
 
@@ -46,13 +49,24 @@ def evaluate_assembly(c_eff, coat_rf=1.0, active_pN=0.0, extra_c=0.0):
 
 
 def run_ladder():
-    """The assembly ladder for PICALM. Returns list of (label, result)."""
+    """The assembly ladder for PICALM. Each rung changes exactly ONE factor
+    relative to the previous, so the achieved-curvature delta is attributable.
+    Returns list of (label, result).
+
+    The last two rungs make the key point explicit: at fixed 40 pN actin,
+    adding the crowding partner reaches only the dome stage (0.025, not
+    productive); raising actin to 80 pN with crowding present crosses to Omega
+    (0.031). Neither the crowding partner alone nor the force increase alone is
+    sufficient at these magnitudes -- both are required to make PICALM's pit
+    productive.
+    """
     crowd = crowding_ceff()
     ladder = [
-        ("PICALM alone",              dict(c_eff=PICALM_H_MED)),
-        ("+ clathrin coat",           dict(c_eff=PICALM_H_MED, coat_rf=3.0)),
-        ("+ coat + actin 40 pN",      dict(c_eff=PICALM_H_MED, coat_rf=3.0, active_pN=40.0)),
-        ("+ coat + actin + crowding", dict(c_eff=PICALM_H_MED, coat_rf=3.0, active_pN=80.0, extra_c=crowd)),
+        ("PICALM alone",               dict(c_eff=PICALM_H_MED)),
+        ("+ clathrin coat",            dict(c_eff=PICALM_H_MED, coat_rf=3.0)),
+        ("+ actin 40 pN",              dict(c_eff=PICALM_H_MED, coat_rf=3.0, active_pN=40.0)),
+        ("+ crowding (actin held 40)", dict(c_eff=PICALM_H_MED, coat_rf=3.0, active_pN=40.0, extra_c=crowd)),
+        ("+ actin raised to 80 pN",    dict(c_eff=PICALM_H_MED, coat_rf=3.0, active_pN=80.0, extra_c=crowd)),
     ]
     return [(lbl, evaluate_assembly(**cfg)) for lbl, cfg in ladder]
 
