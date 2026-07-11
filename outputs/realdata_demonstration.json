@@ -83,7 +83,7 @@
     "Most public CME imaging is observable #1 (intensity/lifetime), which is a coat-assembly proxy and cannot support force inference \u2014 curvo refuses it at the data boundary.",
     "Actin is rarely co-imaged with CCP super-res; without the actin channel the geometry-only inverse cannot break the c_eff/force degeneracy, so cortical force is UNDETERMINED.",
     "CCS force-inference has NOT been validated on real force ground truth. The only real force-paired validation (tether/STED, mean|bias| 3.8%) is tube geometry, not a coated pit.",
-    "The super-res curvature signal is a projected coat-footprint radius (1/R_proj), a proxy whose absolute 3D scale depends on an ASSUMED pixel size (31.3 nm/px), not read from the file header nor verified against the acquisition paper in this build.",
+    "BioTISR sits OUTSIDE curvo's validated perception envelope. The extractor was validated at PSF sigma=18 nm, 2-4 nm/px (core-band H error 10.1-21.7%, median 12.8%). A benchmark extension MEASURED that at BioTISR's resolution (~31 nm/px, effective PSF sigma ~55 nm) the validated cap-fit extractor produces ZERO resolvable frames (band empty; a middle rung at 16 nm/px already fails at 99% error). The real BioTISR trajectory used a separate UNVALIDATED footprint-area proxy that bypasses the resolvability gate -- so its H values are footprint-size dynamics, not resolution-validated curvature. This is the physical reason absolute force is unrecoverable (0/18), independent of pixel-size calibration.",
     "The IAV epi-TIRF data could not yield depth: tirf/epi images are not registered same-field pairs (punctum correlation r=0.02). Registered epi-TIRF or a z-stack would be needed.",
     "Raw imaging is never committed \u2014 the repo records provenance (DOIs, paths, retrieval dates) only."
   ],
@@ -103,5 +103,30 @@
       "realdata_population_inverse.json",
       "realdata_structural_prior.png"
     ]
+  },
+  "resolution_regime_benchmark": {
+    "question": "Does curvo's validated perception extractor recover H at BioTISR's acquisition resolution?",
+    "validated_core": {
+      "psf_sigma_nm": 18,
+      "nm_per_px": 2.0,
+      "dome_rel_err_pct": 12.9,
+      "all_frame_rel_err_pct": 24.5,
+      "n_frames": 78,
+      "note": "reproduces recorded 10.1-21.7% (dome-band 12.8%)"
+    },
+    "middle": {
+      "psf_sigma_nm": 35,
+      "nm_per_px": 16.0,
+      "rel_err_pct": 98.7,
+      "n_frames": 24
+    },
+    "biotisr_scale": {
+      "psf_sigma_nm": 55,
+      "nm_per_px": 31.3,
+      "resolvable_frames": 0,
+      "result": "band EMPTY \u2014 no frame clears the resolvability gate; validated extractor produces nothing"
+    },
+    "real_data_caveat": "The real BioTISR trajectory (ingest_biotisr_sim.py) uses an UNVALIDATED footprint-area proxy (R_proj = sqrt(area/pi)) that bypasses the cap-fit extractor and its resolvability gate. At 31 nm/px the validated extractor yields 0 frames, so those H values are footprint-size dynamics, not resolution-validated curvature.",
+    "conclusion": "BioTISR (~31 nm/px, effective PSF sigma ~55 nm) is OUTSIDE curvo's validated perception envelope (18 nm, 2-4 nm/px) in the coarse direction, which the benchmark had never tested. Absolute curvature/force from it is unsupported; the 0/18-identified refusal is the correct outcome. Relative footprint dynamics (a pit contracting) remain observable but are not resolution-validated curvature."
   }
 }

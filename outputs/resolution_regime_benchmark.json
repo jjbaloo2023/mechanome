@@ -1,0 +1,25 @@
+{
+  "question": "Does curvo's validated perception extractor recover H at BioTISR's acquisition resolution?",
+  "validated_core": {
+    "psf_sigma_nm": 18,
+    "nm_per_px": 2.0,
+    "dome_rel_err_pct": 12.9,
+    "all_frame_rel_err_pct": 24.5,
+    "n_frames": 78,
+    "note": "reproduces recorded 10.1-21.7% (dome-band 12.8%)"
+  },
+  "middle": {
+    "psf_sigma_nm": 35,
+    "nm_per_px": 16.0,
+    "rel_err_pct": 98.7,
+    "n_frames": 24
+  },
+  "biotisr_scale": {
+    "psf_sigma_nm": 55,
+    "nm_per_px": 31.3,
+    "resolvable_frames": 0,
+    "result": "band EMPTY \u2014 no frame clears the resolvability gate; validated extractor produces nothing"
+  },
+  "real_data_caveat": "The real BioTISR trajectory (ingest_biotisr_sim.py) uses an UNVALIDATED footprint-area proxy (R_proj = sqrt(area/pi)) that bypasses the cap-fit extractor and its resolvability gate. At 31 nm/px the validated extractor yields 0 frames, so those H values are footprint-size dynamics, not resolution-validated curvature.",
+  "conclusion": "BioTISR (~31 nm/px, effective PSF sigma ~55 nm) is OUTSIDE curvo's validated perception envelope (18 nm, 2-4 nm/px) in the coarse direction, which the benchmark had never tested. Absolute curvature/force from it is unsupported; the 0/18-identified refusal is the correct outcome. Relative footprint dynamics (a pit contracting) remain observable but are not resolution-validated curvature."
+}

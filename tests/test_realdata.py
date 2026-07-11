@@ -158,6 +158,23 @@ def test_structure_morphology_discriminates():
     _check(c_fac.morphology == "filaments", f"actin should read as filaments, got {c_fac.morphology}")
 
 
+def test_resolution_regime_biotisr_out_of_band():
+    """The validated cap-fit extractor must NOT report reliable frames at
+    BioTISR's acquisition resolution (~31 nm/px, PSF sigma ~55 nm): the
+    resolvability band is empty there, so curvo does not silently trust it.
+    Guards the measured finding that BioTISR is outside the validated envelope."""
+    from validation.perception_benchmark import recover_one
+    # validated control returns frames; BioTISR-scale returns none
+    core = recover_one(c_eff_max=0.06, psf_sigma_nm=18, nm_per_px=2.0,
+                       field_px=128, n_rep=2, n_boot=6, seed0=0)
+    _check(core is not None and core["n_frames"] > 0,
+           "validated core must yield resolvable frames")
+    bio = recover_one(c_eff_max=0.06, psf_sigma_nm=55, nm_per_px=31.3,
+                      field_px=48, n_rep=2, n_boot=6, seed0=0)
+    _check(bio is None or bio["n_frames"] == 0,
+           "BioTISR-scale must yield ZERO resolvable frames (out of validated band)")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0

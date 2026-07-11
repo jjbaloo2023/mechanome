@@ -585,10 +585,20 @@ thesis: absolute cortical force needs an *absolute curvature calibration*
 3. CCS force-inference has not been validated on real force ground truth. The
    only real force-paired validation (tether/STED, mean |bias| 3.8%) is tube
    geometry, not a coated pit.
-4. The super-res curvature signal here is a projected coat-footprint radius
-   (1/R_proj), a proxy whose absolute 3D scale depends on an assumed pixel size
-   (31.3 nm/px) that was not read from the file header nor verified against the
-   acquisition paper in this build — so any absolute H is provisional.
+4. **BioTISR is outside curvo's validated perception envelope, and this was
+   measured.** The perception extractor was validated at PSF σ = 18 nm,
+   2–4 nm/px (core-band H error 10.1–21.7%, median 12.8%). A benchmark extension
+   rendered synthetic pits with known geometry at BioTISR's actual resolution
+   (~31 nm/px, effective PSF σ ≈ 55 nm) and scored them with the validated
+   cap-fit extractor: **zero frames clear the resolvability gate** — the band is
+   empty (a middle rung at 16 nm/px already fails at 99% error). The real
+   BioTISR trajectory in Keystone 2 used a separate, *unvalidated* footprint-area
+   proxy (R_proj = √(area/π)) that bypasses that gate, so its H values are
+   footprint-size dynamics, not resolution-validated curvature. This is the
+   physical reason absolute force is unrecoverable (0/18), independent of the
+   pixel-size calibration constant.
+
+   ![Resolution-regime benchmark]({{artifact:art_1373cc96-b47a-48f1-927b-a08a47f0677f}})
 5. The IAV 2022 epi-TIRF data could not yield depth: the TIRF and epi images are
    not registered same-field pairs (punctum-level correlation r = 0.02, no
    better than random cell pairings). Registered epi-TIRF or a z-stack would be
