@@ -491,6 +491,20 @@ inverse is calibrated. This section applies the whole pipeline to **real
 clathrin-mediated-endocytosis imaging**, under one discipline: match every
 dataset to what it can actually measure before feeding the inverse.
 
+The orchestration model curvo reasons over, drawn in the idiom of the 2020
+epsin paper's proposed-model figure (explicit bilayer, domain-coloured epsin),
+across the three maturation stages:
+
+![Orchestration model]({{artifact:art_2de3231e-17b7-4579-b3e7-49f7b243f428}})
+
+Clathrin scaffolds the coat; epsin's ENTH domain senses and generates curvature
+while its H₀ amphipathic wedge senses membrane tension; actin supplies inward
+axial force at the neck during scission. The per-stage verdict is curvo's
+identifiability firewall in cartoon form: force is claimed only when a **dynamic
+curvature trajectory** *and* a **degeneracy-breaking channel** (actin, or an
+independent tension measurement) are both present — otherwise the inverse
+returns a bound, never a point estimate.
+
 ### The observable ladder
 
 Single clathrin-coated pits are diffraction-limited puncta — curvature is not
