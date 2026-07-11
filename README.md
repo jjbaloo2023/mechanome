@@ -548,6 +548,33 @@ enforces, now on real data.
 
 ![Inverse on real curvature]({{artifact:art_21453a24-5b48-443b-a229-9a6d41aadc66}})
 
+### Structure routing and the coat-prior experiment
+
+The workflow per movie is: identify the structure from the image, then route it
+to the model whose physics applies. `classify_structure.py` reads a morphology
+signature — point-like puncta vs elongated filaments vs extended organelles —
+and cross-checks it against the archive label. Clathrin-coated pits (puncta)
+route to the CCS spherical-cap inverse; F-actin (filaments) routes to the
+orchestration partner and is *refused* entry to the CCS inverse, because a
+filament network is not a membrane cap. The morphology path discriminates on
+pixels alone (CCP median object elongation ≈ 1.25 vs F-actin ≈ 2.0).
+
+![Structure-routed inverse]({{artifact:art_4480e5ce-9c64-4207-a349-98f8f4e7e345}})
+
+A natural question is whether an **informative structural prior** on the coat —
+clathrin templates a 40–70 nm vesicle, so c_eff ∈ [0.014, 0.026] nm⁻¹ — can
+break the c_eff/force degeneracy that geometry alone cannot, *without* co-imaged
+actin. Tested across 18 maturing CCPs, the answer is a careful no: the prior
+sharpens the c_eff marginal but the **absolute force still is not identified
+(0/18)**. The force posterior *tracks the prior ceiling* (median 54 → 85 → 103
+pN as the ceiling is raised 60 → 100 → 150 pN), which is the signature of a
+parameter the data do not pin. What *is* defensible is a **force lower bound**:
+the CI68 lower edge sits at a median ≈ 41 pN across pits — the maturation is
+consistent with substantial inward force, bounded below but not above. The
+firewall reports the bound and refuses the point value. The lesson sharpens the
+thesis: absolute cortical force needs an *absolute curvature calibration*
+(verified pixel size or 3D depth), not merely a structural prior.
+
 ### Honest caveats
 
 1. Most public CME imaging is observable #1 — a coat-assembly proxy that cannot

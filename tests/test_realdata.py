@@ -121,6 +121,43 @@ def test_biotisr_curvature_extraction():
            "provenance must record DOI + the proxy assumption")
 
 
+# ------------------------------------------------- structure routing --------
+
+def test_structure_routing_refuses_noncoated():
+    """Only clathrin-coated pits may enter the CCS spherical-cap inverse."""
+    from validation.realdata.classify_structure import (
+        classify_structure, assert_ccs_applicable, STRUCTURE_ROUTES)
+    # CCP routes to the inverse
+    ccp = classify_structure(frame=None, label="CCPs")
+    _check(ccp.route == "ccs_inverse", "CCP must route to ccs_inverse")
+    _check(assert_ccs_applicable(ccp) is True, "CCP must pass the CCS guard")
+    # F-actin and non-endocytic structures must be refused
+    for lbl in ("F-actin", "Microtubules", "Mitochondria"):
+        call = classify_structure(frame=None, label=lbl)
+        _check(call.route != "ccs_inverse", f"{lbl} must NOT route to ccs_inverse")
+        raised = False
+        try:
+            assert_ccs_applicable(call)
+        except PermissionError:
+            raised = True
+        _check(raised, f"CCS guard must refuse {lbl}")
+
+
+def test_structure_morphology_discriminates():
+    """Morphology signature separates puncta (CCP) from filaments (actin)."""
+    import numpy as _np
+    from validation.realdata.classify_structure import classify_structure
+    from validation.realdata.ingest_biotisr_sim import read_mrc
+    ccp = "cache/biotisr/ccp/Cell_001_SIM_gt.mrc"
+    fac = "cache/biotisr/factin/Factin_Cell_001_SIM_gt.mrc"
+    if not (os.path.exists(ccp) and os.path.exists(fac)):
+        print("SKIP test_structure_morphology_discriminates (SIM cache absent)"); return
+    c_ccp = classify_structure(frame=_np.clip(read_mrc(ccp)[10], 0, None), label=None)
+    c_fac = classify_structure(frame=_np.clip(read_mrc(fac)[10], 0, None), label=None)
+    _check(c_ccp.morphology == "puncta", f"CCP should read as puncta, got {c_ccp.morphology}")
+    _check(c_fac.morphology == "filaments", f"actin should read as filaments, got {c_fac.morphology}")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0

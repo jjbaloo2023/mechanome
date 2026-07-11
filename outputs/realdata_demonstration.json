@@ -75,7 +75,8 @@
       "n_identified": 0,
       "n_params": 3,
       "verdict": "force UNDETERMINED \u2014 geometry-only proxy, actin not co-imaged; firewall refuses point force",
-      "disambiguating_experiment": "co-image actin (dual-color TIRF-SIM) or provide absolute curvature calibration"
+      "disambiguating_experiment": "co-image actin (dual-color TIRF-SIM) or provide absolute curvature calibration",
+      "structural_prior_update": "coat prior tested: absolute force still UNDETERMINED (0/18, ceiling-tracking); robust output is a force lower bound ~41 pN. Absolute force needs curvature calibration."
     }
   },
   "honest_caveats": [
@@ -86,5 +87,21 @@
     "The IAV epi-TIRF data could not yield depth: tirf/epi images are not registered same-field pairs (punctum correlation r=0.02). Registered epi-TIRF or a z-stack would be needed.",
     "Raw imaging is never committed \u2014 the repo records provenance (DOIs, paths, retrieval dates) only."
   ],
-  "what_the_demonstration_shows": "End-to-end: real cmeAnalysis cohorts reproduce the 2020 tension-impedes-maturation finding (front-end, #1); real super-res CCP movies yield genuine curvature trajectories (#3); the inverse fits their shape but its identifiability firewall correctly refuses a force number from geometry alone \u2014 the same discipline that makes curvo trustworthy, demonstrated on real data."
+  "what_the_demonstration_shows": "End-to-end: real cmeAnalysis cohorts reproduce the 2020 tension-impedes-maturation finding (front-end, #1); real super-res CCP movies yield genuine curvature trajectories (#3); the inverse fits their shape but its identifiability firewall correctly refuses a force number from geometry alone \u2014 the same discipline that makes curvo trustworthy, demonstrated on real data.",
+  "structural_prior_experiment": {
+    "question": "Does an informative coat-curvature prior (clathrin vesicle R 40-70nm -> c_eff 0.014-0.026 nm^-1) break the c_eff/force degeneracy without co-imaged actin?",
+    "method": "nested-sampling inverse with a structural box prior on c_eff_max, run across 18 maturing CCPs in 3 cells",
+    "result": {
+      "c_eff_identified": "0/18 (posterior fills the prior box; data do not sharpen beyond the prior)",
+      "absolute_force_identified": "0/18 (9/18 rail against the force ceiling)",
+      "ceiling_dependence": "force median tracks the prior ceiling (54->85->103 pN as ceiling 60->100->150) => absolute force NOT determined",
+      "robust_statement": "a force LOWER BOUND: CI68-low median ~41 pN across pits (maturation consistent with substantial inward force, bounded below not above)",
+      "contraction_vs_force_lowerbound_r": -0.25
+    },
+    "refined_thesis": "A structural coat prior does NOT rescue absolute force from a projected-footprint curvature proxy -- it converts the claim into a lower bound. Absolute cortical force needs an ABSOLUTE curvature calibration (verified pixel size / 3D depth), not merely a structural prior. The identifiability firewall correctly refuses the absolute number (0/18) while the lower bound is reported honestly.",
+    "artifacts": [
+      "realdata_population_inverse.json",
+      "realdata_structural_prior.png"
+    ]
+  }
 }
