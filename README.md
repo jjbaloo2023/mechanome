@@ -524,6 +524,28 @@ No force is inferred — the classifier refuses #1.
 
 ![Tension cross-check]({{artifact:art_9f22b9f1-410b-42b3-904c-a79b52f19f51}})
 
+**Dual-channel co-recruitment (`ingest_dual_cohorts.py`).** The same .mat files
+carry a richer signal than the single-channel intensity summary: `res.cohorts.A`
+is a two-channel (clathrin-RFP master + epsin-EGFP slave) × six-lifetime-cohort
+set of mean amplitude trajectories. Extracting both channels gives the
+epsin-vs-clathrin *co-recruitment* — how much of the curvature-generating ENTH
+adaptor arrives relative to the coat, per lifetime and per osmotic condition. The
+robust cross-condition quantity is the self-normalising **epsin:clathrin
+peak-amplitude ratio** (median over cohorts), which cancels the per-session
+intensity scale that makes raw amplitudes non-comparable across files.
+
+![Dual-channel co-recruitment]({{artifact:art_049b05ab-9c49-4a70-80b4-858d0197f3f5}})
+
+Two findings, both consistent with the 2020 mechanism: (1) the WT epsin:clathrin
+ratio falls monotonically with membrane tension (0.84 → 0.69 → 0.49,
+hypo → iso → hyper); (2) the tension response is **abolished when the ENTH
+curvature domain is deleted** (0.80 → 0.82, Δ ≈ 0 vs WT Δ = −0.34) — so the
+tension-coupled recruitment is specifically an ENTH-domain effect. This is
+conventional TIRF intensity, so it reads *recruitment*, not curvature: it is the
+mechanism/ordering evidence a LINKED force claim would build on, not force
+itself. (Raw per-track `ProcessedTracks.mat` are not available — this works from
+the shipped cohort averages.)
+
 ### Keystone 2 — super-res curvature → inverse (observable #3)
 
 The force keystone needs a real curvature trajectory. Public live-cell TIRF-SIM

@@ -1,0 +1,26 @@
+{
+  "title": "Dual-channel co-recruitment extraction (2020 epsin osmotic dataset, observable #1 refined)",
+  "data": "cmeAnalysis res.cohorts.A: 2 channels (clathrin-RFP master, epsin-EGFP slave) x 6 lifetime cohorts, ~17 timepoints, framerate 2s",
+  "scope": "Conventional TIRF INTENSITY = adaptor/coat recruitment (who/how much/when), NOT curvature and NOT force. Feeds mechanism/ordering + orchestration and cross-checks the tension story.",
+  "robust_observable": "epsin:clathrin peak-amplitude ratio, median over cohorts (self-normalising within a condition; raw amplitudes not comparable across files)",
+  "raw_tracks": "ProcessedTracks.mat per-track trajectories NOT available (authors' original acquisition drive); worked from shipped cohort averages",
+  "wt_osmotic_tension": {
+    "hypo_low": 0.836,
+    "iso_baseline": 0.694,
+    "hyper_high": 0.491,
+    "trend": "monotonic decrease 0.84 -> 0.69 -> 0.49 with rising membrane tension"
+  },
+  "enth_deletion_control": {
+    "wt_delta": -0.345,
+    "delENTH_hypo": 0.797,
+    "delENTH_hyper": 0.824,
+    "delENTH_delta": 0.027,
+    "finding": "WT tension response (delta -0.34) is ABOLISHED when the ENTH curvature domain is deleted (delta +0.03): the tension-coupled epsin recruitment is ENTH-domain-specific"
+  },
+  "clathrin_master_peak": {
+    "hypo": 61.2,
+    "iso": 48.6,
+    "hyper": 45.4
+  },
+  "interpretation": "Directly supports the 2020 thesis: higher membrane tension suppresses recruitment of the curvature-generating ENTH adaptor epsin relative to clathrin, and this coupling requires the ENTH domain. This is the mechanism/ordering evidence that a LINKED force claim would build on; it does not itself yield force (no curvature, no dynamics of shape)."
+}

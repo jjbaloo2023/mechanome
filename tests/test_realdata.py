@@ -238,6 +238,30 @@ def test_star_calibration_matches_forward_model():
     _check(0.9 < slope < 1.1, f"STAR dz slope must be ~1, got {slope:.2f}")
 
 
+def test_dual_cohort_tension_response_enth_specific():
+    """Dual-channel extraction: WT epsin:clathrin recruitment ratio falls with
+    membrane tension, and the response is abolished when the ENTH curvature
+    domain is deleted. Both use the 2020 osmotic .mat files if present."""
+    from validation.realdata.ingest_dual_cohorts import (
+        condition_summary, tension_response, CLATHRIN_CH, EPSIN_CH)
+    base = "/root/projects/Epsin paper comm bio 2020/final figure/data availability"
+    wt_hypo = f"{base}/Figure 2/Osmotic shock/hypo.mat"
+    wt_hyper = f"{base}/Figure 2/Osmotic shock/hyper.mat"
+    de_hypo = f"{base}/Figure 3/epsin del ENTH/hypo.mat"
+    de_hyper = f"{base}/Figure 3/epsin del ENTH/hyper.mat"
+    if not all(os.path.exists(p) for p in (wt_hypo, wt_hyper, de_hypo, de_hyper)):
+        print("SKIP test_dual_cohort_tension_response_enth_specific (2020 .mat absent)"); return
+    _check(CLATHRIN_CH == 0 and EPSIN_CH == 1, "channel roles: RFP=clathrin, EGFP=epsin")
+    wt = tension_response(wt_hypo, wt_hyper)
+    de = tension_response(de_hypo, de_hyper)
+    _check(wt["delta"] < -0.15, f"WT tension response should be a clear drop, got {wt['delta']:.2f}")
+    _check(abs(de["delta"]) < 0.15, f"del ENTH response should be ~abolished, got {de['delta']:.2f}")
+    _check(wt["delta"] < de["delta"], "WT must drop more than del ENTH (domain-specific)")
+    # sanity: a condition summary yields a positive, finite ratio
+    s = condition_summary(wt_hypo)
+    _check(0 < s["median_epsin_clath"] < 5, "median epsin:clathrin ratio must be finite/positive")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0
