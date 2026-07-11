@@ -283,6 +283,24 @@ def test_picalm_not_productive_alone_but_in_full_assembly():
            f"achieved curvature must rise monotonically along the assembly ladder, got {H}")
 
 
+def test_epsin_domain_decomposition_force_burden():
+    """Full epsin, ENTH-alone, IDP-alone: component c_eff sums to the epsin
+    family-screen value, the IDP crowding tail exceeds the tension-gated ENTH
+    wedge, and the force burden to reach Omega orders full < IDP < ENTH."""
+    from validation.realdata.epsin_domain_cases import (
+        constructs, enth_ceff, idp_ceff, evaluate, min_force_to_omega)
+    e, i = enth_ceff(), idp_ceff()
+    _check(i > e, f"IDP crowding ({i:.3f}) must exceed tension-gated ENTH wedge ({e:.3f})")
+    _check(abs((e + i) - 0.035) < 0.005, f"full epsin c_eff {e+i:.3f} must match family-screen ~0.033-0.035")
+    C = constructs()
+    # none productive on coat + 40 pN actin alone
+    for name, c in C.items():
+        _check(not evaluate(c, 40.0)["productive"], f"{name} must not be productive at 40 pN")
+    fm = {n: min_force_to_omega(c) for n, c in C.items()}
+    _check(fm["full epsin (ENTH+IDP)"] < fm["IDP domain alone"] < fm["ENTH domain alone"],
+           f"force burden must order full < IDP < ENTH, got {fm}")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     passed = 0

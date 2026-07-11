@@ -1,0 +1,62 @@
+{
+  "title": "Test cases: full epsin vs ENTH-domain-alone vs IDP-domain-alone",
+  "question": "Compare epsin, its ENTH domain alone, and its IDP domain alone for orchestration / productive-pit capacity",
+  "domain_decomposition": {
+    "ENTH_H0_wedge": {
+      "player": "WedgePlayer (amphipathic, tension-gated)",
+      "intrinsic_c0": 0.02,
+      "tension_gated_c_eff": 0.01
+    },
+    "IDP_crowding": {
+      "player": "CrowdingPlayer (disordered C-terminal brush, entropic)",
+      "c_eff": 0.025
+    },
+    "full_epsin_c_eff": 0.035,
+    "family_screen_reference_H_med": 0.0333,
+    "note": "Component sum (0.035) matches the validated family-screen epsin H_med (~0.033). The IDP crowding tail carries MORE autonomous curvature than the ENTH wedge because the wedge is tension-gated down at resting tension (sigma=0.02)."
+  },
+  "autonomous_coat_only": {
+    "full epsin (ENTH+IDP)": {
+      "c_eff": 0.035,
+      "H": 0.0152,
+      "stage": "flat",
+      "productive": false
+    },
+    "ENTH domain alone": {
+      "c_eff": 0.01,
+      "H": 0.0044,
+      "stage": "flat",
+      "productive": false
+    },
+    "IDP domain alone": {
+      "c_eff": 0.025,
+      "H": 0.0109,
+      "stage": "flat",
+      "productive": false
+    }
+  },
+  "with_coat_actin40": {
+    "full epsin (ENTH+IDP)": {
+      "H": 0.0208,
+      "stage": "dome",
+      "productive": false
+    },
+    "ENTH domain alone": {
+      "H": 0.0099,
+      "stage": "flat",
+      "productive": false
+    },
+    "IDP domain alone": {
+      "H": 0.0165,
+      "stage": "flat",
+      "productive": false
+    }
+  },
+  "min_actin_force_to_omega_pN": {
+    "full epsin (ENTH+IDP)": 100,
+    "ENTH domain alone": 175,
+    "IDP domain alone": 130
+  },
+  "verdict": "None of the three makes a productive pit on coat + 40 pN actin alone. The mechanistic result is the FORCE-BURDEN ordering: full epsin needs the least actin force to reach Omega/scission (100 pN), the ENTH domain alone the most (175 pN), and the IDP domain alone intermediate (130 pN). The two domains are complementary -- the ENTH/H0 wedge and the IDP crowding brush each supply part of the curvature, and deleting either shifts the burden onto the actin machinery. This is consistent with the 2020 finding that the ENTH domain is required for the tension response, and with epsin's role as a curvature EFFECTOR rather than a mere adaptor.",
+  "caveat": "Stage/threshold calls from the validated forward model with decomposed c_eff magnitudes, not inverses on measured curvature trajectories. Component c_eff split is the players-module representation of the two domains, not a per-construct measurement."
+}

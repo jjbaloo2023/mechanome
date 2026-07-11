@@ -531,6 +531,31 @@ curvature. It is a stage/threshold call from the forward model with derived
 c_eff magnitudes, not an inverse on a measured curvature trajectory — so no
 force point-estimate is made.
 
+### Worked test case — epsin domain dissection
+
+A companion to the PICALM query: compare **full epsin**, its **ENTH domain
+alone**, and its **IDP domain alone**. Epsin decomposes into two curvature
+players — the ENTH/H₀ amphipathic wedge (tension-gated, c_eff ≈ 0.010 nm⁻¹) and
+the disordered C-terminal IDP crowding brush (entropic, c_eff ≈ 0.025 nm⁻¹) —
+whose sum (0.035) matches the validated family-screen epsin H_med (~0.033).
+`validation/realdata/epsin_domain_cases.py` runs each construct through the
+forward model.
+
+![Epsin domain cases]({{artifact:art_94e9e092-d1d7-4179-895c-295bed51edf0}})
+
+None of the three makes a productive pit on coat + 40 pN actin alone. The
+mechanistic result is the **force-burden ordering**: full epsin needs the least
+actin force to reach Ω/scission (100 pN), the ENTH domain alone the most
+(175 pN), and the IDP domain alone intermediate (130 pN). The two domains are
+complementary — the wedge and the crowding brush each supply part of the
+curvature, and deleting either shifts the load onto the actin machinery. Notably
+the IDP crowding tail contributes *more* autonomous curvature than the ENTH
+wedge, because the wedge is tension-gated down at resting tension. This is
+consistent with the 2020 finding that the ENTH domain is required for the
+tension response, and with epsin acting as a curvature *effector*, not a mere
+adaptor. As with PICALM, these are stage/threshold calls from the forward model,
+not inverses on measured trajectories — no force point-estimate is made.
+
 ### The observable ladder
 
 Single clathrin-coated pits are diffraction-limited puncta — curvature is not
