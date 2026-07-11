@@ -1,120 +1,186 @@
-# Design note: the bitter lesson applied to curvature orchestration
+# curvo — Design Note
 
-*Companion to the one-week sprint plan. This note states the single
-architectural commitment that shapes every module: **search against a cheap
-evaluator is the engine; hand-written physics is a guardrail, not the
-decision.***
+This note describes **what curvo is**, **why it is built the way it is**, and
+**the stages through which it was developed**. It is the architectural companion
+to the README: the README documents how to run each component and reports
+results; this note explains the reasoning behind the structure.
 
 ---
 
-## 1. The tension in the original plan
+## 1. What we are building
 
-The sprint plan's §4 ("the representation-decision engine") is written as a
-hand-authored rule table and says, explicitly, *"encode these as explicit
-rules, not vibes."* That instinct is right about one thing — we do not want the
-orchestrator hallucinating physics — but it is in direct tension with the
-mantra the project is built on.
+curvo is a membrane-curvature reasoning system with two coupled directions and a
+schema layer that regulates what it is allowed to claim.
 
-Sutton's *Bitter Lesson* (2019): across 70 years of AI, the approaches that
-win are the ones that **scale with computation** — general-purpose **search**
-and **learning** — and the approaches that plateau are the ones where humans
-tried to bake in their own knowledge of how the problem "should" be solved.
-Hand-engineered knowledge feels productive in the short run and caps the system
-in the long run.
+**Forward direction — orchestration (`analyze` inputs: protein + target).**
+Given a protein (UniProt ID) and a target membrane curvature, curvo decides
+which physical representation each molecular player should take (a rigid wedge,
+a polymer-brush crowder, a rigid coat, a tension term), resolves the parameters
+of those representations from pre-existing data, scores the combination against
+closed-form membrane energetics, and revises until it meets the target. The
+output is a set of representation decisions with physical justifications and an
+achieved-versus-target curvature.
 
-A fixed lookup table `{player → representation}` is exactly the baked-in
-knowledge the lesson warns about. It cannot discover that, for some new protein
-or state point, the "obviously right" representation is wrong. It does not get
-better with more compute. It is a ceiling.
+**Inverse direction — mechanistic inference (`analyze(video, question)`).**
+The same biophysical forward model is run backwards. A microscopy movie and a
+mechanistic question go in; inferred forces, the favored mechanism, calibrated
+uncertainty, an identifiability report, and a suggested disambiguating experiment
+come out. The inverse is a Bayesian engine (nested sampling with an MCMC
+cross-check) that **declines to report a force it cannot identify**, returning a
+posterior marked underdetermined instead of a confident but unsupported number.
 
-## 2. The reframing
+**Schema layer — the mechanome.** Every quantitative claim curvo emits is tagged
+with an epistemic tier (GROUNDED, MEASURED, or LINKED) that records how much
+evidence stands behind it. A structural firewall prevents a correlative
+hypothesis from being represented as a measured force.
 
-We keep all of the physics in the plan. We change **where it sits in the
-control flow.**
+The scientific motivation is specific: a model that reasons about protein
+orchestration is more useful when it recovers the **physics** — forces,
+energies, identifiability — than when it produces qualitative narrative alone.
+Recovered physical constraints are testable and transferable; narrative is not.
 
-| | Original plan (§4) | Bitter-lesson reframing (this pipeline) |
+## 2. Why it is built this way
+
+### 2.1 The architectural commitment: search against a cheap evaluator
+
+The project's organizing principle is Sutton's *Bitter Lesson* (2019): across
+the history of AI, methods that scale with computation — general-purpose search
+and learning — outperform methods that encode human knowledge about how a
+problem "should" be solved. Hand-engineered decision rules are productive early
+and become a ceiling later.
+
+An early design for the representation-decision step was a fixed lookup table
+mapping each player to a representation. That table is exactly the baked-in
+knowledge the lesson warns against: it cannot discover that the expected
+representation is wrong for a new protein or state point, and it does not improve
+with more compute. curvo inverts it.
+
+| | Fixed-rule design | curvo (search-based) |
 |---|---|---|
-| Who chooses the representation | a fixed rule table | a **search loop** proposing candidates |
-| Role of physics rules | *the decision* | **cheap validators / priors** that prune and seed |
-| What scales with compute | nothing (table is static) | the **number of proposals evaluated** |
-| What is ground truth | the rule ("scaffold → anisotropic") | the **evaluator's score** against data |
-| Failure mode removed | — | silently applying a wrong-but-plausible rule |
+| Who chooses the representation | a static rule table | a search loop proposing candidates |
+| Role of physics rules | the decision itself | cheap validators and priors that prune and seed |
+| What scales with compute | nothing | the number of proposals evaluated |
+| Source of truth | the rule | the evaluator's score against data |
 
-Concretely, the loop is:
+The control flow that follows:
 
 ```
-propose  (LLM proposer, seeded by priors)
-  → prune (guardrail validators reject physically-invalid proposals, cheaply)
-  → resolve params (Parameter Store, or flag MD gap)
-  → EVALUATE (Tier-0 analytic score vs ground truth)   ← the only source of truth
-  → read + revise (LLM post-mortem → next proposal)
-repeat until threshold met with robustness, or budget spent
+propose         (LLM proposer, seeded by physics priors)
+  → prune       (guardrail validators reject physically invalid proposals)
+  → resolve     (Parameter Store supplies values, or a gap is flagged for MD)
+  → EVALUATE    (closed-form analytic score vs ground truth)  ← only source of truth
+  → revise      (LLM reads the score and proposes the next candidate)
+repeat until the target is met robustly, or the budget is spent
 ```
 
-Three consequences follow, and they justify design choices elsewhere in the
-plan that would otherwise look like mere expedients:
+### 2.2 Three consequences of the commitment
 
-### 2a. Tier-0 primacy is a bitter-lesson argument, not a fallback
+**A cheap evaluator is the engine, not a fallback.** Search dominates only if
+each evaluation is inexpensive. Closed-form Helfrich energetics evaluate in
+microseconds; a full mesoscale simulation (FreeDTS) takes minutes to hours. The
+analytic evaluator is therefore the main component, and higher-fidelity
+simulation is an upgrade to evaluation quality wired behind the same interface —
+not a dependency of the demonstration.
 
-The plan treats the analytic Tier-0 evaluator as a "working fallback" in case
-FreeDTS eats a day. Under this reframing it is **the main event**. Search wins
-only if you can afford a lot of it, and you can afford a lot of it only if each
-evaluation is cheap. Closed-form Helfrich energetics and the budding phase
-diagram run in **microseconds**; FreeDTS runs in minutes-to-hours. So the cheap
-evaluator is what makes the engine (search) dominate. FreeDTS is an *upgrade to
-evaluation fidelity*, wired behind the same interface, not the thing the demo
-depends on.
+**Physics rules become guardrails, which strengthens them.** Demoting the rule
+table from decision-maker to validator does not discard the physics; it applies
+it where human knowledge genuinely helps a search — pruning the proposal space
+so compute is not spent on physically impossible candidates (for example,
+rejecting an isotropic spontaneous-curvature proposal for a dense directional
+scaffold). The same rules seed the proposer as priors. Human knowledge
+constrains the space; search and evaluation select the point.
 
-### 2b. The physics rules become guardrails, and that makes them stronger
+**Test diversity keeps search honest.** A search procedure will overfit a single
+case. curvo is validated on observables it was not tuned on — the CALM transfer
+test (a different adaptor protein), the ENTH-versus-ANTH family screen, and the
+real force-paired STED tether data — so that passing requires generalization, not
+memorization of one protein's behavior.
 
-Demoting the §4 table from "decision" to "validator" does not throw the physics
-away — it uses it where hand-knowledge genuinely helps a search: **pruning the
-proposal space** so compute isn't wasted on nonsense. A guardrail that says
-"scaffold imposes directional curvature → an isotropic-c₀ proposal for a dense
-scaffold is rejected" is a cheap, correct constraint. It shrinks the search;
-it does not make the final call. The same rules also act as **priors** that
-seed the proposer toward good regions. This is the standard, healthy division
-of labour: human knowledge constrains the *space*, search + evaluation pick the
-*point*.
+### 2.3 Division of labour between LLM and solver
 
-### 2c. Diversity of the test suite is what keeps search honest
+The LLM orchestrator proposes representations, configures parameters, interprets
+results, and revises. It performs the discrete and structural reasoning (which
+representation, whether two players are coupled, why) and the natural-language
+post-mortem. It never produces a curvature or an energy value — those come only
+from the deterministic evaluator, which optimizes continuous magnitudes. LLMs are
+poor numeric optimizers; a bounded solver is exact and cheap. Each component does
+what it is suited to, and a hard validator runs before every evaluation so that
+an LLM assertion contradicting the physics is rejected and fed back.
 
-A searcher will happily overfit one case. The plan's auto-discovered registry
-(§1b) — CALM as a **transfer test**, Boucrot as an **antagonism test**,
-Kaksonen as a **representation-subtlety test** — is therefore not decoration;
-it is the mechanism that prevents the loop from learning "epsin-shaped" tricks.
-A general method must pass observables it was not tuned on. We build the CALM
-transfer test explicitly for this reason.
+### 2.4 The credibility firewall
 
-## 3. What "the LLM does" and does not do
+The inverse engine and the mechanome share one discipline: a claim may carry a
+physical value only when the data identify it. In the inverse, this is the
+anti-force-astrology guardrail — a force is reported as a number only if it is
+not degenerate with another actor and not railed against a prior bound. In the
+mechanome, it is the tier firewall — a GROUNDED claim (a forward-model inverse
+against data) carries value, uncertainty, and identifiability; a LINKED claim (a
+mechanotransduction hypothesis) carries a causal chain and a proposed experiment
+but **no value**. The boundary between them prevents correlation from being
+represented as force balance.
 
-The orchestrator (an LLM via `host.llm`) **proposes, configures, interprets,
-and revises.** It is a search operator with good priors and a language for
-post-mortems. It **never produces a curvature or an energy number** — those
-come only from the evaluator. This keeps the bitter-lesson bargain intact: the
-learnable/searchable part is unbounded, but truth is external and cheap to
-check. A hard validator runs before every evaluation; an assertion of physics
-by the LLM that contradicts a guardrail is rejected, logged, and fed back.
+## 3. Development stages
 
-## 4. Honest seams (what is real vs stubbed this sprint)
+curvo was built in stages, each of which established a capability the next
+depended on.
 
-The lesson also disciplines what we claim. Two pieces are out of reach this
-week and are built as **clean seams with explicit labels**, never faked:
+**Stage 1 — Forward orchestration (v0.1).** The propose–prune–resolve–evaluate–
+revise loop, the closed-form evaluator (validated against analytic budding
+boundaries to within 0.05%), the AlphaFold-driven representation split, and the
+parameter store. Demonstrated on the epsin clathrin-coated-structure case and
+generalized without retuning to the CALM adaptor and a six-protein
+ENTH-versus-ANTH family screen.
 
-- **Proprietary averaged clathrin-track imaging data** (the CCS ground-truth
-  trajectory) is not in hand. The CCS curvature target is therefore anchored to
-  **published CCP geometry** (vesicle radius R ≈ 50–100 nm ⇒ mean curvature
-  ~0.01–0.02 nm⁻¹ for the Ω stage) with a single-function ingestion seam
-  (`ingest_clathrin_track()`) that swaps in the real trajectory unchanged.
-- **FreeDTS Tier-1** is a build risk on this machine. Its config-generator and
-  run-wrapper are implemented behind the evaluator interface and **stubbed**;
-  Tier-0 carries the demo. Swapping Tier-1 in touches nothing upstream.
+**Stage 2 — Inverse engine (v0.2).** The forward model extended with an
+active-stress (cortical/actin) term, a synthetic movie generator, a perception
+front end (pixels to geometry), the Bayesian inverse (nested sampling plus MCMC),
+mechanism discrimination by Bayesian evidence, and the `analyze(video, question)`
+endpoint with its identifiability guardrails.
 
-Everything else — AlphaFold pLDDT, the representation split, the parameter
-adapters where the domain is reachable, the evaluator, the search loop, the
-schematic — runs on **real data / real computation.**
+**Stage 3 — Credibility gate.** A synthetic recovery-validation grid that sweeps
+known forces through the entire pipeline and checks recovered posteriors against
+truth. No force claim is reported without passing this gate. It established that
+cortical force is calibrated (68% CI coverage 0.96, +2.0% bias) only where the
+actin channel constrains it, and that spontaneous curvature and tension are
+unidentifiable from single-structure geometry alone.
+
+**Stage 4 — Real-data and image validation.** The inverse tested against real
+force-paired STED nanotube measurements (mean |bias| 3.8%), a perception
+operating-envelope benchmark on rendered images (mean curvature recovered to
+10–22%), an end-to-end pixels-to-force test, and an honest transfer probe on a
+real cryo-ET membrane image (which established the modality gap and the adapter
+that closes its measurable axes).
+
+**Stage 5 — Orchestration-recovery program.** Scaling from one structure to a
+field: a multi-structure synthetic time-lapse, a detection-and-tracking pipeline,
+a motion-field (PIV-analog) extraction that demonstrates empirically that velocity
+is not force, per-structure physics recovery across the crowded field, and a
+coordination model that produces a falsifiable, experimentally testable statement
+about the temporal ordering of curvature and active force.
+
+## 4. Honest seams (real versus stubbed)
+
+The same discipline governs what curvo claims to have built. Components out of
+reach on the current host are implemented as labelled seams, never faked:
+
+- **Averaged clathrin-track imaging data** (a measured CCS curvature trajectory)
+  is not in hand. The CCS target is anchored to published CCP geometry, and
+  `ingest_clathrin_track()` is the single-function seam that swaps in a real
+  trajectory without changing the loop.
+- **FreeDTS Tier-1** mesoscale simulation is implemented as a config-generator and
+  run-wrapper behind the evaluator interface and stubbed; the analytic Tier-0
+  evaluator carries the demonstration. Swapping Tier-1 in touches nothing
+  upstream.
+- **Simulation-based inference** (`fit_sbi`) is a documented seam. The cheap
+  forward model makes exact nested-sampling inference tractable, so exact
+  inference is primary and amortized inference is optional.
+
+Every other component — AlphaFold retrieval, the representation split, the
+reachable parameter adapters, the evaluator, the search loop, the inverse engine,
+and the validation suite — runs on real data and real computation.
 
 ## 5. One-line statement
 
-> **Don't encode which representation to use. Encode how to tell a good one
-> from a bad one — cheaply — and let search find it.**
+> Do not encode which representation to use. Encode how to tell a good one from a
+> bad one, cheaply, and let search find it — then recover the physics, and report
+> only what the data identify.

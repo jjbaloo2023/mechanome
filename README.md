@@ -1,25 +1,34 @@
-# curvo — bitter-lesson curvature orchestration **and mechanistic inference**
+# curvo
 
-curvo has two coupled halves:
+**Membrane-curvature orchestration and mechanistic inference.**
 
-1. **Forward / orchestration (v0.1).** Given a UniProt ID and a target membrane
-   curvature, a closed loop decides **which physical representation to use for
-   each player**, resolves parameters from pre-existing data, evaluates against
-   closed-form ground truth, and revises — until it meets the target.
-   Demonstrated on the epsin clathrin-coated-structure (CCS) case.
-2. **Inverse / mechanistic inference (v0.2).** The north-star endpoint
-   **`analyze(video, question)`** runs the loop *backwards*: a microscopy movie
-   and a mechanistic question in → **inferred forces, the favored mechanism,
-   calibrated uncertainty, an identifiability report, and a suggested
-   disambiguating experiment** out. It inverts the same biophysical forward
-   model under MD-derived priors with a proper Bayesian engine (nested sampling
-   + MCMC), and it **refuses to report a force it cannot identify** — returning a
-   posterior flagged *underdetermined* instead of a confident wrong number.
+curvo reasons about how proteins bend cell membranes. It works in two coupled
+directions and regulates every claim it makes with an epistemic-tier schema.
 
-The v2 build (Phases 0–8) is documented in
-[**§ The inverse engine**](#the-inverse-engine-analyzevideo-question) below;
-the whole synthetic-recovery validation gate that licenses every force claim is
-in [§ The credibility gate](#the-credibility-gate-synthetic-recovery-validation).
+- **Forward — orchestration.** Given a protein (UniProt ID) and a target
+  membrane curvature, curvo decides which physical representation each molecular
+  player takes, resolves the parameters from pre-existing data, scores the
+  combination against closed-form membrane energetics, and revises until it
+  meets the target. Demonstrated on the epsin clathrin-coated-structure (CCS)
+  case and generalized without retuning to the CALM adaptor and a six-protein
+  family screen.
+- **Inverse — mechanistic inference.** The endpoint `analyze(video, question)`
+  runs the same biophysical model backwards: a microscopy movie and a
+  mechanistic question in; inferred forces, the favored mechanism, calibrated
+  uncertainty, an identifiability report, and a suggested disambiguating
+  experiment out. The inverse is a Bayesian engine (nested sampling with an MCMC
+  cross-check) that reports a force as a number only when the data identify it,
+  and otherwise returns a posterior marked underdetermined.
+- **Schema — the mechanome.** Every quantitative claim is tagged GROUNDED,
+  MEASURED, or LINKED, and a structural firewall prevents a correlative
+  hypothesis from being represented as a measured force.
+
+The design rationale — the bitter-lesson architecture and the development stages
+— is in [`design_note.md`](design_note.md). Symbol and variable definitions are
+in [§ Variables and symbols](#variables-and-symbols). The exact control-flow
+rules are in [§ Decision logic](#decision-logic).
+
+## Quick start
 
 ```bash
 git clone https://github.com/jjbaloo2023/curvo.git
@@ -27,34 +36,87 @@ cd curvo
 pip install -e .              # numpy, scipy, requests
 pip install -e ".[plots]"     # + matplotlib for the figure scripts
 pip install -e ".[inference]" # + dynesty, emcee, corner for the inverse engine
-python run_demo.py            # offline, deterministic — no network/LLM needed
+python run_demo.py            # offline, deterministic (no network or LLM required)
 python run_demo.py --llm      # use the host.llm proposer for the search
 ```
 
-One command prints the representation decisions + physical justifications
-(including the AlphaFold pLDDT → wedge/crowding split), achieved-vs-target
-curvature, the recovered ENTH+IDP complementarity, the spherical/filamentous
-IAV divergence, and the stubbed MD-job queue it would dispatch — and writes the
-headline SVG orchestration schematic.
+`run_demo.py` prints the representation decisions with their physical
+justifications (including the AlphaFold pLDDT split into wedge and crowding
+contributions), the achieved-versus-target curvature, the ENTH+IDP
+complementarity result, the influenza (IAV) spherical-versus-filamentous
+divergence, and the MD-job queue it would dispatch. It writes the orchestration
+schematic below. Run `python tests/test_players.py` (or `pytest`) for the
+guardrail tests.
 
-Run the guardrail tests with `python tests/test_players.py` (or `pytest`).
+## Pipeline overview
 
-### The headline artifact
+curvo is organized as two directions over one shared forward model, plus a
+field-scale program built on the inverse, and a schema layer that tags outputs.
 
-The loop's decision is rendered as a single schematic, generated directly from
-the `OrchestrationRecord` (not hand-drawn): membrane profile bent by the
-achieved order parameter, player glyphs sized by their gated contribution, a
-faithful contribution waterfall (wedge + crowding + coat + synergy = c_eff),
-and target-vs-achieved with a pass/fail verdict.
+```
+                       ┌──────────────────────────────────────┐
+                       │   shared forward model (evaluator)     │
+                       │   Helfrich energetics + active stress  │
+                       └──────────────────────────────────────┘
+                            ▲                          │
+          FORWARD           │                          │        INVERSE
+    (protein → target)      │                          ▼   (video → forces)
+                            │
+  UniProt ID                │                    microscopy movie [T,C,H,W]
+     │                      │                          │
+     ▼                      │                          ▼
+  structure_provider  ──────┤                    perception  (pixels → geometry(t)
+  (pLDDT → wedge/crowding)  │                     │           + per-frame σ)
+     │                      │                          │
+     ▼                      │                          ▼
+  players  (candidate reps  │                    inverse  (nested sampling → force
+  + guardrail validators)   │                     │        posterior + identifiability)
+     │                      │                          │
+     ▼                      │                          ▼
+  orchestrator  ────────────┘                    mechanism  (evidence ranking →
+  (propose→prune→resolve                          │          favored hypothesis or
+   →EVALUATE→revise)                               │          UNDETERMINED + experiment)
+     │                                                  │
+     ▼                                                  ▼
+  representation decisions                        analyze() structured result
+  + achieved curvature                            {forces, favored_mechanism,
+                                                   uncertainty, identifiability,
+                                                   suggested_experiment, provenance}
+                                                        │
+                                                        ▼
+                             ┌───────────────────────────────────────────┐
+                             │  FIELD-SCALE PROGRAM (built on the inverse) │
+                             │  field_movie → tracking → motion →          │
+                             │  per_track_recovery → orchestration model   │
+                             └───────────────────────────────────────────┘
+                                                        │
+                                                        ▼
+                             ┌───────────────────────────────────────────┐
+                             │  MECHANOME SCHEMA (tags every claim)        │
+                             │  GROUNDED / MEASURED / LINKED + firewall    │
+                             └───────────────────────────────────────────┘
+```
+
+Read the forward column top-to-bottom for orchestration, the inverse column
+top-to-bottom for `analyze()`. Both call the same evaluator, which is why a force
+recovered by the inverse is expressed in the same energetics the forward loop
+optimizes. The field-scale program and the mechanome both consume the inverse's
+structured output.
+
+### The orchestration schematic
+
+The forward loop's decision is rendered directly from the `OrchestrationRecord`
+(not hand-drawn): the membrane profile bent by the achieved order parameter,
+player glyphs sized by their gated contribution, the contribution waterfall
+(wedge + crowding + coat + synergy = c_eff), and the target-versus-achieved
+verdict.
 
 ![epsin orchestration schematic](outputs/epsin_orchestration_schematic.svg)
 
-### What the loop recovers
-
-| Test | Figure |
+| Forward-loop diagnostic | Figure |
 |------|--------|
 | AlphaFold pLDDT → representation split (EPN1) | `outputs/epsin_pLDDT_profile.png` |
-| ENTH+IDP complementarity (only FULL crosses Ω) | `outputs/epsin_complementarity.png` |
+| ENTH+IDP complementarity (only the full combination crosses Ω) | `outputs/epsin_complementarity.png` |
 | IAV cargo divergence (spherical needs H0, filamentous does not) | `outputs/iav_cargo_divergence.png` |
 | Closed-form budding anchor a\*=4κ/λ (loop vs analytic) | `outputs/anchor_convergence.png` |
 | Helfrich tube radius / pulling force | `outputs/tube_radius_vs_force.png` |
@@ -63,9 +125,212 @@ and target-vs-achieved with a pass/fail verdict.
 
 ---
 
+## Variables and symbols
+
+Physical quantities used throughout the code and this document. Energies are in
+units of thermal energy k_BT unless noted; `kBT_zJ = 4.114` zJ = pN·nm at 298 K
+converts to force units.
+
+| Symbol | Code name | Units | Meaning |
+|--------|-----------|-------|---------|
+| H | `H_inv_nm` | nm⁻¹ | Mean curvature of the membrane cap; the primary geometric observable. |
+| c_eff | `c_eff_max_inv_nm` | nm⁻¹ | Effective spontaneous curvature the players impose (wedge + crowding + coat, coupled). Drives the flat→dome→Ω trajectory. |
+| σ | `sigma_kBT_nm2` | k_BT·nm⁻² | Membrane tension. Opposes footprint growth. Baseline 0.02. |
+| κ | `kappa_kBT` | k_BT | Bending rigidity. ~20 k_BT for POPC. |
+| f_active | `active_force_max_pN` | pN | Cortical/actin axial force pulling the cap inward; contributes work −f·d. |
+| A_coat | `A_coat_nm2` | nm² | Coat footprint area (π·60² by default). |
+| ψ (psi) | `psi_opt_deg` | deg | Cap opening angle; ψ→0 flat disc, ψ→π closed sphere. |
+| op | `psi_opt/π` | — | Order parameter. Stage boundaries: **flat** (op<0.33), **dome** (0.33≤op<0.66), **Ω** (op≥0.66). |
+| d | depth | nm | Invagination depth, d = R(1−cos ψ). |
+| R | `R_nm` | nm | Cap radius of curvature. |
+| λ | `lam_kBT_nm` | k_BT·nm⁻¹ | Line tension at the coat rim. |
+| ACTIN_CALIB_PN | `ACTIN_CALIB_PN` | pN | Actin-channel force calibration constant (60.0); maps actin density to absolute force magnitude, breaking the c_eff/f_active degeneracy. |
+| PSF σ | `psf_sigma_nm` | nm | Point-spread-function width; sets the optical resolution limit. |
+| — | `nm_per_px` | nm/px | Image pixel size. |
+| Ω threshold | `OMEGA_THR` | nm⁻¹ | Curvature at which a structure is counted as crossing into the Ω (nearly closed) stage in the family screen; 0.030 nm⁻¹. |
+
+**Identifiability thresholds** (from `inverse.identifiability`): a parameter is
+demoted to unidentified if its posterior interval is wider than
+`width_ratio_thresh=0.5` of the prior, if `|posterior correlation| > corr_thresh=0.7`
+with another actor (joint degeneracy), or if more than `rail_frac=0.15` of the
+posterior mass piles against a prior bound (railing).
+
+## Decision logic
+
+Three control-flows carry the credibility guarantees. Each is a small,
+inspectable rule set.
+
+### (a) Force reporting — the anti-force-astrology guardrail
+
+Whether `analyze()` returns a force as a number or as an underdetermined
+posterior:
+
+```
+recovered posterior for force F
+        │
+        ▼
+  Is F in the recovery-gate CALIBRATED set?  ──no──▶ return posterior only
+  (only active_force_max, per § credibility gate)     (reason: not gate-certified)
+        │ yes
+        ▼
+  Jointly degenerate with another actor?      ──yes─▶ return posterior, both actors
+  (|corr| > 0.70)                                     marked UNDETERMINED
+        │ no
+        ▼
+  Posterior railed against a prior bound?     ──yes─▶ return posterior
+  (rail fraction > 0.15)                              (reason: prior-driven, not data)
+        │ no
+        ▼
+  Interval wider than 0.5 × prior?            ──yes─▶ return posterior
+        │ no                                          (reason: uninformative)
+        ▼
+  return POINT ESTIMATE + 68% CI  (identified = true)
+```
+
+### (b) Mechanism verdict — evidence ranking
+
+Whether the engine names a favored mechanism or proposes an experiment
+(`mechanism.discriminate`):
+
+```
+fit competing hypotheses {tension_only, wedge_only, actin_only, wedge+actin}
+each as a restricted forward model; rank by Bayesian evidence logZ
+        │
+        ▼
+  lnB = logZ(top) − logZ(runner-up)
+        │
+        ▼
+  lnB ≥ 2.5 ?                          ──no──▶ UNDETERMINED → propose disambiguating
+        │ yes                                   experiment (e.g. co-image actin)
+        ▼
+  Did the winner rely on an              ──yes─▶ UNDETERMINED → propose experiment
+  unidentifiable extra actor?                    (overfit guard)
+        │ no
+        ▼
+  DECISIVE: report favored mechanism + lnB
+```
+
+### (c) Epistemic tier — the mechanome firewall
+
+How a claim is tagged, enforced structurally in `MechanoClaim.__post_init__`:
+
+```
+new claim
+        │
+        ▼
+  Is it a forward-model inverse run against data?   ──yes─▶ GROUNDED
+  (value + uncertainty + identifiability required)          carries a value
+        │ no
+        ▼
+  Is it a cited experimental measurement?           ──yes─▶ MEASURED
+  (value + uncertainty + citation required)                 carries a value
+        │ no
+        ▼
+  Is it a mechanotransduction hypothesis?           ──yes─▶ LINKED
+  (causal chain + proposed experiment required,             carries NO value
+   value MUST be null)
+        │ no
+        ▼
+  reject (schema raises rather than emit an untiered claim)
+```
+
+## Worked examples
+
+One concrete, reproducible example per subcategory. Values shown are the actual
+outputs saved under `outputs/`, not illustrations.
+
+### 1. Forward orchestration — epsin CCS
+
+```python
+from curvo.family_screen import screen
+recs = screen()                     # six proteins, live AlphaFold retrieval
+epn1 = next(r for r in recs if r["name"] == "EPN1")   # UniProt Q9Y6I3
+# wedge_c0 = 0.074 nm-1  (N-terminal amphipathic helix, from pLDDT + moment)
+# c_eff    = 0.093 nm-1  (wedge + IDR crowding + coat, coupled)
+# H_max    = 0.0333 nm-1 -> stage "Omega"  -> crosses Omega threshold (0.030)  ✓
+```
+
+The loop derives EPN1's wedge and crowding capacities from its structure alone
+(per-residue pLDDT, N-terminal hydrophobic moment, disordered-tail bulk), scores
+them through the evaluator, and reports an Ω-stage curvature generator.
+Reproduce: `python family_screen.py`.
+
+### 2. Inverse — `analyze(video, question)`
+
+```python
+from curvo.analyze import analyze
+result = analyze(movie, question="wedge or actin?",
+                 channels=["membrane", "coat", "actin"], nm_per_px=2.0)
+# with the actin channel:  favored = wedge+actin (lnB ~ 18),
+#                          active_force = 41 pN  (truth 40, identified)
+# geometry only (actin withheld):  UNDETERMINED
+#                          -> suggests co-imaging actin / latrunculin / H0-mutation
+```
+
+The same movie yields an identified, calibrated force when the actin channel
+constrains it, and returns UNDETERMINED plus a proposed experiment when it does
+not. Reproduce: `python tests/test_analyze_guardrails.py`.
+
+### 3. Credibility gate — synthetic recovery
+
+```python
+from curvo import recovery as r
+recs = r.recovery_grid()                 # 5 regimes x 8 noise seeds = 40 inversions
+print(r.calibration_summary(recs))
+# active_force_max: identified 24/40, coverage68|id = 0.96, bias|id = +2.0%  -> CALIBRATED
+# c_eff_max:        identified 0/40   (degenerate from geometry alone)
+# sigma (tension):  identified 0/40   (not identifiable from one CCP)
+```
+
+The gate that licenses `analyze()` to report `active_force` as a number.
+Reproduce (~13 min): the snippet above.
+
+### 4. Real-data validation — STED tether
+
+```python
+# validation/tether_sted.py: feed the STED tube radius + kappa prior,
+# infer tension, propagate to holding force, check vs micropipette ground truth.
+#   Sigma 20 uN/m:  f measured 12.2 pN,  f recovered 12.5 pN,  cov68 0.97
+#   Sigma 72 uN/m:  f measured 23.2 pN,  f recovered 24.3 pN,  cov68 0.90
+#   mean |bias| across the range = 3.8%
+```
+
+Force recovered against **real measured forces** (Roy et al. 2020), mean |bias|
+3.8%, CIs conservative. Reproduce: `python validation/tether_sted.py`.
+
+### 5. Perception — image → geometry
+
+```python
+# validation/perception_benchmark.py: recover mean curvature H from rendered
+# single-CCP images across PSF, pixel size, photons, depth, off-center.
+#   core envelope (13 resolution-matched conditions): H recovered to 10-22%
+#                                                      (median 12.8%)
+# validation/image_to_force.py: full pixels -> force
+#   identified 25, 40 pN at 6% bias; 55, 70 pN correctly refused (UNDETERMINED)
+```
+
+Reproduce: `python validation/perception_benchmark.py`,
+`python validation/image_to_force.py`.
+
+### 6. Orchestration recovery — field to coordination model
+
+```python
+# validation/: field_movie -> tracking -> motion -> per_track_recovery -> orchestration
+#   tracking:      8/8 structures detected, F1 0.64; 100% across crowding/SNR sweep
+#   motion (PIV):  neck inflow vs true force  r = -0.08, p = 0.79  (velocity != force)
+#   per-track:     6/24 identified (25%), bias -6.0%, cov68 0.50 (crowding penalty
+#                  vs the 60% / +2% / 0.96 single-CCP gate)
+#   orchestration: curvature precedes actin force, median lag 3 frames,
+#                  recovered lag tracks the ground-truth delay at r = 0.94
+```
+
+Produces a falsifiable statement (curvature-before-force, refutable by dual-color
+TIRF) emitted as a LINKED-tier claim. Reproduce: `python -m validation.field_movie`,
+`… .tracking`, `… .motion`, `… .per_track_recovery`, `… .orchestration`.
+
 ## The inverse engine: `analyze(video, question)`
 
-This is the v2 north star — the endpoint an agent calls.
+The endpoint an agent calls.
 
 ```python
 from curvo.analyze import analyze
@@ -76,7 +341,7 @@ result = analyze(movie,                       # np.ndarray [T, C, H, W]
 #     suggested_experiment, provenance}
 ```
 
-The pipeline is four honest stages:
+The pipeline has four stages:
 
 ```
 video ──PerceptionProvider──▶ geometry(t) ──inverse (nested sampling)──▶ force posterior
@@ -117,8 +382,7 @@ video ──PerceptionProvider──▶ geometry(t) ──inverse (nested sampli
    railing** (a posterior piled against a bound is not data-driven). `analyze()`
    then returns a **point estimate only for forces the recovery-validation gate
    certified calibrated**; everything else comes back as a posterior with the
-   reason it is underdetermined. This is the difference between an inference
-   engine and a horoscope.
+   reason it is underdetermined.
 4. **Mechanism discrimination** (`mechanism.py`) fits competing hypotheses —
    `tension_only`, `wedge_only`, `actin_only`, `wedge+actin` — each a restricted
    forward model, and ranks them by **Bayesian evidence** (nested sampling's
@@ -127,20 +391,20 @@ video ──PerceptionProvider──▶ geometry(t) ──inverse (nested sampli
    (an overfit guard). Otherwise the verdict is **UNDETERMINED** and the engine
    **proposes the disambiguating experiment**.
 
-**The headline result — the same movie, two answers, honestly:**
+**The same movie, two answers:**
 
 ![mechanism discrimination](outputs/mechanism_discrimination.png)
 
 | analysis of the *same* actin-driven movie | favored mechanism | active force | verdict |
 |---|---|---|---|
 | **with** the cortical-actin channel | wedge+actin (lnB ≈ 18) | **41 pN** (truth 40, identified) | decisive |
-| **geometry only** (actin channel withheld) | — | *underdetermined* | UNDETERMINED → **suggests** co-imaging actin / latrunculin / H0-mutation |
+| **geometry only** (actin channel withheld) | — | *underdetermined* | UNDETERMINED → suggests co-imaging actin / latrunculin / H0-mutation |
 
 From membrane geometry alone, spontaneous curvature and cortical force are
-**mathematically degenerate** — they trade off in the cap energy. curvo does not
-paper over this: it flags both as unidentified and tells you the one measurement
-that would separate them. Add the actin channel and the force becomes
-identifiable, calibrated, and reported.
+mathematically degenerate — they trade off in the cap energy. The engine flags
+both as unidentified and reports the one measurement that would separate them.
+With the actin channel added, the force becomes identifiable, calibrated, and
+reported as a number.
 
 ## The credibility gate: synthetic recovery validation
 
@@ -159,7 +423,7 @@ checks the recovered posteriors against truth:
 
 Cortical force is recovered with correct calibration **only where the actin
 channel constrains it** — never from geometry alone, exactly as the degeneracy
-structure demands. Spontaneous curvature and tension are honestly reported as
+structure demands. Spontaneous curvature and tension are reported as
 unidentifiable from this observable set. Two calibration bugs were caught *by
 this gate* and fixed at source (a max-of-noise actin-peak bias → robust top-k
 peak + a measured estimator-gain correction; a railed-σ false positive → prior-
@@ -198,14 +462,14 @@ truth.
 
 **Verdict: acceptable.** Forces recovered near-unbiased (mean |bias| 3.8%) across
 the full range; the 68% CIs are *conservative* (coverage 0.90–0.97, wider than
-nominal) — the posteriors err toward humility, not overconfidence. The mild
+nominal) — the posteriors are wider than nominal rather than overconfident. The mild
 low-tension positive bias is the √-nonlinearity mapping radius noise
 asymmetrically into force (explainable, not a defect). Reproduce:
 `python validation/tether_sted.py`.
 
 **MDDB adapter (provenance breadth, not force).** `validation/mddb_adapter.py`
 pulls real per-frame membrane observables live from the
-[Molecular Dynamics Data Bank](https://mddbr.eu) (REST API). An honest finding
+[Molecular Dynamics Data Bank](https://mddbr.eu) (REST API). A finding
 from the live API: **MDDB serves *structural* observables** (thickness,
 area-per-lipid, lipid-order, density) — **not** stress profiles or tension. So it
 is an independent MD source for curvo's elastic *parameters* (which set κ), not a
@@ -214,7 +478,7 @@ bilayer (A020P, 303 K) is 0.44 nm thinner than pure POPC — a large z-score tha
 correctly flags a *composition mismatch* rather than agreement. That is exactly
 what a parameter cross-check should surface.
 
-*Scope, stated plainly:* the tether/STED test validates the forward map + Bayesian
+*Scope:* the tether/STED test validates the forward map + Bayesian
 inverse on the **tube geometry** against real forces; the MDDB adapter adds a
 second orthogonal source for structural inputs. Neither replaces the synthetic
 recovery gate for the CCS spherical-cap `analyze()` pipeline — they are
@@ -227,8 +491,7 @@ exercise is **perception** — pixels → geometry — the front end that every 
 analysis depends on. `validation/perception_benchmark.py` is a held-out image
 benchmark that closes that gap. Because measuring recovery accuracy requires exact
 geometry ground truth, and only rendered images carry it, the benchmark images are
-synthetic *by necessity*; the companion probe below is an honest look at a real
-image.
+synthetic *by necessity*; the companion probe below examines a real image.
 
 **Operating envelope (exact ground truth).** Single clathrin-coated-pit images are
 rendered across conditions *outside* the calibration set — PSF width, pixel size,
@@ -242,7 +505,7 @@ window).
   resolution-matched conditions — PSF σ = 18 nm, pixel size 2–4 nm/px, photons
   40–400, cap depth c_eff 0.045–0.08, off-center ≤ 6 px — robust to SNR (photons
   40–400: 13–18%) and moderate off-center (6 px: 22%).
-- **Degradation edges, characterized honestly:** at PSF σ = 10 nm the reliable band
+- **Degradation edges:** at PSF σ = 10 nm the reliable band
   nearly vanishes (few frames clear the resolvability floor → 76%);
   under-sampling at 1 nm/px → 98%; large off-center (12 px) → 42%; and the
   **deep-Ω plateau** (depth > 2.2 σ) under-reads by ~25–38% because the
@@ -250,7 +513,7 @@ window).
   1 nm/px each satisfy a naive "fine-resolution" reading yet sit far outside the
   core band — they are excluded from it by measurement, not by the σ/sampling
   numbers alone.)
-- **Uncertainty caveat, flagged not hidden:** the per-frame bootstrap CI
+- **Uncertainty caveat:** the per-frame bootstrap CI
   *under-covers* (coverage68 ≈ 0.33 vs 0.68 nominal) in this band. The point
   estimate is trustworthy; the per-frame σ needs widening. This is reported as a
   known limitation, not glossed as a pass.
@@ -278,7 +541,7 @@ guardrail rather than reporting a biased point value (at 70 pN the posterior med
 drops to ~60). The guardrail that licenses force claims survives the move from
 reported numbers to extracted geometry.
 
-**Honest real-image transfer probe.** One accessible real curved-membrane image —
+**Real-image transfer probe.** One accessible real curved-membrane image —
 a cryo-ET synaptic-vesicle subtomogram average (EMDB EMD-65182, 0.906 nm/px) —
 tests whether the front end transfers.
 
@@ -332,7 +595,7 @@ per-structure physics recovery → a model of how the players coordinate.** The 
 to recover physics that constrains a model, not just to reason about images — a
 model carrying real physical constraints is worth more than a qualitative one.
 
-**What transfers, honestly** (`validation/methods_transfer.md`, schematic below).
+**What transfers** (`validation/methods_transfer.md`, schematic below).
 PIV extracts a velocity field — kinematics, an *input*, not force. TFM's apparatus
 doesn't transfer (no bead substrate), but its measured-displacement→inferred-force
 *inverse structure* is exactly curvo's paradigm. The physics recovery itself is
@@ -409,14 +672,14 @@ affordance; per the project's aim (scale the science) it is not built here.
 `python -m validation.motion`, `python -m validation.per_track_recovery`,
 `python -m validation.orchestration`.
 
-## The mechanome: the schema curvo is the reference implementation of
+## The mechanome schema
 
 curvo grounds *one* edge of the cell's mechanical layer. The `mechanome/` package
 promotes curvo's `ParameterRecord` discipline — provenance + uncertainty +
 validity — into the organizing principle of a whole federated schema, where every
 mechano-relationship wears its **epistemic tier** on its face.
 
-**The invariant (the whole design rests on it):** every claim is **GROUNDED**
+**The invariant.** Every claim is **GROUNDED**
 (a forward-model inverse run against data, carrying value + uncertainty +
 identifiability), **MEASURED** (a cited experimental value with provenance), or
 **LINKED** (a flagged mechanotransduction hypothesis with an explicit causal
@@ -439,8 +702,8 @@ correlation into physics — `mechanome/schema.py` forbids it structurally, in
 ![tiered mechanome walk](outputs/mechanome_schematic.png)
 
 The figure is the walk: a GROUNDED force (curvo's real force-paired tether result,
-solid), a GROUNDED capacity prediction (epsin EPN1, tiered honestly as
-grounded-on-*synthetic-recovery*, **not** on an EPN1 trajectory we never had), and
+solid), a GROUNDED capacity prediction (epsin EPN1, tiered as
+grounded-on-*synthetic-recovery*, not on a measured EPN1 trajectory), and
 a dashed LINKED node (membrane tension → Piezo1 → YAP) that carries a proposed
 experiment and **no force value**.
 
@@ -460,7 +723,7 @@ experiment and **no force value**.
   "reasoning_trace":"proposed test: hyperosmotic shock + YAP reporter" }
 ```
 
-**What is real vs stub in the mechanome (stated openly):**
+**Mechanome components, real vs stub:**
 
 | Component | Status |
 |-----------|--------|
@@ -476,7 +739,7 @@ is blocked from emitting GROUNDED claims (`registry.can_emit_grounded`) — it m
 register MEASURED literature or LINKED hypotheses only. Reproduce the walk:
 `python -m mechanome.mechano_schematic`.
 
-## The one idea (design_note.md)
+## Design principle
 
 The project mantra is **the bitter lesson** (Sutton 2019): what scales with
 compute is *search* and *learning*, not baked-in human knowledge. The sprint
@@ -502,7 +765,7 @@ that:
   bounded deterministic solver nails the continuous magnitude. LLMs are poor
   numeric hill-climbers; this keeps each doing what it is good at.
 
-## What is REAL vs STUBBED this sprint
+## What is real vs stubbed
 
 | Component | Status | Notes |
 |-----------|--------|-------|
@@ -527,7 +790,7 @@ supplied for the IAV spherical/filamentous case — it is **not** named in the
 plan. The pipeline reproduces the **qualitative mechanism** described in these
 works (ENTH+IDP complementarity; spherical/filamentous H0-dependence). It was
 **not** quantitatively validated against those papers' measured data, which are
-not in hand this sprint.
+not in hand.
 
 ## Where MD plugs in (the seams that already exist)
 
@@ -541,9 +804,9 @@ not in hand this sprint.
 3. **Reverse seam**: a found FreeDTS shape backmaps to CG-MD via TS2CG (push a
    mesoscale result down to molecular detail).
 
-## Can curvo extract *new* science? A worked demonstration
+## Extracting new predictions: three modes
 
-The honest test of a discovery engine is whether it produces a **falsifiable
+A useful test of a discovery engine is whether it produces a **falsifiable
 prediction that was not already encoded in its inputs**. curvo passes this test
 in three distinct modes.
 
@@ -572,18 +835,17 @@ documented ENTH-vs-ANTH division of labour (epsins insert an amphipathic AH0 and
 generate curvature; ANTH proteins bind PIP2 and cargo but do not autonomously
 bend the membrane).
 
-**The most useful output is the error.** HIP1R is flagged: its N-terminal
+**The flagged disagreement is the actionable output.** HIP1R is flagged: its N-terminal
 amphipathic stretch trips the wedge detector, so the pipeline predicts Ω-crossing
 capacity that its ANTH classification argues against. That disagreement is not
 noise — it is a **specific, testable experimental target**: does HIP1R's
 N-terminus actually insert and generate curvature, or is the moment a
 false positive? A liposome tubulation assay on the HIP1R N-terminal peptide
-answers it directly. curvo turned "screen a family" into "here is the one
-protein worth doing the experiment on, and here is the exact experiment."
+answers it directly: the screen converts "rank a family" into "here is the one
+protein for which the experiment is decisive, and here is that experiment."
 
-This is the bitter-lesson payoff: because the evaluator is cheap, the same loop
-that solved epsin screens a whole family in seconds and *self-identifies where
-its own prior is weakest*.
+Because the evaluator is cheap, the same loop that solved the epsin case screens
+a whole family in seconds and identifies where its own prior is weakest.
 
 ### Mode 2 — State-space prediction (built in)
 
@@ -637,19 +899,19 @@ curvo/
   inverse.py            Bayesian inverse: fast forward model + dynesty/emcee + identifiability
   mechanism.py          competing-hypothesis evidence ranking + disambiguating-experiment proposer
   recovery.py           synthetic recovery validation — the credibility gate
-  analyze.py            analyze(video, question) — the north-star agent endpoint
+  analyze.py            analyze(video, question) — the agent endpoint
   --- real-data validation (validation/) ---
   validation/tether_sted.py    inverse vs force-paired STED nanotubes (Roy et al. 2020)
   validation/mddb_adapter.py   live Molecular Dynamics Data Bank membrane-parameter adapter
   validation/perception_benchmark.py  held-out image operating-envelope sweep + robustness stressors
   validation/plot_envelope.py  operating-envelope figure renderer
   validation/image_to_force.py end-to-end pixels->force on EXTRACTED geometry
-  validation/real_image_probe.py  honest transfer probe on a real cryo-ET membrane (EMD-65182)
+  validation/real_image_probe.py  transfer probe on a real cryo-ET membrane (EMD-65182)
   validation/modality_adapter.py  cryo-ET density image -> curvo GeometryTrace (contrast + ring/cap)
   validation/methods_transfer.md   what PIV/TFM contribute vs curvo's inverse (+ data-reality gate)
   validation/field_movie.py        multi-structure synthetic time-lapse + ground-truth tracks
   validation/tracking.py           LoG detection + NN linking; validated vs GT tracks
-  validation/motion.py             PIV-analog motion field; the honest kinematics != force result
+  validation/motion.py             PIV-analog motion field; the kinematics != force result
   validation/per_track_recovery.py per-structure force recovery across a crowded field
   validation/orchestration.py      coordination model + falsifiable statement (LINKED-tier claim)
   --- mechanome schema (mechanome/) ---
@@ -660,13 +922,19 @@ curvo/
   mechanome/mechano_schematic.py  tiered walk renderer (solid=GROUNDED, dashed=LINKED)
 run_demo.py             one-command end-to-end demo (offline by default)
 family_screen.py        ENTH-vs-ANTH family screen -> falsifiable ranked prediction
-tests/test_players.py   guardrail validator unit tests (12)
-tests/test_analyze_guardrails.py  anti-force-astrology endpoint contract tests (4)
-tests/test_validation.py          real-data validation contract tests (4)
-design_note.md          the bitter-lesson reframing in full
+tests/  (43 tests, 8 files)
+  test_players.py              guardrail validator unit tests (12)
+  test_analyze_guardrails.py   anti-force-astrology endpoint contracts (4)
+  test_validation.py           real-data validation contracts (4)
+  test_mechanome.py            epistemic-tier firewall contracts (8)
+  test_perception_benchmark.py operating-envelope contracts (4)
+  test_modality_adapter.py     cryo-ET adapter contracts (4)
+  test_inverse_guard.py        sampler plateau-guard contracts (2)
+  test_orchestration.py        field-to-orchestration contracts (5)
+design_note.md          design rationale: what, why, and development stages
 ```
 
-The forward evaluator gained an **active-stress / cortex term** this build
+The forward evaluator carries an **active-stress / cortex term**
 (`evaluator_tier0.ccs_curvature(..., active_force_pN=...)`): a cortical machine
 applies an axial force pulling the cap inward, contributing work `−f·d` (depth
 `d = R(1−cos ψ)`) to the cap energy — physically distinct from tension (which
@@ -693,9 +961,9 @@ of the c_eff/active degeneracy the inverse engine must confront.
 
 - **Recovery calibration**: cortical `active_force` is recovered with 96% CI
   coverage and +2% bias — but **only where the actin channel constrains it**
-  (24/40 grid cells). `c_eff` and tension are honestly reported unidentifiable
+  (24/40 grid cells). `c_eff` and tension are reported as unidentifiable
   from geometry alone (0/40).
-- **Degeneracy, flagged not hidden**: from `H(t)` alone, spontaneous curvature
+- **Degeneracy**: from `H(t)` alone, spontaneous curvature
   and cortical force have posterior correlation ≈ −0.74; both are demoted to
   *underdetermined* rather than reported as confident (wrong) point values.
 - **Mechanism discrimination**: the same actin-driven movie is decisively
@@ -704,5 +972,6 @@ of the c_eff/active degeneracy the inverse engine must confront.
   experiment** (co-image actin / latrunculin / H0-mutation).
 - **Engine cross-check**: dynesty (nested sampling) and emcee (MCMC) active-force
   medians agree to <0.3%.
-- **Guardrail contracts**: 12/12 player-validator tests + 4/4 anti-force-astrology
-  endpoint tests pass.
+- **Test suite**: 43 tests pass across 8 files — 12 player-validator, 4 analyze
+  guardrail, 4 real-data validation, 8 mechanome, 4 perception-benchmark, 4
+  modality-adapter, 2 inverse-guard, 5 orchestration.
