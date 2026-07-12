@@ -279,23 +279,26 @@ def draw_ap2(ax, x, y, s=1.0, z=6, w=None):
 
 
 # ================= IDP crowding brush (drawn) =================
-def draw_idp_coil(ax, x0, y0, radius, color=None, seed=0, z=4, down=-1.0, halo=True):
-    """Intrinsically disordered region of ONE molecule as a SINGLE coil anchored at the
-    folded domain's C-terminus (x0, y0). The coil's extent = the IDP's hydrodynamic
-    radius Rh (a steric-hindrance measure); crowding is shown by the overlap of adjacent
-    coils' excluded-volume halos. Epsin = ENTH + IDP; AP180/CALM = ANTH + IDP.
+def draw_idp_coil(ax, x0, y0, radius, color=None, seed=0, z=4, down=-1.0, halo=True,
+                  nseg=9):
+    """Intrinsically disordered region of ONE molecule as a single ENTANGLED shoelace
+    anchored at the folded domain's C-terminus (x0, y0): a smooth confined random walk
+    that folds back and crosses itself, contained within the IDP's hydrodynamic radius
+    Rh (a steric-hindrance measure). Crowding is shown by the overlap of adjacent
+    chains' excluded-volume halos. Epsin = ENTH + IDP; AP180/CALM = ANTH + IDP.
     """
     color = color or PAL["idp"]
     rng = np.random.default_rng(seed)
-    cxc, cyc = x0, y0 + down * radius * 0.95        # coil centre ~Rh from the C-terminus
+    cxc, cyc = x0, y0 + down * radius * 0.95        # chain centre ~Rh from the C-terminus
     if halo:
         ax.add_patch(Circle((cxc, cyc), radius, fc=color, ec="none", alpha=0.10, zorder=z - 0.3))
-    t = np.linspace(0, 1, 20)
-    ang = 2 * np.pi * (1.6 * t) + rng.normal(0, 0.4, 20).cumsum()
-    rr = radius * (0.35 + 0.6 * np.sin(np.pi * t))  # out-and-back -> contained ball
-    px = np.concatenate([[x0], cxc + rr * np.cos(ang)])
-    py = np.concatenate([[y0], cyc + rr * np.sin(ang) * 0.85])
-    sm = _smooth(np.column_stack([px, py]), n=80)
+    # random waypoints filling the Rh disc; spline through them -> self-crossing tangle
+    ang = rng.uniform(0, 2 * np.pi, nseg)
+    rad = radius * np.sqrt(rng.uniform(0.1, 1.0, nseg))
+    wx = np.concatenate([[x0], cxc + rad * np.cos(ang), [cxc]])
+    wy = np.concatenate([[y0], cyc + rad * np.sin(ang) * 0.9, [cyc]])
+    tck, _ = splprep([wx, wy], s=0, k=3)
+    sm = np.array(splev(np.linspace(0, 1, 170), tck)).T
     ax.plot(sm[:, 0], sm[:, 1], color=color, lw=1.4, alpha=0.9, solid_capstyle="round", zorder=z)
 
 
@@ -321,7 +324,13 @@ def node(ax, cx, cy, w, curv, n_eps, neck=False, ap2=True, primary="enth_cartoon
                 draw_idp_coil(ax, cx + ex, ay - ew * 0.34, coil_r,
                               seed=int(abs(cx * 1000) + i), z=4)
     if ap2:
-        draw_ap2(ax, cx, cy - 0.10 * w + _center_depth(w, curv), w=ew * 0.85, z=7)
+        # Multiple AP2 adaptors per coated pit, spread along the coat floor. More
+        # adaptors on a wider/deeper pit; each is an atomic sprite from PDB 2XA7.
+        n_ap2 = 2 if n_eps <= 1 else 3
+        axs = np.linspace(-w * 0.20, w * 0.20, n_ap2)
+        ayc = _profile(axs, w, curv, neck)[0]
+        for k, adx in enumerate(axs):
+            draw_ap2(ax, cx + adx, cy + ayc[k] - 0.11 * w, w=ew * 0.7, z=7 + 0.01 * k)
 
 
 def branch_arrow(ax, x0, y0, x1, y1, lw=7, color=None):
