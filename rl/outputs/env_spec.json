@@ -1,0 +1,83 @@
+{
+  "name": "CCPBuddingEnv",
+  "description": "Gymnasium RL environment over curvo's forward model (ccs_curvature); one episode = one clathrin-coated-pit budding attempt.",
+  "observation_space": {
+    "type": "Box",
+    "shape": [
+      7
+    ],
+    "dtype": "float32",
+    "fields": [
+      "coverage",
+      "c_eff_inv_nm",
+      "H_inv_nm",
+      "dome_omega_OP",
+      "actin_force/ACTIN_MAX",
+      "coat_rf/COAT_RF_MAX",
+      "step/T"
+    ],
+    "low": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "high": [
+      1,
+      0.08,
+      0.08,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "action_space": {
+    "type": "Discrete",
+    "n": 5,
+    "actions": {
+      "0": "recruit wedge (ENTH/ANTH H0)",
+      "1": "recruit crowding partner (IDP brush)",
+      "2": "ramp actin force (+20 pN)",
+      "3": "stiffen clathrin coat (one-shot)",
+      "4": "wait"
+    }
+  },
+  "reward": {
+    "dense": "W_PROGRESS * d(dome_omega_OP) - move_cost",
+    "terminal": {
+      "productive_bonus": 10.0,
+      "stall_penalty": -3.0,
+      "rupture_penalty": -8.0
+    },
+    "weights": {
+      "W_PROGRESS": 12.0,
+      "COST_RECRUIT": 0.15,
+      "COST_ACTIN": 0.02,
+      "COST_COAT": 0.2,
+      "COST_WAIT": 0.05
+    }
+  },
+  "physics": {
+    "forward_model": "curvo.evaluator_tier0.ccs_curvature",
+    "kappa_kBT": 20.0,
+    "sigma_kBT_nm2": 0.02,
+    "A_coat_nm2": 11309.733552923255,
+    "OMEGA_OP": 0.66,
+    "F_RUPTURE_pN": 140.0,
+    "ACTIN_MAX_pN": 120.0,
+    "COAT_RF_MAX": 3.0,
+    "T_default": 12
+  },
+  "demo_results": {
+    "greedy_physics_mean_return": 16.0,
+    "random_mean_return": 10.16,
+    "greedy_productive_rate": 1.0,
+    "random_productive_rate": 0.573,
+    "greedy_orchestration_order": "coat -> crowding -> actin (matches PICALM/epsin ladder from data)"
+  },
+  "framing": "BYPRODUCT / scaling scaffold, not the scientific aim. Physics lives entirely in curvo's forward model; the env exposes it as a sequential decision problem. No new physics."
+}

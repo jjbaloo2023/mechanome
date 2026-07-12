@@ -1,0 +1,19 @@
+{
+  "learned_mean_return": 20.02,
+  "learned_productive_rate": 1.0,
+  "greedy_mean_return": 16.0,
+  "greedy_productive_rate": 1.0,
+  "random_mean_return": 10.13,
+  "random_productive_rate": 0.57,
+  "learned_action_order": [
+    "crowd",
+    "crowd",
+    "actin",
+    "actin",
+    "actin",
+    "actin"
+  ],
+  "n_states_learned": 47,
+  "episodes": 4000,
+  "note": "Q-learning sanity run; learned policy recovers the coat/crowding->actin ladder curvo established from data. Scaling scaffold, not a scientific claim."
+}
