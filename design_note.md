@@ -157,6 +157,19 @@ operating-envelope benchmark on rendered images (mean curvature recovered to
 real cryo-ET membrane image (which established the modality gap and the adapter
 that closes its measurable axes).
 
+**Stage 4b — Static super-resolution keystone (observable #4).** The richest real
+geometry curvo ingests: 2,551 clathrin coats fit to spherical caps by LocMoFit in
+a published 3D-SMLM dataset (Mund et al. 2023, BioStudies S-BIAD566). LocMoFit's
+(radius, closing-angle) parametrisation is curvo's own, so ingestion is a change
+of coordinates. Because a fixed snapshot has no time axis, this stage crystallised
+the anti-force-astrology firewall into a structural property: `force_applicable=
+False` on the SMLM path — geometry, pseudo-temporal shape trajectory (reproducing
+the flat-then-bend assembly at A₀ ≈ 0.42), and shape-energetics are recovered,
+while absolute force is refused by construction. It also carries the firewall up to
+the level of *mechanism*: a Bayesian Helfrich-vs-Cooperative-Curvature-Model
+comparison that returns an honest null (|lnB| < 2.5) on curvature alone, refusing a
+decisive call the single observable cannot support.
+
 **Stage 5 — Orchestration-recovery program.** Scaling from one structure to a
 field: a multi-structure synthetic time-lapse, a detection-and-tracking pipeline,
 a motion-field (PIV-analog) extraction that demonstrates empirically that velocity

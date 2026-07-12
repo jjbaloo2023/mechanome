@@ -58,7 +58,12 @@ benchmark (`perception_benchmark.py`, `plot_envelope.py`), pixels→force
 (`field_movie.py` → `tracking.py` → `motion.py` → `per_track_recovery.py` →
 `orchestration.py`), and the real-data case studies under `validation/realdata/`
 (2020/2022 epsin/IAV ingestion, PICALM and epsin-domain orchestration,
-ENTH-fusion designs, the ENTH+AP180 inverse-recovery closure).
+ENTH-fusion designs, the ENTH+AP180 inverse-recovery closure, and the static
+3D-SMLM keystone: `ingest_smlm_locmofit.py` (LocMoFit → curvo geometry),
+`smlm_pseudotime.py` (closing-angle pseudo-temporal sort → average shape
+trajectory), `smlm_shape_energetics.py` (shape-energetics inverse with absolute
+force refused by construction), and `smlm_mechanism.py` (Helfrich vs Cooperative
+Curvature Model discrimination)).
 
 ## `rl/` — the RL scaffold (a byproduct, not the scientific aim)
 
@@ -74,4 +79,5 @@ One test module per subsystem: `test_players`, `test_validation`,
 `test_modality_adapter`, `test_orchestration`, `test_realdata`,
 `test_mechanome` (schema + emission), `test_mechanome_modules` (the four
 analytic forward models + registry integrity + structural-screen integrity),
-and `test_rl_env` (the RL environment API).
+`test_smlm_shape_energetics` and `test_smlm_mechanism` (the static-SMLM force
+firewall + Helfrich-vs-CoopCM null), and `test_rl_env` (the RL environment API).

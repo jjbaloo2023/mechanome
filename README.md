@@ -833,6 +833,28 @@ Reproduce: `python -m validation.realdata.ingest_smlm_locmofit` (fetches
 S-BIAD566), then `… .smlm_pseudotime`, `… .smlm_shape_energetics`,
 `… .smlm_mechanism`.
 
+### Cross-checks and provenance for the clathrin geometry
+
+The SMLM keystone sits inside a consistent body of independent structural
+measurements. These are cited as provenance and cross-checks — they are not
+re-analysed here, but each corroborates (or usefully tensions) a value curvo
+relies on:
+
+| Study | Method | Relevance to curvo |
+|---|---|---|
+| Bucher et al. 2018, *Nat Commun* 9:1109 (doi:10.1038/s41467-018-03533-0) | CLEM + growth-law modelling | Flat coat begins to curve at ~70% of final clathrin content; tension suppresses the transition — the tension-gating our epsin/ENTH inverse recovers, and a flat-then-bend picture consistent with our pseudo-temporal A₀. |
+| Sochacki & Taraska 2021, *Dev Cell* 56:1131 (doi:10.1016/j.devcel.2021.03.017) | Platinum-replica + cryo-EM, 8 cell lines | Flat/dome/sphere mixture in all cell lines; **domes have the same surface area as spheres** (constant-area bending). A genuine tension with the SMLM area-growth trajectory — the mechanism question our Helfrich-vs-CoopCM test leaves open. Anchors the coat spontaneous-curvature range used by the structural screen. |
+| Scott et al. 2018 (Taraska), *Nat Commun* 9:419 (doi:10.1038/s41467-018-02818-8) | Correlative fluorescence + EM | Membrane bending occurs at all stages of coat assembly — supports treating curvature as a continuous progression coordinate, as the pseudo-temporal sort does. |
+| Avinoam et al. 2015, *Science* 348:1369 (doi:10.1126/science.aaa9555) | Correlative EM tomography | Endocytic sites mature by continuous bending and remodelling of the coat — the physical basis for reading θ as a progression axis. |
+
+The two links flagged during scoping as possibly peripheral (a captcha-gated PMC
+record and a 2025 *Communications Chemistry* article) were not resolvable to a
+load-bearing role and are deliberately omitted rather than cited speculatively.
+
+Raw imaging is never committed. The LocMoFit fit CSVs are cached under `cache/`
+(git-ignored) and re-fetchable from the documented BioStudies URL; only the
+derived binned trajectories and verdicts are tracked.
+
 ### Honest caveats
 
 1. Most public CME imaging is observable #1 — a coat-assembly proxy that cannot
