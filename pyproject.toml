@@ -30,6 +30,9 @@ plots = ["matplotlib>=3.7"]
 # Bayesian inference engine (Phase 2+): nested sampling + MCMC. Pure-Python,
 # CPU-friendly. Amortized SBI (torch/sbi) is a documented seam, not a dependency.
 inference = ["dynesty>=2.1", "emcee>=3.1", "corner>=2.2"]
+# Structure-cartoon schematics (validation/realdata/schematic_idiom.py): biotite
+# assigns secondary structure (P-SEA) from cached PDB/AlphaFold CA traces.
+figures = ["biotite>=0.40"]
 dev = ["pytest>=7.0"]
 
 [project.urls]
