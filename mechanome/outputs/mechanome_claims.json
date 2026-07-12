@@ -1,0 +1,134 @@
+{
+  "summary": "Mechanome GROUNDED claims across five modules: 1 real force-paired (membrane) + 4 analytic-limit (tissue, cortex, bond, channel).",
+  "registry_status": {
+    "membrane": "built_validated",
+    "tissue": "built_analytic",
+    "cortex": "built_analytic",
+    "bond": "built_analytic",
+    "channel": "built_analytic"
+  },
+  "forward_models": [
+    "helfrich_v1",
+    "vertex_v1",
+    "active_gel_v1",
+    "catch_slip_v1",
+    "ms_gating_v1"
+  ],
+  "claims": [
+    {
+      "subject": "POPC_bilayer",
+      "relation": "bears",
+      "object": "tether_force",
+      "epistemic_tier": "GROUNDED",
+      "scale": "membrane",
+      "forward_model": "helfrich_v1",
+      "value": {
+        "estimate": 24.1,
+        "uncertainty": 7.47,
+        "units": "pN"
+      },
+      "identifiability": "constrained",
+      "validation_provenance": "real_force_paired",
+      "evidence": [
+        "STED tube diameter 51 nm (Roy et al. 2020, doi:10.1021/acs.nanolett.9b05232)",
+        "kappa prior 23+/-5 kBT (tube-pulling, same paper)",
+        "curvo:inverse",
+        "synthetic_recovery:pass",
+        "real_force_paired_validation:pass (mean |bias| 3.8%, cov68 0.90-0.98)"
+      ],
+      "reasoning_trace": "aspiration tension 72 uN/m -> STED radius 25.6 nm -> Bayesian inverse -> force 24.1 pN [17.6,32.6] (68%); ground-truth aspiration force 23.2 pN lies in CI."
+    },
+    {
+      "subject": "tricellular_junction",
+      "relation": "transmits",
+      "object": "junction_tension",
+      "epistemic_tier": "GROUNDED",
+      "scale": "tissue",
+      "forward_model": "vertex_v1",
+      "value": {
+        "estimate": 120.0,
+        "uncertainty": 1e-06,
+        "units": "deg (equal-tension opening angle)"
+      },
+      "identifiability": "constrained",
+      "validation_provenance": "analytic_limit",
+      "evidence": [
+        "validation=analytic_limit",
+        "Ishihara & Sugimura 2012 J Theor Biol 313:201 (Bayesian force inference)",
+        "120 deg symmetric limit -> equal tensions [1.0, 1.0, 1.0]",
+        "force-balance residual 2.9e-16",
+        "mechanome:vertex_v1:self_validate:pass"
+      ],
+      "reasoning_trace": "A tri-cellular junction in force balance transmits equal edge tensions at 120 deg opening angles (Young); the vertex forward model reproduces this analytic limit exactly. GROUNDED on the analytic force-balance limit + method anchor (Ishihara 2012), NOT on a real segmented-tissue dataset."
+    },
+    {
+      "subject": "actomyosin_cortex",
+      "relation": "generates",
+      "object": "cortical_tension",
+      "epistemic_tier": "GROUNDED",
+      "scale": "cortex",
+      "forward_model": "active_gel_v1",
+      "value": {
+        "estimate": 0.4,
+        "uncertainty": 1e-06,
+        "units": "mN/m"
+      },
+      "identifiability": "constrained",
+      "validation_provenance": "analytic_limit",
+      "evidence": [
+        "validation=analytic_limit",
+        "Tinevez et al. 2009 PNAS 106:18581 (micropipette cortical tension 0.03-1 mN/m)",
+        "Young-Laplace dP=2 gamma/R round-trip rel_err 1.2e-16",
+        "mechanome:active_gel_v1:self_validate:pass"
+      ],
+      "reasoning_trace": "The actomyosin cortex generates a surface tension read out via the Young-Laplace balance dP=2 gamma/R; a synthetic micropipette measurement recovers gamma in the physiological range. GROUNDED on the Laplace analytic limit + anchor (Tinevez 2009), NOT on a real aspiration dataset."
+    },
+    {
+      "subject": "adhesion_bond",
+      "relation": "bears",
+      "object": "bond_force",
+      "epistemic_tier": "GROUNDED",
+      "scale": "molecule",
+      "forward_model": "catch_slip_v1",
+      "value": {
+        "estimate": 22.37,
+        "uncertainty": 0.0021,
+        "units": "pN"
+      },
+      "identifiability": "constrained",
+      "validation_provenance": "analytic_limit",
+      "evidence": [
+        "validation=analytic_limit",
+        "Marshall et al. 2003 Nature 423:190 (P-selectin/PSGL-1 catch-slip, peak ~1.1 s)",
+        "Bell x_dagger recovery rel_err 2.8e-16",
+        "catch-slip lifetime peak 0.14 s at 22.4 pN (analytic=numeric)",
+        "mechanome:catch_slip_v1:self_validate:pass"
+      ],
+      "reasoning_trace": "A catch-slip adhesion bond bears force with a lifetime that peaks at an intermediate force (dkoff/dF=0); the two-pathway forward model matches the closed-form peak. GROUNDED on the Bell/catch-slip analytic limit + anchor (Marshall 2003), NOT on a real AFM dataset."
+    },
+    {
+      "subject": "MscL",
+      "relation": "senses",
+      "object": "membrane_tension",
+      "epistemic_tier": "GROUNDED",
+      "scale": "membrane",
+      "forward_model": "ms_gating_v1",
+      "value": {
+        "estimate": 11.8,
+        "uncertainty": 1e-06,
+        "units": "mN/m"
+      },
+      "identifiability": "constrained",
+      "validation_provenance": "analytic_limit",
+      "evidence": [
+        "validation=analytic_limit",
+        "Sukharev et al. 1999 J Gen Physiol 113:525 (MscL: sigma_half=11.8 mN/m, dA=6.5 nm^2)",
+        "gating-area recovery dA rel_err 5.5e-16",
+        "slope identity dPo/dsigma=dA/4kBT rel_err 2.1e-09",
+        "cross-scale: reads curvo membrane tension (Po=0.5 at midpoint)",
+        "mechanome:ms_gating_v1:self_validate:pass"
+      ],
+      "reasoning_trace": "MscL senses membrane tension via a two-state Boltzmann gating law; it half-opens at sigma_half=11.8 mN/m (gating area 6.5 nm^2). The forward model reads curvo's inferred membrane tension directly \u2014 the one cross-scale link grounded on both ends. GROUNDED on the MscL gating analytic limit + anchor (Sukharev 1999), NOT on a real patch-clamp dataset."
+    }
+  ]
+}

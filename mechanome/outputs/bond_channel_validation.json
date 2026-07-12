@@ -1,0 +1,48 @@
+{
+  "bond": {
+    "module": "bond",
+    "governing_law": "Bell k_off=k0*exp(F*x/kBT); two-pathway catch-slip",
+    "analytic_limit": "ln(1/tau) vs F slope = x_dagger/kBT; catch-slip peak dkoff/dF=0 closed form",
+    "validation_anchor": "Marshall et al. 2003 Nature 423:190 (P-selectin/PSGL-1 catch-slip, peak ~1.1 s)",
+    "bell": {
+      "k0_true": 1.0,
+      "x_dagger_true": 0.4,
+      "k0": 1.0,
+      "x_dagger_nm": 0.3999999999999999,
+      "k0_rel_err": 0.0,
+      "xd_rel_err": 2.7755575615628914e-16
+    },
+    "catch_slip": {
+      "peak_force_analytic_pN": 22.372114119100605,
+      "peak_force_numeric_pN": 22.37,
+      "peak_lifetime_s": 0.13760634874884908,
+      "peak_rel_err": 9.45068887172004e-05
+    },
+    "passed": true
+  },
+  "channel": {
+    "module": "channel",
+    "governing_law": "two-state Boltzmann Po(sigma)=1/(1+exp(-(sigma*dA-dG)/kBT))",
+    "analytic_limit": "recover dA, sigma_half from Po sigmoid; slope at midpoint = dA/4kBT",
+    "validation_anchor": "Sukharev et al. 1999 J Gen Physiol 113:525 (MscL: sigma_half=11.8 mN/m, dA=6.5 nm^2)",
+    "mscl": {
+      "dA_true": 6.5,
+      "dG_true": 18.643655809431213,
+      "sigma_half_true": 11.8,
+      "dA_nm2": 6.4999999999999964,
+      "dG_kBT": 18.643655809431202,
+      "sigma_half_mN_m": 11.8,
+      "dA_rel_err": 5.465713352000771e-16,
+      "sigma_half_rel_err": 0.0
+    },
+    "slope_check": {
+      "numeric": 0.39499270700016353,
+      "analytic": 0.3949927078269324,
+      "rel_err": 2.093124402554517e-09
+    },
+    "curvo_link_Po_at_midpoint": 0.5,
+    "passed": true
+  },
+  "validation_tier": "built_analytic (analytic limit + published-parameter recovery; NOT real-data force-paired)",
+  "citations_verified": "Sukharev 1999 (full-text fetched), Marshall 2003 / Pereverzev 2005 / Tinevez 2009 / Cox 2016 / Brohawn 2014 / Hochmuth 2000 (CrossRef), Ishihara-Sugimura 2012 / Brodland CellFIT (search), Shaikh-Cox-Nomura 2014 Channels (eutils)"
+}

@@ -1,0 +1,32 @@
+{
+  "tissue": {
+    "module": "tissue",
+    "governing_law": "vertex force balance sum_i T_i t_hat_i = 0 (law of sines)",
+    "analytic_limit": "120 deg symmetric junction -> equal tensions",
+    "validation_anchor": "Ishihara & Sugimura 2012 J Theor Biol 313:201 (Bayesian force inference)",
+    "symmetric_tensions": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "symmetric_err": 0.0,
+    "tension_roundtrip_rel_err": 1.7649699365835818e-16,
+    "force_balance_residual": 2.8796409701215e-16,
+    "passed": true
+  },
+  "cortex": {
+    "module": "cortex",
+    "governing_law": "Young-Laplace dP = 2 gamma / R",
+    "analytic_limit": "dP=2gamma/R round-trip + micropipette gamma recovery",
+    "validation_anchor": "Tinevez et al. 2009 PNAS 106:18581 (micropipette cortical tension 0.03-1 mN/m)",
+    "roundtrip_max_rel_err": 1.1564823173178715e-16,
+    "micropipette": {
+      "gamma_true": 0.4,
+      "Pc_Pa": 213.3333333333334,
+      "gamma_rec": 0.4,
+      "rel_err": 0.0
+    },
+    "passed": true
+  },
+  "validation_tier": "built_analytic (analytic limit + published-method parameter recovery; NOT real-data force-paired)"
+}

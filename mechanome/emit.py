@@ -107,9 +107,123 @@ def emit_family_capacity_claims(cache_dir: str = "cache",
     return claims
 
 
+def emit_from_module(module_name: str) -> MechanoClaim:
+    """GROUNDED (analytic_limit tier) claim from one of the four analytic modules.
+
+    Each claim is GROUNDED — it carries a forward model, a physical value with an
+    uncertainty, and an identifiability — but its evidence wears
+    'validation=analytic_limit' on its face: the value is the module's published
+    ANCHOR parameter, reproduced by the forward model to the analytic recovery
+    error (NOT a real-data-derived measurement scatter). This is a deliberately
+    weaker bar than the membrane module's real force-paired STED claim.
+    """
+    from . import registry as _reg
+    from . import forward_tissue as _ti, forward_cortex as _co
+    from . import forward_bond as _bo, forward_channel as _ch
+    if not _reg.can_emit_analytic(module_name):
+        raise ValueError(f"module '{module_name}' is not analytic-validated; cannot emit")
+    prov = _reg.validation_provenance(module_name)   # "analytic_limit"
+
+    if module_name == "tissue":
+        v = _ti.self_validate()
+        T = v["symmetric_tensions"]
+        est, unc = 120.0, 120.0 * v["tension_roundtrip_rel_err"]
+        return MechanoClaim(
+            subject=Actor("tricellular_junction", type="cytoskeleton"),
+            relation="transmits", object="junction_tension",
+            epistemic_tier=EpistemicTier.GROUNDED,
+            context=Context(scale="tissue", mech_environment="symmetric vertex (mechanical equilibrium)"),
+            forward_model="vertex_v1",
+            value=Value(round(est, 2), round(max(unc, 1e-6), 6), "deg (equal-tension opening angle)"),
+            identifiability=Identifiability.CONSTRAINED,
+            evidence=[f"validation={prov}", _ti.VALIDATION_ANCHOR,
+                      f"120 deg symmetric limit -> equal tensions {T}",
+                      f"force-balance residual {v['force_balance_residual']:.1e}",
+                      "mechanome:vertex_v1:self_validate:pass"],
+            reasoning_trace=("A tri-cellular junction in force balance transmits equal edge "
+                             "tensions at 120 deg opening angles (Young); the vertex forward "
+                             "model reproduces this analytic limit exactly. GROUNDED on the "
+                             "analytic force-balance limit + method anchor (Ishihara 2012), "
+                             "NOT on a real segmented-tissue dataset."))
+
+    if module_name == "cortex":
+        v = _co.self_validate(); mp = v["micropipette"]
+        return MechanoClaim(
+            subject=Actor("actomyosin_cortex", type="cytoskeleton"),
+            relation="generates", object="cortical_tension",
+            epistemic_tier=EpistemicTier.GROUNDED,
+            context=Context(scale="cortex", mech_environment="micropipette aspiration"),
+            forward_model="active_gel_v1",
+            value=Value(round(mp["gamma_rec"], 3), round(max(mp["gamma_true"]*mp["rel_err"], 1e-6), 6), "mN/m"),
+            identifiability=Identifiability.CONSTRAINED,
+            evidence=[f"validation={prov}", _co.VALIDATION_ANCHOR,
+                      "Young-Laplace dP=2 gamma/R round-trip rel_err "
+                      f"{v['roundtrip_max_rel_err']:.1e}",
+                      "mechanome:active_gel_v1:self_validate:pass"],
+            reasoning_trace=("The actomyosin cortex generates a surface tension read out via "
+                             "the Young-Laplace balance dP=2 gamma/R; a synthetic micropipette "
+                             "measurement recovers gamma in the physiological range. GROUNDED on "
+                             "the Laplace analytic limit + anchor (Tinevez 2009), NOT on a real "
+                             "aspiration dataset."))
+
+    if module_name == "bond":
+        v = _bo.self_validate(); cs = v["catch_slip"]
+        return MechanoClaim(
+            subject=Actor("adhesion_bond", type="protein"),
+            relation="bears", object="bond_force",
+            epistemic_tier=EpistemicTier.GROUNDED,
+            context=Context(scale="molecule", mech_environment="catch-slip (AFM force clamp)"),
+            forward_model="catch_slip_v1",
+            value=Value(round(cs["peak_force_analytic_pN"], 2),
+                        round(max(cs["peak_force_analytic_pN"]*cs["peak_rel_err"], 1e-6), 4), "pN"),
+            identifiability=Identifiability.CONSTRAINED,
+            evidence=[f"validation={prov}", _bo.VALIDATION_ANCHOR,
+                      f"Bell x_dagger recovery rel_err {v['bell']['xd_rel_err']:.1e}",
+                      f"catch-slip lifetime peak {cs['peak_lifetime_s']:.2f} s at "
+                      f"{cs['peak_force_analytic_pN']:.1f} pN (analytic=numeric)",
+                      "mechanome:catch_slip_v1:self_validate:pass"],
+            reasoning_trace=("A catch-slip adhesion bond bears force with a lifetime that peaks "
+                             "at an intermediate force (dkoff/dF=0); the two-pathway forward model "
+                             "matches the closed-form peak. GROUNDED on the Bell/catch-slip "
+                             "analytic limit + anchor (Marshall 2003), NOT on a real AFM dataset."))
+
+    if module_name == "channel":
+        v = _ch.self_validate()
+        return MechanoClaim(
+            subject=Actor("MscL", type="protein", structure_ref="mechanosensitive channel"),
+            relation="senses", object="membrane_tension",
+            epistemic_tier=EpistemicTier.GROUNDED,
+            context=Context(scale="membrane", mech_environment="patch-clamp tension ramp"),
+            forward_model="ms_gating_v1",
+            value=Value(round(_ch.MSCL_SIGMA_HALF_mN_m, 2),
+                        round(max(_ch.MSCL_SIGMA_HALF_mN_m*v["mscl"]["sigma_half_rel_err"], 1e-6), 6), "mN/m"),
+            identifiability=Identifiability.CONSTRAINED,
+            evidence=[f"validation={prov}", _ch.VALIDATION_ANCHOR,
+                      f"gating-area recovery dA rel_err {v['mscl']['dA_rel_err']:.1e}",
+                      f"slope identity dPo/dsigma=dA/4kBT rel_err {v['slope_check']['rel_err']:.1e}",
+                      "cross-scale: reads curvo membrane tension (Po=0.5 at midpoint)",
+                      "mechanome:ms_gating_v1:self_validate:pass"],
+            reasoning_trace=("MscL senses membrane tension via a two-state Boltzmann gating law; "
+                             "it half-opens at sigma_half=11.8 mN/m (gating area 6.5 nm^2). The "
+                             "forward model reads curvo's inferred membrane tension directly — the "
+                             "one cross-scale link grounded on both ends. GROUNDED on the MscL "
+                             "gating analytic limit + anchor (Sukharev 1999), NOT on a real "
+                             "patch-clamp dataset."))
+
+    raise ValueError(f"no emitter for module '{module_name}'")
+
+
+def emit_analytic_module_claims() -> List[MechanoClaim]:
+    """The four analytic-tier module claims (tissue, cortex, bond, channel)."""
+    return [emit_from_module(m) for m in ("tissue", "cortex", "bond", "channel")]
+
+
 def emit_all(cache_dir: str = "cache") -> List[MechanoClaim]:
-    """Every GROUNDED claim curvo can currently stand behind."""
-    return [emit_tether_force_claim()] + emit_family_capacity_claims(cache_dir=cache_dir)
+    """Every GROUNDED claim curvo can currently stand behind — the real
+    force-paired membrane claims plus the four analytic-tier module claims."""
+    return ([emit_tether_force_claim()]
+            + emit_family_capacity_claims(cache_dir=cache_dir)
+            + emit_analytic_module_claims())
 
 
 if __name__ == "__main__":
