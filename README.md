@@ -1,9 +1,14 @@
-# curvo
+# mechanome
 
-**Membrane-curvature orchestration and mechanistic inference.**
+**A multi-scale, physics-first inverse engine for cell mechanics.**
 
-curvo reasons about how proteins bend cell membranes. It works in two coupled
-directions and regulates every claim it makes with an epistemic-tier schema.
+`mechanome` infers mechanical forces and mechanism from microscopy — and
+regulates every claim it makes with an epistemic-tier schema. Its core is
+**curvo**, the membrane-scale engine that reasons about how proteins bend cell
+membranes; around curvo sit forward models at four further mechanical scales and
+a structure-based screen, all under one registry.
+
+The membrane engine (**curvo**) works in two coupled directions:
 
 - **Forward — orchestration.** Given a protein (UniProt ID) and a target
   membrane curvature, curvo decides which physical representation each molecular
@@ -19,9 +24,27 @@ directions and regulates every claim it makes with an epistemic-tier schema.
   experiment out. The inverse is a Bayesian engine (nested sampling with an MCMC
   cross-check) that reports a force as a number only when the data identify it,
   and otherwise returns a posterior marked underdetermined.
-- **Schema — the mechanome.** Every quantitative claim is tagged GROUNDED,
-  MEASURED, or LINKED, and a structural firewall prevents a correlative
-  hypothesis from being represented as a measured force.
+
+Around the membrane engine, the **mechanome** spans further mechanical scales:
+
+- **Multi-scale forward models.** Tissue (vertex junction-tension balance),
+  cortex (Young-Laplace surface tension), molecular adhesion (Bell / catch-slip
+  bonds), and mechanosensitive channels (two-state gating) each ship as a
+  closed-form forward model, validated against a known analytic limit and a
+  published anchor. See [§ The mechanome](#the-mechanome-multi-scale-forward-models).
+- **Structure-based screen.** `mechanome/structural_screen/` ranks membrane
+  proteins by structure-derived curvature-generating capacity, with a frozen,
+  pre-registered enrichment test. Its channel hits feed the channel forward
+  model. See [§ The structural screen](#the-structural-screen).
+- **The schema.** Every quantitative claim is tagged GROUNDED, MEASURED, or
+  LINKED, and a structural firewall prevents a correlative hypothesis from being
+  represented as a measured force.
+
+> **Package layout.** The umbrella project is `mechanome`; the Python package
+> `curvo/` remains the membrane-scale engine (imported as `import curvo`), and
+> `mechanome/` holds the multi-scale schema, registry, forward models, and the
+> structural screen. The full program-structure map is in
+> [`STRUCTURE.md`](STRUCTURE.md).
 
 The design rationale — the bitter-lesson architecture and the development stages
 — is in [`design_note.md`](design_note.md). Symbol and variable definitions are
@@ -128,8 +151,11 @@ verdict.
 ## Variables and symbols
 
 Physical quantities used throughout the code and this document. Energies are in
-units of thermal energy k_BT unless noted; `kBT_zJ = 4.114` zJ = pN·nm at 298 K
-converts to force units.
+units of thermal energy k_BT unless noted. All shared constants have a single
+definition in [`curvo/constants.py`](curvo/constants.py): `KBT_PN_NM = KBT_ZJ =
+4.114` (pN·nm = zJ at 298 K) converts energy to force, `KAPPA_KBT_DEFAULT = 20.0`
+is the default bending rigidity, and `1 mN/m = 1 pN/nm` relates surface to line
+tension.
 
 | Symbol | Code name | Units | Meaning |
 |--------|-----------|-------|---------|
@@ -148,6 +174,19 @@ converts to force units.
 | PSF σ | `psf_sigma_nm` | nm | Point-spread-function width; sets the optical resolution limit. |
 | — | `nm_per_px` | nm/px | Image pixel size. |
 | Ω threshold | `OMEGA_THR` | nm⁻¹ | Curvature at which a structure is counted as crossing into the Ω (nearly closed) stage in the family screen; 0.030 nm⁻¹. |
+
+**Mechanome-scale symbols** (the four multi-scale forward models + the screen):
+
+| Symbol | Code name | Units | Meaning |
+|--------|-----------|-------|---------|
+| ΔA | `dA_nm2` | nm² | Channel gating-area change; the tension sensitivity of `Po(σ)`. MscL anchor 6.5 nm². |
+| σ½ | `MSCL_SIGMA_HALF_mN_m` | mN/m | Channel half-activation tension (Po = 0.5). MscL anchor 11.8 mN/m. |
+| Po | `open_probability` | — | Mechanosensitive-channel open probability, `Po(σ) = 1/(1+e^{−(σΔA−ΔG)/kBT})`. |
+| x‡ | `x_dagger_nm` | nm | Bell-model bond distance to the transition state; `k_off = k₀ e^{F x‡/kBT}`. |
+| γ | `gamma` (mN/m or kBT/nm²) | mN/m | Surface tension (cortex Young-Laplace `ΔP = 2γ/R`; screen resting tension). |
+| T_i | `relative_edge_tensions` | — | Tri-junction edge tensions; equal at a 120° symmetric vertex. |
+| E_curv | `E_curv_signed` | k_BT | Structural-screen signed curvature-generating capacity (sign = inward/outward). |
+| c₀ | `c0_inv_nm` | nm⁻¹ | Structure-derived spontaneous curvature a protein imprints; the screen→channel link. |
 
 **Identifiability thresholds** (from `inverse.identifiability`): a parameter is
 demoted to unidentified if its posterior interval is wider than
@@ -1122,6 +1161,40 @@ membrane tension directly — the one cross-scale link grounded on both ends.
 Reproduce the map: `python -m mechanome.registry` and see
 `mechanome/outputs/mechanome_map.png`.
 
+## The structural screen
+
+`mechanome/structural_screen/` is the molecular / structure entry point
+(vendored from the *mechanistic-entry-model* project). It ranks membrane
+proteins by the **curvature-generating capacity** their conformational activity
+supplies, computed entirely from experimental structures against the shared
+Helfrich energy scale (`E = ½κ(2c₀)²A + γ|ΔA|`, κ = 20 kBT, relevance gate
+10 kBT). Every number traces to PDB coordinates and one fixed energy scale —
+there are no estimated involvement probabilities in the ranking. The **signed**
+capacity separates, from one engine, the tension-sensing channels (inward /
+endocytic) from the curvature-generating scaffolds (outward / exocytic).
+
+```python
+from mechanome import structural_screen as ss
+ss.verify_frozen_ranking()   # {'stored_hash': '41d49328960d4083', ..., 'passed': True}
+ss.frozen_ranking().head(3)  # Dynamin-1 (78 kBT), Endophilin-A1 (37), Amphiphysin (28)
+```
+
+**Integrity.** The scored ranking is frozen with a SHA-256 hash
+(`41d49328960d4083`, over `rank, protein, E_curv_kBT, E_curv_signed,
+clears_gate`) and a pre-registration whose GO label set was fixed *before*
+scoring (`structural_screen/results/stage4_prediction_prereg.md`). The
+pre-committed test is SUPPORTED: AUROC 0.750, one-sided p 0.085, Spearman ρ 0.33.
+The BAR-domain arc-fit radii reproduce their independent literature values
+(amphiphysin ~9.8 nm, endophilin ~8.0 nm) — the method validating on home turf.
+
+**Link into the map.** The screen's mechanosensitive-channel hits (MscL, MscS,
+Piezo1, TRAAK, TREK-1, OSCA1.2, TRPV4) are the structural counterpart to the
+channel forward model: the screen supplies each channel's structure-derived c₀,
+and `mechanome.channel_link.link_channel_to_gating` carries it into
+`ms_gating_v1`'s `Po(σ)`. It is registered as `structural_screen_v1`
+(scale = molecule); see `structural_screen/MODULE.md` and the wiring figure
+`mechanome/structural_screen/figures/screen_to_mechanome.png`.
+
 ## RL environment (`CCPBuddingEnv`) — a scaling scaffold
 
 The forward model exposes a natural sequential decision problem: a Gymnasium
@@ -1328,24 +1401,30 @@ curvo/
   validation/motion.py             PIV-analog motion field; the kinematics != force result
   validation/per_track_recovery.py per-structure force recovery across a crowded field
   validation/orchestration.py      coordination model + falsifiable statement (LINKED-tier claim)
-  --- mechanome schema (mechanome/) ---
+  constants.py          single source of truth for kBT and default kappa
+  --- multi-scale mechanome (mechanome/) ---
   mechanome/schema.py          MechanoClaim + epistemic-tier firewall (GROUNDED/MEASURED/LINKED)
-  mechanome/emit.py            curvo outputs -> GROUNDED claims (tether force, family capacity)
+  mechanome/registry.py        forward-model + module registry (membrane real; 4 analytic + screen)
+  mechanome/emit.py            curvo/module outputs -> GROUNDED claims (real + analytic tier)
   mechanome/links.py           curated LINKED edge (tension -> Piezo1 -> YAP), no value
-  mechanome/registry.py        forward-model + module registry (helfrich_v1 real; rest stubs)
   mechanome/mechano_schematic.py  tiered walk renderer (solid=GROUNDED, dashed=LINKED)
+  mechanome/forward_tissue.py     vertex junction-tension force balance (vertex_v1)
+  mechanome/forward_cortex.py     Young-Laplace cortical tension (active_gel_v1)
+  mechanome/forward_bond.py       Bell / two-pathway catch-slip bond (catch_slip_v1)
+  mechanome/forward_channel.py    two-state mechanosensitive gating (ms_gating_v1)
+  mechanome/channel_link.py       structural-screen c0 -> channel gating cross-scale seam
+  mechanome/structural_screen/    structure-based curvature-capacity screen (structural_screen_v1)
+  --- RL scaffold (rl/) ---
+  rl/ccp_budding_env.py        CCPBuddingEnv: a Gymnasium env over curvo's forward model
+  rl/train_agent.py            tabular Q-learning sanity run (byproduct, not a scientific claim)
 run_demo.py             one-command end-to-end demo (offline by default)
 family_screen.py        ENTH-vs-ANTH family screen -> falsifiable ranked prediction
-tests/  (43 tests, 8 files)
-  test_players.py              guardrail validator unit tests (12)
-  test_analyze_guardrails.py   anti-force-astrology endpoint contracts (4)
-  test_validation.py           real-data validation contracts (4)
-  test_mechanome.py            epistemic-tier firewall contracts (8)
-  test_perception_benchmark.py operating-envelope contracts (4)
-  test_modality_adapter.py     cryo-ET adapter contracts (4)
-  test_inverse_guard.py        sampler plateau-guard contracts (2)
-  test_orchestration.py        field-to-orchestration contracts (5)
+tests/  (one module per subsystem; see STRUCTURE.md)
+  test_players / test_analyze_guardrails / test_validation / test_mechanome /
+  test_mechanome_modules / test_perception_benchmark / test_modality_adapter /
+  test_inverse_guard / test_orchestration / test_realdata / test_rl_env
 design_note.md          design rationale: what, why, and development stages
+STRUCTURE.md            authoritative package -> module -> responsibility map
 ```
 
 The forward evaluator carries an **active-stress / cortex term**

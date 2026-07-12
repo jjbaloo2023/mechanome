@@ -1,16 +1,22 @@
-# curvo — Design Note
+# mechanome — Design Note
 
-This note describes **what curvo is**, **why it is built the way it is**, and
+This note describes **what mechanome is**, **why it is built the way it is**, and
 **the stages through which it was developed**. It is the architectural companion
 to the README: the README documents how to run each component and reports
 results; this note explains the reasoning behind the structure.
+
+`mechanome` is the umbrella project; its core is **curvo**, the membrane-scale
+inverse engine. Sections 1–2 describe curvo's two-directional design, which the
+whole project inherits; Stage 6 onward (§3) describes the multi-scale forward
+models and the structural screen that extend curvo into a mechanome.
 
 ---
 
 ## 1. What we are building
 
-curvo is a membrane-curvature reasoning system with two coupled directions and a
-schema layer that regulates what it is allowed to claim.
+curvo (the membrane-scale core of mechanome) is a membrane-curvature reasoning
+system with two coupled directions and a schema layer that regulates what it is
+allowed to claim.
 
 **Forward direction — orchestration (`analyze` inputs: protein + target).**
 Given a protein (UniProt ID) and a target membrane curvature, curvo decides
@@ -173,6 +179,22 @@ here. The registry records the tier (`can_emit_grounded` vs `can_emit_analytic`,
 `validation_provenance`), and every claim these modules emit carries
 `validation=analytic_limit` on its face. The channel module reads curvo's inferred
 membrane tension directly — the one cross-scale link grounded on both ends.
+
+**Stage 6b — The structural screen (molecule / structure entry point).** A
+separate physics-first project (*mechanistic-entry-model*) ranks membrane
+proteins by structure-derived curvature-generating capacity, computed against the
+same Helfrich energy scale. It was vendored into `mechanome/structural_screen/`
+because it shares mechanome's DNA — the same κ, the same signed-curvature engine,
+and it screens the exact mechanosensitive channels the channel module anchors on.
+The *why*: it gives the mechanome a molecule-scale entry point that takes
+experimental structures in and emits, for each channel, a structure-derived
+spontaneous curvature c₀ that feeds the gating model — closing one edge on both
+ends. Its integrity discipline matches the rest of the project: the scored
+ranking is frozen with a SHA-256 hash and a pre-registration whose label set was
+fixed before scoring, both preserved and re-verified through the move. It is
+registered as `structural_screen_v1` at the `built_analytic` tier (validated on
+home turf — BAR radii reproduce literature — and by the pre-registered enrichment
+test, but not paired against a raw dynamic dataset).
 
 **Stage 7 — RL scaffold (a byproduct, not the aim).** The forward model exposes a
 sequential decision problem, so it wraps cleanly as a Gymnasium environment
