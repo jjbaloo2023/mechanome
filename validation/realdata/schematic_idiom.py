@@ -61,7 +61,30 @@ STRUCTURE_URLS = {
     "1H0A":   "https://files.rcsb.org/download/1H0A.pdb",
     "Q13492": "https://alphafold.ebi.ac.uk/files/AF-Q13492-F1-model_v6.pdb",
     "O60641": "https://alphafold.ebi.ac.uk/files/AF-O60641-F1-model_v6.pdb",
+    "2XA7":   "https://files.rcsb.org/download/2XA7.pdb",   # AP2 core (Jackson et al. 2010)
 }
+
+# ---- supporting-cast structures drawn as space-filling silhouettes (atomic, from PDB) ----
+SPACEFILL_SOURCES = {
+    "ap2_core": dict(pdb="2XA7", color=PAL["ap2"],
+                     note="AP2 clathrin-adaptor core heterotetramer, X-ray 2XA7"),
+}
+
+# ---- per-primary IDP region: residue count + folded-domain size (nm) for Rh scaling ----
+# Epsin EPN1 (576 aa): ENTH 1-158, IDP 159-576 (418 aa). PICALM (652): ANTH 1-289,
+# IDP ~362 aa. AP180/SNAP91 (907): ANTH 1-289, IDP ~617 aa.
+IDP_META = {
+    "enth_cartoon":       dict(idp_res=418, fold_nm=2.8),
+    "anth_cartoon":       dict(idp_res=362, fold_nm=3.0),
+    "anth_ap180_cartoon": dict(idp_res=617, fold_nm=3.0),
+}
+RH_REF_NM = 5.2   # epsin IDP Rh, the reference for the on-figure coil scale
+
+
+def idp_Rh_nm(n_res, nu=0.54, r0=0.20):
+    """Hydrodynamic radius (nm) of an intrinsically disordered chain of n_res residues,
+    Rh = r0 * N**nu (Marsh & Forman-Kay 2010 IDP scaling). A steric-hindrance measure."""
+    return r0 * (n_res ** nu)
 
 
 # ================= structure IO + secondary structure =================
@@ -147,6 +170,50 @@ def render_cartoon(pdb_path, resrange=None, chain=None, color="#3f6fd0", px=360,
     return out
 
 
+def render_spacefill(pdb_path, color="#9b4fa0", chain=None, resrange=None, px=340,
+                     out=None, grid=340, r=5):
+    """Space-filling silhouette sprite from atomic coordinates (all atoms), PCA-oriented
+    and depth-shaded. Used for supporting-cast structures where a full ribbon cartoon
+    would be too busy at glyph size (e.g. the AP2 heterotetramer core)."""
+    import biotite.structure.io.pdb as _pdb
+    import biotite.structure as _struc
+    from scipy.ndimage import binary_closing, binary_fill_holes
+    arr = _pdb.PDBFile.read(pdb_path).get_structure(model=1)
+    arr = arr[_struc.filter_amino_acids(arr)]
+    if chain is not None:
+        arr = arr[arr.chain_id == chain]
+    if resrange:
+        arr = arr[(arr.res_id >= resrange[0]) & (arr.res_id <= resrange[1])]
+    P = arr.coord - arr.coord.mean(0)
+    _, _, Vt = np.linalg.svd(P, full_matrices=False); P = P @ Vt.T
+    xy, z = P[:, :2], P[:, 2]
+    lo, hi = xy.min(0), xy.max(0); span = (hi - lo).max() * 1.10; c = (lo + hi) / 2
+    gx = ((xy[:, 0] - c[0]) / span + 0.5) * (grid - 1)
+    gy = ((xy[:, 1] - c[1]) / span + 0.5) * (grid - 1)
+    zb = np.full((grid, grid), -np.inf)
+    yy, xx = np.mgrid[-r:r + 1, -r:r + 1]; disk = (xx * xx + yy * yy <= r * r)
+    for i in np.argsort(z):
+        xi, yi = int(round(gx[i])), int(round(gy[i]))
+        x0, x1 = max(0, xi - r), min(grid, xi + r + 1)
+        y0, y1 = max(0, yi - r), min(grid, yi + r + 1)
+        dsub = disk[(y0 - (yi - r)):(y1 - (yi - r)), (x0 - (xi - r)):(x1 - (xi - r))]
+        block = zb[y0:y1, x0:x1]; block[dsub & (z[i] > block)] = z[i]
+    mask = binary_fill_holes(binary_closing(np.isfinite(zb), iterations=2))
+    zz = zb.copy(); zz[~np.isfinite(zz)] = np.nanmin(zz[np.isfinite(zz)])
+    znorm = (zz - zz.min()) / (np.ptp(zz) + 1e-9)
+    base = np.array(to_rgb(color)); rgba = np.zeros((grid, grid, 4))
+    shade = 0.5 + 0.5 * gaussian_filter(znorm, 1.5)
+    for k in range(3):
+        rgba[:, :, k] = np.clip(base[k] * shade, 0, 1)
+    rgba[:, :, 3] = gaussian_filter(mask.astype(float), 0.7)
+    fig, ax = plt.subplots(figsize=(3, 3)); ax.axis("off"); ax.set_aspect("equal")
+    ax.imshow(np.flipud(rgba), interpolation="bilinear")
+    if out:
+        fig.savefig(out, dpi=px / 3, bbox_inches="tight", transparent=True)
+    plt.close(fig)
+    return out
+
+
 _SPRITE = {}
 def load_sprite(name):
     if name not in _SPRITE:
@@ -185,51 +252,51 @@ def draw_bilayer(ax, cx, cy, w, curv=0.0, neck=False, n=30, z=2):
         ax.scatter(hx, hy, s=8, c=PAL["lipid_head"], edgecolors="none", zorder=z + 0.1)
 
 
-def draw_faceted_clathrin(ax, cx, cy, w, curv, neck=False, n_facets=8, z=5, color=None, amp=0.022):
-    """Clathrin lattice as straight facet segments meeting at shallow angles -- the
-    edge-of-a-buckyball / geodesic-dome idiom. Vertices alternate in/out along the
-    local normal so the facets read even on a nearly flat lattice."""
+def draw_clathrin_envelope(ax, cx, cy, w, curv, neck=False, n_facets=9, z=3, color=None, off=0.19):
+    """Clathrin coat as a faceted ENVELOPE on the cytoplasmic-distal face: straight
+    facet chords between vertices that lie ON the membrane-parallel offset curve, so
+    the lattice stays tangential to the curvature with shallow bend angles at each
+    vertex (edge-of-a-buckyball / geodesic-dome idiom). Drawn below the membrane-
+    proximal adaptor heads (epsin/AP2), on the same cytoplasmic side."""
     color = color or PAL["clathrin"]
     xs = np.linspace(-w / 2, w / 2, n_facets)
-    yc, nx, ny = _profile(xs, w, curv, neck); off = 0.085 * w
-    zz = (np.arange(n_facets) % 2) * 2 - 1          # -1,+1,-1,... zigzag
-    voff = off + zz * amp * w
-    vx = cx + xs + nx * voff; vy = cy + yc + ny * voff
-    ax.plot(vx, vy, color=color, lw=2.2, zorder=z, solid_capstyle="round", solid_joinstyle="round")
-    ax.scatter(vx, vy, s=13, c=color, edgecolors="none", zorder=z + 0.1)
+    yc, nx, ny = _profile(xs, w, curv, neck)
+    vx = cx + xs; vy = cy + yc - ny * off * w        # offset along -normal (cytoplasmic)
+    ax.plot(vx, vy, color=color, lw=2.3, zorder=z, solid_capstyle="round", solid_joinstyle="round")
+    ax.scatter(vx, vy, s=15, c=color, edgecolors="none", zorder=z + 0.1)
 
 
-def draw_ap2(ax, x, y, s=1.0, z=6):
-    """Supporting cast: simple AP2 tri-lobe glyph (not a detailed structure)."""
-    for dx, dy in [(-0.028, 0.0), (0.028, 0.0), (0.0, -0.032)]:
-        ax.add_patch(Ellipse((x + dx * s, y + dy * s), 0.06 * s, 0.052 * s,
-                             fc=PAL["ap2"], ec="#5e2b62", lw=0.6, zorder=z))
+def draw_ap2(ax, x, y, s=1.0, z=6, w=None):
+    """Supporting cast: AP2 adaptor core as an atomic space-filling sprite (PDB 2XA7).
+    Falls back to a tri-lobe glyph if the sprite has not been built."""
+    ew = w if w is not None else 0.075 * s
+    try:
+        place_sprite(ax, "ap2_core", x, y, w=ew, z=z)
+    except FileNotFoundError:
+        for dx, dy in [(-0.028, 0.0), (0.028, 0.0), (0.0, -0.032)]:
+            ax.add_patch(Ellipse((x + dx * s, y + dy * s), 0.06 * s, 0.052 * s,
+                                 fc=PAL["ap2"], ec="#5e2b62", lw=0.6, zorder=z))
 
 
 # ================= IDP crowding brush (drawn) =================
-def draw_idp_from(ax, ax0, ay0, n_chains=4, spread=0.9, length=0.10, color=None,
-                  seed=0, z=4, down=-1.0):
-    """Intrinsically disordered region of ONE molecule, anchored at the folded
-    domain's cytoplasmic end (ax0, ay0) and fanning into the cytoplasm.
-
-    Epsin = ENTH (folded, membrane-binding) + IDP (disordered); AP180/CALM =
-    ANTH + IDP. The IDP is covalently part of the same protein, so its chains
-    emanate from each folded head rather than floating as a detached brush.
-    Curvature is generated by steric crowding of these dense disordered chains.
+def draw_idp_coil(ax, x0, y0, radius, color=None, seed=0, z=4, down=-1.0, halo=True):
+    """Intrinsically disordered region of ONE molecule as a SINGLE coil anchored at the
+    folded domain's C-terminus (x0, y0). The coil's extent = the IDP's hydrodynamic
+    radius Rh (a steric-hindrance measure); crowding is shown by the overlap of adjacent
+    coils' excluded-volume halos. Epsin = ENTH + IDP; AP180/CALM = ANTH + IDP.
     """
     color = color or PAL["idp"]
     rng = np.random.default_rng(seed)
-    for k in range(n_chains):
-        npts = int(rng.integers(4, 6)); t = np.linspace(0, 1, npts)
-        ang = (k / max(1, n_chains - 1) - 0.5) * spread
-        # drift terminates at ~length; random kinks are a small fraction of length so the
-        # chain stays a compact squiggle near the membrane rather than a long sprawl
-        px = ax0 + np.sin(ang) * length * 0.5 * t + np.cumsum(rng.normal(0, length * 0.10, npts)); px[0] = ax0
-        py = ay0 + down * length * t + rng.normal(0, length * 0.06, npts); py[0] = ay0
-        pts = np.column_stack([px, py])
-        sm = _smooth(pts, n=28) if npts >= 4 else pts
-        ax.plot(sm[:, 0], sm[:, 1], color=color, lw=1.15, alpha=0.8,
-                solid_capstyle="round", zorder=z + k * 0.01)
+    cxc, cyc = x0, y0 + down * radius * 0.95        # coil centre ~Rh from the C-terminus
+    if halo:
+        ax.add_patch(Circle((cxc, cyc), radius, fc=color, ec="none", alpha=0.10, zorder=z - 0.3))
+    t = np.linspace(0, 1, 20)
+    ang = 2 * np.pi * (1.6 * t) + rng.normal(0, 0.4, 20).cumsum()
+    rr = radius * (0.35 + 0.6 * np.sin(np.pi * t))  # out-and-back -> contained ball
+    px = np.concatenate([[x0], cxc + rr * np.cos(ang)])
+    py = np.concatenate([[y0], cyc + rr * np.sin(ang) * 0.85])
+    sm = _smooth(np.column_stack([px, py]), n=80)
+    ax.plot(sm[:, 0], sm[:, 1], color=color, lw=1.4, alpha=0.9, solid_capstyle="round", zorder=z)
 
 
 # ================= composite node =================
@@ -237,23 +304,24 @@ def node(ax, cx, cy, w, curv, n_eps, neck=False, ap2=True, primary="enth_cartoon
     """Membrane-state cartoon: bilayer + clathrin comb + n_eps cartoon players
     + IDP crowding brush (density ~ n_eps) + AP2 glyph."""
     draw_bilayer(ax, cx, cy, w, curv, neck)
-    draw_faceted_clathrin(ax, cx, cy, w, curv, neck)
+    draw_clathrin_envelope(ax, cx, cy, w, curv, neck)
     ew = 0.34 * w
+    # IDP coil radius (data units): Rh of THIS protein's IDP relative to epsin's, scaled
+    # so epsin's coil ~ the folded-head width. A steric-hindrance size, not a chain count.
+    meta = IDP_META.get(primary, IDP_META["enth_cartoon"])
+    coil_r = ew * 0.42 * (idp_Rh_nm(meta["idp_res"]) / RH_REF_NM)
     if n_eps > 0:
         xs = np.linspace(-w * 0.30, w * 0.30, n_eps) if n_eps > 1 else np.array([0.0])
         yc = (_profile(xs, w, curv, neck)[0] if n_eps > 1
               else np.array([_center_depth(w, curv)]))
         for i, ex in enumerate(xs):
-            ay = cy + yc[i] - 0.11 * w
+            ay = cy + yc[i] - 0.09 * w
             place_sprite(ax, primary, cx + ex, ay, w=ew, z=6)
             if idp:
-                # IDP region of THIS molecule, anchored at its folded-head lower edge.
-                # Denser chains when crowded (deeper pit / more heads) -> crowding pressure.
-                nch = 3 + int(round(min(curv, 0.45) / 0.45)) + (1 if n_eps >= 4 else 0)
-                draw_idp_from(ax, cx + ex, ay - ew * 0.34, n_chains=nch,
-                              length=0.30 * w, spread=0.8, seed=int(abs(cx * 1000) + i), z=4)
+                draw_idp_coil(ax, cx + ex, ay - ew * 0.34, coil_r,
+                              seed=int(abs(cx * 1000) + i), z=4)
     if ap2:
-        draw_ap2(ax, cx, cy - 0.12 * w + _center_depth(w, curv), s=w / 0.9, z=7)
+        draw_ap2(ax, cx, cy - 0.10 * w + _center_depth(w, curv), w=ew * 0.85, z=7)
 
 
 def branch_arrow(ax, x0, y0, x1, y1, lw=7, color=None):
@@ -273,11 +341,11 @@ def legend_box(ax, x, y, w=0.36, h=0.085, primary="enth_cartoon", primary_label=
         if kind == "primary":
             place_sprite(ax, primary, gx, gy, w=0.05, z=11)
         elif kind == "ap2":
-            draw_ap2(ax, gx, gy, s=0.5, z=11)
+            draw_ap2(ax, gx, gy, w=0.05, z=11)
         elif kind == "facet":
-            # short faceted (zigzag) clathrin segment
-            fx = np.linspace(gx - 0.024, gx + 0.024, 5)
-            fy = gy + (np.arange(5) % 2) * 0.010
+            # short faceted clathrin envelope segment (straight chords, shallow bends)
+            fx = np.linspace(gx - 0.026, gx + 0.026, 5)
+            fy = gy + np.array([0.006, -0.004, 0.006, -0.004, 0.006])
             ax.plot(fx, fy, color=PAL["clathrin"], lw=2.0, zorder=11,
                     solid_capstyle="round", solid_joinstyle="round")
             ax.scatter(fx, fy, s=10, c=PAL["clathrin"], edgecolors="none", zorder=11.1)
@@ -285,8 +353,7 @@ def legend_box(ax, x, y, w=0.36, h=0.085, primary="enth_cartoon", primary_label=
             ax.add_patch(Circle((gx, gy + 0.008), 0.006, fc=PAL["lipid_head"], ec="none", zorder=11))
             ax.plot([gx, gx], [gy + 0.008, gy - 0.01], color=PAL["lipid_tail"], lw=0.8, zorder=11)
         elif kind == "idp":
-            draw_idp_from(ax, gx, gy + 0.012, n_chains=4, length=0.03, spread=1.1,
-                          seed=3, z=11, down=-1.0)
+            draw_idp_coil(ax, gx, gy + 0.014, 0.017, seed=3, z=11, down=-1.0, halo=True)
         ax.text(gx, y + h * 0.13, lab, ha="center", va="center", fontsize=5.0, zorder=11)
 
 
@@ -297,7 +364,12 @@ def fetch_structures(cache_dir=None):
     os.makedirs(scdir, exist_ok=True)
     written = {}
     for key, url in STRUCTURE_URLS.items():
-        fname = f"{key}.pdb" if key == "1H0A" else f"AF_{key}.pdb"
+        if key == "1H0A":
+            fname = f"{key}.pdb"
+        elif key == "2XA7":
+            fname = f"AP2_{key}.pdb"
+        else:
+            fname = f"AF_{key}.pdb"
         path = os.path.join(scdir, fname)
         if not (os.path.exists(path) and os.path.getsize(path) > 1000):
             open(path, "wb").write(u.urlopen(url, timeout=60).read())
@@ -317,5 +389,10 @@ def build_sprites(cache_dir=None, out_dir=None):
         render_cartoon(path, resrange=src["resrange"], color=src["color"],
                        out=os.path.join(odir, f"{name}.png"))
         meta[name] = src
+    for name, src2 in SPACEFILL_SOURCES.items():
+        path = os.path.join(scdir, f"{src2['pdb']}.pdb") if os.path.exists(
+            os.path.join(scdir, f"{src2['pdb']}.pdb")) else os.path.join(scdir, f"AP2_{src2['pdb']}.pdb")
+        render_spacefill(path, color=src2["color"], out=os.path.join(odir, f"{name}.png"))
+        meta[name] = src2
     json.dump(meta, open(os.path.join(odir, "cartoon_meta.json"), "w"), indent=2, default=str)
     return meta
