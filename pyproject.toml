@@ -33,7 +33,7 @@ inference = ["dynesty>=2.1", "emcee>=3.1", "corner>=2.2"]
 dev = ["pytest>=7.0"]
 
 [project.urls]
-Homepage = "https://github.com/jjbaloo2023/curvo"
+Homepage = "https://github.com/jjbaloo2023/mechanome"
 
 [project.scripts]
 curvo-demo = "run_demo:main"

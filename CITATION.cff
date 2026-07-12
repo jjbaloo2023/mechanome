@@ -14,7 +14,7 @@ authors:
     given-names: Jophin
 version: 0.2.0
 license: MIT
-repository-code: "https://github.com/jjbaloo2023/curvo"
+repository-code: "https://github.com/jjbaloo2023/mechanome"
 keywords:
   - membrane curvature
   - clathrin-mediated endocytosis

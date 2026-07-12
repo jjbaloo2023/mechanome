@@ -31,8 +31,8 @@ rules are in [§ Decision logic](#decision-logic).
 ## Quick start
 
 ```bash
-git clone https://github.com/jjbaloo2023/curvo.git
-cd curvo
+git clone https://github.com/jjbaloo2023/mechanome.git
+cd mechanome
 pip install -e .              # numpy, scipy, requests
 pip install -e ".[plots]"     # + matplotlib for the figure scripts
 pip install -e ".[inference]" # + dynesty, emcee, corner for the inverse engine
