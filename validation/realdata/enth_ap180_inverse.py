@@ -5,7 +5,7 @@ enth_fusion_cases predicts ENTH+AP180-IDP reaches Omega at ~55 pN of actin force
 (a stage/threshold call). This module CLOSES THE LOOP: it simulates the construct
 forward at a KNOWN 55 pN, then inverts the noisy trajectory with the Bayesian
 engine (dynesty nested sampling) and asks whether curvo recovers that force with
-calibrated uncertainty -- or honestly refuses.
+calibrated uncertainty -- or refuses when the data underdetermine it.
 
 Two runs make the point:
   WITH the actin-density channel (which breaks the c_eff/force degeneracy):

@@ -12,7 +12,7 @@ average) differs on three axes at once:
     2. GEOMETRY   : top-down membrane RING cross-section, not a side-view CAP
     3. SAMPLE     : subtomogram AVERAGE at ~0.9 nm/px, not a single fluorescence frame
 
-So we report two things honestly:
+The probe reports two things separately:
   (A) curvo's NATIVE extractor applied as-is -> expected to fail (wrong contrast +
       wrong projection geometry). We show what it returns and why it is meaningless.
   (B) the underlying GEOMETRIC PRIMITIVE that DOES transfer: a radial ring fit,

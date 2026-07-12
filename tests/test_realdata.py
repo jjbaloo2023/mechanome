@@ -99,7 +99,7 @@ def test_ome_tiff_pairing():
     cell, tp, ep = pairs[0]
     pf = ingest_paired_field(tp, ep, cell_id=cell, condition="IAV")
     _check(pf.observable == "2_epitirf_depth", "paired field must be observable #2")
-    _check(pf.n_timepoints == 1, "IAV data is single-timepoint (recorded honestly)")
+    _check(pf.n_timepoints == 1, "IAV data is single-timepoint (recorded as such)")
     _check("clathrin" in pf.channel_roles, "clathrin role must be resolved")
     _check("note" in pf.provenance, "provenance must record the snapshot note")
 

@@ -1,5 +1,5 @@
 """
-analyze.py — the north-star agent endpoint.
+analyze.py — the top-level agent endpoint.
 
     analyze(video, question, ...) -> {
         forces,               # posterior over mechanical forces (median + CI) —

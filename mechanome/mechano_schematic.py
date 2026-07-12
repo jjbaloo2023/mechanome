@@ -141,7 +141,7 @@ def flagship_walk() -> List[MechanoClaim]:
     """The demo spine: GROUNDED force -> GROUNDED capacity -> LINKED YAP hypothesis."""
     from . import emit, links
     claims = [emit.emit_tether_force_claim()]
-    claims += emit.emit_family_capacity_claims(top=1)   # epsin EPN1, tiered honestly
+    claims += emit.emit_family_capacity_claims(top=1)   # epsin EPN1
     claims += links.emit_all()                          # the dashed YAP edge
     return claims
 

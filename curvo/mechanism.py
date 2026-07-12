@@ -27,7 +27,7 @@ from geometry alone), the separating observable is the ACTIN CHANNEL: imaging
 cortical actin recruitment, or a perturbation (e.g. actin depolymerization ->
 force drops; H0-helix mutation -> c_eff drops). The proposer picks the
 intervention whose predicted effect on the trace differs most between the tied
-hypotheses. This closes the loop the north-star endpoint requires.
+hypotheses. This closes the loop the analyze() endpoint requires.
 """
 from __future__ import annotations
 

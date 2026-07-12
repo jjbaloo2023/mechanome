@@ -9,7 +9,7 @@ average, not a time series). This adapter closes the two axes that are closable
 from a single image — contrast and geometry — and emits a GeometryTrace that the
 rest of curvo (evaluator, and in principle the inverse) can consume.
 
-WHAT IT BRIDGES (honestly):
+WHAT IT BRIDGES:
   * contrast : `contrast="dark"` flips intensity so a low-density membrane reads as
                a bright ridge, matching the extractor's bright-membrane assumption.
   * geometry : fits the membrane RING (radial profile + sub-pixel peak) and converts

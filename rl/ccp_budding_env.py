@@ -10,9 +10,9 @@ charges for the physical cost of force and recruitment -- so a good policy learn
 the biologically sensible orchestration ORDER (coat -> crowding -> actin), which
 is exactly the PICALM/epsin ladder curvo established from data.
 
-This is a BYPRODUCT / scaling scaffold, not the scientific aim: the physics lives
-entirely in curvo's forward model; the env just exposes it as a sequential
-decision problem an agent can search. No new physics is introduced here.
+The environment is a scaling scaffold: the physics lives entirely in curvo's
+forward model, and the environment exposes it as a sequential decision problem an
+agent can search. No new physics is introduced here.
 
 State (Box, float32, 7-d):
     [coverage, c_eff, H, dome_omega_OP, actin_force_pN/ACTIN_MAX,
@@ -165,7 +165,7 @@ class CCPBuddingEnv(gym.Env):
                 f"coat_rf={self.coat_rf:.1f} H={self.H:.4f} OP={self.op:.2f}")
 
 
-# --- reference policies (for the demo, not learned) --------------------------
+# --- reference policies (hand-built baselines, not learned) ------------------
 def greedy_physics_policy(obs):
     """A hand-built orchestration order respecting the established ladder: lay the
     coat first, then recruit crowding to build c_eff, then ramp actin toward

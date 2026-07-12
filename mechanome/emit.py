@@ -1,7 +1,7 @@
 """
 mechanome/emit.py — convert curvo's VALIDATED outputs into GROUNDED MechanoClaims.
 
-Two real sources, tiered honestly:
+Two real sources, each carrying its epistemic tier:
 
   1. emit_tether_force_claim()  — the FORCE-PAIRED real anchor. curvo's Bayesian
      inverse recovers the holding force of a POPC membrane nanotube from its
@@ -73,9 +73,9 @@ def emit_family_capacity_claims(cache_dir: str = "cache",
     """GROUNDED-on-synthetic-recovery claims: per-protein curvature-generation capacity.
 
     Uses the Monte-Carlo family screen (screen_mc): each protein's H_max carries a
-    68% CI and an Omega-crossing probability. Tiered honestly — the identifiability
-    is 'constrained' only when P(cross Omega) is decisive; 'prior_dominated' when the
-    CI straddles the threshold (e.g. HIP1R). NO EPN1-trajectory evidence is claimed.
+    68% CI and an Omega-crossing probability. The identifiability is 'constrained'
+    only when P(cross Omega) is decisive, and 'prior_dominated' when the CI straddles
+    the threshold (e.g. HIP1R). No EPN1-trajectory evidence is claimed.
     """
     rows = _fam.screen_mc(cache_dir=cache_dir)
     rows = sorted(rows, key=lambda r: -r["H_med"])[:top]

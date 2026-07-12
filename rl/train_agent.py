@@ -1,15 +1,13 @@
 """
 train_agent.py -- a lightweight tabular Q-learning sanity run on CCPBuddingEnv.
 
-This is a SCALING DEMONSTRATION, not the scientific aim (per the user's standing
-constraint: "I dont want to make this a RL envir now ... aim is to scale the
-science. if we get a great env from it that is awesome"). The point is only to
-show (a) the env is learnable by a generic agent with no physics knowledge, and
-(b) the learned policy recovers the same physical PRIORITY that curvo established
-from the PICALM/epsin data: build curvature drive by recruiting the crowding
-partner FIRST, then ramp actin only once c_eff is committed. (The learned
-sequence is crowd -> crowd -> actin...; it skips the coat-stiffening move the
-hand-built greedy policy uses, because with the crowding step it can reach Omega
+The environment is a scaling scaffold, not a source of new physics. This run
+checks two things: (a) the environment is learnable by a generic agent with no
+physics knowledge, and (b) the learned policy recovers the same physical priority
+curvo established from the PICALM/epsin data: build curvature drive by recruiting
+the crowding partner first, then ramp actin only once c_eff is committed. (The
+learned sequence is crowd -> crowd -> actin...; it skips the coat-stiffening move
+the hand-built greedy policy uses, because with the crowding step it can reach Omega
 faster and save the coat move-cost -- a mild optimization the hand-built policy
 leaves on the table, not a different ordering of the crowding/actin ladder.)
 

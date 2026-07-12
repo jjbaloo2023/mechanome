@@ -1,6 +1,6 @@
 """
-curvo.schematic — the gold-standard output: an auto-generated, publication-style
-SVG of the orchestration the loop found.
+curvo.schematic — an auto-generated, publication-style SVG of the orchestration
+the loop found.
 
 Generated FROM the OrchestrationRecord the loop already logs, so it is a faithful
 view of the result, not a redrawing. Renders:

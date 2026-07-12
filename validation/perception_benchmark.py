@@ -11,7 +11,7 @@ recovers the KNOWN geometry (mean curvature H, neck radius).
 Because ground truth is exact only for rendered images, the benchmark images are
 synthetic BY NECESSITY — that is what makes accuracy/coverage/bias measurable at
 all. The companion real-image transfer probe (real_image_probe.py) characterizes
-the fluorescence-vs-density modality gap honestly and separately.
+the fluorescence-vs-density modality gap separately.
 
 Grid axes (each swept around, and beyond, the calibration point nm/px=2,
 psf=18 nm, photons=220):
@@ -134,8 +134,8 @@ def envelope_sweep(n_rep=3, seed0=0, n_boot=8):
     KNOWN LIMITATION: the bootstrap H_sigma under-covers in this band
     (coverage68 ~ 0.30 at calibration, well below the 0.68 nominal) — the
     per-frame uncertainty is too narrow. The point-estimate rel-err is the
-    trustworthy metric here; the coverage number is reported honestly as a flag
-    that perception's per-frame CI needs widening, NOT as a passing statistic."""
+    trustworthy metric here; the coverage number is reported as a flag that
+    perception's per-frame CI needs widening, not as a passing statistic."""
     results = {"calibration_point": CAL, "conditions": []}
 
     def rec(**kw):
