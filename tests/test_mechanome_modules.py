@@ -160,3 +160,10 @@ def test_structural_screen_channel_link():
     assert link["source_model"] == "structural_screen_v1"
     assert link["gating_model"] == "ms_gating_v1"
     assert abs(link["open_probability"] - 0.5) < 1e-9
+    # a channel whose display name differs from its screen protein key (e.g.
+    # "TRAAK" vs "TRAAK (K2P4.1)") must resolve by EITHER name, and every screened
+    # channel must return a valid open probability.
+    assert abs(cl.link_channel_to_gating("TRAAK", 11.8)["open_probability"] - 0.5) < 1e-9
+    for c in cl.channels_from_screen():
+        for key in (c["protein"], c["channel"]):
+            assert 0.0 <= cl.link_channel_to_gating(key, 11.8)["open_probability"] <= 1.0

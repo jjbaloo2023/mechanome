@@ -69,10 +69,17 @@ def link_channel_to_gating(protein: str,
     dA/dG default to the MscL anchor; pass channel-specific values when known.
     Returns a dict linking the molecule-scale c0 to the membrane-scale Po.
     """
-    rows = {c["protein"]: c for c in channels_from_screen()}
+    # accept either the screen's protein key ("TRAAK (K2P4.1)") or the friendly
+    # channel display name ("TRAAK") that channels_from_screen() surfaces.
+    screened = channels_from_screen()
+    rows = {}
+    for c in screened:
+        rows[c["protein"]] = c
+        rows[c["channel"]] = c
     if protein not in rows:
+        choices = sorted({c["channel"] for c in screened})
         raise KeyError(f"{protein!r} is not a screened mechanosensitive channel; "
-                       f"choose from {sorted(rows)}")
+                       f"choose from {choices}")
     c = rows[protein]
     if dG_kBT is None:
         # place the midpoint at the MscL anchor tension by default
