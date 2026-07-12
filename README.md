@@ -534,7 +534,7 @@ The orchestration model curvo reasons over, drawn in the idiom of the 2020
 epsin paper's proposed-model figure (explicit bilayer, domain-coloured epsin),
 across the three maturation stages:
 
-![Orchestration model]({{artifact:art_2de3231e-17b7-4579-b3e7-49f7b243f428}})
+![Orchestration model](outputs/orchestration_schematic.png)
 
 Clathrin scaffolds the coat; epsin's ENTH domain senses and generates curvature
 while its H₀ amphipathic wedge senses membrane tension; actin supplies inward
@@ -553,7 +553,7 @@ capacity (family-screen H_med ≈ 0.019 nm⁻¹, an ANTH amphipathic wedge) thro
 the validated forward model across an assembly ladder and reads the stage
 against the Ω threshold (0.030 nm⁻¹).
 
-![PICALM orchestration test case]({{artifact:art_a049f99b-abe7-4e53-bb22-f7ad1344a7e1}})
+![PICALM orchestration test case](validation/realdata/picalm_orchestration.png)
 
 The verdict is **no — not alone**. PICALM's autonomous probability of crossing Ω
 is 0.005; alone it forms a dome, not a vesicle. Each rung of the ladder changes
@@ -580,7 +580,7 @@ whose sum (0.035) matches the validated family-screen epsin H_med (~0.033).
 `validation/realdata/epsin_domain_cases.py` runs each construct through the
 forward model.
 
-![Epsin domain cases]({{artifact:art_94e9e092-d1d7-4179-895c-295bed51edf0}})
+![Epsin domain cases](outputs/epsin_domain_cases.png)
 
 None of the three makes a productive pit on coat + 40 pN actin alone. The
 mechanistic result is the **force-burden ordering**: full epsin needs the least
@@ -610,7 +610,7 @@ folded globule? curvo grounds the answer in the partner's AlphaFold model,
 classifying each segment (pLDDT + composition) into folded vs
 polymer-brush-crowding, so the crowding contribution is measured, not assumed.
 
-![ENTH fusion cases]({{artifact:art_bcc4f542-804e-449a-b93e-a61b8ad621d9}})
+![ENTH fusion cases](outputs/enth_fusion_cases.png)
 
 The classifier finds **AP180**'s assembly domain (SNAP91, O60641) is 68%
 disordered (621 brush-competent residues), while **albumin** (ALB, P02768) is a
@@ -635,7 +635,7 @@ construct forward at a **known** 55 pN, adds realistic ratiometric noise, and
 inverts the trajectory with the Bayesian engine (dynesty nested sampling) — the
 one place in this section where a force *number* is claimed.
 
-![ENTH+AP180 inverse recovery]({{artifact:art_6ec09385-1065-421f-a0ab-ae7f832f4234}})
+![ENTH+AP180 inverse recovery](outputs/enth_ap180_inverse.png)
 
 The result is the anti-force-astrology firewall in action. **With** the
 independent actin-density channel that breaks the c_eff/force degeneracy, the
@@ -667,7 +667,7 @@ each dataset and enforces this at the data boundary: it raises rather than route
 an intensity-only dataset to the force inverse. This is the anti-force-astrology
 guardrail applied one level earlier than the posterior.
 
-![Real data classified by observable]({{artifact:art_7408be15-703b-4bdb-b194-c01b34749117}})
+![Real data classified by observable](outputs/data_manifest.png)
 
 ### Keystone 1 — front-end + tension cross-check (observable #1)
 
@@ -681,7 +681,7 @@ hold: productive-pit fraction falls (0.363 → 0.329 → 0.311), abortive fracti
 rises (0.553 → 0.607 → 0.627), and the clathrin peak drops at high tension.
 No force is inferred — the classifier refuses #1.
 
-![Tension cross-check]({{artifact:art_9f22b9f1-410b-42b3-904c-a79b52f19f51}})
+![Tension cross-check](outputs/intensity_tension.png)
 
 **Dual-channel co-recruitment (`ingest_dual_cohorts.py`).** The same .mat files
 carry a richer signal than the single-channel intensity summary: `res.cohorts.A`
@@ -693,7 +693,7 @@ robust cross-condition quantity is the self-normalising **epsin:clathrin
 peak-amplitude ratio** (median over cohorts), which cancels the per-session
 intensity scale that makes raw amplitudes non-comparable across files.
 
-![Dual-channel co-recruitment]({{artifact:art_049b05ab-9c49-4a70-80b4-858d0197f3f5}})
+![Dual-channel co-recruitment](outputs/dual_cohort_corecruitment.png)
 
 Two findings, both consistent with the 2020 mechanism: (1) the WT epsin:clathrin
 ratio falls monotonically with membrane tension (0.84 → 0.69 → 0.49,
@@ -717,7 +717,7 @@ converted to a mean-curvature proxy H = 1/R_proj. A representative pit contracts
 from 106 nm to 39 nm start-to-end over 16 frames (H rising 0.009 → 0.025 nm⁻¹,
 non-monotonic frame to frame) — an overall flat→dome→Ω direction.
 
-![Super-res curvature extraction]({{artifact:art_81d4efe3-b418-4f77-8337-7d3afe5c8557}})
+![Super-res curvature extraction](outputs/superres_curvature.png)
 
 Feeding that real trajectory to the nested-sampling inverse produces the honest
 result: **0 of 3 parameters identified**. The forward model fits the sigmoidal
@@ -727,7 +727,7 @@ The identifiability firewall refuses a force number and names the disambiguating
 experiment (co-image actin). This is the same discipline the synthetic gate
 enforces, now on real data.
 
-![Inverse on real curvature]({{artifact:art_21453a24-5b48-443b-a229-9a6d41aadc66}})
+![Inverse on real curvature](outputs/realdata_posterior.png)
 
 ### Structure routing and the coat-prior experiment
 
@@ -740,7 +740,7 @@ orchestration partner and is *refused* entry to the CCS inverse, because a
 filament network is not a membrane cap. The morphology path discriminates on
 pixels alone (CCP median object elongation ≈ 1.25 vs F-actin ≈ 2.0).
 
-![Structure-routed inverse]({{artifact:art_4480e5ce-9c64-4207-a349-98f8f4e7e345}})
+![Structure-routed inverse](outputs/realdata_structural_prior.png)
 
 A natural question is whether an **informative structural prior** on the coat —
 clathrin templates a 40–70 nm vesicle, so c_eff ∈ [0.014, 0.026] nm⁻¹ — can
@@ -776,7 +776,7 @@ at diffraction-limited lateral resolution and live frame rates.
 (same energy minimization as the inverse) and provides a ratio-trajectory
 inverse.
 
-![epi-TIRF depth model]({{artifact:art_9ae5117f-0310-4f5b-831e-e21fd62d2452}})
+![epi-TIRF depth model](outputs/epitirf_depth_model.png)
 
 A recovery-spec study (inject known 40 pN, add ratiometric noise, invert) gives
 a nuanced, honest answer:
@@ -858,7 +858,7 @@ match to what curvo wants.
    physical reason absolute force is unrecoverable (0/18), independent of the
    pixel-size calibration constant.
 
-   ![Resolution-regime benchmark]({{artifact:art_1373cc96-b47a-48f1-927b-a08a47f0677f}})
+   ![Resolution-regime benchmark](outputs/resolution_regime_benchmark.png)
 5. The IAV 2022 epi-TIRF data could not yield depth: the TIRF and epi images are
    not registered same-field pairs (punctum-level correlation r = 0.02, no
    better than random cell pairings). Registered epi-TIRF or a z-stack would be
