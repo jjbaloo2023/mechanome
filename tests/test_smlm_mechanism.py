@@ -46,3 +46,37 @@ def test_discrimination_is_inconclusive_on_curvature_alone():
     assert np.isfinite(v.logz["coopcm"]) and np.isfinite(v.logz["helfrich_linear"])
     # recovered preferred curvature is physical (mature CCV ~ 0.010-0.015 nm^-1)
     assert 0.008 < v.params["coopcm"]["H0"] < 0.020
+
+
+@needs_data
+def test_multiobservable_favors_a_model_consistently():
+    """The cross-observable check (fit H, predict area+edge) must return a clear
+    favored model with lower total log-RMSE, consistently across cell lines.
+    On the sorted static population this is Helfrich (the honest, reproducible
+    result), but the test asserts internal consistency, not a hard-coded winner."""
+    from validation.realdata.ingest_smlm_locmofit import ingest_locmofit
+    from validation.realdata.smlm_mechanism import discriminate_multiobservable
+    gs = ingest_locmofit()
+    favored = set()
+    for cl in ("SKMEL2", "3T3", "U2OS"):
+        mv = discriminate_multiobservable(gs.by_cell_line(cl), nlive=200, seed=0)
+        # favored model must indeed have the lower total cross-observable RMSE
+        tot = {m: mv.area_logrmse[m] + mv.edge_logrmse[m]
+               for m in ("helfrich_linear", "coopcm")}
+        assert tot[mv.favored] == min(tot.values())
+        # predictions must be physically reasonable (log-RMSE well under 1 decade)
+        assert all(v < 0.5 for v in mv.area_logrmse.values())
+        favored.add(mv.favored)
+    # the verdict is consistent across all three cell lines
+    assert len(favored) == 1
+
+
+def test_cap_geometry_roundtrip():
+    """_cap_from_H must invert mean curvature to the spherical-cap area/edge."""
+    import numpy as np
+    from validation.realdata.smlm_mechanism import _cap_from_H
+    # a hemisphere (theta=90) of radius R=100 nm -> H=0.01
+    A, E = _cap_from_H(90.0, 0.01)
+    R = 100.0
+    assert A == pytest.approx(2 * np.pi * R ** 2 * (1 - np.cos(np.radians(90))), rel=1e-6)
+    assert E == pytest.approx(2 * np.pi * R * np.sin(np.radians(90)), rel=1e-6)

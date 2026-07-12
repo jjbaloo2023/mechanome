@@ -1,0 +1,39 @@
+{
+  "cell_line": "SKMEL2",
+  "n_sites": 1631,
+  "area_logrmse": {
+    "helfrich_linear": 0.04423986182798422,
+    "coopcm": 0.07132280685446768
+  },
+  "edge_logrmse": {
+    "helfrich_linear": 0.02220669946967063,
+    "coopcm": 0.03706581550393182
+  },
+  "favored": "helfrich_linear",
+  "margin": 0.04194206106074465,
+  "verdict": "Cross-observable check: parameters fit to H(theta) predict the area and edge observables better under Helfrich (linear) (total log-RMSE 0.066 vs 0.108). On the pseudo-temporally-SORTED static population, the non-cooperative linear relaxation generalizes across observables better than CoopCM -- the opposite of the paper's DYNAMIC per-cell fit, and expected: sorting by theta discards the real timing the cooperative law was fit to. This is a geometry result, not a force result; force stays refused.",
+  "params": {
+    "helfrich_linear": {
+      "H0": 0.01576904999249406,
+      "gamma": 0.01136743979875212,
+      "scatter": 0.0005056184920137406
+    },
+    "coopcm": {
+      "H0": 0.013986828189944515,
+      "gamma": 0.009178782041757365,
+      "scatter": 0.0005058967336262452
+    }
+  },
+  "provenance": {
+    "dataset": "BioStudies S-BIAD566",
+    "paper": "Mund, Tschanz, ... Ries, J Cell Biol 2023",
+    "doi": "10.1083/jcb.202206038",
+    "method": "fit H(theta), map params onto A(theta) & E(theta) (Mund et al. 2023 Fig. 3 B-D method)",
+    "resolution_xy_nm": 10.0,
+    "resolution_z_nm": 30.0,
+    "loc_precision_xy_nm": 3.9,
+    "loc_precision_z_nm": 12.5,
+    "note": "static super-res; geometry only; force_applicable=False",
+    "caveat": "A and E are deterministic functions of (1/H, theta) on a theta-sorted population; they reweight theta-domain leverage, they do not add an independent measurement axis"
+  }
+}

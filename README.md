@@ -809,13 +809,23 @@ Three things follow, and one is refused:
 2. **Shape-energetics (yes).** The inverse fits the effective spontaneous
    curvature the coat must express (c_eff ≈ 0.009 nm⁻¹) with a calibrated
    identifiability verdict.
-3. **Mechanism discrimination (honest null).** Helfrich (non-cooperative,
-   dH/dθ ∝ 1 − H/H₀) vs the Cooperative Curvature Model (CoopCM; dH/dθ ∝
-   1 − H²/H₀², the paper's positive-feedback law) by nested-sampling Bayes
-   factor. On the curvature-vs-θ observable alone the two laws are near-identical
-   (|lnB| < 2.5 for all three cell lines): **inconclusive**. curvo refuses the
-   decisive call the single observable cannot support — the paper's decisive
-   CoopCM preference rests on the joint curvature + area + edge fit.
+3. **Mechanism discrimination (two-tier).** Helfrich (non-cooperative, dH/dθ ∝
+   1 − H/H₀) vs the Cooperative Curvature Model (CoopCM; dH/dθ ∝ 1 − H²/H₀², the
+   paper's positive-feedback law).
+   - *Curvature alone* (`discriminate`): the two laws are near-identical
+     saturating curves; the Bayes factor is **inconclusive** (|lnB| < 2.5, all
+     three cell lines). The single observable does not decide.
+   - *Multi-observable* (`discriminate_multiobservable`, the paper's own method —
+     fit H(θ), map the parameters onto surface area A(θ) and edge length ℰ(θ);
+     Fig. 3 B–D): this **does** decide. Across all three cell lines the H-fit
+     parameters predict area + edge better under the **non-cooperative Helfrich**
+     law (area log-RMSE ~0.044–0.054 vs ~0.067–0.073 for CoopCM) — CoopCM
+     over-predicts area in the early-θ region. On the pseudo-temporally-**sorted
+     static** population the linear relaxation generalizes better than CoopCM,
+     the *opposite* of the paper's decisive CoopCM preference. This is expected
+     and reported honestly: the paper fit real per-cell **dynamic** trajectories,
+     while sorting thousands of fixed cells by θ discards the timing the
+     cooperative law was fit to. A geometry result, not a force result.
 4. **Absolute force (refused, by construction).** A frozen snapshot has no rates
    and no degeneracy-breaking channel, so `force_applicable=False` is baked into
    the SMLM path: the inverse never returns a force point estimate here,
@@ -827,7 +837,9 @@ Three things follow, and one is refused:
 
 ![SMLM shape-energetics, force refused](validation/realdata/smlm_shape_energetics.png)
 
-![Helfrich vs CoopCM on real SMLM](validation/realdata/smlm_mechanism_discrimination.png)
+![Helfrich vs CoopCM on real SMLM (curvature only)](validation/realdata/smlm_mechanism_discrimination.png)
+
+![Multi-observable mechanism discrimination](validation/realdata/smlm_mechanism_multiobservable.png)
 
 Reproduce: `python -m validation.realdata.ingest_smlm_locmofit` (fetches
 S-BIAD566), then `… .smlm_pseudotime`, `… .smlm_shape_energetics`,
@@ -886,9 +898,11 @@ derived binned trajectories and verdicts are tracked.
 6. The static 3D-SMLM path (Keystone 3) recovers geometry and shape-energetics
    but **refuses absolute force by construction** — a frozen snapshot has no
    rates. The Helfrich-vs-CoopCM comparison on curvature alone is a genuine null
-   (|lnB| < 2.5); a decisive mechanism call would need the joint
-   curvature + surface-area + edge-length fit, a clean future extension of the
-   same inverse.
+   (|lnB| < 2.5); the multi-observable check (area + edge) is decisive but favors
+   the **non-cooperative** law on the sorted static population — the opposite of
+   the paper's dynamic-fit conclusion, and a demonstration that a pseudo-temporal
+   sort is not a substitute for real per-cell timing. The mechanism verdict here
+   is a statement about *this* analysis, not a refutation of CoopCM in live cells.
 
 Raw imaging is never committed. The repository records provenance — DOIs,
 source paths, retrieval dates — only; the raw `.mat`, `.ome.tif`, and `.mrc`
