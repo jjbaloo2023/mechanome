@@ -59,8 +59,10 @@ def test_linked_requires_chain_and_experiment():
 def test_emit_grounded_from_curvo():
     claims = emit.emit_all()
     assert len(claims) >= 2
-    valid_fms = {"helfrich_v1", "vertex_v1", "active_gel_v1",
-                 "catch_slip_v1", "ms_gating_v1"}
+    # derive the valid set from the registry so it never goes stale as models
+    # are added (membrane + the analytic modules + the structural screen).
+    from mechanome import registry as reg
+    valid_fms = set(reg.FORWARD_MODELS)
     for c in claims:
         assert c.epistemic_tier is EpistemicTier.GROUNDED
         assert c.value is not None and c.identifiability is not None

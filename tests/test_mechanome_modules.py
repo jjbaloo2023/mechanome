@@ -105,3 +105,58 @@ def test_emit_channel_reads_membrane_tension():
     c = emit.emit_from_module("channel")
     assert c.object == "membrane_tension"
     assert c.value.estimate == 11.8       # MscL midpoint, mN/m
+
+
+# --- structural screen: integrity of the vendored frozen ranking ------------
+def test_structural_screen_frozen_hash_reproduces():
+    from mechanome import structural_screen as ss
+    v = ss.verify_frozen_ranking()
+    # the stored CSV and the computed stage-3 CSV both reproduce the frozen hash
+    assert v["passed"], v
+    assert v["stored_hash"] == "41d49328960d4083"
+    assert v["hash_from_frozen_csv"] == v["stored_hash"]
+    assert v["hash_from_stage3_csv"] == v["stored_hash"]
+
+
+def test_structural_screen_energy_scale_consistent():
+    # the screen's standalone energy scale must agree with curvo.constants
+    from mechanome import structural_screen as ss
+    assert ss.verify_energy_scale_consistency()["consistent"]
+
+
+def test_structural_screen_prereg_is_nine_go_terms():
+    # the pre-registered label set is exactly the nine GO IDs scored
+    from mechanome import structural_screen as ss
+    assert len(ss.prereg_go_terms()) == 9
+
+
+def test_structural_screen_bar_radii_reproduce_literature():
+    # method validating on home turf: the top scaffolds are the textbook BAR
+    # curvature generators, in the expected order (dynamin > endophilin > amphiphysin)
+    from mechanome import structural_screen as ss
+    top3 = list(ss.frozen_ranking().head(3)["protein"])
+    assert top3[0] == "Dynamin-1"
+    assert "Endophilin" in top3[1]
+    assert "Amphiphysin" in top3[2]
+
+
+def test_structural_screen_registered_and_emits():
+    # registered as a molecule-scale forward model + emits a GROUNDED analytic claim
+    assert "structural_screen_v1" in reg.FORWARD_MODELS
+    assert reg.FORWARD_MODELS["structural_screen_v1"].scale == "molecule"
+    assert reg.validation_provenance("structural_screen") == "analytic_limit"
+    c = emit.emit_from_module("structural_screen")
+    assert c.epistemic_tier.value == "GROUNDED"
+    assert c.forward_model == "structural_screen_v1"
+    assert any(e == "validation=analytic_limit" for e in c.evidence)
+
+
+def test_structural_screen_channel_link():
+    # the cross-scale seam: MscL's structure-derived c0 -> gating Po=0.5 at midpoint
+    from mechanome import channel_link as cl
+    channels = {c["channel"] for c in cl.channels_from_screen()}
+    assert {"MscL", "Piezo1", "TRAAK"} <= channels
+    link = cl.link_channel_to_gating("MscL", 11.8)   # at the MscL midpoint tension
+    assert link["source_model"] == "structural_screen_v1"
+    assert link["gating_model"] == "ms_gating_v1"
+    assert abs(link["open_probability"] - 0.5) < 1e-9
