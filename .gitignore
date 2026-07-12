@@ -49,3 +49,6 @@ validation/realdata/smlm_geometry_set.json
 # agent scratch handoff
 handoff/
 *.mrc
+
+# Cached protein structures + rendered sprites (re-fetchable from RCSB / AlphaFold DB)
+cache/structures/
