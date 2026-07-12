@@ -594,19 +594,27 @@ confound-isolating ladders are in
 ### The observable ladder
 
 Single clathrin-coated pits are diffraction-limited puncta — curvature is not
-readable from ordinary fluorescence. Only three observables are usable, in
-increasing richness:
+readable from ordinary fluorescence. Four observables are usable, in increasing
+richness; the fourth trades the time axis for near-molecular geometric precision:
 
 | Observable | Reads | Force inference |
 |---|---|---|
 | **#1 intensity / lifetime** (any TIRF) | coat-assembly proxy | refused — not a curvature signal |
 | **#2 epi-TIRF ratio** | invagination / axial depth | permitted (needs registered epi+TIRF) |
 | **#3 SIM / super-res** | curvature in real time | permitted — the inverse's real input |
+| **#4 static super-res** (3D-SMLM/STORM) | curvature at ~15 nm, no time axis | **refused by construction** — geometry + mechanism only |
 
 The observable classifier (`validation/realdata/classify_observable.py`) tags
 each dataset and enforces this at the data boundary: it raises rather than route
 an intensity-only dataset to the force inverse. This is the anti-force-astrology
 guardrail applied one level earlier than the posterior.
+
+Rung #4 is the frozen-snapshot regime (STORM/PALM/SMLM, CLEM, cryo-ET): the
+geometry is exquisite (~15 nm) but there is no real time axis, so **absolute
+force is structurally underdetermined and refused by construction**, not by
+posterior width. What such data *do* support is the average shape trajectory
+(via pseudo-temporal sorting), a shape-energetics fit, and mechanism
+discrimination — see [Keystone 3](#keystone-3--static-3d-smlm-pseudo-temporal-geometry-observable-4).
 
 ![Real data classified by observable](outputs/data_manifest.png)
 
@@ -776,6 +784,55 @@ curvature-vs-time; and force identifiability specifically needs the **actin
 channel** present — which is why the STAR + actin + osmotic set is the closest
 match to what curvo wants.
 
+### Keystone 3 — static 3D-SMLM pseudo-temporal geometry (observable #4)
+
+The richest real geometry curvo ingests comes from **static** super-resolution:
+2,551 clathrin-coated structures fit to spherical caps by LocMoFit in the 3D-SMLM
+dataset of Mund, Tschanz, … Ries (*J Cell Biol* 2023, doi:10.1083/jcb.202206038;
+data: BioStudies **S-BIAD566**), across three cell lines (SKMEL2 *n* = 1,631,
+3T3 680, U2OS 240). Each site carries a closing angle θ and a cap radius R at
+~15 nm precision — but no time axis.
+
+**The seam.** `validation/realdata/ingest_smlm_locmofit.py` maps LocMoFit's fit
+onto curvo geometry directly: θ (closing angle) → ψ, curvature = 1/R → mean
+curvature H, radius → R, and the reported localization precision (3.9 nm xy /
+12.5 nm z) → curvature uncertainty. LocMoFit's spherical-cap parametrisation *is*
+curvo's; the adapter is a change of coordinates, not a re-fit.
+
+Three things follow, and one is refused:
+
+1. **Pseudo-temporal geometry (yes).** Sorting the static population by θ
+   reconstructs the average shape trajectory and reproduces the paper's central
+   finding: the coat assembles as a **flat lattice to ≈ 42 % of its final area
+   (SKMEL2), then bends** (bend onset θ ≈ 15°). Pseudotime ≠ real time — this is
+   the order of shape change, not a rate.
+2. **Shape-energetics (yes).** The inverse fits the effective spontaneous
+   curvature the coat must express (c_eff ≈ 0.009 nm⁻¹) with a calibrated
+   identifiability verdict.
+3. **Mechanism discrimination (honest null).** Helfrich (non-cooperative,
+   dH/dθ ∝ 1 − H/H₀) vs the Cooperative Curvature Model (CoopCM; dH/dθ ∝
+   1 − H²/H₀², the paper's positive-feedback law) by nested-sampling Bayes
+   factor. On the curvature-vs-θ observable alone the two laws are near-identical
+   (|lnB| < 2.5 for all three cell lines): **inconclusive**. curvo refuses the
+   decisive call the single observable cannot support — the paper's decisive
+   CoopCM preference rests on the joint curvature + area + edge fit.
+4. **Absolute force (refused, by construction).** A frozen snapshot has no rates
+   and no degeneracy-breaking channel, so `force_applicable=False` is baked into
+   the SMLM path: the inverse never returns a force point estimate here,
+   independent of what any single posterior looks like.
+
+![SMLM geometry QC](validation/realdata/smlm_geometry_qc.png)
+
+![SMLM pseudo-temporal trajectory](validation/realdata/smlm_pseudotime_trajectory.png)
+
+![SMLM shape-energetics, force refused](validation/realdata/smlm_shape_energetics.png)
+
+![Helfrich vs CoopCM on real SMLM](validation/realdata/smlm_mechanism_discrimination.png)
+
+Reproduce: `python -m validation.realdata.ingest_smlm_locmofit` (fetches
+S-BIAD566), then `… .smlm_pseudotime`, `… .smlm_shape_energetics`,
+`… .smlm_mechanism`.
+
 ### Honest caveats
 
 1. Most public CME imaging is observable #1 — a coat-assembly proxy that cannot
@@ -804,6 +861,12 @@ match to what curvo wants.
    not registered same-field pairs (punctum-level correlation r = 0.02, no
    better than random cell pairings). Registered epi-TIRF or a z-stack would be
    required. This negative result is reported rather than papered over.
+6. The static 3D-SMLM path (Keystone 3) recovers geometry and shape-energetics
+   but **refuses absolute force by construction** — a frozen snapshot has no
+   rates. The Helfrich-vs-CoopCM comparison on curvature alone is a genuine null
+   (|lnB| < 2.5); a decisive mechanism call would need the joint
+   curvature + surface-area + edge-length fit, a clean future extension of the
+   same inverse.
 
 Raw imaging is never committed. The repository records provenance — DOIs,
 source paths, retrieval dates — only; the raw `.mat`, `.ome.tif`, and `.mrc`
