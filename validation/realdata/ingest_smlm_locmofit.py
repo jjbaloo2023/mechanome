@@ -36,10 +36,12 @@ import numpy as np
 import pandas as pd
 
 # ------------------------------------------------------------------ constants
-# Modal localization precision reported by the paper (Li et al. 2018 pipeline).
+# Modal localization precision, quoted verbatim from Mund et al. 2023 (JCB,
+# doi:10.1083/jcb.202206038): "modal values of the localization precision at
+# 3.9 nm in x/y and 12.5 nm in z" (imaging pipeline of Li et al., 2018, cited
+# there). Resolution "about 10 nm in x/y and 30 nm in z".
 LOC_PRECISION_XY_NM = 3.9
 LOC_PRECISION_Z_NM = 12.5
-# Effective 3D resolution (FWHM-scale) quoted in the paper.
 RESOLUTION_XY_NM = 10.0
 RESOLUTION_Z_NM = 30.0
 FULL_SPHERE_DEG = 180.0
@@ -178,7 +180,8 @@ def ingest_locmofit(cache_dir: str = _CACHE,
         dataset="BioStudies S-BIAD566",
         paper="Mund, Tschanz, ... Ries, J Cell Biol 2023",
         doi="10.1083/jcb.202206038",
-        method="3D-SMLM + LocMoFit spherical-cap fit (Wu et al. 2023)",
+        method="3D-SMLM + LocMoFit spherical-cap fit (LocMoFit: Wu et al., "
+               "2023, cited in Mund et al. 2023)",
         resolution_xy_nm=RESOLUTION_XY_NM, resolution_z_nm=RESOLUTION_Z_NM,
         loc_precision_xy_nm=LOC_PRECISION_XY_NM,
         loc_precision_z_nm=LOC_PRECISION_Z_NM,

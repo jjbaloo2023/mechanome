@@ -1,0 +1,92 @@
+{
+  "cell_line": "SKMEL2",
+  "n_sites": 1631,
+  "A_coat_nm2": 56452.438477,
+  "logz": -105.76869132731689,
+  "identifiability": {
+    "c_eff_max": {
+      "median": 0.009179627889343539,
+      "ci68": [
+        0.008853972863241076,
+        0.009554478193146247
+      ],
+      "ci95": [
+        0.008512401322825922,
+        0.009881003399554238
+      ],
+      "post_std": 0.00035405375902128507,
+      "prior_std": 0.023094010767585032,
+      "width_ratio": 0.015330977480890335,
+      "info_gain_bits": 6.027400751244429,
+      "marginal_constrained": true,
+      "degenerate_with": [],
+      "railed": true,
+      "identified": false,
+      "units": "nm^-1"
+    },
+    "active_force_max": {
+      "median": 59.76520719248647,
+      "ci68": [
+        59.397031435935695,
+        59.94644709339846
+      ],
+      "ci95": [
+        58.78793787596493,
+        59.991068352274624
+      ],
+      "post_std": 0.3379426107451778,
+      "prior_std": 17.320508075688775,
+      "width_ratio": 0.01951112572843733,
+      "info_gain_bits": 5.679559170612813,
+      "marginal_constrained": true,
+      "degenerate_with": [],
+      "railed": true,
+      "identified": false,
+      "units": "pN"
+    },
+    "sigma": {
+      "median": 0.0010296984687783123,
+      "ci68": [
+        0.0010064947844330798,
+        0.0010788686670532195
+      ],
+      "ci95": [
+        0.0010009649430485314,
+        0.0011749243351175586
+      ],
+      "post_std": 4.7905662675204434e-05,
+      "prior_std": 0.014145081595145832,
+      "width_ratio": 0.0033867363968861247,
+      "info_gain_bits": 8.205574333444309,
+      "marginal_constrained": true,
+      "degenerate_with": [],
+      "railed": true,
+      "identified": false,
+      "units": "kBT/nm^2"
+    }
+  },
+  "c_eff_shape_inv_nm": 0.009179627889343539,
+  "c_eff_ci68": [
+    0.008853972863241076,
+    0.009554478193146247
+  ],
+  "force_applicable": false,
+  "absolute_force_reported": null,
+  "refusal_reason": "static super-res: no time axis and no degeneracy-breaking channel; absolute cortical force is structurally underdetermined",
+  "provenance": {
+    "dataset": "BioStudies S-BIAD566",
+    "paper": "Mund, Tschanz, ... Ries, J Cell Biol 2023",
+    "doi": "10.1083/jcb.202206038",
+    "method": "3D-SMLM + LocMoFit spherical-cap fit (Wu et al. 2023)",
+    "resolution_xy_nm": 10.0,
+    "resolution_z_nm": 30.0,
+    "loc_precision_xy_nm": 3.9,
+    "loc_precision_z_nm": 12.5,
+    "note": "force_applicable=False: absolute force refused by construction (static snapshot), NOT merely by posterior width",
+    "sort_proxy": "closing angle theta (Mund et al. 2023)",
+    "A_closed_nm2": 70214.774984,
+    "H_plateau_inv_nm": 0.0130192803285,
+    "engine": "dynesty nested sampling",
+    "inverse": "curvo.inverse.run_nested"
+  }
+}
