@@ -1084,6 +1084,73 @@ is blocked from emitting GROUNDED claims (`registry.can_emit_grounded`) — it m
 register MEASURED literature or LINKED hypotheses only. Reproduce the walk:
 `python -m mechanome.mechano_schematic`.
 
+## The mechanome (multi-scale forward models)
+
+The membrane module (curvo, `helfrich_v1`) is one edge of a larger map. Four more
+mechanical scales now ship as **executable, analytic-limit-validated** forward
+models. Each is a closed-form physics kernel with a `self_validate()` that (a)
+recovers a known analytic limit and (b) reproduces a canonical published anchor's
+parameters — a deliberately weaker bar than the membrane module's real
+force-paired STED validation, so every claim they emit carries
+`validation=analytic_limit` on its face.
+
+| module | scale | governing law | analytic limit | published anchor |
+|--------|-------|---------------|----------------|------------------|
+| membrane (`helfrich_v1`) | membrane | Helfrich bending + tension + active stress | tube `R=√(κ/2σ)`, `f=2π√(2σκ)` | STED tether (Roy 2020) — **real force-paired** |
+| tissue (`vertex_v1`) | tissue | tri-junction force balance `ΣTᵢ t̂ᵢ = 0` | 120° ↔ equal tensions | Ishihara & Sugimura 2012, *J Theor Biol* 313:201 |
+| cortex (`active_gel_v1`) | cortex | Young–Laplace `ΔP = 2γ/R` | γ→ΔP→γ round-trip | Tinevez 2009, *PNAS* 106:18581 (0.03–1 mN/m) |
+| bond (`catch_slip_v1`) | molecule | Bell `k_off=k₀e^{Fx‡/kBT}`; two-pathway catch–slip | `ln(1/τ)` vs `F` slope `= x‡/kBT`; catch-slip peak `dk_off/dF=0` | Marshall 2003, *Nature* 423:190 (P-selectin) |
+| channel (`ms_gating_v1`) | membrane | two-state Boltzmann `Po(σ)=1/(1+e^{-(σΔA-ΔG)/kBT})` | slope at midpoint `= ΔA/4kBT` | Sukharev 1999, *J Gen Physiol* 113:525 (MscL σ½=11.8 mN/m, ΔA=6.5 nm²) |
+
+```python
+from mechanome import forward_channel as ch
+ch.self_validate()   # {'mscl': {'dA_rel_err': 5e-16, ...}, 'slope_check': {...}, 'passed': True}
+```
+
+**Registry tiers (machine-readable).** `mechanome/registry.py` records each
+module's validation tier and gates claim emission:
+
+- `can_emit_grounded(m)` — `True` only for **real force-paired** modules (membrane).
+- `can_emit_analytic(m)` — `True` for real-paired **or** analytic-limit modules.
+- `validation_provenance(m)` → `"real_force_paired" | "analytic_limit" | "none"`.
+
+`emit.emit_from_module(m)` produces a GROUNDED `MechanoClaim` for each analytic
+module (junction **transmits** tension, cortex **generates** tension, bond
+**bears** force, channel **senses** tension), each schema-valid and carrying its
+`validation=analytic_limit` provenance. The channel module reads curvo's inferred
+membrane tension directly — the one cross-scale link grounded on both ends.
+Reproduce the map: `python -m mechanome.registry` and see
+`mechanome/outputs/mechanome_map.png`.
+
+## RL environment (`CCPBuddingEnv`) — a scaling scaffold
+
+The forward model exposes a natural sequential decision problem: a Gymnasium
+environment where an agent orchestrates a clathrin-coated-pit budding attempt.
+**This is a byproduct / scaling scaffold, not a scientific claim** — the physics
+lives entirely in curvo's forward model; the env just wraps `ccs_curvature` as an
+MDP an agent can search.
+
+- **Observation** (`Box`, 7-d): `[coverage, c_eff, H, dome/Ω order-param,
+  actin/max, coat_rf/max, step/T]`.
+- **Actions** (`Discrete(5)`): recruit wedge, recruit crowding partner, ramp
+  actin, stiffen coat, wait.
+- **Reward**: curvature progress toward the Ω threshold − physical move cost,
+  + terminal bonus for a productive pit, − penalty for stalling or over-forcing
+  (rupture).
+
+```bash
+python -m rl.train_agent   # tabular Q-learning, ~5 s CPU (memoized forward model)
+```
+
+A hand-built greedy-physics policy (coat → crowding → actin) reaches Ω with mean
+return 16.0 (100% productive) vs a random policy's 10.2 (57%). A physics-blind
+Q-learning agent converges to ~20 (100% productive) and recovers the same
+physical priority curvo established from the PICALM/epsin data — build curvature
+drive by recruiting the crowding partner first, then ramp actin. An agent
+searching the env rediscovers the orchestration curvo inferred. See
+`rl/outputs/env_demo.png` and `rl/outputs/training_curve.png`. The env requires
+`gymnasium` (dedicated `curvo-rl` environment); tests skip cleanly without it.
+
 ## Design principle
 
 The project mantra is **the bitter lesson** (Sutton 2019): what scales with
@@ -1119,6 +1186,8 @@ that:
 | NMRlipids/FAIRMD lipid params | **REAL (live)** | area-per-lipid + thickness pulled from the GitHub-hosted databank |
 | Curated literature params (c₀, κ, λ) | **REAL (cached)** | cited values (Kollmitzer 2013, Dimova 2014, Garcia-Saez 2007) with provenance + validity range + uncertainty |
 | Tier-0 analytic evaluator | **REAL** | Helfrich tube + spherical-cap budding/CCS; validated vs closed forms (rel_err ≤ 0.05%) |
+| Mechanome tissue/cortex/bond/channel modules | **REAL (analytic-validated)** | closed-form forward models, each `self_validate()`-passing against its analytic limit + published anchor; `built_analytic` tier, not real-data force-paired |
+| `CCPBuddingEnv` RL environment | **REAL (scaffold)** | Gymnasium env over `ccs_curvature`; greedy/random/Q-learning demonstrated. Scaling scaffold, not a scientific claim |
 | LLM orchestrator search loop | **REAL** | `host.llm` proposer with tool-forced structured output; offline deterministic fallback |
 | Complementarity + IAV + CALM tests | **REAL** | run against the evaluator; falsifiable |
 | MD-gap queue | **REAL detector, STUB return** | emits well-formed job specs on state-point mismatch; returns widened-uncertainty literature value |

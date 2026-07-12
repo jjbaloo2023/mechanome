@@ -158,6 +158,33 @@ is not force, per-structure physics recovery across the crowded field, and a
 coordination model that produces a falsifiable, experimentally testable statement
 about the temporal ordering of curvature and active force.
 
+**Stage 6 — The mechanome (multi-scale forward models).** curvo's membrane module
+is one edge of a mechanical map that spans molecule to tissue. Four further scales
+— tissue (vertex junction-tension force balance), cortex (Young–Laplace surface
+tension), molecular adhesion (Bell / two-pathway catch–slip bonds), and
+mechanosensitive channels (two-state Boltzmann gating) — ship as executable,
+closed-form forward models. The *why*: a mechanome that an agent can query across
+scales needs each edge to be an executable physics kernel, not a description, and
+each edge must wear its evidential status honestly. These four are validated to a
+deliberately weaker bar than the membrane module — a `built_analytic` tier that
+requires recovering a known analytic limit and reproducing a canonical published
+anchor's parameters, but explicitly *not* pairing against a raw dataset acquired
+here. The registry records the tier (`can_emit_grounded` vs `can_emit_analytic`,
+`validation_provenance`), and every claim these modules emit carries
+`validation=analytic_limit` on its face. The channel module reads curvo's inferred
+membrane tension directly — the one cross-scale link grounded on both ends.
+
+**Stage 7 — RL scaffold (a byproduct, not the aim).** The forward model exposes a
+sequential decision problem, so it wraps cleanly as a Gymnasium environment
+(`CCPBuddingEnv`) in which an agent orchestrates a budding attempt by recruiting
+players and ramping actin. This is a scaling scaffold, explicitly *not* a
+scientific claim: the physics lives entirely in curvo's forward model. Its value
+is as evidence that the env is well-posed — a physics-blind Q-learning agent
+learns to reach the Ω (scission) stage and, in doing so, recovers the same
+physical priority curvo established from the PICALM/epsin data (build curvature
+drive first, then ramp force). An agent searching the env rediscovers the
+orchestration curvo inferred, which is the bitter-lesson thesis in miniature.
+
 ## 4. Honest seams (real versus stubbed)
 
 The same discipline governs what curvo claims to have built. Components out of
