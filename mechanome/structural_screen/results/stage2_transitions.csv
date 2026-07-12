@@ -1,0 +1,4 @@
+protein,kind,state0,state1,dA_mid,dA_out,dA_in,dc0,dVwedge,dChargeZ
+MscS,transition,2OAU,2VV5,1243.052,1604.858,932.012,0.011,7494.103,-103.607
+nhTMEM16 scramblase,transition,6QM4,6QMB,-361.737,167.048,162.837,0.0,12879.978,15.349
+Epsin-1 ENTH,transition,1EDU,1H0A,-133.412,-209.529,159.434,-0.014,2358.69,-16.264
