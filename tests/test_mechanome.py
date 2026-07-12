@@ -59,10 +59,15 @@ def test_linked_requires_chain_and_experiment():
 def test_emit_grounded_from_curvo():
     claims = emit.emit_all()
     assert len(claims) >= 2
+    valid_fms = {"helfrich_v1", "vertex_v1", "active_gel_v1",
+                 "catch_slip_v1", "ms_gating_v1"}
     for c in claims:
         assert c.epistemic_tier is EpistemicTier.GROUNDED
         assert c.value is not None and c.identifiability is not None
-        assert c.forward_model == "helfrich_v1"
+        # every GROUNDED claim names a registered forward model
+        assert c.forward_model in valid_fms
+    # the real force-paired membrane claim (helfrich_v1) is present
+    assert any(c.forward_model == "helfrich_v1" for c in claims)
 
 
 def test_family_claims_do_not_claim_epn1_trajectory():
