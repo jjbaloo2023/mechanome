@@ -83,3 +83,26 @@ def load_energy_scale() -> dict:
 def prereg_go_terms() -> list:
     """The nine pre-registered GO IDs the enrichment test scored against."""
     return list(_frozen_record()["label_go_terms"])
+
+
+def verify_energy_scale_consistency() -> dict:
+    """Confirm the screen's Stage-0 energy scale agrees with the shared
+    ``curvo.constants`` (kappa, kBT). The screen's stages run standalone with
+    their own literal constants (so the frozen ranking stays reproducible and the
+    package is runnable without curvo); this check catches any future drift
+    between the two definitions at import/test time rather than rewiring the
+    vendored stages.
+    """
+    scale = load_energy_scale()
+    from curvo.constants import KAPPA_KBT_DEFAULT, KBT_J
+
+    kappa_ok = abs(scale["kappa_kBT"] - KAPPA_KBT_DEFAULT) < 1e-9
+    # the screen stores kBT in joules (4.114e-21); compare to the shared value.
+    kbt_ok = abs(scale["kBT_J_at_310K"] - KBT_J) < 1e-24
+    return {
+        "screen_kappa_kBT": scale["kappa_kBT"],
+        "shared_kappa_kBT": KAPPA_KBT_DEFAULT,
+        "screen_kBT_J": scale["kBT_J_at_310K"],
+        "shared_kBT_J": KBT_J,
+        "consistent": kappa_ok and kbt_ok,
+    }

@@ -35,9 +35,9 @@ import gymnasium as gym
 from gymnasium import spaces
 
 from curvo.evaluator_tier0 import ccs_curvature
+from curvo.constants import KAPPA_KBT_DEFAULT as KAPPA_KBT   # single source of truth
 
 # --- physical constants (shared with the realdata test cases) ----------------
-KAPPA_KBT = 20.0
 SIGMA_KBT_NM2 = 0.02
 A_COAT_NM2 = np.pi * 60.0 ** 2
 OMEGA_OP = 0.66             # dome/Omega order-parameter threshold for scission

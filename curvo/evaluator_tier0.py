@@ -28,8 +28,7 @@ import numpy as np
 from scipy.optimize import minimize_scalar
 
 from .schemas import EvaluatorResult
-
-kBT_zJ = 4.114   # 298 K, in zJ (= pN·nm)
+from .constants import KBT_ZJ as kBT_zJ   # single source of truth (constants.py)
 
 
 # --------------------------------------------------------------------------

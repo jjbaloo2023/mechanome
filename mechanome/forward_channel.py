@@ -30,7 +30,8 @@ Validation tier: built_analytic.
 import numpy as np
 from scipy.optimize import curve_fit
 
-KBT_PN_NM = 4.114
+from curvo.constants import KBT_PN_NM   # single source of truth (curvo/constants.py)
+
 # verified MscL anchor (Sukharev et al. 1999)
 MSCL_SIGMA_HALF_mN_m = 11.8
 MSCL_DA_nm2 = 6.5

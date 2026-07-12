@@ -24,7 +24,8 @@ Validation tier: built_analytic.
 """
 import numpy as np
 
-KBT_PN_NM = 4.114
+from curvo.constants import KBT_PN_NM   # single source of truth (curvo/constants.py)
+
 VALIDATION_ANCHOR = "Marshall et al. 2003 Nature 423:190 (P-selectin/PSGL-1 catch-slip, peak ~1.1 s)"
 
 
