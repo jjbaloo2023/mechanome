@@ -40,4 +40,12 @@ curvo/validation/realdata/_raw/
 
 # BioTISR raw SIM cache — re-fetchable from Zenodo 13843670 via range requests
 cache/biotisr/
+
+# Mund/Ries 3D-SMLM LocMoFit fits — re-fetchable from BioStudies S-BIAD566
+cache/smlm_locmofit/
+# Derived geometry set (rebuilt by ingest_smlm_locmofit from the cached fits)
+validation/realdata/smlm_geometry_set.json
+
+# agent scratch handoff
+handoff/
 *.mrc
