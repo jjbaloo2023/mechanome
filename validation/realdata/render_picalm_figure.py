@@ -94,22 +94,28 @@ for dx in (-0.12, 0.0, 0.12):
     axL.add_patch(mpl.patches.Polygon([[x - 0.022, ym + 0.02], [x + 0.022, ym + 0.02], [x, ym - 0.05]],
         closed=True, fc=os_.COL["h0"], ec="#4d2166", lw=0.7, zorder=7))
     axL.plot([x - 0.05, x - 0.03], [ym + 0.04, ym + 0.14], color=os_.COL["idp"], lw=1.4, zorder=5)
-# actin is CYTOPLASMIC -> same side as the clathrin coat (above the membrane).
-# Draw a filament bundle at each neck of the invagination, pushing inward.
+# actin is CYTOPLASMIC -> same side as the clathrin coat (ABOVE the top leaflet).
+# Draw a filament bundle at each neck, clearly in the cytoplasmic space above the
+# membrane surface, pushing inward toward the neck (constriction).
 for sgn in (-1, 1):
-    nx = cx + sgn * 0.26           # neck shoulder, where the bulge meets flat membrane
-    ny = top(nx)                    # membrane surface height at the neck
+    nx = cx + sgn * 0.30           # just outside the neck shoulder
+    ny = top(nx)                    # membrane surface height there
+    lift = 0.085                    # clear gap above the top leaflet -> unambiguous side
     for k in range(3):
-        # filaments run along the cytoplasmic face just above the neck
-        axL.plot([nx + sgn * 0.10, nx],
-                 [ny + 0.05 + k * 0.045, ny + 0.02 + k * 0.045],
+        axL.plot([nx + sgn * 0.11, nx + sgn * 0.01],
+                 [ny + lift + 0.06 + k * 0.045, ny + lift + 0.02 + k * 0.045],
                  color=os_.COL["actin"], lw=1.8, zorder=8)
-    # force arrow: pushes inward toward the neck (constriction), on the coat side
-    axL.add_patch(mpl.patches.FancyArrowPatch((nx + sgn * 0.11, ny + 0.05),
-        (nx + sgn * 0.02, ny + 0.03),
+    # force arrow: pushes inward and down toward the neck, staying above the leaflet
+    axL.add_patch(mpl.patches.FancyArrowPatch((nx + sgn * 0.12, ny + lift + 0.05),
+        (nx + sgn * 0.02, ny + lift - 0.005),
         arrowstyle="-|>", mutation_scale=11, lw=1.8, color=os_.COL["actin"], zorder=9))
-axL.text(cx, ybase - 0.02, "actin (active force,\ncytoplasmic — neck constriction)",
-         ha="center", va="top", fontsize=6.0, color=os_.COL["actin"])
+axL.text(cx, top(cx) + 0.19, "actin (active force) — cytoplasmic, neck constriction",
+         ha="center", va="bottom", fontsize=6.0, color=os_.COL["actin"])
+# side cues that pin which face of the bilayer is which
+axL.text(0.015, ybase + 0.12, "cytoplasm", rotation=90, va="center", ha="center",
+         fontsize=5.6, color="#777", style="italic")
+axL.text(0.015, ybase - 0.13, "extracellular", rotation=90, va="center", ha="center",
+         fontsize=5.6, color="#777", style="italic")
 hd = [mpl.patches.Patch(fc=os_.COL[k], label=l) for k, l in
     [("clathrin", "clathrin coat"), ("h0", "PICALM ANTH wedge"), ("idp", "crowding (epsin IDP)"), ("actin", "actin (force)")]]
 axL.legend(handles=hd, loc="lower center", ncol=2, frameon=False, fontsize=6.6, bbox_to_anchor=(0.5, -0.02))

@@ -3,7 +3,7 @@ import numpy as np, json, matplotlib.pyplot as plt
 
 KAPPA_KBT = 20.0        # bilayer bending modulus (k_B T)
 GAMMA_MN_M = 0.01       # resting membrane tension (mN/m)
-KBT_J = 4.114e-21       # k_B T at 310 K (J)
+KBT_J = 4.114e-21       # k_B T (J); 4.114 pN*nm, consistent with curvo.constants
 NECK_RADIUS_NM = 25.0   # entry neck / bud radius
 RELEVANCE_THRESHOLD_KBT = 10.0  # per-protein gate: "order tens of k_BT"
 
