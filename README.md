@@ -1226,10 +1226,11 @@ searching the env rediscovers the orchestration curvo inferred. See
 
 ## Design principle
 
-The project mantra is **the bitter lesson** (Sutton 2019): what scales with
-compute is *search* and *learning*, not baked-in human knowledge. The sprint
-plan's §4 wrote the representation choice as a fixed rule table. We inverted
-that:
+The organizing principle is **the bitter lesson** (Sutton 2019): what scales with
+compute is *search* and *learning*, not baked-in human knowledge. Rather than
+encode which representation each player should take as a fixed rule table, the
+architecture encodes only how to tell a good representation from a bad one —
+cheaply — and lets search find it:
 
 > **Don't encode which representation to use. Encode how to tell a good one
 > from a bad one — cheaply — and let search find it.**
@@ -1269,15 +1270,14 @@ that:
 
 ### On the epsin biology citations
 
-`Joseph et al. 2020 (Commun Biol)` is the **user's own paper**, named in the
-sprint-plan document attached to this session (epsin tension-responsive
-recruitment; abortive-fraction-vs-tension). `Joseph et al. 2022, Membranes
-12(9):859` (doi:10.3390/membranes12090859) is a real related paper the user
-supplied for the IAV spherical/filamentous case — it is **not** named in the
-plan. The pipeline reproduces the **qualitative mechanism** described in these
-works (ENTH+IDP complementarity; spherical/filamentous H0-dependence). It was
-**not** quantitatively validated against those papers' measured data, which are
-not in hand.
+`Joseph et al. 2020 (Commun Biol)` describes the epsin tension-responsive
+recruitment and abortive-fraction-vs-tension results this pipeline reasons about.
+`Joseph et al. 2022, Membranes 12(9):859` (doi:10.3390/membranes12090859) is a
+related paper covering the IAV spherical/filamentous case. The pipeline
+reproduces the **qualitative mechanism** described in these works (ENTH+IDP
+complementarity; spherical/filamentous H0-dependence). It was **not**
+quantitatively validated against those papers' measured data, which are not in
+hand.
 
 ## Where MD plugs in (the seams that already exist)
 

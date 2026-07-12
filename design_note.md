@@ -207,10 +207,11 @@ physical priority curvo established from the PICALM/epsin data (build curvature
 drive first, then ramp force). An agent searching the env rediscovers the
 orchestration curvo inferred, which is the bitter-lesson thesis in miniature.
 
-## 4. Honest seams (real versus stubbed)
+## 4. Implemented vs. stubbed components
 
 The same discipline governs what curvo claims to have built. Components out of
-reach on the current host are implemented as labelled seams, never faked:
+reach on the current host are implemented as labelled seams rather than
+simulated results:
 
 - **Averaged clathrin-track imaging data** (a measured CCS curvature trajectory)
   is not in hand. The CCS target is anchored to published CCP geometry, and

@@ -26,7 +26,7 @@ actually reachable from this sandbox:
 | **IDR** (Image Data Resource) | yes (147 studies, after allowlisting) | public live-cell / light-sheet microscopy | dominated by developmental / tissue / light-sheet studies; **one** cytoskeletal study (`idr0050-springer`), **no** CME/caveolae force-paired live-cell time-lapse in the public API set |
 | **EMDB / EMPIAR** (cryo-ET) | yes | real curved-membrane density (probed earlier in this project — EMD-65182, the basis of `real_image_probe.py` + `modality_adapter.py`) | static subtomogram **averages**, no time axis, density-contrast modality (needs the modality adapter) — no dynamics, no force |
 | **STED tether paper** (Roy 2020) | fetched | force-paired tube geometry | single geometry, reported radii — already used to validate the inverse on tube geometry |
-| **User's own super-res** | not yet in hand | the real target | the documented ingestion seam |
+| **Live-cell super-res (CCP)** | not yet in hand | the real target | the documented ingestion seam |
 
 **Ruling (consistent with the whole project):** no accessible real dataset carries
 the modality + per-structure force ground truth this program needs. So we build
@@ -36,10 +36,11 @@ built last session, is the front half of it). This is the same honest posture th
 governed the single-CCP recovery gate and the perception benchmark: validate on
 data where truth is known, expose a seam for data where it isn't.
 
-## 2. Method-transfer map (the user invited push-back)
+## 2. Method-transfer map
 
-The user listed PIV and TFM as candidate approaches and flagged they may not fit.
-Here is what each actually contributes.
+PIV and TFM are candidate approaches for extracting kinematics and forces from
+image sequences. This section sets out what each actually contributes here, and
+where it does not transfer.
 
 ### Particle Image Velocimetry (PIV) — *transfers as an input, not as the answer*
 PIV extracts a dense **velocity field** from intensity-pattern displacement between
@@ -101,5 +102,5 @@ orchestration model + falsifiable    [Step 6: orchestration — timing/space/sta
   from data where the truth is known.
 - **The RL-environment angle is a documented affordance, not a build target.** A
   forward model that renders images from forces + an inverse that scores recovered
-  forces against truth *is* a scored simulator; we note where it plugs in and stop
-  there, per the user's explicit instruction.
+  forces against truth *is* a scored simulator; this note records where it plugs
+  in without building it out here.

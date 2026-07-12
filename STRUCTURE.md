@@ -22,7 +22,7 @@ constants live in exactly one place (`curvo/constants.py`).
 | `inverse.py` | The Bayesian inverse engine: geometry(t) → posterior (nested sampling + MCMC cross-check). |
 | `mechanism.py` | Bayesian mechanism-discrimination core (evidence-ratio model comparison). |
 | `recovery.py` | Synthetic recovery validation — the credibility gate for every force claim. |
-| `analyze.py` | The north-star agent endpoint: `analyze(video, question)`. |
+| `analyze.py` | The top-level agent endpoint: `analyze(video, question)`. |
 | `md_gap_queue.py` | The future-oriented seam where MD plugs in. |
 | `schematic.py` | Auto-generated publication-style output schematic. |
 
