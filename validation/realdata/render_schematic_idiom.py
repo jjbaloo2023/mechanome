@@ -85,7 +85,7 @@ def compose_figure(primary, protein, domain, path, dpi=200):
     N(ax, 0.88, 0.375, 0.10, 0.12, 3); title(0.88, 0.315, "aborted coat\nassembly", va="top")
     N(ax, 0.88, 0.17, 0.115, 0.45, 5, neck=True); title(0.88, 0.225, "productive\ncoated-pit")
     si.legend_box(ax, 0.03, 0.03, 0.36, 0.085, primary=primary,
-                  primary_label=f"{protein.capitalize()} ({domain})")
+                  primary_label=f"{protein} ({domain})")
     tt, ti = _overlap_report(fig)
     if tt or ti:
         import warnings; warnings.warn(f"overlaps: text-text={tt} text-image={ti}")
