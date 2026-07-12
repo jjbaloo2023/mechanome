@@ -108,8 +108,25 @@ MS_GATING_V1 = ForwardModel(
     data_bindings=["patch-clamp Po-tension", "reads curvo membrane tension (cross-scale link)"],
     status="executable")
 
+STRUCTURAL_SCREEN_V1 = ForwardModel(
+    name="structural_screen_v1", scale="molecule",
+    governing_law="per-protein curvature capacity E_curv = 1/2 kappa (2 c0)^2 A_footprint "
+                  "+ gamma |dA|, signed by generated-curvature direction",
+    inputs=["experimental_structure_pair", "membrane_frame_alignment"],
+    outputs=["curvature_capacity_kBT", "signed_capacity_kBT", "spontaneous_curvature_c0_inv_nm"],
+    inverse_method="forward structural screen (PDB coordinates -> A(z) geometry -> capacity); "
+                   "no free parameters beyond the fixed energy scale",
+    validation_anchor="BAR-domain arc-fit radii reproduce literature independently "
+                      "(amphiphysin ~9.8 nm vs ~11 nm; endophilin ~8.0 nm vs 6-11 nm); "
+                      "pre-registered GO-enrichment test SUPPORTED (AUROC 0.750, one-sided p 0.085); "
+                      "frozen ranking SHA-256 41d49328960d4083",
+    data_bindings=["RCSB PDB / OPM experimental structures",
+                   "supplies structure-derived c0 to ms_gating_v1 (channel cross-scale link)"],
+    status="executable")
+
 FORWARD_MODELS: Dict[str, ForwardModel] = {fm.name: fm for fm in [
-    HELFRICH_V1, VERTEX_V1, ACTIVE_GEL_V1, CATCH_SLIP_V1, MS_GATING_V1]}
+    HELFRICH_V1, VERTEX_V1, ACTIVE_GEL_V1, CATCH_SLIP_V1, MS_GATING_V1,
+    STRUCTURAL_SCREEN_V1]}
 
 
 # --- module registry: one built, the rest honest stubs ----------------------
@@ -128,6 +145,11 @@ MODULES: Dict[str, Module] = {m.name: m for m in [
     Module("channel", "membrane", "ms_gating_v1", "built_analytic",
            "MscL/Piezo two-state gating; reads curvo membrane tension. Analytic-limit "
            "validated (MscL sigmoid recovery); anchor Sukharev 1999. NOT real-data force-paired."),
+    Module("structural_screen", "molecule", "structural_screen_v1", "built_analytic",
+           "structure-based curvature-capacity screen (vendored mechanistic-entry-model). "
+           "Validated on home turf (BAR radii reproduce literature) + pre-registered "
+           "enrichment SUPPORTED (frozen hash 41d49328960d4083). Supplies structure-derived "
+           "c0 to the channel module. NOT real-data force-paired."),
 ]}
 
 

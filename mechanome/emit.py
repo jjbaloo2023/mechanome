@@ -210,12 +210,42 @@ def emit_from_module(module_name: str) -> MechanoClaim:
                              "gating analytic limit + anchor (Sukharev 1999), NOT on a real "
                              "patch-clamp dataset."))
 
+    if module_name == "structural_screen":
+        from . import structural_screen as _ss
+        v = _ss.verify_frozen_ranking()
+        assert v["passed"], "structural_screen frozen-ranking integrity check failed"
+        top = _ss.frozen_ranking().iloc[0]          # rank-1 = Dynamin-1
+        est = float(top["E_curv_signed"])
+        return MechanoClaim(
+            subject=Actor(top["protein"], type="protein", structure_ref="RCSB PDB (experimental)"),
+            relation="generates", object="membrane_curvature",
+            epistemic_tier=EpistemicTier.GROUNDED,
+            context=Context(scale="molecule", mech_environment="structure-based curvature screen"),
+            forward_model="structural_screen_v1",
+            # capacity is a structure-derived quantity with no measurement scatter;
+            # the uncertainty is the frozen-ranking discretization (0.01 kBT print grid).
+            value=Value(round(est, 2), 0.01, "kBT (signed curvature-generating capacity)"),
+            identifiability=Identifiability.CONSTRAINED,
+            evidence=[f"validation={prov}",
+                      "structure-derived E_curv = 1/2 kappa (2 c0)^2 A + gamma |dA| (no free params)",
+                      f"frozen ranking SHA-256 {v['stored_hash']} (reproduced: {v['passed']})",
+                      "BAR arc-fit radii reproduce literature (amphiphysin ~9.8 nm, endophilin ~8.0 nm)",
+                      "pre-registered GO enrichment SUPPORTED (AUROC 0.750, one-sided p 0.085)",
+                      "mechanome:structural_screen_v1:verify_frozen_ranking:pass"],
+            reasoning_trace=(f"{top['protein']} tops a structure-based screen of curvature-generating "
+                             "capacity computed purely from experimental structures against a fixed "
+                             "Helfrich energy scale; the signed capacity separates outward scaffolds "
+                             "from inward tension-sensors with one engine. GROUNDED on the structural "
+                             "capacity limit + pre-registered enrichment anchor, NOT on a real "
+                             "force-paired dynamic dataset."))
+
     raise ValueError(f"no emitter for module '{module_name}'")
 
 
 def emit_analytic_module_claims() -> List[MechanoClaim]:
-    """The four analytic-tier module claims (tissue, cortex, bond, channel)."""
-    return [emit_from_module(m) for m in ("tissue", "cortex", "bond", "channel")]
+    """The analytic-tier module claims (tissue, cortex, bond, channel, structural screen)."""
+    return [emit_from_module(m)
+            for m in ("tissue", "cortex", "bond", "channel", "structural_screen")]
 
 
 def emit_all(cache_dir: str = "cache") -> List[MechanoClaim]:
