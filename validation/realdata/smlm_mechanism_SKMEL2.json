@@ -1,0 +1,39 @@
+{
+  "cell_line": "SKMEL2",
+  "n_sites": 1631,
+  "logz": {
+    "helfrich_linear": 522.6956588910523,
+    "coopcm": 520.6861213420937
+  },
+  "lnB_coopcm_vs_helfrich": -2.009537548958633,
+  "favored": "helfrich_linear",
+  "decisive": false,
+  "verdict": "INCONCLUSIVE on H(theta) alone (lnB=-2.0, |lnB|<2.5): tanh and 1-exp are near-identical saturating laws on this observable; decisive separation needs the joint curvature+area+edge fit (Mund et al. 2023, Fig. 3 B-D)",
+  "params": {
+    "helfrich_linear": {
+      "H0": 0.015767257445891296,
+      "gamma": 0.011367825118559195,
+      "scatter": 0.0005056386535584762
+    },
+    "coopcm": {
+      "H0": 0.013988094509164406,
+      "gamma": 0.009178707140427627,
+      "scatter": 0.0005058997432492499
+    }
+  },
+  "provenance": {
+    "dataset": "BioStudies S-BIAD566",
+    "paper": "Mund, Tschanz, ... Ries, J Cell Biol 2023",
+    "doi": "10.1083/jcb.202206038",
+    "method": "3D-SMLM + LocMoFit spherical-cap fit (Wu et al. 2023)",
+    "resolution_xy_nm": 10.0,
+    "resolution_z_nm": 30.0,
+    "loc_precision_xy_nm": 3.9,
+    "loc_precision_z_nm": 12.5,
+    "note": "static super-res; geometry only; force_applicable=False",
+    "comparison": "nested-sampling log-evidence Bayes factor",
+    "observable": "rolling-median curvature H vs closing angle theta (window=82)",
+    "models": "H0 tanh(g th/H0) [CoopCM] vs H0(1-exp(-g th/H0)) [Helfrich]",
+    "force_note": "absolute force not involved; refused on static path"
+  }
+}
