@@ -1146,6 +1146,13 @@ from mechanome import forward_channel as ch
 ch.self_validate()   # {'mscl': {'dA_rel_err': 5e-16, ...}, 'slope_check': {...}, 'passed': True}
 ```
 
+Each module's `self_validate()` output is plotted against its analytic limit and
+published anchor:
+
+![tissue + cortex analytic-limit validation](mechanome/outputs/tissue_cortex_validation.png)
+
+![bond + channel analytic-limit validation](mechanome/outputs/bond_channel_validation.png)
+
 **Registry tiers (machine-readable).** `mechanome/registry.py` records each
 module's validation tier and gates claim emission:
 
