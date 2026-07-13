@@ -42,6 +42,10 @@ Run all: `python src/run_all.py`
 See `docs/REPORT.md` for the full writeup, claim discipline, and limitations, and
 `docs/NEXT_surrogate_hooks.md` for the neural-surrogate second half.
 
+See [`VALIDATION.md`](VALIDATION.md) for the reverse-validation results supporting
+the CME commitment framework: the cross-cell-line curvature trajectory (S-BIAD566,
+three cell lines) and cargo-selective adaptor usage in influenza A virus entry.
+
 ## Data sources (all public)
 RCSB PDB, UniProt, OPM (Orientations of Proteins in Membranes), QuickGO/EBI. CPU-light; runs on a laptop.
 
