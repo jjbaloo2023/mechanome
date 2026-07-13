@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e08214"/></marker></defs>
+<rect width="900" height="620" fill="white"/>
+<text x="450.0" y="32.0" font-size="18" fill="#222222" font-weight="bold" font-style="normal" text-anchor="middle">Orchestration for WT-PICALM</text>
+<text x="450.0" y="52.0" font-size="12" fill="#888888" font-weight="normal" font-style="normal" text-anchor="middle">iteration 3  ·  achieved mean curvature 0.0196 nm⁻¹  ·  stage: dome</text>
+<path d="M 70.0,150.5 L 76.3,150.7 L 82.7,150.9 L 89.0,151.2 L 95.3,151.6 L 101.7,152.1 L 108.0,152.7 L 114.3,153.5 L 120.7,154.4 L 127.0,155.6 L 133.3,157.0 L 139.7,158.6 L 146.0,160.5 L 152.3,162.7 L 158.7,165.1 L 165.0,167.9 L 171.3,170.9 L 177.7,174.1 L 184.0,177.6 L 190.3,181.2 L 196.7,185.0 L 203.0,188.7 L 209.3,192.4 L 215.7,196.0 L 222.0,199.3 L 228.3,202.3 L 234.7,204.9 L 241.0,207.1 L 247.3,208.6 L 253.7,209.6 L 260.0,209.9 L 266.3,209.6 L 272.7,208.6 L 279.0,207.1 L 285.3,204.9 L 291.7,202.3 L 298.0,199.3 L 304.3,196.0 L 310.7,192.4 L 317.0,188.7 L 323.3,185.0 L 329.7,181.2 L 336.0,177.6 L 342.3,174.1 L 348.7,170.9 L 355.0,167.9 L 361.3,165.1 L 367.7,162.7 L 374.0,160.5 L 380.3,158.6 L 386.7,157.0 L 393.0,155.6 L 399.3,154.4 L 405.7,153.5 L 412.0,152.7 L 418.3,152.1 L 424.7,151.6 L 431.0,151.2 L 437.3,150.9 L 443.7,150.7 L 450.0,150.5 L 450.0,330.0 L 70.0,330.0 Z" fill="#d9ecff" opacity="0.5"/>
+<path d="M 70.0,150.5 L 76.3,150.7 L 82.7,150.9 L 89.0,151.2 L 95.3,151.6 L 101.7,152.1 L 108.0,152.7 L 114.3,153.5 L 120.7,154.4 L 127.0,155.6 L 133.3,157.0 L 139.7,158.6 L 146.0,160.5 L 152.3,162.7 L 158.7,165.1 L 165.0,167.9 L 171.3,170.9 L 177.7,174.1 L 184.0,177.6 L 190.3,181.2 L 196.7,185.0 L 203.0,188.7 L 209.3,192.4 L 215.7,196.0 L 222.0,199.3 L 228.3,202.3 L 234.7,204.9 L 241.0,207.1 L 247.3,208.6 L 253.7,209.6 L 260.0,209.9 L 266.3,209.6 L 272.7,208.6 L 279.0,207.1 L 285.3,204.9 L 291.7,202.3 L 298.0,199.3 L 304.3,196.0 L 310.7,192.4 L 317.0,188.7 L 323.3,185.0 L 329.7,181.2 L 336.0,177.6 L 342.3,174.1 L 348.7,170.9 L 355.0,167.9 L 361.3,165.1 L 367.7,162.7 L 374.0,160.5 L 380.3,158.6 L 386.7,157.0 L 393.0,155.6 L 399.3,154.4 L 405.7,153.5 L 412.0,152.7 L 418.3,152.1 L 424.7,151.6 L 431.0,151.2 L 437.3,150.9 L 443.7,150.7 L 450.0,150.5" fill="none" stroke="#4d4d4d" stroke-width="3"/>
+<text x="74.0" y="308.0" font-size="11" fill="#4d4d4d" font-weight="bold" font-style="normal" text-anchor="start">membrane profile</text>
+<line x1="263.0" y1="203.9" x2="258.4" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="270.0" y1="203.9" x2="266.1" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="277.0" y1="203.9" x2="274.0" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="284.0" y1="203.9" x2="281.9" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="291.0" y1="203.9" x2="290.0" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="298.0" y1="203.9" x2="298.0" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="305.0" y1="203.9" x2="306.0" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="312.0" y1="203.9" x2="314.1" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="319.0" y1="203.9" x2="322.0" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<line x1="326.0" y1="203.9" x2="329.9" y2="185.6" stroke="#b2182b" stroke-width="2" opacity="0.8"/>
+<text x="298.0" y="219.9" font-size="10" fill="#b2182b" font-weight="bold" font-style="normal" text-anchor="middle">IDP crowding</text>
+<path d="M 165.0,146.0 Q 260.0,98.0 355.0,146.0" fill="none" stroke="#7d5ba6" stroke-width="3.3" opacity="0.85" stroke-dasharray="6,3"/>
+<text x="260.0" y="92.0" font-size="10" fill="#7d5ba6" font-weight="bold" font-style="normal" text-anchor="middle">clathrin coat</text>
+<path d="M 153.6,180.0 Q 260.0,130.0 260.0,146.0" fill="none" stroke="#888888" stroke-width="1.5" stroke-dasharray="3,3"/>
+<text x="190.0" y="216.0" font-size="9" fill="#888888" font-weight="italic" font-style="italic" text-anchor="middle">synergy +25%</text>
+<text x="775.0" y="134.0" font-size="12" fill="#222222" font-weight="bold" font-style="normal" text-anchor="middle">curvature contribution</text>
+<rect x="690.0" y="227.1" width="93.5" height="122.9" fill="#b2182b" opacity="0.85"/>
+<text x="792.0" y="291.5" font-size="9" fill="#b2182b" font-weight="bold" font-style="normal" text-anchor="start">crowding 0.036</text>
+<rect x="690.0" y="227.1" width="93.5" height="1.0" fill="#7d5ba6" opacity="0.85"/>
+<text x="792.0" y="230.1" font-size="9" fill="#7d5ba6" font-weight="bold" font-style="normal" text-anchor="start">coat 0.000</text>
+<rect x="690.0" y="196.2" width="93.5" height="30.9" fill="#888888" opacity="0.6"/>
+<text x="792.0" y="214.6" font-size="9" fill="#888888" font-weight="italic" font-style="italic" text-anchor="start">synergy 0.009</text>
+<line x1="686.0" y1="196.2" x2="792.0" y2="196.2" stroke="#222222" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="690.0" y="366.0" font-size="10" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">c_eff = 0.045 nm⁻¹</text>
+<text x="90.0" y="432.0" font-size="12" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">target vs achieved mean curvature</text>
+<rect x="90" y="440" width="400.0" height="16" fill="#888888" opacity="0.5"/>
+<text x="496.0" y="453.0" font-size="10" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">target 0.0300</text>
+<rect x="90" y="464" width="260.8" height="16" fill="#b2182b" opacity="0.9"/>
+<text x="356.8" y="477.0" font-size="10" fill="#b2182b" font-weight="bold" font-style="normal" text-anchor="start">achieved 0.0196</text>
+<text x="90.0" y="510.0" font-size="13" fill="#b2182b" font-weight="bold" font-style="normal" text-anchor="start">● below target  (dome stage)</text>
+<text x="90.0" y="540.0" font-size="10" fill="#222222" font-weight="bold" font-style="normal" text-anchor="start">orchestrator reasoning (excerpt):</text>
+<text x="90.0" y="556.0" font-size="9" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">AH0 amphipathic moment muH=0.47 at residue 19 (gated OFF — not at extreme N-terminus); crowding coverage 0.77; coat</text>
+<text x="90.0" y="570.0" font-size="9" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">rigidity x3 with +25% wedge/coat synergy -&gt; c_eff 0.045 nm^-1 -&gt; dome stage.</text>
+<text x="90.0" y="604.0" font-size="8" fill="#888888" font-weight="normal" font-style="normal" text-anchor="start">content_hash 680969102ffb4fc4  ·  evaluator: tier0_ccs  ·  generated from OrchestrationRecord</text>
+</svg>

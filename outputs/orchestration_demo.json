@@ -1,0 +1,74 @@
+{
+  "request": "nanoparticle (32 nm) entry \u2014 force orchestration for epsin/PICALM domain-swap chimera",
+  "note_on_size": "user wrote 32 uM; interpreted as 32 nm (NP-uptake regime). uM would be cell-scale.",
+  "convention": "curvo family_screen: H reported as mean curvature on a 60 nm patch; geometric ceiling 2/R_patch=0.0333 nm^-1; Omega threshold 0.030.",
+  "components_structure_derived": {
+    "EPN1_ENTH_epsin": {
+      "uniprot": "Q9Y6I3",
+      "muH": 0.672,
+      "AH0_start_res": 5,
+      "wedge_gated_on": true,
+      "wedge_c0_inv_nm": 0.074,
+      "idr_residues": 350,
+      "crowd_coverage": 0.875
+    },
+    "PICALM_ANTH": {
+      "uniprot": "Q13492",
+      "muH": 0.471,
+      "AH0_start_res": 19,
+      "wedge_gated_on": false,
+      "wedge_c0_inv_nm": 0.0,
+      "idr_residues": 307,
+      "crowd_coverage": 0.767
+    }
+  },
+  "constructs": {
+    "WT-epsin (EPN1)": {
+      "wedge_drive_inv_nm": 0.037,
+      "crowding_drive_inv_nm": 0.0372,
+      "coat_synergy_inv_nm": 0.0186,
+      "net_c_eff_inv_nm": 0.0928,
+      "H_max_inv_nm": 0.0333,
+      "stage": "Omega",
+      "H_CI68": [
+        0.0333,
+        0.0333
+      ],
+      "P_Omega": 0.97
+    },
+    "WT-PICALM": {
+      "wedge_drive_inv_nm": 0.0,
+      "crowding_drive_inv_nm": 0.0359,
+      "coat_synergy_inv_nm": 0.009,
+      "net_c_eff_inv_nm": 0.0449,
+      "H_max_inv_nm": 0.0196,
+      "stage": "dome",
+      "H_CI68": [
+        0.0154,
+        0.0234
+      ],
+      "P_Omega": 0.0
+    },
+    "Chimera ENTH-wedge+ PICALM-IDP": {
+      "wedge_drive_inv_nm": 0.037,
+      "crowding_drive_inv_nm": 0.0359,
+      "coat_synergy_inv_nm": 0.0182,
+      "net_c_eff_inv_nm": 0.0912,
+      "H_max_inv_nm": 0.0333,
+      "stage": "Omega",
+      "H_CI68": [
+        0.0333,
+        0.0333
+      ],
+      "P_Omega": 0.96
+    }
+  },
+  "equivalence": "both requested swaps (epsin-with-PICALM-IDP, and PICALM-with-ENTH) resolve to the SAME module composition: ENTH AH0 wedge + PICALM IDP crowding -> one predicted phenotype.",
+  "nanoparticle_demand": {
+    "diameter_nm": 32.0,
+    "H_demand_inv_nm": 0.125,
+    "geometric_ceiling_inv_nm": 0.0333,
+    "ratio_demand_over_ceiling": 3.75,
+    "reading": "32 nm entry demands curvature 3.8x beyond autonomous machinery ceiling -> requires coat cooperativity / multivalent cargo clustering, not helix insertion alone."
+  }
+}
