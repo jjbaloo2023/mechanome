@@ -1859,7 +1859,7 @@ T₃/sin θ₃ on the three opening angles. *Analytic self-check:* a symmetric v
 measured angles returns 1:1:1 at 120° and the general law-of-sines ratios to
 <1%. *Anchor:* Bayesian force inference from cell-array geometry — Ishihara &
 Sugimura 2012, *J Theor Biol* 313:201 (doi:10.1016/j.jtbi.2012.08.017); CellFIT,
-Brodland et al. 2014. *Inverse seam:* MAP/least-squares on the force-balance
+Brodland et al. 2014 (doi:10.1371/journal.pone.0099116). *Inverse seam:* MAP/least-squares on the force-balance
 residual over a vertex graph.
 
 **2. cortex — active-gel cortical tension (`active_gel_v1`).**
@@ -1868,21 +1868,21 @@ micropipette critical-pressure form (hemispherical cap, L_p = R_p),
 γ = P_c / [2(1/R_p − 1/R_c)]. *Analytic self-check:* given γ and R, predict ΔP
 and re-solve for γ to <1%; recover γ from a synthetic (P_c, R_p, R_c)
 measurement. *Anchor:* micropipette-aspiration cortical tension — Tinevez et al.
-2009, *PNAS* 106(44):18581 (doi:10.1073/pnas.0903353106); Hochmuth 2000. Reported
+2009, *PNAS* 106(44):18581 (doi:10.1073/pnas.0903353106); Hochmuth 2000, *J Biomech* 33:15 (doi:10.1016/S0021-9290(99)00175-X). Reported
 magnitudes ~0.1–1 mN/m (mitotic/interphase), ~0.03 mN/m (neutrophil). *Inverse
 seam:* TFM / active-gel stress inference (here the closed-form Laplace inverse; a
 full active-gel PDE is the documented next tier).
 
 **3. bond — Bell / catch–slip molecular bond (`catch_slip_v1`).**
 *Governing law:* Bell slip bond k_off(F) = k₀·exp(F·x‡/kBT), lifetime τ(F) =
-1/k_off(F); two-pathway catch–slip (Pereverzev et al. 2005) k_off(F) =
+1/k_off(F); two-pathway catch–slip (Pereverzev et al. 2005, doi:10.1529/biophysj.105.062158) k_off(F) =
 k_c0·exp(−F·x_c/kBT) + k_s0·exp(F·x_s/kBT) — a catch pathway plus a slip pathway,
 giving a biphasic τ(F) with a lifetime peak. *Analytic self-check:* pure slip —
 recover x‡ and k₀ from a synthetic force–lifetime curve by linear fit of
 ln(1/τ) vs F to <2%; catch–slip — recover the lifetime-peak force analytically.
 *Anchor:* Marshall et al. 2003, *Nature* 423:190 (doi:10.1038/nature01605) —
 P-selectin/PSGL-1 catch–slip by AFM, biphasic lifetime peaking ~1.1 s near
-~10–20 pN; two-pathway analysis Pereverzev et al. 2005, *Biophys J* 89:1446.
+~10–20 pN; two-pathway analysis Pereverzev et al. 2005, *Biophys J* 89:1446 (doi:10.1529/biophysj.105.062158).
 *Inverse seam:* MLE/Bayesian fit of Bell or two-pathway parameters to an
 AFM/BFP/optical-tweezers force–lifetime dataset.
 
@@ -1894,8 +1894,8 @@ change and ΔG the intrinsic free-energy difference; midpoint σ½ = ΔG/ΔA.
 <2%; verify slope dPo/dσ at midpoint = ΔA/(4 kBT). *Anchor:* MscL patch-clamp
 Po(σ) — Sukharev et al. 1999, *J Gen Physiol* 113(4):525 (doi:10.1085/jgp.113.4.525):
 sigmoidal Po with midpoint σ½ = 11.8 mN/m, ΔE = 18.6 kBT, and gating-area change
-ΔA = 6.5 nm². Comparators: Piezo1 ~1.4 mN/m (Cox et al. 2016), MscS ~6.3 mN/m in
-liposomes (Shaikh et al. 2014), TRAAK (Brohawn et al. 2014). *Coupling to curvo:*
+ΔA = 6.5 nm². Comparators: Piezo1 ~1.4 mN/m (Cox et al. 2016, *Nat Commun* 7:10366, doi:10.1038/ncomms10366), MscS ~6.3 mN/m in
+liposomes (Shaikh et al. 2014, *Channels* 8:321, doi:10.4161/chan.28366), TRAAK (Brohawn et al. 2014, *PNAS* 111:3614, doi:10.1073/pnas.1320768111). *Coupling to curvo:*
 the channel module reads the membrane module's inferred tension σ directly — the
 one cross-scale link grounded on both ends. *Inverse seam:* Boltzmann fit of
 (ΔA, ΔG) to a patch-clamp Po–tension curve.
