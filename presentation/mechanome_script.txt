@@ -1,0 +1,75 @@
+MECHANOME — 3-MINUTE PRESENTATION SCRIPT
+Target: under 3:00 at ~150 wpm (~425 words). Timings cumulative.
+Tier discipline: no force number spoken over the virus movie (slide 1 = context).
+
+------------------------------------------------------------------
+SLIDE 1 · IAV movie (0:00-0:16) · CONTEXT
+This is an influenza A virus being pulled into a cell. Green is epsin, red is
+clathrin, magenta is the virus - you can watch the membrane-bending machinery
+arrive, right on schedule. But watching WHO shows up doesn't tell you WHICH
+event actually commits the pit to close.
+
+SLIDE 2 · Biophysics problem (0:16-0:30)
+That's because the decisive quantity is mechanical force - and force can't be
+read from the motion of a pit. Viral entry is really a biophysics problem: we
+need a model that says which protein players, and which specific domains, do
+the bending.
+
+SLIDE 3 · Mechanome engine (0:30-0:46)
+So we built one. Mechanome predicts membrane mechanics from a protein's
+structure - forward - and validates that prediction in reverse against real
+super-resolution shape data. And it refuses to report a force wherever the
+data can't constrain one.
+
+SLIDE 4 · Conjunction ladder (0:46-1:04) · MODEL PREDICTION
+Here's the central prediction. Build a pit up one factor at a time. The
+crowding adaptor alone stays flat. Add the coat, add actin force - still flat.
+Add the curvature-driving partner - only a dome. The pit crosses the scission
+threshold, 0.030, ONLY when the crowding partner and elevated actin force are
+present together. Neither alone is enough.
+
+SLIDE 5 · analyze() demo (1:04-1:26) · LIVE
+Now the part that makes it trustworthy. Same movie, same engine. With the actin
+channel present, it commits to a number. Take that channel away, and force
+becomes mathematically degenerate with curvature - so it refuses. No number.
+
+SLIDE 6 · Two verdicts (1:26-1:40)
+Forty-one piconewtons, identified - against a true value of forty. Versus
+UNDETERMINED, where instead of guessing, it hands you the exact experiment that
+would resolve it. It reports a force only when the data can bear one.
+
+SLIDE 7 · Three-cell-line validation (1:40-2:00) · VALIDATED
+And it's validated. The predicted curvature program reproduces across three
+different cell lines, with the curvature scale confined to a narrow band.
+Separately, the force engine recovers real measured tether forces to within
+four percent.
+
+SLIDE 8 · Orchestration / chimera (2:00-2:20) · VALIDATED
+Which brings us back to the virus. Influenza needs the curvature-DRIVER, epsin
+- not the size-setter. Delete epsin's curvature domain and entry drops while
+bulk uptake is untouched. And grafting that one wedge onto a stalled adaptor
+rescues commitment - the domain is the switch.
+
+SLIDE 9 · GitHub (2:20-2:32)
+All of this is open. The full engine, the manuscript, and every validation are
+public and reproducible from source.
+
+SLIDE 10 · Summary (2:32-2:46)
+So: mechanical roles read from structure, a commitment threshold two inputs
+must jointly clear, and predictions that hold up - including which adaptor a
+virus co-opts.
+
+SLIDE 11 · Agentic close (2:46-3:00)
+And because it takes a movie and a plain-language question, you can hand it to
+Claude - and close the loop on mechanobiology problems end to end: an answer
+when the data allows, or the next experiment when it doesn't.
+------------------------------------------------------------------
+
+DELIVERY NOTES
+- ~150 wpm with pauses lands ~3:00. If running long, trim slide 10 first.
+- If running short, add one line to slide 7: "the same coat-curvature program
+  in each of a human melanoma line, a mouse fibroblast line, and a human
+  osteosarcoma line."
+- Numbers that must match the screen: ladder threshold 0.030; 41 pN vs truth
+  40; three-cell-line H0 band 12.0-15.6; tether recovery within 4%.
+- Never speak a force number over slide 1 (the virus movie is context).
