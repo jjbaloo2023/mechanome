@@ -192,13 +192,14 @@ structured output.
 
 ### The orchestration schematic
 
-The forward loop's decision is rendered directly from the `OrchestrationRecord`
-(not hand-drawn): the membrane profile bent by the achieved order parameter,
-player glyphs sized by their gated contribution, the contribution waterfall
-(wedge + crowding + coat + synergy = c_eff), and the target-versus-achieved
-verdict.
+The forward loop's decision, drawn in the schematic idiom used across the paper
+(real ENTH/AP2 secondary-structure sprites, an epsin IDP crowding brush, and a
+drawn bilayer whose pit depth tracks the achieved curvature): the Ω-stage
+coated pit on the left, and on the right the contribution waterfall
+(wedge + crowding + coat + synergy = c_eff) and the target-versus-achieved
+verdict, both read from the `OrchestrationRecord`.
 
-![epsin orchestration schematic](outputs/epsin_orchestration_schematic.svg)
+![epsin orchestration schematic](outputs/epsin_orchestration_schematic.png)
 
 | Forward-loop diagnostic | Figure |
 |------|--------|
