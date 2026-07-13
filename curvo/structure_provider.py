@@ -11,7 +11,7 @@ domain is called a membrane wedge.
 Nothing here decides physics by fiat: it produces *signals* (pLDDT, disorder
 z-score, hydrophobic moment) that the orchestrator's search consumes. The
 representation labels emitted are the priors/guardrail outputs described in
-design_note.md §2b.
+README § Design and development.
 """
 from __future__ import annotations
 

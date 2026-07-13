@@ -4,7 +4,7 @@ curvo.players — the player ontology, with physics as GUARDRAILS not deciders.
 Each player exposes:
   - candidate_representations : the formats the search may pick from
   - validate(proposal)        : cheap physical guardrails that PRUNE invalid
-                                proposals (the design_note.md 2b move). A
+                                proposals (the README § Design and development 2b move). A
                                 validator returns (ok, reason); it never picks.
   - contribution(params)      : the effective spontaneous-curvature (or coat
                                 stiffening) this player supplies to the evaluator.

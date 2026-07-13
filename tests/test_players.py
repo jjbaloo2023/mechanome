@@ -1,4 +1,4 @@
-"""Unit tests for player guardrail validators (design_note.md §2b).
+"""Unit tests for player guardrail validators (README § Design and development).
 Guardrails PRUNE physically-wrong representations; they never decide."""
 import os, sys; sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from curvo import players as pl

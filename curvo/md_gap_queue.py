@@ -148,7 +148,7 @@ class FreeDTSTier1:
     tier = "tier1_freedts"
 
     def available(self) -> bool:
-        return False   # not built this sprint (design_note.md §4)
+        return False   # not built this sprint (README § Design and development)
 
     def evaluate(self, case, proposal_contribs: dict, deck_path: str = "cache/freedts_deck.inp"):
         deck = freedts_config(case, proposal_contribs)
@@ -159,5 +159,5 @@ class FreeDTSTier1:
             "status": "would_run",
             "deck_path": deck_path,
             "note": "FreeDTS not built this sprint; deck is valid and runnable later. "
-                    "Tier-0 analytic evaluator carried the demo (design_note.md §2a).",
+                    "Tier-0 analytic evaluator carried the demo (README § Design and development).",
         }
