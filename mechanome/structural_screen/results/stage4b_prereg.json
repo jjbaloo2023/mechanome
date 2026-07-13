@@ -1,0 +1,28 @@
+{
+  "created": "2026-07-07T20:37:43.620127Z",
+  "ranking_hash": "e2871f10cd5faf00",
+  "population": "all 1669 OPM membrane assemblies (<=4.0 A) passing physical-validity + plausible-c0 QC",
+  "n_population": 1669,
+  "label_go_terms": [
+    "GO:0046718",
+    "GO:0007009",
+    "GO:0030100",
+    "GO:0006897",
+    "GO:0016050",
+    "GO:0001778",
+    "GO:0097320",
+    "GO:0072659",
+    "GO:0030674"
+  ],
+  "label_rule": "assembly is label-positive if ANY of its subunit UniProts carries >=1 of the 9 GO terms",
+  "hypothesis": "structure-derived E_curv is POSITIVELY associated with curvature/entry GO annotation",
+  "tests": [
+    "Mann-Whitney U one-sided AUROC (label+ higher E_curv)",
+    "Spearman rho(E_curv, n_label_go)",
+    "gate enrichment: label-positive rate among gate-clearers vs base rate"
+  ],
+  "decision_rule": "SUPPORT iff AUROC>0.5 AND one-sided p<0.10 AND Spearman rho>0; else null/refute; reported per rule, not re-tuned",
+  "supersedes": "41d49328960d4083 (13-protein curated study); that hash is VOID for this population",
+  "note": "Frozen BEFORE fetching any GO label for the proteome-scale population. Labels fetched next cell.",
+  "label_go_terms_provenance": "original 9-ID Stage-4 curated-study prereg, restored to exactly these 9 after an intervening run diverged to a different 14-term set (bug: dropped 2, added 7 generic terms); that divergence was caught and reverted within the same working session, before this proteome-scale freeze"
+}
