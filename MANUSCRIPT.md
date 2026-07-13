@@ -53,13 +53,13 @@ Here we close both gaps by inferring the membrane mechanics of endocytic protein
 
 We first asked whether membrane-bending capacity can be read directly from protein structure. Scoring a panel of membrane-active proteins by their structure-derived curvature-generating energy places the dedicated scaffolds at the top — Dynamin-1 (78.3 k_BT), Endophilin-A1 and Amphiphysin N-BAR domains (37.0 and 27.6 k_BT) — well clear of a 10 k_BT curvature gate, while channels and sensors (MscL, Piezo1, TRAAK, synaptotagmin C2AB) fall below it. The endocytic adaptors of interest sit deliberately below the scaffold tier: epsin-1 ENTH scores 4.4 k_BT, consistent with a wedge that biases curvature locally rather than imposing it wholesale. The screen thus does not rank adaptors as weak curvature machines to be dismissed; it separates *dedicated scaffolds* from *modulatory adaptors*, and among the adaptors it exposes a structural dichotomy — compact folded wedges versus largely disordered brushes — that motivates the rest of the paper. The forward→reverse loop that turns each structure into a testable mechanical prediction, and validates it against imaging, is introduced here as the study's instrument.
 
-![Figure 1. Structure-based screen of membrane-bending capacity and the forward/reverse instrument.]({{artifact:art_2ec1ac36-562f-4a38-8649-61f2aac60746}})
+![Figure 1. Structure-based screen of membrane-bending capacity and the forward/reverse instrument.](figures/fig1_family_screen.png)
 
 ### Epsin and AP180 occupy distinct mechanical roles predicted from their folds (Fig. 2)
 
 The adaptor dichotomy is explicit in structure. Epsin-1 (Q9Y6I3, mean pLDDT 63.8) resolves into a folded, high-confidence ENTH wedge and long low-confidence disordered regions; the pLDDT profile partitions the molecule into a hydrophobic-insertion wedge and a steric-pressure brush that contribute to bending through different physical terms. Treated through the forward model, the folded wedge and the disordered brush produce curvature contributions of different character — a compact, locally-inserting bias versus a diffuse, crowding-like pressure — that are not interchangeable. This is the mechanical basis for a division of labor: an adaptor family that superficially looks uniformly "curvature-active" in fact splits into size-setting crowders and curvature-driving wedges when its structures are read quantitatively.
 
-![Figure 2. Epsin domain decomposition: folded ENTH wedge versus disordered brush from the pLDDT profile.]({{artifact:art_94e9e092-d1d7-4179-895c-295bed51edf0}})
+![Figure 2. Epsin domain decomposition: folded ENTH wedge versus disordered brush from the pLDDT profile.](figures/fig2_epsin_domain_cases.png)
 
 ### Commitment requires the conjunction of a crowding partner and elevated force (Fig. 3)
 
@@ -67,7 +67,7 @@ This figure carries the central finding. Taking PICALM (an ANTH-family size-sett
 
 The ladder isolates the confound: because the productive rung differs from the sub-threshold rungs in two factors, we tested crowding at fixed 40 pN in isolation and found it insufficient (dome, not Ω). Neither the crowding partner nor the higher force alone crosses the boundary — **both are required**. This is the conjunction rule, stated as a computed curvature threshold rather than a qualitative requirement, and it matches the proposed division of labor: PICALM sets vesicle size, while the epsin-type wedge plus actin force together drive productive curvature. (This is a forward-model stage call using structure-derived and representative co-player magnitudes, not an inverse on a measured trajectory of this specific assembly; the crowding contribution c ≈ 0.025 is a representative co-player magnitude.)
 
-![Figure 3. PICALM assembly ladder: the Ω→scission boundary is crossed only with both the crowding partner and elevated actin force.]({{artifact:art_a049f99b-abe7-4e53-bb22-f7ad1344a7e1}})
+![Figure 3. PICALM assembly ladder: the Ω→scission boundary is crossed only with both the crowding partner and elevated actin force.](figures/fig3_picalm_orchestration.png)
 
 ### The predicted curvature trajectory is recovered across three cell lines (Fig. 4)
 
@@ -81,19 +81,19 @@ To validate the shape predictions in reverse against real data, we rebuilt the p
 
 The coat-curvature program is therefore cell-type-invariant (H₀ 12.0–15.6 × 10⁻³ nm⁻¹ across a human melanoma line, a mouse fibroblast line, and a human osteosarcoma line), not a property of the single line the model was first exercised on. We also report the honest negative: on the pseudo-temporally *sorted* static population, mechanism discrimination between a cooperative curvature-modulus law and a non-cooperative Helfrich relaxation is inconclusive on H(θ) alone (ln B = −2.0, |ln B| < 2.5, from n = 1,631 SK-MEL-2 sites), because sorting by θ discards the real timing the cooperative law was fit to. A cross-observable check (curvature + area + edge) favors the non-cooperative Helfrich law (total log-RMSE 0.066 vs 0.108), but this is a geometry result; force is refused on the static path.
 
-![Figure 4. Cross-cell-line H(θ) curvature trajectory and saturating fits (left); IAV cargo-selectivity test (right).]({{artifact:art_1d9f05c1-8270-4c72-ad93-f9d33e48d0f2}})
+![Figure 4. Cross-cell-line H(θ) curvature trajectory and saturating fits (left); IAV cargo-selectivity test (right).](figures/fig4_celltype_iav_validation.png)
 
 ### Influenza A co-opts the curvature-driver, not the size-setter (Fig. 5)
 
 If the division of labor is real, a curvature-dependent cargo should depend selectively on the curvature-driver. Influenza A virus provides an orthogonal, genetic test. IAV colocalizes with epsin-containing clathrin-coated structures at 90%, versus ~65% with CALM — a structurally similar ENTH/ANTH protein that lacks the ubiquitin-interacting motifs. Deletion of the epsin ENTH domain reduces IAV colocalization and internalization, while bulk uptake is unaffected by epsin overexpression. The curvature-driver (epsin), not the size-setter (CALM/PICALM), is the cargo-specific adaptor for viral entry, and its curvature-generating domain is required for the epsin-dependent route. These are recruitment/entry readouts (LINKED tier), not curvature or force measurements; they confirm the *roles* the model assigns, in a physiological cargo, by loss of function.
 
-![Figure 5. IAV cargo selectivity and ENTH-domain dependence.]({{artifact:art_a66da4c1-b93b-4f98-8579-57319bf35ae5}})
+![Figure 5. IAV cargo selectivity and ENTH-domain dependence.](figures/fig5_iav_cargo_divergence.png)
 
 ### A falsifiable prediction: curvature precedes force (Fig. 6)
 
 Finally, the framework makes a directional prediction that current imaging cannot yet confirm. In synthetic ground-truth fields where geometry and force evolve independently, curvature onset precedes force onset by a median of ~3 frames (mean 3.3), and a guarded inverse recovers the timing lag faithfully (recovered-vs-true lag Pearson r = 0.94). The prediction is that **force consolidates a shape that curvature initiation has already set**, rather than initiating it. This is presented as a falsifiable prediction, not a measured result: no real force-paired live-cell time-lapse of CME exists within reach, and the single experiment that would promote it from prediction to result is force-paired live-cell imaging that resolves curvature and force onsets independently.
 
-![Figure 6. Force-timing prediction: curvature onset precedes force onset (synthetic ground truth, recovered lag).]({{artifact:art_ba50dac0-fbab-414b-a1e7-bd53531de379}})
+![Figure 6. Force-timing prediction: curvature onset precedes force onset (synthetic ground truth, recovered lag).](figures/fig6_orchestration.png)
 
 ---
 
