@@ -1,7 +1,7 @@
 MECHANOME - READ-ALOUD / TELEPROMPTER SCRIPT
 Paced to the 11-slide deck. Short lines = natural breath breaks.
 Read at a measured pace; pause on each line break. ~2:34 read time
-(385 words @150 wpm); line-break pauses bring it to ~2:45 - under 3:00.
+(386 words @150 wpm); line-break pauses bring it to ~2:45 - under 3:00.
 Rule: no force number spoken over slide 1 (the virus movie).
 
 ================================================================
@@ -64,7 +64,7 @@ an answer when the data allows, the next experiment when it doesn't.
 ================================================================
 
 PACING
-- 385 words @150 wpm = ~2:34 read time; line-break pauses land it ~2:45.
+- 386 words @150 wpm = ~2:34 read time; line-break pauses land it ~2:45.
 - Long? drop slide 10 - the visuals carry it.
 - Short? on slide 7 add: "the same program in a human melanoma line, a mouse line, and a human bone-cancer line."
 - Numbers must match the screen: threshold 0.030; 41 vs 40 pN; H0 band 12.0-15.6; within 4%.
