@@ -1,70 +1,67 @@
-MECHANOME - READ-ALOUD / TELEPROMPTER SCRIPT
+MECHANOME - SIMPLE READ-ALOUD SCRIPT
 Paced to the 11-slide deck. Short lines = natural breath breaks.
-Read at a measured pace; pause on each line break. ~2:34 read time
-(386 words @150 wpm); line-break pauses bring it to ~2:45 - under 3:00.
+Plain language. Read at a measured pace; pause on each line break.
 Rule: no force number spoken over slide 1 (the virus movie).
 
 ================================================================
-[1] OPENING - IAV MOVIE
-What you're watching is real - an actual influenza virus entering a living cell.
-Green is epsin, red is clathrin, the virus in the middle.
-You can watch the membrane-bending machinery arrive.
-But watching WHO shows up doesn't tell you WHAT commits the pit to close.
+[1] REAL VIDEO - FLU ENTERING A CELL
+This is real. An actual flu virus getting into a living cell.
+Green and red are the proteins that pull it in.
+You can see them show up -
+but that doesn't tell you what makes the cell commit to swallowing it.
 
-[2] VIRAL ENTRY IS A BIOPHYSICS PROBLEM
-Because the thing that decides it is force - and you can't read force from a movie.
-So entry is really a biophysics problem:
-which proteins, and which domains, do the bending?
+[2] THE REAL QUESTION
+What decides it is force. And you can't see force in a movie.
+So we need a model that says which proteins -
+and which parts of them - do the pulling.
 
-[3] THE MECHANOME ENGINE
-That's what we built. Mechanome runs it both ways.
-Forward - from a protein's structure to its membrane mechanics.
-Reverse - from real shape data back to the forces.
-And it refuses to report a force the data can't support.
+[3] WHAT MECHANOME DOES
+That's Mechanome. It goes both ways.
+From a protein's shape, it predicts the physics.
+From real images, it works back to the force.
+And if the data can't pin the force down, it says so - it won't guess.
 
-[4] CONJUNCTION LADDER
-Here's the prediction. Build the pit up one piece at a time.
-Crowder alone - flat. Add the coat, add actin force - still flat.
-It crosses the threshold only when the crowding partner AND elevated actin force are there together.
-Neither one alone is enough.
+[4] THE RULE IT FOUND
+Here's what it found. Build the pit up one piece at a time.
+One protein alone - nothing. Add force alone - still nothing.
+It only tips over the edge when both come together.
+Neither one is enough by itself.
 
-[5] THE analyze() DEMO
-Now watch it run. Same movie, same engine.
-With the actin channel, it commits to a number.
-Take that channel away - force and curvature become indistinguishable - so it stops.
+[5] WATCH IT RUN
+Watch it work. Same movie, same engine.
+With the full data, it gives a clear number.
+Take away one piece, and it can't tell - so it stops.
 
-[6] TWO VERDICTS
-Forty-one piconewtons, identified - the true value was forty.
-Versus undetermined - where instead of guessing, it hands you the experiment that would settle it.
-It gives a force only when the data can carry one.
+[6] TWO ANSWERS
+Forty-one - and the real answer was forty. Spot on.
+Or: I don't know - and here's the experiment that would tell you.
+It only gives a number when the data can back it up.
 
-[7] VALIDATED ACROSS THREE CELL LINES
-And it holds up. The predicted curvature program reproduces across three different cell lines.
-And the force engine recovers real measured forces to within four percent.
+[7] IT HOLDS UP
+And it's real. The same pattern shows up in three different cell types.
+And it gets measured forces right, to within four percent.
 
-[8] INFLUENZA FOLLOWS THE CURVATURE-DRIVER
-Back to the virus. Influenza needs the curvature-DRIVER, epsin - not the size-setter.
-Delete epsin's wedge and entry drops, while normal uptake keeps going.
-Graft that one wedge onto a stalled adaptor, and commitment comes back.
-The domain is the switch.
+[8] BACK TO THE VIRUS
+So - the flu virus. It needs one specific protein, epsin, to bend the membrane.
+Take that part away, and the virus can't get in.
+Move that part onto another protein, and the power moves with it.
 
-[9] OPEN & REPRODUCIBLE
-All of it is open - the engine, the manuscript, every validation.
-Public, and reproducible from source.
+[9] IT'S OPEN
+All of it is open. The code, the paper, everything. Anyone can check it.
 
-[10] WHAT THE MANUSCRIPT SHOWS
-So: mechanical roles read straight from structure.
-A commitment threshold two inputs have to clear together.
-And predictions that check out - including which adaptor a virus co-opts to get in.
+[10] THE TAKEAWAY
+So: read a protein's job from its shape.
+Find the rule for what commits a pit.
+And show which protein a virus hijacks to get in.
 
-[11] AN ENGINE AN AGENT CAN DRIVE
-And because it takes a movie and a plain-language question, you can hand it to Claude -
-and close the loop on a mechanobiology problem end to end:
-an answer when the data allows, the next experiment when it doesn't.
+[11] GIVE IT TO CLAUDE
+And since it just takes a movie and a question, you can hand it to Claude -
+and let it work through problems like this on its own:
+an answer when it can, the next experiment when it can't.
 ================================================================
 
 PACING
-- 386 words @150 wpm = ~2:34 read time; line-break pauses land it ~2:45.
+- Plain-language cut, shorter than the technical version.
 - Long? drop slide 10 - the visuals carry it.
-- Short? on slide 7 add: "the same program in a human melanoma line, a mouse line, and a human bone-cancer line."
-- Numbers must match the screen: threshold 0.030; 41 vs 40 pN; H0 band 12.0-15.6; within 4%.
+- Numbers to match the screen: 41 vs 40; within 4%.
+- Never speak a force number over slide 1 (the virus movie).
