@@ -6,9 +6,9 @@ Rule: no force number spoken over slide 1 (the virus movie).
 
 ================================================================
 [1] OPENING - IAV MOVIE
-This is a flu virus, being pulled into a cell - in real imaging.
+What you're watching is real - an actual influenza virus entering a living cell.
 Green is epsin, red is clathrin, the virus in the middle.
-You can watch the machinery arrive.
+You can watch the membrane-bending machinery arrive.
 But watching WHO shows up doesn't tell you WHAT commits the pit to close.
 
 [2] VIRAL ENTRY IS A BIOPHYSICS PROBLEM
