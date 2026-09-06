@@ -20,17 +20,14 @@ from __future__ import annotations
 
 import json
 import os
-import sys
 
 import numpy as np
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from curvo import evaluator_tier0 as ev
 from curvo import players as pl
 from curvo import structure_provider as sp
 
 OUT = "outputs"
-os.makedirs(OUT, exist_ok=True)
 
 # UniProt IDs — ENTH (epsin) vs ANTH (adaptor) families
 FAMILY = {
@@ -190,6 +187,7 @@ def render(mc, path=f"{OUT}/family_screen.png"):
               loc="center right", fontsize=7)
     ax.set_ylim(0, 0.040)
     fig.tight_layout()
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     fig.savefig(path, dpi=200)
     return path
 
@@ -219,6 +217,7 @@ RECONCILIATION_NOTES = {
 
 
 def main():
+    os.makedirs(OUT, exist_ok=True)
     rows = screen()
     mc = screen_mc()
     # attach MC CI to point-estimate rows

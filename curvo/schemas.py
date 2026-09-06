@@ -13,7 +13,7 @@ import hashlib
 import json
 import time
 from dataclasses import dataclass, field, asdict
-from typing import Any, Optional
+from typing import Optional
 
 
 # --------------------------------------------------------------------------
@@ -125,50 +125,12 @@ class StructureModel:
 
 
 # --------------------------------------------------------------------------
-# Players, proposals, decisions
-# --------------------------------------------------------------------------
-@dataclass
-class RepresentationDecision:
-    """One player's representation choice, with the rule/justification behind it.
-
-    Under the bitter-lesson reframing this is the OUTPUT of search+guardrail,
-    not a lookup in a fixed table. `chosen_by` records which: 'search',
-    'guardrail_prune', or 'prior'.
-    """
-    player: str                                  # "wedge", "crowding", "coat", "tension"
-    representation: str                          # the candidate that was chosen
-    candidates_considered: list
-    rule: str                                    # the physical guardrail that gated it
-    justification: str                           # natural-language reasoning
-    chosen_by: str = "search"
-    signals: dict = field(default_factory=dict)  # e.g. {"mean_pLDDT": 91.2, "disorder_frac": 0.02}
-
-    def to_dict(self) -> dict:
-        return asdict(self)
-
-
-@dataclass
-class PlayerProposal:
-    """A proposed configuration for one player: representation + resolved params."""
-    player: str
-    decision: RepresentationDecision
-    parameters: dict                             # {param_name: ParameterRecord.to_dict()}
-
-    def to_dict(self) -> dict:
-        return {
-            "player": self.player,
-            "decision": self.decision.to_dict(),
-            "parameters": self.parameters,
-        }
-
-
-# --------------------------------------------------------------------------
 # Evaluator results
 # --------------------------------------------------------------------------
 @dataclass
 class EvaluatorResult:
     """Ground-truth output from the evaluator. The LLM never invents these."""
-    tier: str                                    # "tier0_analytic" | "tier1_freedts"
+    tier: str                                    # "tier0_analytic"
     observables: dict                            # e.g. {"tube_radius_nm": 42.0, "mean_curvature_inv_nm": 0.021}
     objective_value: float                       # scalar the loop optimizes (e.g. |achieved - target|)
     target_met: bool
@@ -190,7 +152,7 @@ class OrchestrationRecord:
     case: str                                    # "epsin_ccs", "budding_anchor", "iav_spherical", ...
     iteration: int
     target: dict                                 # {observable, value, tolerance}
-    proposals: list                              # [PlayerProposal.to_dict(), ...]
+    proposals: list                              # accepted player proposal dictionaries
     evaluator_result: dict                       # EvaluatorResult.to_dict()
     reasoning_trace: str = ""                     # the orchestrator's post-mortem
     md_gaps: list = field(default_factory=list)   # emitted job specs, if any

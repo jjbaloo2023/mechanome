@@ -32,7 +32,7 @@ import os, json
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-from matplotlib.patches import Circle, Ellipse, Rectangle, FancyBboxPatch
+from matplotlib.patches import Circle, Ellipse, FancyBboxPatch
 from scipy.ndimage import gaussian_filter
 from scipy.interpolate import splprep, splev
 from matplotlib.colors import to_rgb

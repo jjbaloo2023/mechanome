@@ -1,5 +1,5 @@
 """Stage 1 - candidate set (two legs) + verified conformational-state map from RCSB/UniProt."""
-import requests, json, time, pandas as pd
+import requests, pandas as pd
 
 CANDIDATES = [
  ("MscL","Mechanosensitive channel","mechanosensitive","P9WLR3","tension"),

@@ -20,7 +20,6 @@ a parameter analyze() must return as a posterior, never a point value.
 """
 from __future__ import annotations
 
-import json
 
 import numpy as np
 

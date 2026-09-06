@@ -23,6 +23,7 @@ dependencies = [
     "numpy>=1.24",
     "scipy>=1.10",
     "requests>=2.28",
+    "pandas>=2.0",
 ]
 
 [project.optional-dependencies]
@@ -33,7 +34,7 @@ inference = ["dynesty>=2.1", "emcee>=3.1", "corner>=2.2"]
 # Structure-cartoon schematics (validation/realdata/schematic_idiom.py): biotite
 # assigns secondary structure (P-SEA) from cached PDB/AlphaFold CA traces.
 figures = ["biotite>=0.40"]
-dev = ["pytest>=7.0"]
+dev = ["pytest>=7.0", "black>=24.0"]
 
 [project.urls]
 Homepage = "https://github.com/jjbaloo2023/mechanome"
@@ -42,5 +43,12 @@ Homepage = "https://github.com/jjbaloo2023/mechanome"
 curvo-demo = "run_demo:main"
 
 [tool.setuptools]
-packages = ["curvo", "validation", "mechanome"]
-py-modules = ["run_demo"]
+packages = ["curvo", "validation", "validation.realdata", "mechanome",
+            "mechanome.structural_screen", "mechanome.structural_screen.src", "rl"]
+py-modules = ["run_demo", "family_screen"]
+
+[tool.setuptools.package-data]
+"mechanome.structural_screen" = ["results/*.json", "results/*.csv", "results/*.md"]
+
+[tool.black]
+target-version = ["py310"]

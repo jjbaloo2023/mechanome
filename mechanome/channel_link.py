@@ -13,6 +13,7 @@ membrane-scale gating model -- one edge grounded on both ends.
     channels_from_screen()      -> the screen's mechanosensitive-channel rows
     link_channel_to_gating(...) -> a channel's screen c0 + its gating Po(sigma)
 """
+
 from __future__ import annotations
 
 from typing import List, Dict, Optional
@@ -39,29 +40,30 @@ def channels_from_screen() -> List[Dict]:
     rk = _screen.frozen_ranking()
     # the frozen CSV carries the five audited columns; pull c0 from the full
     # stage-3 ranking, joined on protein name.
-    import os
-    import pandas as pd
-
-    full = pd.read_csv(os.path.join(_screen._RESULTS, "stage3_ranking.csv"))
+    full = _screen.full_ranking()
     c0 = dict(zip(full["protein"], full["c0_invnm"]))
     out = []
     for _, row in rk.iterrows():
         name = row["protein"]
         if name in MECHANOSENSITIVE_CHANNELS:
-            out.append({
-                "protein": name,
-                "channel": MECHANOSENSITIVE_CHANNELS[name],
-                "c0_inv_nm": float(c0.get(name, float("nan"))),
-                "signed_capacity_kBT": float(row["E_curv_signed"]),
-                "clears_gate": bool(row["clears_gate"]),
-            })
+            out.append(
+                {
+                    "protein": name,
+                    "channel": MECHANOSENSITIVE_CHANNELS[name],
+                    "c0_inv_nm": float(c0.get(name, float("nan"))),
+                    "signed_capacity_kBT": float(row["E_curv_signed"]),
+                    "clears_gate": bool(row["clears_gate"]),
+                }
+            )
     return out
 
 
-def link_channel_to_gating(protein: str,
-                           sigma_mN_m: float,
-                           dA_nm2: float = _ch.MSCL_DA_nm2,
-                           dG_kBT: Optional[float] = None) -> Dict:
+def link_channel_to_gating(
+    protein: str,
+    sigma_mN_m: float,
+    dA_nm2: float = _ch.MSCL_DA_nm2,
+    dG_kBT: Optional[float] = None,
+) -> Dict:
     """Carry one channel from the screen into the gating model: report its
     structure-derived spontaneous curvature (from the screen) alongside its
     tension-dependent open probability (from ms_gating_v1) at ``sigma_mN_m``.
@@ -78,8 +80,10 @@ def link_channel_to_gating(protein: str,
         rows[c["channel"]] = c
     if protein not in rows:
         choices = sorted({c["channel"] for c in screened})
-        raise KeyError(f"{protein!r} is not a screened mechanosensitive channel; "
-                       f"choose from {choices}")
+        raise KeyError(
+            f"{protein!r} is not a screened mechanosensitive channel; "
+            f"choose from {choices}"
+        )
     c = rows[protein]
     if dG_kBT is None:
         # place the midpoint at the MscL anchor tension by default
@@ -87,10 +91,12 @@ def link_channel_to_gating(protein: str,
     return {
         "protein": protein,
         "channel": c["channel"],
-        "structural_c0_inv_nm": c["c0_inv_nm"],       # from the screen (molecule scale)
+        "structural_c0_inv_nm": c["c0_inv_nm"],  # from the screen (molecule scale)
         "signed_capacity_kBT": c["signed_capacity_kBT"],
         "sigma_mN_m": sigma_mN_m,
-        "open_probability": _ch.open_probability(sigma_mN_m, dA_nm2, dG_kBT),  # gating (membrane scale)
+        "open_probability": _ch.open_probability(
+            sigma_mN_m, dA_nm2, dG_kBT
+        ),  # gating (membrane scale)
         "gating_model": "ms_gating_v1",
         "source_model": "structural_screen_v1",
     }
@@ -98,9 +104,12 @@ def link_channel_to_gating(protein: str,
 
 if __name__ == "__main__":
     import json
+
     print("Screened mechanosensitive channels (structure-derived c0):")
     for c in channels_from_screen():
-        print(f"  {c['channel']:9s} c0={c['c0_inv_nm']:+.4f} /nm  "
-              f"signed_capacity={c['signed_capacity_kBT']:+6.2f} kBT")
+        print(
+            f"  {c['channel']:9s} c0={c['c0_inv_nm']:+.4f} /nm  "
+            f"signed_capacity={c['signed_capacity_kBT']:+6.2f} kBT"
+        )
     print("\nExample link (MscL at its midpoint tension 11.8 mN/m):")
     print(json.dumps(link_channel_to_gating("MscL", 11.8), indent=2))

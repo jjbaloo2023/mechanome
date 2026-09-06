@@ -29,8 +29,6 @@ Sign convention: coat rim sits at the membrane plane z=0; the dome invaginates
 INTO the cell (z > 0, away from the coverslip in an inverted-TIRF geometry), so
 the coat's mean z rises monotonically with the opening angle psi.
 """
-import dataclasses
-from dataclasses import dataclass
 
 import numpy as np
 
@@ -180,7 +178,6 @@ def run_ratio_inverse(ratio_obs, ratio_sigma, A_coat_nm2, params=None,
 
 
 if __name__ == "__main__":
-    from curvo.inverse import Param
     A = np.pi * 60 ** 2
     # a known maturing pit driven by active force
     forces = [0.02, 40.0, 0.02]  # c_eff, active, sigma

@@ -16,7 +16,6 @@ routing decision. It REFUSES to route observable #1 to the force inverse -- that
 refusal is the same anti-force-astrology discipline curvo applies to posteriors,
 enforced one level earlier at the data boundary.
 """
-import dataclasses
 from dataclasses import dataclass
 
 

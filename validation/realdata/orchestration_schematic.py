@@ -20,10 +20,8 @@ shown at all):
   bilayer heads      tan
 """
 import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib as mpl
-from matplotlib.patches import FancyArrowPatch, Circle, PathPatch
-from matplotlib.path import Path
+from matplotlib.patches import FancyArrowPatch, Circle
 
 COL = dict(clathrin="#2f8f4e", enth="#2f4fb0", h0="#7d3fa0", arm="#e08a30",
            idp="#c0392b", actin="#a01c3a", head="#d9b88f", tail="#b8a37a")

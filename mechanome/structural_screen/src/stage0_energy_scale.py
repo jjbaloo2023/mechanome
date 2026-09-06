@@ -1,5 +1,6 @@
 """Stage 0 - fix the mechanical energy scale that gates the whole screen."""
-import numpy as np, json, matplotlib.pyplot as plt
+import json
+import numpy as np
 
 KAPPA_KBT = 20.0        # bilayer bending modulus (k_B T)
 GAMMA_MN_M = 0.01       # resting membrane tension (mN/m)
@@ -15,6 +16,8 @@ def per_protein_bending(c0_inv_nm, A_nm2, kappa=KAPPA_KBT):
     return 0.5*kappa*(2*np.abs(c0_inv_nm))**2*A_nm2
 
 def run(out_json="stage0_scale.json", out_fig="fig_stage0_energy_scale.png"):
+    import matplotlib.pyplot as plt
+
     c0 = np.linspace(0,0.08,300)
     fig,ax = plt.subplots(figsize=(5.4,4.0))
     for A,lab in [(20,"small"),(50,"medium"),(100,"large")]:

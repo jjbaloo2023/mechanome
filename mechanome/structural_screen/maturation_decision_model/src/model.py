@@ -12,7 +12,6 @@ Everything physical is fixed upstream; the model's ONLY free numbers are the
 decision-layer parameters (see decision.py).
 """
 from __future__ import annotations
-import numpy as np
 import barrier as _B
 import decision as _D
 

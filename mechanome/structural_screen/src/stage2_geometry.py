@@ -7,7 +7,6 @@ Mechanism-appropriate curvature extraction:
 """
 import numpy as np
 from scipy.spatial import ConvexHull
-from scipy.integrate import trapezoid
 
 CHARGE = {"ARG":+1,"LYS":+1,"ASP":-1,"GLU":-1}
 TM_HALF = 15.0

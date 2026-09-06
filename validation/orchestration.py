@@ -123,8 +123,7 @@ def to_mechano_claim(model):
     ground-truth delay (r~0.94). LINKED tier: this links recovered per-structure
     physics into a cross-structure temporal model, it is not a single measurement."""
     try:
-        from mechanome.schema import (MechanoClaim, EpistemicTier, Identifiability,
-                                      Value, Actor, Context)
+        from mechanome.schema import (MechanoClaim, EpistemicTier, Actor, Context)
     except Exception:
         return None
     med = model["falsifiable"]["field_median_lag_frames"]

@@ -34,10 +34,7 @@ import numpy as np
 from scipy import stats
 
 # import robustly whether run from the repo root or elsewhere on PYTHONPATH
-try:
-    from curvo import evaluator_tier0 as ev
-except Exception:  # pragma: no cover
-    import evaluator_tier0 as ev  # type: ignore
+from curvo import evaluator_tier0 as ev
 
 
 # --- paper ground-truth constants -------------------------------------------

@@ -17,7 +17,6 @@ Anchor here: recover gamma in this range from the Laplace balance.
 
 Validation tier: built_analytic.
 """
-import numpy as np
 
 VALIDATION_ANCHOR = "Tinevez et al. 2009 PNAS 106:18581 (micropipette cortical tension 0.03-1 mN/m)"
 

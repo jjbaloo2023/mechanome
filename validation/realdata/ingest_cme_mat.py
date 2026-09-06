@@ -17,7 +17,7 @@ import os
 import datetime
 import dataclasses
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List
 
 import numpy as np
 import scipy.io as sio
@@ -100,7 +100,6 @@ def ingest_cme_mat(path, condition=None):
 
 
 if __name__ == "__main__":
-    import sys
     base = ("/root/projects/Epsin paper comm bio 2020/final figure/"
             "data availability/Figure 2/Osmotic shock")
     for cond in ["iso", "hypo", "hyper"]:

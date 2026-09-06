@@ -30,12 +30,8 @@ from __future__ import annotations
 import json
 import numpy as np
 
-try:
-    from curvo import synth_movie as sm
-    from curvo import perception as pc
-except Exception:  # pragma: no cover
-    import synth_movie as sm  # type: ignore
-    import perception as pc  # type: ignore
+from curvo import synth_movie as sm
+from curvo import perception as pc
 
 
 # calibration reference point (what perception was tuned on)

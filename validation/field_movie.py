@@ -24,10 +24,7 @@ import dataclasses
 import json
 import numpy as np
 
-try:
-    from curvo import synth_movie as sm
-except Exception:  # pragma: no cover
-    import synth_movie as sm  # type: ignore
+from curvo import synth_movie as sm
 
 
 @dataclasses.dataclass

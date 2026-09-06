@@ -1,5 +1,5 @@
 """Stage 3 - curvature-generating capacity ranking (signed). E = 0.5*k*(2c0)^2*A + gamma*|dA|."""
-import numpy as np, pandas as pd, json
+import pandas as pd, json
 
 def capacity(c0_invnm, A_footprint_nm2, dA_nm2, leg, kappa, gamma):
     E_bend = 0.5*kappa*(2*abs(c0_invnm))**2*A_footprint_nm2

@@ -64,8 +64,6 @@ def tension_crosscheck(base=OSMOTIC_BASE):
         rows[cond] = feats
 
     # direction checks: does HIGH tension (hyper) impede maturation vs LOW (hypo)?
-    prod = [rows[c]["pct_productive"] for c in TENSION_ORDER]
-    abort = [rows[c]["pct_abortive"] for c in TENSION_ORDER]
     checks = dict(
         productive_falls_with_tension=bool(rows["hyper"]["pct_productive"]
                                            < rows["hypo"]["pct_productive"]),

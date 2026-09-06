@@ -27,13 +27,7 @@ from typing import List
 from .schema import (MechanoClaim, EpistemicTier, Identifiability, Actor,
                      Context, Value)
 
-# curvo modules (validated)
-try:
-    from validation import tether_sted as _tether
-    from curvo import family_screen as _fam
-except Exception:  # pragma: no cover
-    import validation.tether_sted as _tether  # type: ignore
-    import family_screen as _fam  # type: ignore
+from validation import tether_sted as _tether
 
 
 def emit_tether_force_claim(tension_uN_m: float = 72.0) -> MechanoClaim:
@@ -77,7 +71,9 @@ def emit_family_capacity_claims(cache_dir: str = "cache",
     only when P(cross Omega) is decisive, and 'prior_dominated' when the CI straddles
     the threshold (e.g. HIP1R). No EPN1-trajectory evidence is claimed.
     """
-    rows = _fam.screen_mc(cache_dir=cache_dir)
+    from family_screen import screen_mc
+
+    rows = screen_mc(cache_dir=cache_dir)
     rows = sorted(rows, key=lambda r: -r["H_med"])[:top]
     claims = []
     for r in rows:

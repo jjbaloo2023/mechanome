@@ -96,8 +96,6 @@ def render_schematic(record: dict, out_path: str = "outputs/orchestration_schema
         return default
     active_players = {p.get("player") for p in proposals}
 
-    bottom = max(py for _, py in pts)
-    bx = cx  # invagination bottom x
     # WEDGE glyph (H0 amphipathic helix inserting into cis leaflet, at the rim)
     if "wedge" in active_players:
         c0w = pget("wedge", "c0_contribution_inv_nm", 0.03)

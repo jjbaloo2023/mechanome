@@ -52,3 +52,8 @@ handoff/
 
 # Cached protein structures + rendered sprites (re-fetchable from RCSB / AlphaFold DB)
 cache/structures/
+
+# Generated duplicates of the canonical manuscript figures in figures/.
+outputs/epsin_domain_cases.png
+outputs/orchestration.png
+validation/realdata/picalm_orchestration.png

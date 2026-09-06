@@ -100,7 +100,7 @@ def learned_action_order(Q, T=12):
 
 
 if __name__ == "__main__":
-    import json, time
+    import time
     t0 = time.time()
     Q, returns, _ = train(episodes=4000, seed=0)
     learned = greedy_from_Q(Q)

@@ -12,9 +12,9 @@ curvo schematic') and a matplotlib PNG raster (embeds inline in reports).
 """
 from __future__ import annotations
 
-from typing import List, Dict, Tuple
+from typing import List, Tuple
 
-from .schema import MechanoClaim, EpistemicTier
+from .schema import MechanoClaim
 
 TIER_STYLE = {
     "GROUNDED": dict(edge="#1a7d3c", fill="#e5f4ea", dash=None,   label="GROUNDED"),

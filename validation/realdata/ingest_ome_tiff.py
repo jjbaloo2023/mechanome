@@ -16,9 +16,8 @@ import os
 import re
 import glob
 import datetime
-import dataclasses
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List
 
 import numpy as np
 import tifffile

@@ -230,7 +230,7 @@ def tracking_sweep(crowding=(4, 8, 12), photons=(80, 220, 400), seed0=0):
 
 
 if __name__ == "__main__":
-    from validation.field_movie import generate_field, tracks_to_json
+    from validation.field_movie import generate_field
     movie, gts, meta = generate_field(n_struct=8, seed=0)
     gt_json = [dataclasses.asdict(g) for g in gts]
     tracks, dets = run_tracking(movie, meta)

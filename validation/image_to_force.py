@@ -18,12 +18,8 @@ from __future__ import annotations
 import json
 import numpy as np
 
-try:
-    from curvo import synth_movie as sm
-    from curvo import analyze as az
-except Exception:  # pragma: no cover
-    import synth_movie as sm  # type: ignore
-    import analyze as az  # type: ignore
+from curvo import synth_movie as sm
+from curvo import analyze as az
 
 
 HELD_OUT_FORCES = [25.0, 40.0, 55.0, 70.0]   # pN, distinct from calibration set

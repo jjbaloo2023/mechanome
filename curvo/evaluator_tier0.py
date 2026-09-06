@@ -3,8 +3,7 @@ curvo.evaluator_tier0 — the cheap analytic evaluator (microseconds/call).
 
 Under the bitter-lesson reframing this is the *engine*, not a fallback: search
 dominates only when each evaluation is cheap, so closed-form Helfrich energetics
-carry the loop and FreeDTS (Tier-1) is a fidelity upgrade behind the same
-interface. Every function here is ground truth — the LLM orchestrator never
+carry the loop. Every function here evaluates the physical model — the LLM orchestrator never
 produces a curvature or an energy number; it only proposes what to evaluate.
 
 Three models, all with analytic checks:

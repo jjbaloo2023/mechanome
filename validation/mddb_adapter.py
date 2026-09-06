@@ -133,7 +133,6 @@ def crosscheck_thickness(accession: str, stored_nm: float = 4.26,
 
 
 if __name__ == "__main__":
-    import json
     if not api_online():
         print("MDDB API unreachable (needs network allowlist for mmb.mddbr.eu)"); raise SystemExit
     hits = find_membrane_projects("membrane", limit=5)

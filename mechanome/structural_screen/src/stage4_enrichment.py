@@ -1,5 +1,5 @@
 """Stage 4 - pre-committed enrichment test vs EXTERNAL GO labels (ranking-blind)."""
-import requests, json, hashlib, numpy as np, pandas as pd
+import requests, hashlib
 from scipy.stats import mannwhitneyu, spearmanr
 
 # Exactly the 9 GO IDs in the pre-registration (results/stage4_prediction_prereg.md). Do NOT add

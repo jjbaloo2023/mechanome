@@ -22,7 +22,6 @@ explicitly so no reader mistakes a flow field for a force map.
 from __future__ import annotations
 
 import numpy as np
-from scipy import ndimage as ndi
 
 
 def piv_field(frame0, frame1, win=16, step=8, search=6):
@@ -102,9 +101,9 @@ def gt_constriction_rate(gt_track):
 
 
 if __name__ == "__main__":
-    import dataclasses, json
+    import dataclasses
     from validation.field_movie import generate_field
-    from validation.tracking import run_tracking, validate_tracking
+    from validation.tracking import run_tracking
     movie, gts, meta = generate_field(n_struct=8, seed=0)
     gt_json = [dataclasses.asdict(g) for g in gts]
     tracks, _ = run_tracking(movie, meta)

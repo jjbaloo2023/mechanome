@@ -24,13 +24,6 @@ from dataclasses import dataclass, field, asdict
 from enum import Enum
 from typing import Optional, List, Dict, Any
 
-# reuse curvo's provenance record verbatim — the mechanome is curvo's discipline generalized
-try:
-    from curvo.schemas import Provenance
-except Exception:  # pragma: no cover
-    from schemas import Provenance  # type: ignore
-
-
 class EpistemicTier(str, Enum):
     GROUNDED = "GROUNDED"    # forward+inverse against data: value + uncertainty + identifiability
     MEASURED = "MEASURED"    # a cited experimental value with provenance

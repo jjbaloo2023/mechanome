@@ -28,7 +28,6 @@ from __future__ import annotations
 
 import dataclasses
 import json
-from typing import Optional
 
 import numpy as np
 from scipy.ndimage import gaussian_filter

@@ -16,13 +16,10 @@ never depends on network/LLM. Pass --llm to use the host.llm proposer instead.
 from __future__ import annotations
 
 import argparse
-import json
 import os
-import sys
 
 import numpy as np
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from curvo import evaluator_tier0 as ev
 from curvo import md_gap_queue as mdq
 from curvo import orchestrator as orch
@@ -33,7 +30,6 @@ from curvo import structure_provider as sp
 from curvo.schemas import StatePoint
 
 OUT = "outputs"
-os.makedirs(OUT, exist_ok=True)
 SIGMA_HIGH = 0.03
 A_PATCH = np.pi * 60 ** 2
 KAPPA = 20.0
@@ -54,6 +50,7 @@ def faithful_breakdown(rec, sigma):
 
 
 def main(use_llm=False, host=None):
+    os.makedirs(OUT, exist_ok=True)
     hr("1. STRUCTURE PROVIDER — AlphaFold pLDDT -> representation split (real data)")
     model = sp.fetch_alphafold("Q9Y6I3", cache_dir="cache")   # EPN1
     call = sp.representation_call(model)
@@ -146,9 +143,6 @@ def main(use_llm=False, host=None):
         print(f"     estimator: {spec.estimator}")
         print(f"     reason: {spec.reason}")
     q.dump(f"{OUT}/example_md_jobspecs.json")
-    tier1 = mdq.FreeDTSTier1()
-    print(f"  FreeDTS Tier-1 available this sprint: {tier1.available()} "
-          "(deck generated & runnable later; Tier-0 carried the demo)")
 
     hr("7. HEADLINE ARTIFACT — SVG orchestration schematic")
     rec["contribution_breakdown"] = faithful_breakdown(rec, SIGMA_HIGH)

@@ -33,12 +33,8 @@ from __future__ import annotations
 
 import numpy as np
 
-try:
-    from curvo.perception import GeometryFrame, GeometryTrace
-    from curvo.schemas import Provenance
-except Exception:  # pragma: no cover
-    from perception import GeometryFrame, GeometryTrace  # type: ignore
-    from schemas import Provenance  # type: ignore
+from curvo.perception import GeometryFrame, GeometryTrace
+from curvo.schemas import Provenance
 
 
 def _radial_profile(img, center=None):
