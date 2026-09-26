@@ -1,0 +1,49 @@
+{
+  "task_id": "axisymmetric-passive-numerical-001",
+  "attempt": 1,
+  "registered_utc": "2026-09-24T21:36:30Z",
+  "status_before_execution": "registered_not_executed",
+  "model": {
+    "coordinates": "material area alpha=a/(2*pi*ell^2)",
+    "ell": "sqrt(kappa_repo/sigma)",
+    "mapping": {"k_source": "2*kappa_repo", "C_source": "c_repo/2"},
+    "pressure": 0,
+    "force_density": 0,
+    "rigidity": "homogeneous",
+    "lambda_outer": 0.5,
+    "tension_gradient_sign": "plus, from lambda_dot=-partial_W/partial_alpha at fixed shape"
+  },
+  "profile": {
+    "C_source_ell": "0.5*c_repo_ell",
+    "shape": "0.5*C0*(1-tanh((alpha-alpha_coat)/width_alpha))",
+    "nominal_coat_alpha": "x^2/2",
+    "width_alpha_baseline": 0.01,
+    "width_alpha_sensitivity": [0.02, 0.005]
+  },
+  "baseline_cases": {"x_R_over_ell": [0.5, 1.0, 2.0], "c_repo_ell": 0.01},
+  "focused_sensitivities": {
+    "amplitude_at_x_1": [0.005, 0.02],
+    "mesh_nodes_at_x_1": [401, 801],
+    "bvp_tolerance_at_x_1": [1e-05, 3e-06],
+    "axis_cutoff_alpha_at_x_1": [1e-06, 2.5e-07],
+    "outer_radius_over_ell": {"baseline": 14, "extension": 20}
+  },
+  "execution_limits": {"max_nodes": 12000, "per_solver_seconds": 45, "no_force_or_pressure_sweep": true},
+  "pre_execution_amendments": [{
+    "registered_utc": "2026-09-24T21:37:49.8321878Z",
+    "change": "Correct the initially drafted future timestamp; add the independently derived passive force-balance invariant Q and a sparse profile sample to every record.",
+    "invariant": "Q=r*((H-C)*(H+C-sin(psi)/r)-lambda)*sin(psi)+L*cos(psi)",
+    "diagnostic": "raw max_abs_Q and max_abs_Q/max(max_abs_L, max_abs_algebraic_term, 1e-12)"
+  }, {
+    "registered_utc": "2026-09-24T21:40:13.8018519Z",
+    "change": "Correct the original rounded registered time to the lead-observed numerical-task start time; no cases have been accepted from the sandbox run because its result write was denied."
+  }],
+  "benchmark": {
+    "small_slope": "sharp circular Bessel solution from linear_patch_benchmark.py",
+    "apex_H_over_C_source": "x*K1(x)",
+    "coat_mean_H_over_C_source": "2*I1(x)*K1(x)",
+    "reservoir_depth_over_c_repo_ell": "1-x*K1(x)",
+    "edge_depth_over_c_repo_ell": "x*K1(x)*(I0(x)-1)"
+  },
+  "acceptance_plan": "Require solver status 0, ODE residual <= 1e-4, BC/pole errors <= 1e-8, and stable apex under the registered mesh/cutoff/domain cases. Assess sharp-reference disagreement separately: only a decrease from width 0.02 to 0.005 supports the smooth-to-sharp limit. The coat mean can retain O(width) profile mismatch. Record all outcomes. No nonlinear reproduction or area-response claim follows from a passing small-amplitude check."
+}

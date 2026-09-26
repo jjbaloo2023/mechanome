@@ -1,0 +1,52 @@
+{
+  "observed_utc": "2026-09-24T23:11:57.172833+00:00",
+  "scope": "Independent formula, preservation and stored-result checks; no BVP rerun.",
+  "random_seed": 20260924,
+  "alpha_rhs_max_absolute_error": 0.0,
+  "pole_series_max_absolute_error": 3.308722450212111e-24,
+  "prior_artifacts_unchanged": {
+    "research/axisymmetric_passive.py": true,
+    "research/axisymmetric_design.json": true,
+    "research/AXISYMMETRIC_THEORY.md": true,
+    "research/axisymmetric_results_001.json": true,
+    "research/axisymmetric_amplitude_refinement.json": true,
+    "research/axisymmetric_passive_initial_snapshot.py": true,
+    "research/axisymmetric_design_initial_snapshot.json": true
+  },
+  "result_hashes_match": {
+    "research/axisymmetric_rho.py": true,
+    "research/axisymmetric_rho_design.json": true,
+    "research/axisymmetric_rho_snapshot.py": true,
+    "research/axisymmetric_rho_design_snapshot.json": true,
+    "research/axisymmetric_rho_source_snapshot.py": true,
+    "research/axisymmetric_rho_design_full_snapshot.json": true,
+    "research/axisymmetric_rho_source_execution_snapshot.py": true,
+    "research/axisymmetric_rho_frozen_002.py": true,
+    "research/axisymmetric_rho_design_frozen_002.json": true,
+    "research/axisymmetric_passive_initial_snapshot.py": true,
+    "research/axisymmetric_design_initial_snapshot.json": true,
+    "research/AXISYMMETRIC_THEORY.md": true
+  },
+  "accepted_prior_observable_absolute_errors": [
+    {
+      "apex_H_over_C_source": 6.3778575754014355e-09,
+      "coat_mean_H_over_C_source": 5.778719280868927e-09,
+      "reservoir_depth_over_c_repo_ell": 3.414396543277576e-09,
+      "edge_depth_over_c_repo_ell": 1.4955849891862272e-09
+    },
+    {
+      "apex_H_over_C_source": 3.217778821174022e-09,
+      "coat_mean_H_over_C_source": 2.468665494248512e-09,
+      "reservoir_depth_over_c_repo_ell": 1.3218481309529295e-09,
+      "edge_depth_over_c_repo_ell": 6.572754840394879e-10
+    }
+  ],
+  "combined_mesh_cutoff_observable_absolute_errors": {
+    "apex_H_over_C_source": 1.8373316201802936e-09,
+    "coat_mean_H_over_C_source": 1.0919771753492569e-09,
+    "reservoir_depth_over_c_repo_ell": 4.681494636393779e-10,
+    "edge_depth_over_c_repo_ell": 3.047846974801871e-10
+  },
+  "preserved_prior_failure_status": 1,
+  "all_registered_numerical_gates_passed": true
+}

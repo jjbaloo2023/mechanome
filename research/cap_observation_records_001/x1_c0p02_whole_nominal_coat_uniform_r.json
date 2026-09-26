@@ -1,0 +1,21 @@
+{
+  "status": "fit",
+  "label": "x1_c0.02",
+  "amplitude": 0.02,
+  "window": "whole_nominal_coat",
+  "weighting": "uniform_r",
+  "Rfit": 0.9999946570578958,
+  "alpha_support": 0.4999893142655572,
+  "state_sha256": "d88b85467a4eeb661336d1b5a12097e7d39987902c1452067a0a30386c644dcf",
+  "h": 0.006349900646081792,
+  "b": -1.6655198885038378e-05,
+  "rmse": 1.4947827752333056e-05,
+  "optimizer_success": true,
+  "flat_boundary": false,
+  "upper_boundary": false,
+  "objective_h0": 9.010076430818978e-07,
+  "h_over_Csource": 0.6349900646081792,
+  "apex_H_over_Csource": 0.6019350158362037,
+  "bias_over_Csource": 0.033055048771975494,
+  "record_id": "x1_c0p02_whole_nominal_coat_uniform_r"
+}

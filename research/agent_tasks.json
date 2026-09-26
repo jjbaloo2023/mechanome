@@ -1,0 +1,2375 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T14:10:04.790134+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "reviewed_observation_contract_enforced_without_geometry_migration",
+      "question": "Can the static LocMoFit adapter expose missing uncertainty and explicit geometry selection without changing the legacy default cohort or historical results?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/LOCMOFIT_OBSERVATION_CONTRACT.md",
+        "research/LOCMOFIT_OBSERVATION_REVIEW.md",
+        "validation/realdata/ingest_smlm_locmofit.py"
+      ],
+      "expected_outcomes": [
+        "reviewed compatible contract cleanup",
+        "specific consumer compatibility obstacle"
+      ],
+      "acceptance_checks": [
+        "actual consumer inventory before changes",
+        "legacy default raw cohort preserved",
+        "missing uncertainty explicit and cannot supply default calibrated weights",
+        "source raw/corrected geometry and flags retained",
+        "strict serialization/provenance",
+        "targeted new and relevant existing tests",
+        "independent review"
+      ],
+      "stop_condition": "One reviewed adapter contract change; no empirical refits, BVP or framework rewrite. Implementation cutoff14:23:43 UTC; checkpoint14:28:43 UTC.",
+      "task_id": "locmofit-adapter-001",
+      "role": "lead",
+      "owned_files": [
+        "research/LOCMOFIT_ADAPTER_CLEANUP.md",
+        "research/locmofit_adapter_validation.json",
+        "validation/realdata/smlm_pseudotime.py",
+        "validation/realdata/smlm_shape_energetics.py",
+        "validation/realdata/smlm_mechanism.py",
+        "tests/test_smlm_mechanism.py",
+        "tests/test_smlm_shape_energetics.py",
+        "tests/test_smlm_consumer_contract.py",
+        "research/locmofit_adapter_design.json",
+        "research/check_locmofit_adapter.py",
+        "research/locmofit_adapter_checks_final.json",
+        "research/locmofit_adapter_manifest.json"
+      ],
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "agent_id": "/root",
+      "status_observed_at_utc": "2026-09-26T14:22:57.375859+00:00",
+      "lead_disposition": "Accept bounded adapter/consumer cleanup. Missing errors explicit, legacyrawcohort preserved, public fitentrypoints require exploratory opt-in; no calibrated empirical claim.",
+      "validation": "18 passed,4 skipped; final8adaptertests passed;23hashverifiedtables compared toprechange adapter;9numericalhelperASTequal; CLIhelp andwhitespacepass.",
+      "artifact_paths": [
+        "research/LOCMOFIT_ADAPTER_CLEANUP.md",
+        "research/LOCMOFIT_ADAPTER_REVIEW.md",
+        "research/locmofit_adapter_design.json",
+        "research/check_locmofit_adapter.py",
+        "research/locmofit_adapter_validation.json",
+        "research/locmofit_adapter_checks_final.json",
+        "validation/realdata/ingest_smlm_locmofit.py",
+        "validation/realdata/smlm_pseudotime.py",
+        "validation/realdata/smlm_shape_energetics.py",
+        "validation/realdata/smlm_mechanism.py",
+        "tests/test_locmofit_contract.py",
+        "tests/test_smlm_consumer_contract.py",
+        "tests/test_smlm_mechanism.py",
+        "tests/test_smlm_shape_energetics.py",
+        "research/locmofit_adapter_manifest.json"
+      ],
+      "scope_amendment": "Actualconsumers build their ownlikelihood scales; lead added narrow consumer gates and provenance after inventory, without changing numericalhelperformulas."
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T14:10:04.790134+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "reviewed_observation_contract_enforced_without_geometry_migration",
+      "question": "Can the static LocMoFit adapter expose missing uncertainty and explicit geometry selection without changing the legacy default cohort or historical results?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/LOCMOFIT_OBSERVATION_CONTRACT.md",
+        "research/LOCMOFIT_OBSERVATION_REVIEW.md",
+        "validation/realdata/ingest_smlm_locmofit.py"
+      ],
+      "expected_outcomes": [
+        "reviewed compatible contract cleanup",
+        "specific consumer compatibility obstacle"
+      ],
+      "acceptance_checks": [
+        "actual consumer inventory before changes",
+        "legacy default raw cohort preserved",
+        "missing uncertainty explicit and cannot supply default calibrated weights",
+        "source raw/corrected geometry and flags retained",
+        "strict serialization/provenance",
+        "targeted new and relevant existing tests",
+        "independent review"
+      ],
+      "stop_condition": "One reviewed adapter contract change; no empirical refits, BVP or framework rewrite. Implementation cutoff14:23:43 UTC; checkpoint14:28:43 UTC.",
+      "task_id": "locmofit-adapter-code-001",
+      "role": "implementation",
+      "owned_files": [
+        "validation/realdata/ingest_smlm_locmofit.py",
+        "tests/test_locmofit_contract.py"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "agent_id": "/root/locmofit_adapter_code_001",
+      "status_observed_at_utc": "2026-09-26T14:22:57.375859+00:00",
+      "lead_disposition": "Accept after same-attempt corrections tointrinsicfitparameter prose,missingflags,optionalrim,selectionprovenance,Booleanoptin andnegative-rawcorrectedflatfixture. Defaultuncertainty change isintentional anddocumented.",
+      "validation": "18 passed,4 skipped; final8adaptertests passed;23hashverifiedtables compared toprechange adapter;9numericalhelperASTequal; CLIhelp andwhitespacepass.",
+      "artifact_paths": [
+        "validation/realdata/ingest_smlm_locmofit.py",
+        "tests/test_locmofit_contract.py"
+      ]
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T14:10:04.790134+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "reviewed_observation_contract_enforced_without_geometry_migration",
+      "question": "Can the static LocMoFit adapter expose missing uncertainty and explicit geometry selection without changing the legacy default cohort or historical results?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/LOCMOFIT_OBSERVATION_CONTRACT.md",
+        "research/LOCMOFIT_OBSERVATION_REVIEW.md",
+        "validation/realdata/ingest_smlm_locmofit.py"
+      ],
+      "expected_outcomes": [
+        "reviewed compatible contract cleanup",
+        "specific consumer compatibility obstacle"
+      ],
+      "acceptance_checks": [
+        "actual consumer inventory before changes",
+        "legacy default raw cohort preserved",
+        "missing uncertainty explicit and cannot supply default calibrated weights",
+        "source raw/corrected geometry and flags retained",
+        "strict serialization/provenance",
+        "targeted new and relevant existing tests",
+        "independent review"
+      ],
+      "stop_condition": "One reviewed adapter contract change; no empirical refits, BVP or framework rewrite. Implementation cutoff14:23:43 UTC; checkpoint14:28:43 UTC.",
+      "task_id": "locmofit-adapter-review-001",
+      "role": "independent-review",
+      "owned_files": [
+        "research/LOCMOFIT_ADAPTER_REVIEW.md"
+      ],
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "agent_id": "/root/locmofit_adapter_review_001",
+      "status_observed_at_utc": "2026-09-26T14:22:57.375859+00:00",
+      "lead_disposition": "Accept independentreview and explicitcached-integration-test limitation. Coverage mappingwording corrected; original numericaloutputs preserved.",
+      "validation": "18 passed,4 skipped; final8adaptertests passed;23hashverifiedtables compared toprechange adapter;9numericalhelperASTequal; CLIhelp andwhitespacepass.",
+      "artifact_paths": [
+        "research/LOCMOFIT_ADAPTER_REVIEW.md"
+      ]
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T03:46:50.408206+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "descriptive_contract_accepted_empirical_bridge_stopped",
+      "question": "What primary-source observation contract connects public LocMoFit cap-fit tables to the passive shape surrogate?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/DATA_AUDIT.md",
+        "research/FIRST_COMPARISON.md",
+        "validation/realdata/ingest_smlm_locmofit.py"
+      ],
+      "expected_outcomes": [
+        "checked descriptive-only contract",
+        "minimal justified forward observation specification",
+        "processed-input insufficiency"
+      ],
+      "acceptance_checks": [
+        "primary source locators and version limitations",
+        "separate measured fitted derived quantities",
+        "source versus adapter assumptions",
+        "independent review"
+      ],
+      "stop_condition": "One reviewed observation contract or concrete insufficiency; no raw microscopy, empirical mechanism fit or new synthetic sweep; research stop 04:00:37 UTC and checkpoint by 04:05:37 UTC",
+      "task_id": "locmofit-contract-001",
+      "role": "lead",
+      "agent_id": "/root",
+      "owned_files": [
+        "research/LOCMOFIT_OBSERVATION_CONTRACT.md",
+        "research/locmofit_contract_design.json",
+        "research/check_locmofit_contract.py",
+        "research/locmofit_contract_checks.json",
+        "research/locmofit_projection_amendment.json",
+        "research/check_locmofit_projection.py",
+        "research/locmofit_projection_checks.json",
+        "research/locmofit_cap_source_current.m",
+        "research/locmofit_cap_source_current_provenance.json",
+        "research/locmofit_contract_manifest.json"
+      ],
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "status_observed_at_utc": "2026-09-25T03:58:34.361009+00:00",
+      "lead_disposition": "Accept within descriptive scope; preserve missing empirical inputs and historical-version uncertainty. No calibrated mechanism inference or further synthetic sweep.",
+      "validation": "Primary-source cross-check, independent review,23tablehashes,geometry identities,overhang counts,currentcap blob checked; original rim-disk failure preserved.",
+      "artifact_paths": [
+        "research/LOCMOFIT_OBSERVATION_CONTRACT.md",
+        "research/LOCMOFIT_OBSERVATION_SOURCE.md",
+        "research/LOCMOFIT_OBSERVATION_REVIEW.md",
+        "research/locmofit_contract_design.json",
+        "research/check_locmofit_contract.py",
+        "research/locmofit_contract_checks.json",
+        "research/locmofit_projection_amendment.json",
+        "research/check_locmofit_projection.py",
+        "research/locmofit_projection_checks.json",
+        "research/locmofit_cap_source_current.m",
+        "research/locmofit_cap_source_current_provenance.json",
+        "research/metadata/locmofit-contract-001/source_ledger.json",
+        "research/locmofit_contract_manifest.json"
+      ]
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T03:46:50.408206+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "descriptive_contract_accepted_empirical_bridge_stopped",
+      "question": "What primary-source observation contract connects public LocMoFit cap-fit tables to the passive shape surrogate?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/DATA_AUDIT.md",
+        "research/FIRST_COMPARISON.md",
+        "validation/realdata/ingest_smlm_locmofit.py"
+      ],
+      "expected_outcomes": [
+        "checked descriptive-only contract",
+        "minimal justified forward observation specification",
+        "processed-input insufficiency"
+      ],
+      "acceptance_checks": [
+        "primary source locators and version limitations",
+        "separate measured fitted derived quantities",
+        "source versus adapter assumptions",
+        "independent review"
+      ],
+      "stop_condition": "One reviewed observation contract or concrete insufficiency; no raw microscopy, empirical mechanism fit or new synthetic sweep; research stop 04:00:37 UTC and checkpoint by 04:05:37 UTC",
+      "task_id": "locmofit-source-001",
+      "role": "source",
+      "agent_id": "/root/locmofit_source_001",
+      "owned_files": [
+        "research/LOCMOFIT_OBSERVATION_SOURCE.md",
+        "research/metadata/locmofit-contract-001/"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "status_observed_at_utc": "2026-09-25T03:58:34.361009+00:00",
+      "lead_disposition": "Accept pinned-current-source evidence separately from unpinned historical analysis; corrected stale hash null and absent simulation-information wording. Lead independently verified cap blob; no code executed.",
+      "validation": "Primary-source cross-check, independent review,23tablehashes,geometry identities,overhang counts,currentcap blob checked; original rim-disk failure preserved."
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T03:46:50.408206+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "descriptive_contract_accepted_empirical_bridge_stopped",
+      "question": "What primary-source observation contract connects public LocMoFit cap-fit tables to the passive shape surrogate?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/DATA_AUDIT.md",
+        "research/FIRST_COMPARISON.md",
+        "validation/realdata/ingest_smlm_locmofit.py"
+      ],
+      "expected_outcomes": [
+        "checked descriptive-only contract",
+        "minimal justified forward observation specification",
+        "processed-input insufficiency"
+      ],
+      "acceptance_checks": [
+        "primary source locators and version limitations",
+        "separate measured fitted derived quantities",
+        "source versus adapter assumptions",
+        "independent review"
+      ],
+      "stop_condition": "One reviewed observation contract or concrete insufficiency; no raw microscopy, empirical mechanism fit or new synthetic sweep; research stop 04:00:37 UTC and checkpoint by 04:05:37 UTC",
+      "task_id": "locmofit-review-001",
+      "role": "independent-review",
+      "agent_id": "/root/full_shape_mapping_001",
+      "owned_files": [
+        "research/LOCMOFIT_OBSERVATION_REVIEW.md"
+      ],
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "dispatch_limitation": "Prior reviewer restart and new reviewer spawn hit agent thread limit; reused completed full_shape_mapping_001 with existing Sol high profile.",
+      "status_observed_at_utc": "2026-09-25T03:58:34.361009+00:00",
+      "lead_disposition": "Accept independent review. Corrected overly strong fitted-area equality wording before closure; source/per-site calibration distinction retained.",
+      "validation": "Primary-source cross-check, independent review,23tablehashes,geometry identities,overhang counts,currentcap blob checked; original rim-disk failure preserved."
+    },
+    {
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-25T03:02:00.366092+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/passive_area_results_001.json",
+        "research/passive_area_states_001/",
+        "research/axisymmetric_rho_frozen_002.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "corrected_synthetic_fixed_window_ordering_preserved",
+      "question": "How do finite radial windows and weighting change cap-fitted curvature and the sampled passive area ordering?",
+      "expected_outcomes": [
+        "ordering robust in declared surrogate",
+        "window dependent ordering or bias",
+        "failed control or unresolved fit"
+      ],
+      "acceptance_checks": [
+        "exact sphere and flat controls first",
+        "stable cap function with free offset",
+        "physical window and weighting explicit",
+        "frozen source/design and input hashes",
+        "deadline before each fit and durable exclusive records",
+        "fit convergence and bounds retained",
+        "independent review"
+      ],
+      "stop_condition": "At most48membrane fits plus small analytic controls; no BVP or empirical/noise fit; computation deadline03:10:12UTC and checkpoint03:16:12UTC",
+      "task_id": "cap-observation-numerical-001",
+      "role": "numerical",
+      "agent_id": "/root/axisymmetric_numerical_001",
+      "owned_files": [
+        "research/cap_observation_v2.py",
+        "research/cap_observation_design_002.json",
+        "research/cap_observation_source_frozen_002.py",
+        "research/cap_observation_design_frozen_002.json",
+        "research/cap_observation_results_002.json",
+        "research/cap_observation_records_002/",
+        "research/CAP_OBSERVATION_NUMERICAL.md",
+        "tests/test_cap_observation_v2.py"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-25T03:11:55.754173+00:00",
+      "lead_disposition": "Accept corrected numerical attempt2 only; first attempt rejected. Synthetic vertical-fit scope, unequal whole-coat supports distinguished; no empirical or biological claim.",
+      "validation": "48 fits and4controls; independent401-node stationarity/analytic bias checks;2 corrected tests passed0.82s; exact frozen hashes",
+      "artifact_paths": [
+        "research/cap_observation_v2.py",
+        "research/cap_observation_design_002.json",
+        "research/cap_observation_source_frozen_002.py",
+        "research/cap_observation_design_frozen_002.json",
+        "research/cap_observation_results_002.json",
+        "research/cap_observation_records_002/",
+        "research/CAP_OBSERVATION_NUMERICAL.md",
+        "tests/test_cap_observation_v2.py"
+      ]
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T02:57:08.985572+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/passive_area_results_001.json",
+        "research/passive_area_states_001/",
+        "research/axisymmetric_rho_frozen_002.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "corrected_synthetic_fixed_window_ordering_preserved",
+      "question": "How do finite radial windows and weighting change cap-fitted curvature and the sampled passive area ordering?",
+      "expected_outcomes": [
+        "ordering robust in declared surrogate",
+        "window dependent ordering or bias",
+        "failed control or unresolved fit"
+      ],
+      "acceptance_checks": [
+        "exact sphere and flat controls first",
+        "stable cap function with free offset",
+        "physical window and weighting explicit",
+        "frozen source/design and input hashes",
+        "deadline before each fit and durable exclusive records",
+        "fit convergence and bounds retained",
+        "independent review"
+      ],
+      "stop_condition": "At most48membrane fits plus small analytic controls; no BVP or empirical/noise fit; computation deadline03:10:12UTC and checkpoint03:16:12UTC",
+      "task_id": "cap-observation-001",
+      "role": "lead_synthesis",
+      "agent_id": null,
+      "owned_files": [
+        "research/CAP_OBSERVATION_FINDINGS.md",
+        "research/cap_observation_lead_checks.json",
+        "research/cap_observation_lead_design.json",
+        "research/check_cap_observation.py"
+      ],
+      "status_observed_at_utc": "2026-09-25T03:11:55.754173+00:00",
+      "lead_disposition": "Accept corrected numerical attempt2 only; first attempt rejected. Synthetic vertical-fit scope, unequal whole-coat supports distinguished; no empirical or biological claim.",
+      "validation": "48 fits and4controls; independent401-node stationarity/analytic bias checks;2 corrected tests passed0.82s; exact frozen hashes",
+      "artifact_paths": [
+        "research/CAP_OBSERVATION_FINDINGS.md",
+        "research/cap_observation_lead_checks.json",
+        "research/cap_observation_lead_design.json",
+        "research/check_cap_observation.py"
+      ]
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T02:57:08.985572+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/passive_area_results_001.json",
+        "research/passive_area_states_001/",
+        "research/axisymmetric_rho_frozen_002.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "corrected_synthetic_fixed_window_ordering_preserved",
+      "question": "How do finite radial windows and weighting change cap-fitted curvature and the sampled passive area ordering?",
+      "expected_outcomes": [
+        "ordering robust in declared surrogate",
+        "window dependent ordering or bias",
+        "failed control or unresolved fit"
+      ],
+      "acceptance_checks": [
+        "exact sphere and flat controls first",
+        "stable cap function with free offset",
+        "physical window and weighting explicit",
+        "frozen source/design and input hashes",
+        "deadline before each fit and durable exclusive records",
+        "fit convergence and bounds retained",
+        "independent review"
+      ],
+      "stop_condition": "At most48membrane fits plus small analytic controls; no BVP or empirical/noise fit; computation deadline03:10:12UTC and checkpoint03:16:12UTC",
+      "task_id": "cap-observation-theory-001",
+      "role": "theory_and_independent_review",
+      "agent_id": "/root/axisymmetric_theory_001",
+      "owned_files": [
+        "research/CAP_OBSERVATION_THEORY.md",
+        "research/CAP_OBSERVATION_REVIEW.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-25T03:11:55.754173+00:00",
+      "lead_disposition": "Accept corrected numerical attempt2 only; first attempt rejected. Synthetic vertical-fit scope, unequal whole-coat supports distinguished; no empirical or biological claim.",
+      "validation": "48 fits and4controls; independent401-node stationarity/analytic bias checks;2 corrected tests passed0.82s; exact frozen hashes",
+      "artifact_paths": [
+        "research/CAP_OBSERVATION_THEORY.md",
+        "research/CAP_OBSERVATION_REVIEW.md"
+      ]
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T02:57:08.985572+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/passive_area_results_001.json",
+        "research/passive_area_states_001/",
+        "research/axisymmetric_rho_frozen_002.py"
+      ],
+      "execution_status": "completed_invalid_result",
+      "scientific_outcome": "inverse_coordinate_bug_invalidates_fit_values",
+      "question": "How do finite radial windows and weighting change cap-fitted curvature and the sampled passive area ordering?",
+      "expected_outcomes": [
+        "ordering robust in declared surrogate",
+        "window dependent ordering or bias",
+        "failed control or unresolved fit"
+      ],
+      "acceptance_checks": [
+        "exact sphere and flat controls first",
+        "stable cap function with free offset",
+        "physical window and weighting explicit",
+        "frozen source/design and input hashes",
+        "deadline before each fit and durable exclusive records",
+        "fit convergence and bounds retained",
+        "independent review"
+      ],
+      "stop_condition": "At most48membrane fits plus small analytic controls; no BVP or empirical/noise fit; computation deadline03:10:12UTC and checkpoint03:16:12UTC",
+      "task_id": "cap-observation-numerical-001",
+      "role": "numerical",
+      "agent_id": "/root/axisymmetric_numerical_001",
+      "owned_files": [
+        "research/cap_observation.py",
+        "research/cap_observation_design.json",
+        "research/cap_observation_source_frozen_001.py",
+        "research/cap_observation_design_frozen_001.json",
+        "research/cap_observation_results_001.json",
+        "research/cap_observation_records_001/",
+        "research/CAP_OBSERVATION_NUMERICAL.md",
+        "tests/test_cap_observation.py"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-25T03:02:00.366092+00:00",
+      "lead_disposition": "Reject physical fit values; preserve all artifacts. Controls did not exercise inverse map. Correct within same stage as bounded attempt2."
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T00:46:58.275756+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/AXISYMMETRIC_RHO_REVIEW.md",
+        "research/axisymmetric_rho_frozen_002.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "reviewed_sampled_ordering_preserved",
+      "question": "Does passive apex curvature decrease with material coat area along a bounded moderate-deformation branch?",
+      "expected_outcomes": [
+        "sampled sign preserved",
+        "sampled reversal",
+        "inconclusive stopped sequence"
+      ],
+      "acceptance_checks": [
+        "exact source/design freeze before solves",
+        "continuation from accepted smaller amplitude",
+        "enforced subprocess timeout",
+        "ODE BC axial-force gates",
+        "material/projected area and depth definitions",
+        "slope/geometry stopping rules",
+        "one strongest-case sensitivity",
+        "independent implementation review",
+        "independent spline quadrature of coat mean and projected-area identity"
+      ],
+      "stop_condition": "At most12base solves plus1sensitivity; stop individual sequence on failure or maxabspsi>=.6; checkpoint by2026-09-25T01:05:39Z; no next physics stage",
+      "task_id": "passive-area-sign-001",
+      "role": "lead_synthesis",
+      "agent_id": null,
+      "owned_files": [
+        "research/PASSIVE_AREA_FINDINGS.md",
+        "research/passive_area_lead_checks.json",
+        "research/check_passive_area.py",
+        "research/passive_area_comparison.png",
+        "research/passive_area_lead_design.json",
+        "research/render_passive_area.py"
+      ],
+      "status_observed_at_utc": "2026-09-25T02:25:07.361801+00:00",
+      "lead_disposition": "Accepted sampled negative apex-area ordering only, with documented missing jump gate and execution limits; no global/stability/biological claim",
+      "artifact_paths": [
+        "research/PASSIVE_AREA_FINDINGS.md",
+        "research/check_passive_area.py",
+        "research/passive_area_lead_checks.json",
+        "research/render_passive_area.py",
+        "research/passive_area_comparison.png"
+      ],
+      "current_cycle_stop": "Review saved attempt1 only; no new BVP solves; checkpoint by2026-09-25T02:29:47Z",
+      "validation": "13 saved states; hashes/seed provenance and geometry checks pass; 3 mocked tests passed2.87s; no BVP rerun"
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T00:46:58.275756+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/AXISYMMETRIC_RHO_REVIEW.md",
+        "research/axisymmetric_rho_frozen_002.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "saved_result_checks_accepted",
+      "question": "Does passive apex curvature decrease with material coat area along a bounded moderate-deformation branch?",
+      "expected_outcomes": [
+        "sampled sign preserved",
+        "sampled reversal",
+        "inconclusive stopped sequence"
+      ],
+      "acceptance_checks": [
+        "exact source/design freeze before solves",
+        "continuation from accepted smaller amplitude",
+        "enforced subprocess timeout",
+        "ODE BC axial-force gates",
+        "material/projected area and depth definitions",
+        "slope/geometry stopping rules",
+        "one strongest-case sensitivity",
+        "independent implementation review"
+      ],
+      "stop_condition": "At most12base solves plus1sensitivity; stop individual sequence on failure or maxabspsi>=.6; checkpoint by2026-09-25T01:05:39Z; no next physics stage",
+      "task_id": "passive-area-theory-001",
+      "role": "theory_and_independent_review",
+      "agent_id": "/root/axisymmetric_theory_001",
+      "owned_files": [
+        "research/PASSIVE_AREA_THEORY.md",
+        "research/PASSIVE_AREA_REVIEW.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-25T02:25:07.361801+00:00",
+      "lead_disposition": "Accepted sampled negative apex-area ordering only, with documented missing jump gate and execution limits; no global/stability/biological claim",
+      "artifact_paths": [
+        "research/PASSIVE_AREA_THEORY.md",
+        "research/PASSIVE_AREA_REVIEW.md"
+      ],
+      "current_cycle_stop": "Review saved attempt1 only; no new BVP solves; checkpoint by2026-09-25T02:29:47Z",
+      "validation": "13 saved states; hashes/seed provenance and geometry checks pass; 3 mocked tests passed2.87s; no BVP rerun",
+      "review_document_task_id_alias": "passive-area-review-001 within theory/review assignment, not a third worker"
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-25T00:46:58.275756+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/AXISYMMETRIC_RHO_REVIEW.md",
+        "research/axisymmetric_rho_frozen_002.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "saved_result_checks_accepted",
+      "question": "Does passive apex curvature decrease with material coat area along a bounded moderate-deformation branch?",
+      "expected_outcomes": [
+        "sampled sign preserved",
+        "sampled reversal",
+        "inconclusive stopped sequence"
+      ],
+      "acceptance_checks": [
+        "exact source/design freeze before solves",
+        "continuation from accepted smaller amplitude",
+        "enforced subprocess timeout",
+        "ODE BC axial-force gates",
+        "material/projected area and depth definitions",
+        "slope/geometry stopping rules",
+        "one strongest-case sensitivity",
+        "independent implementation review"
+      ],
+      "stop_condition": "At most12base solves plus1sensitivity; stop individual sequence on failure or maxabspsi>=.6; checkpoint by2026-09-25T01:05:39Z; no next physics stage",
+      "task_id": "passive-area-numerical-001",
+      "role": "numerical",
+      "agent_id": "/root/axisymmetric_numerical_001",
+      "owned_files": [
+        "research/passive_area_sign.py",
+        "research/passive_area_design.json",
+        "research/passive_area_results_001.json",
+        "research/passive_area_source_frozen_001.py",
+        "research/passive_area_design_frozen_001.json",
+        "research/PASSIVE_AREA_NUMERICAL.md",
+        "tests/test_passive_area_sign.py",
+        "research/passive_area_states_001/"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-25T02:25:07.361801+00:00",
+      "lead_disposition": "Accepted sampled negative apex-area ordering only, with documented missing jump gate and execution limits; no global/stability/biological claim",
+      "artifact_paths": [
+        "research/passive_area_sign.py",
+        "research/passive_area_design.json",
+        "research/passive_area_source_frozen_001.py",
+        "research/passive_area_design_frozen_001.json",
+        "research/passive_area_results_001.json",
+        "research/passive_area_states_001/",
+        "research/passive_area_execution_audit.json",
+        "research/PASSIVE_AREA_NUMERICAL.md",
+        "tests/test_passive_area_sign.py"
+      ],
+      "execution_note": "Outer cell65 termination did not halt descendant work; transient empty JSON/no-sensitivity claims superseded by complete artifacts and no remaining matching process.",
+      "current_cycle_stop": "Review saved attempt1 only; no new BVP solves; checkpoint by2026-09-25T02:29:47Z",
+      "validation": "13 saved states; hashes/seed provenance and geometry checks pass; 3 mocked tests passed2.87s; no BVP rerun"
+    },
+    {
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-24T23:02:59.983548+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/axisymmetric_passive.py",
+        "research/axisymmetric_amplitude_refinement.json"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "reviewed_coordinate_repair_completed",
+      "stop_condition": "Reviewed coordinate repair or documented failure; checkpoint by 2026-09-24T23:18:28Z; no new physics stage",
+      "expected_outcomes": [
+        "equivalent accepted cases plus repaired failure",
+        "equivalence only with failure unresolved",
+        "failed validation"
+      ],
+      "acceptance_checks": [
+        "frozen source and design before run",
+        "transformed ODE and unchanged material coat",
+        "real subprocess timeout",
+        "prior accepted tight observables reproduced",
+        "residual BC force balance and cutoff sensitivity",
+        "independent implementation review"
+      ],
+      "task_id": "axisymmetric-passive-001",
+      "role": "lead_synthesis",
+      "question": "Can rho=sqrt(2 alpha) preserve accepted shallow solutions and repair tight .02 node-limit failure?",
+      "owned_files": [
+        "research/AXISYMMETRIC_RHO_FINDINGS.md",
+        "research/axisymmetric_rho_lead_checks.json"
+      ],
+      "agent_id": null,
+      "status_observed_at_utc": "2026-09-25T00:00:21.264304+00:00",
+      "lead_disposition": "Accepted coordinate-equivalent conditioning repair only; independent review completed; no further physics stage started",
+      "artifact_paths": [
+        "research/AXISYMMETRIC_RHO_FINDINGS.md",
+        "research/axisymmetric_rho_lead_checks.json",
+        "research/check_axisymmetric_rho.py",
+        "research/axisymmetric_rho_prior_manifest.json"
+      ]
+    },
+    {
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-24T23:02:59.983548+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/axisymmetric_passive.py",
+        "research/axisymmetric_amplitude_refinement.json"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "theory_and_independent_implementation_review_accepted",
+      "stop_condition": "Reviewed coordinate repair or documented failure; checkpoint by 2026-09-24T23:18:28Z; no new physics stage",
+      "expected_outcomes": [
+        "equivalent accepted cases plus repaired failure",
+        "equivalence only with failure unresolved",
+        "failed validation"
+      ],
+      "acceptance_checks": [
+        "frozen source and design before run",
+        "transformed ODE and unchanged material coat",
+        "real subprocess timeout",
+        "prior accepted tight observables reproduced",
+        "residual BC force balance and cutoff sensitivity",
+        "independent implementation review"
+      ],
+      "task_id": "axisymmetric-rho-theory-001",
+      "role": "theory_and_independent_review",
+      "question": "Can rho=sqrt(2 alpha) preserve accepted shallow solutions and repair tight .02 node-limit failure?",
+      "owned_files": [
+        "research/AXISYMMETRIC_RHO_THEORY.md",
+        "research/AXISYMMETRIC_RHO_REVIEW.md"
+      ],
+      "agent_id": "/root/axisymmetric_theory_001",
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-25T00:00:21.264304+00:00",
+      "lead_disposition": "Accepted coordinate-equivalent conditioning repair only; independent review completed; no further physics stage started",
+      "artifact_paths": [
+        "research/AXISYMMETRIC_RHO_THEORY.md",
+        "research/AXISYMMETRIC_RHO_REVIEW.md"
+      ],
+      "review_document_task_id_alias": "axisymmetric-rho-review-001"
+    },
+    {
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-24T23:02:59.983548+00:00",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/axisymmetric_passive.py",
+        "research/axisymmetric_amplitude_refinement.json"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "four_coordinate_repair_cases_passed",
+      "stop_condition": "Reviewed coordinate repair or documented failure; checkpoint by 2026-09-24T23:18:28Z; no new physics stage",
+      "expected_outcomes": [
+        "equivalent accepted cases plus repaired failure",
+        "equivalence only with failure unresolved",
+        "failed validation"
+      ],
+      "acceptance_checks": [
+        "frozen source and design before run",
+        "transformed ODE and unchanged material coat",
+        "real subprocess timeout",
+        "prior accepted tight observables reproduced",
+        "residual BC force balance and cutoff sensitivity",
+        "independent implementation review"
+      ],
+      "task_id": "axisymmetric-rho-numerical-001",
+      "role": "numerical",
+      "question": "Can rho=sqrt(2 alpha) preserve accepted shallow solutions and repair tight .02 node-limit failure?",
+      "owned_files": [
+        "research/axisymmetric_rho.py",
+        "research/axisymmetric_rho_design.json",
+        "research/axisymmetric_rho_results_002.json",
+        "research/axisymmetric_rho_snapshot.py",
+        "research/axisymmetric_rho_design_snapshot.json",
+        "research/AXISYMMETRIC_RHO_NUMERICAL.md",
+        "tests/test_axisymmetric_rho.py"
+      ],
+      "agent_id": "/root/axisymmetric_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-25T00:00:21.264304+00:00",
+      "lead_disposition": "Accepted coordinate-equivalent conditioning repair only; independent review completed; no further physics stage started",
+      "validation": "3 focused tests passed in1.44s (worker report); independent lead check passed; original artifacts unchanged",
+      "historical_result_task_id_alias": "axisymmetric-passive-rho-002",
+      "artifact_paths": [
+        "research/axisymmetric_rho.py",
+        "research/axisymmetric_rho_design.json",
+        "research/axisymmetric_rho_results_002.json",
+        "research/axisymmetric_rho_snapshot.py",
+        "research/axisymmetric_rho_design_snapshot.json",
+        "research/AXISYMMETRIC_RHO_NUMERICAL.md",
+        "tests/test_axisymmetric_rho.py",
+        "research/axisymmetric_rho_frozen_002.py",
+        "research/axisymmetric_rho_design_frozen_002.json"
+      ]
+    },
+    {
+      "task_id": "axisymmetric-amplitude-001",
+      "attempt_number": 1,
+      "role": "numerical_followup",
+      "agent_id": "/root/axisymmetric_numerical_001",
+      "question": "Does tighter tolerance resolve the nonlinear amplitude approach to the smooth linear reference?",
+      "registered_at_utc": "2026-09-24T21:42:52.537982+00:00",
+      "inputs": [
+        "research/axisymmetric_results_001.json",
+        "research/axisymmetric_passive.py"
+      ],
+      "design": {
+        "x": 1,
+        "width_alpha": 0.01,
+        "outer_radius": 14,
+        "alpha_cutoff": 1e-06,
+        "nodes": 801,
+        "tol": 1e-08,
+        "c_repo_ell": [
+          0.02,
+          0.01,
+          0.005
+        ]
+      },
+      "acceptance_checks": [
+        "allresultspreserved",
+        "solverresidualandBCpass",
+        "smoothreferenceerrorapproachesquadraticamplitudescale or remains explicitlyunresolved",
+        "actualruntime/sourcehashes"
+      ],
+      "expected_outcomes": [
+        "amplitudeasymptoticresolved",
+        "precisionfloorunresolved",
+        "failedrefinement"
+      ],
+      "stop_condition": "Threecases only, about2min before finalreview; no additionalphysics",
+      "owned_files": [
+        "research/axisymmetric_amplitude_refinement.json"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "two_refinements_passed_one_node_limit_failure_preserved",
+      "status_observed_at_utc": "2026-09-24T21:49:29+00:00",
+      "artifact_paths": [
+        "research/axisymmetric_amplitude_refinement.json"
+      ],
+      "lead_disposition": "Accepted within shallow passive scope; failed tight .02 case excluded and retained; coordinate repair next"
+    },
+    {
+      "task_id": "axisymmetric-passive-theory-001",
+      "attempt_number": 1,
+      "role": "theory",
+      "question": "Derive tension sign and regular pole conditions for a passive area-coordinate BVP.",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/FULL_SHAPE_REVIEW.md",
+        "research/linear_patch_results.json"
+      ],
+      "owned_files": [
+        "research/AXISYMMETRIC_THEORY.md"
+      ],
+      "expected_outcomes": [
+        "validated small-amplitude BVP",
+        "concrete failed validation",
+        "unresolved source convention"
+      ],
+      "acceptance_checks": [
+        "variational tension sign",
+        "regular pole expansion and cutoff sensitivity",
+        "source/repo factor2 mapping",
+        "registered design before computation",
+        "ODE/BC residuals and convergence",
+        "separate smoothing/domain/amplitude/discretization effects",
+        "same geometry observable",
+        "independent review before acceptance"
+      ],
+      "registered_at_utc": "2026-09-24T21:33:27.690466+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "energy_sign_pole_series_and_force_integral_verified",
+      "stop_condition": "One small-amplitude validation or documented failure; checkpoint by2026-09-24T21:52:06Z; no large-deformation sweep or recursive workers",
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "agent_id": "/root/axisymmetric_theory_001",
+      "status_observed_at_utc": "2026-09-24T21:49:29+00:00",
+      "artifact_paths": [
+        "research/AXISYMMETRIC_THEORY.md"
+      ],
+      "lead_disposition": "Accepted within shallow passive scope; failed tight .02 case excluded and retained; coordinate repair next"
+    },
+    {
+      "task_id": "axisymmetric-passive-numerical-001",
+      "attempt_number": 1,
+      "role": "numerical",
+      "question": "Implement and validate the smallest passive nonlinear solver against the analytic small-amplitude benchmark.",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/FULL_SHAPE_REVIEW.md",
+        "research/linear_patch_results.json"
+      ],
+      "owned_files": [
+        "research/axisymmetric_passive.py",
+        "research/axisymmetric_design.json",
+        "research/axisymmetric_results_001.json",
+        "research/AXISYMMETRIC_NUMERICAL.md",
+        "tests/test_axisymmetric_passive.py",
+        "research/axisymmetric_passive_initial_snapshot.py",
+        "research/axisymmetric_design_initial_snapshot.json",
+        "research/axisymmetric_amplitude_refinement.json"
+      ],
+      "expected_outcomes": [
+        "validated small-amplitude BVP",
+        "concrete failed validation",
+        "unresolved source convention"
+      ],
+      "acceptance_checks": [
+        "variational tension sign",
+        "regular pole expansion and cutoff sensitivity",
+        "source/repo factor2 mapping",
+        "registered design before computation",
+        "ODE/BC residuals and convergence",
+        "separate smoothing/domain/amplitude/discretization effects",
+        "same geometry observable",
+        "independent review before acceptance"
+      ],
+      "registered_at_utc": "2026-09-24T21:33:27.690466+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "limited_shallow_benchmark_passed",
+      "stop_condition": "One small-amplitude validation or documented failure; checkpoint by2026-09-24T21:52:06Z; no large-deformation sweep or recursive workers",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "agent_id": "/root/axisymmetric_numerical_001",
+      "status_observed_at_utc": "2026-09-24T21:49:29+00:00",
+      "artifact_paths": [
+        "research/axisymmetric_passive.py",
+        "research/axisymmetric_design.json",
+        "research/axisymmetric_results_001.json",
+        "research/AXISYMMETRIC_NUMERICAL.md",
+        "tests/test_axisymmetric_passive.py",
+        "research/axisymmetric_passive_initial_snapshot.py",
+        "research/axisymmetric_design_initial_snapshot.json",
+        "research/axisymmetric_amplitude_refinement.json"
+      ],
+      "lead_disposition": "Accepted within shallow passive scope; failed tight .02 case excluded and retained; coordinate repair next",
+      "validation": "3 tests passed in5.69s;10 baseline solves success;2 tight successes and1 preserved failure; exact historical and current hashes checked"
+    },
+    {
+      "task_id": "axisymmetric-passive-review-001",
+      "attempt_number": 1,
+      "role": "reviewer",
+      "question": "Independently challenge conventions, boundary conditions and numerical evidence.",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/FULL_SHAPE_REVIEW.md",
+        "research/linear_patch_results.json"
+      ],
+      "owned_files": [
+        "research/AXISYMMETRIC_REVIEW.md"
+      ],
+      "expected_outcomes": [
+        "validated small-amplitude BVP",
+        "concrete failed validation",
+        "unresolved source convention"
+      ],
+      "acceptance_checks": [
+        "variational tension sign",
+        "regular pole expansion and cutoff sensitivity",
+        "source/repo factor2 mapping",
+        "registered design before computation",
+        "ODE/BC residuals and convergence",
+        "separate smoothing/domain/amplitude/discretization effects",
+        "same geometry observable",
+        "independent review before acceptance"
+      ],
+      "registered_at_utc": "2026-09-24T21:33:27.690466+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "accepted_limited_benchmark_rejected_failed_refinement",
+      "stop_condition": "One small-amplitude validation or documented failure; checkpoint by2026-09-24T21:52:06Z; no large-deformation sweep or recursive workers",
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "agent_id": "/root/axisymmetric_theory_001",
+      "status_observed_at_utc": "2026-09-24T21:49:29+00:00",
+      "execution_note": "Fresh reviewer spawn and existing reviewer restart both failed: agent thread limit reached. Theory specialist independently reviews numerical implementation; lead independently checks theory. Two specialists, not three.",
+      "artifact_paths": [
+        "research/AXISYMMETRIC_REVIEW.md"
+      ],
+      "lead_disposition": "Accepted within shallow passive scope; failed tight .02 case excluded and retained; coordinate repair next"
+    },
+    {
+      "task_id": "axisymmetric-passive-001",
+      "attempt_number": 1,
+      "role": "lead_synthesis",
+      "question": "Does the passive nonlinear BVP pass a limited, independently reviewed validation? ",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/FULL_SHAPE_REVIEW.md",
+        "research/linear_patch_results.json"
+      ],
+      "owned_files": [
+        "research/AXISYMMETRIC_FINDINGS.md",
+        "research/axisymmetric_lead_checks.json"
+      ],
+      "expected_outcomes": [
+        "validated small-amplitude BVP",
+        "concrete failed validation",
+        "unresolved source convention"
+      ],
+      "acceptance_checks": [
+        "variational tension sign",
+        "regular pole expansion and cutoff sensitivity",
+        "source/repo factor2 mapping",
+        "registered design before computation",
+        "ODE/BC residuals and convergence",
+        "separate smoothing/domain/amplitude/discretization effects",
+        "same geometry observable",
+        "independent review before acceptance"
+      ],
+      "registered_at_utc": "2026-09-24T21:33:27.692479+00:00",
+      "execution_status": "completed",
+      "scientific_outcome": "reviewed_solver_benchmark_conditioning_repair_next",
+      "stop_condition": "One small-amplitude validation or documented failure; checkpoint by2026-09-24T21:52:06Z; no large-deformation sweep or recursive workers",
+      "started_at_utc": "2026-09-24T21:32:06Z",
+      "agent_id": "/root",
+      "status_observed_at_utc": "2026-09-24T21:49:29+00:00",
+      "artifact_paths": [
+        "research/AXISYMMETRIC_FINDINGS.md",
+        "research/axisymmetric_lead_checks.json"
+      ],
+      "lead_disposition": "Accepted within shallow passive scope; failed tight .02 case excluded and retained; coordinate repair next"
+    },
+    {
+      "task_id": "cap-full-shape-benchmark-001",
+      "attempt_number": 1,
+      "role": "lead_numerical",
+      "question": "How do cap and infinite-reservoir linear membrane apex, coat-mean curvature and depth differ under identical force-free inputs?",
+      "inputs": [
+        "own linear Helfrich derivation",
+        "curvo/evaluator_tier0.py"
+      ],
+      "registered_at_utc": "2026-09-23T11:23:20.887261+00:00",
+      "design": {
+        "x_R_over_ell": [
+          0.1,
+          0.5,
+          1,
+          2,
+          5,
+          10
+        ],
+        "c_times_ell": 0.01,
+        "grid_cells_per_ell": [
+          40,
+          80,
+          160
+        ],
+        "outer_radius_over_ell": "x+20",
+        "force": 0,
+        "edge_line_tension": 0,
+        "bending_modulus": "homogeneous",
+        "tension": "positive uniform to linear order"
+      },
+      "acceptance_checks": [
+        "finite-volume solution convergence versus closed form",
+        "independent Green-integral apex check",
+        "interface height slope moment shear consistency",
+        "small-slope bound",
+        "depth vs local and coat-mean H distinguished",
+        "no nonlinear snap-through or paper reproduction claim"
+      ],
+      "expected_outcomes": [
+        "quantitative cap discrepancy",
+        "shared or different area signs",
+        "numerical failure requiring correction"
+      ],
+      "owned_files": [
+        "research/linear_patch_benchmark.py",
+        "research/linear_patch_results.json",
+        "research/linear_patch_comparison.png",
+        "tests/test_linear_patch_benchmark.py",
+        "research/linear_patch_depth_review.py",
+        "research/linear_patch_depth_v2.json",
+        "research/linear_patch_comparison_v2.png"
+      ],
+      "stop_condition": "One small analytic/numerical comparison before 11:35 UTC; no full nonlinear BVP or new dependency",
+      "execution_status": "completed",
+      "scientific_outcome": "analytic_and_independent_finite_volume_checks_passed",
+      "review_correction": "Preserve v1 and add same-edge-reference depth d_edge=x K1(x)(I0(x)-1), checked by integrating slope. v2 uses same frozen cases, no new simulation.",
+      "status_observed_at_utc": "2026-09-23T12:24:11+00:00",
+      "artifact_paths": [
+        "research/linear_patch_benchmark.py",
+        "research/linear_patch_results.json",
+        "research/linear_patch_comparison.png",
+        "tests/test_linear_patch_benchmark.py",
+        "research/linear_patch_depth_review.py",
+        "research/linear_patch_depth_v2.json",
+        "research/linear_patch_comparison_v2.png"
+      ],
+      "lead_disposition": "Accepted within passive small-slope model scope after independent review; nonlinear source discrepancy remains explicit",
+      "agent_id": "/root",
+      "validation": "3 tests passed in4.18s; all6 finite-volume cases converge; v2 same-reference depth checked by slope integration and visual inspection"
+    },
+    {
+      "attempt_number": 1,
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/TWO_AREA_FINDINGS.md",
+        "research/CAP_LITERATURE.md",
+        "https://arxiv.org/html/1604.08629v1"
+      ],
+      "expected_outcomes": [
+        "matched conditional prediction",
+        "observable or ensemble mismatch",
+        "specified smallest forward comparison"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "primary_conventions_and_internal_discrepancies_recorded",
+      "registered_at_utc": "2026-09-23T11:21:11.364129+00:00",
+      "task_id": "cap-full-shape-source-001",
+      "role": "source",
+      "question": "Which exact equations, boundary conditions, area sweeps and observables are in the accessible primary version?",
+      "owned_files": [
+        "research/FULL_SHAPE_SOURCE.md"
+      ],
+      "acceptance_checks": [
+        "version-specific primary locators",
+        "curvature and bending-modulus conventions",
+        "coat versus total area and controlled inputs",
+        "source prediction versus own computation",
+        "no biological or novelty overclaim"
+      ],
+      "stop_condition": "One bounded reviewed comparison; initial specialist note within 7 minutes, cycle checkpoint by 2026-09-23T11:39:54Z; no raw movies, solver installation or production edits",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "agent_id": "/root/full_shape_source_001",
+      "status_observed_at_utc": "2026-09-23T12:24:11+00:00",
+      "artifact_paths": [
+        "research/FULL_SHAPE_SOURCE.md"
+      ],
+      "lead_disposition": "Accepted within passive small-slope model scope after independent review; nonlinear source discrepancy remains explicit"
+    },
+    {
+      "attempt_number": 1,
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/TWO_AREA_FINDINGS.md",
+        "research/CAP_LITERATURE.md",
+        "https://arxiv.org/html/1604.08629v1"
+      ],
+      "expected_outcomes": [
+        "matched conditional prediction",
+        "observable or ensemble mismatch",
+        "specified smallest forward comparison"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "passive_area_sign_and_distinct_observables_derived",
+      "registered_at_utc": "2026-09-23T11:21:11.364129+00:00",
+      "task_id": "cap-full-shape-mapping-001",
+      "role": "theory",
+      "question": "Does the cap area-curvature sign transfer to a full membrane and what is a fair computable comparison?",
+      "owned_files": [
+        "research/FULL_SHAPE_MAPPING.md"
+      ],
+      "acceptance_checks": [
+        "version-specific primary locators",
+        "curvature and bending-modulus conventions",
+        "coat versus total area and controlled inputs",
+        "source prediction versus own computation",
+        "no biological or novelty overclaim"
+      ],
+      "stop_condition": "One bounded reviewed comparison; initial specialist note within 7 minutes, cycle checkpoint by 2026-09-23T11:39:54Z; no raw movies, solver installation or production edits",
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "agent_id": "/root/full_shape_mapping_001",
+      "status_observed_at_utc": "2026-09-23T12:24:11+00:00",
+      "artifact_paths": [
+        "research/FULL_SHAPE_MAPPING.md"
+      ],
+      "lead_disposition": "Accepted within passive small-slope model scope after independent review; nonlinear source discrepancy remains explicit"
+    },
+    {
+      "attempt_number": 1,
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/TWO_AREA_FINDINGS.md",
+        "research/CAP_LITERATURE.md",
+        "https://arxiv.org/html/1604.08629v1"
+      ],
+      "expected_outcomes": [
+        "matched conditional prediction",
+        "observable or ensemble mismatch",
+        "specified smallest forward comparison"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "accepted_conditional_benchmark",
+      "registered_at_utc": "2026-09-23T11:21:11.364129+00:00",
+      "task_id": "cap-full-shape-review-001",
+      "role": "reviewer",
+      "question": "Independently challenge the matched-area comparison, observable definitions and proposed computation.",
+      "owned_files": [
+        "research/FULL_SHAPE_REVIEW.md"
+      ],
+      "acceptance_checks": [
+        "version-specific primary locators",
+        "curvature and bending-modulus conventions",
+        "coat versus total area and controlled inputs",
+        "source prediction versus own computation",
+        "no biological or novelty overclaim"
+      ],
+      "stop_condition": "One bounded reviewed comparison; initial specialist note within 7 minutes, cycle checkpoint by 2026-09-23T11:39:54Z; no raw movies, solver installation or production edits",
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "agent_id": "/root/full_shape_review_001",
+      "status_observed_at_utc": "2026-09-23T12:24:11+00:00",
+      "artifact_paths": [
+        "research/FULL_SHAPE_REVIEW.md"
+      ],
+      "lead_disposition": "Accepted within passive small-slope model scope after independent review; nonlinear source discrepancy remains explicit"
+    },
+    {
+      "attempt_number": 1,
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/TWO_AREA_FINDINGS.md",
+        "research/CAP_LITERATURE.md",
+        "https://arxiv.org/html/1604.08629v1"
+      ],
+      "expected_outcomes": [
+        "matched conditional prediction",
+        "observable or ensemble mismatch",
+        "specified smallest forward comparison"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "reviewed_forward_benchmark_and_next_solver_specification",
+      "registered_at_utc": "2026-09-23T11:21:11.364129+00:00",
+      "task_id": "cap-full-shape-001",
+      "role": "lead_synthesis",
+      "question": "Which smallest forward experiment tests the cap approximation against fuller mechanics?",
+      "owned_files": [
+        "research/FULL_SHAPE_FINDINGS.md"
+      ],
+      "acceptance_checks": [
+        "version-specific primary locators",
+        "curvature and bending-modulus conventions",
+        "coat versus total area and controlled inputs",
+        "source prediction versus own computation",
+        "no biological or novelty overclaim"
+      ],
+      "stop_condition": "One bounded reviewed comparison; initial specialist note within 7 minutes, cycle checkpoint by 2026-09-23T11:39:54Z; no raw movies, solver installation or production edits",
+      "started_at_utc": "2026-09-23T11:19:54Z",
+      "status_observed_at_utc": "2026-09-23T12:24:11+00:00",
+      "artifact_paths": [
+        "research/FULL_SHAPE_FINDINGS.md"
+      ],
+      "lead_disposition": "Accepted within passive small-slope model scope after independent review; nonlinear source discrepancy remains explicit",
+      "agent_id": "/root"
+    },
+    {
+      "task_id": "cap-two-area-noise-001",
+      "attempt_number": 1,
+      "role": "numerical_followup",
+      "question": "What local precision requirement follows from the already computed full-rank singular spectra under explicit hypothetical noise?",
+      "inputs": [
+        "research/two_area_results.json"
+      ],
+      "expected_outcomes": [
+        "local worst-direction sensitivity",
+        "unidentifiable singular cases"
+      ],
+      "acceptance_checks": [
+        "noise levels frozen at 1e-5,1e-4,1e-3 nm^-1",
+        "independent equal-variance curvature errors explicitly hypothetical",
+        "sigma_H/s_min only for full rank",
+        "no pseudoinverse for null directions",
+        "local linear bound not posterior interval",
+        "input hash retained"
+      ],
+      "stop_condition": "Three-minute read-only-input postprocessing; no fits, simulations, figure changes or new source search",
+      "owned_files": [
+        "research/two_area_noise_design.json",
+        "research/TWO_AREA_NOISE.md"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "local_noise_design_bounds_verified",
+      "agent_id": "/root/two_area_numerical_001",
+      "artifact_paths": [
+        "research/two_area_noise_design.json",
+        "research/TWO_AREA_NOISE.md"
+      ],
+      "lead_disposition": "Accepted after independent review; synthetic model-conditional result, no biological or novelty claim",
+      "status_observed_at_utc": "2026-09-23T01:31:30+00:00",
+      "completed_at_utc": "2026-09-23T01:24:29Z"
+    },
+    {
+      "task_id": "cap-two-area-theory-001",
+      "attempt_number": 1,
+      "role": "theory",
+      "question": "When do two known areas remove the cap compensation ridge under alternative parameter-sharing assumptions?",
+      "inputs": [
+        "research/CAP_THEORY.md",
+        "curvo/inverse.py",
+        "research/NEXT_CYCLE.md"
+      ],
+      "expected_outcomes": [
+        "identifiability theorem with conditions",
+        "exact surviving symmetries",
+        "counterexample",
+        "unresolved rank"
+      ],
+      "acceptance_checks": [
+        "known constant versus varying rigidity",
+        "shared force versus area-proportional force",
+        "area-specific curvature",
+        "unknown rigidity scale",
+        "clipping and zero-signal limits"
+      ],
+      "stop_condition": "Eight-minute derivation and early exchange; no source implementation changes or recursive workers",
+      "owned_files": [
+        "research/TWO_AREA_THEORY.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "conditional_uniqueness_and_exact_symmetries",
+      "agent_id": "/root/two_area_theory_001",
+      "artifact_paths": [
+        "research/TWO_AREA_THEORY.md"
+      ],
+      "lead_disposition": "Accepted after independent review; synthetic model-conditional result, no biological or novelty claim",
+      "status_observed_at_utc": "2026-09-23T01:31:30+00:00",
+      "completed_at_utc": "2026-09-23T01:24:24Z"
+    },
+    {
+      "task_id": "cap-two-area-numerical-001",
+      "attempt_number": 1,
+      "role": "numerical",
+      "question": "Do analytic Jacobians and exact counterexamples confirm when a second area identifies cap parameters?",
+      "inputs": [
+        "research/CAP_THEORY.md",
+        "research/cap_experiment.py",
+        "cap-two-area-theory-001 early equations"
+      ],
+      "expected_outcomes": [
+        "rank recovered",
+        "surviving null direction",
+        "poor conditioning",
+        "disagreement requiring correction"
+      ],
+      "acceptance_checks": [
+        "registered synthetic cases",
+        "analytic Jacobian with independent check",
+        "dimensionless parameter scaling",
+        "exact symmetry tests",
+        "same-domain clipping",
+        "source/script hashes",
+        "no empirical noise claim"
+      ],
+      "stop_condition": "Ten-minute small experiment, each computation under one minute; no samplers, installs, source module edits or recursive workers",
+      "owned_files": [
+        "research/two_area_experiment.py",
+        "research/two_area_results.json",
+        "research/TWO_AREA_NUMERICAL.md",
+        "research/two_area_comparison.png",
+        "tests/test_two_area_experiment.py"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "ranks_symmetries_and_derivatives_verified",
+      "agent_id": "/root/two_area_numerical_001",
+      "artifact_paths": [
+        "research/two_area_experiment.py",
+        "research/two_area_results.json",
+        "research/TWO_AREA_NUMERICAL.md",
+        "research/two_area_comparison.png",
+        "tests/test_two_area_experiment.py",
+        "research/render_two_area.py",
+        "research/two_area_comparison_v2.png"
+      ],
+      "lead_disposition": "Accepted after independent review; synthetic model-conditional result, no biological or novelty claim",
+      "status_observed_at_utc": "2026-09-23T01:31:30+00:00",
+      "validation": "3 focused tests passed; corrected normalized figure visually reviewed; immutable source hashes verified"
+    },
+    {
+      "task_id": "cap-two-area-review-001",
+      "attempt_number": 1,
+      "role": "reviewer",
+      "question": "Does the proposed two-area design distinguish mechanisms or only parameters under potentially fragile sharing assumptions?",
+      "inputs": [
+        "research/CAP_FINDINGS.md",
+        "research/CAP_THEORY.md",
+        "new two-area artifacts when available"
+      ],
+      "expected_outcomes": [
+        "accepted conditional result",
+        "required corrections",
+        "counterexample or biologically unsupported claim"
+      ],
+      "acceptance_checks": [
+        "independent symmetry/rank challenge",
+        "generic versus exceptional rank",
+        "shared parameters and rigidity calibration",
+        "noise scaling",
+        "biological/novelty claims bounded"
+      ],
+      "stop_condition": "Initial independent challenge in five minutes, final artifact review by 01:28 UTC; no network, fits or source edits",
+      "owned_files": [
+        "research/TWO_AREA_REVIEW.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "accepted_conditional_result",
+      "agent_id": "/root/two_area_review_001",
+      "artifact_paths": [
+        "research/TWO_AREA_REVIEW.md"
+      ],
+      "lead_disposition": "Accepted after independent review; synthetic model-conditional result, no biological or novelty claim",
+      "status_observed_at_utc": "2026-09-23T01:31:30+00:00",
+      "completed_at_utc": "2026-09-23T01:26:16Z"
+    },
+    {
+      "task_id": "cap-two-area-001",
+      "attempt_number": 1,
+      "role": "lead_synthesis",
+      "question": "Which independent measurement or controlled comparison actually removes the model's force/tension ambiguity?",
+      "inputs": [
+        "three two-area worker results",
+        "research/CAP_FINDINGS.md"
+      ],
+      "expected_outcomes": [
+        "reviewed measurement-design result",
+        "limited or failed area strategy"
+      ],
+      "acceptance_checks": [
+        "source and result inspection",
+        "independent derivation",
+        "recorded review disposition",
+        "durable next experiment"
+      ],
+      "stop_condition": "One reviewed synthetic design result; target checkpoint by 2026-09-23T01:32:41Z",
+      "owned_files": [
+        "research/TWO_AREA_FINDINGS.md"
+      ],
+      "started_at_utc": "2026-09-23T01:12:41Z",
+      "execution_status": "completed",
+      "scientific_outcome": "reviewed_measurement_design_result",
+      "agent_id": "/root",
+      "artifact_paths": [
+        "research/TWO_AREA_FINDINGS.md"
+      ],
+      "lead_disposition": "Accepted after independent review; synthetic model-conditional result, no biological or novelty claim",
+      "status_observed_at_utc": "2026-09-23T01:31:30+00:00",
+      "completed_at_utc": "2026-09-23T01:31:30+00:00"
+    },
+    {
+      "task_id": "cap-theory-001",
+      "attempt_number": 1,
+      "role": "theory",
+      "question": "What exact stationary, stability and force/curvature identifiability statements follow from the implemented spherical-cap energy?",
+      "inputs": [
+        "curvo/evaluator_tier0.py",
+        "curvo/inverse.py",
+        "curvo/constants.py"
+      ],
+      "expected_outcomes": [
+        "checked analytic reduction",
+        "counterexample to existing interpretation",
+        "conditional prediction",
+        "derivation unresolved"
+      ],
+      "acceptance_checks": [
+        "units and domain",
+        "local versus global stability",
+        "zero versus positive line tension",
+        "fixed versus ramped rigidity",
+        "no biological or novelty overclaim"
+      ],
+      "stop_condition": "Eight-minute derivation; own note only, no source-code changes, external retrieval or recursive delegation",
+      "owned_files": [
+        "research/CAP_THEORY.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "exact_reduction_and_exceptional_ridge_derived",
+      "agent_id": "/root/cap_theory_001",
+      "artifact_paths": [
+        "research/CAP_THEORY.md"
+      ],
+      "lead_disposition": "Accepted after independent lead derivation; specialist also inspected numerical artifacts and identified physical-boundary caveat"
+    },
+    {
+      "task_id": "cap-numerical-001",
+      "attempt_number": 1,
+      "role": "numerical",
+      "question": "Can a reproducible synthetic experiment distinguish true stationary-branch changes from grid or parameter-tradeoff effects in the current cap model?",
+      "inputs": [
+        "curvo/evaluator_tier0.py",
+        "curvo/inverse.py",
+        "cap-theory-001 when available"
+      ],
+      "expected_outcomes": [
+        "analytic/grid agreement",
+        "structural degeneracy",
+        "stability threshold",
+        "numerical discrepancy"
+      ],
+      "acceptance_checks": [
+        "pin source hashes",
+        "registered synthetic cases",
+        "exact energy versus independent reduction",
+        "resolution convergence",
+        "finite differences or stationary checks",
+        "no noisy data fit"
+      ],
+      "stop_condition": "Ten-minute bounded experiment; at most one minute computation per command; no inverse samplers, new dependencies, raw datasets or source-module changes",
+      "owned_files": [
+        "research/cap_experiment.py",
+        "research/cap_experiment.json",
+        "research/CAP_NUMERICAL.md",
+        "tests/test_cap_experiment.py"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "ridge_and_grid_convergence_verified",
+      "agent_id": "/root/cap_numerical_001",
+      "artifact_paths": [
+        "research/cap_experiment.py",
+        "research/cap_experiment.json",
+        "research/cap_experiment_v2.json",
+        "research/CAP_NUMERICAL.md",
+        "tests/test_cap_experiment.py"
+      ],
+      "lead_disposition": "Accepted v2 after correcting physical endpoint versus finite-domain comparison; v1 preserved; 3 targeted tests passed"
+    },
+    {
+      "task_id": "cap-literature-001",
+      "attempt_number": 1,
+      "role": "source_and_novelty",
+      "question": "How do the primary tension/shape and actin-network models differ from Mechanome's cap approximation, and are proposed cap stability/identifiability results already known?",
+      "inputs": [
+        "https://arxiv.org/abs/1604.08629",
+        "https://elifesciences.org/articles/49840",
+        "curvo/evaluator_tier0.py",
+        "curvo/inverse.py"
+      ],
+      "expected_outcomes": [
+        "primary equations and distinction",
+        "known result",
+        "novelty unresolved",
+        "specific testable extension"
+      ],
+      "acceptance_checks": [
+        "primary sources only",
+        "exact equation/section locators",
+        "measurement versus model predictions",
+        "matched assumptions",
+        "no novelty from search absence"
+      ],
+      "stop_condition": "Eight-minute source audit; at most four primary paper families and 8 MiB retained text; no bulk data/code or installations",
+      "owned_files": [
+        "research/CAP_LITERATURE.md",
+        "research/metadata/cap-literature-001/"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "execution_status": "completed",
+      "scientific_outcome": "primary_model_differences_verified_novelty_unresolved",
+      "agent_id": "/root/cap_literature_001",
+      "artifact_paths": [
+        "research/CAP_LITERATURE.md",
+        "research/metadata/cap-literature-001/source_ledger.json"
+      ],
+      "lead_disposition": "Accepted bounded source audit; full-text access limits retained; speculative network contrast explicitly qualified"
+    },
+    {
+      "task_id": "cap-synthesis-001",
+      "attempt_number": 1,
+      "role": "lead_synthesis",
+      "question": "Does the team establish a new-to-this-repo model-conditional result and a defensible next experiment rather than another metadata-only cycle?",
+      "inputs": [
+        "three cap specialist results",
+        "primary model and source code"
+      ],
+      "expected_outcomes": [
+        "reviewed model result",
+        "known result with corrected capability scope",
+        "unresolved or negative experiment"
+      ],
+      "acceptance_checks": [
+        "independent analytical/numerical agreement",
+        "scope and novelty separated",
+        "result reproducibility",
+        "review objections resolved or retained"
+      ],
+      "stop_condition": "One experiment and synthesis; checkpoint by 2026-09-23T00:37:42Z",
+      "owned_files": [
+        "research/CAP_FINDINGS.md",
+        "research/cap_review_checks.json"
+      ],
+      "started_at_utc": "2026-09-23T00:17:42Z",
+      "execution_status": "completed",
+      "scientific_outcome": "checked_model_result_and_conditional_area_test",
+      "agent_id": "/root",
+      "artifact_paths": [
+        "research/CAP_FINDINGS.md",
+        "research/cap_review_checks.json"
+      ],
+      "lead_disposition": "Accepted exact compensation result and limited numerical evidence, not biological discovery or established novelty"
+    },
+    {
+      "task_id": "dasc-observation-review-001",
+      "attempt_number": 1,
+      "role": "reviewer",
+      "question": "Does the observation-model decision justify parking the physical-mechanism branch without overclaiming non-identifiability?",
+      "inputs": [
+        "research/DASC_OBSERVATION_DECISION.md",
+        "research/DASC_ANALYSIS_RULES.md",
+        "retained primary JATS"
+      ],
+      "expected_outcomes": [
+        "accept scoped decision",
+        "required scientific corrections"
+      ],
+      "acceptance_checks": [
+        "selection-density construction",
+        "restricted null versus unrestricted confounding",
+        "source fidelity",
+        "no artifact or no-biology claim",
+        "next direction returns to theory"
+      ],
+      "stop_condition": "Four-minute review; no new source retrieval, fitting, tests, or implementation",
+      "owned_files": [
+        "research/DASC_OBSERVATION_REVIEW.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "accepted_without_required_correction",
+      "agent_id": "/root/observable_permission_review_001",
+      "artifact_paths": [
+        "research/DASC_OBSERVATION_REVIEW.md"
+      ],
+      "lead_disposition": "Accepted; source checks and analytical selection construction agree. This is review of a testability decision, not new biological validation."
+    },
+    {
+      "task_id": "observable-claim-corrections-001",
+      "attempt_number": 1,
+      "role": "lead_local_docs",
+      "question": "Can stale research and generated-output claims be made visibly historical and consistent with the scoped router refusal?",
+      "inputs": [
+        "research/OBSERVABLE_PERMISSION_REVIEW.md",
+        "RESEARCH.md",
+        "outputs/data_manifest.json",
+        "outputs/realdata_demonstration.json"
+      ],
+      "expected_outcomes": [
+        "corrected claims with preserved old numerical payload",
+        "generator or broader claim issue queued"
+      ],
+      "acceptance_checks": [
+        "historical provenance retained",
+        "force permission not asserted from tags",
+        "no new validation implied",
+        "JSON parses",
+        "no numeric-result changes"
+      ],
+      "stop_condition": "Small claim/metadata correction only; no inverse firewall or global scientific rewrite",
+      "owned_files": [
+        "RESEARCH.md",
+        "outputs/data_manifest.json",
+        "outputs/realdata_demonstration.json"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "stale_permission_claims_corrected_historical_numbers_preserved",
+      "artifact_paths": [
+        "RESEARCH.md",
+        "outputs/data_manifest.json",
+        "outputs/realdata_demonstration.json"
+      ],
+      "lead_disposition": "Added dated historical-status context and prior-file hashes; removed active tag-only force permission, retained old claim/role as explicitly historical metadata. No matching generator found in repo Python search.",
+      "validation": "Both JSONs parsed; exact numerical path/value equality verified before and after; demonstration results and resolution benchmark dictionaries exactly unchanged; Git diff --check passed",
+      "limitations": [
+        "Other historical narrative/numerical results not comprehensively revalidated",
+        "Historical plots not regenerated"
+      ]
+    },
+    {
+      "task_id": "observable-permission-review-001",
+      "attempt_number": 1,
+      "role": "reviewer",
+      "question": "Does the minimal descriptive-router correction close tag-only permission without misstating its scope or breaking callers?",
+      "inputs": [
+        "validation/realdata/classify_observable.py",
+        "validation/realdata/ingest_biotisr_sim.py",
+        "tests/test_realdata.py",
+        "research/dasc_capability_audit.json",
+        "research/DASC_DESIGN_REVIEW.md"
+      ],
+      "expected_outcomes": [
+        "accept limited correction",
+        "actionable regression",
+        "unresolved scope"
+      ],
+      "acceptance_checks": [
+        "all tag-only inputs refused",
+        "caller flag bypass absent",
+        "actual callers and compatibility",
+        "global inverse firewall not claimed",
+        "positive approval path remains deferred"
+      ],
+      "stop_condition": "One independent note in six minutes; no source edits, network, inverse runs, or routine test rerun",
+      "owned_files": [
+        "research/OBSERVABLE_PERMISSION_REVIEW.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "accepted_api_local_refusal_not_global_inverse_firewall",
+      "agent_id": "/root/observable_permission_review_001",
+      "artifact_paths": [
+        "research/OBSERVABLE_PERMISSION_REVIEW.md"
+      ],
+      "lead_disposition": "Accepted; corrected stale historical claims as a separate task. No positive approval path or low-level inverse gate introduced.",
+      "limitations": [
+        "Numerical inverse functions do not consult the router",
+        "No independently calibrated positive authorization path"
+      ]
+    },
+    {
+      "task_id": "dasc-analysis-source-001",
+      "attempt_number": 1,
+      "role": "source",
+      "question": "Which published detection/normalization/training rules constrain brightness-selection explanations for the AP2 contrast?",
+      "inputs": [
+        "research/metadata/dasc-methods-001/PMC7192580.jats.xml",
+        "research/DASC_METHODS.md",
+        "research/DASC_COMPARISON.md"
+      ],
+      "expected_outcomes": [
+        "pinned primary analysis rules",
+        "essential calibration missing",
+        "source access unresolved"
+      ],
+      "acceptance_checks": [
+        "at most two primary author source families",
+        "at most 2 MiB new source bytes",
+        "revision/hash pinning",
+        "processing rule versus independent calibration",
+        "control boundaries versus condition-specific fits"
+      ],
+      "stop_condition": "One source note in seven minutes; no raw data, installs, downloaded-code execution, fitting, or recursive delegation",
+      "owned_files": [
+        "research/DASC_ANALYSIS_RULES.md",
+        "research/metadata/dasc-analysis-source-001/"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "execution_status": "completed",
+      "scientific_outcome": "processing_rules_verified_independent_observation_constraints_missing",
+      "agent_id": "/root/dasc_analysis_source_001",
+      "artifact_paths": [
+        "research/DASC_ANALYSIS_RULES.md",
+        "research/metadata/dasc-analysis-source-001/README.md"
+      ],
+      "lead_disposition": "Accepted after same-attempt corrections to unsupported start timestamp, exact source section titles, control-only reference D and observed access-error wording. Primary JATS checked by lead and reviewer.",
+      "limitations": [
+        "Mutable author-code page viewed but no pinned snapshot obtained",
+        "Results/Methods clustering convention tension unresolved in implementation",
+        "No raw data or independent calibration analyzed"
+      ],
+      "source_locators": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7192580/",
+        "https://github.com/DanuserLab/cmeAnalysis"
+      ]
+    },
+    {
+      "task_id": "dasc-observation-model-001",
+      "attempt_number": 1,
+      "role": "lead_design",
+      "question": "Can primary detection and normalization rules constrain an observation-only null enough to test AP2-dependent kinetics?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/DASC_COMPARISON.md",
+        "retained primary methods",
+        "dasc-analysis-source-001 result"
+      ],
+      "expected_outcomes": [
+        "informative comparison",
+        "currently indistinguishable with named missing measurement",
+        "source access unresolved"
+      ],
+      "acceptance_checks": [
+        "explicit restricted null and alternative",
+        "fixed versus unmeasured nuisance terms",
+        "grouping/censoring",
+        "no normalization-as-calibration assumption",
+        "bounded branch decision"
+      ],
+      "stop_condition": "One source-backed testability decision; no movie download or fitting; checkpoint within 20 minutes from observed cycle start",
+      "owned_files": [
+        "research/DASC_OBSERVATION_DECISION.md"
+      ],
+      "started_at_utc": "2026-09-22T23:59:52Z",
+      "execution_status": "completed",
+      "scientific_outcome": "physical_mechanism_branch_parked_reproduction_and_sensitivity_retained",
+      "artifact_paths": [
+        "research/DASC_OBSERVATION_DECISION.md",
+        "research/DASC_OBSERVATION_REVIEW.md"
+      ],
+      "lead_disposition": "Independent review accepted the scoped selection argument and branch stop; no evidence that AP2 biology is absent or published phenotype is an artifact.",
+      "limitations": [
+        "Selection-density construction is an existence argument, not a calibrated detector",
+        "No movies, fits or new biological measurements"
+      ],
+      "next_decision": "Extract matched observable predictions from two primary mechanics models before seeking further data"
+    },
+    {
+      "task_id": "observable-permission-001",
+      "attempt_number": 1,
+      "role": "lead_local_code",
+      "question": "Can descriptive observable tags be prevented from granting unsupported force permission?",
+      "inputs": [
+        "research/DASC_DESIGN_REVIEW.md",
+        "research/dasc_capability_audit.json"
+      ],
+      "expected_outcomes": [
+        "tag-only permission refused",
+        "regression requiring correction"
+      ],
+      "acceptance_checks": [
+        "bare tags refused",
+        "unverified and caller-asserted provenance refused",
+        "BioTISR proxy refused",
+        "unknown tags rejected"
+      ],
+      "stop_condition": "Minimal default refusal and focused tests; no new approval framework or inverse changes",
+      "owned_files": [
+        "validation/realdata/classify_observable.py",
+        "validation/realdata/ingest_biotisr_sim.py",
+        "tests/test_realdata.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "tag_only_force_permission_closed",
+      "artifact_paths": [
+        "validation/realdata/classify_observable.py",
+        "validation/realdata/ingest_biotisr_sim.py",
+        "tests/test_realdata.py"
+      ],
+      "lead_disposition": "Minimal default refusal implemented; four focused tests passed. Positive authorization deferred pending independently reviewed model-specific evidence.",
+      "validation": "pytest tests/test_realdata.py -k classifier: 4 passed, 15 deselected; synthetic contract checks only",
+      "limitations": [
+        "Does not gate direct inverse entry points",
+        "No calibrated positive authorization path"
+      ],
+      "next_decision": "Independent bounded review of refusal behavior and compatibility",
+      "review": "research/OBSERVABLE_PERMISSION_REVIEW.md: accepted scoped correction"
+    },
+    {
+      "task_id": "dasc-design-review-001",
+      "attempt_number": 1,
+      "role": "reviewer",
+      "question": "Is the DASC comparison decision scientifically justified, and does its scope avoid unidentifiable mechanism claims?",
+      "inputs": [
+        "research/DASC_COMPARISON.md",
+        "research/DASC_METHODS.md",
+        "research/dasc_pilot_inputs.json",
+        "retained primary JATS and dataset manifest",
+        "local observation-routing code"
+      ],
+      "expected_outcomes": [
+        "accept limited design",
+        "required corrections",
+        "unresolved central inference"
+      ],
+      "acceptance_checks": [
+        "primary-source fidelity",
+        "constructive intensity/depth ambiguity",
+        "selection and grouping",
+        "known-effect versus new prediction",
+        "pilot size and no inferential claim",
+        "calibration-gate gap"
+      ],
+      "stop_condition": "One bounded independent review within five minutes; no movie download or broad implementation",
+      "owned_files": [
+        "research/DASC_DESIGN_REVIEW.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "accept_limited_design_with_two_required_corrections",
+      "agent_id": "/root/dasc_design_review_001",
+      "artifact_paths": [
+        "research/DASC_DESIGN_REVIEW.md"
+      ],
+      "lead_disposition": "Corrected Table 1 annotation; closed tag-only permission with unconditional descriptive refusal. Deferred a positive authorization registry until genuine model-specific calibration evidence exists. No invented acceptance fixture or caller approval boolean.",
+      "limitations": [
+        "Review preceded source-code correction",
+        "A positive calibrated authorization path remains unimplemented"
+      ]
+    },
+    {
+      "task_id": "dasc-comparison-design-001",
+      "attempt_number": 1,
+      "role": "lead_design",
+      "question": "Can one verified DASC perturbation distinguish explicit predictions, and what minimum analysis would it require?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/DASC_METADATA.md",
+        "research/ASSESSMENT.md",
+        "saved Figshare inventory",
+        "existing repository capabilities"
+      ],
+      "expected_outcomes": [
+        "defensible comparison specification",
+        "missing measurement requirements",
+        "currently indistinguishable candidates"
+      ],
+      "acceptance_checks": [
+        "primary methods verified",
+        "explicit competing predictions",
+        "observation model and censoring",
+        "date/cell grouping limitations",
+        "bounded resource estimate",
+        "independent review of central inference"
+      ],
+      "stop_condition": "One comparison/data-value decision; no movie payload or tracking installation",
+      "owned_files": [
+        "research/DASC_COMPARISON.md",
+        "research/dasc_pilot_inputs.json"
+      ],
+      "started_at_utc": "2026-09-22T11:59:35Z",
+      "execution_status": "completed",
+      "scientific_outcome": "ap2_measurement_candidate_physical_mechanisms_currently_indistinguishable_under_unrestricted_observation_model",
+      "artifact_paths": [
+        "research/DASC_COMPARISON.md",
+        "research/dasc_pilot_inputs.json",
+        "research/dasc_capability_audit.json"
+      ],
+      "lead_disposition": "Accept AP2 engineering candidate; defer raw download and force fitting; narrow observation model before testing kinetics",
+      "limitations": [
+        "No movie payload or new biological result",
+        "Observation model and biological replication unresolved",
+        "Two proposed movies cannot validate DASC"
+      ],
+      "next_decision": "Can primary detection and normalization rules constrain the observation-only explanation?"
+    },
+    {
+      "task_id": "dasc-methods-001",
+      "attempt_number": 1,
+      "role": "source",
+      "question": "What primary-source methods and perturbation findings support a concrete AP2-mutant or CALM comparison?",
+      "inputs": [
+        "eLife 53686 primary full text",
+        "research/DASC_METADATA.md",
+        "saved dataset sidecars"
+      ],
+      "expected_outcomes": [
+        "source-backed observables and contrasts",
+        "method/calibration ambiguity",
+        "primary access unresolved"
+      ],
+      "acceptance_checks": [
+        "exact primary-source sections and equations",
+        "separate reported findings from new predictions",
+        "classifier/scission distinction",
+        "observation-model limitations"
+      ],
+      "stop_condition": "One methods note within six minutes; no raw data or code execution",
+      "owned_files": [
+        "research/DASC_METHODS.md",
+        "research/metadata/dasc-methods-001/"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "execution_status": "completed",
+      "scientific_outcome": "primary_methods_verified_with_selection_and_proxy_limits",
+      "agent_id": "/root/dasc_methods_001",
+      "artifact_paths": [
+        "research/DASC_METHODS.md",
+        "research/metadata/dasc-methods-001/PMC7192580.jats.xml"
+      ],
+      "lead_disposition": "Accepted after replacing math-losing source extraction with retained JATS and correcting equation definitions and Table 1 significance annotation",
+      "limitations": [
+        "Published findings are reproduction targets",
+        "Class labels do not measure scission or force"
+      ]
+    },
+    {
+      "task_id": "dasc-metadata-001",
+      "attempt_number": 1,
+      "role": "source",
+      "question": "Does the public DASC deposit expose processed traces or condition/replicate mapping suitable for an informative comparison?",
+      "inputs": [
+        "research/PUBLIC_DYNAMIC_DATA.md",
+        "Figshare DOI 10.35092/yhjc.12198225",
+        "eLife article 53686"
+      ],
+      "expected_outcomes": [
+        "small processed records or metadata",
+        "raw-only listing",
+        "unresolved access"
+      ],
+      "acceptance_checks": [
+        "official deposit and primary paper",
+        "exact file listing and units only where stated",
+        "separate perturbation evidence from label inference",
+        "no bulk download"
+      ],
+      "stop_condition": "One metadata/data-value decision within five minutes, at most 1 MiB metadata, no archive or movie retrieval",
+      "owned_files": [
+        "research/DASC_METADATA.md",
+        "research/metadata/dasc-metadata-001/"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "agent_id": "/root/dasc_metadata_001",
+      "execution_status": "completed",
+      "scientific_outcome": "raw_movies_with_verified_perturbation_metadata_no_processed_traces",
+      "evidence_quality": "official_inventory_and_checksum_verified_sidecars",
+      "artifact_paths": [
+        "research/DASC_METADATA.md",
+        "research/metadata/dasc-metadata-001/PROVENANCE.md",
+        "research/metadata/dasc-metadata-001/figshare-article-12198225.json"
+      ],
+      "source_locators": [
+        "https://api.figshare.com/v2/articles/12198225",
+        "https://doi.org/10.7554/eLife.53686"
+      ],
+      "lead_disposition": "Accepted after preserving inventory/provenance and qualifying curvature/time wording; use for comparison design rather than an immediate static/dynamic join",
+      "limitations": [
+        "No processed trajectories",
+        "Biological replicate independence unresolved",
+        "Classifier labels are not physical scission",
+        "Primary method/proxy summary requires lead full-text verification",
+        "No movie payload inspected"
+      ],
+      "next_decision": "Design one discriminating perturbation contrast and assess data/analysis cost before movie retrieval"
+    },
+    {
+      "task_id": "dynamin-manifest-001",
+      "attempt_number": 1,
+      "role": "lead_source_audit",
+      "question": "Does the dynamin productivity archive expose small event or calibration records worth inspecting?",
+      "inputs": [
+        "research/metadata/dynamic-metadata-001/shape2fate_record.json",
+        "research/SHAPE2FATE_OBSERVABLES.md",
+        "research/ANNOTATION_AUDIT.md"
+      ],
+      "expected_outcomes": [
+        "small relevant members",
+        "movie-only or ambiguous contents",
+        "access or directory failure"
+      ],
+      "acceptance_checks": [
+        "official archived URL and size",
+        "exact HTTP 206 range",
+        "bounded payload under 1 MiB",
+        "complete single-disk directory parse",
+        "filename clues not treated as event ground truth"
+      ],
+      "stop_condition": "One member inventory and next decision; no movie payload or scientific fit",
+      "owned_files": [
+        "research/DYNAMIN_METADATA.md",
+        "research/metadata/dynamin-manifest-001/",
+        "../work/dynamin-manifest-001/",
+        "../work/inspect_dynamin_manifest.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "no_separate_event_table_in_directory",
+      "evidence_quality": "complete_central_directory_no_member_payload_validation",
+      "artifact_paths": [
+        "research/DYNAMIN_METADATA.md",
+        "research/metadata/dynamin-manifest-001/manifest.json"
+      ],
+      "source_locators": [
+        "https://zenodo.org/api/records/17484958/files/Dynamin%20productivity%20validation.zip/content"
+      ],
+      "lead_disposition": "Close small-table branch; avoid movie work without an informative comparison",
+      "limitations": [
+        "Movie and mask bodies not read",
+        "Archive MD5 and member CRCs not verified",
+        "Acquisition IDs do not establish biological replication"
+      ],
+      "next_decision": "Check DASC metadata for processed traces and explicit condition/replicate mapping"
+    },
+    {
+      "task_id": "annotation-contract-review-001",
+      "attempt_number": 1,
+      "role": "reviewer",
+      "question": "Does the annotation contract support only the stated tracking scope, and are there material integrity or interpretation defects?",
+      "inputs": [
+        "research/audit_annotations.py",
+        "research/annotation_audit.json",
+        "research/ANNOTATION_AUDIT.md",
+        "tests/test_annotation_audit.py"
+      ],
+      "expected_outcomes": [
+        "accept within scope",
+        "required corrections",
+        "unresolved review"
+      ],
+      "acceptance_checks": [
+        "units and identity scope",
+        "censoring and same-movie dependence",
+        "counts versus agreement",
+        "reported duplicate positions",
+        "hash and schema guard behavior"
+      ],
+      "stop_condition": "One bounded independent note within five minutes; no new analysis or network",
+      "owned_files": [
+        "research/ANNOTATION_REVIEW.md"
+      ],
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "agent_id": "/root/annotation_contract_review_001",
+      "execution_status": "completed",
+      "scientific_outcome": "accept_structural_scope_only",
+      "evidence_quality": "fresh_independent_code_and_evidence_review",
+      "artifact_paths": [
+        "research/ANNOTATION_REVIEW.md"
+      ],
+      "lead_disposition": "Accepted; no required corrections",
+      "limitations": [
+        "Not movie-level tracking validation",
+        "No physical calibration or event semantics",
+        "No agreement or biological mechanism inference"
+      ],
+      "next_decision": "Use tracking contract only if a discriminating downstream question requires it"
+    },
+    {
+      "task_id": "dynamic-annotations-001",
+      "attempt_number": 1,
+      "role": "lead_data_audit",
+      "question": "Are the three small validation annotations intact and usable as a tracking data contract?",
+      "inputs": [
+        "research/NEXT_CYCLE.md",
+        "research/metadata/dynamic-metadata-001/manifest_check.json",
+        "../work/dynamic-metadata-001/validation_zip_tail.bin"
+      ],
+      "expected_outcomes": [
+        "usable tracking contract",
+        "inconsistent schema",
+        "integrity or access failure"
+      ],
+      "acceptance_checks": [
+        "exact HTTP ranges with total payload cap 1 MiB",
+        "local and central ZIP headers",
+        "bounded decompression and CRC32",
+        "columns, finite coordinates, frame and track integrity"
+      ],
+      "stop_condition": "One data-contract decision; no movie download or disagreement comparison",
+      "owned_files": [
+        "research/ANNOTATION_AUDIT.md",
+        "research/annotation_audit.json",
+        "research/audit_annotations.py",
+        "tests/test_annotation_audit.py",
+        "../work/dynamic-annotations-001/"
+      ],
+      "execution_status": "completed",
+      "resumed_at_utc": "2026-09-22T11:39:23Z",
+      "started_at_utc": "2026-09-20T18:08:25Z",
+      "scientific_outcome": "usable_tracking_contract_no_mechanism_observable",
+      "evidence_quality": "verified_member_integrity_and_local_schema",
+      "artifact_paths": [
+        "research/ANNOTATION_AUDIT.md",
+        "research/annotation_audit.json",
+        "research/metadata/dynamic-annotations-001/retrieval.json",
+        "../work/dynamic-annotations-001/"
+      ],
+      "source_locators": [
+        "https://zenodo.org/api/records/17484958/files/CME%20tracking%20validation.zip/content"
+      ],
+      "lead_disposition": "Accept structural tracking contract; defer agreement scoring and prioritize productivity metadata",
+      "limitations": [
+        "Single movie",
+        "Archive MD5 not verified",
+        "One shared coordinate/frame in reference 3",
+        "No physical units, intensity, curvature or event fields",
+        "Many boundary-touching tracks; endpoints are not biological events"
+      ],
+      "next_decision": "Inspect dynamin productivity manifest for small relevant event/calibration members"
+    },
+    {
+      "task_id": "shape2fate-observables-001",
+      "attempt_number": 1,
+      "role": "source",
+      "question": "What do the Shape2Fate validation annotations measure, and which next step can advance mechanism discrimination?",
+      "inputs": [
+        "research/DYNAMIC_METADATA.md",
+        "research/metadata/dynamic-metadata-001/",
+        "../work/dynamic-metadata-001/tracking_example.py.txt",
+        "primary author sources"
+      ],
+      "expected_outcomes": [
+        "documented measurement contract",
+        "calibration unresolved",
+        "bounded next comparison or reason to stop branch"
+      ],
+      "acceptance_checks": [
+        "exact primary-source locators",
+        "measured versus inferred quantities",
+        "no invented cadence or coordinate units",
+        "distinguish validation annotations from perturbation experiments"
+      ],
+      "stop_condition": "One source note within 8 minutes, at most three primary sources, no raw movies or code execution",
+      "owned_files": [
+        "research/SHAPE2FATE_OBSERVABLES.md"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "agent_id": "/root/shape2fate_observables_001",
+      "execution_status": "completed",
+      "scientific_outcome": "tracking_validation_scope_no_mechanism_discrimination_established",
+      "evidence_quality": "primary_documentation_and_author_example_not_payload_analysis",
+      "artifact_paths": [
+        "research/SHAPE2FATE_OBSERVABLES.md"
+      ],
+      "source_locators": [
+        "https://doi.org/10.5281/zenodo.17484958",
+        "https://github.com/harmanea/shape2fate/blob/main/examples/tracking_example.py"
+      ],
+      "lead_disposition": "Accept measurement distinction; qualify uncertainty-ceiling wording and defer predicted-track comparison as out of current scope",
+      "limitations": [
+        "No CSV analysis by specialist",
+        "Annotation independence unverified",
+        "Cadence and scale unverified",
+        "No predicted trajectories available"
+      ],
+      "next_decision": "Finish bounded schema audit then assess whether perturbation or productivity metadata offers greater research value"
+    },
+    {
+      "task_id": "dynamic-metadata-001",
+      "attempt_number": 1,
+      "role": "lead_source_audit",
+      "question": "Can public tension/dynamic data be assessed from small metadata without movies?",
+      "inputs": [
+        "research/NEXT_CYCLE.md at cycle start",
+        "research/PUBLIC_DYNAMIC_DATA.md"
+      ],
+      "expected_outcomes": [
+        "sufficient metadata",
+        "unresolved access",
+        "alternative small-data route"
+      ],
+      "acceptance_checks": [
+        "official source",
+        "bounded responses",
+        "README MD5",
+        "HTTP 206 and Content-Range",
+        "ZIP directory parse"
+      ],
+      "stop_condition": "One access decision; no bulk archive download",
+      "owned_files": [
+        "research/DYNAMIC_METADATA.md",
+        "research/metadata/dynamic-metadata-001/"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "tension_metadata_unresolved_shape2fate_annotations_accessible_in_principle",
+      "artifact_paths": [
+        "research/DYNAMIC_METADATA.md",
+        "research/metadata/dynamic-metadata-001/manifest_check.json"
+      ],
+      "source_locators": [
+        "https://data.mendeley.com/datasets/pfgfbv3rjx/1",
+        "https://zenodo.org/api/records/17484958"
+      ],
+      "limitations": [
+        "Only ZIP listing parsed",
+        "Archive checksum not verified",
+        "One movie, not three biological replicates",
+        "No calibrated time or curvature"
+      ],
+      "next_decision": "Small annotation retrieval and schema audit"
+    },
+    {
+      "task_id": "geometry-independent-review-001",
+      "attempt_number": 1,
+      "role": "reviewer",
+      "question": "What conclusions can the grouped geometry comparison support, and are there actionable implementation or scientific validity problems?",
+      "inputs": [
+        "research/FIRST_COMPARISON.md",
+        "research/compare_geometry.py",
+        "research/data_audit.json",
+        "tests/test_geometry_comparison.py"
+      ],
+      "expected_outcomes": [
+        "limited descriptive acceptance",
+        "required corrections",
+        "unresolved evidence"
+      ],
+      "acceptance_checks": [
+        "group separation",
+        "filtering",
+        "observation uncertainty",
+        "scope of inference",
+        "evidence-backed objections"
+      ],
+      "stop_condition": "One bounded independent review with written findings",
+      "owned_files": [
+        "research/INDEPENDENT_REVIEW.md"
+      ],
+      "agent_id": "/root/independent_review",
+      "requested_model": "gpt-5.6-sol",
+      "requested_effort": "high",
+      "execution_status": "completed",
+      "scientific_outcome": "narrow_descriptive_acceptance_no_mechanistic_promotion",
+      "artifact_paths": [
+        "research/INDEPENDENT_REVIEW.md"
+      ],
+      "limitations": [
+        "Joint measurement covariance unavailable",
+        "Culture-level independence unresolved"
+      ],
+      "next_decision": "Apply review corrections and audit public dynamic data"
+    },
+    {
+      "task_id": "public-dynamic-data-001",
+      "attempt_number": 1,
+      "role": "source",
+      "question": "Which public within-pit or perturbation datasets warrant a metadata check?",
+      "inputs": [
+        "primary papers and public repository pages"
+      ],
+      "expected_outcomes": [
+        "accessible candidates",
+        "request-only exclusions",
+        "unresolved metadata"
+      ],
+      "acceptance_checks": [
+        "persistent locator",
+        "measured versus inferred observable",
+        "access and grouping limitations"
+      ],
+      "stop_condition": "At most three candidates; no bulk downloads",
+      "owned_files": [
+        "research/PUBLIC_DYNAMIC_DATA.md"
+      ],
+      "agent_id": "/root/public_dynamic_sources_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "execution_status": "completed",
+      "scientific_outcome": "three_candidates_not_data_validation",
+      "artifact_paths": [
+        "research/PUBLIC_DYNAMIC_DATA.md"
+      ],
+      "source_locators": [
+        "https://doi.org/10.17632/pfgfbv3rjx.1",
+        "https://doi.org/10.5281/zenodo.17484958",
+        "https://doi.org/10.35092/yhjc.12198225"
+      ],
+      "limitations": [
+        "Archive members not inspected",
+        "Condition/replicate maps unresolved"
+      ],
+      "next_decision": "Small Mendeley metadata access check"
+    },
+    {
+      "task_id": "geometry-review-corrections-001",
+      "attempt_number": 1,
+      "role": "lead_local_code",
+      "question": "Can the review defects be corrected without changing results?",
+      "inputs": [
+        "research/INDEPENDENT_REVIEW.md",
+        "research/geometry_results.json"
+      ],
+      "expected_outcomes": [
+        "unchanged numerical results",
+        "discrepancy requiring investigation"
+      ],
+      "acceptance_checks": [
+        "frozen input lock",
+        "published MD5",
+        "finite area boundary",
+        "exact all-fold equivalence"
+      ],
+      "stop_condition": "Regression checks and one versioned rerun",
+      "owned_files": [
+        "research/compare_geometry.py",
+        "research/FIRST_COMPARISON.md",
+        "research/geometry_inputs.lock.json",
+        "research/geometry_results_v2.json",
+        "tests/test_geometry_comparison.py"
+      ],
+      "execution_status": "completed",
+      "scientific_outcome": "original_result_preserved",
+      "artifact_paths": [
+        "research/REVIEW_DISPOSITION.md",
+        "research/geometry_results_v2.json"
+      ],
+      "limitations": [
+        "Corrections tested by lead, not independently re-reviewed"
+      ],
+      "next_decision": "Public dynamic-data metadata audit"
+    }
+  ]
+}

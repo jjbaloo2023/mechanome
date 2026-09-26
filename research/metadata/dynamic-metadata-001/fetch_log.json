@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://zenodo.org/api/records/17484958",
+    "status": "saved",
+    "bytes": 10487,
+    "sha256": "4177263a41290bdbda5d1f605e84d13004ef39836b0e4ab27e124fdcacee514b",
+    "file": "shape2fate_record.json"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/harmanea/shape2fate/main/examples/tracking_example.py",
+    "status": "saved",
+    "bytes": 7633,
+    "sha256": "73197adfd1db4921cb2f28ff1755fba52017c6d7912a6ac330a81b667c4bd7fb",
+    "file": "tracking_example.py.txt"
+  }
+]

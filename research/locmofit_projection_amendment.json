@@ -1,0 +1,8 @@
+{
+  "registered_at_utc": "2026-09-25T03:50:34.966189+00:00",
+  "parent_task": "locmofit-contract-001",
+  "reason": "Original projected-area rim-disk identity fails in 1744 rows; inspect declared alternative silhouette without fitting or rewriting original check. Inspect actual schema differences.",
+  "alternative": "pi R^2 sin^2(theta) for theta<=90deg; pi R^2 for theta>90deg",
+  "gate": "max relative error1e-4; exclude no rows; preserve failed original identity",
+  "scope": "same-table convention check only, no new physical validation"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "control",
+  "name": "sphere",
+  "weighting": "uniform_r",
+  "h": 0.4000000027811351,
+  "b": 0.019999999924968787,
+  "rmse": 6.744622694680888e-11,
+  "gradient": 3.271321693904889e-12,
+  "optimizer_success": true,
+  "flat_boundary": false,
+  "upper_boundary": false,
+  "upper_h": 2.49999999975,
+  "upper_distance": 2.0999999969688647,
+  "objective_h0": 9.203471603073245e-05,
+  "objective_hupper": 0.006377378012551158,
+  "target_h": 0.4,
+  "target_b": 0.02
+}

@@ -1,0 +1,15 @@
+{
+  "registered_utc": "2026-09-25T02:59:20.479518+00:00",
+  "task_id": "cap-observation-001",
+  "attempt": 1,
+  "purpose": "Independent observation-function and first-order fit checks, not additional fits or BVPs.",
+  "checks": [
+    "stable sphere height versus direct radius formula at nonsingular controls",
+    "analytic derivative dg/dh=r^2/(sqrt(1-h^2r^2)*(1+sqrt(1-h^2r^2))) by complex-step",
+    "flat limit g=0 and derivative r^2/2",
+    "translation invariance with analytic free offset",
+    "reported weighted SSE and stationary or endpoint-optimality check where available",
+    "input and result hashes"
+  ],
+  "scope": "Checks of the declared synthetic vertical least-squares functional only; no likelihood/biological validation."
+}

@@ -1,0 +1,38 @@
+{
+  "task": "cap-literature-001",
+  "observed_on": "2026-09-22",
+  "timezone": "America/New_York",
+  "sources": [
+    {
+      "id": "lipowsky-1993-domain-budding",
+      "type": "primary-theory",
+      "citation": "Lipowsky R. Domain-induced budding of fluid membranes. Biophysical Journal. 1993;64(4):1133-1138.",
+      "doi": "10.1016/S0006-3495(93)81479-6",
+      "url": "https://doi.org/10.1016/S0006-3495(93)81479-6",
+      "access": "abstract/index verified; PMC full text cache miss",
+      "use": "established line-tension versus bending spherical-cap/domain-budding antecedent"
+    },
+    {
+      "id": "hassinger-2017-pnas-and-2016-arxiv",
+      "type": "primary-theory",
+      "citation": "Hassinger JE, Oster G, Drubin DG, Rangamani P. Design principles for robust vesiculation in clathrin-mediated endocytosis. Proceedings of the National Academy of Sciences. 2017;114(7):E1118-E1127. Peer-reviewed development associated with arXiv:1604.08629v1 (2016-04-28).",
+      "doi": "10.1073/pnas.1617705114",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28126722/",
+      "preprint_full_text": "https://arxiv.org/html/1604.08629v1",
+      "access": "PNAS identity/abstract verified through PubMed; associated preprint full HTML verified",
+      "locators": ["Eq. 1", "Eq. 2", "Eq. 3", "Fig. 4", "lines 68-86", "lines 102-117"],
+      "use": "axisymmetric equilibrium snap-through boundary-value model; non-transferable as proof for zero-edge-line-tension cap"
+    },
+    {
+      "id": "akamatsu-2020-elife",
+      "type": "primary-simulation-experiment",
+      "citation": "Akamatsu M, Vasan R, Serwas D, Ferrin MA, Rangamani P, Drubin DG. Principles of self-organization and load adaptation by the actin cytoskeleton during clathrin-mediated endocytosis. eLife. 2020;9:e49840.",
+      "doi": "10.7554/eLife.49840",
+      "url": "https://elifesciences.org/articles/49840",
+      "access": "indexed version-of-record methods/abstract verified; direct HTML/PDF 403",
+      "locators": ["Internalization energy", "Figure 7E", "Barbed ends near base/neck"],
+      "use": "network dynamics and independent base/neck actin observable"
+    }
+  ],
+  "novelty_disposition": "No claim. Exact force-tension compensation ridge not found in this bounded check; absence is not evidence of novelty."
+}

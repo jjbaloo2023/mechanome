@@ -1,0 +1,9 @@
+{
+  "protocol_version": 2,
+  "reason": "Independent-review corrections; no change to candidate forms, filters, weights or scoring",
+  "sha256": {
+    "research/compare_geometry.py": "20f3bbba1c4652665c38ab9e7092ba4f5535dca8775a36ba4cef5d43446be9e9",
+    "research/FIRST_COMPARISON.md": "12294486bb7e69379f380c7eeb9b5b417611f7126eb9f1943871e97e5f1cc5f0",
+    "research/data_audit.json": "cf4e3276ec5b2a17ae2478de70419d1ad53c8ccbed003c57b9e38ddfc4f7faef"
+  }
+}

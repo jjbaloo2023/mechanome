@@ -1,0 +1,51 @@
+{
+  "task_id": "dasc-comparison-design-001",
+  "attempt_number": 1,
+  "status": "proposal_only_not_download_authorization",
+  "purpose": "Conditional engineering I/O feasibility; not biological comparison or DASC fit",
+  "source_manifest_sha256": "b13a66d30bf527e333018e75eec0f74aed4a6b07096d4a2cb05b130235fee8eb",
+  "selection_rule": "Lexicographically first full filename per condition; arbitrary engineering samples",
+  "compressed_payload_cap_bytes": 1073741824,
+  "selected_total_bytes": 970016272,
+  "full_cohorts": [
+    {
+      "condition": "WT",
+      "files": 19,
+      "compressed_bytes": 9040952265
+    },
+    {
+      "condition": "PIP2_mutant",
+      "files": 20,
+      "compressed_bytes": 10238817152
+    }
+  ],
+  "files": [
+    {
+      "condition": "WT",
+      "id": 22427928,
+      "name": "#alphaPIP2-#alphaPIP2_WT#190602#Cell10_00_1s#Cell10_00_1s.tif.bz2",
+      "size": 438478109,
+      "download_url": "https://ndownloader.figshare.com/files/22427928",
+      "supplied_md5": "d5319a14f1227b2cd4c617c59fccc5ef",
+      "computed_md5": "d5319a14f1227b2cd4c617c59fccc5ef"
+    },
+    {
+      "condition": "PIP2_mutant",
+      "id": 22427874,
+      "name": "#alphaPIP2-#alphaPIP2-#190602#Cell10_00_1s#Cell10_00_1s.tif.bz2",
+      "size": 531538163,
+      "download_url": "https://ndownloader.figshare.com/files/22427874",
+      "supplied_md5": "c7fecacc73b1ba510a855794fc0fec58",
+      "computed_md5": "c7fecacc73b1ba510a855794fc0fec58"
+    }
+  ],
+  "unverified": [
+    "uncompressed shape and dtype",
+    "RAM and decompression limits",
+    "runtime",
+    "representativeness",
+    "biological replicate independence"
+  ],
+  "downloaded": false,
+  "campaign_disposition": "parked_2026-09-23_no_download_queued; see DASC_OBSERVATION_DECISION.md"
+}

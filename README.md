@@ -9,7 +9,12 @@ forward models at other scales, and a structure-based protein screen.
 
 - [Codebase guide](CODEBASE.md): call paths, reporting rules, and development.
 - [Scientific reference](RESEARCH.md): equations, validation, results, and reproduction.
-- [Manuscript](MANUSCRIPT.md): the paper draft.
+- [Manuscript](MANUSCRIPT.md): historical paper draft; see the campaign for current claim boundaries.
+- [Research campaign](research/README.md): reviewed findings, study index, reproducibility, and next decisions.
+
+The current public-data campaign supports descriptive geometry and conditional
+model results. It has not established a biological mechanism or calibrated force
+from the public cap-fit tables. Start with [the findings](research/FINDINGS.md).
 
 ## Install
 
@@ -49,6 +54,9 @@ and recovery calibration both pass. See the codebase guide for limitations.
 
 ## Check changes
 
+For the reviewed research checkpoint, use the bounded offline selection in
+[research/REPRODUCE.md](research/REPRODUCE.md). General development checks:
+
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q tests/test_pipeline_contracts.py tests/test_imports.py tests/test_players.py tests/test_mechanome_modules.py
 .\.venv\Scripts\python.exe -m pytest -q
@@ -66,6 +74,7 @@ cached microscopy data or optional Gymnasium.
 | `mechanome/` | Claim schemas, other mechanical scales, structural screen |
 | `validation/` | Validation programs and dataset-specific experiments |
 | `tests/` | Automated checks |
+| `research/` | Reviewed findings, designs, evidence, source records and campaign log |
 | `figures/`, `outputs/`, `presentation/` | Saved scientific artifacts |
 | `rl/` | Optional reinforcement-learning experiment |
 | `cache/` | Reusable downloaded inputs |

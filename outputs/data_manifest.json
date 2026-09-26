@@ -1,4 +1,12 @@
 {
+  "claim_review": {
+    "reviewed_at_utc": "2026-09-23",
+    "status": "historical_numerical_results_not_revalidated",
+    "prior_file_sha256": "d2e2d58fb86a2c485a6f3ef9d99baf360a7dfbbf95685ffd6c64cd6a41c0b3da",
+    "basis": "research/OBSERVABLE_PERMISSION_REVIEW.md",
+    "current_assessment": "research/ASSESSMENT.md",
+    "scope": "Claim/permission metadata corrected only; numerical payload preserved. Observable tags do not establish calibrated geometry or force identifiability. The router refusal is not a global inverse firewall."
+  },
   "generated": "2026-07-11",
   "root": "/root/projects",
   "datasets": [
@@ -231,7 +239,7 @@
       "rel_path": "IAV paper membranes 2022/IAV and NP data/080421 epsin EGFP mchc clc IAV/epsin/IAV",
       "kind": "paired TIRF+epi OME-TIFF",
       "observable": "2_epitirf_depth",
-      "force_inference": true,
+      "force_inference": false,
       "n_paired_cells": 9,
       "cells": [
         "cell_1",
@@ -251,7 +259,9 @@
         "640-membrane"
       ],
       "note": "single-timepoint population snapshot, not time-lapse",
-      "retrieval_date": "2026-07-11"
+      "retrieval_date": "2026-07-11",
+      "historical_tag_only_force_inference": true,
+      "force_permission_note": "Prior tag-only permission superseded; no reviewed calibration/model-specific authorization. Dataset was not re-ingested."
     }
   ],
   "summary": {
@@ -259,6 +269,6 @@
     "n_epitirf_conditions": 1,
     "n_epitirf_paired_cells": 9,
     "observable_3_present": false,
-    "note": "No observable #3 (SIM curvature) present; 2020 is #1, IAV is #2"
+    "note": "Historical inventory: 2020 intensity data and IAV paired-field data; no tag 3. No dataset receives force permission from its observable tag."
   }
 }

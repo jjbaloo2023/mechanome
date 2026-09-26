@@ -1,0 +1,271 @@
+{
+  "task_id": "cap-full-shape-benchmark-001",
+  "attempt": 1,
+  "created_utc": "2026-09-23T11:25:40.627875+00:00",
+  "model": "linear, force-free circular curvature patch in infinite membrane",
+  "design": {
+    "x_R_over_ell": [
+      0.1,
+      0.5,
+      1.0,
+      2.0,
+      5.0,
+      10.0
+    ],
+    "c_times_ell": 0.01,
+    "cells_per_ell": [
+      40,
+      80,
+      160
+    ],
+    "finite_outer_radius_over_ell": "x+20"
+  },
+  "source_hashes": {
+    "research/linear_patch_benchmark.py": "6e43e5c68fb4d5e9574f8b0c70c4e8ad5d3c9659e217092d892c88042929809a",
+    "curvo/evaluator_tier0.py": "91fa542ec5f1a056e322df546f0a7782f64e02d093604faff87ab66c1728ede6"
+  },
+  "limitations": [
+    "Projected patch area equals surface area only to leading order",
+    "Uniform tension and rigidity; no force, pressure, line energy or stiffness jump",
+    "Local apex and area-averaged curvature are distinct measurement functionals",
+    "No neck, overhang, snap-through, biological calibration or nonlinear-paper reproduction",
+    "Finite-volume outer-boundary truncation is separate from infinite-domain closed form",
+    "Analytic shear residual is an identity, not an independent numerical check"
+  ],
+  "records": [
+    {
+      "x": 0.1,
+      "apex_H_over_c_half": 0.9853844780870606,
+      "coat_mean_H_over_c_half": 0.9866167220126864,
+      "depth_over_c_ell_squared": 0.014615521912939355,
+      "cap_H_over_c_half": 0.9987515605493134,
+      "cap_depth_over_c_ell_squared": 0.002496878901373284,
+      "max_membrane_slope": 0.0004933083610063432,
+      "cap_edge_slope_small_slope": 0.0004993757802746567,
+      "d_apex_normalized_dx": -0.24270690247020169,
+      "d_depth_normalized_dx": 0.24270690247020169,
+      "green_integral_apex_abs_error": 0.0,
+      "interface_residuals": {
+        "height": 4.5102810375396984e-17,
+        "slope": 0.0,
+        "bending_moment": 4.5102810375396984e-17,
+        "generalized_shear": 0.0
+      },
+      "finite_volume": [
+        {
+          "cells_per_ell": 40,
+          "apex_normalized": 0.9853211187941068,
+          "depth_normalized": 0.014678881205893236,
+          "apex_abs_error": 6.335929295386844e-05
+        },
+        {
+          "cells_per_ell": 80,
+          "apex_normalized": 0.9853686082328479,
+          "depth_normalized": 0.014631391767152124,
+          "apex_abs_error": 1.5869854212757772e-05
+        },
+        {
+          "cells_per_ell": 160,
+          "apex_normalized": 0.9853805086971968,
+          "depth_normalized": 0.014619491302803109,
+          "apex_abs_error": 3.9693898638004654e-06
+        }
+      ]
+    },
+    {
+      "x": 0.5,
+      "apex_H_over_c_half": 0.8282205600016503,
+      "coat_mean_H_over_c_half": 0.8543734641283393,
+      "depth_over_c_ell_squared": 0.17177943999834966,
+      "cap_H_over_c_half": 0.9696969696969697,
+      "cap_depth_over_c_ell_squared": 0.06060606060606061,
+      "max_membrane_slope": 0.0021359336603208484,
+      "cap_edge_slope_small_slope": 0.0024242424242424242,
+      "d_apex_normalized_dx": -0.4622095356138328,
+      "d_depth_normalized_dx": 0.4622095356138328,
+      "green_integral_apex_abs_error": 2.220446049250313e-16,
+      "interface_residuals": {
+        "height": -1.1102230246251565e-16,
+        "slope": 0.0,
+        "bending_moment": -1.1102230246251565e-16,
+        "generalized_shear": 0.0
+      },
+      "finite_volume": [
+        {
+          "cells_per_ell": 40,
+          "apex_normalized": 0.8281726660909439,
+          "depth_normalized": 0.17182733390905613,
+          "apex_abs_error": 4.789391070647575e-05
+        },
+        {
+          "cells_per_ell": 80,
+          "apex_normalized": 0.8282085849596452,
+          "depth_normalized": 0.17179141504035478,
+          "apex_abs_error": 1.1975042005119008e-05
+        },
+        {
+          "cells_per_ell": 160,
+          "apex_normalized": 0.8282175661432969,
+          "depth_normalized": 0.17178243385670317,
+          "apex_abs_error": 2.9938583534505625e-06
+        }
+      ]
+    },
+    {
+      "x": 1.0,
+      "apex_H_over_c_half": 0.6019072301972346,
+      "coat_mean_H_over_c_half": 0.680346701809735,
+      "depth_over_c_ell_squared": 0.3980927698027654,
+      "cap_H_over_c_half": 0.8888888888888888,
+      "cap_depth_over_c_ell_squared": 0.2222222222222222,
+      "max_membrane_slope": 0.0034017335090486753,
+      "cap_edge_slope_small_slope": 0.0044444444444444444,
+      "d_apex_normalized_dx": -0.42102443824070834,
+      "d_depth_normalized_dx": 0.42102443824070834,
+      "green_integral_apex_abs_error": 2.220446049250313e-16,
+      "interface_residuals": {
+        "height": 5.551115123125783e-17,
+        "slope": 0.0,
+        "bending_moment": 5.551115123125783e-17,
+        "generalized_shear": 0.0
+      },
+      "finite_volume": [
+        {
+          "cells_per_ell": 40,
+          "apex_normalized": 0.6018790098090631,
+          "depth_normalized": 0.39812099019093694,
+          "apex_abs_error": 2.8220388171518174e-05
+        },
+        {
+          "cells_per_ell": 80,
+          "apex_normalized": 0.6019001747060474,
+          "depth_normalized": 0.3980998252939526,
+          "apex_abs_error": 7.055491187180074e-06
+        },
+        {
+          "cells_per_ell": 160,
+          "apex_normalized": 0.6019054662998404,
+          "depth_normalized": 0.3980945337001596,
+          "apex_abs_error": 1.7638973941469516e-06
+        }
+      ]
+    },
+    {
+      "x": 2.0,
+      "apex_H_over_c_half": 0.2797317636330449,
+      "coat_mean_H_over_c_half": 0.44495165264741937,
+      "depth_over_c_ell_squared": 0.720268236366955,
+      "cap_H_over_c_half": 0.6666666666666666,
+      "cap_depth_over_c_ell_squared": 0.6666666666666666,
+      "max_membrane_slope": 0.004449516526474194,
+      "cap_edge_slope_small_slope": 0.006666666666666667,
+      "d_apex_normalized_dx": -0.22778774549906683,
+      "d_depth_normalized_dx": 0.22778774549906683,
+      "green_integral_apex_abs_error": 5.551115123125783e-17,
+      "interface_residuals": {
+        "height": 5.551115123125783e-17,
+        "slope": 0.0,
+        "bending_moment": 5.551115123125783e-17,
+        "generalized_shear": 0.0
+      },
+      "finite_volume": [
+        {
+          "cells_per_ell": 40,
+          "apex_normalized": 0.2797254157240133,
+          "depth_normalized": 0.7202745842759867,
+          "apex_abs_error": 6.347909031589882e-06
+        },
+        {
+          "cells_per_ell": 80,
+          "apex_normalized": 0.2797301766840823,
+          "depth_normalized": 0.7202698233159177,
+          "apex_abs_error": 1.5869489626285649e-06
+        },
+        {
+          "cells_per_ell": 160,
+          "apex_normalized": 0.27973136689770695,
+          "depth_normalized": 0.720268633102293,
+          "apex_abs_error": 3.967353379707994e-07
+        }
+      ]
+    },
+    {
+      "x": 5.0,
+      "apex_H_over_c_half": 0.02022306722726082,
+      "coat_mean_H_over_c_half": 0.19685653082613538,
+      "depth_over_c_ell_squared": 0.9797769327727391,
+      "cap_H_over_c_half": 0.24242424242424243,
+      "cap_depth_over_c_ell_squared": 1.5151515151515151,
+      "max_membrane_slope": 0.0049214132706533855,
+      "cap_edge_slope_small_slope": 0.006060606060606061,
+      "d_apex_normalized_dx": -0.018455491670212973,
+      "d_depth_normalized_dx": 0.018455491670212973,
+      "green_integral_apex_abs_error": 5.134781488891349e-16,
+      "interface_residuals": {
+        "height": -5.551115123125783e-17,
+        "slope": 0.0,
+        "bending_moment": -5.551115123125783e-17,
+        "generalized_shear": 0.0
+      },
+      "finite_volume": [
+        {
+          "cells_per_ell": 40,
+          "apex_normalized": 0.020224153573266124,
+          "depth_normalized": 0.9797758464267339,
+          "apex_abs_error": 1.0863460053051055e-06
+        },
+        {
+          "cells_per_ell": 80,
+          "apex_normalized": 0.02022333883385774,
+          "depth_normalized": 0.9797766611661423,
+          "apex_abs_error": 2.7160659692160305e-07
+        },
+        {
+          "cells_per_ell": 160,
+          "apex_normalized": 0.020223135130389425,
+          "depth_normalized": 0.9797768648696106,
+          "apex_abs_error": 6.790312860605052e-08
+        }
+      ]
+    },
+    {
+      "x": 10.0,
+      "apex_H_over_c_half": 0.00018648773453825584,
+      "coat_mean_H_over_c_half": 0.09962131154708516,
+      "depth_over_c_ell_squared": 0.9998135122654618,
+      "cap_H_over_c_half": 0.07407407407407407,
+      "cap_depth_over_c_ell_squared": 1.8518518518518519,
+      "max_membrane_slope": 0.004981065577354258,
+      "cap_edge_slope_small_slope": 0.003703703703703704,
+      "d_apex_normalized_dx": -0.0001778006231616765,
+      "d_depth_normalized_dx": 0.0001778006231616765,
+      "green_integral_apex_abs_error": 2.569017047704403e-16,
+      "interface_residuals": {
+        "height": -1.6653345369377348e-16,
+        "slope": -5.551115123125783e-17,
+        "bending_moment": -1.6653345369377348e-16,
+        "generalized_shear": 0.0
+      },
+      "finite_volume": [
+        {
+          "cells_per_ell": 40,
+          "apex_normalized": 0.00018652189582968326,
+          "depth_normalized": 0.9998134781041703,
+          "apex_abs_error": 3.4161291427418656e-08
+        },
+        {
+          "cells_per_ell": 80,
+          "apex_normalized": 0.00018649627489075726,
+          "depth_normalized": 0.9998135037251092,
+          "apex_abs_error": 8.540352501422172e-09
+        },
+        {
+          "cells_per_ell": 160,
+          "apex_normalized": 0.00018648986986447014,
+          "depth_normalized": 0.9998135101301355,
+          "apex_abs_error": 2.1353262142959246e-09
+        }
+      ]
+    }
+  ]
+}

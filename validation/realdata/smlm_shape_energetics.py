@@ -1,22 +1,8 @@
-"""
-smlm_shape_energetics.py -- shape-energetics inverse on a static SMLM trajectory.
+"""Exploratory inverse diagnostics for angle-ordered static cap outputs.
 
-Runs curvo's Bayesian inverse on the pseudo-temporally-sorted SMLM curvature
-trajectory H(theta) to fit the shape-energetics (the tension / spontaneous-
-curvature / bending trade-off consistent with the observed shape sequence).
-
-THE FORCE FIREWALL, ONE LEVEL EARLIER. A static super-res population has no real
-time axis and no co-imaged actin channel, so absolute cortical force is
-structurally underdetermined -- not merely statistically noisy. The SMLM path
-therefore sets force_applicable=False and REFUSES an absolute-force point
-estimate categorically, independent of what any single posterior happens to look
-like. What the inverse CAN report is the shape-energetics: the effective
-spontaneous curvature the coat must express to sit where it does on the H(theta)
-sequence, with a calibrated identifiability verdict.
-
-This extends the anti-force-astrology firewall (Roy 2020 STED / ENTH+AP180
-inverse: refuse a force the data do not identify) to the frozen-snapshot regime:
-here the refusal is by construction of the observable, not by posterior width.
+The observation mapping and per-bin uncertainty are uncalibrated. Callers must
+opt in explicitly; returned posterior summaries are conditional on this legacy
+surrogate and do not establish physical parameters, kinetics, or mechanisms.
 """
 from __future__ import annotations
 
@@ -31,14 +17,16 @@ from validation.realdata.smlm_pseudotime import (
     PseudotimeTrajectory, sort_by_pseudotime)
 from validation.realdata.ingest_smlm_locmofit import ingest_locmofit
 
-H_SIGMA_FLOOR = 5e-4     # curvature SEM floor per bin (nm^-1)
+H_SIGMA_FLOOR = 5e-4     # exploratory likelihood-scale floor, not measured SEM
 
 
 def _trajectory_to_obs(tr: PseudotimeTrajectory, T: int):
-    """Resample the binned H(theta) trajectory onto the forward model's T-frame
-    coverage coordinate. The sort is monotone in theta; we index by the coat-area
-    fraction (the model's assembly coordinate) so the geometry maps onto the same
-    sigmoidal coverage ramp the forward model uses."""
+    """Apply the legacy exploratory mapping from fitted cap area to coverage.
+
+    Sorting population bin medians by fitted area and interpolating onto the
+    model grid is a surrogate assumption, not observed assembly or time. Its
+    IQR-based scale and floor are uncalibrated likelihood choices.
+    """
     H = np.array(tr.H_median); Hlo = np.array(tr.H_lo); Hhi = np.array(tr.H_hi)
     n = np.array(tr.n_per_bin); frac = np.array(tr.A_surf_frac)
     H_sigma = np.maximum((Hhi - Hlo) / 2 / np.sqrt(n), H_SIGMA_FLOOR)
@@ -72,9 +60,14 @@ class ShapeEnergeticsResult:
 
 
 def fit_shape_energetics(tr: PseudotimeTrajectory, A_coat_nm2: float,
-                        nlive: int = 250, seed: int = 0) -> ShapeEnergeticsResult:
-    """Fit shape-energetics to a pseudo-temporal SMLM trajectory and REFUSE
-    absolute force (force_applicable=False by construction of the observable)."""
+                        nlive: int = 250, seed: int = 0, *,
+                        allow_exploratory: bool = False) -> ShapeEnergeticsResult:
+    """Run the legacy surrogate only with explicit exploratory permission."""
+    if allow_exploratory is not True:
+        raise ValueError(
+            "Static cap outputs lack a calibrated observation likelihood; "
+            "set allow_exploratory=True only for conditional surrogate diagnostics."
+        )
     if tr.force_applicable:
         raise ValueError("expected a static (force_applicable=False) trajectory")
     T = inv.FIXED["T"]
@@ -86,8 +79,12 @@ def fit_shape_energetics(tr: PseudotimeTrajectory, A_coat_nm2: float,
     prov = dict(tr.provenance)
     prov.update(engine="dynesty nested sampling",
                 inverse="curvo.inverse.run_nested",
-                note="force_applicable=False: absolute force refused by "
-                     "construction (static snapshot), NOT merely by posterior width")
+                analysis_scope="exploratory surrogate diagnostics",
+                calibrated_likelihood=False,
+                mechanism_inference_allowed=False,
+                uncertainty_model="population IQR/(2*sqrt(n)) with an arbitrary floor",
+                uncertainty_floor_inv_nm=H_SIGMA_FLOOR,
+                note="conditional posterior summaries; no calibrated physical inference")
     return ShapeEnergeticsResult(
         cell_line=tr.cell_line, n_sites=tr.n_sites, A_coat_nm2=float(A_coat_nm2),
         logz=res["logz"], identifiability=rep,
@@ -96,10 +93,17 @@ def fit_shape_energetics(tr: PseudotimeTrajectory, A_coat_nm2: float,
 
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--allow-exploratory", action="store_true")
+    args = parser.parse_args()
+    if not args.allow_exploratory:
+        parser.error("--allow-exploratory is required for this uncalibrated surrogate")
     gs = ingest_locmofit()
     tr = sort_by_pseudotime(gs.by_cell_line("SKMEL2"))
     A = float(np.median(gs.by_cell_line("SKMEL2").arr("surface_area_nm2")))
-    r = fit_shape_energetics(tr, A)
+    r = fit_shape_energetics(tr, A, allow_exploratory=args.allow_exploratory)
     print(f"SKMEL2 n={r.n_sites}  logz={r.logz:.1f}")
     print(f"  shape c_eff = {r.c_eff_shape_inv_nm:.4f} nm^-1 "
           f"CI68 {r.c_eff_ci68}")

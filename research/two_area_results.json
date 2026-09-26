@@ -1,0 +1,1081 @@
+{
+  "attempt": 1,
+  "created_utc": "2026-09-23T01:18:12.207769+00:00",
+  "design": {
+    "A0_nm2": 11309.733552923255,
+    "C_per_nm": 0.03,
+    "F0_pN": 13.958473151017879,
+    "P0_per_nm": 3.392920065876976,
+    "T": 24,
+    "areas_nm2": [
+      11309.733552923255,
+      22619.46710584651
+    ],
+    "clipping_domain": "psi in [0.02, pi-0.001], matching source grid endpoints",
+    "kappa0_kBT": 20.0,
+    "line_tension": 0.0,
+    "no_empirical_calibration": true,
+    "rigidity_factor": 3.0,
+    "sigma_kBT_per_nm2": 0.02
+  },
+  "environment": {
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "exact_symmetries": {
+    "area_specific_C_ridge": {
+      "max_difference_after_alpha_1p7": 5.204170427930421e-18,
+      "transform": "Ci fixed; sigma->alpha*sigma; P->alpha*P when Ci*Ai=2P/sigma for both areas"
+    },
+    "force_density_ridge": {
+      "max_difference_after_alpha_1p7": 5.204170427930421e-18,
+      "transform": "C fixed; sigma->alpha*sigma; rho->alpha*rho where rho=C*sigma/2"
+    },
+    "shared_single_area_ridge_only": {
+      "max_two_area_difference_after_alpha_1p7": 0.0009829415435822775,
+      "transform": "at A0, C fixed; sigma->alpha*sigma; P->alpha*P where P=C*sigma*A0/2",
+      "two_area_breaks_it": true
+    },
+    "unknown_rigidity_scale": {
+      "max_difference_after_alpha_1p7": 3.469446951953614e-18,
+      "transform": "C fixed; (scale,P,sigma)->alpha*(scale,P,sigma)"
+    }
+  },
+  "kind": "registered_synthetic_measurement_design",
+  "method": {
+    "H": "clip_domain[u*(4*pi*kappa*C_i+P_i)/(8*pi*kappa+sigma*A_i)]",
+    "finite_difference": "central differences of analytic clipped H on interior rows only; never grid argmin",
+    "jacobian": "analytic derivative of H, zeroed only where analytic clip is saturated",
+    "noise": "No noise sensitivity reported: structural null directions make pseudoinverse uncertainty invalid.",
+    "rank_rule": "SVD of J_z, z_j=theta_j/declared_scale_j; s>1e-10*s_max"
+  },
+  "records": [
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 3.119799557582681e-12
+      },
+      "kind": "shared",
+      "label": "shared_generic",
+      "max_H_inv_nm": 0.016163793103448273,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "P": 4.24115008234622,
+        "sigma": 0.02
+      },
+      "rank": 1,
+      "singular_values": [
+        0.0402519737663157,
+        6.545991019021487e-18,
+        1.4104010863916555e-18
+      ],
+      "svd_cutoff": 4.0251973766315705e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 3.119799557582681e-12
+      },
+      "kind": "shared",
+      "label": "shared_generic",
+      "max_H_inv_nm": 0.016163793103448273,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "P": 4.24115008234622,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.052421253854729954,
+        0.004591813822808992,
+        1.2489256037619475e-18
+      ],
+      "svd_cutoff": 5.242125385472995e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 2.342493169923965e-12
+      },
+      "kind": "shared",
+      "label": "shared_generic",
+      "max_H_inv_nm": 0.015489130434782608,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "P": 4.24115008234622,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.04293631194146335,
+        0.0015745097766605494,
+        6.408825227612206e-06
+      ],
+      "svd_cutoff": 4.293631194146335e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 2.342493169923965e-12
+      },
+      "kind": "shared",
+      "label": "shared_generic",
+      "max_H_inv_nm": 0.015489130434782608,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "P": 4.24115008234622,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.05768704736319194,
+        0.003914130891782656,
+        0.0012462609314377695
+      ],
+      "svd_cutoff": 5.7687047363191946e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 3.119799557582681e-12
+      },
+      "kind": "force_density",
+      "label": "force_density_generic",
+      "max_H_inv_nm": 0.016163793103448273,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "rho": 0.00037499999999999995,
+        "sigma": 0.02
+      },
+      "rank": 1,
+      "singular_values": [
+        0.0402519737663157,
+        6.179804332316291e-18,
+        1.6747431975936502e-18
+      ],
+      "svd_cutoff": 4.0251973766315705e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 3.119799557582681e-12
+      },
+      "kind": "force_density",
+      "label": "force_density_generic",
+      "max_H_inv_nm": 0.016776315789473684,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "rho": 0.00037499999999999995,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.05804332169410878,
+        0.010211527244615812,
+        3.714265557251688e-18
+      ],
+      "svd_cutoff": 5.804332169410878e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 2.3424933867643993e-12
+      },
+      "kind": "force_density",
+      "label": "force_density_generic",
+      "max_H_inv_nm": 0.015489130434782608,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "rho": 0.00037499999999999995,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.04293631194146335,
+        0.0015745097766605494,
+        6.40882522761238e-06
+      ],
+      "svd_cutoff": 4.293631194146335e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 2.3424933867643993e-12
+      },
+      "kind": "force_density",
+      "label": "force_density_generic",
+      "max_H_inv_nm": 0.015865384615384615,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "rho": 0.00037499999999999995,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.05876688999352738,
+        0.006980027622716644,
+        4.3896084687729405e-05
+      ],
+      "svd_cutoff": 5.876688999352738e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 3.119799557582681e-12
+      },
+      "kind": "area_C",
+      "label": "area_C_generic",
+      "max_H_inv_nm": 0.016163793103448273,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C1": 0.03,
+        "C2": 0.042,
+        "P": 4.24115008234622,
+        "sigma": 0.02
+      },
+      "rank": 1,
+      "singular_values": [
+        0.0402519737663157,
+        6.5459910190214905e-18,
+        1.410401086391656e-18,
+        7.327234372788884e-35
+      ],
+      "svd_cutoff": 4.0251973766315705e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 3.119799557582681e-12
+      },
+      "kind": "area_C",
+      "label": "area_C_generic",
+      "max_H_inv_nm": 0.016163793103448273,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C1": 0.03,
+        "C2": 0.042,
+        "P": 4.24115008234622,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.04544777805451558,
+        0.030186594561838313,
+        7.223854939738976e-18,
+        3.2531980540284166e-18
+      ],
+      "svd_cutoff": 4.544777805451558e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 2.342493169923965e-12
+      },
+      "kind": "area_C",
+      "label": "area_C_generic",
+      "max_H_inv_nm": 0.015489130434782608,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C1": 0.03,
+        "C2": 0.042,
+        "P": 4.24115008234622,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.04293631194146335,
+        0.0015745097766605486,
+        6.408825227612163e-06,
+        1.7410002169752054e-21
+      ],
+      "svd_cutoff": 4.293631194146335e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 3.696138881070787e-12
+      },
+      "kind": "area_C",
+      "label": "area_C_generic",
+      "max_H_inv_nm": 0.01831730769230769,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C1": 0.03,
+        "C2": 0.042,
+        "P": 4.24115008234622,
+        "sigma": 0.02
+      },
+      "rank": 4,
+      "singular_values": [
+        0.04369978347648529,
+        0.039016258344406154,
+        0.0023455694585759277,
+        0.0003679936367753622
+      ],
+      "svd_cutoff": 4.369978347648529e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 3.119799557582681e-12
+      },
+      "kind": "unknown_scale",
+      "label": "unknown_scale_generic",
+      "max_H_inv_nm": 0.016163793103448273,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "P": 4.24115008234622,
+        "scale": 1.0,
+        "sigma": 0.02
+      },
+      "rank": 1,
+      "singular_values": [
+        0.04033615625433191,
+        6.570445035736676e-18,
+        1.4130274655895046e-18,
+        1.9920234367444055e-19
+      ],
+      "svd_cutoff": 4.033615625433191e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 3.119799557582681e-12
+      },
+      "kind": "unknown_scale",
+      "label": "unknown_scale_generic",
+      "max_H_inv_nm": 0.016163793103448273,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "P": 4.24115008234622,
+        "scale": 1.0,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.0524296209606904,
+        0.0069066763307180975,
+        2.2985907339347642e-18,
+        1.8393592311137307e-18
+      ],
+      "svd_cutoff": 5.24296209606904e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 2.342493169923965e-12
+      },
+      "kind": "unknown_scale",
+      "label": "unknown_scale_generic",
+      "max_H_inv_nm": 0.015489130434782608,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "P": 4.24115008234622,
+        "scale": 1.0,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.04296169702545733,
+        0.0015842341238061022,
+        1.2015038654384173e-05,
+        2.0403041951161566e-18
+      ],
+      "svd_cutoff": 4.296169702545733e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 2.342493169923965e-12
+      },
+      "kind": "unknown_scale",
+      "label": "unknown_scale_generic",
+      "max_H_inv_nm": 0.015489130434782608,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "P": 4.24115008234622,
+        "scale": 1.0,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.05769891107642088,
+        0.005100971126476278,
+        0.0018045943379660868,
+        2.9959849119110197e-18
+      ],
+      "svd_cutoff": 5.769891107642088e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 1.8506272903007215e-12
+      },
+      "kind": "shared",
+      "label": "shared_exceptional",
+      "max_H_inv_nm": 0.014999999999999998,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "P": 3.392920065876976,
+        "sigma": 0.02
+      },
+      "rank": 1,
+      "singular_values": [
+        0.03979239323615388,
+        5.426358706440355e-18,
+        1.5230952270611324e-18
+      ],
+      "svd_cutoff": 3.9792393236153884e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 1.8506272903007215e-12
+      },
+      "kind": "shared",
+      "label": "shared_exceptional",
+      "max_H_inv_nm": 0.014999999999999998,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "P": 3.392920065876976,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.05161046750674006,
+        0.004328145566395015,
+        9.094886184928965e-19
+      ],
+      "svd_cutoff": 5.161046750674006e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 1.7250541273217124e-12
+      },
+      "kind": "shared",
+      "label": "shared_exceptional",
+      "max_H_inv_nm": 0.015,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "P": 3.392920065876976,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.04289551719767179,
+        0.0015150998931271456,
+        6.567777397419944e-19
+      ],
+      "svd_cutoff": 4.289551719767179e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 1.7250541273217124e-12
+      },
+      "kind": "shared",
+      "label": "shared_exceptional",
+      "max_H_inv_nm": 0.015,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "P": 3.392920065876976,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.057592874531270204,
+        0.003752441194151027,
+        0.0012565102098366172
+      ],
+      "svd_cutoff": 5.759287453127021e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 1.8506272903007215e-12
+      },
+      "kind": "force_density",
+      "label": "force_density_exceptional",
+      "max_H_inv_nm": 0.014999999999999998,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "rho": 0.0003,
+        "sigma": 0.02
+      },
+      "rank": 1,
+      "singular_values": [
+        0.03979239323615388,
+        4.950859877911337e-18,
+        1.5252789072217971e-18
+      ],
+      "svd_cutoff": 3.9792393236153884e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 1.8506272903007215e-12
+      },
+      "kind": "force_density",
+      "label": "force_density_exceptional",
+      "max_H_inv_nm": 0.015,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "rho": 0.0003,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.056655118558431423,
+        0.009661099510168733,
+        2.6671655938627822e-18
+      ],
+      "svd_cutoff": 5.665511855843143e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 1.7250541273217124e-12
+      },
+      "kind": "force_density",
+      "label": "force_density_exceptional",
+      "max_H_inv_nm": 0.015,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C": 0.03,
+        "rho": 0.0003,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.04289551719767179,
+        0.0015150998931271462,
+        1.22899710798496e-18
+      ],
+      "svd_cutoff": 4.289551719767179e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 44,
+        "max_abs_scaled_derivative_error": 1.7250541273217124e-12
+      },
+      "kind": "force_density",
+      "label": "force_density_exceptional",
+      "max_H_inv_nm": 0.015,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 4,
+      "n_interior_rows": 44,
+      "parameters": {
+        "C": 0.03,
+        "rho": 0.0003,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.05860386472660264,
+        0.006679814603317437,
+        2.184399578762994e-18
+      ],
+      "svd_cutoff": 5.860386472660264e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 1.8506272903007215e-12
+      },
+      "kind": "area_C",
+      "label": "area_C_exceptional",
+      "max_H_inv_nm": 0.014999999999999998,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C1": 0.03,
+        "C2": 0.015,
+        "P": 3.392920065876976,
+        "sigma": 0.02
+      },
+      "rank": 1,
+      "singular_values": [
+        0.03979239323615388,
+        5.426358706440352e-18,
+        1.5230952270611323e-18,
+        1.8760430427667813e-35
+      ],
+      "svd_cutoff": 3.9792393236153884e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 43,
+        "max_abs_scaled_derivative_error": 1.8506272903007215e-12
+      },
+      "kind": "area_C",
+      "label": "area_C_exceptional",
+      "max_H_inv_nm": 0.014999999999999998,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 5,
+      "n_interior_rows": 43,
+      "parameters": {
+        "C1": 0.03,
+        "C2": 0.015,
+        "P": 3.392920065876976,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.04162999599392096,
+        0.027794516571944122,
+        6.2423740485923176e-18,
+        1.9368320554278695e-18
+      ],
+      "svd_cutoff": 4.162999599392096e-12,
+      "varying_kappa": false
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 22,
+        "max_abs_scaled_derivative_error": 1.7250541273217124e-12
+      },
+      "kind": "area_C",
+      "label": "area_C_exceptional",
+      "max_H_inv_nm": 0.015,
+      "min_H_inv_nm": 0.0003333277778055555,
+      "n_clipped_rows": 2,
+      "n_interior_rows": 22,
+      "parameters": {
+        "C1": 0.03,
+        "C2": 0.015,
+        "P": 3.392920065876976,
+        "sigma": 0.02
+      },
+      "rank": 2,
+      "singular_values": [
+        0.04289551719767179,
+        0.0015150998931271456,
+        9.498925741518435e-19,
+        6.809190618832238e-35
+      ],
+      "svd_cutoff": 4.289551719767179e-12,
+      "varying_kappa": true
+    },
+    {
+      "areas_nm2": [
+        11309.733552923255,
+        22619.46710584651
+      ],
+      "dimensionless_parameter_scales": {
+        "C_or_Ci_per_nm": 0.03,
+        "P_per_nm": 3.392920065876976,
+        "rho_per_nm3": 0.0003,
+        "rigidity_scale": 1.0,
+        "sigma_kBT_per_nm2": 0.02
+      },
+      "fd_check": {
+        "interior_rows": 43,
+        "max_abs_scaled_derivative_error": 1.7250541273217124e-12
+      },
+      "kind": "area_C",
+      "label": "area_C_exceptional",
+      "max_H_inv_nm": 0.015,
+      "min_H_inv_nm": 0.00023569833204415105,
+      "n_clipped_rows": 5,
+      "n_interior_rows": 43,
+      "parameters": {
+        "C1": 0.03,
+        "C2": 0.015,
+        "P": 3.392920065876976,
+        "sigma": 0.02
+      },
+      "rank": 3,
+      "singular_values": [
+        0.04307798188319519,
+        0.03738311427826071,
+        0.0019217804227565757,
+        1.219665144655065e-18
+      ],
+      "svd_cutoff": 4.3077981883195195e-12,
+      "varying_kappa": true
+    }
+  ],
+  "registered_before_computation": true,
+  "source_hashes_sha256": {
+    "curvo/inverse.py": "00db6555f2dede87080ec1a50708002b68a2d88b5b7f91ea03bfcfdd69495c96",
+    "research/cap_experiment.py": "41c4ee92d2a0c57d88644d6839e913deaeae9a703f79fa07c4815d8d385c1740",
+    "two_area_experiment.py": "808f9772f1ca183b04ed9d37f393cebe6f8cf0feaafee203fedfd4e77588263c"
+  },
+  "task": "cap-two-area-numerical-001"
+}

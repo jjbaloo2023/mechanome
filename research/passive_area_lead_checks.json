@@ -1,0 +1,457 @@
+{
+  "task_id": "passive-area-sign-001",
+  "attempt": 1,
+  "observed_utc": "2026-09-25T02:13:00.102411+00:00",
+  "method": "Hermite reconstruction and 8-point Gauss integration on every saved mesh interval; no BVP solves.",
+  "source_sha256": "8932df7738b6bb6fe5e66199e6b04281fe36593dc325245d5896317bda8ada5b",
+  "result_sha256": "0d59776b9336f2acf6e263300b0db662c0f6e6c9295aba4d1b152d91785d76e3",
+  "equations_sha256": "93a7703c11ec3bd5b2eecfb34ee5b1e35134f0a9c03d1221709f92c43df803da",
+  "lead_design_sha256": "f20989ce1b637fd52b81a77eaab682c29c2327758b04fed11a5cb915dce37b8d",
+  "checks": [
+    {
+      "label": "x0.5_c0.02",
+      "state_sha256": "4b74418f479ebd40f167ad4605a87a3fbb40b119bd5de87f4fcab0880eaa2323",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.8283584206020439,
+        "coat_mean_H_over_C_source": 0.8267854742095698,
+        "reservoir_depth_over_c_repo_ell": 0.17164260556637195,
+        "edge_depth_over_c_repo_ell": 0.052500760728037124
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 1.3020843581124097e-07,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 4.336808689942018e-19,
+      "projected_area_identity_relative_error": 1.554312234475219e-14,
+      "projected_area_from_quadrature": 0.12499944462506792,
+      "projected_area_from_boundary": 0.12499944462506597,
+      "all_interval_arc_defect_component_max": [
+        1.3769506925391646e-11,
+        1.5647452898770778e-09,
+        8.444656598413067e-09,
+        1.0789064671563546e-08,
+        9.818302524108704e-10,
+        2.8158030964584954e-11
+      ]
+    },
+    {
+      "label": "x0.5_c0.1",
+      "state_sha256": "28c11dcd20730e2154aee1fc8942b1cf9f3847b67465ccd97273021cfa66ea29",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.8283829226123549,
+        "coat_mean_H_over_C_source": 0.8268021014081565,
+        "reservoir_depth_over_c_repo_ell": 0.17164444360708803,
+        "edge_depth_over_c_repo_ell": 0.05250203792354293
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 1.3020845879285758e-07,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 6.617444900424222e-24,
+      "projected_area_identity_relative_error": 3.510525203864745e-13,
+      "projected_area_from_quadrature": 0.12498611499111538,
+      "projected_area_from_boundary": 0.1249861149910715,
+      "all_interval_arc_defect_component_max": [
+        7.42024838307925e-11,
+        2.203523606910455e-09,
+        8.480296745087325e-09,
+        1.4142926233308313e-08,
+        1.7532170177388936e-09,
+        2.3163643618941156e-10
+      ]
+    },
+    {
+      "label": "x0.5_c0.3",
+      "state_sha256": "99ebd57fe07943fb7cd8e26baaf9bcf03f1bac17d4a6cff52a76f2898309cd0a",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.8285873490839717,
+        "coat_mean_H_over_C_source": 0.8269408235168586,
+        "reservoir_depth_over_c_repo_ell": 0.17165977033386093,
+        "edge_depth_over_c_repo_ell": 0.052512694251582705
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 1.3020853784073694e-07,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 0.0,
+      "projected_area_identity_relative_error": 2.8339552926581746e-12,
+      "projected_area_from_quadrature": 0.12487498719007627,
+      "projected_area_from_boundary": 0.12487498718972202,
+      "all_interval_arc_defect_component_max": [
+        3.171056243511785e-10,
+        2.7101725404462243e-09,
+        8.781819674013918e-09,
+        3.7925704099405666e-08,
+        5.019476944013776e-09,
+        1.3905762509984995e-09
+      ]
+    },
+    {
+      "label": "x0.5_c0.6",
+      "state_sha256": "87da1116b262da610d8e6460b309d638cbb79c9d8ab0b760b2c87c7189ae5241",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.8292803585887683,
+        "coat_mean_H_over_C_source": 0.8274110462697555,
+        "reservoir_depth_over_c_repo_ell": 0.17171162400523374,
+        "edge_depth_over_c_repo_ell": 0.05254882297318876
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 1.3020881461933698e-07,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 0.0,
+      "projected_area_identity_relative_error": 8.463230116717568e-13,
+      "projected_area_from_quadrature": 0.12449930132279273,
+      "projected_area_from_boundary": 0.12449930132268694,
+      "all_interval_arc_defect_component_max": [
+        4.122581573697848e-10,
+        3.018623248038078e-09,
+        8.881183435051192e-09,
+        6.519770227043514e-08,
+        1.0567062791502156e-09,
+        4.7160840054263935e-09
+      ]
+    },
+    {
+      "label": "x1_c0.02",
+      "state_sha256": "d88b85467a4eeb661336d1b5a12097e7d39987902c1452067a0a30386c644dcf",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.6019350158362037,
+        "coat_mean_H_over_C_source": 0.6734449772010246,
+        "reservoir_depth_over_c_repo_ell": 0.3980688625003747,
+        "edge_depth_over_c_repo_ell": 0.1601333843186848
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 5.204696379434992e-07,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 1.6940658945086007e-21,
+      "projected_area_identity_relative_error": 1.9761969838327786e-14,
+      "projected_area_from_quadrature": 0.4999946570721792,
+      "projected_area_from_boundary": 0.49999465707216934,
+      "all_interval_arc_defect_component_max": [
+        3.414514542352428e-11,
+        1.3993440574371936e-09,
+        4.925017343550639e-09,
+        1.283881378961468e-08,
+        5.747397111056016e-10,
+        6.516791995664282e-11
+      ]
+    },
+    {
+      "label": "x1_c0.1",
+      "state_sha256": "d1335ab4cffda02650e220c5e81467e734b691aba1f930686207e46b55755801",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.6020075749744421,
+        "coat_mean_H_over_C_source": 0.6734927027134531,
+        "reservoir_depth_over_c_repo_ell": 0.39809710262606585,
+        "edge_depth_over_c_repo_ell": 0.160148097468308
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 5.204703118488752e-07,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 0.0,
+      "projected_area_identity_relative_error": 4.630740235711528e-13,
+      "projected_area_from_quadrature": 0.49986640363084783,
+      "projected_area_from_boundary": 0.4998664036306163,
+      "all_interval_arc_defect_component_max": [
+        2.154258147814887e-10,
+        2.9083761008948355e-09,
+        8.157220469053683e-09,
+        2.954553352840417e-08,
+        2.868143900228058e-09,
+        7.103203762065145e-10
+      ]
+    },
+    {
+      "label": "x1_c0.3",
+      "state_sha256": "2b8693206418b1d01aabc308450970a3173604fa83d17d6df9562bee7f272ef6",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.6026147939808608,
+        "coat_mean_H_over_C_source": 0.6738919582485845,
+        "reservoir_depth_over_c_repo_ell": 0.39833333915386476,
+        "edge_depth_over_c_repo_ell": 0.16027121815312362
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 5.204760562538269e-07,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 0.0,
+      "projected_area_identity_relative_error": 4.1678882567453e-12,
+      "projected_area_from_quadrature": 0.4987958870386185,
+      "projected_area_from_boundary": 0.49879588703653455,
+      "all_interval_arc_defect_component_max": [
+        9.306710234897141e-10,
+        3.5050092072327852e-09,
+        8.792167075015798e-09,
+        6.613408426491445e-08,
+        5.104344012184959e-09,
+        4.770606639474436e-09
+      ]
+    },
+    {
+      "label": "x1_c0.6",
+      "state_sha256": "c54bca556418d6fcd3ef4d9778ab637c825b4e4a689b91ff7d5938d4f3e8cb8c",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.6046984062845772,
+        "coat_mean_H_over_C_source": 0.6752599999030379,
+        "reservoir_depth_over_c_repo_ell": 0.39914265612165556,
+        "edge_depth_over_c_repo_ell": 0.1606935771929626
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 5.204954075521684e-07,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 2.7755575615628914e-17,
+      "projected_area_identity_relative_error": 1.6740608899112885e-11,
+      "projected_area_from_quadrature": 0.4951595748375176,
+      "projected_area_from_boundary": 0.4951595748291473,
+      "all_interval_arc_defect_component_max": [
+        2.9317074868293474e-09,
+        4.626732940858455e-09,
+        9.540914272086319e-09,
+        1.006683211298125e-07,
+        7.401526109460533e-09,
+        1.4511633114434275e-08
+      ]
+    },
+    {
+      "label": "x2_c0.02",
+      "state_sha256": "b69354390c433bb1a8eacad9b4b44193290d02e347f79e77d60a05351eb0b6ac",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.2797368701247467,
+        "coat_mean_H_over_C_source": 0.4432254094976058,
+        "reservoir_depth_over_c_repo_ell": 0.72026725392579,
+        "edge_depth_over_c_repo_ell": 0.3579412517924075
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 2.080621382016812e-06,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 0.0,
+      "projected_area_identity_relative_error": 1.1657341758564144e-14,
+      "projected_area_from_quadrature": 1.999969965149806,
+      "projected_area_from_boundary": 1.9999699651497826,
+      "all_interval_arc_defect_component_max": [
+        2.5325980786445833e-11,
+        6.829126768278717e-10,
+        1.314380008839275e-09,
+        1.714107755184428e-08,
+        1.1441312101569508e-09,
+        1.2686499253172563e-10
+      ]
+    },
+    {
+      "label": "x2_c0.1",
+      "state_sha256": "1b3d4a7f1ba01b07af39f840cd8dede9389e0d848045a31dabd76cbc6294871a",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.279790428535485,
+        "coat_mean_H_over_C_source": 0.4432749669121984,
+        "reservoir_depth_over_c_repo_ell": 0.7203564633964417,
+        "edge_depth_over_c_repo_ell": 0.35799102693317236
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 2.08062584122759e-06,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 3.3881317890172014e-21,
+      "projected_area_identity_relative_error": 2.8832491949515315e-13,
+      "projected_area_from_quadrature": 1.9992489154544046,
+      "projected_area_from_boundary": 1.999248915453828,
+      "all_interval_arc_defect_component_max": [
+        5.957972878436534e-10,
+        3.2631791284302895e-09,
+        6.292156609427373e-09,
+        4.9041948885785155e-08,
+        2.4107012263540412e-09,
+        1.8178438919060327e-09
+      ]
+    },
+    {
+      "label": "x2_c0.3",
+      "state_sha256": "bc18bd902e72a070cc845b3161da9600b3f658d0733556a270385b4ce2eacf5a",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.28024048962762094,
+        "coat_mean_H_over_C_source": 0.4436905197528294,
+        "reservoir_depth_over_c_repo_ell": 0.7211049511322324,
+        "edge_depth_over_c_repo_ell": 0.3584088854111505
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 2.0806650078974975e-06,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 0.0,
+      "projected_area_identity_relative_error": 2.592481784802203e-12,
+      "projected_area_from_quadrature": 1.9932241241591602,
+      "projected_area_from_boundary": 1.9932241241539752,
+      "all_interval_arc_defect_component_max": [
+        1.4373196895368064e-09,
+        4.57277474099163e-09,
+        7.714759559606e-09,
+        1.1079439346182927e-07,
+        6.322908706731343e-09,
+        1.168096178593215e-08
+      ]
+    },
+    {
+      "label": "x2_c0.6",
+      "state_sha256": "e401fc053bd7464e1bb5bd8c2768c8501917298221f97e13fa36034bf19819cc",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.2818105987685341,
+        "coat_mean_H_over_C_source": 0.44512803566928383,
+        "reservoir_depth_over_c_repo_ell": 0.7237002736697213,
+        "edge_depth_over_c_repo_ell": 0.359861004721885
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 2.0807990400162346e-06,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 1.3552527156068805e-20,
+      "projected_area_identity_relative_error": 1.0343281786617808e-11,
+      "projected_area_from_quadrature": 1.9726724931650004,
+      "projected_area_from_boundary": 1.9726724931443138,
+      "all_interval_arc_defect_component_max": [
+        4.434461315533071e-09,
+        4.92912196872767e-09,
+        7.585443910145961e-09,
+        1.8597286442392395e-07,
+        6.975145840273964e-09,
+        4.069313639878521e-08
+      ]
+    },
+    {
+      "label": "x2_c0.6_sensitivity",
+      "state_sha256": "b0e9cb749d127d634f368016b9ed0332cfe99d8f03369fa7ba83d62fb19e8a12",
+      "reconstructed_observables": {
+        "apex_H_over_C_source": 0.28181059836942657,
+        "coat_mean_H_over_C_source": 0.4451280356369968,
+        "reservoir_depth_over_c_repo_ell": 0.7237002735582063,
+        "edge_depth_over_c_repo_ell": 0.35986100466977355
+      },
+      "absolute_differences_from_stored_observables": {
+        "apex_H_over_C_source": 0.0,
+        "coat_mean_H_over_C_source": 2.0808006139794166e-06,
+        "reservoir_depth_over_c_repo_ell": 0.0,
+        "edge_depth_over_c_repo_ell": 0.0
+      },
+      "pole_boundary_max_absolute_error": 6.776263578034403e-21,
+      "projected_area_identity_relative_error": 6.468159341466162e-13,
+      "projected_area_from_quadrature": 1.972672493170306,
+      "projected_area_from_boundary": 1.9726724931690123,
+      "all_interval_arc_defect_component_max": [
+        2.589564090334672e-09,
+        1.4196154889128916e-09,
+        4.315174496483776e-09,
+        1.642971828266784e-07,
+        4.0408308901833765e-09,
+        3.6406166868441654e-08
+      ]
+    }
+  ],
+  "sign_margin": 1e-05,
+  "sign_margin_is_not_a_confidence_interval": true,
+  "sampled_ordering": [
+    {
+      "c_repo_ell": 0.02,
+      "x": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "apex_H_over_C_source": [
+        0.8283584206020439,
+        0.6019350158362037,
+        0.2797368701247467
+      ],
+      "adjacent_decreases": [
+        0.22642340476584022,
+        0.322198145711457
+      ],
+      "classification": "preserved"
+    },
+    {
+      "c_repo_ell": 0.1,
+      "x": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "apex_H_over_C_source": [
+        0.8283829226123549,
+        0.6020075749744421,
+        0.279790428535485
+      ],
+      "adjacent_decreases": [
+        0.22637534763791278,
+        0.3222171464389571
+      ],
+      "classification": "preserved"
+    },
+    {
+      "c_repo_ell": 0.3,
+      "x": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "apex_H_over_C_source": [
+        0.8285873490839717,
+        0.6026147939808608,
+        0.28024048962762094
+      ],
+      "adjacent_decreases": [
+        0.22597255510311087,
+        0.3223743043532399
+      ],
+      "classification": "preserved"
+    },
+    {
+      "c_repo_ell": 0.6,
+      "x": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "apex_H_over_C_source": [
+        0.8292803585887683,
+        0.6046984062845772,
+        0.2818105987685341
+      ],
+      "adjacent_decreases": [
+        0.2245819523041911,
+        0.32288780751604307
+      ],
+      "classification": "preserved"
+    }
+  ],
+  "limitations": [
+    "Shared numerical solution, not independent physical evidence.",
+    "No proof of continuous branch tracking or global monotonicity.",
+    "Single combined mesh/cutoff check is not a global error bound."
+  ]
+}

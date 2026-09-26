@@ -1,0 +1,81 @@
+{
+  "task_id": "locmofit-source-001",
+  "checked_at_utc": "2026-09-25T03:50:03Z",
+  "source_status": "primary_method_and_current_pinned_public_source_checked; historical_analysis_version_unpinned",
+  "primary_method": {
+    "doi": "10.1083/jcb.202206038",
+    "url": "https://rupress.org/jcb/article/222/3/e202206038/213855/Clathrin-coats-partially-preassemble-and",
+    "locators": [
+      "Methods: Quantitative geometric analysis of clathrin-coated structures",
+      "Methods: Superresolution image reconstruction"
+    ],
+    "fit": "maximum-likelihood fit of point-cloud localizations to PDF of hollow spherical cap",
+    "intrinsic_parameters": [
+      "surface area A",
+      "closing angle theta"
+    ],
+    "nuisance_parameters": [
+      "centre position",
+      "orientation",
+      "extra uncertainty",
+      "background weight"
+    ],
+    "model_support": "segmented and manually curated whole isolated site",
+    "latent_sampling": "spiral points or spherical Fibonacci lattice approximating even cap-surface distribution; points treated as discrete fluorophore coordinates",
+    "derived": {
+      "radius": "sqrt(A/(2*pi*(1-cos(theta))))",
+      "curvature": "H=1/r"
+    },
+    "known_preprocessing": "localizations filtered to xy precision 0--20 nm and z precision 0--30 nm; modal values 3.9 nm xy and 12.5 nm z"
+  },
+  "current_public_implementation": {
+    "repo": "https://github.com/jries/SMAP/tree/master/LocMoFit",
+    "master_commit": "d066594d7a5e5d35f2dbf9402cf7cfcfe07679c6",
+    "docs_version": "LocMoFit 1.1.0",
+    "docs": [
+      "https://locmofit.readthedocs.io/en/latest/basics/structure.html",
+      "https://locmofit.readthedocs.io/en/stable/LocMoFit.modelLibrary.html"
+    ],
+    "relevant_model": "models.sphericalCap3D_surfaceArea",
+    "relevant_blobs": {
+      "fitter": "f0baeaaadd6bef20c3ff51763384a3aed5283fd7",
+      "function_model": "a1f10bc1b44ce5ff90e7c9dbf01b591c4984f8b1",
+      "spherical_cap": "cc03dbd25b5d92c9894174d3d9ab417302af17ca"
+    },
+    "immutable_raw_urls_verified_http_200": {
+      "fitter": "https://raw.githubusercontent.com/jries/SMAP/d066594d7a5e5d35f2dbf9402cf7cfcfe07679c6/LocMoFit/%40LocMoFit/LocMoFit.m",
+      "function_model": "https://raw.githubusercontent.com/jries/SMAP/d066594d7a5e5d35f2dbf9402cf7cfcfe07679c6/LocMoFit/%40functionModel/functionModel.m",
+      "spherical_cap": "https://raw.githubusercontent.com/jries/SMAP/d066594d7a5e5d35f2dbf9402cf7cfcfe07679c6/LocMoFit/models/sphericalCap3D_surfaceArea.m"
+    },
+    "current_code_behavior": {
+      "model_type": "discretized",
+      "objective": "sum(compensationFactor * log(prob))",
+      "default_solver": "fminsearchbnd",
+      "background_default_form": "weight",
+      "per_localization_precision_path": "locprecnm and locprecznm for discrete model",
+      "projection_area_caveat": "current getDerivedPars returns pi*radius^2 for every positive closeAngle; this is not a historical-equivalence claim"
+    },
+    "historical_equivalence": "not established",
+    "historical_commit_or_blob_hash": null
+  },
+  "absent_from_processed_tables": [
+    "raw localizations",
+    "per-localization covariance/precision",
+    "segmentation ROI/mask",
+    "model point count and realization",
+    "per-site extra uncertainty value",
+    "per-site background weight/value/distribution",
+    "optimizer/bounds/initialization",
+    "fit likelihood/residuals",
+    "parameter covariance",
+    "historical SMAP/LocMoFit revision"
+  ],
+  "paper_simulation_choices_not_per_site_fit_settings": [
+    "5 nm linkage-error variance",
+    "p_label=0.6",
+    "reactivation probability 0.5",
+    "mean on-time 1.6 frames",
+    "photon/background/CRLB simulation inputs"
+  ],
+  "surrogate_decision": "deterministic vertical least squares is not a LocMoFit likelihood and must remain a measurement-functional sensitivity surrogate"
+}

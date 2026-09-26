@@ -1,0 +1,1127 @@
+{
+  "dataset": "S-BIAD566",
+  "retrieved_at_utc": "2026-09-19T18:54:19.557188+00:00",
+  "script_sha256": "887d1f811e7164294dbdd53178ff235a9d99db9af299b47f2a886f65ff645c75",
+  "manifest": {
+    "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results%20-%20Tabellenblatt1.tsv",
+    "sha256": "ee8e9cf22b3bb4b351e81c4c81ade7d22b74c795217fc86bf7251d99894ce934"
+  },
+  "scope": "Published processed fit tables, not raw localization data; no model fitting",
+  "dataset_license": "not independently verified; article CC BY 4.0 is not assumed to license every deposit",
+  "tables": [
+    {
+      "path": "3_Model_Fit_Results/3T3/1_c3T3.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/3T3/1_c3T3.csv",
+      "bytes": 16893,
+      "sha256": "7b753a7098cedd2fc175fd49f61d63bf00f025d8213f7a72c29baa6c2ca11522",
+      "published_md5": "47DBF36A28D982C4A0848CB4E447AECC",
+      "md5_verified": true,
+      "rows": 129,
+      "cell_lines": [
+        "3T3"
+      ],
+      "file_numbers": [
+        1
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 117,
+        "True": 12
+      },
+      "flagged_disconnected": 12,
+      "current_adapter_kept": 116,
+      "negative_curvature": 1,
+      "corrected_curvature_changes": 1,
+      "corrected_theta_changes": 1,
+      "flag_threshold_disagreements": 3,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        2.37127454,
+        179.49326916
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/3T3/2_c3T3.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/3T3/2_c3T3.csv",
+      "bytes": 9578,
+      "sha256": "44f885b6a18bfdfa34e26f66e34156cedf764001bb5e2783c1324def687fd931",
+      "published_md5": "12BA1DDAD3640F3264CEC10DFF76C7F6",
+      "md5_verified": true,
+      "rows": 73,
+      "cell_lines": [
+        "3T3"
+      ],
+      "file_numbers": [
+        2
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 64,
+        "True": 9
+      },
+      "flagged_disconnected": 9,
+      "current_adapter_kept": 62,
+      "negative_curvature": 2,
+      "corrected_curvature_changes": 2,
+      "corrected_theta_changes": 2,
+      "flag_threshold_disagreements": 3,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.91564133,
+        179.45543711
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/3T3/3_c3T3.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/3T3/3_c3T3.csv",
+      "bytes": 16998,
+      "sha256": "393931d59ae404d0023b19d17dc33a8e1ac1efd95e8097396b1f1d78904390c6",
+      "published_md5": "32E8DAD207B188F90F5812720D149C04",
+      "md5_verified": true,
+      "rows": 130,
+      "cell_lines": [
+        "3T3"
+      ],
+      "file_numbers": [
+        3
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 119,
+        "True": 11
+      },
+      "flagged_disconnected": 11,
+      "current_adapter_kept": 119,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        9.92552375,
+        178.66746238
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/3T3/4_c3T3.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/3T3/4_c3T3.csv",
+      "bytes": 13970,
+      "sha256": "0befb843c772f2dbeea651e74429960eca51ea4a52b412f296a11e14e04aa66f",
+      "published_md5": "6B02E60767D28D39EF455BE23CBA29A8",
+      "md5_verified": true,
+      "rows": 107,
+      "cell_lines": [
+        "3T3"
+      ],
+      "file_numbers": [
+        4
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 97,
+        "True": 10
+      },
+      "flagged_disconnected": 10,
+      "current_adapter_kept": 94,
+      "negative_curvature": 3,
+      "corrected_curvature_changes": 3,
+      "corrected_theta_changes": 3,
+      "flag_threshold_disagreements": 1,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        7.50818056,
+        179.45604348
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/3T3/5_c3T3.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/3T3/5_c3T3.csv",
+      "bytes": 15587,
+      "sha256": "7e37bc002d30bcf0b8ed3077f2a07eb4eb1f7eca02204cb874b5364f14120567",
+      "published_md5": "83876E807B29AC8A5913D4E8B21AC319",
+      "md5_verified": true,
+      "rows": 119,
+      "cell_lines": [
+        "3T3"
+      ],
+      "file_numbers": [
+        5
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 115,
+        "True": 4
+      },
+      "flagged_disconnected": 4,
+      "current_adapter_kept": 114,
+      "negative_curvature": 1,
+      "corrected_curvature_changes": 1,
+      "corrected_theta_changes": 1,
+      "flag_threshold_disagreements": 2,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        3.61658093,
+        177.75758644
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/3T3/6_c3T3.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/3T3/6_c3T3.csv",
+      "bytes": 10491,
+      "sha256": "07aa075b31a2459934d376ed60eb8b52f381549e07d5c0f36dbec7d36e47c516",
+      "published_md5": "069FF838DC6C3F4805EEE73CA6F20F5F",
+      "md5_verified": true,
+      "rows": 80,
+      "cell_lines": [
+        "3T3"
+      ],
+      "file_numbers": [
+        6
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 76,
+        "True": 4
+      },
+      "flagged_disconnected": 4,
+      "current_adapter_kept": 75,
+      "negative_curvature": 1,
+      "corrected_curvature_changes": 1,
+      "corrected_theta_changes": 1,
+      "flag_threshold_disagreements": 2,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.15515139,
+        175.21753164
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/3T3/7_c3T3.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/3T3/7_c3T3.csv",
+      "bytes": 13248,
+      "sha256": "67d263e72e6ecef2955f2c4169b06704cf0345024f0a72d9f0453ab2dcc5182d",
+      "published_md5": "5464B944922540377B02C84DECCDB0DD",
+      "md5_verified": true,
+      "rows": 101,
+      "cell_lines": [
+        "3T3"
+      ],
+      "file_numbers": [
+        7
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 100,
+        "True": 1
+      },
+      "flagged_disconnected": 1,
+      "current_adapter_kept": 100,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.857296809999994,
+        168.49748286
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/1_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/1_SKMEL2.csv",
+      "bytes": 26448,
+      "sha256": "83aefcdef06c0156a3eb3c145f41a67affce245524cd2f0779cbcc9f0edb6dc2",
+      "published_md5": "9F19874F1B20A315322532D43E0529D4",
+      "md5_verified": true,
+      "rows": 196,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        1
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 177,
+        "True": 19
+      },
+      "flagged_disconnected": 19,
+      "current_adapter_kept": 175,
+      "negative_curvature": 2,
+      "corrected_curvature_changes": 2,
+      "corrected_theta_changes": 2,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        6.292633963,
+        159.759517766
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/2_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/2_SKMEL2.csv",
+      "bytes": 39846,
+      "sha256": "7995800f9534d90a4c4768b007c37aeebe1d5dce1cbea8f70269453bde51171c",
+      "published_md5": "8C2ADFF17242BF2A7A85A4FBFF86EE05",
+      "md5_verified": true,
+      "rows": 296,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        2
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 262,
+        "True": 34
+      },
+      "flagged_disconnected": 34,
+      "current_adapter_kept": 261,
+      "negative_curvature": 1,
+      "corrected_curvature_changes": 1,
+      "corrected_theta_changes": 1,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        6.93828596,
+        177.173858665
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/3_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/3_SKMEL2.csv",
+      "bytes": 20845,
+      "sha256": "5181d4c4437fc588ef15172133a4f878336f3dc94f13a28bb6ea8a7dd94f514c",
+      "published_md5": "9A98C5634FF43AC8A079CB84950588D8",
+      "md5_verified": true,
+      "rows": 154,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        3
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 135,
+        "True": 19
+      },
+      "flagged_disconnected": 19,
+      "current_adapter_kept": 135,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        22.072468907,
+        167.581636563
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/4_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/4_SKMEL2.csv",
+      "bytes": 17408,
+      "sha256": "12aa9a67de30e4d9fd480edb27fdbdbcbc6479a11c50c78607faa58e9f30d4f7",
+      "published_md5": "78D3B104B2FC937C62E355911514A204",
+      "md5_verified": true,
+      "rows": 128,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        4
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 114,
+        "True": 14
+      },
+      "flagged_disconnected": 14,
+      "current_adapter_kept": 114,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        20.800444777,
+        158.046183209
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/5_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/5_SKMEL2.csv",
+      "bytes": 17692,
+      "sha256": "c74c7813c207a6ae06fd9073758805a4371ad81d394cb06545b40a0e25bc0b8a",
+      "published_md5": "23648FC82BE5791D52AEED37DB57F1B2",
+      "md5_verified": true,
+      "rows": 130,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        5
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 127,
+        "True": 3
+      },
+      "flagged_disconnected": 3,
+      "current_adapter_kept": 127,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        11.452715967,
+        153.466634383
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/6_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/6_SKMEL2.csv",
+      "bytes": 17009,
+      "sha256": "60d4440e5f41bf356a29f72494f1ede652061fefec6ba1eb6fcb882b639f32dc",
+      "published_md5": "D2C352B5103D1B81D15FAE73D42E9D5E",
+      "md5_verified": true,
+      "rows": 125,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        6
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 124,
+        "True": 1
+      },
+      "flagged_disconnected": 1,
+      "current_adapter_kept": 124,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.0784679089999969,
+        149.979599182
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/7_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/7_SKMEL2.csv",
+      "bytes": 10044,
+      "sha256": "002972aa75bd533bc2409bd03412be85712c364268e361e4ae8433b0ac810736",
+      "published_md5": "B918681F77F29C5900D2F038E08AFC3D",
+      "md5_verified": true,
+      "rows": 73,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        7
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 60,
+        "True": 13
+      },
+      "flagged_disconnected": 13,
+      "current_adapter_kept": 60,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.0255626529999944,
+        160.772368975
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/8_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/8_SKMEL2.csv",
+      "bytes": 12266,
+      "sha256": "529eecd76ca834ca2e37ad0d71b1ed3cfe413a87cc455948d97c25643b9652f1",
+      "published_md5": "962ECAACD4FC3606921B872F7F707FF5",
+      "md5_verified": true,
+      "rows": 90,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        8
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 76,
+        "True": 14
+      },
+      "flagged_disconnected": 14,
+      "current_adapter_kept": 76,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        16.128585187,
+        170.050692728
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/9_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/9_SKMEL2.csv",
+      "bytes": 11363,
+      "sha256": "cea5ab875925f7f5013fdd5b0e1e548e57d592933975c4c9c761ecc928cb27c8",
+      "published_md5": "BCBD0ABE771985C5609C3DED7EB7F493",
+      "md5_verified": true,
+      "rows": 84,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        9
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 73,
+        "True": 11
+      },
+      "flagged_disconnected": 11,
+      "current_adapter_kept": 69,
+      "negative_curvature": 4,
+      "corrected_curvature_changes": 4,
+      "corrected_theta_changes": 4,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        6.11710509,
+        167.453368519
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/10_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/10_SKMEL2.csv",
+      "bytes": 12265,
+      "sha256": "4e702032f57d0813e11c13924e6deabb015cbd67c28d67001f2180bf06daeb75",
+      "published_md5": "80B5409A249688EF18F20FC3AE3FD7EB",
+      "md5_verified": true,
+      "rows": 89,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        10
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 86,
+        "True": 3
+      },
+      "flagged_disconnected": 3,
+      "current_adapter_kept": 86,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.0812725969999946,
+        161.389689112
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/11_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/11_SKMEL2.csv",
+      "bytes": 18175,
+      "sha256": "9ce7185a52eea993e8d77319f25648334c6ef2dc1baa814d0c3cfee29c28f802",
+      "published_md5": "161E2544614E65AE08F388DCD7CFFAE5",
+      "md5_verified": true,
+      "rows": 133,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        11
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 123,
+        "True": 10
+      },
+      "flagged_disconnected": 10,
+      "current_adapter_kept": 123,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        10.019660542,
+        159.710637442
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/12_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/12_SKMEL2.csv",
+      "bytes": 30547,
+      "sha256": "36e04fdf8bef9152dfd97e494ef07f159d769b229738bb99a436ca8c4872d0a3",
+      "published_md5": "ABFF22DBB80B893F07CBB272C7A98B40",
+      "md5_verified": true,
+      "rows": 225,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        12
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 215,
+        "True": 10
+      },
+      "flagged_disconnected": 10,
+      "current_adapter_kept": 210,
+      "negative_curvature": 5,
+      "corrected_curvature_changes": 5,
+      "corrected_theta_changes": 5,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.0468154459999965,
+        159.908758556
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/SKMEL2/13_SKMEL2.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/SKMEL2/13_SKMEL2.csv",
+      "bytes": 10294,
+      "sha256": "d045f43e335fa656d0ea4c9f7e8cad08e9bb2bb5a355674b73ff19d44e60aa73",
+      "published_md5": "E749B088039BF8E6F012418CE4122B65",
+      "md5_verified": true,
+      "rows": 75,
+      "cell_lines": [
+        "SKMEL2"
+      ],
+      "file_numbers": [
+        13
+      ],
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 73,
+        "True": 2
+      },
+      "flagged_disconnected": 2,
+      "current_adapter_kept": 71,
+      "negative_curvature": 2,
+      "corrected_curvature_changes": 2,
+      "corrected_theta_changes": 2,
+      "flag_threshold_disagreements": 0,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.132927753999994,
+        166.804507158
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/U2OS/1_U2OS.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/U2OS/1_U2OS.csv",
+      "bytes": 12091,
+      "sha256": "36c2de9d8b737f9cf2888dc773379e053ea38f3c2211c9a208a0b76f522465db",
+      "published_md5": "F5FDF0F1D50EC1E83517B9DD2E15C033",
+      "md5_verified": true,
+      "rows": 92,
+      "cell_lines": [
+        "U2OS"
+      ],
+      "file_numbers": [
+        1
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 64,
+        "True": 28
+      },
+      "flagged_disconnected": 28,
+      "current_adapter_kept": 64,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 2,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        28.19094475,
+        179.6496504
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/U2OS/2_U2OS.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/U2OS/2_U2OS.csv",
+      "bytes": 14760,
+      "sha256": "480d188a642343301190a0b46550ad683e8e534409fe77fe246b4c6bd3c69cbe",
+      "published_md5": "0A5C25435871EBD53FEA88B214EC5E6B",
+      "md5_verified": true,
+      "rows": 112,
+      "cell_lines": [
+        "U2OS"
+      ],
+      "file_numbers": [
+        2
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 95,
+        "True": 17
+      },
+      "flagged_disconnected": 17,
+      "current_adapter_kept": 95,
+      "negative_curvature": 0,
+      "corrected_curvature_changes": 0,
+      "corrected_theta_changes": 0,
+      "flag_threshold_disagreements": 2,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        0.123166949999998,
+        178.03719133
+      ]
+    },
+    {
+      "path": "3_Model_Fit_Results/U2OS/3_U2OS.csv",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/S-BIAD/566/S-BIAD566/Files/3_Model_Fit_Results/U2OS/3_U2OS.csv",
+      "bytes": 11858,
+      "sha256": "ac023f2528bb7034eb7a8e8c1b61a0c51d471cd157bb53fd5f488fbaec492440",
+      "published_md5": "924D8FB788BFAD4E88FC5FAB8FABC47E",
+      "md5_verified": true,
+      "rows": 90,
+      "cell_lines": [
+        "U2OS"
+      ],
+      "file_numbers": [
+        3
+      ],
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "disconnected_values": {
+        "False": 82,
+        "True": 8
+      },
+      "flagged_disconnected": 8,
+      "current_adapter_kept": 81,
+      "negative_curvature": 1,
+      "corrected_curvature_changes": 1,
+      "corrected_theta_changes": 1,
+      "flag_threshold_disagreements": 3,
+      "zero_curvature": 0,
+      "nonfinite_rows": 0,
+      "nonfinite_kept_rows": 0,
+      "duplicate_site_keys": 0,
+      "theta_range_deg": [
+        5.16766453,
+        161.33972927
+      ]
+    }
+  ],
+  "by_cell_line": {
+    "3T3": {
+      "tables": 7,
+      "rows": 739,
+      "current_adapter_kept": 680,
+      "flagged_disconnected": 51
+    },
+    "SKMEL2": {
+      "tables": 13,
+      "rows": 1798,
+      "current_adapter_kept": 1631,
+      "flagged_disconnected": 153
+    },
+    "U2OS": {
+      "tables": 3,
+      "rows": 294,
+      "current_adapter_kept": 240,
+      "flagged_disconnected": 53
+    }
+  },
+  "total_rows": 2831,
+  "total_bytes": 379676,
+  "cell_independence": "Per-file grouping retained; experimental replicate structure still requires metadata audit"
+}

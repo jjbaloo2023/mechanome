@@ -38,10 +38,10 @@ def test_discrimination_is_inconclusive_on_curvature_alone():
     from validation.realdata.ingest_smlm_locmofit import ingest_locmofit
     from validation.realdata.smlm_mechanism import discriminate
     gs = ingest_locmofit()
-    v = discriminate(gs.by_cell_line("SKMEL2"), nlive=250, seed=0)
+    v = discriminate(gs.by_cell_line("SKMEL2"), nlive=250, seed=0, allow_exploratory=True)
     assert v.decisive is False
     assert abs(v.lnB_coopcm_vs_helfrich) < 2.5
-    assert "INCONCLUSIVE" in v.verdict
+    assert "does not identify a mechanism" in v.verdict
     # both models must have finite, comparable evidence
     assert np.isfinite(v.logz["coopcm"]) and np.isfinite(v.logz["helfrich_linear"])
     # recovered preferred curvature is physical (mature CCV ~ 0.010-0.015 nm^-1)
@@ -59,7 +59,7 @@ def test_multiobservable_favors_a_model_consistently():
     gs = ingest_locmofit()
     favored = set()
     for cl in ("SKMEL2", "3T3", "U2OS"):
-        mv = discriminate_multiobservable(gs.by_cell_line(cl), nlive=200, seed=0)
+        mv = discriminate_multiobservable(gs.by_cell_line(cl), nlive=200, seed=0, allow_exploratory=True)
         # favored model must indeed have the lower total cross-observable RMSE
         tot = {m: mv.area_logrmse[m] + mv.edge_logrmse[m]
                for m in ("helfrich_linear", "coopcm")}

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "execution_backend": "Codex subscription collaboration tools",
+  "lead": {"requested_model": "gpt-6-astra", "requested_effort": "xhigh", "max_active": 1, "configuration_status": "inherited_from_task_not_attested_by_heartbeat"},
+  "specialists": {
+    "source": {"requested_model": "gpt-5.6-terra", "requested_effort": "medium"},
+    "numerical": {"requested_model": "gpt-5.6-terra", "requested_effort": "high"},
+    "reviewer": {"requested_model": "gpt-5.6-sol", "requested_effort": "high", "fresh_briefing": true}
+  },
+  "dispatch": {"max_new_workers_per_cycle": 2, "max_concurrent_children": 3, "max_attempts_per_logical_task": 3, "recursive_spawning": false, "silent_model_fallback": false},
+  "task_required_fields": ["task_id", "attempt_number", "role", "question", "inputs", "expected_outcomes", "acceptance_checks", "stop_condition", "owned_files"],
+  "result_required_fields": ["task_id", "attempt_number", "execution_status", "scientific_outcome", "evidence_quality", "artifact_paths", "source_locators", "limitations", "next_decision"],
+  "enforcement_boundary": "Operating specification followed by lead; not yet enforced by a provider-connected SQLite controller"
+}

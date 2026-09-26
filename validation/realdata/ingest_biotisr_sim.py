@@ -5,8 +5,8 @@ BioTISR (Zenodo record 13843670, "2D Data of BioTISR dataset"; part of the
 BioTISR collection tied to the DPA-TISR paper, Nat Biotech 2025) provides
 super-resolution TIRF-SIM time-lapse of CCPs. Each cell's SIM_gt.mrc is a
 20-frame 1024x1024 reconstructed super-res stack in which individual clathrin
-coats appear as compact puncta -- observable #3, curvature in real time, the
-input the force inverse actually needs.
+coats appear as compact puncta. Legacy observable #3 describes projected
+geometry here, not calibrated three-dimensional curvature or force input.
 
 This module:
   - reads the MRC stack (no external MRC dependency; header parsed inline),
@@ -14,7 +14,8 @@ This module:
   - measures a per-frame projected coat footprint radius R_proj(t),
   - converts R_proj(t) to an effective mean-curvature proxy H(t) ~ 1/R_proj,
     with per-frame uncertainty,
-emitting a GeometryTrace-compatible object the inverse can consume.
+emitting a trace for measurement QA. Compatibility with an inverse's array
+format does not authorize scientific force inference.
 
 Documented assumptions (recorded in provenance, NOT silently baked in):
   - pixel size 31.3 nm/px is an ASSUMPTION for the SIM_gt reconstruction; it was

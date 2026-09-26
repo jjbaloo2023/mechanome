@@ -1,0 +1,22 @@
+{
+  "task_id": "locmofit-adapter-001",
+  "completed_at_utc": "2026-09-26T14:17:49.352924+00:00",
+  "checks": {
+    "audited_tables_sha256": 23,
+    "legacy_default_sites": 2551,
+    "new_default_sites": 2551,
+    "all_legacy_geometry_fields_exactly_equal": true,
+    "all_default_uncertainties_unknown": true,
+    "explicit_legacy_heuristics_exactly_equal": true,
+    "corrected_unflagged_sites": 2574,
+    "corrected_flat_sites": 23,
+    "corrected_all_sites": 2831,
+    "corrected_cohort_strict_json": true
+  },
+  "file_hashes": {
+    "research\\check_locmofit_adapter.py": "5b13849c38f82dec3e881255dde070c6a8836a3a97cd5e65a17a82a2a781cf68",
+    "research\\locmofit_adapter_before_001\\ingest_smlm_locmofit.py": "149256ba4f45d0369dd3e6d71daffe383189a0f2bfefd5bb4c82cbde7ee073f5",
+    "validation\\realdata\\ingest_smlm_locmofit.py": "bc13b2a5a2b299c004e13f93c2a0524b4612988a46280c5afa3f5046aebd3288"
+  },
+  "scope": "Adapter compatibility only; no empirical fit, physical validation, or deposited data change."
+}

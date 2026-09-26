@@ -1,0 +1,58 @@
+{
+  "task_id": "dasc-comparison-design-001",
+  "scope": "Routing behavior only; no inverse or data fit executed",
+  "source_path": "validation\\realdata\\classify_observable.py",
+  "source_sha256": "937b98a8f9881f9d3ef94f7838819d81b5a44309c7bfa924dd41595717095a0f",
+  "probes": [
+    {
+      "input": {
+        "observable": "1_intensity",
+        "provenance": {
+          "pixel_size_verified": false,
+          "frame_interval_verified": false,
+          "observation_model_validated": false
+        }
+      },
+      "routing": {
+        "observable": "1_intensity",
+        "force_inference_allowed": false,
+        "route": "front-end / tracking validation only",
+        "reason": "observable #1 reads coat-assembly intensity proxy; intensity only, NOT a curvature signal -- force inference refused"
+      }
+    },
+    {
+      "input": {
+        "observable": "2_epitirf_depth",
+        "provenance": {
+          "pixel_size_verified": false,
+          "frame_interval_verified": false,
+          "observation_model_validated": false
+        }
+      },
+      "routing": {
+        "observable": "2_epitirf_depth",
+        "force_inference_allowed": true,
+        "route": "extract depth -> curvo inverse",
+        "reason": "observable #2 reads invagination / axial depth (epi-TIRF ratio); carries a curvature signal, force inference permitted"
+      }
+    },
+    {
+      "input": {
+        "observable": "3_superres_curvature",
+        "provenance": {
+          "pixel_size_verified": false,
+          "frame_interval_verified": false,
+          "observation_model_validated": false
+        }
+      },
+      "routing": {
+        "observable": "3_superres_curvature",
+        "force_inference_allowed": true,
+        "route": "extract curvature -> curvo inverse",
+        "reason": "observable #3 reads curvature in real time (SIM / super-res); carries a curvature signal, force inference permitted"
+      }
+    }
+  ],
+  "finding": "Depth and super-resolution tags allow force inference despite explicitly unverified provenance",
+  "disposition": "Do not use tag-only authorization as scientific acceptance; calibration gate needs correction"
+}

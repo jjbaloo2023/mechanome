@@ -1,0 +1,13 @@
+{
+  "kind": "independent_lead_algebra_check",
+  "created_utc": "2026-09-24T21:38:18.254316+00:00",
+  "seed": 20260924,
+  "n_random_regular_states": 1000,
+  "method": "complex-step directional derivative of axial-force first integral, independent of BVP solver implementation",
+  "first_integral": "Q=r*((H-C)*(H+C-sin(psi)/r)-lambda)*sin(psi)+L*cos(psi)",
+  "plus_sign_max_abs_dQ_ds": 3.5032461608120423e-16,
+  "minus_sign_max_abs_dQ_ds": 0.12211123608006427,
+  "minus_sign_expected": "4*r*(H-C)*Cprime_s*sin(psi)",
+  "minus_sign_formula_max_error": 3.5171518475429764e-16,
+  "scope": "checks internal passive equation consistency, not source-version resolution, physical truth, or numerical stability"
+}

@@ -1,16 +1,8 @@
-"""
-smlm_pseudotime.py -- pseudo-temporal sorting of static SMLM geometry.
+"""Descriptive angle ordering of static, jointly fitted SMLM cap geometry.
 
-Static super-res has no time axis. Following Mund, Tschanz, ... Ries (JCB 2023),
-we use the closing angle theta as a monotone proxy for endocytic progression and
-sort thousands of static clathrin-coated structures into an AVERAGE geometry-vs-
-pseudotime trajectory R(theta), H(theta), A(theta).
-
-Pseudotime != real time: this recovers the average SHAPE trajectory (the order in
-which geometry changes), not absolute rates. It reproduces the paper's central
-qualitative finding -- the coat assembles as a flat lattice to a fraction A0 of
-its final area, then bends continuously -- as an internal consistency check, and
-provides the geometry(pseudotime) input the shape-energetics inverse consumes.
+Closing angle orders a population of fixed sites; it is not a measured single-pit
+trajectory or time coordinate. Binned geometry and historical summary field names
+remain available for exploratory calculations, without mechanistic calibration.
 """
 from __future__ import annotations
 
@@ -38,8 +30,8 @@ class PseudotimeTrajectory:
     R_median: List[float]           # spherical-cap radius per bin
     A_surf_median: List[float]      # coat surface area per bin
     A_surf_frac: List[float]        # A_surf normalised to its closed-coat value
-    A0_flat_fraction: float         # coat-area fraction assembled flat before bending
-    theta_bend_onset_deg: float     # theta at which curvature departs from flat
+    A0_flat_fraction: float         # first retained bin area / last-three-bin mean
+    theta_bend_onset_deg: float     # first bin passing the chosen curvature threshold
     observable: str = "4_static_superres_geometry"
     force_applicable: bool = False
     provenance: dict = field(default_factory=dict)
@@ -52,12 +44,11 @@ class PseudotimeTrajectory:
 
 def sort_by_pseudotime(gs: SMLMGeometrySet, n_bins: int = 18,
                        bend_H_frac: float = 0.15) -> PseudotimeTrajectory:
-    """Sort a geometry set by closing angle and bin into an average trajectory.
+    """Bin static cap outputs by angle and retain descriptive population summaries.
 
-    A0 (flat-lattice area fraction) follows the paper's definition: the coat
-    surface area at theta->0 relative to the closed-coat area at theta->180.
-    The bend onset is the theta where median curvature first exceeds
-    bend_H_frac of its closed-coat plateau -- the flat-to-curved transition."""
+    The historical A0 and bend-onset fields describe the chosen bins and
+    threshold; they do not measure assembly history or a bending event.
+    """
     theta = gs.arr("theta_deg"); H = gs.arr("H_inv_nm")
     R = gs.arr("R_nm"); A = gs.arr("surface_area_nm2")
     edges = np.linspace(0.0, FULL_SPHERE_DEG, n_bins + 1)
@@ -77,13 +68,13 @@ def sort_by_pseudotime(gs: SMLMGeometrySet, n_bins: int = 18,
         Amed.append(float(np.median(A[sel])))
     Hmed = np.array(Hmed); Amed = np.array(Amed); centres = np.array(centres)
 
-    # closed-coat plateau = mean of the last 3 bins (theta near 180)
+    # Reference summary: mean area in the last three retained angle bins.
     A_closed = float(np.mean(Amed[-3:]))
     A_flat = float(Amed[0])                      # theta -> 0
     A0 = A_flat / A_closed
     A_frac = (Amed / A_closed).tolist()
 
-    # bend onset: first theta where H exceeds bend_H_frac of its plateau
+    # Historical onset summary: first bin crossing a relative curvature threshold.
     H_plateau = float(np.mean(Hmed[-3:]))
     thr = bend_H_frac * H_plateau
     above = np.where(Hmed >= thr)[0]
@@ -92,7 +83,11 @@ def sort_by_pseudotime(gs: SMLMGeometrySet, n_bins: int = 18,
     prov = dict(gs.provenance)
     prov.update(sort_proxy="closing angle theta (Mund et al. 2023)",
                 A_closed_nm2=A_closed, H_plateau_inv_nm=H_plateau,
-                note="pseudotime != real time; shape trajectory only")
+                observation_space="joint cap-fit outputs ordered by angle",
+                within_pit_trajectory=False,
+                calibrated_likelihood=False,
+                mechanism_inference_allowed=False,
+                note="descriptive static population ordering; no measured time axis")
     return PseudotimeTrajectory(
         cell_line=gs.cell_lines[0] if len(gs.cell_lines) == 1 else "pooled",
         n_sites=len(gs.sites), theta_bin_deg=centres.tolist(),

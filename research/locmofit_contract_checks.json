@@ -1,0 +1,586 @@
+{
+  "task_id": "locmofit-contract-001",
+  "completed_at_utc": "2026-09-25T03:49:45.415358+00:00",
+  "source_sha256": "718335d74738fdea0eb329d3a5f4a9db1504085dcf22e903a7aa57d493e0df91",
+  "design_sha256": "fa31e3905b9f2f0f3401ab29b76cfa086b621efa819d9a8f03a328e18630d010",
+  "audit_sha256": "cf4e3276ec5b2a17ae2478de70419d1ad53c8ccbed003c57b9e38ddfc4f7faef",
+  "inputs": [
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\3T3\\1_c3T3.csv",
+      "sha256": "7b753a7098cedd2fc175fd49f61d63bf00f025d8213f7a72c29baa6c2ca11522",
+      "rows": 129,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\3T3\\2_c3T3.csv",
+      "sha256": "44f885b6a18bfdfa34e26f66e34156cedf764001bb5e2783c1324def687fd931",
+      "rows": 73,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\3T3\\3_c3T3.csv",
+      "sha256": "393931d59ae404d0023b19d17dc33a8e1ac1efd95e8097396b1f1d78904390c6",
+      "rows": 130,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\3T3\\4_c3T3.csv",
+      "sha256": "0befb843c772f2dbeea651e74429960eca51ea4a52b412f296a11e14e04aa66f",
+      "rows": 107,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\3T3\\5_c3T3.csv",
+      "sha256": "7e37bc002d30bcf0b8ed3077f2a07eb4eb1f7eca02204cb874b5364f14120567",
+      "rows": 119,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\3T3\\6_c3T3.csv",
+      "sha256": "07aa075b31a2459934d376ed60eb8b52f381549e07d5c0f36dbec7d36e47c516",
+      "rows": 80,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\3T3\\7_c3T3.csv",
+      "sha256": "67d263e72e6ecef2955f2c4169b06704cf0345024f0a72d9f0453ab2dcc5182d",
+      "rows": 101,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\1_SKMEL2.csv",
+      "sha256": "83aefcdef06c0156a3eb3c145f41a67affce245524cd2f0779cbcc9f0edb6dc2",
+      "rows": 196,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\2_SKMEL2.csv",
+      "sha256": "7995800f9534d90a4c4768b007c37aeebe1d5dce1cbea8f70269453bde51171c",
+      "rows": 296,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\3_SKMEL2.csv",
+      "sha256": "5181d4c4437fc588ef15172133a4f878336f3dc94f13a28bb6ea8a7dd94f514c",
+      "rows": 154,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\4_SKMEL2.csv",
+      "sha256": "12aa9a67de30e4d9fd480edb27fdbdbcbc6479a11c50c78607faa58e9f30d4f7",
+      "rows": 128,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\5_SKMEL2.csv",
+      "sha256": "c74c7813c207a6ae06fd9073758805a4371ad81d394cb06545b40a0e25bc0b8a",
+      "rows": 130,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\6_SKMEL2.csv",
+      "sha256": "60d4440e5f41bf356a29f72494f1ede652061fefec6ba1eb6fcb882b639f32dc",
+      "rows": 125,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\7_SKMEL2.csv",
+      "sha256": "002972aa75bd533bc2409bd03412be85712c364268e361e4ae8433b0ac810736",
+      "rows": 73,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\8_SKMEL2.csv",
+      "sha256": "529eecd76ca834ca2e37ad0d71b1ed3cfe413a87cc455948d97c25643b9652f1",
+      "rows": 90,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\9_SKMEL2.csv",
+      "sha256": "cea5ab875925f7f5013fdd5b0e1e548e57d592933975c4c9c761ecc928cb27c8",
+      "rows": 84,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\10_SKMEL2.csv",
+      "sha256": "4e702032f57d0813e11c13924e6deabb015cbd67c28d67001f2180bf06daeb75",
+      "rows": 89,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\11_SKMEL2.csv",
+      "sha256": "9ce7185a52eea993e8d77319f25648334c6ef2dc1baa814d0c3cfee29c28f802",
+      "rows": 133,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\12_SKMEL2.csv",
+      "sha256": "36e04fdf8bef9152dfd97e494ef07f159d769b229738bb99a436ca8c4872d0a3",
+      "rows": 225,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\SKMEL2\\13_SKMEL2.csv",
+      "sha256": "d045f43e335fa656d0ea4c9f7e8cad08e9bb2bb5a355674b73ff19d44e60aa73",
+      "rows": 75,
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\U2OS\\1_U2OS.csv",
+      "sha256": "36c2de9d8b737f9cf2888dc773379e053ea38f3c2211c9a208a0b76f522465db",
+      "rows": 92,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\U2OS\\2_U2OS.csv",
+      "sha256": "480d188a642343301190a0b46550ad683e8e534409fe77fe246b4c6bd3c69cbe",
+      "rows": 112,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    },
+    {
+      "path": "cache\\smlm_locmofit\\audit\\3_Model_Fit_Results\\U2OS\\3_U2OS.csv",
+      "sha256": "ac023f2528bb7034eb7a8e8c1b61a0c51d471cd157bb53fd5f488fbaec492440",
+      "rows": 90,
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ]
+    }
+  ],
+  "rows": 2831,
+  "same_schema_all_tables": false,
+  "schema": [
+    "Unnamed: 0",
+    "ID",
+    "file_number",
+    "cell_line",
+    "theta",
+    "radius",
+    "curvature",
+    "surface_area",
+    "rim_length",
+    "projected_area",
+    "theta_corrected",
+    "curvature_corrected",
+    "disconnected_sites"
+  ],
+  "identities": {
+    "curvature": {
+      "max_relative_error": 5.245813074393991e-10,
+      "rows_above_tolerance": 0,
+      "worst_source_key": {
+        "cell_line": "3T3",
+        "file_number": 1,
+        "ID": 487
+      }
+    },
+    "surface_area": {
+      "max_relative_error": 6.567799173148256e-08,
+      "rows_above_tolerance": 0,
+      "worst_source_key": {
+        "cell_line": "U2OS",
+        "file_number": 2,
+        "ID": 1
+      }
+    },
+    "rim_length": {
+      "max_relative_error": 1.4564798922419191e-13,
+      "rows_above_tolerance": 0,
+      "worst_source_key": {
+        "cell_line": "U2OS",
+        "file_number": 1,
+        "ID": 294
+      }
+    },
+    "projected_area": {
+      "max_relative_error": 0.9999626102488832,
+      "rows_above_tolerance": 1744,
+      "worst_source_key": {
+        "cell_line": "U2OS",
+        "file_number": 1,
+        "ID": 294
+      }
+    }
+  },
+  "supports": {
+    "all_deposited_raw": {
+      "rows": 2831,
+      "angle_field": "theta",
+      "beyond_hemisphere_rows": 1754,
+      "beyond_hemisphere_fraction": 0.6195690568703638,
+      "by_cell_line": {
+        "3T3": {
+          "rows": 739,
+          "beyond_hemisphere_rows": 463
+        },
+        "SKMEL2": {
+          "rows": 1798,
+          "beyond_hemisphere_rows": 1123
+        },
+        "U2OS": {
+          "rows": 294,
+          "beyond_hemisphere_rows": 168
+        }
+      }
+    },
+    "deposited_corrected_unflagged": {
+      "rows": 2574,
+      "angle_field": "theta_corrected",
+      "beyond_hemisphere_rows": 1500,
+      "beyond_hemisphere_fraction": 0.5827505827505828,
+      "by_cell_line": {
+        "3T3": {
+          "rows": 688,
+          "beyond_hemisphere_rows": 412
+        },
+        "SKMEL2": {
+          "rows": 1645,
+          "beyond_hemisphere_rows": 973
+        },
+        "U2OS": {
+          "rows": 241,
+          "beyond_hemisphere_rows": 115
+        }
+      }
+    },
+    "raw_nonnegative_unflagged": {
+      "rows": 2551,
+      "angle_field": "theta",
+      "beyond_hemisphere_rows": 1500,
+      "beyond_hemisphere_fraction": 0.5880047040376323,
+      "by_cell_line": {
+        "3T3": {
+          "rows": 680,
+          "beyond_hemisphere_rows": 412
+        },
+        "SKMEL2": {
+          "rows": 1631,
+          "beyond_hemisphere_rows": 973
+        },
+        "U2OS": {
+          "rows": 240,
+          "beyond_hemisphere_rows": 115
+        }
+      }
+    }
+  },
+  "negative_raw_curvature_rows": 23,
+  "corrected_flat_rows": 23,
+  "missing_likelihood_ingredients": [
+    "localization xyz coordinates",
+    "per-localization covariance/precision",
+    "site ROI and background weight",
+    "fitted translation and orientation",
+    "extra broadening",
+    "joint fitted area-angle covariance",
+    "localization count and linkage/sampling calibration",
+    "exact historical fitter/settings identity"
+  ],
+  "scope": "Geometry columns are same-fit transforms, not independent validation. Beyond-hemisphere counts are descriptive and do not reject a mechanism."
+}

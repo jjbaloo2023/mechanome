@@ -1,0 +1,213 @@
+{
+  "task_id": "axisymmetric-passive-rho-002",
+  "attempt": 2,
+  "created_utc": "2026-09-24T23:10:07.349061+00:00",
+  "source_hashes": {
+    "research/axisymmetric_rho.py": "93a7703c11ec3bd5b2eecfb34ee5b1e35134f0a9c03d1221709f92c43df803da",
+    "research/axisymmetric_rho_design.json": "d24fb40c254e21b68efc6c3f9d7b2e161c4b4558e0b5e54e96291f9bb7c2799b",
+    "research/axisymmetric_rho_snapshot.py": "aecaf91457983bc0fc3c0aee28558e281655e55e639883de7a32dd1005d44578",
+    "research/axisymmetric_rho_design_snapshot.json": "10cdae498bf0d0ecf850c520c4284a482be43fa62d7fcd1eed3627f2882fbc01",
+    "research/axisymmetric_rho_source_snapshot.py": "700a9c44f46daf38809c39b8a47f7e9e0c35e07c9997c7ae3b9bd39df6ca7510",
+    "research/axisymmetric_rho_design_full_snapshot.json": "cad810aff5285c97cab575146d68d0c7efc62b1336e8ce0e0051dab7d69e5b5d",
+    "research/axisymmetric_rho_source_execution_snapshot.py": "6d37699f65c9a7c2108d4c9e7b0a14c23958a5e27de520c367496600f4b6f7d5",
+    "research/axisymmetric_rho_frozen_002.py": "93a7703c11ec3bd5b2eecfb34ee5b1e35134f0a9c03d1221709f92c43df803da",
+    "research/axisymmetric_rho_design_frozen_002.json": "d24fb40c254e21b68efc6c3f9d7b2e161c4b4558e0b5e54e96291f9bb7c2799b",
+    "research/axisymmetric_passive_initial_snapshot.py": "9ced172841fc7c9c0245609f8ee19a6480ab86794f285998aee002a1beeed01b",
+    "research/axisymmetric_design_initial_snapshot.json": "1ae285ecb724623ca6aead076e8b93eec0af85e53925c42122a8e2ba57ffa783",
+    "research/AXISYMMETRIC_THEORY.md": "e2754be222129a8f32e2392aa72e16a35ed2d9f2a140fe24c5a1e879b8c0f2df"
+  },
+  "records": [
+    {
+      "case": {
+        "label": "rho_c0.005",
+        "x": 1.0,
+        "c_repo_ell": 0.005,
+        "width_alpha": 0.01,
+        "alpha_cutoff": 1e-06,
+        "outer_radius": 14.0,
+        "nodes_rho": 801,
+        "tol": 1e-08
+      },
+      "status": 0,
+      "message": "The algorithm converged to the desired accuracy.",
+      "success": true,
+      "runtime_seconds": 0.2748276999918744,
+      "iterations": 7,
+      "nodes_final": 1195,
+      "max_rms_rho_ode_residual": 9.897338674808246e-09,
+      "outer_bc_errors": {
+        "z": 2.499793146090613e-39,
+        "psi": 1.7476634358195338e-33,
+        "lambda": 0.0
+      },
+      "pole_bc_max_abs_error": 4.235164736271502e-22,
+      "observables": {
+        "apex_H_over_C_source": 0.60193218635012,
+        "coat_mean_H_over_C_source": 0.67344103543318,
+        "reservoir_depth_over_c_repo_ell": 0.39806776218232587,
+        "edge_depth_over_c_repo_ell": 0.16013281078752134
+      },
+      "smooth_linear_reference": {
+        "apex_H_over_C_source": 0.6019319910574985
+      },
+      "relative_apex_error_vs_smooth_linear": 3.2444300090387446e-07,
+      "max_abs_force_balance_Q": 4.436555289810684e-16,
+      "force_balance_scale": 0.0008436223518696604,
+      "force_balance_Q_relative": 5.258935209549938e-13,
+      "max_abs_arc_length_cross_coordinate_defect": [
+        1.6749934772519737e-12,
+        2.9210857886187436e-10,
+        9.829971294415818e-10,
+        9.178510951279861e-09,
+        1.40117912715218e-10,
+        1.1305052766586322e-11
+      ],
+      "arc_defect_sample_definition": "0.37 through 97 selected final mesh intervals; excludes endpoints and midpoint collocation points",
+      "native_residual_note": "rho residual is coordinate-dependent; compare observables/BC/Q and off-mesh arc defects, not its magnitude to alpha RMS."
+    },
+    {
+      "case": {
+        "label": "rho_c0.01",
+        "x": 1.0,
+        "c_repo_ell": 0.01,
+        "width_alpha": 0.01,
+        "alpha_cutoff": 1e-06,
+        "outer_radius": 14.0,
+        "nodes_rho": 801,
+        "tol": 1e-08
+      },
+      "status": 0,
+      "message": "The algorithm converged to the desired accuracy.",
+      "success": true,
+      "runtime_seconds": 0.3905051000183448,
+      "iterations": 7,
+      "nodes_final": 1277,
+      "max_rms_rho_ode_residual": 9.98825343386901e-09,
+      "outer_bc_errors": {
+        "z": 8.116365546920199e-39,
+        "psi": 3.012833298988905e-32,
+        "lambda": 0.0
+      },
+      "pole_bc_max_abs_error": 4.1359030627651384e-25,
+      "observables": {
+        "apex_H_over_C_source": 0.6019327497823413,
+        "coat_mean_H_over_C_source": 0.6734414048077904,
+        "reservoir_depth_over_c_repo_ell": 0.39806798061603693,
+        "edge_depth_over_c_repo_ell": 0.16013292484039907
+      },
+      "smooth_linear_reference": {
+        "apex_H_over_C_source": 0.6019319910574985
+      },
+      "relative_apex_error_vs_smooth_linear": 1.2604826693278892e-06,
+      "max_abs_force_balance_Q": 1.0011522860731148e-15,
+      "force_balance_scale": 0.001687235783955583,
+      "force_balance_Q_relative": 5.933683339301855e-13,
+      "max_abs_arc_length_cross_coordinate_defect": [
+        4.9467097085198475e-12,
+        4.917121089638432e-10,
+        1.580750004850917e-09,
+        8.027548652721206e-09,
+        1.6046121245963385e-10,
+        1.997760365665677e-11
+      ],
+      "arc_defect_sample_definition": "0.37 through 97 selected final mesh intervals; excludes endpoints and midpoint collocation points",
+      "native_residual_note": "rho residual is coordinate-dependent; compare observables/BC/Q and off-mesh arc defects, not its magnitude to alpha RMS."
+    },
+    {
+      "case": {
+        "label": "rho_c0.02",
+        "x": 1.0,
+        "c_repo_ell": 0.02,
+        "width_alpha": 0.01,
+        "alpha_cutoff": 1e-06,
+        "outer_radius": 14.0,
+        "nodes_rho": 801,
+        "tol": 1e-08
+      },
+      "status": 0,
+      "message": "The algorithm converged to the desired accuracy.",
+      "success": true,
+      "runtime_seconds": 0.4043185999908019,
+      "iterations": 7,
+      "nodes_final": 1363,
+      "max_rms_rho_ode_residual": 9.964462070779518e-09,
+      "outer_bc_errors": {
+        "z": 6.35099853117608e-39,
+        "psi": 2.8523830059361077e-33,
+        "lambda": 0.0
+      },
+      "pole_bc_max_abs_error": 1.6940658945086007e-21,
+      "observables": {
+        "apex_H_over_C_source": 0.6019350158362037,
+        "coat_mean_H_over_C_source": 0.6734428951917918,
+        "reservoir_depth_over_c_repo_ell": 0.3980688625003747,
+        "edge_depth_over_c_repo_ell": 0.1601333843186848
+      },
+      "smooth_linear_reference": {
+        "apex_H_over_C_source": 0.6019319910574985
+      },
+      "relative_apex_error_vs_smooth_linear": 5.025117039983175e-06,
+      "max_abs_force_balance_Q": 3.2226825374959134e-15,
+      "force_balance_scale": 0.0033744006515117665,
+      "force_balance_Q_relative": 9.550385002599256e-13,
+      "max_abs_arc_length_cross_coordinate_defect": [
+        1.0956235918513357e-11,
+        6.764673586914793e-10,
+        1.9711982844616838e-09,
+        1.2273966509823708e-08,
+        3.3354961761350443e-10,
+        5.865494071347066e-11
+      ],
+      "arc_defect_sample_definition": "0.37 through 97 selected final mesh intervals; excludes endpoints and midpoint collocation points",
+      "native_residual_note": "rho residual is coordinate-dependent; compare observables/BC/Q and off-mesh arc defects, not its magnitude to alpha RMS."
+    },
+    {
+      "case": {
+        "label": "rho_c0.02_mesh_cutoff",
+        "x": 1.0,
+        "c_repo_ell": 0.02,
+        "width_alpha": 0.01,
+        "alpha_cutoff": 2.5e-07,
+        "outer_radius": 14.0,
+        "nodes_rho": 1601,
+        "tol": 1e-08
+      },
+      "status": 0,
+      "message": "The algorithm converged to the desired accuracy.",
+      "success": true,
+      "runtime_seconds": 0.4211393000150565,
+      "iterations": 6,
+      "nodes_final": 2161,
+      "max_rms_rho_ode_residual": 9.893890903449893e-09,
+      "outer_bc_errors": {
+        "z": 2.777353069308239e-37,
+        "psi": 2.1093764432544375e-32,
+        "lambda": 0.0
+      },
+      "pole_bc_max_abs_error": 8.470329472543003e-22,
+      "observables": {
+        "apex_H_over_C_source": 0.6019350139988721,
+        "coat_mean_H_over_C_source": 0.6734428940998146,
+        "reservoir_depth_over_c_repo_ell": 0.39806886203222525,
+        "edge_depth_over_c_repo_ell": 0.1601333840139001
+      },
+      "smooth_linear_reference": {
+        "apex_H_over_C_source": 0.6019319910574985
+      },
+      "relative_apex_error_vs_smooth_linear": 5.022064649268815e-06,
+      "max_abs_force_balance_Q": 9.107298248878237e-16,
+      "force_balance_scale": 0.0033744007433008203,
+      "force_balance_Q_relative": 2.698937957194002e-13,
+      "max_abs_arc_length_cross_coordinate_defect": [
+        2.716271652047908e-12,
+        1.2146528314410654e-10,
+        4.907860715053225e-10,
+        6.5985502756271686e-09,
+        2.398031231053144e-10,
+        3.2056116008177815e-11
+      ],
+      "arc_defect_sample_definition": "0.37 through 97 selected final mesh intervals; excludes endpoints and midpoint collocation points",
+      "native_residual_note": "rho residual is coordinate-dependent; compare observables/BC/Q and off-mesh arc defects, not its magnitude to alpha RMS."
+    }
+  ]
+}

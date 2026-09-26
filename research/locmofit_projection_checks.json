@@ -1,0 +1,87 @@
+{
+  "task_id": "locmofit-contract-001",
+  "completed_at_utc": "2026-09-25T03:51:03.478139+00:00",
+  "source_sha256": "af44df08821b959fde252c30e204e4cd4debca539ec2a0f741774d798ea1e21a",
+  "amendment_sha256": "619e1ca73c8a4cda1f9a8238375f378610c448ab57e981bee6f5b034e81b5077",
+  "candidate": "orthogonal silhouette area: pi R^2 sin^2(theta) at theta<=90deg, pi R^2 at theta>90deg",
+  "rows": 2831,
+  "max_relative_error": 6.563720536820469e-08,
+  "rows_above_1e_minus4": 0,
+  "schema_variants": [
+    {
+      "columns": [
+        "Unnamed: 0",
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "table_paths": [
+        "3_Model_Fit_Results/3T3/1_c3T3.csv",
+        "3_Model_Fit_Results/3T3/2_c3T3.csv",
+        "3_Model_Fit_Results/3T3/3_c3T3.csv",
+        "3_Model_Fit_Results/3T3/4_c3T3.csv",
+        "3_Model_Fit_Results/3T3/5_c3T3.csv",
+        "3_Model_Fit_Results/3T3/6_c3T3.csv",
+        "3_Model_Fit_Results/3T3/7_c3T3.csv",
+        "3_Model_Fit_Results/U2OS/1_U2OS.csv",
+        "3_Model_Fit_Results/U2OS/2_U2OS.csv",
+        "3_Model_Fit_Results/U2OS/3_U2OS.csv"
+      ]
+    },
+    {
+      "columns": [
+        "ID",
+        "file_number",
+        "cell_line",
+        "theta",
+        "radius",
+        "curvature",
+        "surface_area",
+        "rim_length",
+        "projected_area",
+        "theta_corrected",
+        "curvature_corrected",
+        "disconnected_sites"
+      ],
+      "table_paths": [
+        "3_Model_Fit_Results/SKMEL2/1_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/2_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/3_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/4_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/5_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/6_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/7_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/8_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/9_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/10_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/11_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/12_SKMEL2.csv",
+        "3_Model_Fit_Results/SKMEL2/13_SKMEL2.csv"
+      ]
+    }
+  ],
+  "common_columns": [
+    "ID",
+    "cell_line",
+    "curvature",
+    "curvature_corrected",
+    "disconnected_sites",
+    "file_number",
+    "projected_area",
+    "radius",
+    "rim_length",
+    "surface_area",
+    "theta",
+    "theta_corrected"
+  ],
+  "scope": "A checked numerical identity for stored raw geometry, not proof of an author export implementation or independent measurement."
+}

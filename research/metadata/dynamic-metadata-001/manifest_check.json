@@ -1,0 +1,47 @@
+{
+  "readme": {
+    "bytes": 3228,
+    "md5_verified": true,
+    "sha256": "558dcbb779b13dfea446eadb7840f74d103d9526260077f896643b51b4effbe4"
+  },
+  "archive": {
+    "status": "directory_read",
+    "url": "https://zenodo.org/api/records/17484958/files/CME%20tracking%20validation.zip/content",
+    "archive_bytes": 776953308,
+    "bytes_read": 65557,
+    "tail_sha256": "2480ee5daf3b9d1e87ab50d0d2fccaf1f4d5565747d6afdf4fa9f22267ed32e6",
+    "archive_checksum_verified": false,
+    "members": [
+      {
+        "name": "CME tracking validation/",
+        "compressed_bytes": 0,
+        "uncompressed_bytes": 0
+      },
+      {
+        "name": "CME tracking validation/RPE1_egfpCLCa_033.mrc",
+        "compressed_bytes": 324838996,
+        "uncompressed_bytes": 566232064
+      },
+      {
+        "name": "CME tracking validation/RPE1_egfpCLCa_033-recon.mrc",
+        "compressed_bytes": 451971575,
+        "uncompressed_bytes": 503317504
+      },
+      {
+        "name": "CME tracking validation/RPE1_egfpCLCa_033-annotations_1.csv",
+        "compressed_bytes": 49276,
+        "uncompressed_bytes": 254116
+      },
+      {
+        "name": "CME tracking validation/RPE1_egfpCLCa_033-annotations_2.csv",
+        "compressed_bytes": 42457,
+        "uncompressed_bytes": 217455
+      },
+      {
+        "name": "CME tracking validation/RPE1_egfpCLCa_033-annotations_3.csv",
+        "compressed_bytes": 49932,
+        "uncompressed_bytes": 249445
+      }
+    ]
+  }
+}

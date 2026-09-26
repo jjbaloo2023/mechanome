@@ -1,0 +1,22 @@
+# Preserve the bytes used by research SHA-256 records across platforms.
+research/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Current adapter source/test bytes are in locmofit_adapter_manifest.json.
+validation/realdata/ingest_smlm_locmofit.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+validation/realdata/smlm_pseudotime.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+validation/realdata/smlm_shape_energetics.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+validation/realdata/smlm_mechanism.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tests/test_locmofit_contract.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tests/test_smlm_consumer_contract.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tests/test_smlm_mechanism.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tests/test_smlm_shape_energetics.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Retain Markdown hard breaks and whitespace in frozen historical snapshots.
+research/CAP_OBSERVATION_REVIEW.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+research/CAP_OBSERVATION_THEORY.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+research/LOCMOFIT_ADAPTER_REVIEW.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+research/LOCMOFIT_OBSERVATION_REVIEW.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+research/LOCMOFIT_OBSERVATION_SOURCE.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+research/axisymmetric_rho_design_full_snapshot.json whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/axisymmetric_rho_source_execution_snapshot.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/axisymmetric_rho_source_snapshot.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/metadata/dynamic-metadata-001/shape2fate_readme.md whitespace=-blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol

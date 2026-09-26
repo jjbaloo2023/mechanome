@@ -1,0 +1,58 @@
+{
+  "task_id": "dynamic-annotations-001",
+  "attempt_number": 1,
+  "started_at_utc": "2026-09-20T21:35:16.052721+00:00",
+  "payload_cap_bytes": 1048576,
+  "status": "verified",
+  "members": [
+    {
+      "name": "CME tracking validation/RPE1_egfpCLCa_033-annotations_1.csv",
+      "flags": 2,
+      "method": 8,
+      "crc32": 2408403690,
+      "compressed_bytes": 49276,
+      "uncompressed_bytes": 254116,
+      "local_offset": 776810781,
+      "saved_as": "annotations_1.csv",
+      "sha256": "5128622b56fbc15b7db028dbf5e32c35fa1eeb32074c661103f5cb3376196298",
+      "local_header_verified": true,
+      "crc32_verified": true
+    },
+    {
+      "name": "CME tracking validation/RPE1_egfpCLCa_033-annotations_2.csv",
+      "flags": 2,
+      "method": 8,
+      "crc32": 865093161,
+      "compressed_bytes": 42457,
+      "uncompressed_bytes": 217455,
+      "local_offset": 776860146,
+      "saved_as": "annotations_2.csv",
+      "sha256": "976c20f95b0bf728cc3c7a27f805f0e2cc303c7607284b5824acb3d70cd2a363",
+      "local_header_verified": true,
+      "crc32_verified": true
+    },
+    {
+      "name": "CME tracking validation/RPE1_egfpCLCa_033-annotations_3.csv",
+      "flags": 2,
+      "method": 8,
+      "crc32": 3931387844,
+      "compressed_bytes": 49932,
+      "uncompressed_bytes": 249445,
+      "local_offset": 776902692,
+      "saved_as": "annotations_3.csv",
+      "sha256": "d9d45839994fd123a16a69ad75a6d4b0b62aef72003d490dd032bc9300bc76a6",
+      "local_header_verified": true,
+      "crc32_verified": true
+    }
+  ],
+  "url": "https://zenodo.org/api/records/17484958/files/CME%20tracking%20validation.zip/content",
+  "range_start": 776810781,
+  "range_end": 776953307,
+  "archive_bytes": 776953308,
+  "archive_checksum_verified": false,
+  "http_status": 206,
+  "content_range": "bytes 776810781-776953307/776953308",
+  "bytes_read": 142527,
+  "section_sha256": "93bf0e775eac5602523cb925d777509975920b11e2a985ff734fe480aa9c01b5",
+  "finished_at_utc": "2026-09-20T21:35:17.275163+00:00"
+}

@@ -1,0 +1,13 @@
+{
+  "observed_at_utc": "2026-09-24T23:05:06.520787+00:00",
+  "purpose": "Lead independent preservation check before attempt2 execution; original artifacts must remain unchanged.",
+  "hashes": {
+    "research/axisymmetric_passive.py": "09d0d38c1c453e8525c1adb479ab1384bc8030a473b86238a3dd209ac87eb8f5",
+    "research/axisymmetric_design.json": "89dc6d6ad9134d00c0482231805cb63f2fbaa67161e4778be8344338ec83f9f9",
+    "research/AXISYMMETRIC_THEORY.md": "e2754be222129a8f32e2392aa72e16a35ed2d9f2a140fe24c5a1e879b8c0f2df",
+    "research/axisymmetric_results_001.json": "97ce5e8a77ac33aa60df7d5022b9d1633632bc8b893a16d72d872775d613b6fe",
+    "research/axisymmetric_amplitude_refinement.json": "d6ea60235759cf6c618fbb743fef0a7231209661fa18142cab8f90ffb9cccf39",
+    "research/axisymmetric_passive_initial_snapshot.py": "9ced172841fc7c9c0245609f8ee19a6480ab86794f285998aee002a1beeed01b",
+    "research/axisymmetric_design_initial_snapshot.json": "1ae285ecb724623ca6aead076e8b93eec0af85e53925c42122a8e2ba57ffa783"
+  }
+}

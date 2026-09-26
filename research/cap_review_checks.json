@@ -1,0 +1,25 @@
+{
+  "task": "cap-synthesis-001",
+  "status": "accepted_model_conditional_novelty_unresolved",
+  "implementation_hashes_match_v2": true,
+  "independent_derivation": "research/CAP_THEORY.md plus lead derivation",
+  "numerical_review": "Theory specialist and lead inspected numerical artifacts; endpoint error corrected in v2",
+  "tests": {
+    "command": "pytest tests/test_cap_experiment.py --basetemp ../work/pytest-cap-001 -p no:cacheprovider -q",
+    "result": "3 passed",
+    "reported_by": "/root/cap_numerical_001",
+    "lead_rerun": false
+  },
+  "scope": [
+    "Exact compensation ridge of the implemented fixed-area zero-line-tension model",
+    "No zero-line-tension fold for positive rigidity and nonnegative tension",
+    "Known varying rigidity may generically help identifiability but not on the exceptional ridge"
+  ],
+  "limits": [
+    "Not a biological measurement",
+    "Literature novelty unresolved",
+    "Area experiment assumes shared force, tension and spontaneous curvature",
+    "Positive-line-tension numerical extrema are sampled, not a full continuation study"
+  ],
+  "figure": "not_generated_runner_creation_timeout"
+}

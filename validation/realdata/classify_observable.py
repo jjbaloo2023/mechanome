@@ -3,18 +3,17 @@ Observable classifier and router.
 
 The project's central data-reality discipline: single clathrin-coated pits are
 diffraction-limited, so curvature is not readable from ordinary fluorescence.
-Only three observables are usable, in increasing richness:
+The legacy tags describe three measurement families:
 
   #1 intensity/lifetime (any TIRF)      -> coat-assembly proxy, NOT curvature
                                             -> front-end / tracking validation only
-  #2 epi-TIRF ratio                     -> invagination / axial depth
-                                            -> a curvature proxy -> inverse OK
-  #3 TIRF-SIM / super-res               -> curvature in real time -> inverse OK
+  #2 epi-TIRF ratio                     -> axial-depth proxy
+  #3 TIRF-SIM / super-res               -> projected geometry
 
-Force inference requires #2 or #3. This module tags a dataset and returns the
-routing decision. It REFUSES to route observable #1 to the force inverse -- that
-refusal is the same anti-force-astrology discipline curvo applies to posteriors,
-enforced one level earlier at the data boundary.
+Tags do not establish calibration, three-dimensional geometry, or force
+identifiability. This descriptive router grants no force permission. A future
+authorization path needs independently reviewed, model-specific calibration
+evidence; caller-supplied provenance flags cannot provide that authorization.
 """
 from dataclasses import dataclass
 
@@ -25,13 +24,13 @@ OBSERVABLES = {
         force_inference=False,
         route="front-end / tracking validation only"),
     "2_epitirf_depth": dict(
-        richness=2, reads="invagination / axial depth (epi-TIRF ratio)",
-        force_inference=True,
-        route="extract depth -> curvo inverse"),
+        richness=2, reads="axial-depth proxy (epi-TIRF ratio)",
+        force_inference=False,
+        route="measurement QA / depth calibration review"),
     "3_superres_curvature": dict(
-        richness=3, reads="curvature in real time (SIM / super-res)",
-        force_inference=True,
-        route="extract curvature -> curvo inverse"),
+        richness=3, reads="projected geometry (SIM / super-res)",
+        force_inference=False,
+        route="measurement QA / geometry calibration review"),
 }
 
 
@@ -52,21 +51,19 @@ def classify(dataset):
     if obs not in OBSERVABLES:
         raise ValueError(f"unknown or missing observable tag: {obs!r}")
     spec = OBSERVABLES[obs]
-    allowed = spec["force_inference"]
     reason = (f"observable #{spec['richness']} reads {spec['reads']}; "
-              + ("carries a curvature signal, force inference permitted"
-                 if allowed else
-                 "intensity only, NOT a curvature signal -- force inference refused"))
-    return Routing(observable=obs, force_inference_allowed=allowed,
+              "a descriptive tag does not establish calibrated geometry or "
+              "model-specific force identifiability; force inference refused")
+    return Routing(observable=obs, force_inference_allowed=False,
                    route=spec["route"], reason=reason)
 
 
 def assert_force_permitted(dataset):
-    """Raise if this dataset must not be fed to the force inverse (observable #1)."""
+    """Reject tag-only force authorization for every measurement family."""
     r = classify(dataset)
     if not r.force_inference_allowed:
         raise PermissionError(
-            f"REFUSED: {r.observable} cannot support force inference. {r.reason}")
+            f"REFUSED: {r.observable} has no reviewed force authorization. {r.reason}")
     return r
 
 

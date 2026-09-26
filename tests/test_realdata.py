@@ -3,12 +3,13 @@ Contract tests for the real-data ingestion + observable-classifier pipeline.
 
 These tests guard the data-boundary discipline: ingestion round-trips real files
 with provenance, the classifier tags observables correctly, and force inference
-is REFUSED on intensity-only data (observable #1). Tests that need the raw files
+is REFUSED on descriptive tags without reviewed calibration. Tests that need raw files
 under /root/projects or the BioTISR cache skip cleanly when those are absent, so
 the suite passes in a clean clone without the (never-committed) raw imaging.
 """
 import os
 import numpy as np
+import pytest
 
 from validation.realdata.classify_observable import (
     classify, assert_force_permitted, OBSERVABLES)
@@ -40,12 +41,40 @@ def test_classifier_refuses_intensity():
     _check(raised, "assert_force_permitted must raise on #1")
 
 
-def test_classifier_permits_curvature():
-    """Observables #2 and #3 must permit force inference."""
-    for obs in ("2_epitirf_depth", "3_superres_curvature"):
-        class Fake: pass
-        f = Fake(); f.observable = obs
-        _check(classify(f).force_inference_allowed is True, f"{obs} must permit force")
+def test_classifier_refuses_tag_only_permission():
+    """Neither a measurement tag nor caller assertions establish calibration."""
+    from types import SimpleNamespace
+
+    for obs in OBSERVABLES:
+        for verified in (None, False, True):
+            data = {"observable": obs}
+            if verified is not None:
+                data["provenance"] = {
+                    "pixel_size_verified": verified,
+                    "frame_interval_verified": verified,
+                    "observation_model_validated": verified,
+                    "force_inference_allowed": verified,
+                }
+            for dataset in (data, SimpleNamespace(**data)):
+                assert classify(dataset).force_inference_allowed is False
+                with pytest.raises(PermissionError, match="no reviewed force authorization"):
+                    assert_force_permitted(dataset)
+
+
+def test_classifier_refuses_biotisr_projected_proxy():
+    """The actual ingester's trace type remains unapproved, including dict export."""
+    from validation.realdata.ingest_biotisr_sim import CurvatureTrace
+
+    trace = CurvatureTrace(
+        cell_id="synthetic", track_id=1, t_s=[0.0], R_proj_nm=[100.0],
+        R_proj_sd_nm=[10.0], H_proxy_inv_nm=[0.01],
+        H_proxy_sd_inv_nm=[0.001], intensity=[100.0],
+        provenance={"pixel_size_verified": False},
+    )
+    for dataset in (trace, trace.to_dict()):
+        assert "projected geometry" in classify(dataset).reason
+        with pytest.raises(PermissionError):
+            assert_force_permitted(dataset)
 
 
 def test_classifier_rejects_unknown():

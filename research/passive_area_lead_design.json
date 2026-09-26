@@ -1,0 +1,14 @@
+{
+  "registered_utc": "2026-09-25T00:48:18.835513+00:00",
+  "task_id": "passive-area-sign-001",
+  "attempt": 1,
+  "purpose": "Lead independently audits stored geometry and sign comparison, without duplicate BVP solves.",
+  "method": "Cubic Hermite reconstruction using all saved states and frozen RHS derivatives; separate quadrature in rho for area-weighted mean and projected area.",
+  "checks": {
+    "coat_mean_normalized_absolute_difference": 0.0002,
+    "projected_area_relative_identity_error": 1e-06,
+    "sign": "Report ordered finite differences at common accepted amplitudes, not global monotonicity.",
+    "normalization": "H/Csource and depth/(c_repo*ell); material alpha_coat=x^2/2, projected alpha=r_edge^2/2."
+  },
+  "limitations": "Quadrature independence is an implementation check on the same numerical solution, not independent physical evidence. Mean tolerance allows the existing fixed-grid trapezoid edge-integration error."
+}

@@ -43,7 +43,7 @@ Homepage = "https://github.com/jjbaloo2023/mechanome"
 curvo-demo = "run_demo:main"
 
 [tool.setuptools]
-packages = ["curvo", "validation", "validation.realdata", "mechanome",
+packages = ["curvo", "validation", "validation.realdata", "mechanome", "mechanome.research",
             "mechanome.structural_screen", "mechanome.structural_screen.src", "rl"]
 py-modules = ["run_demo", "family_screen"]
 

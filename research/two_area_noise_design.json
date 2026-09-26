@@ -1,0 +1,47 @@
+{
+  "attempt": 1,
+  "created_utc": "2026-09-23T01:23:42.0525247+00:00",
+  "input_sha256": "8f1a59e52fc5266743631ff060caaa653e55b87af6315a9d3f0d67905973bca7",
+  "input": "research/two_area_results.json",
+  "kind": "local_conditional_linearized_noise_design",
+  "method": {
+    "criterion": "Two-area, varying-rigidity records only. A finite value is reported only when SVD rank equals the number of scaled parameter columns.",
+    "formula": "worst_direction_sd_z = sigma_H / s_min(J_z)",
+    "parameter_coordinates": "z_j=theta_j/registered_scale_j; the bound is for a unit direction in this reference-scaled coordinate system.",
+    "noise_assumption": "hypothetical iid equal-variance Gaussian curvature noise; design values only, not an empirical microscope-noise estimate.",
+    "sigma_H_inv_nm": [0.00001, 0.0001, 0.001],
+    "excluded": ["no pseudoinverse", "no fitting", "no simulation", "no temporal correlation model", "no parameter-sharing uncertainty model"]
+  },
+  "full_column_rank": [
+    {
+      "label": "shared_generic",
+      "n_parameters": 3,
+      "s_min_inv_nm": 0.0012462609314377695,
+      "worst_direction_sd_z": {"1e-5": 0.008024001834401833, "1e-4": 0.08024001834401834, "1e-3": 0.8024001834401834}
+    },
+    {
+      "label": "force_density_generic",
+      "n_parameters": 3,
+      "s_min_inv_nm": 4.3896084687729405e-05,
+      "worst_direction_sd_z": {"1e-5": 0.2278107505746492, "1e-4": 2.2781075057464917, "1e-3": 22.781075057464918}
+    },
+    {
+      "label": "area_C_generic",
+      "n_parameters": 4,
+      "s_min_inv_nm": 0.0003679936367753622,
+      "worst_direction_sd_z": {"1e-5": 0.027174382925823238, "1e-4": 0.27174382925823237, "1e-3": 2.7174382925823237}
+    },
+    {
+      "label": "shared_exceptional",
+      "n_parameters": 3,
+      "s_min_inv_nm": 0.0012565102098366172,
+      "worst_direction_sd_z": {"1e-5": 0.00795855053282877, "1e-4": 0.0795855053282877, "1e-3": 0.7958550532828771}
+    }
+  ],
+  "rank_deficient": [
+    {"label": "unknown_scale_generic", "rank": 3, "n_parameters": 4, "worst_direction_sd_z": null, "reason": "exact global rigidity-scale symmetry"},
+    {"label": "force_density_exceptional", "rank": 2, "n_parameters": 3, "worst_direction_sd_z": null, "reason": "exact rho=C*sigma/2 ridge"},
+    {"label": "area_C_exceptional", "rank": 3, "n_parameters": 4, "worst_direction_sd_z": null, "reason": "simultaneous C_i*A_i=2P/sigma ridge"}
+  ],
+  "interpretation": "Large values invalidate a nonlinear precision inference. These are local conditional CRLB-style design bounds only; they are not individual-parameter relative confidence intervals."
+}

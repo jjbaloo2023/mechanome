@@ -1,0 +1,55 @@
+{
+  "created_at_utc": "2026-09-25T03:58:34.361009+00:00",
+  "task_id": "locmofit-contract-001",
+  "artifacts": [
+    {
+      "path": "research/LOCMOFIT_OBSERVATION_CONTRACT.md",
+      "sha256": "c14bd513504c96f26071d614c215dafd6268844893e084ac143f6602e1d57431"
+    },
+    {
+      "path": "research/LOCMOFIT_OBSERVATION_SOURCE.md",
+      "sha256": "a25151a9c15dcc2072d575cf8bfe3937c3c74d100858091420c2cb2ac0a0186a"
+    },
+    {
+      "path": "research/LOCMOFIT_OBSERVATION_REVIEW.md",
+      "sha256": "58dc3a418bfc4e5b3285a09c65488c9f72e53580ddeef6cef110f7cc65b13ddb"
+    },
+    {
+      "path": "research/locmofit_contract_design.json",
+      "sha256": "fa31e3905b9f2f0f3401ab29b76cfa086b621efa819d9a8f03a328e18630d010"
+    },
+    {
+      "path": "research/check_locmofit_contract.py",
+      "sha256": "718335d74738fdea0eb329d3a5f4a9db1504085dcf22e903a7aa57d493e0df91"
+    },
+    {
+      "path": "research/locmofit_contract_checks.json",
+      "sha256": "9c5db4ae2694bbf448c419d795816bfc63afd35e863621cac6dc9942cc0ee700"
+    },
+    {
+      "path": "research/locmofit_projection_amendment.json",
+      "sha256": "619e1ca73c8a4cda1f9a8238375f378610c448ab57e981bee6f5b034e81b5077"
+    },
+    {
+      "path": "research/check_locmofit_projection.py",
+      "sha256": "af44df08821b959fde252c30e204e4cd4debca539ec2a0f741774d798ea1e21a"
+    },
+    {
+      "path": "research/locmofit_projection_checks.json",
+      "sha256": "405f07cbaabef013ab11ac0d0d54d446e0dfc19c93eec442d8c4d08c2c8ad15c"
+    },
+    {
+      "path": "research/locmofit_cap_source_current.m",
+      "sha256": "b486e2568e4ef370f25a317cf34a3ec2723bea1e375050c1819b81a3b20b9252"
+    },
+    {
+      "path": "research/locmofit_cap_source_current_provenance.json",
+      "sha256": "d1839a22fb33d9530b0dd18302c8a6aed72b13555c0af88b1816f316d238d40b"
+    },
+    {
+      "path": "research/metadata/locmofit-contract-001/source_ledger.json",
+      "sha256": "9c12e9e865494a8a987c10d56afe38f0b4fcd23a862d95b98a49a3997adfc172"
+    }
+  ],
+  "checks": "All23 cached input SHA256 match; script hashes match result records; scripts parse; pinned current cap Git blob and SHA256 verified; scientific failure of rim-disk identity preserved; corrected silhouette alternative checked. No unit-test suite needed for this source/data contract assessment."
+}

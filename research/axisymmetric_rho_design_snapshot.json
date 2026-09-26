@@ -1,0 +1,18 @@
+{
+  "task_id": "axisymmetric-rho-numerical-001",
+  "parent_task_id": "axisymmetric-passive-001",
+  "parent_attempt": 2,
+  "attempt": 2,
+  "registered_utc": "2026-09-24T23:03:37.3190168Z",
+  "status_before_execution": "registered_not_executed",
+  "model": {"coordinate": "rho=sqrt(2*alpha), alpha=a/(2*pi*ell^2)=rho^2/2", "chain_rule": "dY/drho=rho*dY/dalpha", "unchanged_physics": "homogeneous passive S40, p=f=0, plus lambda derivative", "mapping": {"ell": "sqrt(kappa_repo/sigma)", "k_source": "2*kappa_repo", "C_source": "c_repo/2", "lambda_outer": 0.5}, "coat": "C(alpha)=0.5*C0*(1-tanh((alpha-x^2/2)/width_alpha)); width remains in material-area units"},
+  "cases": [
+    {"label": "rho_c0.005", "x": 1.0, "c_repo_ell": 0.005, "width_alpha": 0.01, "alpha_cutoff": 1e-06, "outer_radius": 14.0, "nodes_rho": 801, "tol": 1e-08},
+    {"label": "rho_c0.01", "x": 1.0, "c_repo_ell": 0.01, "width_alpha": 0.01, "alpha_cutoff": 1e-06, "outer_radius": 14.0, "nodes_rho": 801, "tol": 1e-08},
+    {"label": "rho_c0.02", "x": 1.0, "c_repo_ell": 0.02, "width_alpha": 0.01, "alpha_cutoff": 1e-06, "outer_radius": 14.0, "nodes_rho": 801, "tol": 1e-08},
+    {"label": "rho_c0.02_mesh_cutoff", "x": 1.0, "c_repo_ell": 0.02, "width_alpha": 0.01, "alpha_cutoff": 2.5e-07, "outer_radius": 14.0, "nodes_rho": 1601, "tol": 1e-08}
+  ],
+  "execution": {"max_nodes": 12000, "per_case_subprocess_timeout_seconds": 45, "result_write": "exclusive create after all subprocess records return"},
+  "predeclared_gates": {"success": true, "max_rms_ode_residual": "<=tol*1.01 in rho solver metric", "outer_bc_max_abs": "<=1e-9", "force_balance_Q_relative": "<=1e-6", "accepted_prior_observables_abs_agreement": "<=2e-6 for c=.005 and .01 versus attempt1 tight results", "mesh_cutoff_observables_abs_agreement": "<=2e-6 for accepted c=.02 sensitivity", "amplitude": "smooth-reference normalized apex error should approach zero quadratically; retain any failure", "cross_coordinate_defect": "report six component arc-length defects at off-mesh points; do not equate transformed residual norms"},
+  "limitations": ["rho is a material-area label, not physical r", "coordinate reparameterization does not reproduce author code", "no high-tension sweep, force, pressure, branch, stability, or biological claim"]
+}

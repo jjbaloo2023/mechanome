@@ -51,7 +51,7 @@ def test_shape_energetics_refuses_absolute_force():
     gcl = gs.by_cell_line("SKMEL2")
     tr = sort_by_pseudotime(gcl)
     A = float(np.median(gcl.arr("surface_area_nm2")))
-    r = fit_shape_energetics(tr, A, nlive=150, seed=0)
+    r = fit_shape_energetics(tr, A, nlive=150, seed=0, allow_exploratory=True)
     # THE firewall assertions:
     assert r.force_applicable is False
     assert r.absolute_force_reported is None

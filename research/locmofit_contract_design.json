@@ -1,0 +1,17 @@
+{
+  "task_id": "locmofit-contract-001",
+  "registered_at_utc": "2026-09-25T03:48:58.828522+00:00",
+  "kind": "read-only cached processed-table identity and support check",
+  "input_audit": "research/data_audit.json",
+  "checks": [
+    "SHA-256 against accepted audit for all 23 tables",
+    "list complete schema and missing likelihood ingredients",
+    "count cap closing angles >90 degrees by raw and corrected retained policies",
+    "derive H=1/R and A=2*pi*R^2*(1-cos(theta)) from raw stored geometry",
+    "derive rim length=2*pi*abs(R*sin(theta)) and disk area=pi*(R*sin(theta))^2",
+    "do not recompute corrected flat area or treat dependent geometry as independent evidence"
+  ],
+  "identity_relative_tolerance": 0.0001,
+  "scope": "No fit, download, empirical uncertainty or mechanistic ranking; rounding checks only",
+  "deadline_utc": "2026-09-25T04:00:37Z"
+}

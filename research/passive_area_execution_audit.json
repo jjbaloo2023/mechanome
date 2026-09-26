@@ -1,0 +1,27 @@
+{
+  "task_id": "passive-area-numerical-001",
+  "audit_kind": "saved-result-only",
+  "audited_utc": "2026-09-25T02:11:19.5315173Z",
+  "inputs_preserved": ["research/passive_area_results_001.json", "research/passive_area_states_001/", "research/passive_area_sign.py", "research/passive_area_design.json"],
+  "execution_status": {"base_records": 12, "sensitivity_records": 1, "base_success": 12, "all_declared_record_gates_pass": true, "skipped_records": 0},
+  "frozen_dependency_hashes_match": true,
+  "frozen_dependencies": {
+    "research/passive_area_sign.py": "971f23a4d9125e27069dd2a158cb545bffdb739f7e77cedaa5f5b720494dafb8",
+    "research/passive_area_design.json": "6b99d4092410535ec9618326163479dedc21b81bf2a889fd9749fbafe71b4f84",
+    "research/passive_area_source_frozen_001.py": "971f23a4d9125e27069dd2a158cb545bffdb739f7e77cedaa5f5b720494dafb8",
+    "research/passive_area_design_frozen_001.json": "6b99d4092410535ec9618326163479dedc21b81bf2a889fd9749fbafe71b4f84",
+    "research/axisymmetric_rho_frozen_002.py": "93a7703c11ec3bd5b2eecfb34ee5b1e35134f0a9c03d1221709f92c43df803da"
+  },
+  "continuation": {
+    "sequences": {"x0.5": ["c0.02", "c0.1", "c0.3", "c0.6"], "x1": ["c0.02", "c0.1", "c0.3", "c0.6"], "x2": ["c0.02", "c0.1", "c0.3", "c0.6"]},
+    "initial_cases_have_no_seed": true,
+    "later_cases_use_immediately_preceding_accepted_state": true,
+    "all_recorded_seed_hashes_match_their_state_files": true,
+    "state_schema": {"arrays": {"rho": "final BVP mesh", "y": "six states x mesh", "p": "pole H,z,lambda"}, "paths": "record.state_path", "hash": "record.state_sha256"}
+  },
+  "gates": {"max_native_rho_rms": 9.997985412536981e-09, "rms_limit": 1.01e-08, "max_outer_bc": 6.275560721208059e-30, "outer_bc_limit": 1e-09, "max_Q_relative": 5.4082551383629225e-11, "Q_limit": 1e-06, "max_abs_psi": 0.2678474169389167, "psi_limit": 0.6, "min_r_away_axis": 0.009456664083854772, "all_finite_and_positive": true},
+  "sensitivity": {"selected_base_label": "x2_c0.6", "selection_rule": "largest recorded max_abs_psi among accepted base records", "joint_change": {"nodes_rho": [801, 1601], "alpha_cutoff": [1e-06, 2.5e-07]}, "max_absolute_normalized_observable_difference": 8.253839889338366e-09, "registered_limit": 2e-06, "passes": true},
+  "timeout_semantics": "Each child was invoked through subprocess.run(timeout=45). A timeout becomes a retained status='timeout' record. The parent interruption during the overrun did not prevent child completion; this audit makes no retrospective timing-compliance claim.",
+  "known_unfixed_execution_limits": ["No explicit pole-BC gate in the frozen record", "No adjacent-state/observable jump gate", "State NPZ writes are overwriteable in the frozen runner", "The sensitivity combines mesh and cutoff changes", "Native rho residual norm is coordinate-dependent"],
+  "scope": "No BVP solve, subprocess execution, state mutation, or physical interpretation was performed by this audit."
+}

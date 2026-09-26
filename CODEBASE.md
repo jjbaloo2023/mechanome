@@ -29,6 +29,29 @@ the overall magnitude. The record feeds the next proposal until the target is
 met or the iteration budget is exhausted. The LLM cannot supply the evaluated
 curvature or energy.
 
+## Research paths
+
+The [research front door](research/README.md) separates current findings from
+historical demonstrations. Study code is indexed by scientific question in
+[research/INDEX.md](research/INDEX.md); its frozen copies preserve earlier runs.
+
+- Public static geometry: `ingest_smlm_locmofit` selects raw or corrected fields
+  with provenance; `smlm_pseudotime` summarizes a population sorted by angle.
+  It does not reconstruct a measured pit trajectory. Missing uncertainty is
+  `None`. The optional legacy sigma heuristic is explicitly uncalibrated.
+- Legacy `smlm_shape_energetics` and `smlm_mechanism` fits require
+  `allow_exploratory=True` (CLI: `--allow-exploratory`) before computation.
+  A score threshold cannot authorize a decisive biological mechanism verdict.
+- `classify_observable` describes inputs and refuses tag-only force permission.
+  It is not a global gate on numerical inverse functions.
+- The separate `mechanome/research/controller.py` path is
+  `acquire_lead -> decide -> start -> finish`. It stores attempts and artifacts
+  for an offline persistence demo; it does not run the Codex research agents.
+
+See [reproduction](research/REPRODUCE.md) for the offline test selection and
+external-input boundaries. New studies need new designs/results; avoid edits to
+frozen evidence while changing production code.
+
 ## Development
 
 From the repository root:

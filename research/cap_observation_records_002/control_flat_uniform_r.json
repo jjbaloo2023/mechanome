@@ -1,0 +1,18 @@
+{
+  "status": "control",
+  "name": "flat",
+  "weighting": "uniform_r",
+  "h": 0.0,
+  "b": 0.0,
+  "rmse": 0.0,
+  "gradient": -0.0,
+  "optimizer_success": true,
+  "flat_boundary": true,
+  "upper_boundary": false,
+  "upper_h": 2.49999999975,
+  "upper_distance": 2.49999999975,
+  "objective_h0": 0.0,
+  "objective_hupper": 0.00797061817548675,
+  "target_h": 0.0,
+  "target_b": 0.0
+}

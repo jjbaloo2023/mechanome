@@ -1,10 +1,18 @@
 {
+  "claim_review": {
+    "reviewed_at_utc": "2026-09-23",
+    "status": "historical_numerical_results_not_revalidated",
+    "prior_file_sha256": "3c13b407ce5f078dd3f5dceafe163dcd7223ff0f6539d93565a759e01400a962",
+    "basis": "research/OBSERVABLE_PERMISSION_REVIEW.md",
+    "current_assessment": "research/ASSESSMENT.md",
+    "scope": "Claim/permission metadata corrected only; numerical payload preserved. Observable tags do not establish calibrated geometry or force identifiability. The router refusal is not a global inverse firewall."
+  },
   "title": "curvo real-data demonstration",
-  "single_claim": "curvo infers membrane-mechanical parameters and mechanism from CME curvature trajectories with calibrated uncertainty and an identifiability firewall that refuses underdetermined force claims.",
+  "single_claim": "Historical measurement and numerical demonstrations, not a currently validated real-data force or mechanism inference. Read claim_review and the current research assessment.",
   "observable_ladder": {
     "1_intensity": "coat-assembly proxy (any TIRF); NOT curvature; force refused",
-    "2_epitirf_depth": "invagination/axial depth; curvature proxy; needs registered epi+TIRF",
-    "3_superres_curvature": "curvature in real time (SIM/super-res); the inverse's real input"
+    "2_epitirf_depth": "axial-depth proxy under optical assumptions; no tag-only force permission",
+    "3_superres_curvature": "projected geometry; current BioTISR extraction is an uncalibrated footprint proxy; no tag-only force permission"
   },
   "datasets_used": {
     "epsin_2020_commbio": {
@@ -24,10 +32,11 @@
       "doi": "10.5281/zenodo.13843670",
       "collection_doi": "10.5281/zenodo.14760518",
       "observable": "3_superres_curvature",
-      "role": "force-inverse keystone",
+      "role": "projected-footprint demonstration; calibrated curvature/force unsupported",
       "source": "public: BioTISR 2D Data (CCPs), live-cell TIRF-SIM; collection tied to the DPA-TISR paper, Nat Biotech 2025",
       "pixel_size_nm_assumed": 31.3,
-      "pixel_size_verified": false
+      "pixel_size_verified": false,
+      "historical_role": "force-inverse keystone"
     }
   },
   "results": {
@@ -128,5 +137,6 @@
     },
     "real_data_caveat": "The real BioTISR trajectory (ingest_biotisr_sim.py) uses an UNVALIDATED footprint-area proxy (R_proj = sqrt(area/pi)) that bypasses the cap-fit extractor and its resolvability gate. At 31 nm/px the validated extractor yields 0 frames, so those H values are footprint-size dynamics, not resolution-validated curvature.",
     "conclusion": "BioTISR (~31 nm/px, effective PSF sigma ~55 nm) is OUTSIDE curvo's validated perception envelope (18 nm, 2-4 nm/px) in the coarse direction, which the benchmark had never tested. Absolute curvature/force from it is unsupported; the 0/18-identified refusal is the correct outcome. Relative footprint dynamics (a pit contracting) remain observable but are not resolution-validated curvature."
-  }
+  },
+  "historical_single_claim": "curvo infers membrane-mechanical parameters and mechanism from CME curvature trajectories with calibrated uncertainty and an identifiability firewall that refuses underdetermined force claims."
 }

@@ -1,0 +1,50 @@
+{
+  "task_id": "locmofit-adapter-001",
+  "registered_at_utc": "2026-09-26T14:11:47.290241+00:00",
+  "files": [
+    {
+      "path": "validation/realdata/ingest_smlm_locmofit.py",
+      "sha256": "149256ba4f45d0369dd3e6d71daffe383189a0f2bfefd5bb4c82cbde7ee073f5",
+      "snapshot": "research\\locmofit_adapter_before_001\\ingest_smlm_locmofit.py"
+    },
+    {
+      "path": "validation/realdata/smlm_pseudotime.py",
+      "sha256": "13d86ff283bd2109ed6bd9839e60004cfe2f22bb3c5adaffdfecd6ab9abdeabd",
+      "snapshot": "research\\locmofit_adapter_before_001\\smlm_pseudotime.py"
+    },
+    {
+      "path": "validation/realdata/smlm_shape_energetics.py",
+      "sha256": "58a2517a868ebc57a8f3884494b36007a68592850619ca93d3aa07e7e6d440e4",
+      "snapshot": "research\\locmofit_adapter_before_001\\smlm_shape_energetics.py"
+    },
+    {
+      "path": "validation/realdata/smlm_mechanism.py",
+      "sha256": "63ba644601c50d26c79a6fe06897583188ac9ec4ff178208f4a933a07ad3244b",
+      "snapshot": "research\\locmofit_adapter_before_001\\smlm_mechanism.py"
+    },
+    {
+      "path": "tests/test_smlm_mechanism.py",
+      "sha256": "d1858bb0f3234e4a0ceb61bf3a671d4a6e0b1a04fe17acd594c0a9a142984c94",
+      "snapshot": "research\\locmofit_adapter_before_001\\test_smlm_mechanism.py"
+    },
+    {
+      "path": "tests/test_smlm_shape_energetics.py",
+      "sha256": "bb0d6d7977ef2fa7d2baf8e5af44902153cd8ebd22c52348bfbd5dcbbb860766",
+      "snapshot": "research\\locmofit_adapter_before_001\\test_smlm_shape_energetics.py"
+    }
+  ],
+  "consumer_inventory": {
+    "pseudotime": "Reads theta,H,R,A and copies provenance; no H_sigma read",
+    "shape_energetics": "Builds own IQR/(2sqrt(n)) with5e-4 floor, then nested fit; no H_sigma read",
+    "mechanism": "Fits own scatter with rolling median, derived area/edge scores; no H_sigma read",
+    "generic_curvo": "Same-named H_sigma field but separate live perception types; no adapter caller found",
+    "descriptive_research": "compare_geometry.py reads audited tables directly, no adapter uncertainty weights"
+  },
+  "amendment": "Lead owns three consumer files and focused consumer tests; default exploratory opt-in gate needed because adapter alone cannot block these independently constructed likelihoods",
+  "constraints": [
+    "No empirical nested fit",
+    "No deposited projection recomputation",
+    "Preserve default raw cohort and historical outputs",
+    "Numeric exploratory diagnostic stays conditional; decisive mechanism permission staysfalse"
+  ]
+}

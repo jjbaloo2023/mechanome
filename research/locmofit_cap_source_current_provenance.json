@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-09-25T03:56:25.898023+00:00",
+  "url": "https://raw.githubusercontent.com/jries/SMAP/d066594d7a5e5d35f2dbf9402cf7cfcfe07679c6/LocMoFit/models/sphericalCap3D_surfaceArea.m",
+  "commit": "d066594d7a5e5d35f2dbf9402cf7cfcfe07679c6",
+  "git_blob_sha1": "cc03dbd25b5d92c9894174d3d9ab417302af17ca",
+  "sha256": "b486e2568e4ef370f25a317cf34a3ec2723bea1e375050c1819b81a3b20b9252",
+  "bytes": 6892,
+  "path": "research\\locmofit_cap_source_current.m",
+  "scope": "Current official source checked independently by lead, not historical paper code; downloaded as text, not executed."
+}

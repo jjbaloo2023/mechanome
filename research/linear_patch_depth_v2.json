@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-09-23T11:29:12.442331+00:00",
+  "task_id": "cap-full-shape-benchmark-001",
+  "attempt": 1,
+  "review_revision": 2,
+  "input_sha256": "a13d566926a2a2edb7110887171d83816c803e0288c65fe1b8e7a92bf7d0e6da",
+  "script_sha256": "6499ea699059c25071e5880b9f5e5ed84dc806248902df80aba21c0733e75728",
+  "depth_normalization": "c*ell**2",
+  "formula": "x*K1(x)*(I0(x)-1)",
+  "scope": "derived observable, original linear model; no new nonlinear solve",
+  "records": [
+    {
+      "x": 0.1,
+      "membrane_edge_depth_normalized": 0.002465001286215775,
+      "cap_edge_depth_normalized": 0.002496878901373284,
+      "membrane_reservoir_depth_normalized": 0.014615521912939355,
+      "slope_integral_abs_error": 4.466912950640278e-17
+    },
+    {
+      "x": 0.5,
+      "membrane_edge_depth_normalized": 0.052578232866171415,
+      "cap_edge_depth_normalized": 0.06060606060606061,
+      "membrane_reservoir_depth_normalized": 0.17177943999834966,
+      "slope_integral_abs_error": 6.938893903907228e-17
+    },
+    {
+      "x": 1.0,
+      "membrane_edge_depth_normalized": 0.1601469755277074,
+      "cap_edge_depth_normalized": 0.2222222222222222,
+      "membrane_reservoir_depth_normalized": 0.3980927698027654,
+      "slope_integral_abs_error": 5.551115123125783e-17
+    },
+    {
+      "x": 2.0,
+      "membrane_edge_depth_normalized": 0.3579406533413911,
+      "cap_edge_depth_normalized": 0.6666666666666666,
+      "membrane_reservoir_depth_normalized": 0.720268236366955,
+      "slope_integral_abs_error": 5.551115123125783e-17
+    },
+    {
+      "x": 5.0,
+      "membrane_edge_depth_normalized": 0.5306506919234598,
+      "cap_edge_depth_normalized": 1.5151515151515151,
+      "membrane_reservoir_depth_normalized": 0.9797769327727391,
+      "slope_integral_abs_error": 1.1102230246251565e-16
+    },
+    {
+      "x": 10.0,
+      "membrane_edge_depth_normalized": 0.5249101274098293,
+      "cap_edge_depth_normalized": 1.8518518518518519,
+      "membrane_reservoir_depth_normalized": 0.9998135122654618,
+      "slope_integral_abs_error": 1.1102230246251565e-16
+    }
+  ]
+}

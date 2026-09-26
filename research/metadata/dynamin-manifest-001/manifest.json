@@ -1,0 +1,176 @@
+{
+  "task_id": "dynamin-manifest-001",
+  "attempt_number": 1,
+  "started_at_utc": "2026-09-22T11:46:57.258915+00:00",
+  "url": "https://zenodo.org/api/records/17484958/files/Dynamin%20productivity%20validation.zip/content",
+  "archive_bytes": 2846893415,
+  "payload_cap_bytes": 1048576,
+  "bytes_read": 1773,
+  "requests": [
+    {
+      "start": 2846893393,
+      "end": 2846893414,
+      "http_status": 206,
+      "content_range": "bytes 2846893393-2846893414/2846893415",
+      "sha256": "86d7aabce31af70b38a891811b8ea4bd8129ea5b9c0475fa79422eb742dbc986"
+    },
+    {
+      "start": 2846891642,
+      "end": 2846893392,
+      "http_status": 206,
+      "content_range": "bytes 2846891642-2846893392/2846893415",
+      "sha256": "2867cf6c1c6c7e10556e53bcb4dedc03ab9f8cad4779bed4b0a4d347fc3e6599"
+    }
+  ],
+  "members": [
+    {
+      "name": "Dynamin productivity validation/",
+      "flags": 2,
+      "compression_method": 0,
+      "crc32": 0,
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0,
+      "local_offset": 0
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_194-mask.tif",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 3798452519,
+      "compressed_bytes": 2038,
+      "uncompressed_bytes": 262304,
+      "local_offset": 62
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_195-mask.tif",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 2025077601,
+      "compressed_bytes": 1999,
+      "uncompressed_bytes": 262266,
+      "local_offset": 2199
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_206-mask.tif",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 4204576467,
+      "compressed_bytes": 1987,
+      "uncompressed_bytes": 262266,
+      "local_offset": 4297
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_207-mask.tif",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 574807109,
+      "compressed_bytes": 2922,
+      "uncompressed_bytes": 262266,
+      "local_offset": 6383
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_208-mask.tif",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 538793847,
+      "compressed_bytes": 2816,
+      "uncompressed_bytes": 262266,
+      "local_offset": 9404
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_211-mask.tif",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 904329421,
+      "compressed_bytes": 2865,
+      "uncompressed_bytes": 262368,
+      "local_offset": 12319
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_212-mask.tif",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 2921950921,
+      "compressed_bytes": 2260,
+      "uncompressed_bytes": 262266,
+      "local_offset": 15283
+    },
+    {
+      "name": "Dynamin productivity validation/registration_transform.json",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 2869642657,
+      "compressed_bytes": 202,
+      "uncompressed_bytes": 370,
+      "local_offset": 17642
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_194.dv",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 3331015563,
+      "compressed_bytes": 777001370,
+      "uncompressed_bytes": 1520254976,
+      "local_offset": 17933
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_195.dv",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 4145825277,
+      "compressed_bytes": 380978344,
+      "uncompressed_bytes": 944008192,
+      "local_offset": 777019396
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_206.dv",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 3444864861,
+      "compressed_bytes": 208211279,
+      "uncompressed_bytes": 377604096,
+      "local_offset": 1157997833
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_207.dv",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 4155334865,
+      "compressed_bytes": 314506653,
+      "uncompressed_bytes": 566405120,
+      "local_offset": 1366209205
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_208.dv",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 265752734,
+      "compressed_bytes": 260684747,
+      "uncompressed_bytes": 566405120,
+      "local_offset": 1680715951
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_211.dv",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 3275313387,
+      "compressed_bytes": 466524844,
+      "uncompressed_bytes": 859652096,
+      "local_offset": 1941400791
+    },
+    {
+      "name": "Dynamin productivity validation/RPE1_DYN2mRuby3_SNAPCLCa_212.dv",
+      "flags": 2,
+      "compression_method": 8,
+      "crc32": 1138460507,
+      "compressed_bytes": 438965821,
+      "uncompressed_bytes": 944008192,
+      "local_offset": 2407925728
+    }
+  ],
+  "archive_checksum_verified": false,
+  "member_payloads_verified": false,
+  "status": "directory_verified",
+  "member_count": 16,
+  "finished_at_utc": "2026-09-22T11:46:58.708832+00:00"
+}

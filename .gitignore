@@ -57,3 +57,14 @@ cache/structures/
 outputs/epsin_domain_cases.png
 outputs/orchestration.png
 validation/realdata/picalm_orchestration.png
+
+# Local research/test scratch; never scientific evidence
+.pytest-*/
+research/.mpl-*/
+
+# Downloaded public source payloads; keep their URLs and hashes in metadata
+research/metadata/dasc-methods-001/*.xml
+research/metadata/dasc-metadata-001/*.docx
+research/metadata/dasc-metadata-001/*.xlsx
+research/metadata/dynamin-manifest-001/*.bin
+research/locmofit_cap_source_current.m
