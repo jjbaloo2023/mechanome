@@ -7,9 +7,11 @@ forward models at other scales, and a structure-based protein screen.
 
 ## Start here
 
+- [Research overview](research/OVERVIEW.md): findings, persistent workflow, pause status and restart steps.
 - [Codebase guide](CODEBASE.md): call paths, reporting rules, and development.
 - [Scientific reference](RESEARCH.md): equations, validation, results, and reproduction.
 - [Manuscript](MANUSCRIPT.md): historical paper draft; see the campaign for current claim boundaries.
+- [Pipeline architecture](research/PIPELINE_ARCHITECTURE.md): agents, persistent operation, steering and research progress.
 - [Research campaign](research/README.md): reviewed findings, study index, reproducibility, and next decisions.
 
 The current public-data campaign supports descriptive geometry and conditional

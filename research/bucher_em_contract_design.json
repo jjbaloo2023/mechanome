@@ -1,0 +1,44 @@
+{
+  "task_id": "bucher-em-contract-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-26T15:29:30.095641+00:00",
+  "parent_completed_stage": "independent-controls-001",
+  "decision": "Independent source review accepts stopped physical inference and bounded descriptive data-contract follow-up. This separate stage authorizes only the two processed EM tables, not a model or morphology-effect claim.",
+  "files": [
+    {
+      "id": 10256781,
+      "name": "EM BSC-1.xlsx",
+      "size": 78130,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/10256781",
+      "supplied_md5": "ce61ee0d469a291ddcfa193310119905",
+      "computed_md5": "ce61ee0d469a291ddcfa193310119905",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "id": 10256790,
+      "name": "EM BSC-1 osmotic shock.xlsx",
+      "size": 72748,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/10256790",
+      "supplied_md5": "529bbaa8d3cfafc95821a4ea2e354708",
+      "computed_md5": "529bbaa8d3cfafc95821a4ea2e354708",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    }
+  ],
+  "bounds": {
+    "max_bytes_each": 100000,
+    "max_uncompressed_bytes_each": 5000000,
+    "http_timeout_seconds_each": 20,
+    "evidence_cutoff_utc": "2026-09-26T15:33:15Z"
+  },
+  "checks": [
+    "publisher size and MD5 exact",
+    "SHA256 saved locally",
+    "sheet names and dimensions",
+    "nonempty rows and labeled column blocks",
+    "replicate identifiers and morphology labels; do not invent mapping",
+    "formula inventory; never execute formulas"
+  ],
+  "stop_condition": "One schema inventory and independent review; queue descriptive reproduction only if units and membrane mapping are justified. No aggregate hypothesis test or model fit."
+}

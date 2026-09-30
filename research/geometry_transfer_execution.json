@@ -1,0 +1,1339 @@
+{
+  "task_id": "geometry-transfer-001",
+  "attempt_number": 1,
+  "empirical_fit_cap": 27,
+  "synthetic_fit_cap": 6,
+  "fits": [
+    {
+      "id": "synthetic-fit-01",
+      "kind": "synthetic",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:22.195166+00:00",
+      "invocation_id": "synthetic_checks-001",
+      "context": {
+        "check": "exact_recovery",
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:22.210820+00:00",
+      "coefficients": [
+        0.02
+      ]
+    },
+    {
+      "id": "synthetic-fit-02",
+      "kind": "synthetic",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:22.210820+00:00",
+      "invocation_id": "synthetic_checks-001",
+      "context": {
+        "check": "exact_recovery",
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:22.210820+00:00",
+      "coefficients": [
+        0.010000000000000002
+      ]
+    },
+    {
+      "id": "synthetic-fit-03",
+      "kind": "synthetic",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:22.210820+00:00",
+      "invocation_id": "synthetic_checks-001",
+      "context": {
+        "check": "exact_recovery",
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:22.210820+00:00",
+      "coefficients": [
+        0.009999999999999997,
+        0.020000000000000004,
+        0.03,
+        0.04000000000000001,
+        0.05000000000000001
+      ]
+    },
+    {
+      "id": "synthetic-fit-04",
+      "kind": "synthetic",
+      "status": "failed",
+      "reserved_at_utc": "2026-09-29T15:08:22.210820+00:00",
+      "invocation_id": "synthetic_checks-001",
+      "context": {
+        "check": "finite_area_boundary",
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:22.210820+00:00",
+      "error": "ValueError: Constant-area fit has nonfinite or nonpositive area"
+    },
+    {
+      "id": "empirical-fit-01",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.327731+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.327731+00:00",
+      "coefficients": [
+        0.009402596739704248
+      ]
+    },
+    {
+      "id": "empirical-fit-02",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.343804+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.343804+00:00",
+      "coefficients": [
+        0.003822528680143663
+      ]
+    },
+    {
+      "id": "empirical-fit-03",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.359570+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.359570+00:00",
+      "coefficients": [
+        0.0005325759361841293,
+        0.006330581073541148,
+        0.010124457427773221,
+        0.012137250605898065,
+        0.01090994779342395
+      ]
+    },
+    {
+      "id": "empirical-fit-04",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.359570+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.359570+00:00",
+      "coefficients": [
+        0.008443598241174974
+      ]
+    },
+    {
+      "id": "empirical-fit-05",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.375212+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.375212+00:00",
+      "coefficients": [
+        0.0034084045644309675
+      ]
+    },
+    {
+      "id": "empirical-fit-06",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.393083+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.394076+00:00",
+      "coefficients": [
+        0.00045320508382942754,
+        0.005863033865084062,
+        0.009326530375872878,
+        0.01082516117645326,
+        0.010491856356856101
+      ]
+    },
+    {
+      "id": "empirical-fit-07",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.408739+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.409700+00:00",
+      "coefficients": [
+        0.009442174694677724
+      ]
+    },
+    {
+      "id": "empirical-fit-08",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.417807+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.418806+00:00",
+      "coefficients": [
+        0.0036963513745013224
+      ]
+    },
+    {
+      "id": "empirical-fit-09",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.423306+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "corrected",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.423306+00:00",
+      "coefficients": [
+        0.00025047902054400504,
+        0.006409517505712756,
+        0.010489476082581434,
+        0.011789445923571923,
+        0.009972734357216032
+      ]
+    },
+    {
+      "id": "empirical-fit-10",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.438699+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.438699+00:00",
+      "coefficients": [
+        0.009468003160718663
+      ]
+    },
+    {
+      "id": "empirical-fit-11",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.443458+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.443458+00:00",
+      "coefficients": [
+        0.003823708269226829
+      ]
+    },
+    {
+      "id": "empirical-fit-12",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.454785+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.454785+00:00",
+      "coefficients": [
+        0.000694545433084935,
+        0.006313273327751099,
+        0.010133855809036292,
+        0.01213848163522237,
+        0.010916044840357058
+      ]
+    },
+    {
+      "id": "empirical-fit-13",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.454785+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.454785+00:00",
+      "coefficients": [
+        0.008516321673178307
+      ]
+    },
+    {
+      "id": "empirical-fit-14",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.470896+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.470896+00:00",
+      "coefficients": [
+        0.0034076487694943815
+      ]
+    },
+    {
+      "id": "empirical-fit-15",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.481521+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.486573+00:00",
+      "coefficients": [
+        0.0005898884225362628,
+        0.0058424369915475085,
+        0.00933290493600236,
+        0.010823485824365292,
+        0.010488014310632692
+      ]
+    },
+    {
+      "id": "empirical-fit-16",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.486573+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.502386+00:00",
+      "coefficients": [
+        0.009545297936989135
+      ]
+    },
+    {
+      "id": "empirical-fit-17",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.505833+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.505833+00:00",
+      "coefficients": [
+        0.0036958668673816846
+      ]
+    },
+    {
+      "id": "empirical-fit-18",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.518196+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "raw_nonnegative",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.518196+00:00",
+      "coefficients": [
+        0.00035170091584488033,
+        0.00639208836481153,
+        0.010495265674363423,
+        0.011787279031193006,
+        0.009969035302266758
+      ]
+    },
+    {
+      "id": "empirical-fit-19",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.533913+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.533913+00:00",
+      "coefficients": [
+        0.01042639751778932
+      ]
+    },
+    {
+      "id": "empirical-fit-20",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.539674+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.539674+00:00",
+      "coefficients": [
+        0.004091931231168881
+      ]
+    },
+    {
+      "id": "empirical-fit-21",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.549871+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "3T3",
+        "training_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.549871+00:00",
+      "coefficients": [
+        0.000560167955644326,
+        0.006303386492651917,
+        0.010380868411953926,
+        0.01304785022886837,
+        0.016950702148760384
+      ]
+    },
+    {
+      "id": "empirical-fit-22",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.565952+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.565952+00:00",
+      "coefficients": [
+        0.00939472737871941
+      ]
+    },
+    {
+      "id": "empirical-fit-23",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.565952+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.565952+00:00",
+      "coefficients": [
+        0.00367071234875373
+      ]
+    },
+    {
+      "id": "empirical-fit-24",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.581713+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "SKMEL2",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "target_group_ids": [
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.581713+00:00",
+      "coefficients": [
+        0.0004943833394205773,
+        0.005788134598509926,
+        0.009599913698690787,
+        0.011648851786617972,
+        0.013783825117865882
+      ]
+    },
+    {
+      "id": "empirical-fit-25",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.597818+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "constant_curvature"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.597818+00:00",
+      "coefficients": [
+        0.009986413232669245
+      ]
+    },
+    {
+      "id": "empirical-fit-26",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.613614+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "constant_area"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.613614+00:00",
+      "coefficients": [
+        0.0038472222693005246
+      ]
+    },
+    {
+      "id": "empirical-fit-27",
+      "kind": "empirical",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.629701+00:00",
+      "invocation_id": "empirical_grid-001",
+      "context": {
+        "policy": "include_flagged",
+        "held_out_line": "U2OS",
+        "training_group_ids": [
+          "3T3:1",
+          "3T3:2",
+          "3T3:3",
+          "3T3:4",
+          "3T3:5",
+          "3T3:6",
+          "3T3:7",
+          "SKMEL2:1",
+          "SKMEL2:10",
+          "SKMEL2:11",
+          "SKMEL2:12",
+          "SKMEL2:13",
+          "SKMEL2:2",
+          "SKMEL2:3",
+          "SKMEL2:4",
+          "SKMEL2:5",
+          "SKMEL2:6",
+          "SKMEL2:7",
+          "SKMEL2:8",
+          "SKMEL2:9"
+        ],
+        "target_group_ids": [
+          "U2OS:1",
+          "U2OS:2",
+          "U2OS:3"
+        ],
+        "model": "flexible_reference"
+      },
+      "completed_at_utc": "2026-09-29T15:08:36.629701+00:00",
+      "coefficients": [
+        0.0002945477957035568,
+        0.006318671076795664,
+        0.010763062449770119,
+        0.012321430364959057,
+        0.011885750156604749
+      ]
+    }
+  ],
+  "invocations": [
+    {
+      "id": "synthetic_checks-001",
+      "kind": "synthetic_checks",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:22.195166+00:00",
+      "output": "research\\geometry_transfer_checks_001.json",
+      "source_hashes": {
+        "research/geometry_transfer.py": "2100728ab1647765cb518a9b6f6d63f7b78c1f98ef9e7e9dd3bcea4155ca58d2",
+        "research/geometry_transfer_design.json": "f9ee4595d95389a5fa6e66bbf7e877c75b1570d733a08a320a8ab2fe041a8c90",
+        "research/compare_geometry.py": "20f3bbba1c4652665c38ab9e7092ba4f5535dca8775a36ba4cef5d43446be9e9",
+        "research/FIRST_COMPARISON.md": "12294486bb7e69379f380c7eeb9b5b417611f7126eb9f1943871e97e5f1cc5f0",
+        "research/geometry_inputs.lock.json": "ec382d26150cbefd381849449a950ab3218551da01dae7f1c46b7d8ed4df9635",
+        "research/data_audit.json": "cf4e3276ec5b2a17ae2478de70419d1ad53c8ccbed003c57b9e38ddfc4f7faef",
+        "research/geometry_results_v2.json": "8df757c3198136ed4a98bff4cf804f766b8077aca4b8485844e4d71f8c7829f3"
+      },
+      "fit_ids": [
+        "synthetic-fit-01",
+        "synthetic-fit-02",
+        "synthetic-fit-03",
+        "synthetic-fit-04"
+      ],
+      "completed_at_utc": "2026-09-29T15:08:22.210820+00:00"
+    },
+    {
+      "id": "empirical_grid-001",
+      "kind": "empirical_grid",
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T15:08:36.243383+00:00",
+      "output": "research\\geometry_transfer_results_001.json",
+      "source_hashes": {
+        "research/geometry_transfer.py": "2100728ab1647765cb518a9b6f6d63f7b78c1f98ef9e7e9dd3bcea4155ca58d2",
+        "research/geometry_transfer_design.json": "f9ee4595d95389a5fa6e66bbf7e877c75b1570d733a08a320a8ab2fe041a8c90",
+        "research/compare_geometry.py": "20f3bbba1c4652665c38ab9e7092ba4f5535dca8775a36ba4cef5d43446be9e9",
+        "research/FIRST_COMPARISON.md": "12294486bb7e69379f380c7eeb9b5b417611f7126eb9f1943871e97e5f1cc5f0",
+        "research/geometry_inputs.lock.json": "ec382d26150cbefd381849449a950ab3218551da01dae7f1c46b7d8ed4df9635",
+        "research/data_audit.json": "cf4e3276ec5b2a17ae2478de70419d1ad53c8ccbed003c57b9e38ddfc4f7faef",
+        "research/geometry_results_v2.json": "8df757c3198136ed4a98bff4cf804f766b8077aca4b8485844e4d71f8c7829f3"
+      },
+      "fit_ids": [
+        "empirical-fit-01",
+        "empirical-fit-02",
+        "empirical-fit-03",
+        "empirical-fit-04",
+        "empirical-fit-05",
+        "empirical-fit-06",
+        "empirical-fit-07",
+        "empirical-fit-08",
+        "empirical-fit-09",
+        "empirical-fit-10",
+        "empirical-fit-11",
+        "empirical-fit-12",
+        "empirical-fit-13",
+        "empirical-fit-14",
+        "empirical-fit-15",
+        "empirical-fit-16",
+        "empirical-fit-17",
+        "empirical-fit-18",
+        "empirical-fit-19",
+        "empirical-fit-20",
+        "empirical-fit-21",
+        "empirical-fit-22",
+        "empirical-fit-23",
+        "empirical-fit-24",
+        "empirical-fit-25",
+        "empirical-fit-26",
+        "empirical-fit-27"
+      ],
+      "completed_at_utc": "2026-09-29T15:08:36.635072+00:00"
+    }
+  ],
+  "execution_owner": "lead_only"
+}

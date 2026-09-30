@@ -1,0 +1,15 @@
+{
+  "task_id": "bucher-inclusion-001",
+  "checkpoint_at_utc": "2026-09-26T16:03:57.359517+00:00",
+  "lead_disposition": "Accepted unresolved inclusion mapping; stop figure reproduction.",
+  "artifact_sha256": {
+    "research/bucher_inclusion_design.json": "998803d2773d28cf09ff3e85f0aba20328c7fc3442580c554f8188e5e54b4edd",
+    "research/BUCHER_INCLUSION_FINDINGS.md": "5a92861504cc47a752cd5f80e20dfc316c9f240e2bfb2477a1c6670d5f66914c",
+    "research/BUCHER_INCLUSION_PACKAGE.md": "659c636f41132cfcba6a09ea4c2a90b1dbf403e364890c19dcf45ddea9c9b325",
+    "research/BUCHER_INCLUSION_SOURCE.md": "9efa41b75a6aabc397a048fa5615da5f789583420ecbc639976af857315abc7f",
+    "research/BUCHER_INCLUSION_REVIEW.md": "4690d46256f7bcbb72bc5af3db2c0aa25eba468fb64d9d169b2e9df0ec86d98e",
+    "research/check_bucher_inclusion.py": "71d2becc528ee9f60af919041a9fc4e79ff3110666535155b6a9fadd0cfc27ea",
+    "research/bucher_inclusion_package_001.json": "5096c81372419fa64e157a42cfdcfd23850778fde428c1e221fb0bb56b9d1fda",
+    "research/metadata/bucher-inclusion-001/source_provenance.json": "3d7de25caddc7871a6f56015f932e81f6302c1117a568d5f96a7b9b61a9723bb"
+  }
+}

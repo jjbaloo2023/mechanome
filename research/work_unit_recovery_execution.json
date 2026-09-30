@@ -1,0 +1,30 @@
+{
+  "task_id": "work-unit-recovery-001",
+  "phase_cap": 3,
+  "dummy_callback_cap": 2,
+  "invocations": [
+    {
+      "phase": 1,
+      "status": "failed_supervision",
+      "reserved_at_utc": "2026-09-29T16:38:37.232104+00:00",
+      "command": [
+        "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\work_unit_recovery.py",
+        "1",
+        "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\work_unit_recovery_001",
+        "--commit",
+        "e2fee6b46b790f113849de237d5f7ab849530714"
+      ],
+      "log": "research\\work_unit_recovery_001\\phase-1.log",
+      "input_record_sha256": "903bb13ea9ae85ccf3e802e13852591943796c2d03c7660e460195ee060a56fc",
+      "pid": 12896,
+      "started_at_utc": "2026-09-29T16:38:37.249233+00:00",
+      "exit_code": 0,
+      "exit_observed_at_utc": "2026-09-29T16:38:37.489082+00:00",
+      "error": "RuntimeError: Phase output identity does not match observed child",
+      "observed_at_utc": "2026-09-29T16:38:37.496743+00:00"
+    }
+  ],
+  "scientific_calls": 0
+}

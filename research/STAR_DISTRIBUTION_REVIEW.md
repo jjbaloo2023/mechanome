@@ -1,0 +1,11 @@
+# Independent review: finite axial-distribution counterexample
+
+The registered claim is confined to the idealized noiseless exponential observation model with known total amount and two attenuation coefficients. It asks whether those three observables determine mean axial height for an unknown distribution. It does not identify membrane shape or interpret actual STAR tracks.
+
+The fixed support has `t=(1/4,1/2,3/4,1)` and `u=-log(t)`, so every height is finite and nonnegative. Both four-entry weight vectors are strictly positive and sum to one. Their difference is `(1,-3,3,-1)/12`, which has zero total, first-`t`, and second-`t` moments on that support. Since `exp(-u)=t` and `exp(-2u)=t²`, those equalities are exactly the equal-total and equal-channel-intensity claims under the registered unit amplitudes. The weighted mean difference is `log(32/27)/12>0` for `mean_p(u)-mean_q(u)`.
+
+## Disposition
+
+Accepted as a final, bounded counterexample. `STAR_DISTRIBUTION_THEORY.md` explicitly checks the zero difference in normalization and in the first and second `t` moments, calculates their common intensities `5/8` and `15/32`, and derives the strict mean-height difference `log(32/27)/12>0`. The mean sign is correct: the signed log product is `27/32<1`, and the heights are `-log(t)`. The proof uses the same known finite support for both distributions, so the ambiguity is in weights even before support uncertainty is introduced.
+
+The one exact-rational invocation in `star_distribution_checks.json` passed the registered fixed pair. Static inspection of its script confirms strict positivity, normalization, equal moments and the rational log-product check; it did not search for additional pairs or approximate logarithms. The theory's statement about one further independent linear scalar constraint is properly confined to this fixed four-point support; it does not promise that an arbitrary third observation identifies a general distribution. The result refutes mean-height identification in the idealized distributed axial-signal model despite known total amount and noiseless calibrated channels. It says nothing about membrane geometry, actual STAR calibration, temporal lag, fate or mechanism. No further observation-branch calculation is needed.

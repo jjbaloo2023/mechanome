@@ -1,0 +1,37 @@
+{
+  "task_id": "myo1e-observable-feasibility-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T12:31:39.832939+00:00",
+  "question": "Does the primary Myo1E study provide an interpretable public observable comparison linking tension interventions, localized Myo1E/actin response and endocytic outcomes?",
+  "primary_locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12956820/",
+  "inputs_sha256": {
+    "research/ACTIN_CODE_FINDINGS.md": "7f6f4cf0e317262a11587fd6f4ef74fd8faccb1fd1e399fc0ad39bec6297370e"
+  },
+  "required_fields": [
+    "Verified paper identity and publication status",
+    "Measured tension versus intervention; same-event versus across-condition links",
+    "Fluorescence/localization and internalization/event proxy observation process",
+    "Controls and independent sampling units, censoring and selection",
+    "Primary figure/method locators for each claim",
+    "Public small-table identity, exact availability and schema if exposed",
+    "Smallest observable comparison, alternatives, potential negative result and inference limits"
+  ],
+  "limits": {
+    "primary_articles": 1,
+    "official_linked_dataset_landing_or_inventory": 1,
+    "source_active_minutes": 8,
+    "downloaded_source_table_body_bytes": 1048576,
+    "bulk_downloads": 0,
+    "author_code_executions": 0,
+    "BVP_calls": 0
+  },
+  "web_tool_limit_note": "Record indexed/parsed tool access separately; do not claim raw byte telemetry for browser-tool responses. No broad repeated searches.",
+  "expected_outcomes": [
+    "A concrete public small-table contract worth separately retrieving",
+    "A source-grounded observable comparison with exact availability gap",
+    "Exact access or measurement gap with no inference"
+  ],
+  "stop_condition": "One independently reviewed feasibility decision or precise gap. No automatic data download or model implementation; at most eight minutes source acquisition.",
+  "evidence_cutoff_utc": "2026-09-29T12:45:31Z",
+  "target_checkpoint_utc": "2026-09-29T12:50:31Z"
+}

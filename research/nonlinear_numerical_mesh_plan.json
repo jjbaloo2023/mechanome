@@ -1,0 +1,56 @@
+{
+  "task_id": "nonlinear-numerical-mesh-plan-001",
+  "prepared_at_utc": "2026-09-27T00:59:57.925488+00:00",
+  "status": "reviewed_preparation_plan_not_execution",
+  "parent_logical_task": "nonlinear-numerical-001",
+  "next_attempt_number": 3,
+  "max_logical_attempts": 3,
+  "actual_BVP_calls_this_stage": 0,
+  "question": "Can explicit mesh resolution control the physical second-derivative defect without changing the model or weakening acceptance?",
+  "base_design": "research/nonlinear_numerical_design.json",
+  "base_design_sha256": "069c4136f8c01b3d98f592c7afb2bc9040fe9473d22202a4d7e5e4beafebf901",
+  "reason": "Attempt2 cubic v values satisfy sampled ordering/refinements but actual second derivatives fail physical residual; saved-coefficient identity attributes the dominant defect to v_prime-w derivative, while auxiliary first-order residual is small.",
+  "mesh": {
+    "source_points": 1921,
+    "exterior_points_including_source_edge": 3841,
+    "initial_total_nodes": 5761,
+    "max_nodes_unchanged": 20000,
+    "formula": "union(linspace(0,1,1921), linspace(1,R,3841)[1:])",
+    "factor_relative_to_original_intervals": 16,
+    "uniform_for_all_cases": true
+  },
+  "unchanged": [
+    "source and amplitudes .025/.05/.1",
+    "tensions1/2 and kappa1, f0",
+    "R8/tol1e-6, R8/tol1e-8, R12/tol1e-8",
+    "18nonlinear+6linear+2zero=26call ceiling",
+    "cubic representation, singular matrix and BC",
+    "all original scientific acceptance thresholds",
+    "physical residual evaluated using actual interpolating v derivatives, no ODE substitution"
+  ],
+  "additional_stricter_checks": [
+    "Actual v_prime(0)=0 and w(0)=0 before applying the finite pole limit; reject irregular interpolant rather than conceal singular term.",
+    "Original fixed residual grid PLUS17 points on every final mesh interval and both one-sided knot neighborhoods; apply same1e-5 normalized physical residual threshold to union.",
+    "Report grid coverage, derivative-consistency diagnostic and actual source/reservoir mesh spacings."
+  ],
+  "rationale_limit": "Worst observed interval width1/240; proposed source width1/1920 is8times smaller. O(h^2) second derivative scaling would reduce2.42e-4 to3.8e-6, but coefficient/state errors and other intervals mean this is a heuristic, not a proof of success.",
+  "preconditions": [
+    "Freeze attempt2 and saved-polynomial postmortem after independent review",
+    "New003script with fresh results/profile names; never alter002",
+    "Independent no-BVP preflight of meshcount, result paths, PPoly roundtrip, linear dispatch, pole gate, dense residual grid and K suppression on any failed gate",
+    "Before actual run, verify no003execution or artifacts, freeze code/input hashes and register actual start/time/call budget"
+  ],
+  "stop_condition": "At most one actual attempt3, max26calls. Stop on failure, preserve artifacts, no fourth attempt or adaptive threshold/mesh search. If accepted, only model-conditional fixed-g=c K diagnostic; no empirical fit.",
+  "queued_execution": false,
+  "alternatives_rejected": {
+    "weaken_Q_gate": "Changes required evidence and would hide derivative defect.",
+    "substitute_stored_w_or_ODE_rhs_for_physical_derivative": "Changes the checked object; hides error in actual interpolated shape.",
+    "continue_unbounded_parameter_or_tolerance_sweep": "Violates bounded attempt policy and confounds model with resolution.",
+    "change_interpolant_order_now": "Adds a new reconstruction contract; fixed mesh within existing formulation is a smaller test."
+  },
+  "review_accepted_at_utc": "2026-09-27T01:03:24.288792+00:00",
+  "review_artifacts": [
+    "research/NONLINEAR_RESIDUAL_THEORY.md",
+    "research/NONLINEAR_RESIDUAL_REVIEW.md"
+  ]
+}

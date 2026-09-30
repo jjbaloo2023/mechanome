@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-09-29T14:18:29.353418+00:00",
+  "manifests": 25,
+  "hash_entries_checked": 199,
+  "hash_failures": [],
+  "navigation_links_checked": 451,
+  "broken_links": [],
+  "replacement_character_files": [],
+  "current_json_utf8": "passed",
+  "new_python_ast": "passed",
+  "git_diff_check_exit_code": 0,
+  "git_diff_check_output": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it",
+  "scientific_validation": "Independent review and saved-row/noise-hash reanalysis; 90 numeric posttracking transforms with no tracker call. Source-gap review.",
+  "actual_tracker_movies": 282,
+  "registered_tracker_movie_cap": 150,
+  "execution_budget_passed": false,
+  "software_test_suite_run": false,
+  "BVP_calls": 0,
+  "author_code_executions": 0
+}

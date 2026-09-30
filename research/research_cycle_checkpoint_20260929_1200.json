@@ -1,0 +1,67 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T12:00:19.653Z",
+  "actual_observed_start_utc": "2026-09-29T12:00:30Z",
+  "evidence_cutoff_utc": "2026-09-29T12:15:30Z",
+  "target_checkpoint_utc": "2026-09-29T12:20:30Z",
+  "checkpoint_saved_at_utc": "2026-09-29T12:19:17.936123+00:00",
+  "status": "completed_bounded_cycle",
+  "task": "actin-code-inventory-001",
+  "attempt": 1,
+  "registered_at_utc": "2026-09-29T12:01:49.767736+00:00",
+  "source_request_window_utc": [
+    "2026-09-29T12:02:58Z",
+    "2026-09-29T12:09:28Z"
+  ],
+  "lead_disposition_saved_at_utc": "2026-09-29T12:17:54.946168+00:00",
+  "timing_note": "Request timestamps are observed acquisition times; analysis/review and checkpoint are distinct. No uninterrupted operation claimed. Final review read and workers reconciled during checkpoint; no new evidence acquired after cutoff.",
+  "disposition": "Accepted partial pinned code/analysis contract; exact Figure7 controls and matched outputs not established. Close present reproduction eligibility.",
+  "corrections": [
+    "Downloaded inert texts distinguished from execution",
+    "set simul declaration distinguished from import",
+    "Absolute10--15s pooled run-time aggregation distinguished from per-run-first or relative-window means"
+  ],
+  "uncertainties": [
+    "Current main pin does not certify publication working revision",
+    "No membrane-tension-to-spring mapping verified",
+    "Selective tree walk does not establish repository-wide output absence"
+  ],
+  "requests": 13,
+  "response_body_bytes": 261830,
+  "source_text_files": 5,
+  "api_spending_usd": 0,
+  "author_code_executions": 0,
+  "BVP_calls": 0,
+  "software_tests_run": false,
+  "validation": {
+    "checked_at_utc": "2026-09-29T12:18:22Z",
+    "prior_frozen_hash_entries": 116,
+    "new_frozen_and_cache_entries": 31,
+    "total_hash_entries_verified": 147,
+    "hash_failures": 0,
+    "navigation_links_checked": 365,
+    "broken_links": 0,
+    "current_json_utf8": "passed",
+    "git_diff_check": "passed; existing root README newline warning only",
+    "scientific_validation": "Independent static source review, no software execution"
+  },
+  "artifacts": [
+    "research/ACTIN_CODE_FINDINGS.md",
+    "research/ACTIN_CODE_INVENTORY.md",
+    "research/ACTIN_CODE_REVIEW.md",
+    "research/actin_code_inventory_manifest.json",
+    "research/metadata/actin-inventory-001/REQUEST_LEDGER.md"
+  ],
+  "workers_reconciled_terminal": [
+    "/root/actin_adaptation_source_001",
+    "/root/known_load_review_001",
+    "/root/known_load_theory_001"
+  ],
+  "outstanding_workers": [],
+  "unknown_execution": false,
+  "stop_reason": "Bounded partial contract reviewed; stop condition reached and evidence cutoff passed. Preserve checkpoint rather than start another acquisition stage.",
+  "next_decision": "Register one primary-source experimental-observable feasibility assessment of unassessed PMC12956820, with one optional linked dataset inventory.",
+  "next_stage_execution_status": "queued_not_running",
+  "continuous_operation_claim": false,
+  "user_action_required": false
+}

@@ -1,0 +1,92 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T16:00:24.067Z",
+  "first_tool_clock_utc": "2026-09-29T16:00:33Z",
+  "evidence_cutoff_utc": "2026-09-29T16:15:33Z",
+  "target_checkpoint_utc": "2026-09-29T16:20:33Z",
+  "checkpoint_utc": "2026-09-29T16:18:13.110009+00:00",
+  "status": "completed_dated_checkpoint",
+  "continuous_activity_claim": false,
+  "observed_events": [
+    {
+      "at": "2026-09-29T16:02:25.882526+00:00",
+      "event": "Registered offline work-unit extension after worker reconciliation, code inspection and prior frozen-hash checks."
+    },
+    {
+      "at": "2026-09-29T16:03:55.101134+00:00",
+      "event": "Two reused specialists active: implementation and independent review; lead owns all execution."
+    },
+    {
+      "between": [
+        "2026-09-29T16:03:55.101134+00:00",
+        "2026-09-29T16:09:54.630006+00:00"
+      ],
+      "event": "Review required unresolved-new-ID block, legacy JSON redelivery and independent task/campaign cap fixtures. Lead bounded test race waits before execution."
+    },
+    {
+      "at": "2026-09-29T16:09:54.630006+00:00",
+      "event": "Sole targeted pytest invocation started."
+    },
+    {
+      "at": "2026-09-29T16:09:55.948859+00:00",
+      "event": "Invocation completed exit0; 17 tests passed in0.79s. Zero scientific calls."
+    },
+    {
+      "observed_minute_utc": "2026-09-29T16:13Z",
+      "event": "Final independent review accepted; roster showed all three specialists terminal. Exact roster subminute time not separately recorded."
+    },
+    {
+      "at": "2026-09-29T16:15:11.428170+00:00",
+      "event": "Accepted source snapshots and10-artifact manifest saved after final AST/Ruff/tested-hash checks."
+    },
+    {
+      "at": "2026-09-29T16:16:29.687673+00:00",
+      "event": "Findings navigation, architecture, next direction, test selection and completed task dispositions updated."
+    },
+    {
+      "at": "2026-09-29T16:17:11.189106+00:00",
+      "event": "30 manifests/242 hashes/471 navigation links and source ZIP entries validated; gitdiffcheckpassed."
+    }
+  ],
+  "completed_tasks": [
+    "offline-work-units-001",
+    "offline-work-units-implementation-001",
+    "offline-work-units-review-001"
+  ],
+  "lead_dispositions": {
+    "implementation": "Accepted scoped offline primitive after review corrections; stable call identity, atomic lifetime caps, conservative no-refund and evidence reconciliation.",
+    "review": "Accepted independent code/test review; workers executed no tests.",
+    "limits": "New work transitions fenced; legacy attempt finish/uncertain unchanged. Database reopen/thread race tests do not demonstrate process crash/reboot, live enforcement or external exactly-once effects."
+  },
+  "artifact_manifests": [
+    "research/work_units_manifest.json"
+  ],
+  "validation": "research/research_cycle_validation_20260929_1600.json",
+  "counters": {
+    "pytest_invocations": 1,
+    "pytest_cap": 3,
+    "tests_passed": 17,
+    "worker_code_executions": 0,
+    "fits": 0,
+    "tracking_calls": 0,
+    "BVP_calls": 0,
+    "source_requests": 0,
+    "author_code_executions": 0,
+    "new_agents": 0,
+    "reused_specialists": 2
+  },
+  "budget_compliant": true,
+  "outstanding_agents": [],
+  "unknown_execution": [],
+  "workers_reconciled": "Three current specialists terminal; two reused for this task, source specialist remained terminal. No second lead or scheduler.",
+  "reason_for_stopping": "Registered extension reached its independently reviewed stop condition before evidence cutoff. Separate-process recovery remains a distinct check; insufficient evidence-window time remained to implement and review it. Remaining actions were documentation/integrity/checkpoint only.",
+  "next_executable_decision": "Register one finite separate-process work-unit recovery demonstration: maximum3lead phase subprocesses and2dummy callbacks, unique evidence, explicit reconciliation, observed exits, independent review; no real science or live integration.",
+  "next_task_status": "queued_not_running",
+  "direct_api_spend_usd": 0,
+  "external_messages": 0,
+  "commits": 0,
+  "git_pushes": 0,
+  "published": false,
+  "notification_decision": "NOTIFY",
+  "notification_reason": "Independently reviewed offline work-unit safeguard completed,17tests passed; architecture and next recovery check documented."
+}

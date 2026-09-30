@@ -1,0 +1,87 @@
+{
+  "task_id": "star-distribution-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T18:02:00.217077+00:00",
+  "question": "Do known total amount and two noiseless calibrated exponential intensities determine mean axial height for an unknown finite distribution?",
+  "purpose": "One final constructive observation-model counterexample; then close this observation branch.",
+  "assumptions": {
+    "t_values": [
+      "1/4",
+      "1/2",
+      "3/4",
+      "1"
+    ],
+    "height": "u=-log(t), finite nonnegative dimensionless heights",
+    "attenuation_coefficients": [
+      1,
+      2
+    ],
+    "total_amount": 1,
+    "channel_amplitudes": [
+      1,
+      1
+    ],
+    "noise": 0,
+    "weights_p": [
+      "7/24",
+      "3/24",
+      "9/24",
+      "5/24"
+    ],
+    "weights_q": [
+      "5/24",
+      "9/24",
+      "3/24",
+      "7/24"
+    ]
+  },
+  "checks": [
+    "strictly positive weights and normalization",
+    "distinct distributions on identical finite support",
+    "same first and second moments of t",
+    "exact weighted log-mean difference via a rational product and sign proof",
+    "assumptions and scope independently reviewed"
+  ],
+  "expected_algebra": {
+    "shared_first_moment": "5/8",
+    "shared_second_moment": "15/32",
+    "weight_difference": "(1,-3,3,-1)/12",
+    "mean_p_minus_mean_q": "log(32/27)/12 > 0"
+  },
+  "limits": {
+    "arithmetic_invocations": 1,
+    "distribution_pairs": 1,
+    "source_calls": 0,
+    "fits": 0,
+    "random_search": 0,
+    "parameter_sweeps": 0,
+    "temporal_simulations": 0,
+    "pytest": 0,
+    "retries": 0,
+    "new_access_attempts": 0
+  },
+  "ownership": {
+    "lead": [
+      "research/star_distribution_design.json",
+      "research/star_distribution_next_input.md",
+      "research/star_distribution_checks.py",
+      "research/star_distribution_checks.json",
+      "research/STAR_DISTRIBUTION_FINDINGS.md"
+    ],
+    "theory": [
+      "research/STAR_DISTRIBUTION_THEORY.md"
+    ],
+    "review": [
+      "research/STAR_DISTRIBUTION_REVIEW.md"
+    ]
+  },
+  "inputs_sha256": {
+    "research/star_observation_manifest.json": "fc7cf5e782cb8475d6677148b570e63e27c579e8a01bc7875cc8eceec0e3fe64",
+    "research/STAR_OBSERVATION_THEORY.md": "835b960a00e0bc63763f68aeaa3d223f61fa7b57837304cdde508bd4e8a499cb",
+    "research/star_distribution_next_input.md": "da324cd5789dd166874e11aeef4fe5dc64d9be73b395ae29edb25f7f3d30409d"
+  },
+  "stop_condition": "One reviewed counterexample and one arithmetic invocation, or exact objection/failure. Close observation branch with minimum additional constraints; no adjacent example/grid/third-channel analysis/source rescue/operational extension.",
+  "theory_target_utc": "2026-09-29T18:07:00Z",
+  "evidence_cutoff_utc": "2026-09-29T18:15:33Z",
+  "target_checkpoint_utc": "2026-09-29T18:20:33Z"
+}

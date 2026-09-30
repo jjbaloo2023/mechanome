@@ -1,0 +1,33 @@
+{
+  "frozen_at_utc": "2026-09-29T17:09:11.122365+00:00",
+  "task_id": "work-unit-recovery-002",
+  "reconciliation_approved": true,
+  "code_review_approved": true,
+  "reviewer": "/root/known_load_review_001",
+  "review_note": "Explicit independent code approval received before this freeze; final result review follows execution.",
+  "source_sha256": {
+    "research/work_unit_recovery_manifest.json": "06f0f74b7e6158078be19d9bc3ade54b17ee39d18f558f299cf9de15335339f3",
+    "research/work_unit_recovery_attempt_001.zip": "651f0c2e62b1888fb01b7ad50d1f1b6bf571f9c4f193d0c88d15aaf1705394f1",
+    "research/work_unit_recovery_failure_audit.json": "84b9bc0a0ff65b282354a24625724424d2b4911eca074593ba6a45ee53bc5c7c",
+    "research/work_unit_recovery_001/process_lookup_cmdlet.json": "bf708ef1b19b69b66691b8bf536d5f3719f022d3001929dead0917ed4d5ac074",
+    "research/process_identity_manifest.json": "cdea3472d3d150bdecb36a7691b811fd6e748278ace7f5f51bcd252a3d32e5c4",
+    "research/process_identity_probe_001.json": "d67fc2c593bae316d792a2faec87f1c2841e16b36efd0067dcf21cdb97659a97",
+    "mechanome/research/contracts.py": "2fb77e4e3cfbf7276198a42cd590fc4abbb6f409340359871dd2f9f50dfce6ad",
+    "mechanome/research/controller.py": "7870f45139df7a99ce6b069b33adf17276898ec7a9632e02f7574dae1a8b1285",
+    "research/work_unit_recovery.py": "18ebe5f1ac2a079068079de324190548b45b92465ca7f86003b5aead657d218b",
+    "research/work_unit_recovery_repair.py": "8db35f154c6f3bed27d0efc691222c7be0b239fa76e1b159559099e936a938be",
+    "research/work_unit_recovery_repair_design.json": "0e2010ac7749aa06674ec7e20a651e00f8ea1e9820227d355ce98a9e87b53871",
+    "research/work_unit_recovery_reconciliation_approval.json": "3d0936b4a80af1656d8073ae477a952385eaed76069c18b62972b0dbf7c1c682",
+    "research/work_unit_recovery_execution.json": "496d3005fbcfba00d46a7cb83d9c8974542f56d17649267cf5b67aeca46cc753",
+    "mechanome/__init__.py": "0679ce3debe53c58e8a17911fb7df2b6a39d7e19ab5a367a62e7f375fcdad95f",
+    "mechanome/schema.py": "7b3c3455247b5b1c6699efe942c9e177ec13b31ec20edb7a0fe9ca24d6fcfdab",
+    "mechanome/research/__init__.py": "ec8396d97f8bdb64ebd66af16433c6a7619e4d33170935cdbc995132cdde64fb"
+  },
+  "base_executable": "C:\\Users\\Jophi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "base_executable_sha256": "dd5f8d19f6755d6491ee7c4bef2fe35ddd521334cc3ca3ed8fc93ebcadf135d0",
+  "evidence_cutoff_utc": "2026-09-29T17:15:37Z",
+  "static_checks": {
+    "python_AST": "passed",
+    "Ruff_F": "passed"
+  }
+}

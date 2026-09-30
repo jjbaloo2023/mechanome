@@ -1,0 +1,19 @@
+{
+  "task_id": "paired-shape-public-screen-001",
+  "accepted_at_utc": "2026-09-29T17:38:04.616429+00:00",
+  "artifact_sha256": {
+    "research/paired_shape_public_design.json": "519e99ffb250022391f605b8856d0a5976183d31658c10eb454b17625eb89b71",
+    "research/paired_shape_public_next_input.md": "668a841203c02f61e70f697fc6ffcd75cdf40e6e4920682dcb05ebd0562e551a",
+    "research/paired_shape_public_calls.json": "3abb7a2c31569eeca4e588fea9443e4e361f6c9f48514e602ba1ac8995ac61fc",
+    "research/PAIRED_SHAPE_PUBLIC_SOURCE.md": "da0a2ebdb0d51187850eef8632f8a16b67251af903d708b47d6ed9bbf332e92a",
+    "research/PAIRED_SHAPE_PUBLIC_REVIEW.md": "df88f2aa5b3c6362b35877c7cea81dd4a52a3ec8271eb7138a1bf06a20f6a832",
+    "research/PAIRED_SHAPE_PUBLIC_FINDINGS.md": "45812281b65b607d71357aef34a79bc8d5a24681e20b4da1a1f9cf07ae65f210"
+  },
+  "disposition": "new_public_workbook_listing_accepted; event_schema_unverified; conditional_coat_axial_proxy_only",
+  "correction": "No new independent-membrane-label eligibility rule imposed; optical proxy interpretation remains conditional.",
+  "actual_team_queries": 2,
+  "actual_team_primary_opens": 3,
+  "raw_downloads": 0,
+  "scientific_calls": 0,
+  "budget_compliant": true
+}

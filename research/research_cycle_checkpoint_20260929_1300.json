@@ -1,0 +1,86 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T13:00:20.655Z",
+  "first_tool_clock_utc": "2026-09-29T13:00:30Z",
+  "evidence_cutoff_utc": "2026-09-29T13:15:30Z",
+  "target_checkpoint_utc": "2026-09-29T13:20:30Z",
+  "checkpoint_saved_at_utc": "2026-09-29T13:17:43.055350+00:00",
+  "status": "completed_bounded_cycle_with_disclosed_query_deviation",
+  "tasks": [
+    {
+      "task_id": "recruitment-duration-null-001",
+      "attempt": 1,
+      "registered_at_utc": "2026-09-29T13:01:48.406180+00:00",
+      "exact_arithmetic_at_utc": "2026-09-29T13:04:45.290139+00:00",
+      "independent_review_read_at_utc": "2026-09-29T13:06:40Z",
+      "lead_acceptance_saved_at_utc": "2026-09-29T13:07:54.902872+00:00",
+      "illustration_viewed_at_utc": "2026-09-29T13:09:27Z",
+      "disposition": "Accepted one prospective selected-observation population bound and sharper baseline-constrained envelope; no empirical test; branch stopped."
+    },
+    {
+      "task_id": "yeast-joint-observables-screen-001",
+      "attempt": 1,
+      "registered_at_utc": "2026-09-29T13:07:54.902872+00:00",
+      "initial_source_read_at_utc": "2026-09-29T13:10:45Z",
+      "lead_primary_verification_observed_between_utc": [
+        "2026-09-29T13:10:45Z",
+        "2026-09-29T13:12:54Z"
+      ],
+      "corrected_review_read_at_utc": "2026-09-29T13:13:50Z",
+      "lead_acceptance_saved_at_utc": "2026-09-29T13:15:52.449784+00:00",
+      "disposition": "Accept corrected Manenschijn2019 genotype-aggregate candidate and indexed public source-data listings only. Same-event and schema contract unresolved."
+    }
+  ],
+  "timing_note": "Observed read/save/tool times and bounded intervals are not uninterrupted activity telemetry. Final acceptance/checkpoint after evidence cutoff used already-read evidence; no new acquisition.",
+  "protocol_deviations": [
+    {
+      "kind": "query_cap_exceeded",
+      "registered_cap": 3,
+      "actual_queries": 4,
+      "reason": "Source used3queries; lead added1narrow author/title verification, correcting wrong attribution and missing main source-data listings.",
+      "response": "Stop acquisition, retain corrected evidence, disclose deviation, reserve explicit team-wide verification budget in next task."
+    }
+  ],
+  "corrections": [
+    "Finite bins required to cover eligible duration domain",
+    "Wrong Basu attribution corrected to Manenschijn before source/review freeze",
+    "Public publisher listings distinguished from downloaded schema and richer event-level availability",
+    "Myosin satisfies actin-or-myosin criterion; missing actin channel alone is not a disqualifier",
+    "Genotype summary comparison distinguished from same-event covariance/causation"
+  ],
+  "validation": {
+    "checked_at_utc": "2026-09-29T13:16:39.536669+00:00",
+    "prior_frozen_hash_entries": 164,
+    "new_entries": 11,
+    "total_hash_entries_verified": 175,
+    "hash_failures": 0,
+    "navigation_links_checked": 418,
+    "broken_links": 0,
+    "current_json_utf8": "passed",
+    "new_text_replacement_characters": 0,
+    "git_diff_check": "passed; existing root README newline warning only",
+    "scientific_validation": "Independent mathematical review and exact Fraction arithmetic; source scope review and lead indexed-primary identity/listing check",
+    "figure": "PNG/SVG created from frozen hypothetical inputs and visually checked",
+    "software_test_suite_run": false,
+    "numerical_solver_calls": 0,
+    "BVP_calls": 0,
+    "author_code_executions": 0,
+    "empirical_fits": 0
+  },
+  "runtime_note": "Matplotlib default cache lacked write permission; successful workspace temporary fallback was automatically removed. No installation or escalation used.",
+  "outstanding_workers": [],
+  "workers_reconciled_terminal": [
+    "/root/actin_adaptation_source_001",
+    "/root/known_load_review_001",
+    "/root/known_load_theory_001"
+  ],
+  "unknown_execution": false,
+  "reason_for_stopping": "Two bounded stages complete, evidence cutoff passed; accepted analytic branch stopped and new exact-file acquisition queued for separate cycle. No budget-filling theorem extension or access loop.",
+  "next_decision": "Register Manenschijn2019 Figure6 two-CSV aggregate contract: average trajectories and median Act1 abundance, with units/genotypes/control ancestry/uncertainty verified.",
+  "next_stage_execution_status": "queued_not_running",
+  "api_spending_usd": 0,
+  "external_messages_sent": 0,
+  "git_pushes": 0,
+  "user_action_required": false,
+  "continuous_operation_claim": false
+}

@@ -1,0 +1,30 @@
+{
+  "task_id": "myo1e-repository-contract-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T12:37:16.938716+00:00",
+  "question": "Does the specifically named public repository contain a small Figure4 table or readable denominator/pairing contract at a pinned revision?",
+  "repository": "https://github.com/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript",
+  "motivation": "First feasibility landing cache-missed without repository evidence. One direct API inventory can distinguish tool-access failure from actual table availability; no further acquisition loop if insufficient.",
+  "prior_related_access_failures": 1,
+  "prior_failure_kind": "browser_cache_miss",
+  "limits": {
+    "requests_max": 5,
+    "response_body_bytes_total": 1048576,
+    "source_or_table_blobs_max": 3,
+    "active_minutes": 5,
+    "archives_movies_binaries": 0,
+    "author_code_executions": 0
+  },
+  "method": "Use public GitHub API default-branch latest commit then pinned recursive tree if small. Save raw metadata and request ledger. Fetch at most3 small relevant text/table blobs only if sizes fit remaining budget. Prefer actual Figure4 data; otherwise relevant notebook text only if small. No clone, install, execution, repeated failed request, range workaround or alternate repository.",
+  "acceptance_checks": [
+    "Commit versus publication provenance distinguished",
+    "Tree truncation and scope recorded",
+    "Actual tables separated from output names and embedded plots",
+    "Positive/negative denominator and baseline/post pairing fields checked only if present",
+    "Independent replicate keys not invented",
+    "Every request bytes/hash/time logged"
+  ],
+  "stop_condition": "One bounded pinned availability/contract decision. On direct access failure or no adequate small table, close data acquisition for this candidate; no further endpoint retries this cycle or automatic future retry.",
+  "evidence_cutoff_utc": "2026-09-29T12:45:31Z",
+  "target_checkpoint_utc": "2026-09-29T12:50:31Z"
+}

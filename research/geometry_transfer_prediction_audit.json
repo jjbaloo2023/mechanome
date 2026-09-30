@@ -1,0 +1,104 @@
+{
+  "checked_at_utc": "2026-09-29T15:09:33.779661+00:00",
+  "status": "passed",
+  "additional_fit_calls": 0,
+  "fold_model_predictions": 27,
+  "group_model_scores_recomputed": 207,
+  "source_locks": "passed",
+  "exact_prefit_weight_reference": "passed",
+  "rankings": [
+    {
+      "policy": "corrected",
+      "held_out_line": "3T3",
+      "ranking": [
+        "flexible_reference",
+        "constant_area",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 25
+    },
+    {
+      "policy": "corrected",
+      "held_out_line": "SKMEL2",
+      "ranking": [
+        "flexible_reference",
+        "constant_area",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 0
+    },
+    {
+      "policy": "corrected",
+      "held_out_line": "U2OS",
+      "ranking": [
+        "constant_area",
+        "flexible_reference",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 0
+    },
+    {
+      "policy": "raw_nonnegative",
+      "held_out_line": "3T3",
+      "ranking": [
+        "flexible_reference",
+        "constant_area",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 25
+    },
+    {
+      "policy": "raw_nonnegative",
+      "held_out_line": "SKMEL2",
+      "ranking": [
+        "flexible_reference",
+        "constant_area",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 4
+    },
+    {
+      "policy": "raw_nonnegative",
+      "held_out_line": "U2OS",
+      "ranking": [
+        "constant_area",
+        "flexible_reference",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 0
+    },
+    {
+      "policy": "include_flagged",
+      "held_out_line": "3T3",
+      "ranking": [
+        "constant_area",
+        "flexible_reference",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 0
+    },
+    {
+      "policy": "include_flagged",
+      "held_out_line": "SKMEL2",
+      "ranking": [
+        "flexible_reference",
+        "constant_area",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 0
+    },
+    {
+      "policy": "include_flagged",
+      "held_out_line": "U2OS",
+      "ranking": [
+        "constant_area",
+        "flexible_reference",
+        "constant_curvature"
+      ],
+      "outside_training_angle_range": 1
+    }
+  ],
+  "empirical_fit_calls_total": 27,
+  "synthetic_fit_calls_total": 4,
+  "expected_boundary_rejection": true
+}

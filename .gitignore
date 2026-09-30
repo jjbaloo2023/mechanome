@@ -68,3 +68,19 @@ research/metadata/dasc-metadata-001/*.docx
 research/metadata/dasc-metadata-001/*.xlsx
 research/metadata/dynamin-manifest-001/*.bin
 research/locmofit_cap_source_current.m
+research/.cache-bucher-em-001/
+research/.cache-bucher-reconcile-001/
+
+# Inert author-source cache for bounded actin inventory; retain metadata and hashes
+research/metadata/actin-inventory-001/03-README.md
+research/metadata/actin-inventory-001/*.cym
+research/metadata/actin-inventory-001/*.ipynb
+research/metadata/actin-inventory-001/*.headers
+
+# Public Myo1E input cache; provenance and unchanged hashes are retained
+research/metadata/myo1e-repository-001/*.csv
+research/metadata/myo1e-repository-001/*.headers
+
+# Public yeast Figure6 source cache; retain URLs, checks and byte hashes
+research/metadata/yeast-figure6-001/*.csv
+research/metadata/yeast-figure6-001/*.headers

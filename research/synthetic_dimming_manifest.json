@@ -1,0 +1,23 @@
+{
+  "task_id": "synthetic-dimming-benchmark-001",
+  "attempt_number": 1,
+  "accepted_at_utc": "2026-09-29T14:16:04.068363+00:00",
+  "disposition": "accepted_scoped_synthetic_demonstration_with_execution_budget_failure",
+  "registered_movie_cap": 150,
+  "actual_tracker_movies": 282,
+  "saved_invocation_movies": 141,
+  "additional_reanalysis_tracker_calls": 0,
+  "first_run_source_and_output_preserved": false,
+  "artifact_sha256": {
+    "research/synthetic_dimming_design.json": "6167f4ef4e9995651b2249a0f7ae1357704ff33d0a55fd5fc73f42213bac0dc2",
+    "research/synthetic_dimming_benchmark.py": "d9506ea93c969218344009d4fba9b6d86b01c95412e7caeef536593cc5a53b5c",
+    "research/synthetic_dimming_results.json": "f75ed55f49d66dffda4454b214c05489af4b1019621a793f90919c6eaccefc98",
+    "research/synthetic_dimming_checks.json": "bccad5f8f107944e5e8092c3110b7f121241f4e980acd60bb324119cc993411e",
+    "research/synthetic_dimming_reanalysis.py": "93743fab1eef0a44a105c0c038df7fe15b660d84f1f56324990e6059444acf35",
+    "research/synthetic_dimming_reanalysis.json": "b805de8fd0a2fdf3a2b4aeac7cf3136c2d724b399f2bfe9fae8a6a4f5530b31d",
+    "research/synthetic_dimming_execution_audit.json": "a6a1c7a8dfb100c25b6a7e387e4bb7eddd72f75c77f763d6e207a2eabd811996",
+    "research/synthetic_dimming_tracker_frozen.py": "c6660ef35be77a8b106cfe558dce39e3970161fbf85916d14fd4515f6af0bea4",
+    "research/SYNTHETIC_DIMMING_REVIEW.md": "8e74936d76b51878b6bea959af44d7fe3074f8e4523dbe97669fc537c51ffdae",
+    "research/SYNTHETIC_DIMMING_FINDINGS.md": "58a9e6ee7a6f97b0079a85ea11a5c8ee428b8eac80756fd989436f69c85fb711"
+  }
+}

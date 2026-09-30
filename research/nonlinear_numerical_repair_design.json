@@ -1,0 +1,22 @@
+{
+  "task_id": "nonlinear-numerical-repair-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-27T00:30:20.487079+00:00",
+  "evidence_cutoff_utc": "2026-09-27T00:37:41Z",
+  "question": "Can the known serialization/control/gating defects be repaired and independently preflight-checked without another scientific BVP solve?",
+  "inputs": [
+    "research/nonlinear_numerical_design.json",
+    "research/nonlinear_graph_numerical.py",
+    "research/NONLINEAR_NUMERICAL_REVIEW.md"
+  ],
+  "required_checks": [
+    "Correct solve_bvp result wrapper versus PPoly data access and call paths.",
+    "Separate exact nonlinear RHS and genuine linear control RHS; origin singular term once.",
+    "Record solver return/status before postprocessing and retain traceback/partial artifacts on failure.",
+    "Evaluate both R8 and R12 fine linear gates; conditional fixed-source diagnostic implemented from saved profiles only after all equilibrium gates pass.",
+    "New attempt2 source/output paths and attempt identity; no writes to frozen attempt1 evidence.",
+    "Meaningful no-BVP harness checks of result wrapping, failure checkpoint and linear/nonlinear branch dispatch using synthetic PPoly/stubs; no actual solve_bvp invocation.",
+    "Independent code review and queued execution contract; no numerical acceptance claim."
+  ],
+  "stop_condition": "One reviewed repair/preflight artifact or exact code blocker. No BVP solve or actual numerical attempt2 execution this cycle."
+}

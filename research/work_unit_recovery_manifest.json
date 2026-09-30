@@ -1,0 +1,26 @@
+{
+  "task_id": "work-unit-recovery-001",
+  "stopped_at_utc": "2026-09-29T16:43:54.294878+00:00",
+  "disposition": "failed_supervision_identity_mismatch; no_recovery_claim",
+  "artifact_sha256": {
+    "research/work_unit_recovery_design.json": "0022f43e84affca943d290adcd36021b6be4beb13dfc49d40218fe290868839e",
+    "research/work_unit_recovery_next_input_001.md": "50d623380ba8c1d52bbb68ff54b6e6880ad824837a694b4c699cc0fa083706f3",
+    "research/work_unit_recovery_execution_inputs.json": "903bb13ea9ae85ccf3e802e13852591943796c2d03c7660e460195ee060a56fc",
+    "research/work_unit_recovery_execution.json": "496d3005fbcfba00d46a7cb83d9c8974542f56d17649267cf5b67aeca46cc753",
+    "research/work_unit_recovery_failure_audit.json": "84b9bc0a0ff65b282354a24625724424d2b4911eca074593ba6a45ee53bc5c7c",
+    "research/WORK_UNIT_RECOVERY_IMPLEMENTATION.md": "993b540f0f9f0cfdff7adbc4ee6cc3b8fd57fd637060017af8a2872d30b92916",
+    "research/WORK_UNIT_RECOVERY_REVIEW.md": "663b036c86a825d95edfa60e12cf825490ba57e98aee09aa8ec7f42a4024a029",
+    "research/WORK_UNIT_RECOVERY_FINDINGS.md": "874e59035d847246d283cb58cbf3052a3343c1e6d8ae92b219f0d9c8371855e2",
+    "research/work_unit_recovery_attempt_001.zip": "651f0c2e62b1888fb01b7ad50d1f1b6bf571f9c4f193d0c88d15aaf1705394f1",
+    "research/work_unit_recovery.py": "18ebe5f1ac2a079068079de324190548b45b92465ca7f86003b5aead657d218b",
+    "research/work_unit_recovery_supervisor.py": "d82311a5723f5d7bb3a1a214088f26846ecfc81573a6b5d1e96f49c935069cb0"
+  },
+  "phase_invocations": 1,
+  "phase_cap": 3,
+  "dummy_callbacks": 1,
+  "dummy_callback_cap": 2,
+  "later_phase_invocations": 0,
+  "reserved_units_unreconciled": 1,
+  "scientific_calls": 0,
+  "production_code_changed": false
+}

@@ -1,0 +1,116 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T17:30:25.660Z",
+  "first_tool_clock_utc": "2026-09-29T17:30:39Z",
+  "evidence_cutoff_utc": "2026-09-29T17:45:39Z",
+  "target_checkpoint_utc": "2026-09-29T17:50:39Z",
+  "checkpoint_utc": "2026-09-29T17:48:41.652249+00:00",
+  "status": "completed_dated_checkpoint",
+  "continuous_activity_claim": false,
+  "observed_events": [
+    {
+      "at": "2026-09-29T17:31:49.471649+00:00",
+      "event": "Registered public paired-shape screen after worker reconciliation and prior recovery hash check."
+    },
+    {
+      "minute_utc": "2026-09-29T17:32Z",
+      "event": "Source used two queries/two opens and found new Nawara2022 public workbook listing; no schema inspected."
+    },
+    {
+      "at": "2026-09-29T17:33:59.704949+00:00",
+      "event": "Lead primary verification completed. Same-probe intensity/axial ratio verified; indirect shape interpretation."
+    },
+    {
+      "at": "2026-09-29T17:38:04.616429+00:00",
+      "event": "Source screen accepted with reviewer correction: no unregistered independent-label exclusion. Frozen six artifacts; new schema inventory registered separately."
+    },
+    {
+      "between": [
+        "2026-09-29T17:39:55.052695+00:00",
+        "2026-09-29T17:39:55.097229+00:00"
+      ],
+      "event": "Sole schema invocation stopped at local socket permission failure on first HTML request, before HTTP response. No workbook fetched and no retry."
+    },
+    {
+      "at": "2026-09-29T17:42:10.082311+00:00",
+      "event": "Schema failure independently reviewed/frozen; registered distinct idealized two-channel observation calculation."
+    },
+    {
+      "between": [
+        "2026-09-29T17:43:12.014839+00:00",
+        "2026-09-29T17:43:12.018852+00:00"
+      ],
+      "event": "Sole exact-rational invocation passed six registered cases."
+    },
+    {
+      "observed_by_utc": "2026-09-29T17:44:08Z",
+      "theory_file_modified_utc": "2026-09-29T17:43:52.425237+00:00",
+      "review_file_modified_utc": "2026-09-29T17:43:58.416285+00:00",
+      "event": "Lead received and inspected completed theory and independent acceptance before evidence cutoff."
+    },
+    {
+      "at": "2026-09-29T17:45:55.817531+00:00",
+      "event": "Lead acceptance recorded and six observation artifacts frozen; no new computation after cutoff."
+    },
+    {
+      "at": "2026-09-29T17:46:50.743972+00:00",
+      "event": "Next finite distribution counterexample queued and all workers terminal; further work documentation/integrity only."
+    },
+    {
+      "at": "2026-09-29T17:47:32.601049+00:00",
+      "event": "36manifests/287hashentries/543links validated; no hash or broken-link failures. JSON/UTF8/newscriptAST and gitdiffcheck passed; accepted controller/test bytes unchanged."
+    }
+  ],
+  "lead_dispositions": {
+    "source": "Accept new public workbook listing and conditional coat axial proxy; correct unregistered independent-label requirement. Event contract unverified.",
+    "schema": "Stop local permission failure, not dataset absence. One charged attempt, no retry or acquired bytes.",
+    "observation": "Accept idealized inverse/shared-noise covariance/conditioning and six exact cases. Full STAR distribution/calibration and biological inference unverified.",
+    "next": "Reviewer accepts one finite-support distribution counterexample as a final endpoint, then close observation branch."
+  },
+  "completed_or_stopped_tasks": [
+    "paired-shape-public-screen-001",
+    "paired-shape-public-source-001",
+    "paired-shape-public-review-001",
+    "star-workbook-schema-001",
+    "star-workbook-schema-review-001",
+    "star-observation-001",
+    "star-observation-theory-001",
+    "star-observation-review-001"
+  ],
+  "artifact_manifests": [
+    "research/paired_shape_public_manifest.json",
+    "research/star_workbook_schema_manifest.json",
+    "research/star_observation_manifest.json"
+  ],
+  "validation": "research/research_cycle_validation_20260929_1730.json",
+  "counters": {
+    "web_search_queries": 2,
+    "web_primary_opens": 3,
+    "local_publisher_request_attempts": 1,
+    "local_HTTP_responses": 0,
+    "workbook_requests": 0,
+    "acquired_workbook_bytes": 0,
+    "scientific_invocations": 1,
+    "exact_arithmetic_cases": 6,
+    "fits": 0,
+    "tracking": 0,
+    "BVP": 0,
+    "pytest_invocations": 0,
+    "new_agents": 1,
+    "reused_specialists": 2
+  },
+  "budget_compliant": true,
+  "outstanding_agents": [],
+  "unresolved_active_execution": [],
+  "workers_reconciled": "Source specialist, independent reviewer and new theory specialist are terminal. No second lead/scheduler. Historical numerical worker not active.",
+  "reason_for_stopping": "All three registered stages reached reviewed stop conditions. Source gap preserved; useful within-cycle mathematical follow-up completed. Remaining time reserved for integrity/checkpoint; final counterexample requires separately registered/reviewed stage.",
+  "next_executable_decision": "One fixed positive finite-support pair with same total coat amount and two exponential intensities but different mean axial height. One exact arithmetic invocation, no source calls; independent review then close this observation branch.",
+  "next_task_status": "queued_not_running",
+  "direct_api_spend_usd": 0,
+  "external_messages": 0,
+  "commits": 0,
+  "git_pushes": 0,
+  "published": false,
+  "notification_decision": "NOTIFY",
+  "notification_reason": "New candidate source identified, schema access stopped locally, and independently reviewed conditional shared-channel uncertainty result completed."
+}

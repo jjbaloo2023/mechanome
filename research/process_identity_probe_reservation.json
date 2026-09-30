@@ -1,0 +1,15 @@
+{
+  "reserved_at_utc": "2026-09-29T16:44:00.785014+00:00",
+  "status": "reserved",
+  "subprocess_cap": 1,
+  "parent_pid": 17360,
+  "source_sha256": "b416ca30137315d8bd1f49c3855b0812d1676f2be7c8109e7899fa6617ed165c",
+  "command": [
+    "C:\\Users\\Jophi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\process_identity_probe.py",
+    "--child"
+  ],
+  "dummy_callbacks": 0,
+  "scientific_calls": 0
+}

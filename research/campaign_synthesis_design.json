@@ -1,0 +1,42 @@
+{
+  "task_id": "campaign-synthesis-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T15:31:41.733126+00:00",
+  "question": "What has the campaign established, what exactly prevents biological discrimination, and which distinct next observable deserves one bounded follow-up?",
+  "input_sha256": {
+    "research/FINDINGS.md": "a618c6eb954ec2dd3e44b6ab460a14d5ec3ab99bb60054a69124cb11ece14586",
+    "research/ASSESSMENT.md": "57b5bef4aa5a788f4540aad4cec51f53a84d4b4b733f85fa485aa0b3589c7736",
+    "research/PIPELINE_ARCHITECTURE.md": "63445fedc898bc46570601861fd8babf51bbec97d0029e6ac5ed113d6797623e",
+    "research/INDEX.md": "2a7ffe563a3ad7d9682f5c4dad97fccbd65e23e112a07b6c9157c49aae30e419",
+    "research/NEXT_CYCLE.md": "d1131ee3c451a141b28713344cbed870880e54c0ecf3b891af947977bde54f2f",
+    "research/GEOMETRY_TRANSFER_FINDINGS.md": "2166f8f36f19ce0befbd970c3bf649cdd52bfc71737a38c40d26772a1c47a647",
+    "research/KNOWN_LOAD_DATA_COMPARISON.md": "eb41d8ff3f7fe1c0969e0e345b28d02d4af7d949ff09941082f32db31e43f4d0",
+    "research/RECRUITMENT_DURATION_FINDINGS.md": "ed4a74ca1b49877760905bf4e6e2afea03e302acd222a844d285b1f6a5c75a35",
+    "research/SYNTHETIC_DIMMING_FINDINGS.md": "58a9e6ee7a6f97b0079a85ea11a5c8ee428b8eac80756fd989436f69c85fb711",
+    "research/TRACKING_METRIC_FINDINGS.md": "a63102f8388186d63b0a9580a54a4ccaec481d00b59c476b3bfe3a15c1228956"
+  },
+  "lead_outputs": [
+    "research/FINDINGS.md",
+    "research/ASSESSMENT.md",
+    "research/README.md",
+    "research/PIPELINE_ARCHITECTURE.md"
+  ],
+  "worker_outputs": {
+    "evidence_challenge": "research/CAMPAIGN_SYNTHESIS_REVIEW.md",
+    "experiment_design": "research/CAMPAIGN_NEXT_EXPERIMENT.md"
+  },
+  "scope": "Synthesize existing accepted evidence and stopped branches; original evidence files/paths unchanged. One candidate follow-up at most; separately register before any execution.",
+  "limits": {
+    "specialists": 2,
+    "minutes_each": 8,
+    "source_requests": 0,
+    "downloads": 0,
+    "fits": 0,
+    "tracking_calls": 0,
+    "BVP_calls": 0,
+    "new_theorem_sequences": 0
+  },
+  "stop_condition": "One independently challenged evidence/limitation/measurement synthesis and explicit next decision, or exact missing prerequisite. Do not reopen exhausted branches or repeat grids.",
+  "evidence_cutoff_utc": "2026-09-29T15:45:30Z",
+  "target_checkpoint_utc": "2026-09-29T15:50:30Z"
+}

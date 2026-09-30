@@ -20,3 +20,14 @@ research/axisymmetric_rho_design_full_snapshot.json whitespace=blank-at-eol,-bla
 research/axisymmetric_rho_source_execution_snapshot.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
 research/axisymmetric_rho_source_snapshot.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
 research/metadata/dynamic-metadata-001/shape2fate_readme.md whitespace=-blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve hashed review notes and generated SVGs in the September checkpoint.
+research/NONLINEAR_INVERSE_STABILITY_REVIEW.md whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/NONLINEAR_MESH_PREFLIGHT_REVIEW.md whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/NONLINEAR_NUMERICAL_DESIGN_REVIEW.md whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/NONLINEAR_NUMERICAL_REPAIR_REVIEW.md whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/NONLINEAR_UNIQUENESS_REVIEW.md whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/RECRUITMENT_DURATION_THEORY.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+research/geometry_transfer_comparison.svg whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+research/nonlinear_numerical_reanalysis_003.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+research/recruitment_duration_illustration.svg whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

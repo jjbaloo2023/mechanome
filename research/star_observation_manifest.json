@@ -1,0 +1,20 @@
+{
+  "task_id": "star-observation-001",
+  "accepted_at_utc": "2026-09-29T17:45:55.817531+00:00",
+  "artifact_sha256": {
+    "research/star_observation_design.json": "567b03fef47d4ae034dbe93a472f27f451c1b35eaeed8c389a84cc3ddc032879",
+    "research/star_observation_checks.py": "6766f2112f37032ffe54c1d605c28e1b99fba345505291a3790b7bbb363b2194",
+    "research/star_observation_checks.json": "b3b9182c6c3357a3e658558aa5f0bc096e1fcb018eb47b44ab396c9f5acd024f",
+    "research/STAR_OBSERVATION_THEORY.md": "835b960a00e0bc63763f68aeaa3d223f61fa7b57837304cdde508bd4e8a499cb",
+    "research/STAR_OBSERVATION_REVIEW.md": "4c70293a20d9863a708fdfafbc104988a6d1ab6e340260c0cab6b3367bc752da",
+    "research/STAR_OBSERVATION_FINDINGS.md": "db2429f61cce1acf55aa34a7ab0fa40da5abd8bf7a1ddba2bd88a09d788a48c7"
+  },
+  "disposition": "accepted_model_conditional_shared_noise_and_identifiability_result",
+  "scientific_invocations": 1,
+  "fixed_cases": 6,
+  "source_requests": 0,
+  "fits": 0,
+  "pytest": 0,
+  "budget_compliant": true,
+  "unverified": "Full STAR forward model/calibration, public event schema, membrane shape, temporal bias and biological mechanism."
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "nonlinear-mesh-preflight-001",
+  "attempt_number": 1,
+  "resume_number": 1,
+  "registered_at_utc": "2026-09-28T20:24:07.190750+00:00",
+  "actual_cycle_start_utc": "2026-09-28T20:22:55Z",
+  "evidence_cutoff_utc": "2026-09-28T20:37:55Z",
+  "target_checkpoint_utc": "2026-09-28T20:42:55Z",
+  "previous_checkpoint": "research/nonlinear_mesh_interrupted_manifest.json",
+  "base_design": "research/nonlinear_mesh_preflight_design.json",
+  "actual_BVP_budget": 0,
+  "corrections": [
+    "Exact actual v_prime0 and w0 regularity, no tolerance masking before finite pole limit",
+    "Preserve finite-R K3 optional diagnostic and stored arrays",
+    "Keep readable002functions and make minimal reviewed changes",
+    "Complete and independently review no-BVP harness, including tiny nonzero pole perturbation, between-knot defect, all-gate K suppression, PPoly roundtrip, controls/mesh/paths and failure checkpoint"
+  ],
+  "stop_condition": "One accepted no-BVP preparation or precise blocker; final numerical attempt3 needs separate registration."
+}

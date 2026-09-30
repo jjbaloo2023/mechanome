@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-09-29T13:45:01.436117+00:00",
+  "manifests": 23,
+  "hash_entries_checked": 185,
+  "hash_failures": [],
+  "navigation_links_checked": 421,
+  "broken_links": [],
+  "replacement_character_files": [],
+  "current_json_utf8": "passed",
+  "git_diff_check_exit_code": 0,
+  "git_diff_check_output": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it",
+  "all_four_source_cache_files_ignored": true,
+  "scientific_validation": "Independent source/scope review plus independent and lead static CSV checks. No genotype contrasts or empirical fits.",
+  "software_test_suite_run": false,
+  "BVP_calls": 0,
+  "author_code_executions": 0
+}

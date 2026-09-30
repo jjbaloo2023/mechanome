@@ -1,0 +1,25 @@
+{
+  "task_id": "yeast-figure6-contract-001",
+  "attempt_number": 1,
+  "created_at_utc": "2026-09-29T13:42:30.689860+00:00",
+  "disposition": "accepted_partial_aggregate_contract_motion_comparison_withheld",
+  "downloaded_body_bytes": 39979,
+  "downloaded_files": 2,
+  "search_queries_team": 2,
+  "artifact_sha256": {
+    "research/yeast_figure6_contract_design.json": "dc89b166708d926f83b28a94c74b24b1452a158c6836f86398d216642ac4b668",
+    "research/YEAST_FIGURE6_SOURCE.md": "7af1507f6dc812e43389445642a1b85e1076d4f605a693ce3371d5b7e64c8e27",
+    "research/YEAST_FIGURE6_REVIEW.md": "ea54f1d291f2c929b1de2f9e4a0217f540c41e15477dc5e27277e9afb903a229",
+    "research/YEAST_FIGURE6_FINDINGS.md": "045bf7e1dcd0c92694ea4686690663eb45a4be6e641c9d521e717a89e2a2ea00",
+    "research/yeast_figure6_table_checks.json": "f989053865521ad61b71488795b16505a1a4aa49b8c70a33af31312df9e605ad",
+    "research/metadata/yeast-figure6-001/REQUEST_LEDGER.md": "9eb1a4feb6ed05c85db069679540b243d1d52707b13278f867b7d7d61c4e1c55"
+  },
+  "local_cache_sha256": {
+    "research/metadata/yeast-figure6-001/01-elife-44215-fig6-data1-v1.csv": "bc92afb9ede060f63b794823f79ec153840ea4204fc394614ffbc174f70866fa",
+    "research/metadata/yeast-figure6-001/02-elife-44215-fig6-data2-v1.csv": "bf468206a22020e839eae9ce6bc9a2a179fa1c3dab5f35b287d0bda9c4ba38d0",
+    "research/metadata/yeast-figure6-001/01-data1.headers": "0f1082a1014f21d6e02f8a24db9db90eca983e898cbd5c3fa98d45b32c37e062",
+    "research/metadata/yeast-figure6-001/02-data2.headers": "7d4314f450d7242025e4271c7400e05d38bb3c7801415fea1d581969d7fd2070"
+  },
+  "corrections": "Lead and reviewer verified no zero n; lead repaired source wording after worker completion.",
+  "calculation_not_executed": "First-upward threshold transit needs verified common positional reference."
+}

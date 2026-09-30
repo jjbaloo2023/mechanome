@@ -1,0 +1,47 @@
+{
+  "task_id": "endpoint-public-screen-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T15:38:39.702099+00:00",
+  "question": "Is a genuinely new publicly accessible dataset described that pairs clathrin fluorescence tracks with an independently assayed same-event sealing/internalization endpoint?",
+  "rationale": "Distinct measurement validation: determine whether fluorescence track disappearance predicts an assay-defined event rather than assuming it. Does not need full spatial force/load calibration; does need independent endpoint validation.",
+  "contrast": "Track disappearance may coincide with assay-defined endpoint or instead reflect optical dropout/link loss; this stage tests only source feasibility, no event contrast.",
+  "required_contract": [
+    "same-event association",
+    "clathrin track/movie observable",
+    "independent assay-defined endpoint, not dynamin flash or disappearance itself",
+    "endpoint sensitivity/specificity controls",
+    "time registration and possible assay lag",
+    "censoring and full-cohort eligibility",
+    "cell/acquisition/preparation grouping",
+    "public data identity and explicit access status"
+  ],
+  "excluded": [
+    "DASC reanalysis or source rescue",
+    "Shape2Fate reanalysis or source rescue",
+    "closed Akamatsu/Myo1E/yeast/Bucher repositories",
+    "unverified mechanical force or scission claim"
+  ],
+  "limits": {
+    "team_search_queries": 2,
+    "team_primary_opens": 3,
+    "source_search_allocation": 2,
+    "source_primary_open_allocation": 2,
+    "lead_search_allocation": 0,
+    "lead_primary_open_allocation": 1,
+    "reviewer_remote_calls": 0,
+    "local_download_bytes": 0,
+    "source_minutes": 4,
+    "fits": 0,
+    "tracking_calls": 0,
+    "BVP_calls": 0,
+    "author_code_executions": 0
+  },
+  "source_deadline_utc": "2026-09-29T15:42:30Z",
+  "review_deadline_utc": "2026-09-29T15:44:30Z",
+  "stop_condition": "One sourced candidate and explicit remaining contract/access gaps, or one exhausted screen with exact gap. No full-data acquisition or analysis; no retries beyond registered calls.",
+  "outputs": [
+    "research/ENDPOINT_PUBLIC_SOURCE.md",
+    "research/ENDPOINT_PUBLIC_REVIEW.md",
+    "research/ENDPOINT_PUBLIC_FINDINGS.md"
+  ]
+}

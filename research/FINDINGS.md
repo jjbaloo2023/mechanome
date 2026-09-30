@@ -1,23 +1,112 @@
-# Findings at the reviewed checkpoint
+# What the clathrin campaign has established
 
-The strongest empirical result is a **descriptive ranking of deposited cap geometry**. The mechanics work establishes **conditional behavior and identifiability limits of specified synthetic models**. Neither line of evidence currently selects a biological mechanism, estimates force from the public data, or establishes how one pit changes over time. This page is a reading guide to the preserved study records; [INDEX.md](INDEX.md) links their designs, code, results, figures and reviews. [ASSESSMENT.md](ASSESSMENT.md) records the current evidence boundary.
+**Reviewed evidence through 29 September 2026.** Public static geometry supports
+conditional prediction, our mechanics models expose requirements for identifying
+sources, and the observation pipeline now reports internally consistent tracking
+scores. None of these establishes a molecular explanation for pit formation.
+The evidence below comes from the retained study records; this synthesis adds no
+new fit, source acquisition or claim of literature novelty.
 
-## What the data support
+The latest [two-channel observation calculation](STAR_OBSERVATION_FINDINGS.md)
+adds a conditional measurement result: coat amount and axial position inferred
+from the same channels have correlated errors, and near-equal attenuation
+coefficients amplify uncertainty. This has independent review and six exact
+checks; it is not a measured biological relationship. The new
+[STAR workbook listing](PAIRED_SHAPE_PUBLIC_FINDINGS.md) remains uninspected
+after an [environment access failure](STAR_WORKBOOK_SCHEMA_FINDINGS.md).
 
-Across 23 held-out file/cell groups in three cell lines from the S-BIAD566 processed spherical-cap tables, a flexible angle-to-curvature reference has the lowest average error, followed by strict constant area and then strict constant curvature. Each group is predicted using other groups in its own cell line. The ordering survives the recorded filtering and sensitivity checks, though some individual groups favor constant area. A synthetic population with constant curvature within every pit produces the same kind of ranking when sampling phase and pit identity covary. The fitted cap variables share a fit, and per-site covariance is unavailable. Thus the ranking describes cross-cell prediction of curated static fits; it does not establish a trajectory or its cause. See [geometry results](GEOMETRY_RESULTS.md), [independent review](INDEPENDENT_REVIEW.md), and [final disposition](REVIEW_DISPOSITION.md).
+The [final distributed-signal example](STAR_DISTRIBUTION_FINDINGS.md) strengthens
+that limit: two positive distributions with the same known total amount and two
+perfect calibrated signals have different mean heights. Thus the point-position
+inverse cannot generally be read as a distributed coat's mean height. This exact
+counterexample closes the observation branch. The [campaign handoff](CAMPAIGN_CHECKPOINT_20260929.md)
+records the remaining evidence gaps and conditions for a concrete restart.
 
-Public-data audits also establish narrower contracts. Shape2Fate tracking references have observed track IDs over frames 0–119, but do not supply complete lifetimes or curvature. The DASC raw-movie metadata map conditions, dates and cells, while processed traces and calibrated detection response are missing. The AP2 contrast is parked as a physical-mechanism test; a fixed downstream score alone cannot resolve condition-dependent missed or excluded structures. See [assessment](ASSESSMENT.md), [annotation review](ANNOTATION_REVIEW.md), and [DASC decision](DASC_OBSERVATION_DECISION.md). These are evidence-availability findings, not null biological results.
+## Public-data results
 
-## What the models support
+| Finding | Evidence | Limit | Observation needed for the next inference |
+| --- | --- | --- | --- |
+| A flexible curve predicts static cap fits better on average when training within each cell line | [23-group comparison](GEOMETRY_RESULTS.md) and [review disposition](REVIEW_DISPOSITION.md) | Fitted curvature and angle share errors; static sampling can mimic a trajectory | Calibrated shape and coat measurements through the same pit over time |
+| That ranking does not transfer uniformly across cell lines or inclusion choices | [27-fit transfer study](GEOMETRY_TRANSFER_FINDINGS.md): primary mean favors flexible, U2OS favors area, include-flagged mean favors area | Descriptive point estimates; no calibrated significance or independent culture replication | Independent replicated data with a declared inclusion rule and measurement uncertainty |
+| Other public collections provide useful but narrower records | [Shape2Fate annotations](ANNOTATION_AUDIT.md), [DASC decision](DASC_OBSERVATION_DECISION.md), [Myo1E table](MYO1E_REPOSITORY_FINDINGS.md), [yeast tables](YEAST_FIGURE6_FINDINGS.md) | Tracks, metadata and population means do not automatically supply complete lifetimes, same-event joint measurements or force | A verified event/condition/grouping contract and the particular endpoint needed by the comparison |
 
-The implemented zero-line-tension spherical cap has an exact force–tension compensation family at fixed area when coat and force share the declared ramp, even with a prescribed changing rigidity. Under shared curvature, force and tension, two distinct known areas and two distinct known rigidity values can remove that particular ambiguity given enough nonzero, unclipped matched states; fixed rigidity still leaves curvature and force combined. An unknown rigidity scale or area-dependent inputs can restore ambiguities. These are structural statements under declared controls, not noisy-image recovery guarantees. See [cap findings](CAP_FINDINGS.md) and [two-area findings](TWO_AREA_FINDINGS.md).
+Constant curvature has the largest target-line mean error in all nine transfer
+folds. This does not rule out constant curvature along individual pits: an
+[accepted population counterexample](REVIEW_DISPOSITION.md) already separates
+population prediction from single-pit dynamics. All target rows, support
+exceptions and ranking reversals are retained in the transfer outputs.
 
-Including the surrounding membrane preserves a decreasing **apex curvature** across sampled passive patch sizes in a small-slope calculation; the depth response depends on its reference and is not globally monotone. A bounded passive axisymmetric solver agrees with the shallow reference. Its material-area coordinate repair resolves a preserved node-limit failure, and a later sampled mild-to-moderate area test retains the negative apex ordering. These calculations are force-free and do not establish branch uniqueness, stability, scission or a molecular explanation. Pointwise apex curvature, coat average and a finite-window fitted cap curvature are different quantities. The corrected synthetic finite-window study preserves the sampled ordering, with fit values that depend on window and weighting. See [full shape](FULL_SHAPE_FINDINGS.md), [axisymmetric validation](AXISYMMETRIC_FINDINGS.md), [coordinate repair](AXISYMMETRIC_RHO_FINDINGS.md), [passive area](PASSIVE_AREA_FINDINGS.md), and [cap observation](CAP_OBSERVATION_FINDINGS.md).
+## Conditional mechanics results
 
-## What remains stopped
+| Result within the declared model | Evidence | What would be required beyond it |
+| --- | --- | --- |
+| Fixed-area cap force and tension can compensate; additional known area/rigidity controls can remove a specific ambiguity | [Cap](CAP_FINDINGS.md), [two-area analysis](TWO_AREA_FINDINGS.md) | Verified controls and an observation model; these algebraic conditions are not a biological intervention |
+| Passive surrounding-membrane models give decreasing apex curvature over the sampled area regime; fitted cap curvature depends on the observation window | [Full shape](FULL_SHAPE_FINDINGS.md), [passive area](PASSIVE_AREA_FINDINGS.md), [observation mapping](CAP_OBSERVATION_FINDINGS.md) | Appropriate full geometry and calibration; apex, average and fitted curvature are distinct observables |
+| In the shallow model, complete ideal shape identifies a combination of preferred curvature and balanced load; varying tension alone does not remove unrestricted source ambiguity | [Load identifiability](LOAD_IDENTIFIABILITY_FINDINGS.md) | An independently constrained source/load field, or the explicitly stated alternative controls |
+| Nonlinear compensation depends on slope; conditional uniqueness and local stationary profile existence can be proved, while flat profiles remain ambiguous | [Exact source criterion](NONLINEAR_SOURCE_FINDINGS.md), [uniqueness](NONLINEAR_UNIQUENESS_FINDINGS.md), [existence](NONLINEAR_EXISTENCE_FINDINGS.md) | Stability and reliable finite-amplitude numerics; no global or practical recovery claim follows |
+| Unknown balanced load prevents a uniform near-flat inverse bound; fixed known spatial load permits a conditional recovery bound | [Unknown-load limit](NONLINEAR_INVERSE_STABILITY_FINDINGS.md), [known-load theorem](KNOWN_LOAD_RECOVERY_FINDINGS.md) | Complete compatible stationary profiles, known pointwise load and mechanics, with calibrated uncertainty |
 
-The public LocMoFit tables provide processed cap fits without the localization likelihood inputs or per-site covariance needed for a calibrated mechanical comparison. In the retained corrected cohort, 58.28% of caps overhang the shallow graph surrogate. A fitted area–curvature slope at fixed cap angle also follows the fitting geometry itself. The reviewed adapter now marks missing uncertainty as null, keeps its historical raw default cohort, exposes a separate corrected cohort, and requires explicit exploratory opt-in for two legacy fitting consumers. Their scores remain conditional diagnostics and cannot authorize a decisive mechanism verdict. See [adapter cleanup](LOCMOFIT_ADAPTER_CLEANUP.md) and [review](LOCMOFIT_ADAPTER_REVIEW.md).
+Zero net force, an actin-inhibition label or a tube-force resultant is not a
+known spatial load field. The [public-data comparison](KNOWN_LOAD_DATA_COMPARISON.md)
+finds that the assessed tables do not supply the theorem's complete control set.
+These results specify assumptions under which inference could work; they do
+not license fitting missing inputs or claim an established new biological law.
 
-Historical attempts remain available with their dispositions. The first finite-window cap-fit run had an incorrect coordinate inversion and is rejected; only attempt 2 supports its findings. The highest-amplitude case in the tight shallow axisymmetric refinement hit its node limit; the later coordinate repair addresses that bounded case. The original two-area figure used an incorrect cutoff label; the corrected v2 figure is the one to interpret. None of these preserved outputs silently becomes accepted evidence. [INDEX.md](INDEX.md) points to the specific records.
+## Observation and software results
 
-The next research task is **queued**: derive whether full ideal membrane shape can distinguish prescribed spontaneous-curvature and balanced-normal-load templates, with explicit force balance, boundaries, physical controls and a rank or nullspace result. It has not been run or reviewed. It cannot close the empirical bridge without the missing observation inputs. See [NEXT_CYCLE.md](NEXT_CYCLE.md).
+The [synthetic dimming study](SYNTHETIC_DIMMING_FINDINGS.md) kept latent events
+fixed while dimming reduced observed coverage. Detectable-only scores could
+remain high despite missed events. This demonstrates a possible observation
+effect, not that a published experiment suffers from that artifact. Its
+[execution audit](synthetic_dimming_execution_audit.json) records 282 actual
+tracker calls against a 150-call cap and missing first-run artifacts; that
+failure remains part of the evidence history.
+
+The resulting [tracking validator repair](TRACKING_METRIC_FINDINGS.md) makes
+full-presence and detectable-only counts consistent. Fifteen targeted tests
+passed with one tracked movie. This verifies a software contract, not detector
+calibration or biological lifetime accuracy. Legacy lifetime pairs remain a
+labeled diagnostic. The [LocMoFit adapter cleanup](LOCMOFIT_ADAPTER_CLEANUP.md)
+similarly makes missing uncertainty and exploratory-only fitting explicit;
+it does not make the public geometry a calibrated mechanistic likelihood.
+
+The [duration-composition bound](RECRUITMENT_DURATION_FINDINGS.md) supplies one
+prospective falsification rule for a shared conditional recruitment probability.
+No biological inequality was evaluated. Missing denominators and grouping are
+not repaired by that probability result, and observed duration is not a causal
+exposure clock.
+
+The [offline work-unit extension](WORK_UNITS_FINDINGS.md) adds atomic cumulative
+reservations to the existing controller. Seventeen targeted tests passed in one
+invocation with zero real scientific calls. Independent review caught and closed
+an unresolved-call bypass. This is a software capability; live campaign enforcement
+remains unverified. The [repaired recovery continuation](WORK_UNIT_RECOVERY_REPAIR_FINDINGS.md)
+finished the same dummy attempt after explicit local reconciliation and two
+observed process exits. It preserved the original PID-supervision failure and
+three-launch/two-callback expenditure. No clean original three-phase run,
+host-crash/reboot recovery or exactly-once external effect is claimed.
+
+## Stopped or unresolved work
+
+| Branch | Disposition and reason |
+| --- | --- |
+| Nonlinear numerical source test | [Three attempts closed](NONLINEAR_NUMERICAL_FINDINGS_003.md); solver convergence did not pass the unchanged physical residual gate. No numerical K/K3 accepted |
+| Bucher published-figure reconstruction | [Inclusion mapping unresolved](BUCHER_INCLUSION_FINDINGS.md); deposited entries do not reconcile with caption counts under the inspected metadata. No effect estimated |
+| Actin Figure 7 code reproduction | [Exact output/load mapping unverified](ACTIN_CODE_FINDINGS.md); no author simulation executed |
+| Myo1E comparison | [Condition, denominator and raw group identities unresolved](MYO1E_REPOSITORY_FINDINGS.md); no date-like identifiers repaired or empirical contrast run |
+| Yeast fixed-height transit comparison | [Reference/alignment applicability unresolved](YEAST_REFERENCE_FINDINGS.md); verified mean curves alone did not justify the proposed comparison |
+| DASC/AP2 physical-mechanism test | [Selection and observation controls insufficient](DASC_OBSERVATION_DECISION.md); parked, not a null biological result |
+| Geometry transfer, duration null and source-recovery theory sequences | Registered questions completed; no additional grid or theorem extension queued |
+
+Implementation failures, source-access failures and absent controls are not
+biological refutations. Earlier rejected numerical/observation attempts remain
+linked from the [study index](INDEX.md); later acceptance never erases them.
+
+## Research decision
+
+The next useful step must add a discriminating observable or independent control,
+not another nearby fit to the same tables. [Assessment](ASSESSMENT.md) separates
+those requirements from what is available. The [next-experiment assessment](CAMPAIGN_NEXT_EXPERIMENT.md)
+and [independent challenge](CAMPAIGN_SYNTHESIS_REVIEW.md) record the present
+decision; [NEXT_CYCLE.md](NEXT_CYCLE.md) gives its executable scope. No new
+scientific computation is implied by this synthesis.

@@ -1,0 +1,13 @@
+{
+  "task_id": "actin-adaptation-prediction-001",
+  "attempt_number": 1,
+  "created_at_utc": "2026-09-29T11:42:20.810321+00:00",
+  "disposition": "accepted_narrow_simulation_prediction_and_metadata_followup",
+  "article_access": "indexed primary Results/Methods/Figures; direct eLife and PMC challenge-gated",
+  "artifact_sha256": {
+    "research/actin_adaptation_prediction_design.json": "118018be5db4536a67bc0b117f3aa7b6214f9ef3f45f1dbc3404494d79b32595",
+    "research/ACTIN_ADAPTATION_SOURCE.md": "bc095388eb7f741337238d0dc34c5fa75b3e3e8d7c59f1e1eff0d1aad9e46d1b",
+    "research/ACTIN_ADAPTATION_REVIEW.md": "547a9ce8b99b69fd30dcc4a1ef6f6dbeae5ba6407d06121c917908e733305742",
+    "research/ACTIN_ADAPTATION_FINDINGS.md": "fd80780846b9e4d1abd75c31438a320fabddce9ef02f62bab0abbd48fd27be9f"
+  }
+}

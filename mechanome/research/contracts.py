@@ -16,6 +16,24 @@ def money(value):
     require(type(value) is int and value >= 0, "Cost must be nonnegative integer cents")
 
 
+def work_limits(value):
+    """Normalize immutable per-kind work caps without accepting mutable maps."""
+    pairs = value.items() if isinstance(value, dict) else value
+    try:
+        pairs = tuple(pairs)
+    except TypeError as error:
+        raise Blocked("Work limits must be kind/unit pairs") from error
+    normalized = []
+    for pair in pairs:
+        require(isinstance(pair, (tuple, list)) and len(pair) == 2, "Work limit must be a pair")
+        kind, units = pair
+        require(isinstance(kind, str) and kind == kind.strip() and kind.replace("_", "").isalnum(), "Canonical work kind required")
+        require(type(units) is int and units >= 0, "Work limit must be nonnegative integer")
+        normalized.append((kind, units))
+    require(len({kind for kind, _ in normalized}) == len(normalized), "Duplicate work kind")
+    return tuple(sorted(normalized))
+
+
 @dataclass(frozen=True)
 class Charter:
     name: str
@@ -27,6 +45,7 @@ class Charter:
     max_attempts: int = 3
     version: int = 1
     mode: str = "offline"
+    work_unit_limits: tuple[tuple[str, int], ...] = ()
 
     def __post_init__(self):
         require(bool(self.name.strip() and self.goal.strip()), "Name and goal required")
@@ -56,6 +75,7 @@ class Charter:
             self.mode == "offline",
             "Live execution is not implemented; a draft charter cannot authorize spending",
         )
+        object.__setattr__(self, "work_unit_limits", work_limits(self.work_unit_limits))
 
 
 @dataclass(frozen=True)
@@ -72,6 +92,7 @@ class Task:
     worker: str
     cost_cents: int = 0
     purpose: str = "exploration"
+    work_unit_limits: tuple[tuple[str, int], ...] = ()
 
     def __post_init__(self):
         for name in (
@@ -99,6 +120,7 @@ class Task:
             self.purpose in {"exploration", "review", "synthesis"},
             "Unknown task purpose",
         )
+        object.__setattr__(self, "work_unit_limits", work_limits(self.work_unit_limits))
 
 
 @dataclass(frozen=True)

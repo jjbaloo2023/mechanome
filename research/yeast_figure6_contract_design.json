@@ -1,0 +1,53 @@
+{
+  "task_id": "yeast-figure6-contract-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T13:32:05.745397+00:00",
+  "question": "Do the two published Figure6 source tables establish a usable genotype-level actin-abundance and Sla1 inward-motion comparison?",
+  "primary_article": "https://elifesciences.org/articles/44215/figures",
+  "source_files": [
+    {
+      "filename": "elife-44215-fig6-data1-v1.csv",
+      "description": "Figure6B average trajectories",
+      "doi": "https://doi.org/10.7554/eLife.44215.019"
+    },
+    {
+      "filename": "elife-44215-fig6-data2-v1.csv",
+      "description": "Figure6A median Act1 molecules",
+      "doi": "https://doi.org/10.7554/eLife.44215.020"
+    }
+  ],
+  "input_sha256": {
+    "research/YEAST_OBSERVABLES_FINDINGS.md": "36aeb992430777616a1536be43c15fb202701849478057f2f072488087d735fe"
+  },
+  "acceptance_checks": [
+    "Publisher-linked exact filenames, URLs, statuses, sizes and hashes",
+    "Body encoding/header/row schema and units",
+    "Genotypes and control reuse/shared ancestry",
+    "Trajectory alignment and averaging rules; meaning of spread/error fields",
+    "Sample counts versus independent biological replication",
+    "Declared aggregate estimand; no event covariance inferred from summaries",
+    "Centroid trajectory versus speed/scission/force distinguished",
+    "Exact access/definition gaps preserved, no automatic rescue of undefined fields"
+  ],
+  "limits": {
+    "source_active_minutes": 6,
+    "downloaded_response_body_bytes_total": 1048576,
+    "downloaded_data_files": 2,
+    "search_queries_team_total": 2,
+    "source_search_queries": 1,
+    "lead_verification_search_queries": 1,
+    "reviewer_search_queries": 0,
+    "author_code_executions": 0,
+    "BVP_calls": 0,
+    "raw_movies_archives_notebooks": 0
+  },
+  "acquisition_rules": "Only named2CSVs and relevant primaryFigure6/methods via parsed tools. Source acquires and records ledger; others inspect saved data. No repeated failed-endpoint request or iterative workaround. Parsed-web tools lack raw-body byte telemetry and must be logged separately.",
+  "expected_outcomes": [
+    "Usable aggregate contract enabling separately registered small calculation",
+    "Partial table contract with precise uncertainty or estimand restrictions",
+    "Exact access or measurement gap stopping empirical comparison"
+  ],
+  "stop_condition": "One independently reviewed two-file observation contract or precise gap. No unregistered numerical contrast or expansion to other figures/supplements.",
+  "evidence_cutoff_utc": "2026-09-29T13:45:35Z",
+  "target_checkpoint_utc": "2026-09-29T13:50:35Z"
+}

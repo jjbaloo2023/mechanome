@@ -1,0 +1,13 @@
+{
+  "task_id": "nonlinear-inverse-stability-001",
+  "attempt_number": 1,
+  "created_at_utc": "2026-09-29T01:12:28.391685+00:00",
+  "disposition": "accepted_conditional_analytic_inverse_instability",
+  "BVP_calls": 0,
+  "artifact_sha256": {
+    "research/nonlinear_inverse_stability_design.json": "178985dedf0e4b4d116f78bfd9f6dda5920b83a4d6f876c9725eea1832daa9a2",
+    "research/NONLINEAR_INVERSE_STABILITY_THEORY.md": "97d060f3207a9737d013c26bf263503101cfd68f6c8304b940ba2559909036ae",
+    "research/NONLINEAR_INVERSE_STABILITY_REVIEW.md": "569c3ae3d4fa8598902af0afeb91c4c0852db75ee041584ca5421910bc6a3740",
+    "research/NONLINEAR_INVERSE_STABILITY_FINDINGS.md": "5caca0413a11362cb3e90fe98e60a985fbf6d430ee9886ffe176b539dc9bdf37"
+  }
+}

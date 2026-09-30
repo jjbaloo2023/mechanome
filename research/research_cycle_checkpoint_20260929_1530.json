@@ -1,0 +1,108 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T15:30:23.488Z",
+  "first_tool_clock_utc": "2026-09-29T15:30:30Z",
+  "evidence_cutoff_utc": "2026-09-29T15:45:30Z",
+  "target_checkpoint_utc": "2026-09-29T15:50:30Z",
+  "checkpoint_utc": "2026-09-29T15:47:17.017766+00:00",
+  "status": "completed_dated_checkpoint",
+  "continuous_activity_claim": false,
+  "observed_events": [
+    {
+      "at": "2026-09-29T15:31:41.733126+00:00",
+      "event": "Synthesis registered after worker reconciliation and13 latest hash checks."
+    },
+    {
+      "at": "2026-09-29T15:34:40.408262+00:00",
+      "event": "Prior navigation snapshot preserved; front-door rewrite in progress."
+    },
+    {
+      "between": [
+        "2026-09-29T15:36:55Z",
+        "2026-09-29T15:38:39.702099+00:00"
+      ],
+      "event": "Final actin-only scope and duplicate-inventory corrections; independent synthesis acceptance."
+    },
+    {
+      "at": "2026-09-29T15:38:39.702099+00:00",
+      "event": "Distinct independent-endpoint source screen registered; no analysis authorized."
+    },
+    {
+      "at": "2026-09-29T15:39:43.806283+00:00",
+      "event": "Accepted synthesis snapshot and5-artifact manifest saved."
+    },
+    {
+      "reported_minute_utc": "2026-09-29T15:39Z",
+      "event": "Source used2queries; exact subminute timing unavailable."
+    },
+    {
+      "at": "2026-09-29T15:40:13Z",
+      "event": "Source reported primary open of PMC3245319."
+    },
+    {
+      "between": [
+        "2026-09-29T15:40:02Z",
+        "2026-09-29T15:42:03Z"
+      ],
+      "event": "Lead primary verification corrected author attribution and onset/termination distinction; exact request time not separately captured."
+    },
+    {
+      "at": "2026-09-29T15:45:12.347063+00:00",
+      "event": "Corrected endpoint screen accepted and frozen; public event-data identity unverified, no reanalysis."
+    },
+    {
+      "at": "2026-09-29T15:46:00.790409+00:00",
+      "event": "29 manifests/232hash entries/463navigation links and ZIP contents validated."
+    }
+  ],
+  "completed_tasks": [
+    "campaign-synthesis-001",
+    "campaign-next-experiment-001",
+    "campaign-synthesis-review-001",
+    "endpoint-public-screen-001",
+    "endpoint-public-source-001",
+    "endpoint-public-review-001"
+  ],
+  "lead_dispositions": {
+    "synthesis": "Accept four evidence tiers and rewritten navigation; reject duplicate actin inventory; retained missing-control prerequisite limited to that candidate.",
+    "endpoint_screen": "Accept literature-level independent same-event assay; unverified event-data/public object/grouping prevents reanalysis; no tracker metrics inferred.",
+    "next_direction": "Independent reviewer accepts prospective offline work-call accounting extension with live-enforcement caveat; no implementation this cycle."
+  },
+  "artifact_manifests": [
+    "research/campaign_synthesis_manifest.json",
+    "research/endpoint_public_manifest.json"
+  ],
+  "validation": "research/research_cycle_validation_20260929_1530.json",
+  "counters": {
+    "source_queries": 2,
+    "query_cap": 2,
+    "primary_opens": 2,
+    "primary_open_cap": 3,
+    "local_download_bytes": 0,
+    "fits": 0,
+    "tracking_calls": 0,
+    "BVP_calls": 0,
+    "author_code_executions": 0,
+    "software_test_invocations": 0
+  },
+  "software_tests_reason": "Documentation and source feasibility only; no executable source changed. Hash/link/JSON/ZIP checks and independent reviews performed.",
+  "corrections_or_failures": [
+    "Initial next-experiment proposal repeated closed actin inventory; rejected and narrowed to prerequisite.",
+    "Initial paper attribution to Merrifield corrected to Mattheyses/Atkinson/Simon after lead primary verification.",
+    "Onset of clathrin decline distinguished from automated track termination; selected-case percentages do not give tracker predictive validity."
+  ],
+  "budget_compliant": true,
+  "outstanding_agents": [],
+  "unknown_execution": [],
+  "workers_reconciled": "All three currently listed specialists terminal; three reused across two bounded stages, no new agents or scheduler.",
+  "reason_for_stopping": "Both registered stages reached stop conditions before evidence cutoff. No public event-level input verified. Remaining time reserved for checkpoint, not another source rescue or unregistered controller edit.",
+  "next_executable_decision": "Register and implement one minimal offline-controller cumulative work-unit reservation extension after code inspection; dummy-work restart/idempotency/unknown/concurrency tests only, maximum3lead-owned pytest invocations.",
+  "next_task_status": "queued_not_running",
+  "direct_api_spend_usd": 0,
+  "external_messages": 0,
+  "commits": 0,
+  "git_pushes": 0,
+  "published": false,
+  "notification_decision": "NOTIFY",
+  "notification_reason": "Independently reviewed campaign synthesis/architecture consolidation completed; source boundary and next operational decision documented."
+}

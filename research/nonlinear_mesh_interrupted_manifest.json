@@ -1,0 +1,19 @@
+{
+  "task_id": "nonlinear-mesh-preflight-001",
+  "attempt_number": 1,
+  "checkpoint_at_utc": "2026-09-28T20:20:41.184623+00:00",
+  "disposition": "interrupted_not_accepted_no_harness_or_BVP_run",
+  "mutable_resume_files": [
+    "research/nonlinear_graph_numerical_003.py",
+    "research/check_nonlinear_harness_003.py"
+  ],
+  "artifact_sha256": {
+    "research/nonlinear_mesh_preflight_design.json": "10385b39adc2071e1d5a0fe0127e626e1ba9ccb43bdabb952e3250a7d009747e",
+    "research/nonlinear_mesh_interrupted_001/nonlinear_graph_numerical_003.py": "604595d97b0199a4129d8d48c55d3e2be3bdd5356bc1a0479c149c54ab029fd6",
+    "research/nonlinear_mesh_interrupted_001/check_nonlinear_harness_003.py": "1eaa4d043240394143321285e8ef6faf7a2320f181b24ce8965353bb3e6c3b62",
+    "research/NONLINEAR_MESH_PREFLIGHT_FINDINGS.md": "66f44efb407840a0862c6b59ffbdad408fdc461fc0e3773f4c2131161001a79f",
+    "research/NONLINEAR_MESH_IMPLEMENTATION.md": "91e95bcb20957c09838a7665766c91ccdeff2c08b8dd73421264c1899ab2686f",
+    "research/NONLINEAR_MESH_PREFLIGHT_REVIEW.md": "c0de0f3f63116258a801fc0757f41c7703c1119681825c1b4d4de21eaf9f7b71"
+  },
+  "editorial_note": "Lead clarified review-message receipt timing at final checkpoint; original send time not established."
+}

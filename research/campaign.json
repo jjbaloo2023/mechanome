@@ -2,11 +2,14 @@
   "specification_version": 2,
   "scheduled_operation": {
     "automation_id": "mechanome-research-loop",
-    "status": "ACTIVE",
+    "status": "DELETED",
     "cadence_minutes": 30,
     "cycle_target_minutes": 20,
     "backend": "Codex same-task heartbeat with subscription subagents",
-    "lead_profile_inherited_not_attested": true
+    "lead_profile_inherited_not_attested": true,
+    "retirement_observed_utc": "2026-09-29T18:08:37.299626+00:00",
+    "retirement_record": "research/automation_retirement_20260929.json",
+    "retirement_reason": "Current assessed task sequence exhausted; no queued execution. Biological questions remain unresolved."
   },
   "agent_operating_protocol": "research/AGENT_LOOP.md",
   "direction_control": {
@@ -21,10 +24,10 @@
     "enforcement": "operating_protocol_not_scheduler_guarantee",
     "parallel_work": "Theory, numerics and source/review concurrently when useful; share intermediate results and reassign completed specialists"
   },
-  "status": "locmofit_adapter_cleanup_reviewed_full_membrane_load_identifiability_next",
+  "status": "paused_by_user",
   "current_checkpoint": "research/ASSESSMENT.md",
   "next_executable_specification": "research/NEXT_CYCLE.md",
-  "next_decision": "Under specified balanced load and spontaneous-curvature families, what ideal full-membrane shape information or independent perturbation can distinguish their amplitudes?",
+  "next_decision": "Remain paused until the user asks to resume; then reassess the bounded workbook schema route or a genuinely new dataset. Do not restart automatically.",
   "scope": "clathrin pit formation broadly",
   "data_policy": "public datasets only",
   "deliverables": [
@@ -111,16 +114,52 @@
   ],
   "last_observed_cycle": {
     "trigger": "scheduled_heartbeat",
-    "scheduled_delivery_utc": "2026-09-26T14:08:33.269Z",
-    "first_tool_clock_utc": "2026-09-26T14:08:43Z",
-    "implementation_deadline_utc": "2026-09-26T14:23:43Z",
-    "target_checkpoint_utc": "2026-09-26T14:28:43Z",
-    "status": "reviewed_result_checkpoint",
-    "status_observed_at_utc": "2026-09-26T14:22:57.375859+00:00",
+    "scheduled_delivery_utc": "2026-09-29T18:00:26.168Z",
+    "first_tool_clock_utc": "2026-09-29T18:00:33Z",
+    "evidence_cutoff_utc": "2026-09-29T18:15:33Z",
+    "target_checkpoint_utc": "2026-09-29T18:20:33Z",
+    "status": "completed_dated_checkpoint",
     "outstanding_workers": [],
-    "checkpoint_clock_utc": "2026-09-26T14:22:57.375859+00:00",
-    "reason_for_stopping": "Bounded adapter andactualconsumer cleanup independently reviewed andvalidated; nexttheorybranch needs newregisteredcontrols andis queued,not active.",
-    "limitation": "No empiricalfit/BVP. Four cachedintegrationtests skipped; fulltableadaptercohort audited independently. Defaultpublicentrypoint guards do notclaim a universalguard overgenericinverse code.",
-    "exit_reconciliation_utc": "2026-09-26T14:23:25.921967+00:00"
+    "last_result_accepted_utc": "2026-09-29T18:05:57.459848+00:00",
+    "schedule_deleted": true,
+    "checkpoint_utc": "2026-09-29T18:10:29.259218+00:00",
+    "checkpoint": "research/research_cycle_checkpoint_20260929_1800.json",
+    "reason_for_stopping": "Registered final observation task reached reviewed stop condition. Bounded continuation assessment found no distinct next action supported by current inputs/stops; recurring schedule deleted. No work added to fill remaining time.",
+    "next_task_status": "none_queued"
+  },
+  "pending_user_operation": {
+    "kind": "user_authorized_research_checkpoint_push",
+    "status": "prepared_for_publication",
+    "requested_at_utc": "2026-09-30T01:36:24.488870+00:00",
+    "branch": "refactor/readable-pipelines",
+    "protected_other_branch": "feature/mesoscopic-two-body",
+    "prior_failed_attempt": {
+      "kind": "previously_requested_git_push",
+      "commit": "e2fee6b46b790f113849de237d5f7ab849530714",
+      "session_id": 39522,
+      "last_observation": "Original session39522 returned: User cancelled dialog; could not read Username for https://github.com. Push did not complete.",
+      "action": "No retry under heartbeat. User may restore GitHub authentication before any separately authorized retry.",
+      "status": "failed_authentication",
+      "observed_at_utc": "2026-09-26T23:21:52.016774+00:00",
+      "exit_code": 1
+    },
+    "note": "This is the pre-publication checkpoint record; actual remote outcome is verified in the manual turn."
+  },
+  "user_steering": {
+    "observed_date": "2026-09-29",
+    "request": "Pause this research campaign, create overview, commit and push this branch without replacing the other agent branch.",
+    "status": "paused_overview_saved_publication_authorized",
+    "artifact": "research/OVERVIEW.md",
+    "target_branch": "refactor/readable-pipelines",
+    "protected_other_branch": "feature/mesoscopic-two-body",
+    "automatic_restart": false
+  },
+  "live_execution_implemented_meaning": "False refers to the Python controller live/API mode; subscription-agent research is operating through the app as described in scheduled_operation.",
+  "pause": {
+    "requested_at_utc": "2026-09-30T01:33:55.870061+00:00",
+    "scope": "This public-data research campaign only; separate mesoscopic work is unaffected.",
+    "resume_timing": "User suggested possibly next week; no automatic restart scheduled.",
+    "resume_requires": "User request to resume, then choose a concrete bounded task from the saved evidence.",
+    "overview": "research/OVERVIEW.md"
   }
 }

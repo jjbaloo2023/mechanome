@@ -1,0 +1,114 @@
+{
+  "checked_at_utc": "2026-09-29T12:45:16.616265+00:00",
+  "input_path": "research/metadata/myo1e-repository-001/03-three_color_tracking_myosin1e_osmotic_shock.csv",
+  "input_sha256": "c5278b8e41ade42ed46a75ae9c1728ccd9a9ecbef50d2fd671bea5347e74e347",
+  "rows": 1709,
+  "columns": [
+    "lifetime",
+    "max_ch1",
+    "max_ch2",
+    "max_ch3",
+    "ch1_lifetime",
+    "ch2_lifetime",
+    "ch3_lifetime",
+    "ch1_dist",
+    "ch2_dist",
+    "ch3_dist",
+    "md_ch1",
+    "md_ch2",
+    "md_ch3",
+    "track_category",
+    "condition",
+    "replicate",
+    "cell_id"
+  ],
+  "blank_cells": 0,
+  "exact_duplicate_full_rows": 0,
+  "nonfinite_numeric_cells": 0,
+  "raw_code_counts": {
+    "condition": {
+      "0": 560,
+      "1": 187,
+      "2": 150,
+      "3": 323,
+      "4": 489
+    },
+    "replicate": {
+      "1": 634,
+      "2": 569,
+      "3": 506
+    },
+    "track_category": {
+      "4": 1023,
+      "1": 686
+    }
+  },
+  "raw_cell_ids_by_condition": {
+    "0": [
+      "0-1",
+      "0-10",
+      "0-11",
+      "0-12",
+      "0-13",
+      "0-14",
+      "0-15",
+      "0-16",
+      "0-17",
+      "0-18",
+      "0-19",
+      "0-2",
+      "0-20",
+      "0-21",
+      "0-22",
+      "0-23",
+      "0-24",
+      "0-3",
+      "0-4",
+      "0-5",
+      "0-6",
+      "0-7",
+      "0-8",
+      "0-9"
+    ],
+    "1": [
+      "1-1",
+      "1-Jan",
+      "2-Jan",
+      "3-Jan",
+      "4-Jan",
+      "5-Jan",
+      "6-Jan"
+    ],
+    "2": [
+      "1-Feb",
+      "2-Feb",
+      "3-Feb",
+      "4-Feb",
+      "5-Feb",
+      "6-Feb"
+    ],
+    "3": [
+      "1-Mar",
+      "2-Mar",
+      "3-Mar",
+      "4-Mar",
+      "5-Mar",
+      "6-Mar"
+    ],
+    "4": [
+      "1-Apr",
+      "2-Apr",
+      "3-Apr",
+      "4-Apr",
+      "5-Apr",
+      "6-Apr"
+    ]
+  },
+  "raw_unique_cell_ids": 49,
+  "condition_1_ambiguous_ids_counts": {
+    "1-1": 14,
+    "1-Jan": 50
+  },
+  "interpretation": "Static table checks only; no codebook, pairing, group repair, biological independence or empirical effect verified.",
+  "repairs_performed": 0
+}

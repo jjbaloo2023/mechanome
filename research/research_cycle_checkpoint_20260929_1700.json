@@ -1,0 +1,115 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T17:00:25.165Z",
+  "first_tool_clock_utc": "2026-09-29T17:00:37Z",
+  "evidence_cutoff_utc": "2026-09-29T17:15:37Z",
+  "target_checkpoint_utc": "2026-09-29T17:20:37Z",
+  "checkpoint_utc": "2026-09-29T17:17:13.624359+00:00",
+  "status": "completed_dated_checkpoint",
+  "continuous_activity_claim": false,
+  "observed_events": [
+    {
+      "at": "2026-09-29T17:02:14.267676+00:00",
+      "event": "Registered logical recovery attempt2 after reconciliation of workers and19frozen/4current hash checks."
+    },
+    {
+      "at": "2026-09-29T17:03:40.082966+00:00",
+      "event": "Independent reviewer accepted controlled-local evidence reconciliation only. Separate approval saved; no execution yet."
+    },
+    {
+      "observed_by_utc": "2026-09-29T17:06:09Z",
+      "event": "Implementation worker returned without code before actualdeadline; lead assumed ownership and wrote repair. No worker execution."
+    },
+    {
+      "at": "2026-09-29T17:08:16.980020+00:00",
+      "event": "Final AST/RuffF checks passed after reviewer required exact frozenDB and semantic PID-absence checks."
+    },
+    {
+      "at": "2026-09-29T17:09:11.122365+00:00",
+      "event": "Independent code approval received;16input source hashes and base-interpreter hash frozen."
+    },
+    {
+      "at": "2026-09-29T17:09:12.541338+00:00",
+      "event": "Separate continuation prepared from fixedZIPmembers; original unit retained; oldlead retired on explicit reviewed evidence. No exit1receipt fabricated."
+    },
+    {
+      "between": [
+        "2026-09-29T17:09:18.899801+00:00",
+        "2026-09-29T17:09:19.079237+00:00"
+      ],
+      "event": "Phase2PID15092/parent17556 observedexit0, originalcallback reconciled/skipped and one remainingcallback completed."
+    },
+    {
+      "between": [
+        "2026-09-29T17:09:24.509658+00:00",
+        "2026-09-29T17:09:24.709033+00:00"
+      ],
+      "event": "Phase3PID11680/parent7400 observedexit0; terminalreplays skipped, capguard rejected thirdcall; originalattemptfinished."
+    },
+    {
+      "at": "2026-09-29T17:10:16.643060+00:00",
+      "event": "Lead read-only audit verified exactreceipts/markers/counters/sourcehashes and preservation of originalfailed evidence."
+    },
+    {
+      "file_modified_at_utc": "2026-09-29T17:10:51.316978+00:00",
+      "event": "Independent result review accepted bounded repaired continuation, preserving original failure/limitations."
+    },
+    {
+      "at": "2026-09-29T17:12:39.110959+00:00",
+      "event": "Nine repair artifacts frozen; finite operationsbranchclosed."
+    },
+    {
+      "at": "2026-09-29T17:14:37.273197+00:00",
+      "event": "Findings/navigation/architecture/currentdirection updated. New publicsameeventobject screen queued due insufficient source+review time."
+    },
+    {
+      "at": "2026-09-29T17:15:45.941618+00:00",
+      "event": "Integrityonly:33manifests/270hashes/541links/19ZIPentries passed; production/test/base-interpreter hashesunchanged."
+    }
+  ],
+  "lead_dispositions": {
+    "reconciliation": "Accept controlled-local synchronous dummy marker evidence plus later PIDabsence; no original ancestry or targetexitcode inference.",
+    "continuation": "Accepted repaired phases2/3 with actualPID/parent/exit receipts, sameoriginaltask/attempt and allprior expenditure.",
+    "implementation_worker": "Stopped without artifact before actualdeadline; lead takeover recorded, no budget relaxed.",
+    "next": "Operationsbranchclosed. One distinct newpublicpairedshape/coat feasibilityscreen queued with fixedsourcecall/time bounds; no newsourcework thiscycle."
+  },
+  "completed_or_stopped_tasks": [
+    "work-unit-recovery-002",
+    "work-unit-recovery-implementation-002",
+    "work-unit-recovery-review-002"
+  ],
+  "artifact_manifests": [
+    "research/work_unit_recovery_repair_manifest.json"
+  ],
+  "validation": "research/research_cycle_validation_20260929_1700.json",
+  "counters": {
+    "new_phase_launches": 2,
+    "cumulative_phase_launches": 3,
+    "phase_cap": 3,
+    "new_dummy_callbacks": 1,
+    "cumulative_dummy_callbacks": 2,
+    "dummy_cap": 2,
+    "new_process_probes": 0,
+    "pytest_invocations": 0,
+    "scientific_calls": 0,
+    "source_requests": 0,
+    "worker_executions": 0,
+    "new_agents": 0,
+    "reused_specialists": 2
+  },
+  "budget_compliant": true,
+  "outstanding_agents": [],
+  "unresolved_active_execution": [],
+  "historical_uncertainty": "Original phase1 ancestry/targetexit remain unverified and originalsupervision staysfailed; immutable snapshot retains oldprotocolstates. Accepted controlled-local continuation resolved the logicalwork with explicitlaterreconciliation.",
+  "workers_reconciled": "Allthree current specialists terminal; reviewer accepted final result, implementation returned without code and lead completed its scope. No secondlead/scheduler.",
+  "reason_for_stopping": "Registered recovery attempt reached independently reviewed stop condition. Fewer than3evidence-window minutes remained after acceptance for a4minute new-source allowance plus review, so science screen queued. Final actions integrity/checkpoint only.",
+  "next_executable_decision": "Register one new publicsameevent membraneorientation/shape+coat timeseries object screen; exclude previousrecords, atmost2queries/3primaryopens, source4minutes, no rawacquisition/calculation. Stop at onecandidate/exactgap or exhaustedscreen.",
+  "next_task_status": "queued_not_running",
+  "direct_api_spend_usd": 0,
+  "external_messages": 0,
+  "commits": 0,
+  "git_pushes": 0,
+  "published": false,
+  "notification_decision": "NOTIFY",
+  "notification_reason": "Bounded repaired local recovery completed without replay/budgetreset; finite operational branch closed and science-facing next decision saved."
+}

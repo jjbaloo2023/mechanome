@@ -1,0 +1,25 @@
+{
+  "task_id": "endpoint-public-screen-001",
+  "accepted_at_utc": "2026-09-29T15:45:12.347063+00:00",
+  "artifact_sha256": {
+    "research/endpoint_public_design.json": "f7df0915462138a7cf086795187bd083a23fb36721cf1c684330fc3b630cf533",
+    "research/ENDPOINT_PUBLIC_SOURCE.md": "ce761818431b6732dfb0dece35acba499148ee3778d519cb74a1d2c5778718d1",
+    "research/ENDPOINT_PUBLIC_REVIEW.md": "281c1fec50a5239c934c7baf8f1f734cf0cfbae13a55682858c60843d6bc0721",
+    "research/ENDPOINT_PUBLIC_FINDINGS.md": "f8e720dbeaa490901682a4bcdcdbaeff3265b1acf5ecd5ee0dbea70980251ddb"
+  },
+  "disposition": "paper_level_assay_candidate_accepted; public_event_data_identity_unverified; no_reanalysis",
+  "actual_team_queries": 2,
+  "actual_team_primary_opens": 2,
+  "query_cap": 2,
+  "primary_open_cap": 3,
+  "local_download_bytes": 0,
+  "fits": 0,
+  "tracking_calls": 0,
+  "BVP_calls": 0,
+  "corrections": [
+    "Lead verified correct authors Mattheyses/Atkinson/Simon, not Merrifield.",
+    "Onset of clathrin intensity decline is not automated track termination."
+  ],
+  "next_decision": "Stop endpoint screen; separately register offline cumulative work-unit accounting extension.",
+  "budget_compliant": true
+}

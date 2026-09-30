@@ -1,0 +1,78 @@
+{
+  "task_id": "synthetic-dimming-benchmark-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T14:06:59.959595+00:00",
+  "question": "With identical latent events, how does dimming before detection change unconditional track coverage and observed lifetime compared with rescaling after tracking?",
+  "rationale": "Distinct local observation benchmark explicitly permitted by DASC decision; avoids another inaccessible-data search and does not reopen biological mechanism test.",
+  "input_sha256": {
+    "validation/tracking.py": "c6660ef35be77a8b106cfe558dce39e3970161fbf85916d14fd4515f6af0bea4",
+    "research/DASC_OBSERVATION_DECISION.md": "69e55c597f7f1b73fbb634420f7c97c4f0a96ac8e756b6639a735ead07f5cb68"
+  },
+  "fixed_design": {
+    "frames": 80,
+    "frame_interval_s": 1,
+    "height_width_px": 40,
+    "center_yx_px": [
+      20,
+      20
+    ],
+    "psf_sigma_px": 1.5,
+    "birth_frame": 10,
+    "latent_durations_frames": [
+      16,
+      32,
+      48
+    ],
+    "peak_signal_photons": [
+      60,
+      90,
+      120
+    ],
+    "gain_factors": [
+      1.0,
+      0.6,
+      0.3
+    ],
+    "background_photons": 5,
+    "read_noise_sd": 2,
+    "seeds": [
+      20260929,
+      20260930,
+      20261001,
+      20261002,
+      20261003
+    ],
+    "one_event_per_movie": true,
+    "signal_envelope": "sin(pi*(age+0.5)/duration), age=0..duration-1; zero outside",
+    "noise_coupling": "Same Gaussian read-noise array for paired gains for each latent event/seed. No shot noise, bleaching, motion, crowding or biological model.",
+    "tracker": "validation.tracking.run_tracking unchanged, gate_px=4,max_gap=0,min_track_len=4; existing detector defaults including25 absolute and0.30relative gate",
+    "ground_truth_matching_radius_px": 3,
+    "post_tracking_comparator": "Retain gain1 tracks and multiply extracted raw/background-subtracted intensities only; identities/frame supports do not change. No retracking.",
+    "metrics": [
+      "GT events ever matched out of fixed45",
+      "matched GT frame coverage over fixed1440 latent-event frames",
+      "per-event observed span and matched-frame coverage; missing event has0 coverage, span absent notzero biological duration",
+      "conditional coverage restricted to true noiseless center intensity >=25, both numerator/denominator restricted to same eligible GT frames",
+      "false positive points outside3px or outside latent presence, fragmentation per event",
+      "paired summary per gain; all individual event rows retained"
+    ]
+  },
+  "validation": [
+    "Identical latent geometry/durations/noise across paired gains",
+    "Zero-gain/no-event negative control with same noise model",
+    "High-SNR noise-free control detects full deliberately above-threshold envelope",
+    "Explicit fixed-denominator arithmetic and missing-event handling",
+    "Independent review of implementation and results; no retuning gains/windows after results"
+  ],
+  "limits": {
+    "numerical_minutes": 7,
+    "movie_runs_max": 150,
+    "data_downloads": 0,
+    "BVP_calls": 0,
+    "author_code_executions": 0,
+    "parameter_sweeps_beyond_registered_grid": 0
+  },
+  "stop_condition": "One reviewed synthetic observation benchmark or precise implementation failure; no empirical calibration, DASC cluster claim, physical inverse or tracker refactor.",
+  "evidence_cutoff_utc": "2026-09-29T14:15:33Z",
+  "target_checkpoint_utc": "2026-09-29T14:20:33Z"
+}

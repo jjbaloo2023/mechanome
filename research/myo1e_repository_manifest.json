@@ -1,0 +1,26 @@
+{
+  "task_id": "myo1e-repository-contract-001",
+  "attempt_number": 1,
+  "created_at_utc": "2026-09-29T12:44:33.332096+00:00",
+  "disposition": "accepted_pinned_small_table_availability_but_comparison_stopped",
+  "repository_commit": "aa43f751b03378783b3226a719b64773bff8e91a",
+  "requests": 3,
+  "response_body_bytes": 236777,
+  "author_code_executions": 0,
+  "artifact_sha256": {
+    "research/myo1e_repository_design.json": "b62476fe236c2f9e16d9f168861973b58129413b40a757f6f5363682035c0ce1",
+    "research/MYO1E_REPOSITORY_SOURCE.md": "9d2eb2fad97bbb92125cd3f1b34f578610e03ea3a340087a5947ce8124400d2e",
+    "research/MYO1E_REPOSITORY_REVIEW.md": "94b60fcd4454d4dae1001b03d30164d8c5d51dfead60fb1478d667338d2536c0",
+    "research/MYO1E_REPOSITORY_FINDINGS.md": "8634c40647c5197f9d4209ca2927f5da727f070b7ba44a4736cd76096f05b9bd",
+    "research/metadata/myo1e-repository-001/01-commit.json": "ef9239922cb870d56b5674594bb88d703a53c6b32fa85a6e7b6a46695e7e1e65",
+    "research/metadata/myo1e-repository-001/02-recursive-tree.json": "cf4aa39f14a26288789d5e73533db4ca22df9f086dda22087a42e09d2daec57b",
+    "research/metadata/myo1e-repository-001/REQUEST_LEDGER.md": "053516bc7dd521a3522cf7545c8a4a912692146f11f5dd493e968455d9c22d52",
+    "research/myo1e_table_contract_checks.json": "e1edae785d8f8dc5f4724355bfa1f34b07f22e5463f0628d3c0fb9cafa01700a"
+  },
+  "local_cache_sha256": {
+    "research/metadata/myo1e-repository-001/01-commit.headers": "f3ddb76d0595e231d6164b9a5b77d13ad52aed21b78c29d52fb145a8ea27d152",
+    "research/metadata/myo1e-repository-001/02-recursive-tree.headers": "33b1cee94b137ea57c527817a4972c6e38c91b8a22c3701ad5bec6cdcb1c51fe",
+    "research/metadata/myo1e-repository-001/03-myo1e-osmotic.headers": "e57666f6fcbb7a28a106be5df7b3486d95ce44e25950797e8d5cca4888539076",
+    "research/metadata/myo1e-repository-001/03-three_color_tracking_myosin1e_osmotic_shock.csv": "c5278b8e41ade42ed46a75ae9c1728ccd9a9ecbef50d2fd671bea5347e74e347"
+  }
+}

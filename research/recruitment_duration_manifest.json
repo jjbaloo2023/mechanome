@@ -1,0 +1,15 @@
+{
+  "task_id": "recruitment-duration-null-001",
+  "attempt_number": 1,
+  "created_at_utc": "2026-09-29T13:07:54.902872+00:00",
+  "disposition": "accepted_prospective_population_falsification_design_no_empirical_fit",
+  "artifact_sha256": {
+    "research/recruitment_duration_design.json": "d4d6ad8813ab748ffdcfb2bff492b8b0497ccf0c973cd9154ab30a3e4aa69c20",
+    "research/RECRUITMENT_DURATION_THEORY.md": "8145e5138e89e540f07229ef24864b15f57936d801700dd23b857b2b9be78bec",
+    "research/RECRUITMENT_DURATION_REVIEW.md": "8c161c3f90173907d32e43de7d04d36935c7e2bab4dd623931d9986e2fd959e7",
+    "research/RECRUITMENT_DURATION_FINDINGS.md": "ed4a74ca1b49877760905bf4e6e2afea03e302acd222a844d285b1f6a5c75a35",
+    "research/recruitment_duration_arithmetic.json": "59c1db41ad33fb0b677130e2eaae43bc22046ac62179761e71c08aa178e247cc",
+    "research/recruitment_duration_illustration.png": "633b8f72d8aec71b1cc2846f548c1f0d290158b440122f0f17f268cdd3f965ce",
+    "research/recruitment_duration_illustration.svg": "78a03c5dfbaf3538a196e2c5131a328fef4194717313ed4752200e30d0a73438"
+  }
+}

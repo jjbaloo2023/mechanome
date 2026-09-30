@@ -1,0 +1,16 @@
+{
+  "task_id": "nonlinear-uniqueness-001",
+  "checkpoint_at_utc": "2026-09-26T16:38:38.769024+00:00",
+  "lead_disposition": "Accepted conditional theorem and exceptions after global-flux correction; actual nonflat existence remains queued.",
+  "input_snapshot_aliases": {
+    "research/NEXT_CYCLE.md": "research/nonlinear_uniqueness_next_cycle_input.md"
+  },
+  "artifact_sha256": {
+    "research/nonlinear_uniqueness_design.json": "799692c99793600c570c37dff8c877f481395728dec53504c6723080c5a55c16",
+    "research/nonlinear_uniqueness_next_cycle_input.md": "a44958b1dd7c42b48130177f082287e47fae9e3f3ebc28ff80ec2d10dc165499",
+    "research/NONLINEAR_UNIQUENESS_THEORY.md": "a6be241b41ce88712d6dcd2aa88f7cea8abbe6215d12de4b5a081e4114cb61aa",
+    "research/NONLINEAR_UNIQUENESS_COMPATIBILITY.md": "d0fba05716e5a880ff0b2349ea26cbf9b3ebb5bcbd5a3276a4cf99fd1c95bda3",
+    "research/NONLINEAR_UNIQUENESS_REVIEW.md": "69f59339421155169fdbb43969bde879596463b05a60e04f09502583109d0367",
+    "research/NONLINEAR_UNIQUENESS_FINDINGS.md": "4b75eeeff1218e4affebc16049fb3cfdda4a9b226e9c29a0234335c06f8e9e48"
+  }
+}

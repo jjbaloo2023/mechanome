@@ -1,0 +1,50 @@
+{
+  "task_id": "independent-controls-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-26T15:20:34.475888+00:00",
+  "scheduled_delivery_utc": "2026-09-26T15:18:04.190Z",
+  "first_tool_clock_utc": "2026-09-26T15:18:15Z",
+  "evidence_cutoff_utc": "2026-09-26T15:33:15Z",
+  "checkpoint_target_utc": "2026-09-26T15:38:15Z",
+  "studies": [
+    {
+      "id": "bucher2018",
+      "doi": "10.1038/s41467-018-03533-0",
+      "url": "https://www.nature.com/articles/s41467-018-03533-0",
+      "rationale": "Cellular clathrin/AP2 geometry and tension perturbation: a direct clathrin candidate for observation and independent-control eligibility."
+    },
+    {
+      "id": "saleem2015",
+      "doi": "10.1038/ncomms7249",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4346611/",
+      "rationale": "Clathrin reconstitution with membrane elasticity manipulation and tether-force measurement: a prospective calibration route with explicitly different geometry."
+    }
+  ],
+  "selection": "These two named primary candidates were selected from known clathrin tension/reconstitution work before detailed retrieval; initial title searches verified identity. No candidate expansion after eligibility results.",
+  "question": "Can either public experimental system supply independent mechanical controls and observations for separating curvature from balanced load, or a defensible narrower calibration comparison?",
+  "eligibility": [
+    "measured vs model-inferred quantities and actual observable geometry",
+    "independent kappa/tension/traction calibration and reaction mapping",
+    "evidence that perturbations preserve required source fields",
+    "spatial traction or two distinct known rigidities with invariant fields, or explicit alternative identifiability argument",
+    "registered profiles, scale/pose/covariance and replicate mapping",
+    "public data access, sizes and licenses; no request-only data treated as accessible"
+  ],
+  "reading_bounds": {
+    "studies": 2,
+    "small_metadata_bytes_per_payload": 2000000,
+    "supplement_policy": "Text/metadata only; inspect size before any retrieval. No full movies/bulk archives, no author contact, no paid access. A larger supplement can be recorded uninspected rather than downloaded.",
+    "source_budget_minutes": 7
+  },
+  "stop_condition": "One independently reviewed eligibility table and precise proposed small-data comparison or stopped empirical branch with minimum prospective requirements. No fit, numerical model, raw pipeline, broad search or biological preference.",
+  "sources_not_reopened": [
+    "S-BIAD566",
+    "DASC",
+    "Shape2Fate"
+  ],
+  "input_hashes": {
+    "research/LOAD_IDENTIFIABILITY_FINDINGS.md": "04aefc6d34436afb3f7af1ef8bca50530d4283a70242fc75da66bdccfb49c969",
+    "research/LOAD_IDENTIFIABILITY_REVIEW.md": "808fe7217c94b177b723c30293cd4cfe0f05850cc00b4bf733cdf126c6f31b4d",
+    "research/NEXT_CYCLE.md": "ced15a5979c2497a14448986d42fdf584cf8d33f83fe0d2545f1e94d1b5b5747"
+  }
+}

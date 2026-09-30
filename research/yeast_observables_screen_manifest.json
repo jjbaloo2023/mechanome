@@ -1,0 +1,16 @@
+{
+  "task_id": "yeast-joint-observables-screen-001",
+  "attempt_number": 1,
+  "created_at_utc": "2026-09-29T13:15:52.449784+00:00",
+  "disposition": "accepted_narrow_genotype_aggregate_candidate_with_disclosed_query_overrun",
+  "registered_query_cap": 3,
+  "actual_queries": 4,
+  "protocol_deviation": "One extra lead author/title verification query after three source queries; all further acquisition stopped.",
+  "downloaded_source_bodies": 0,
+  "artifact_sha256": {
+    "research/yeast_observables_screen_design.json": "c40b4f107a2ad389f69c69ae284df68e559b4c6dfe492e214f44e0eb43208c11",
+    "research/YEAST_OBSERVABLES_SOURCE.md": "999171bb60bd91eae350dfb62262412b323b09d293d80b05e9fd18e9f9601a9b",
+    "research/YEAST_OBSERVABLES_REVIEW.md": "c869a2df33f2366f9a3dfec95c484cbe3df23324511d22e57ca2853caaebb520",
+    "research/YEAST_OBSERVABLES_FINDINGS.md": "36aeb992430777616a1536be43c15fb202701849478057f2f072488087d735fe"
+  }
+}

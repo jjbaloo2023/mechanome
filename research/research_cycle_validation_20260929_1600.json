@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-09-29T16:17:11.189106+00:00",
+  "manifests": 30,
+  "hash_entries_checked": 242,
+  "hash_failures": [],
+  "navigation_links_checked": 471,
+  "broken_links": [],
+  "replacement_character_files": [],
+  "current_json_utf8": "passed",
+  "source_zip_hash_checks": [
+    "work_units_before_001.zip",
+    "work_units_source_001.zip"
+  ],
+  "git_diff_check_exit_code": 0,
+  "git_diff_check_output": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'mechanome/research/contracts.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'mechanome/research/controller.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'validation/tracking.py', LF will be replaced by CRLF the next time Git touches it\n",
+  "pytest_invocations": 1,
+  "pytest_cap": 3,
+  "tests_passed": 17,
+  "scientific_calls": 0,
+  "network_requests": 0,
+  "broader_tests_run": false
+}

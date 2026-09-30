@@ -1,0 +1,71 @@
+{
+  "task_id": "recruitment-duration-null-001",
+  "computed_at_utc": "2026-09-29T13:04:45.290139+00:00",
+  "python_version": "3.12.14",
+  "method": "Exact fractions using Python standard library; no numerical solver or empirical data. Checks verify proposed allocations and arithmetic, not the general sharpness proof.",
+  "bin_labels": [
+    "hypothetical_short",
+    "hypothetical_long"
+  ],
+  "baseline_weights": [
+    "4/5",
+    "1/5"
+  ],
+  "target_weights": [
+    "3/10",
+    "7/10"
+  ],
+  "baseline_positive_fraction": "2/5",
+  "total_variation": "1/2",
+  "coarse_target_interval": [
+    "0",
+    "9/10"
+  ],
+  "allocations": {
+    "lower": {
+      "g": [
+        "1/2",
+        "0"
+      ],
+      "baseline": "2/5",
+      "target": "3/20"
+    },
+    "upper": {
+      "g": [
+        "1/4",
+        "1"
+      ],
+      "baseline": "2/5",
+      "target": "31/40"
+    },
+    "shared_example": {
+      "g": [
+        "3/8",
+        "1/2"
+      ],
+      "baseline": "2/5",
+      "target": "37/80"
+    }
+  },
+  "hypothetical_challenge": "17/20",
+  "challenge_inside_TV_interval": true,
+  "challenge_above_sharp_upper": true,
+  "singular_support_example": {
+    "baseline_weights": [
+      "1",
+      "0"
+    ],
+    "target_weights": [
+      "3/4",
+      "1/4"
+    ],
+    "baseline_positive_fraction": "2/5",
+    "lower": "3/10",
+    "upper": "11/20"
+  },
+  "all_assertions_passed": true,
+  "empirical_input_files": [],
+  "BVP_calls": 0,
+  "numerical_solver_calls": 0,
+  "design_sha256": "d4d6ad8813ab748ffdcfb2bff492b8b0497ccf0c973cd9154ab30a3e4aa69c20"
+}

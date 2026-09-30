@@ -1,0 +1,13 @@
+# Knowing the spatial load changes the recovery problem
+
+**Accepted conditional theorem, 29 September 2026.** With fixed known rigidity, tension and spatial projected-area vertical load, one complete stationary normalized-slope profile uniquely determines a smooth curvature source with known compact support. For sufficiently shallow profiles, source error in the uniform norm is bounded by a fixed constant times the C1 radial slope error. This constant does not diverge merely because both profiles approach flatness.
+
+The [proof](KNOWN_LOAD_RECOVERY_THEORY.md) first integrates force balance from the regular origin to fix the entire flux from the known load. It then solves a first-order terminal equation for curvature mismatch, using the zero source at the known outer support boundary. A uniform bound on this mismatch follows from a first-exit estimate, without assuming a bound on the unknown source. Comparing two solutions gives the stated Lipschitz bound. [Independent review](KNOWN_LOAD_RECOVERY_REVIEW.md) accepted the flux sign, origin and support conditions, uniform estimate and empirical limits; lead inspection agrees.
+
+This differs from the [unknown-load result](NONLINEAR_INVERSE_STABILITY_FINDINGS.md), where the load is allowed to change and an O(epsilon) source difference can change two complete profiles by only O(epsilon cubed). That construction also defeats a uniform estimate in the present weaker norms. The distinction is the independently fixed spatial load, not simply the number of tension conditions.
+
+The theorem compares actual compatible stationary graphs. It does not assert that arbitrary noisy curves admit smooth compact sources, that slope derivatives are measured accurately, or that stationary graphs are dynamically stable. Knowing only net force, a tube-force resultant or an intervention label is insufficient. No numerical precision threshold, experimental fit or novelty claim follows.
+
+The [data comparison](KNOWN_LOAD_DATA_COMPARISON.md) finds that the currently assessed public tables do not supply these full profiles and controls. The known-load theorem therefore enables no new empirical source estimate. The [design](known_load_recovery_design.json) and [manifest](known_load_recovery_manifest.json) preserve this bounded comparison; no BVP or numerical K calculation was made.
+
+This completes the current source-recovery sequence. Further work returns to a distinct mechanism-specific observation: whether the published actin load-adaptation model supplies a bounded, testable joint prediction beyond geometry or prescribed force. The closed numerical branch and stopped data inferences remain closed.

@@ -1,0 +1,89 @@
+{
+  "task_id": "nonlinear-numerical-001",
+  "attempt_number": 1,
+  "status": "reviewed_queued_execution_not_started",
+  "prepared_at_utc": "2026-09-26T23:31:44.366572+00:00",
+  "question": "Do finite sampled compact-curvature amplitudes produce converged exact-graph profile pairs with resolved positive slope margins, and what is the size of their undivided source-compatibility residual?",
+  "model": "Same projected-coordinate exact graph energy, kappa1, f0, regular pole, flat reservoir, normalized u=p/sqrt(1+p\u00b2).",
+  "parameters": {
+    "epsilon": [
+      0.025,
+      0.05,
+      0.1
+    ],
+    "sigma": [
+      1,
+      2
+    ],
+    "source": "c=epsilon*phi, phi=exp(1-1/(1-r\u00b2)) inside1 and zero outside",
+    "fixed_comparisons": [
+      {
+        "R": 8,
+        "tolerance": 1e-06
+      },
+      {
+        "R": 8,
+        "tolerance": 1e-08
+      },
+      {
+        "R": 12,
+        "tolerance": 1e-08
+      }
+    ],
+    "max_nodes": 20000,
+    "max_total_solves": 26,
+    "sample_points_on_source_disk": 4097
+  },
+  "equations": {
+    "unknown": "v=u/r, w=v_prime",
+    "v_prime": "w",
+    "w_prime": "-3*w/r + c_prime/r + [sigma*v - 0.5*v*(2*v+r*w-c)*(r*w+c)]/(1-r\u00b2*v\u00b2)",
+    "source_quotient": "c_prime/r=-2*epsilon*phi/(1-r\u00b2)^2 inside1, limit -2*epsilon at0, zero outside",
+    "pole": "w(0)=0; 4*v_second(0)=c_second(0)+sigma*v0-0.5*v0*(2*v0-c0)*c0",
+    "outer": "v(R)=0, explicitly an approximate finite reservoir boundary",
+    "singular_matrix": "If solve_bvp used, put -3*w/r in S=diag(0,-3); do not evaluate 0/0 or duplicate singular term."
+  },
+  "execution_scope": "18 nonlinear solves, 6 linear controls at same sigma/configurations, 2 zero-source controls at R8/tol1e-8. One bounded attempt; preserve failure and do not increase R/amplitude/nodes or add cases without new decision.",
+  "independent_reference": "Solve the separate linear equation with RHS -phi_prime and compare with infinite-domain Bessel Green quadrature. For response a_sigma: a(r)=K1(lambda*r)*integral_0^r I1(lambda*s)*(-phi_prime(s))*s ds + I1(lambda*r)*integral_r^1 K1(lambda*s)*(-phi_prime(s))*s ds (second integral zero for r>=1, first capped at1); z=a/r with exact origin limit lambda/2*integral_0^1 K1(lambda*s)*(-phi_prime(s))*s ds. Do not compare finite nonlinear profiles to linear reference at machine precision.",
+  "required_outputs": [
+    "Exact code/design hashes, Python/scipy/numpy versions, observed start/end times and input provenance.",
+    "Solver status/node counts, boundary values, max|u| and independent off-mesh residuals from interpolation derivatives, never substituting ODE RHS as the checked derivative.",
+    "Regular-origin residual via analytic limit, exact flux Q and Q/r off the pole, finite reservoir comparisons on the source disk.",
+    "Record v2 minimum and (v1-v2) minimum on4097 source-disk points including origin limits and edge; sampled signs are numerical evidence only.",
+    "Profile tolerance and reservoir refinement changes; linear-reference and zero-source control errors.",
+    "If all equilibrium checks pass, fixed g=c diagnostic K=D[-S*(r*g)_prime+r*(c*g+g\u00b2/2)] on source disk, its norm and K/epsilon\u00b3 across three amplitudes. K is a source-compatibility residual, not observation error or noise tolerance."
+  ],
+  "acceptance_thresholds": {
+    "fine_solver_status": 0,
+    "graph_safety_max_abs_u": 0.9,
+    "boundary_max_abs": 1e-09,
+    "fine_max_abs_Q_over_r_div_epsilon": 1e-05,
+    "relative_source_disk_profile_change_tolerance_refinement": 0.0005,
+    "relative_source_disk_profile_change_R8_to_R12": 1e-05,
+    "fine_linear_infinite_reference_relative_max_error": 1e-06,
+    "zero_source_max_abs_u": 1e-10,
+    "sampled_positive_margins": "Both minima positive and exceeding10 times associated measured tolerance/reservoir change; report as sampled numerical robustness, not rigorous all-radius sign proof."
+  },
+  "interpretation_limits": [
+    "Finite R12 is not an infinite-domain proof; refined agreement bounds only observed sensitivity.",
+    "Chosen finite epsilon values are computational probes, not the analytic existence threshold.",
+    "Do not claim stability, global uniqueness, biological identification, calibrated observation noise or practical precision.",
+    "The accepted local theorem remains independent of solver success or failure.",
+    "If thresholds fail, retain inconclusive/failed computational gate and stop; no parameter fishing."
+  ],
+  "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+  "input_sha256": {
+    "research/nonlinear_existence_design.json": "14645c6491f78e87498c662a08fad8fa78addd7a5938279b86a50ea9d3c90aaf",
+    "research/NONLINEAR_EXISTENCE_FINDINGS.md": "aa29b81c07d6b15b453ca6135f212d05e52d83538c689fe621f2736fbf93aa9e",
+    "research/NONLINEAR_EXISTENCE_THEORY.md": "a9ec0a6dfefa5ba34ab3ade0804aeed5fd2a9d6f6687a6076ff8ae48704ea9c0"
+  },
+  "comparison_definitions": {
+    "profile": "v=u/r; sup norms on the same4097-point [0,1] grid including finite pole value. No pointwise relative p error.",
+    "relative_profile_change": "For each sigma/epsilon, ||v_test-v_reference||_infinity / max(||v_reference||_infinity,1e-12). Reference is R8 fine for tolerance comparison and R12 fine for reservoir comparison.",
+    "absolute_profile_uncertainty": "E_sigma=max(||v_R8_coarse-v_R8_fine||_infinity,||v_R8_fine-v_R12_fine||_infinity), in v units; this is observed sensitivity, not a rigorous error bound.",
+    "ordering_margins": "min(v2_R12fine)>10*E2 and min(v1_R12fine-v2_R12fine)>10*(E1+E2). Sampled margins use same v units including origin/edge.",
+    "threshold_applicability": "Exact nonlinear Q/r and graph thresholds apply to nonzero-epsilon nonlinear cases. Linear controls compare their separate linear equation/reference; zero-source controls use absolute norms. Boundary residual only tests prescribed finite BC compliance. R comparison separately measures reservoir sensitivity.",
+    "residual": "Use independent interpolation derivatives at points off the adaptive mesh, with dense source-disk coverage and full [0,R] coverage; report grid/count. At zero evaluate Q/r by its analytic pole limit. Never compute second derivative by substituting the ODE RHS into the residual."
+  },
+  "review_accepted_at_utc": "2026-09-27T00:21:16.550086+00:00"
+}

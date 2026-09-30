@@ -1,0 +1,119 @@
+{
+  "sha": "2c7f823b1cad4d458fd383877b7ed841e220e655",
+  "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/trees/2c7f823b1cad4d458fd383877b7ed841e220e655",
+  "tree": [
+    {
+      "path": "Myo1E_Manuscript.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24e1b716ae24cde4a945c6f3d8267966b9bec1dc",
+      "size": 25773834,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/24e1b716ae24cde4a945c6f3d8267966b9bec1dc"
+    },
+    {
+      "path": "three_color_tracking_ada_control_replicates.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f46c83ec7d06793d299cee6f1df32af9526e4ad7",
+      "size": 356351,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/f46c83ec7d06793d299cee6f1df32af9526e4ad7"
+    },
+    {
+      "path": "three_color_tracking_ada_dko_replicates.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "783aafce0ebfbf252934e5b8d87fa3dfc43c2de3",
+      "size": 1098576,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/783aafce0ebfbf252934e5b8d87fa3dfc43c2de3"
+    },
+    {
+      "path": "three_color_tracking_arpc3_osmotic_shock.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fbfeb37190d715efd07a6bc7f2a3cf7219e7766",
+      "size": 2369352,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/7fbfeb37190d715efd07a6bc7f2a3cf7219e7766"
+    },
+    {
+      "path": "three_color_tracking_myo1e_control_replicates.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01d9fed63e967e558448e1cf84c97964f7882965",
+      "size": 185952,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/01d9fed63e967e558448e1cf84c97964f7882965"
+    },
+    {
+      "path": "three_color_tracking_myosin1e_osmotic_shock.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51fecfa7b3460ce6be63167389d41170733bf363",
+      "size": 226600,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/51fecfa7b3460ce6be63167389d41170733bf363"
+    },
+    {
+      "path": "three_color_tracking_myosin1eko_osmotic_shock.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eeee52fc84293f1d6969cb1af5e65ce8df22f109",
+      "size": 2220772,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/eeee52fc84293f1d6969cb1af5e65ce8df22f109"
+    },
+    {
+      "path": "two_color_tracking_ad_control_replicates.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3dc8acd9182e0da82f0353bdd7f964d99706aa1",
+      "size": 420446,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/c3dc8acd9182e0da82f0353bdd7f964d99706aa1"
+    },
+    {
+      "path": "two_color_tracking_ada_control_replicates.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9428e8b8606e03797df663e9976ab89502ef50e",
+      "size": 209010,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/b9428e8b8606e03797df663e9976ab89502ef50e"
+    },
+    {
+      "path": "two_color_tracking_ada_dko_replicates.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "824681d81560c143670c130e0f8de7be81dfcfdb",
+      "size": 918931,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/824681d81560c143670c130e0f8de7be81dfcfdb"
+    },
+    {
+      "path": "two_color_tracking_arpc3_osmotic_shock.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2140f479e103db3431f93fd627de754f56cceacd",
+      "size": 1143935,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/2140f479e103db3431f93fd627de754f56cceacd"
+    },
+    {
+      "path": "two_color_tracking_myo1e_control_replicates.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4b3fa2689a1bca6d2ba3ca22501dde495d02a56",
+      "size": 2985252,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/c4b3fa2689a1bca6d2ba3ca22501dde495d02a56"
+    },
+    {
+      "path": "two_color_tracking_myosin1e_osmotic_shock.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b60b9991fe9787968a59264fc23bb0d4bfbeb17",
+      "size": 2419229,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/4b60b9991fe9787968a59264fc23bb0d4bfbeb17"
+    },
+    {
+      "path": "two_color_tracking_myosin1eko_osmotic_shock.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d1906abf5bf06350b928c81623c9911502fdae1",
+      "size": 1083695,
+      "url": "https://api.github.com/repos/DrubinBarnes/Smith_et_al_Myosin1E_Manuscript/git/blobs/5d1906abf5bf06350b928c81623c9911502fdae1"
+    }
+  ],
+  "truncated": false
+}

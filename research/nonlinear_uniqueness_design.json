@@ -1,0 +1,38 @@
+{
+  "task_id": "nonlinear-uniqueness-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-26T16:22:46.734192+00:00",
+  "scheduled_delivery_utc": "2026-09-26T16:18:05.121Z",
+  "first_tool_clock_utc": "2026-09-26T16:18:17Z",
+  "evidence_cutoff_utc": "2026-09-26T16:33:17Z",
+  "checkpoint_target_utc": "2026-09-26T16:38:17Z",
+  "question": "Under what explicit support and slope conditions does the exact two-profile compatibility equation force a compact curvature-source change to vanish?",
+  "model": "Exactly the projected-coordinate axisymmetric graph energy and balanced vertical dead-load conventions of nonlinear_source_design.json; no change of material labels, boundaries or load convention.",
+  "regularity": "Smooth radially regular c and g; g is supported in the declared disk 0<=r<=R0 for fixed finite R0, with smooth zero extension and g_prime(0)=0. Graphs are sufficiently smooth for the previously derived Euler equations, finite slope, regular origin and flat reservoir. Annular sub-supports may be discussed explicitly.",
+  "profile_prerequisite": "Two actual stationary profiles under common c,f,kappa and distinct known positive tensions; algebraic coefficient examples alone must not be labeled such profiles.",
+  "equation": "A(r)*(r*g)_prime+r*D(r)*(c*g+g^2/2)=0; A=1/J1^2-1/J2^2; D=p1/J1-p2/J2; p_j=h_j_prime; J_j=sqrt(1+p_j^2).",
+  "checks": [
+    "finite Riccati equation and infinitesimal equation with explicit assumptions",
+    "sufficient uniqueness theorem on a declared source support, not global identifiability",
+    "origin limit and propagation from source-support boundary",
+    "isolated coefficient zeros, equal slopes, opposite slopes and intervals of equality",
+    "flat-family actual-stationarity counterexample retained",
+    "algebraic degeneracies distinct from jointly realizable equilibrium profiles",
+    "conditioning and joint-small-source order distinct from uniqueness",
+    "independent theory/review and physical-compatibility challenge"
+  ],
+  "expected_outcomes": [
+    "conditional sufficient uniqueness criterion with classified exceptions",
+    "nontrivial allowed compact source degeneracy",
+    "precise unresolved coefficient/equilibrium prerequisite"
+  ],
+  "stop_condition": "One independently reviewed criterion or counterexample and explicit remaining prerequisite. No solver, empirical fit, parameter sweep, new source search, or practical precision/novelty claim. Any next stage requires a new decision after this one closes.",
+  "input_sha256": {
+    "research/nonlinear_source_design.json": "71f6872dc09287ea7a6ab3cff3cd7782f2f29cfe634a8264e9cf7617b69ebdf8",
+    "research/NONLINEAR_SOURCE_FINDINGS.md": "974403d3ee9254a36b3097940c753288f6dd05b8f6759d838db785508a760fc3",
+    "research/NONLINEAR_SOURCE_THEORY.md": "4159afb38647be0722e7880edfc66dbc9d967c08a3b5e6a8631a315119314851",
+    "research/NONLINEAR_SOURCE_REVIEW.md": "17822d5215cd704e79b27f0e196f16bac3a678e7056a5db0d942910f3cd076e7",
+    "research/NEXT_CYCLE.md": "a44958b1dd7c42b48130177f082287e47fae9e3f3ebc28ff80ec2d10dc165499"
+  },
+  "disclosure": "Lead preliminary ODE reasoning preceded registration; this freezes the analytic contract and review, not a blind discovery claim."
+}

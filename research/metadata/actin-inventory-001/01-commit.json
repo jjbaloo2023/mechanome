@@ -1,0 +1,66 @@
+{
+  "sha": "e0d5426515abaa37fdc9cd3151e108480a0337eb",
+  "node_id": "MDY6Q29tbWl0MTkyOTk3NjMwOmUwZDU0MjY1MTVhYmFhMzdmZGM5Y2QzMTUxZTEwODQ4MGEwMzM3ZWI=",
+  "commit": {
+    "author": {
+      "name": "Matthew Akamatsu",
+      "email": "makamats@Matthews-MacBook-Pro-2.local",
+      "date": "2019-08-21T21:51:54Z"
+    },
+    "committer": {
+      "name": "Matthew Akamatsu",
+      "email": "makamats@Matthews-MacBook-Pro-2.local",
+      "date": "2019-08-21T21:51:54Z"
+    },
+    "message": "updated readme",
+    "tree": {
+      "sha": "c5b54f0ff429515519a8355ef309aa07e28598e1",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/c5b54f0ff429515519a8355ef309aa07e28598e1"
+    },
+    "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/commits/e0d5426515abaa37fdc9cd3151e108480a0337eb",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/commits/e0d5426515abaa37fdc9cd3151e108480a0337eb",
+  "html_url": "https://github.com/DrubinBarnes/Akamatsu_CME_manuscript/commit/e0d5426515abaa37fdc9cd3151e108480a0337eb",
+  "comments_url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/commits/e0d5426515abaa37fdc9cd3151e108480a0337eb/comments",
+  "author": null,
+  "committer": null,
+  "parents": [
+    {
+      "sha": "8ae21872259d0a4ad13b2deb38bab6d1dcca0782",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/commits/8ae21872259d0a4ad13b2deb38bab6d1dcca0782",
+      "html_url": "https://github.com/DrubinBarnes/Akamatsu_CME_manuscript/commit/8ae21872259d0a4ad13b2deb38bab6d1dcca0782"
+    },
+    {
+      "sha": "15e6d1c71bbd52ae2b1295ac58312873f7b97388",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/commits/15e6d1c71bbd52ae2b1295ac58312873f7b97388",
+      "html_url": "https://github.com/DrubinBarnes/Akamatsu_CME_manuscript/commit/15e6d1c71bbd52ae2b1295ac58312873f7b97388"
+    }
+  ],
+  "stats": {
+    "total": 2,
+    "additions": 1,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "f041d570f5c78bbc078d15447061b5df3bcb096a",
+      "filename": "README.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/DrubinBarnes/Akamatsu_CME_manuscript/blob/e0d5426515abaa37fdc9cd3151e108480a0337eb/README.md",
+      "raw_url": "https://github.com/DrubinBarnes/Akamatsu_CME_manuscript/raw/e0d5426515abaa37fdc9cd3151e108480a0337eb/README.md",
+      "contents_url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/contents/README.md?ref=e0d5426515abaa37fdc9cd3151e108480a0337eb",
+      "patch": "@@ -1,2 +1,2 @@\n # Akamatsu_CME_manuscript\n-Code and supplemental movies associated with Akamatsu et al. manuscript on actin in mammalian CME\n+Code associated with Akamatsu et al. manuscript on actin in mammalian CME"
+    }
+  ]
+}

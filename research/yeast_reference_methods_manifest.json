@@ -1,0 +1,16 @@
+{
+  "task_id": "yeast-reference-methods-001",
+  "attempt_number": 1,
+  "accepted_at_utc": "2026-09-29T14:06:59.959595+00:00",
+  "disposition": "accepted_access_definition_gap_motion_branch_stopped",
+  "search_queries": 1,
+  "parsed_primary_opens": 2,
+  "find_probes": 3,
+  "local_body_downloads": 0,
+  "artifact_sha256": {
+    "research/yeast_reference_methods_design.json": "71367781846bbbf2238f69274f65640753245ce21ff9784cb27196920e985bf3",
+    "research/YEAST_REFERENCE_SOURCE.md": "d74a365666ece18a441128961c64b3739b449d7fcc717feadf91f0a2a7264efe",
+    "research/YEAST_REFERENCE_REVIEW.md": "ac8ac73dd455c10ce0c956a449a18ea252dde4b46e015edcfabc9ee0589f3564",
+    "research/YEAST_REFERENCE_FINDINGS.md": "20b4b3fc4dcd0f437a1cd36962f1ee0268c4fb4dd2ea3d730606f45f315b1423"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "sha": "c222b1ffb0b983b25d962d25bbe63d9995e55c64",
+  "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/c222b1ffb0b983b25d962d25bbe63d9995e55c64",
+  "tree": [
+    {
+      "path": ".DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a21e64f71c2a79839462255092a6d2fd3267066",
+      "size": 6148,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/3a21e64f71c2a79839462255092a6d2fd3267066"
+    },
+    {
+      "path": ".ipynb_checkpoints",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5dbbff9a32148910da653154efd287cfacd4f661",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/5dbbff9a32148910da653154efd287cfacd4f661"
+    },
+    {
+      "path": "Icon\r",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "cytosim-reporting-akamatsu-2019.ipynb",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "46aed16e5002a906a6c4aaa98d4b89993a4288b6",
+      "size": 185268,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/46aed16e5002a906a6c4aaa98d4b89993a4288b6"
+    },
+    {
+      "path": "get_actin_model_points_simplified.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5e721b69568ae33d28d6ec4dd3aef1659348229",
+      "size": 20819,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/c5e721b69568ae33d28d6ec4dd3aef1659348229"
+    },
+    {
+      "path": "parameter_sweep_analysis_plots_Akamatsu_2019.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1ecc5c26a11e6db18a54a03eab8181ea34945f5",
+      "size": 4436919,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/c1ecc5c26a11e6db18a54a03eab8181ea34945f5"
+    },
+    {
+      "path": "plot_actin_Akamatsu_2019.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29d4cbadcbb798b34df6aaecb4cb90567c9ef47e",
+      "size": 3577496,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/29d4cbadcbb798b34df6aaecb4cb90567c9ef47e"
+    },
+    {
+      "path": "plot_multiple_param_sweeps_Akamatsu_2019.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc0d515d885023a8ba43eed6afc9d605621ff956",
+      "size": 172514,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/dc0d515d885023a8ba43eed6afc9d605621ff956"
+    }
+  ],
+  "truncated": false
+}

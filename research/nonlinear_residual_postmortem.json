@@ -1,0 +1,674 @@
+{
+  "task_id": "nonlinear-residual-postmortem-001",
+  "started_at_utc": "2026-09-27T00:59:11.122416+00:00",
+  "completed_at_utc": "2026-09-27T00:59:11.365130+00:00",
+  "new_BVP_calls": 0,
+  "scope": "Diagnostic identity only; physical gate remains failed and K suppressed.",
+  "input_sha256": {
+    "research\\nonlinear_numerical_results_002.json": "c8eebc7b9efdf1e53b0ed0ae6a5f8f7464f838818e46aee84e6ccf73bcbf4cca",
+    "research\\nonlinear_numerical_profiles_002.npz": "8bd02b0b0464b39a9ee1ce9e948417b309a364524d171d7d9d8d1eda39a47523"
+  },
+  "script_sha256": "e34a35d529b2dff89b7fcde0f80d3ac7cd86a9c2730508705aacbdb75af45e28",
+  "fine_cases": [
+    {
+      "label": "nonlinear_s1_e0.025_R8_tol1e-08",
+      "epsilon": 0.025,
+      "sigma": 1,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00015303033091738916,
+        "max_system_normalized_diagnostic_only": 5.300653951705037e-07,
+        "max_defect_normalized": 0.000153063400229528,
+        "decomposition_max_abs_error_normalized": 1.0820824725350005e-15,
+        "max_abs_vprime_minus_w": 3.77116334362472e-09,
+        "max_abs_vsecond_minus_wprime": 3.827934877763395e-06,
+        "physical_argmax_r": 0.9332426241372496,
+        "physical_argmax_interval": [
+          0.93125,
+          0.9333333333333333
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": -0.00015303033091738916,
+          "system_over_epsilon": 3.306931216709441e-08,
+          "defect_over_epsilon": -0.000153063400229528
+        },
+        "pole": {
+          "physical_over_epsilon": -5.096048190031399e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.096048190045277e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 21227,
+        "max_physical_normalized": 0.00024194437168112426,
+        "max_system_normalized_diagnostic_only": 5.563904218602866e-07,
+        "max_defect_normalized": 0.00024194437168151907,
+        "decomposition_max_abs_error_normalized": 1.0820824725350005e-15,
+        "max_abs_vprime_minus_w": 3.77116334362472e-09,
+        "max_abs_vsecond_minus_wprime": 6.048716904159552e-06,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024194437168112426,
+          "system_over_epsilon": -4.85722573273506e-16,
+          "defect_over_epsilon": 0.00024194437168151907
+        },
+        "pole": {
+          "physical_over_epsilon": -5.096048190031399e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.096048190045277e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s1_e0.025_R12_tol1e-08",
+      "epsilon": 0.025,
+      "sigma": 1,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00015303034211862007,
+        "max_system_normalized_diagnostic_only": 5.402775491401834e-07,
+        "max_defect_normalized": 0.00015306341142725568,
+        "decomposition_max_abs_error_normalized": 9.241764729254857e-16,
+        "max_abs_vprime_minus_w": 4.148001098527344e-09,
+        "max_abs_vsecond_minus_wprime": 3.827935157824092e-06,
+        "physical_argmax_r": 0.9332426241372496,
+        "physical_argmax_interval": [
+          0.93125,
+          0.9333333333333333
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": -0.00015303034211862007,
+          "system_over_epsilon": 3.3069308680300225e-08,
+          "defect_over_epsilon": -0.00015306341142725568
+        },
+        "pole": {
+          "physical_over_epsilon": -5.096047494219935e-05,
+          "system_over_epsilon": -6.938893903907228e-17,
+          "defect_over_epsilon": -5.096047494212996e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 21497,
+        "max_physical_normalized": 0.00024194436940586095,
+        "max_system_normalized_diagnostic_only": 5.563904169683664e-07,
+        "max_defect_normalized": 0.00024194436940586794,
+        "decomposition_max_abs_error_normalized": 9.241764729254857e-16,
+        "max_abs_vprime_minus_w": 4.148001098527344e-09,
+        "max_abs_vsecond_minus_wprime": 6.048716961988294e-06,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024194436940586095,
+          "system_over_epsilon": -1.0408340855860843e-16,
+          "defect_over_epsilon": 0.00024194436940586794
+        },
+        "pole": {
+          "physical_over_epsilon": -5.096047494219935e-05,
+          "system_over_epsilon": -6.938893903907228e-17,
+          "defect_over_epsilon": -5.096047494212996e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s2_e0.025_R8_tol1e-08",
+      "epsilon": 0.025,
+      "sigma": 2,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00015266030363073058,
+        "max_system_normalized_diagnostic_only": 5.275276120184774e-07,
+        "max_defect_normalized": 0.00015269334391567488,
+        "decomposition_max_abs_error_normalized": 6.734451914175562e-16,
+        "max_abs_vprime_minus_w": 3.6111320920280063e-09,
+        "max_abs_vsecond_minus_wprime": 3.8186625817143716e-06,
+        "physical_argmax_r": 0.9332426241372496,
+        "physical_argmax_interval": [
+          0.93125,
+          0.9333333333333333
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": -0.00015266030363073058,
+          "system_over_epsilon": 3.304028491774025e-08,
+          "defect_over_epsilon": -0.00015269334391567488
+        },
+        "pole": {
+          "physical_over_epsilon": -5.4003045893841195e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.400304589397997e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 21227,
+        "max_physical_normalized": 0.00024224722763602213,
+        "max_system_normalized_diagnostic_only": 5.579109439018959e-07,
+        "max_defect_normalized": 0.00024224722763633398,
+        "decomposition_max_abs_error_normalized": 7.272479301337613e-16,
+        "max_abs_vprime_minus_w": 3.6111320920280063e-09,
+        "max_abs_vsecond_minus_wprime": 6.056255248976846e-06,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024224722763602213,
+          "system_over_epsilon": -4.163336342344337e-16,
+          "defect_over_epsilon": 0.00024224722763633398
+        },
+        "pole": {
+          "physical_over_epsilon": -5.4003045893841195e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.400304589397997e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s2_e0.025_R12_tol1e-08",
+      "epsilon": 0.025,
+      "sigma": 2,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00015266031288155985,
+        "max_system_normalized_diagnostic_only": 5.479817051512459e-07,
+        "max_defect_normalized": 0.0001526933531606282,
+        "decomposition_max_abs_error_normalized": 7.484330182379794e-16,
+        "max_abs_vprime_minus_w": 3.731508475097404e-09,
+        "max_abs_vsecond_minus_wprime": 3.8186628129183164e-06,
+        "physical_argmax_r": 0.9332426241372496,
+        "physical_argmax_interval": [
+          0.93125,
+          0.9333333333333333
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": -0.00015266031288155985,
+          "system_over_epsilon": 3.3040279401319594e-08,
+          "defect_over_epsilon": -0.0001526933531606282
+        },
+        "pole": {
+          "physical_over_epsilon": -5.400302261024392e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.40030226103827e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 21479,
+        "max_physical_normalized": 0.00024224723264160142,
+        "max_system_normalized_diagnostic_only": 5.579109537551252e-07,
+        "max_defect_normalized": 0.00024224723264167934,
+        "decomposition_max_abs_error_normalized": 7.484330182379794e-16,
+        "max_abs_vprime_minus_w": 3.731508475097404e-09,
+        "max_abs_vsecond_minus_wprime": 6.0562552707656234e-06,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024224723264160142,
+          "system_over_epsilon": -2.0816681711721685e-16,
+          "defect_over_epsilon": 0.00024224723264167934
+        },
+        "pole": {
+          "physical_over_epsilon": -5.400302261024392e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.40030226103827e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s1_e0.05_R8_tol1e-08",
+      "epsilon": 0.05,
+      "sigma": 1,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.0001530242409832419,
+        "max_system_normalized_diagnostic_only": 2.7831946339609837e-07,
+        "max_defect_normalized": 0.00015305730946532797,
+        "decomposition_max_abs_error_normalized": 6.302496874811391e-16,
+        "max_abs_vprime_minus_w": 4.557999994797557e-09,
+        "max_abs_vsecond_minus_wprime": 7.655868745029548e-06,
+        "physical_argmax_r": 0.9332426241372496,
+        "physical_argmax_interval": [
+          0.93125,
+          0.9333333333333333
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": -0.0001530242409832419,
+          "system_over_epsilon": 3.306848215395286e-08,
+          "defect_over_epsilon": -0.00015305730946532797
+        },
+        "pole": {
+          "physical_over_epsilon": -5.096291675457665e-05,
+          "system_over_epsilon": -1.3877787807814457e-16,
+          "defect_over_epsilon": -5.096291675443787e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 22739,
+        "max_physical_normalized": 0.00024193249316881854,
+        "max_system_normalized_diagnostic_only": 2.9007168046019105e-07,
+        "max_defect_normalized": 0.00024193249316897122,
+        "decomposition_max_abs_error_normalized": 1.0637632674682582e-15,
+        "max_abs_vprime_minus_w": 4.799417422512997e-09,
+        "max_abs_vsecond_minus_wprime": 1.2097485192896253e-05,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024193249316881854,
+          "system_over_epsilon": -2.7755575615628914e-16,
+          "defect_over_epsilon": 0.00024193249316897122
+        },
+        "pole": {
+          "physical_over_epsilon": -5.096291675457665e-05,
+          "system_over_epsilon": -1.3877787807814457e-16,
+          "defect_over_epsilon": -5.096291675443787e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s1_e0.05_R12_tol1e-08",
+      "epsilon": 0.05,
+      "sigma": 1,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00015302422993980144,
+        "max_system_normalized_diagnostic_only": 2.754014633010726e-07,
+        "max_defect_normalized": 0.00015305729842603476,
+        "decomposition_max_abs_error_normalized": 7.577059114280459e-16,
+        "max_abs_vprime_minus_w": 4.55799991153083e-09,
+        "max_abs_vsecond_minus_wprime": 7.655868193109927e-06,
+        "physical_argmax_r": 0.9332426241372496,
+        "physical_argmax_interval": [
+          0.93125,
+          0.9333333333333333
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": -0.00015302422993980144,
+          "system_over_epsilon": 3.3068486247900264e-08,
+          "defect_over_epsilon": -0.00015305729842603476
+        },
+        "pole": {
+          "physical_over_epsilon": -5.096291499757932e-05,
+          "system_over_epsilon": -6.938893903907228e-17,
+          "defect_over_epsilon": -5.0962914997509934e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 23081,
+        "max_physical_normalized": 0.0002419324962173522,
+        "max_system_normalized_diagnostic_only": 2.900716337267406e-07,
+        "max_defect_normalized": 0.00024193249621764837,
+        "decomposition_max_abs_error_normalized": 8.961312120418959e-16,
+        "max_abs_vprime_minus_w": 4.7994173253684824e-09,
+        "max_abs_vsecond_minus_wprime": 1.2097485039047097e-05,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.0002419324962173522,
+          "system_over_epsilon": -4.163336342344337e-16,
+          "defect_over_epsilon": 0.00024193249621764837
+        },
+        "pole": {
+          "physical_over_epsilon": -5.096291499757932e-05,
+          "system_over_epsilon": -6.938893903907228e-17,
+          "defect_over_epsilon": -5.0962914997509934e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s2_e0.05_R8_tol1e-08",
+      "epsilon": 0.05,
+      "sigma": 2,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00015265636378204023,
+        "max_system_normalized_diagnostic_only": 2.8015977489304067e-07,
+        "max_defect_normalized": 0.00015268940372489937,
+        "decomposition_max_abs_error_normalized": 6.636836660960425e-16,
+        "max_abs_vprime_minus_w": 4.563683302788446e-09,
+        "max_abs_vsecond_minus_wprime": 7.637325237147552e-06,
+        "physical_argmax_r": 0.9332426241372496,
+        "physical_argmax_interval": [
+          0.93125,
+          0.9333333333333333
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": -0.00015265636378204023,
+          "system_over_epsilon": 3.303994272618738e-08,
+          "defect_over_epsilon": -0.00015268940372489937
+        },
+        "pole": {
+          "physical_over_epsilon": -5.400610349190482e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.40061034920436e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 22757,
+        "max_physical_normalized": 0.00024223947207253904,
+        "max_system_normalized_diagnostic_only": 2.899081666743464e-07,
+        "max_defect_normalized": 0.00024223947207235638,
+        "decomposition_max_abs_error_normalized": 7.195036667156929e-16,
+        "max_abs_vprime_minus_w": 4.805401739721438e-09,
+        "max_abs_vsecond_minus_wprime": 1.2112569473458727e-05,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024223947207253904,
+          "system_over_epsilon": -1.3877787807814457e-16,
+          "defect_over_epsilon": 0.00024223947207235638
+        },
+        "pole": {
+          "physical_over_epsilon": -5.400610349190482e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.40061034920436e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s2_e0.05_R12_tol1e-08",
+      "epsilon": 0.05,
+      "sigma": 2,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00015265634691372792,
+        "max_system_normalized_diagnostic_only": 2.8428462285623457e-07,
+        "max_defect_normalized": 0.00015268938685820865,
+        "decomposition_max_abs_error_normalized": 7.258638253583886e-16,
+        "max_abs_vprime_minus_w": 4.563683403402408e-09,
+        "max_abs_vsecond_minus_wprime": 7.637324393516831e-06,
+        "physical_argmax_r": 0.9332426241372496,
+        "physical_argmax_interval": [
+          0.93125,
+          0.9333333333333333
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": -0.00015265634691372792,
+          "system_over_epsilon": 3.303994453029979e-08,
+          "defect_over_epsilon": -0.00015268938685820865
+        },
+        "pole": {
+          "physical_over_epsilon": -5.400610864320088e-05,
+          "system_over_epsilon": 0.0,
+          "defect_over_epsilon": -5.400610864320088e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 23081,
+        "max_physical_normalized": 0.00024223946828161314,
+        "max_system_normalized_diagnostic_only": 2.899081813154125e-07,
+        "max_defect_normalized": 0.0002422394682816392,
+        "decomposition_max_abs_error_normalized": 7.258638253583886e-16,
+        "max_abs_vprime_minus_w": 4.805401857682634e-09,
+        "max_abs_vsecond_minus_wprime": 1.2112569663612176e-05,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024223946828161314,
+          "system_over_epsilon": -6.938893903907228e-17,
+          "defect_over_epsilon": 0.0002422394682816392
+        },
+        "pole": {
+          "physical_over_epsilon": -5.400610864320088e-05,
+          "system_over_epsilon": 0.0,
+          "defect_over_epsilon": -5.400610864320088e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s1_e0.1_R8_tol1e-08",
+      "epsilon": 0.1,
+      "sigma": 1,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.0001457674272928658,
+        "max_system_normalized_diagnostic_only": 1.426347289584795e-07,
+        "max_defect_normalized": 0.0001457308646595117,
+        "decomposition_max_abs_error_normalized": 6.892645904987144e-16,
+        "max_abs_vprime_minus_w": 9.116153443233799e-09,
+        "max_abs_vsecond_minus_wprime": 1.4597613909523785e-05,
+        "physical_argmax_r": 0.8413700855984616,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.0001457674272928658,
+          "system_over_epsilon": 3.656263319884445e-08,
+          "defect_over_epsilon": 0.0001457308646595117
+        },
+        "pole": {
+          "physical_over_epsilon": -5.097272620747939e-05,
+          "system_over_epsilon": -6.938893903907228e-17,
+          "defect_over_epsilon": -5.097272620741e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 24017,
+        "max_physical_normalized": 0.0002418850146853127,
+        "max_system_normalized_diagnostic_only": 1.4649175331116204e-07,
+        "max_defect_normalized": 0.0002418850146854614,
+        "decomposition_max_abs_error_normalized": 9.492211195934273e-16,
+        "max_abs_vprime_minus_w": 9.598997485760208e-09,
+        "max_abs_vsecond_minus_wprime": 2.419538019201098e-05,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.0002418850146853127,
+          "system_over_epsilon": -2.42861286636753e-16,
+          "defect_over_epsilon": 0.0002418850146854614
+        },
+        "pole": {
+          "physical_over_epsilon": -5.097272620747939e-05,
+          "system_over_epsilon": -6.938893903907228e-17,
+          "defect_over_epsilon": -5.097272620741e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s1_e0.1_R12_tol1e-08",
+      "epsilon": 0.1,
+      "sigma": 1,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00014576741904002294,
+        "max_system_normalized_diagnostic_only": 1.4263472708497815e-07,
+        "max_defect_normalized": 0.00014573085641267323,
+        "decomposition_max_abs_error_normalized": 6.572213341040842e-16,
+        "max_abs_vprime_minus_w": 9.11615397752863e-09,
+        "max_abs_vsecond_minus_wprime": 1.4597613085552685e-05,
+        "physical_argmax_r": 0.8413700855984616,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00014576741904002294,
+          "system_over_epsilon": 3.6562627231395695e-08,
+          "defect_over_epsilon": 0.00014573085641267323
+        },
+        "pole": {
+          "physical_over_epsilon": -5.09727379190833e-05,
+          "system_over_epsilon": -2.0816681711721685e-16,
+          "defect_over_epsilon": -5.097273791887513e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 24539,
+        "max_physical_normalized": 0.00024188500504666866,
+        "max_system_normalized_diagnostic_only": 1.4649176968695166e-07,
+        "max_defect_normalized": 0.00024188500504678252,
+        "decomposition_max_abs_error_normalized": 9.321586996621735e-16,
+        "max_abs_vprime_minus_w": 9.598996951465377e-09,
+        "max_abs_vsecond_minus_wprime": 2.4195379354706795e-05,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024188500504666866,
+          "system_over_epsilon": -2.0816681711721685e-16,
+          "defect_over_epsilon": 0.00024188500504678252
+        },
+        "pole": {
+          "physical_over_epsilon": -5.09727379190833e-05,
+          "system_over_epsilon": -2.0816681711721685e-16,
+          "defect_over_epsilon": -5.097273791887513e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s2_e0.1_R8_tol1e-08",
+      "epsilon": 0.1,
+      "sigma": 2,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00014595820550321326,
+        "max_system_normalized_diagnostic_only": 1.4248347030010322e-07,
+        "max_defect_normalized": 0.00014592573523499255,
+        "decomposition_max_abs_error_normalized": 6.562639883503398e-16,
+        "max_abs_vprime_minus_w": 9.127543984521758e-09,
+        "max_abs_vsecond_minus_wprime": 1.4615852606169634e-05,
+        "physical_argmax_r": 0.8413700855984616,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00014595820550321326,
+          "system_over_epsilon": 3.247026834907185e-08,
+          "defect_over_epsilon": 0.00014592573523499255
+        },
+        "pole": {
+          "physical_over_epsilon": -5.401831153176162e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.40183115319004e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 24035,
+        "max_physical_normalized": 0.00024220846110256655,
+        "max_system_normalized_diagnostic_only": 1.4622541982811654e-07,
+        "max_defect_normalized": 0.0002422084611026085,
+        "decomposition_max_abs_error_normalized": 7.915215842648057e-16,
+        "max_abs_vprime_minus_w": 9.610990732433766e-09,
+        "max_abs_vsecond_minus_wprime": 2.42256108381406e-05,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024220846110256655,
+          "system_over_epsilon": -1.3877787807814457e-16,
+          "defect_over_epsilon": 0.0002422084611026085
+        },
+        "pole": {
+          "physical_over_epsilon": -5.401831153176162e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.40183115319004e-05
+        }
+      }
+    },
+    {
+      "label": "nonlinear_s2_e0.1_R12_tol1e-08",
+      "epsilon": 0.1,
+      "sigma": 2,
+      "actual_vprime_at_zero": 0.0,
+      "actual_w_at_zero": 0.0,
+      "fixed_grid": {
+        "points": 12002,
+        "max_physical_normalized": 0.00014595819584496683,
+        "max_system_normalized_diagnostic_only": 1.403330862279062e-07,
+        "max_defect_normalized": 0.0001459257255758407,
+        "decomposition_max_abs_error_normalized": 6.828610214174718e-16,
+        "max_abs_vprime_minus_w": 9.127544615961103e-09,
+        "max_abs_vsecond_minus_wprime": 1.4615851638955478e-05,
+        "physical_argmax_r": 0.8413700855984616,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00014595819584496683,
+          "system_over_epsilon": 3.247026938990594e-08,
+          "defect_over_epsilon": 0.0001459257255758407
+        },
+        "pole": {
+          "physical_over_epsilon": -5.401830147341857e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.401830147355735e-05
+        }
+      },
+      "augmented_interval_grid": {
+        "points": 24539,
+        "max_physical_normalized": 0.00024220844982769663,
+        "max_system_normalized_diagnostic_only": 1.4622542565678742e-07,
+        "max_defect_normalized": 0.0002422084498279996,
+        "decomposition_max_abs_error_normalized": 7.770108510871555e-16,
+        "max_abs_vprime_minus_w": 9.610990940600583e-09,
+        "max_abs_vsecond_minus_wprime": 2.4225611170594283e-05,
+        "physical_argmax_r": 0.8416666666666666,
+        "physical_argmax_interval": [
+          0.8375,
+          0.8416666666666667
+        ],
+        "at_physical_argmax": {
+          "physical_over_epsilon": 0.00024220844982769663,
+          "system_over_epsilon": -2.7755575615628914e-16,
+          "defect_over_epsilon": 0.0002422084498279996
+        },
+        "pole": {
+          "physical_over_epsilon": -5.401830147341857e-05,
+          "system_over_epsilon": 1.3877787807814457e-16,
+          "defect_over_epsilon": -5.401830147355735e-05
+        }
+      }
+    }
+  ]
+}

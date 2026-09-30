@@ -1,0 +1,28 @@
+{
+  "task_id": "work-unit-recovery-002",
+  "reviewer": "/root/known_load_review_001",
+  "reviewer_acceptance_observed_at_utc": "2026-09-29T17:03:40.082966+00:00",
+  "decision": "accept_controlled_local_reconciliation_only",
+  "scope": "Frozen dummy file-writing call; not general provider/external work recovery",
+  "evidence_sha256": {
+    "research/work_unit_recovery_attempt_001.zip": "651f0c2e62b1888fb01b7ad50d1f1b6bf571f9c4f193d0c88d15aaf1705394f1",
+    "research/work_unit_recovery_failure_audit.json": "84b9bc0a0ff65b282354a24625724424d2b4911eca074593ba6a45ee53bc5c7c",
+    "research/work_unit_recovery_001/process_lookup_cmdlet.json": "bf708ef1b19b69b66691b8bf536d5f3719f022d3001929dead0917ed4d5ac074",
+    "research/process_identity_probe_001.json": "d67fc2c593bae316d792a2faec87f1c2841e16b36efd0067dcf21cdb97659a97",
+    "research/work_unit_recovery_repair_design.json": "0e2010ac7749aa06674ec7e20a651e00f8ea1e9820227d355ce98a9e87b53871"
+  },
+  "rationale": "Frozen source uses a synchronous exclusive marker callback without child or external work. Exact marker bytes/hash and completed phase output support callback execution. Later explicit absence of both reported/launched PIDs supports worker no longer running before lead retirement.",
+  "limitations": [
+    "Original wrapper ancestry remains unverified",
+    "Original target Python exit code remains unverified",
+    "Original phase1 supervision stays failed",
+    "No original exit1 receipt may be fabricated"
+  ],
+  "conditions": [
+    "Same task, attempt, reserved unit and caps retained in named continuation",
+    "Original invocation/callback remain charged",
+    "Only two remaining phase launches and one remaining callback",
+    "Keep work reserved until phase2 first demonstrates unresolved-ID blocks and verifies marker",
+    "No old-file overwrite, phase1 replay, budget reset or external effects"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "prepared_at_utc": "2026-09-29T16:38:30.647095+00:00",
+  "source_sha256": {
+    "research/work_unit_recovery.py": "18ebe5f1ac2a079068079de324190548b45b92465ca7f86003b5aead657d218b",
+    "research/work_unit_recovery_supervisor.py": "d82311a5723f5d7bb3a1a214088f26846ecfc81573a6b5d1e96f49c935069cb0",
+    "research/work_unit_recovery_design.json": "0022f43e84affca943d290adcd36021b6be4beb13dfc49d40218fe290868839e",
+    "mechanome/research/contracts.py": "2fb77e4e3cfbf7276198a42cd590fc4abbb6f409340359871dd2f9f50dfce6ad",
+    "mechanome/research/controller.py": "7870f45139df7a99ce6b069b33adf17276898ec7a9632e02f7574dae1a8b1285"
+  },
+  "commit_metadata": "e2fee6b46b790f113849de237d5f7ab849530714",
+  "commit_note": "Existing HEAD metadata, not a clean-worktree attestation; source hashes govern execution.",
+  "evidence_cutoff_utc": "2026-09-29T16:45:35Z",
+  "python_ast": "passed",
+  "ruff_F_exit_code": 0,
+  "ruff_F_output": "All checks passed!\n"
+}

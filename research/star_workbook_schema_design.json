@@ -1,0 +1,48 @@
+{
+  "task_id": "star-workbook-schema-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T17:38:04.616429+00:00",
+  "question": "Does the newly listed Nawara2022 Source Data workbook expose reusable paired coat-intensity/coat-axial-proxy time series with event IDs, time fields and cell/repeat grouping?",
+  "scope": "Processed XLSX schema inventory only; conditional axial proxy, not independent membrane shape validation.",
+  "input_manifest": "research/paired_shape_public_manifest.json",
+  "primary_url": "https://www.nature.com/articles/s41467-022-29317-1",
+  "limits": {
+    "publisher_html_requests": 1,
+    "publisher_html_bytes": 4000000,
+    "workbook_requests": 1,
+    "workbook_bytes": 10000000,
+    "timeout_seconds_per_request": 30,
+    "searches": 0,
+    "alternate_endpoints": 0,
+    "retries": 0,
+    "uncompressed_workbook_bytes": 80000000,
+    "raw_movies": 0,
+    "fits": 0,
+    "tracking": 0,
+    "pytest": 0
+  },
+  "acceptance_checks": [
+    "exact file URL/hash/bytes",
+    "sheet names, dimensions, labels and time/value structure",
+    "explicit event identity and same-event pairing",
+    "time units/cadence/normalization fields",
+    "cell/repeat/condition fields",
+    "selection/censoring and source-to-figure mapping",
+    "reuse scope and unresolved fields"
+  ],
+  "ownership": {
+    "lead": [
+      "research/star_workbook_schema_design.json",
+      "research/star_workbook_schema_inventory.py",
+      "research/star_workbook_schema_result.json",
+      "research/metadata/star-workbook-001/",
+      "research/STAR_WORKBOOK_SCHEMA_FINDINGS.md"
+    ],
+    "review": [
+      "research/STAR_WORKBOOK_SCHEMA_REVIEW.md"
+    ]
+  },
+  "stop_condition": "One schema decision or first access/size/format failure. No retry, fallback endpoint, author contact, raw data or fit. Summary-only object stops empirical path. Event rows do not authorize inference without verified grouping/observation contract.",
+  "evidence_cutoff_utc": "2026-09-29T17:45:39Z",
+  "target_checkpoint_utc": "2026-09-29T17:50:39Z"
+}

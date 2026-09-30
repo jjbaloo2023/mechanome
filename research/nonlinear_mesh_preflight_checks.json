@@ -1,0 +1,77 @@
+{
+  "actual_solve_bvp_calls": 0,
+  "harness_run_history": [
+    {
+      "outcome": "failed_before_checks_write",
+      "reason": "AttributeError: restored readable 002 source did not yet expose the harness K-gate helper.",
+      "real_BVP_calls": 0
+    },
+    {
+      "outcome": "failed_after_assertions_before_checks_write",
+      "reason": "Windows temporary-directory cleanup raised WinError 32 because the synthetic NPZ reader remained open.",
+      "real_BVP_calls": 0
+    },
+    {
+      "outcome": "passed",
+      "reason": "K helper added and synthetic NPZ reader closed; this document records the final run.",
+      "real_BVP_calls": 0
+    }
+  ],
+  "command": ".venv\\Scripts\\python.exe research\\check_nonlinear_harness_003.py",
+  "fresh_output_paths": {
+    "execution": "nonlinear_numerical_execution_003.json",
+    "profiles": "nonlinear_numerical_profiles_003.npz",
+    "results": "nonlinear_numerical_results_003.json"
+  },
+  "import_safe": true,
+  "k_suppressed_with_any_failed_gate": true,
+  "linear_nonlin_dispatch_distinct": true,
+  "linear_rhs_exact_match": true,
+  "mesh": {
+    "exterior_spacing": 0.001822916666666785,
+    "first": 0.0,
+    "last": 8.0,
+    "nodes": 5761,
+    "singular_matrix": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -3.0
+      ]
+    ],
+    "source_edge": 1.0,
+    "source_spacing": 0.0005208333333333333
+  },
+  "nonconstant_value_first_second_roundtrip": true,
+  "observed_finished_at_utc": "2026-09-28T20:34:37.207605+00:00",
+  "observed_started_at_utc": "2026-09-28T20:34:37.118720+00:00",
+  "physical_between_knot_defect": {
+    "augmented_grid_count": 12076,
+    "augmented_grid_max_abs_Q_over_r": 48.97959283636035,
+    "interval_points": 68,
+    "knot_side_points": 6,
+    "old_original_grid_max_abs_Q_over_r": 0.0,
+    "original_grid_count": 12002
+  },
+  "postprocessing_failure_checkpoint": {
+    "outcome": "postprocessing_failure_stop",
+    "solver_status": 0,
+    "status": "failed_postprocessing_after_solver_return"
+  },
+  "postprocessing_failure_checkpoint_on_disk": true,
+  "postprocessing_failure_preserves_coefficients": true,
+  "ppoly_axis": 1,
+  "stubbed_bvp_wrapper_calls": 1,
+  "task_id": "nonlinear-mesh-preflight-001",
+  "tested_harness_sha256": "fc7915894b9a2e203da5f8256062ad319b6751305e46f49bae85270be7bee374",
+  "tested_source_sha256": "f9a25845c3cca2dd8dbb88d5d1de0641ce45a3ffd5dc865cb822fc22c26ebbc3",
+  "tiny_pole_perturbation": {
+    "Q_over_r_is_infinite": true,
+    "actual_vprime0": 1e-12,
+    "exact_regular": false,
+    "stored_w0": 0.0
+  }
+}

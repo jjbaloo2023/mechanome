@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-09-26T15:35:36.174570+00:00",
+  "tasks": [
+    "independent-controls-001",
+    "bucher-em-contract-001"
+  ],
+  "artifact_sha256": {
+    "research/INDEPENDENT_CONTROLS_FINDINGS.md": "cdc2c67d28d6641ece821c10685f98f300eeedf20ebe31c44791d2be821b9c81",
+    "research/INDEPENDENT_CONTROLS_BUCHER.md": "2747584f81b6d9de3d03b700d1def00aae8b8dfe89ffceae89aa8ea3c214fdbb",
+    "research/INDEPENDENT_CONTROLS_SALEEM.md": "7d0ef79c6a0675e443b59fbeceecebe5d3a8353fbfc7b51450bfac2e7bd15c69",
+    "research/INDEPENDENT_CONTROLS_REVIEW.md": "f27d87786cdd412b8b2a9c6e8890ddfbe8faef26ecb978812f27eddbe614a0ad",
+    "research/BUCHER_EM_CONTRACT.md": "0fabf689ead13145f667a2e4217ae001ef35c9ca623332b9c11bc0034f35a789",
+    "research/BUCHER_EM_CONTRACT_REVIEW.md": "9c0fad70d5ab1f0074fe6c1e28bfde9ab351626bf82b1ad597859ab33c1b6ae2",
+    "research/independent_controls_design.json": "777f01cdad70302cc3a6a746742bbf2b1a95b0a40f03720dc7181330fb025320",
+    "research/bucher_em_contract_design.json": "216de3765a37394f41010c018212bd25c4ff39fb922abbd5bc680e86f048d9d3",
+    "research/bucher_em_contract_001.json": "723d9ada73d8c9f2c3906d58d5958465524e199052077f0b30df7bcef6d449c4",
+    "research/bucher_em_contract_counts_001.json": "857115ce140a278cb8cf5c7613167d004d57ed0b1331a92adb3cf9ee78fb4dc6",
+    "research/inspect_bucher_em_contract.py": "8a87ad8a3d4578f799e0e4a9ea549186e3d18061947939584f616473a5160452",
+    "research/metadata/independent-controls-001/bucher_figshare.json": "4540267e51ed4475fd97cf52858a3ed73a1054ff3164c43d97f02ddb2693d8e0",
+    "research/metadata/independent-controls-001/bucher_figshare_retrieval.json": "2f9c03fb1dd9180bcbfff5105fb26841bef4684bfa081d10970718ed7ef86223",
+    "research/metadata/independent-controls-001/bucher_sources.json": "07909d37f5fc84652b7724f6fae2c057eeccd9caba2a425ff93fbb148c871a47",
+    "research/metadata/independent-controls-001/saleem_sources.json": "bad625fed356cf9d94405a0144bf11edefef1aa30d985d774c0df1dd8d34dfc9"
+  },
+  "payload_policy": "Two public XLSX files intentionally ignored; source IDs, URL, exact lengths, MD5, SHA256 and retrieval UTC are in the schema inventory. No dataset rehosting."
+}

@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-09-26T15:35:36.174570+00:00",
+  "json_files_parsed": 11,
+  "python_ast": "passed",
+  "new_and_navigation_local_links": "passed",
+  "registration_and_reader_hashes": "passed",
+  "payloads_exact_length_MD5_and_SHA256": "verified_at_retrieval",
+  "pytest": "not_run_document_and_schema_only_stage",
+  "manifest": "research/independent_controls_manifest.json",
+  "final_check_at_utc": "2026-09-26T15:36:24.089259+00:00",
+  "checked_frozen_artifact_hashes": 22,
+  "prior_load_study_hashes": "unchanged",
+  "git_diff_check": "passed",
+  "outstanding_research_workers": []
+}

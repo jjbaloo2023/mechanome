@@ -1,0 +1,79 @@
+{
+  "checked_at_utc": "2026-09-29T13:42:30.689860+00:00",
+  "input_sha256": "bc92afb9ede060f63b794823f79ec153840ea4204fc394614ffbc174f70866fa",
+  "scope": "Schema/range checks only, no genotype contrasts or time-axis repair.",
+  "blocks": {
+    "Sla1_WT": {
+      "rows": 276,
+      "time_range_s": [
+        -18.063,
+        10.3995
+      ],
+      "position_range_nm": [
+        -14.95045708,
+        165.9682634
+      ],
+      "n_range": [
+        9.0,
+        37.0
+      ],
+      "all_finite": true,
+      "strictly_increasing_time": true,
+      "zero_n_rows": 0
+    },
+    "Sla1_myo5del": {
+      "rows": 247,
+      "time_range_s": [
+        -12.1549,
+        13.3061
+      ],
+      "position_range_nm": [
+        -23.41835174,
+        102.4179068
+      ],
+      "n_range": [
+        11.0,
+        28.0
+      ],
+      "all_finite": true,
+      "strictly_increasing_time": true,
+      "zero_n_rows": 0
+    },
+    "Sla1_bbc1del": {
+      "rows": 321,
+      "time_range_s": [
+        15.4215,
+        48.5415
+      ],
+      "position_range_nm": [
+        -23.64077034,
+        470.3373388
+      ],
+      "n_range": [
+        3.0,
+        22.0
+      ],
+      "all_finite": true,
+      "strictly_increasing_time": true,
+      "zero_n_rows": 0
+    },
+    "Sla1_myo5delbbc1del": {
+      "rows": 262,
+      "time_range_s": [
+        -4.554,
+        22.4595
+      ],
+      "position_range_nm": [
+        -28.31776903,
+        174.4274542
+      ],
+      "n_range": [
+        7.0,
+        21.0
+      ],
+      "all_finite": true,
+      "strictly_increasing_time": true,
+      "zero_n_rows": 0
+    }
+  }
+}

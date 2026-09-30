@@ -1,0 +1,14 @@
+{
+  "task_id": "known-load-recovery-001",
+  "attempt_number": 1,
+  "created_at_utc": "2026-09-29T11:36:59.636837+00:00",
+  "disposition": "accepted_conditional_known_load_recovery",
+  "BVP_calls": 0,
+  "artifact_sha256": {
+    "research/known_load_recovery_design.json": "0395ad2dc0490223cd011f85d3e9fb73614f98dcfcd93ec0cab7ce657bfcf51d",
+    "research/KNOWN_LOAD_RECOVERY_THEORY.md": "729d40ee05e630ec70fd4970429b0880ec409bd27d9e6157fe40be3e8e993265",
+    "research/KNOWN_LOAD_RECOVERY_REVIEW.md": "735ee0d2fcf89c2fe87c4f733770e251767f80ffaa1b19158c69f20b6a161f66",
+    "research/KNOWN_LOAD_DATA_COMPARISON.md": "eb41d8ff3f7fe1c0969e0e345b28d02d4af7d949ff09941082f32db31e43f4d0",
+    "research/KNOWN_LOAD_RECOVERY_FINDINGS.md": "353635067a8e6e820b6a016aa8fc23e802c6964628cdb50e70cf030718581d9e"
+  }
+}

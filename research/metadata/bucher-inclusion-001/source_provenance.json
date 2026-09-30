@@ -1,0 +1,61 @@
+{
+  "task_id": "bucher-inclusion-source-001",
+  "attempt_number": 1,
+  "primary_article": {
+    "url": "https://www.nature.com/articles/s41467-018-03533-0",
+    "doi": "10.1038/s41467-018-03533-0",
+    "locators": [
+      "Fig. 1 caption",
+      "Fig. 7 caption",
+      "Results: EM analyses of CCSs do not support existing growth models",
+      "Results: Membrane tension influences the flat-to-curved transition"
+    ]
+  },
+  "supplement": {
+    "cache_ignored": true,
+    "http_attempts": 1,
+    "max_payload_bytes": 1100000,
+    "accessed_utc": "2026-09-26T15:50:53.2758954Z",
+    "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-03533-0/MediaObjects/41467_2018_3533_MOESM1_ESM.pdf",
+    "pages": 18,
+    "sha256": "f3b87301b3da66a5a7a5307cec79e43cd9f932065ef3865e82fd673dac43037d",
+    "cache_path": "research/.cache-bucher-reconcile-001/41467_2018_3533_MOESM1_ESM.pdf",
+    "bytes": 972260,
+    "extraction": {
+      "tool": "pypdf.PdfReader",
+      "runtime": "bundled local workspace runtime",
+      "pages_extracted": 18,
+      "python_version": "3.12.14",
+      "pypdf_version": "6.10.0"
+    }
+  },
+  "explicit_evidence": {
+    "em_inclusion_exclusion_mapping": "not found",
+    "fig7_entry_mapping": "not found",
+    "fig1_entry_mapping": "not found",
+    "independent_culture_date_condition_mapping": "not found",
+    "fm_filter_scope": "Supplement pp. 10-13: FM-track/model histogram filtering; cannot be assigned to EM tables",
+    "fig7_fm_ratio_scope": "Supplement p. 16: 1,356 FM tracks from one cell"
+  },
+  "published_caption_counts": {
+    "fig7_normal": [
+      267,
+      308,
+      229,
+      323
+    ],
+    "fig7_osmotic_shock": [
+      395,
+      99,
+      351,
+      201
+    ],
+    "fig1": [
+      746,
+      869,
+      739
+    ]
+  },
+  "decision": "unresolved discrepancy; stop published-figure reproduction",
+  "bounds": "No other papers, author contact, raw spreadsheet payload reading, microscopy, effect estimates, or additional network retrieval."
+}

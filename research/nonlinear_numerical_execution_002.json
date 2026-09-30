@@ -1,0 +1,32 @@
+{
+  "task_id": "nonlinear-numerical-001",
+  "attempt_number": 2,
+  "status": "registered_for_actual_execution",
+  "prepared_at_utc": "2026-09-27T00:30:20.487079+00:00",
+  "prior_attempt": "research/nonlinear_numerical_manifest_001.json",
+  "retry_rationale": "Attempt1 ended after an API-object serialization bug; convergence and profiles were not persisted. Correct implementation/control/gating defects without changing scientific parameters.",
+  "frozen_design_sha256": "069c4136f8c01b3d98f592c7afb2bc9040fe9473d22202a4d7e5e4beafebf901",
+  "max_total_solves_this_attempt": 26,
+  "previous_attempt_actual_solver_calls": 1,
+  "constraints": "No BVP execution until repair independently accepted and next cycle actual execution registered. Separate002source/results/profiles; retain every attempt; at most3 attempts for this logical task.",
+  "repair_manifest": "research/nonlinear_numerical_repair_manifest.json",
+  "candidate_source_sha256": "6bd9fe5c8fcf268156d7118cdc32dbda601025934f371b07c28aba879527c922",
+  "preflight_review_accepted_at_utc": "2026-09-27T00:40:07.493764+00:00",
+  "registered_at_utc": "2026-09-27T00:53:23.608936+00:00",
+  "actual_cycle_start_utc": "2026-09-27T00:52:14Z",
+  "evidence_cutoff_utc": "2026-09-27T01:07:14Z",
+  "target_checkpoint_utc": "2026-09-27T01:12:14Z",
+  "ownership": {
+    "lead": [
+      "research/NONLINEAR_NUMERICAL_FINDINGS_002.md"
+    ],
+    "numerical": [
+      "research/nonlinear_numerical_results_002.json",
+      "research/nonlinear_numerical_profiles_002.npz",
+      "research/NONLINEAR_NUMERICAL_IMPLEMENTATION_002.md"
+    ],
+    "review": [
+      "research/NONLINEAR_NUMERICAL_REVIEW_002.md"
+    ]
+  }
+}

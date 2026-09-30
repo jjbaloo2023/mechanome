@@ -1,0 +1,34 @@
+{
+  "task_id": "yeast-joint-observables-screen-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T13:07:54.902872+00:00",
+  "question": "Is there an unassessed public yeast endocytosis dataset pairing actin or myosin recruitment with inward motion or an event proxy under a stated perturbation, with an interpretable small processed-data contract?",
+  "rationale": "Current mammalian empirical branches stopped at explicit measurement gaps. Broad clathrin authorization permits other organisms, but their mechanics must not be silently transferred to mammalian cells. A bounded fresh screen is more informative than extending the completed duration theorem or repeating closed access audits.",
+  "limits": {
+    "search_queries_max": 3,
+    "primary_papers_max": 2,
+    "official_linked_dataset_landing_max": 1,
+    "source_active_minutes": 5,
+    "local_downloads": 0,
+    "author_code_executions": 0,
+    "BVP_calls": 0
+  },
+  "required_fields": [
+    "One selected primary paper and verified identity if found",
+    "Joint same-event measurements versus condition summaries",
+    "Perturbation, marker identities, event/motion proxy and grouping",
+    "Concrete public processed table/archive member named only if verified",
+    "Data request-only versus public availability distinct",
+    "Selection and uncertainty; species-specific inference limit",
+    "One next decision or precise no-candidate/access/contract gap"
+  ],
+  "excluded_reopenings": [
+    "Previously stopped Akamatsu/Myo1E/Bucher/Saleem/DASC access searches",
+    "Bulk raw microscopy acquisition",
+    "New force inference without observation/load contract"
+  ],
+  "stop_condition": "One screened candidate or exact negative/gap, independent scope review. No iterative searches after query/time limit; no automatic dataset download.",
+  "source_stop_utc": "2026-09-29T13:13:00Z",
+  "evidence_cutoff_utc": "2026-09-29T13:15:30Z",
+  "target_checkpoint_utc": "2026-09-29T13:20:30Z"
+}

@@ -1,0 +1,29 @@
+{
+  "task_id": "process-identity-preflight-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T16:42:45.345656+00:00",
+  "question": "Does launching the locally observed base interpreter directly give matching Popen and child PID, parent PID and normal observed exit?",
+  "rationale": "Distinct zero-work diagnostic after stopped recovery phase; do not relaunch original phase or touch its SQLite/reservations.",
+  "inputs": {
+    "research/work_unit_recovery_failure_audit.json": "84b9bc0a0ff65b282354a24625724424d2b4911eca074593ba6a45ee53bc5c7c"
+  },
+  "limits": {
+    "probe_subprocesses": 1,
+    "dummy_callbacks": 0,
+    "scientific_calls": 0,
+    "network_requests": 0,
+    "timeout_seconds": 30
+  },
+  "stop_condition": "One independently reviewed identity probe or exact failure; no automatic recovery attempt or second probe.",
+  "ownership": {
+    "lead": [
+      "research/process_identity_probe.py",
+      "research/process_identity_probe_001.json",
+      "research/process_identity_design.json"
+    ],
+    "review": [
+      "research/PROCESS_IDENTITY_REVIEW.md"
+    ]
+  },
+  "evidence_cutoff_utc": "2026-09-29T16:45:35Z"
+}

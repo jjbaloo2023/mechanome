@@ -1,0 +1,37 @@
+{
+  "task_id": "actin-code-inventory-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T12:01:49.767736+00:00",
+  "question": "At a pinned revision of the article-linked public repository, can the Figure7 load mapping, fixed controls, analysis aggregation and actual deposited small outputs be identified?",
+  "repository": "https://github.com/DrubinBarnes/Akamatsu_CME_manuscript",
+  "input_sha256": {
+    "research/ACTIN_ADAPTATION_FINDINGS.md": "fd80780846b9e4d1abd75c31438a320fabddce9ef02f62bab0abbd48fd27be9f",
+    "research/ACTIN_ADAPTATION_SOURCE.md": "bc095388eb7f741337238d0dc34c5fa75b3e3e8d7c59f1e1eff0d1aad9e46d1b",
+    "research/ACTIN_ADAPTATION_REVIEW.md": "547a9ce8b99b69fd30dcc4a1ef6f6dbeae5ba6407d06121c917908e733305742"
+  },
+  "limits": {
+    "total_retrieved_bytes": 1048576,
+    "source_text_files_including_README_max": 5,
+    "source_active_minutes_max": 8,
+    "archives_movies_binaries": 0,
+    "author_code_executions": 0,
+    "BVP_calls": 0
+  },
+  "acceptance_checks": [
+    "Commit identity and paper-version uncertainty distinct",
+    "Record every request/status/payload length and content hash; keep cumulative byte ledger",
+    "No duplicate acquisition; reviewer reads saved evidence",
+    "Distinguish membrane tension from spring k using actual code if available",
+    "Held-fixed settings and last-five-second estimator only as verified",
+    "Output-writing code does not establish deposited time series",
+    "No general absence claim from a scoped listing"
+  ],
+  "expected_outcomes": [
+    "Pinned small analysis/output contract",
+    "Pinned source only, missing outputs or model-control mapping",
+    "Exact bounded retrieval/provenance gap"
+  ],
+  "stop_condition": "One metadata/text inventory and independent review; at most8minutes source,5textfiles including README,1MiBtotal. Stop on exhausted bound; no iterative access search, author execution, clone or new study.",
+  "evidence_cutoff_utc": "2026-09-29T12:15:30Z",
+  "target_checkpoint_utc": "2026-09-29T12:20:30Z"
+}

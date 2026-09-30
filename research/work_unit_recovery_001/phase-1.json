@@ -1,0 +1,117 @@
+{
+  "attempt": "721c1b8d01b84146a170ab09ddd26bcd",
+  "audit": {
+    "artifact_hashes": [
+      "c186d271cb593d037e3d29e6e0fdeb7a0217aa392e5bdd88df4d0c82f6eff2ff"
+    ],
+    "attempts": [
+      {
+        "cost": 0,
+        "id": "721c1b8d01b84146a170ab09ddd26bcd",
+        "request_id": null,
+        "reserved": 0,
+        "result": null,
+        "state": "running",
+        "task": "work-unit-recovery-task"
+      }
+    ],
+    "budget": {
+      "limit_cents": 0,
+      "reserved_cents": 0,
+      "spent_cents": 0
+    },
+    "charter": {
+      "budget_cents": 0,
+      "frozen_commit": "e2fee6b46b790f113849de237d5f7ab849530714",
+      "goal": "offline dummy recovery",
+      "max_attempts": 3,
+      "max_workers": 1,
+      "mode": "offline",
+      "name": "work-unit-recovery",
+      "review_reserve_cents": 0,
+      "version": 1,
+      "work_unit_limits": [
+        [
+          "dummy",
+          2
+        ]
+      ]
+    },
+    "events": [
+      {
+        "body": "{\"budget_cents\": 0, \"frozen_commit\": \"e2fee6b46b790f113849de237d5f7ab849530714\", \"goal\": \"offline dummy recovery\", \"max_attempts\": 3, \"max_workers\": 1, \"mode\": \"offline\", \"name\": \"work-unit-recovery\", \"review_reserve_cents\": 0, \"version\": 1, \"work_unit_limits\": [[\"dummy\", 2]]}",
+        "id": 1,
+        "kind": "charter",
+        "time": 1790699917.4337487
+      },
+      {
+        "body": "{\"owner\": \"phase-1\", \"token\": 1}",
+        "id": 2,
+        "kind": "lead_acquired",
+        "time": 1790699917.4348705
+      },
+      {
+        "body": "{\"charter_version\": 1, \"rationale\": \"create one shared recovery attempt\", \"tasks\": [\"work-unit-recovery-task\"], \"token\": 1}",
+        "id": 3,
+        "kind": "decision",
+        "time": 1790699917.4384
+      },
+      {
+        "body": "{\"attempt\": \"721c1b8d01b84146a170ab09ddd26bcd\", \"retry_reason\": null, \"task\": \"work-unit-recovery-task\", \"worker\": \"lead-supervised-dummy\"}",
+        "id": 4,
+        "kind": "attempt_started",
+        "time": 1790699917.4384
+      },
+      {
+        "body": "{\"attempt\": \"721c1b8d01b84146a170ab09ddd26bcd\", \"call_id\": \"call-1\", \"kind\": \"dummy\", \"task\": \"work-unit-recovery-task\", \"token\": 1, \"units\": 1}",
+        "id": 5,
+        "kind": "work_reserved",
+        "time": 1790699917.4542441
+      }
+    ],
+    "lead": [
+      {
+        "expires": 1790700217.4348705,
+        "id": 1,
+        "owner": "phase-1",
+        "state": "active",
+        "token": 1
+      }
+    ],
+    "tasks": [
+      {
+        "body": "{\"alternatives\": [\"stop after unresolved reservation\"], \"cost_cents\": 0, \"expected_outcomes\": [\"persisted reservation blocks replacement\"], \"id\": \"work-unit-recovery-task\", \"inputs\": [\"c186d271cb593d037e3d29e6e0fdeb7a0217aa392e5bdd88df4d0c82f6eff2ff\"], \"purpose\": \"exploration\", \"question\": \"Do guarded dummy reservations survive ordinary process exits?\", \"rationale\": \"Bounded offline recovery demonstration\", \"required_checks\": [\"exit receipt\", \"marker hash\", \"work cap\"], \"stop_condition\": \"Three supervised phases or a preserved failure\", \"uncertainty\": \"Callback acknowledgement may be lost after evidence is written.\", \"work_unit_limits\": [[\"dummy\", 2]], \"worker\": \"lead-supervised-dummy\"}",
+        "id": "work-unit-recovery-task",
+        "result": null
+      }
+    ],
+    "work_totals": {
+      "dummy": 1
+    },
+    "work_units": [
+      {
+        "attempt": "721c1b8d01b84146a170ab09ddd26bcd",
+        "call_id": "call-1",
+        "kind": "dummy",
+        "reconciliation": null,
+        "state": "reserved",
+        "task": "work-unit-recovery-task",
+        "units": 1
+      }
+    ]
+  },
+  "checks": {
+    "call_1_state": "reserved",
+    "callback_count": 1,
+    "marker_call_1_sha256": "2da984910ddba68db1e5002d870003908b25e39fc668bb7a924e2c4016649194",
+    "work_totals": {
+      "dummy": 1
+    }
+  },
+  "finished_at_utc": "2026-09-29T16:38:37.471031+00:00",
+  "phase": 1,
+  "pid": 6280,
+  "started_at_utc": "2026-09-29T16:38:37.393232+00:00",
+  "status": "completed",
+  "token": 1
+}

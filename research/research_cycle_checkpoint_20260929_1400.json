@@ -1,0 +1,89 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T14:00:21.858Z",
+  "first_tool_clock_utc": "2026-09-29T14:00:33Z",
+  "evidence_cutoff_utc": "2026-09-29T14:15:33Z",
+  "target_checkpoint_utc": "2026-09-29T14:20:33Z",
+  "checkpoint_saved_at_utc": "2026-09-29T14:19:34.426484+00:00",
+  "status": "completed_bounded_cycle_with_compute_budget_deviation",
+  "tasks": [
+    {
+      "task_id": "yeast-reference-methods-001",
+      "attempt": 1,
+      "registered_at_utc": "2026-09-29T14:01:30.517736+00:00",
+      "direct_open_observed_utc": "2026-09-29T14:03Z",
+      "lead_acceptance_saved_at_utc": "2026-09-29T14:06:59.959595+00:00",
+      "disposition": "Accepted access/definition gap; two primary HTTP403, onequery, zero local downloads. Sole follow-up and motion branch stopped."
+    },
+    {
+      "task_id": "synthetic-dimming-benchmark-001",
+      "attempt": 1,
+      "registered_at_utc": "2026-09-29T14:06:59.959595+00:00",
+      "saved_invocation_start_utc": "2026-09-29T14:10:01.189246+00:00",
+      "saved_invocation_end_utc": "2026-09-29T14:10:02.305832+00:00",
+      "saved_invocation_exit_code": 0,
+      "lead_reanalysis_utc": "2026-09-29T14:12:45.353754+00:00",
+      "lead_reanalysis_exit_code": 0,
+      "corrected_independent_review_observed_utc": "2026-09-29T14:14Z",
+      "lead_acceptance_saved_at_utc": "2026-09-29T14:16:04.068363+00:00",
+      "disposition": "Accept saved quantitative result as scoped synthetic demonstration with noncompliant282vs150execution and lostfirstartifacts; benchmark stopped."
+    }
+  ],
+  "timing_note": "Observed tool/read/save times are not continuous telemetry. Acceptance after evidence cutoff only froze already-reviewed evidence and bookkeeping; no new scientific acquisition or tracking.",
+  "protocol_deviations": [
+    {
+      "kind": "cumulative_tracker_movie_cap_exceeded",
+      "registered_cap": 150,
+      "actual_calls": 282,
+      "overrun": 132,
+      "first_run_source_and_outputs_retained": false,
+      "reason": "Worker reran main after output/validation edit; per-invocation budget check failed to account for previous141calls.",
+      "response": "Stop all further tracking; retain explicit attempt audit; independent saved-row reanalysis used zero tracker calls; no strict preregistration-compliance claim. Add cumulative accounting and immutable-invocation requirement to operating protocol."
+    }
+  ],
+  "corrections": [
+    "Source completed allowed primary opens after initially premature snippet-only stopping",
+    "Removed unsupported positive-direction inference; global-method applicability would have sufficed",
+    "Initial posttracking comparator was symbolic only; separate numeric fixed-center estimator and limits now disclosed",
+    "Per-run141movie check superseded by actual282attempt-level audit"
+  ],
+  "validation": {
+    "checked_at_utc": "2026-09-29T14:18:29.353418+00:00",
+    "manifests": 25,
+    "hash_entries_checked": 199,
+    "hash_failures": [],
+    "navigation_links_checked": 451,
+    "broken_links": [],
+    "replacement_character_files": [],
+    "current_json_utf8": "passed",
+    "new_python_ast": "passed",
+    "git_diff_check_exit_code": 0,
+    "git_diff_check_output": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it",
+    "scientific_validation": "Independent review and saved-row/noise-hash reanalysis; 90 numeric posttracking transforms with no tracker call. Source-gap review.",
+    "actual_tracker_movies": 282,
+    "registered_tracker_movie_cap": 150,
+    "execution_budget_passed": false,
+    "software_test_suite_run": false,
+    "BVP_calls": 0,
+    "author_code_executions": 0
+  },
+  "outstanding_workers": [],
+  "workers_reconciled_terminal": [
+    "/root/actin_adaptation_source_001",
+    "/root/known_load_review_001",
+    "/root/synthetic_dimming_numerical_001"
+  ],
+  "previous_theory_worker": "Reconciled completed at cycle start; no new task assigned.",
+  "unknown_research_execution": false,
+  "queued_work": "Minimal validator denominator-contract repair, tiny constructed tests and independent review. No movie-grid rerun or biological inference.",
+  "queued_work_running": false,
+  "reason_for_stopping": "Both registered scientific stages reached their stop conditions and evidence cutoff. Saved artifacts and reviewed result, disclosed execution failure, and reserved remaining time for integrity/checkpoint.",
+  "new_biological_mechanism_claim": false,
+  "api_spending_usd": 0,
+  "external_messages": 0,
+  "git_pushes": 0,
+  "publishing": false,
+  "next_executable_specification": "research/NEXT_CYCLE.md",
+  "notification_decision": "NOTIFY",
+  "notification_rationale": "New quantitative synthetic observation milestone and actual validator counting defect, plus disclosed execution-budget failure."
+}

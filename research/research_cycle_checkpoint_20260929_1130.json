@@ -1,0 +1,25 @@
+{
+  "checkpoint_at_utc": "2026-09-29T11:43:49.677209+00:00",
+  "scheduled_delivery_utc": "2026-09-29T11:30:18.918Z",
+  "first_tool_clock_utc": "2026-09-29T11:30:27Z",
+  "evidence_cutoff_utc": "2026-09-29T11:45:27Z",
+  "target_checkpoint_utc": "2026-09-29T11:50:27Z",
+  "completed_tasks": [
+    "known-load-recovery-001",
+    "actin-adaptation-prediction-001"
+  ],
+  "frozen_hash_entries_verified": 116,
+  "local_navigation_links_verified": 369,
+  "JSON_UTF8": "passed",
+  "git_diff_check": "passed; preexisting root README/gitignore newline warnings only",
+  "verification_scope": "Analytic derivation plus independent math and source review; file/hash/navigation checks. No software suite or BVP invoked because no executable implementation changed.",
+  "new_BVP_calls": 0,
+  "author_code_executions": 0,
+  "API_spending_usd": 0,
+  "outstanding_workers": [],
+  "queued_work": "Pinned actin Figure7 metadata inventory; not dispatched.",
+  "stop_reason": "Two bounded stages completed and independently reviewed. Source-recovery sequence closed; corrections and metadata contract saved before a distinct acquisition stage. No repetitive work or new code execution.",
+  "access_limit": "Direct eLife/PMC browser challenges; indexed primary Results/Methods/Figures used and labeled. Linked GitHub landing page read.",
+  "inherited_numerical_telemetry_limit": "Prior final solver process exitcode remains unavailable; completed saved output independently verified; closed branch not relaunched.",
+  "git_push": false
+}

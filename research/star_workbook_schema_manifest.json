@@ -1,0 +1,18 @@
+{
+  "task_id": "star-workbook-schema-001",
+  "accepted_at_utc": "2026-09-29T17:42:10.082311+00:00",
+  "artifact_sha256": {
+    "research/star_workbook_schema_design.json": "70f28c8d5509eed2a06b1d5b731d6f76c46d82b9359508bf4b3c3df64ce5a879",
+    "research/star_workbook_schema_inventory.py": "c9c87e15f40d91a4b90157fe4ee8e74c3c2128e3f309c5725a7ba0c4e7a2c28d",
+    "research/star_workbook_schema_result.json": "531bf651a0194bda07990dc1d03c1201ffe4f31298154f12943a67f07a2ff49e",
+    "research/STAR_WORKBOOK_SCHEMA_FINDINGS.md": "e631566a41ef80291d53aacf8be41416d3bd4b54e237608e3e6c6e0a5ac8fd7e",
+    "research/STAR_WORKBOOK_SCHEMA_REVIEW.md": "1993422ed0f7e2aa50bb6f853a2610b49737874eca71ca6ff3c7c7da4cf5741e"
+  },
+  "disposition": "stopped_local_socket_permission_failure; schema_unverified; no_retry",
+  "publisher_request_attempts": 1,
+  "publisher_HTTP_responses": 0,
+  "workbook_requests": 0,
+  "acquired_bytes": 0,
+  "scientific_calls": 0,
+  "budget_compliant": true
+}

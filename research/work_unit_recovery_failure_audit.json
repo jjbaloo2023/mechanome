@@ -1,0 +1,59 @@
+{
+  "checked_at_utc": "2026-09-29T16:41:27.482478+00:00",
+  "disposition": "failed_supervision; recovery_not_demonstrated",
+  "observed_launcher_pid": 12896,
+  "phase_self_reported_pid": 6280,
+  "launcher_exit_code": 0,
+  "phase_output_status": "completed",
+  "phase_subprocess_invocations": 1,
+  "phase_subprocess_cap": 3,
+  "dummy_callbacks_observed_by_marker_and_source": 1,
+  "dummy_callback_cap": 2,
+  "later_phases_executed": false,
+  "exit_receipt_accepted": false,
+  "lead_retired": false,
+  "work_reconciled": false,
+  "database_state": {
+    "lead": [
+      {
+        "id": 1,
+        "token": 1,
+        "owner": "phase-1",
+        "expires": 1790700217.4348705,
+        "state": "active"
+      }
+    ],
+    "attempts": [
+      {
+        "id": "721c1b8d01b84146a170ab09ddd26bcd",
+        "task": "work-unit-recovery-task",
+        "state": "running",
+        "reserved": 0,
+        "cost": 0,
+        "request_id": null,
+        "result": null
+      }
+    ],
+    "work_units": [
+      {
+        "task": "work-unit-recovery-task",
+        "call_id": "call-1",
+        "attempt": "721c1b8d01b84146a170ab09ddd26bcd",
+        "kind": "dummy",
+        "units": 1,
+        "state": "reserved",
+        "reconciliation": null
+      }
+    ]
+  },
+  "evidence_sha256": "2da984910ddba68db1e5002d870003908b25e39fc668bb7a924e2c4016649194",
+  "process_lookup_at_utc": "2026-09-29T16:40:05.1985086Z",
+  "process_lookup_result": "Both PIDs explicitly not found; original process ancestry/identity relation remains unverified.",
+  "invalid_diagnostic": "process_inventory_after_failure.json has empty array because .NET invocation failed; it is NOT absence evidence. CIM also access denied.",
+  "python_executable": "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\.venv\\Scripts\\python.exe",
+  "base_executable": "C:\\Users\\Jophi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "explanation": "Windows virtual-environment redirection is a plausible explanation only; not established by ancestry evidence.",
+  "all_frozen_source_hashes_match": true,
+  "scientific_calls": 0,
+  "pytest_invocations": 0
+}

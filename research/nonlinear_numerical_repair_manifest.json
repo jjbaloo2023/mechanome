@@ -1,0 +1,15 @@
+{
+  "task_id": "nonlinear-numerical-repair-001",
+  "accepted_at_utc": "2026-09-27T00:40:07.493764+00:00",
+  "disposition": "code_readiness_accepted_no_actual_BVP_execution",
+  "mutable_future_execution_registration": "research/nonlinear_numerical_execution_002.json",
+  "artifact_sha256": {
+    "research/nonlinear_numerical_repair_design.json": "7e1fb736c257a429c28dad03dc5a7f7baafaffae3f6b92652d9bae9ebba1ba64",
+    "research/nonlinear_graph_numerical_002.py": "6bd9fe5c8fcf268156d7118cdc32dbda601025934f371b07c28aba879527c922",
+    "research/check_nonlinear_harness_002.py": "6288647509fc15ad0cb61eb145941404a38742b0590eb1bcbf2b0fc9bc94ff0e",
+    "research/nonlinear_numerical_repair_checks.json": "29c8bd984f082053943a9e7973122984307c13f5d07fb63f2e38478ba1bca6c0",
+    "research/NONLINEAR_NUMERICAL_REPAIR_IMPLEMENTATION.md": "aec58781bcbf5b3f2d8b7e899a94c62d1113288da8b10a7c13e73c81e94f00f2",
+    "research/NONLINEAR_NUMERICAL_REPAIR_REVIEW.md": "52ed267363e1f7caebddb996a925a7d2c5234d0a95cbd7792632f4ea8dddede4",
+    "research/NONLINEAR_NUMERICAL_REPAIR_FINDINGS.md": "ada590a65b7223dd20a21719895d5cb3eed521d99ad03e132d6673bca159e637"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "logical_task": "work-unit-recovery",
+  "attempt_number": 2,
+  "prior_invocations": [
+    {
+      "phase": 1,
+      "status": "failed_supervision",
+      "reserved_at_utc": "2026-09-29T16:38:37.232104+00:00",
+      "command": [
+        "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\work_unit_recovery.py",
+        "1",
+        "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\work_unit_recovery_001",
+        "--commit",
+        "e2fee6b46b790f113849de237d5f7ab849530714"
+      ],
+      "log": "research\\work_unit_recovery_001\\phase-1.log",
+      "input_record_sha256": "903bb13ea9ae85ccf3e802e13852591943796c2d03c7660e460195ee060a56fc",
+      "pid": 12896,
+      "started_at_utc": "2026-09-29T16:38:37.249233+00:00",
+      "exit_code": 0,
+      "exit_observed_at_utc": "2026-09-29T16:38:37.489082+00:00",
+      "error": "RuntimeError: Phase output identity does not match observed child",
+      "observed_at_utc": "2026-09-29T16:38:37.496743+00:00"
+    }
+  ],
+  "prior_dummy_callbacks": 1,
+  "phase_cap": 3,
+  "dummy_cap": 2,
+  "new_invocations": [
+    {
+      "phase": 2,
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T17:09:18.883895+00:00",
+      "command": [
+        "C:\\Users\\Jophi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\work_unit_recovery_repair.py",
+        "child",
+        "2"
+      ],
+      "input_sha256": "b8857334426d9481b2554ddfba8f052199afd424d38a80ec247fef61b906e65b",
+      "parent_pid": 17556,
+      "pid": 15092,
+      "started_at_utc": "2026-09-29T17:09:18.899801+00:00",
+      "exit_code": 0,
+      "exit_observed_at_utc": "2026-09-29T17:09:19.079237+00:00",
+      "completed_at_utc": "2026-09-29T17:09:19.109002+00:00",
+      "output_sha256": "1a54d671637416806f5c28dedef015f261b60104f0c77d0cf8917f2b69aa095a",
+      "exit_receipt_sha256": "1d62a8d8ffc861e0d15a163ea9790ba4d5a2bb9887f80257747e4a5ebd28d3d9"
+    },
+    {
+      "phase": 3,
+      "status": "completed",
+      "reserved_at_utc": "2026-09-29T17:09:24.487854+00:00",
+      "command": [
+        "C:\\Users\\Jophi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\work_unit_recovery_repair.py",
+        "child",
+        "3"
+      ],
+      "input_sha256": "b8857334426d9481b2554ddfba8f052199afd424d38a80ec247fef61b906e65b",
+      "parent_pid": 7400,
+      "pid": 11680,
+      "started_at_utc": "2026-09-29T17:09:24.509658+00:00",
+      "exit_code": 0,
+      "exit_observed_at_utc": "2026-09-29T17:09:24.709033+00:00",
+      "completed_at_utc": "2026-09-29T17:09:24.742862+00:00",
+      "output_sha256": "e748fd4d0402cf8f2531f880ec4b11c1ca1a5b6e014ef899b7f7d14765ce492a",
+      "exit_receipt_sha256": "3dbe92eb9ded70f7f6078a0363bbe3a6232034f1e9ff85924d7648e66c23a8b4"
+    }
+  ]
+}

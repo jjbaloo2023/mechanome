@@ -1,0 +1,110 @@
+{
+  "task_id": "geometry-transfer-001",
+  "status": "completed",
+  "started_at_utc": "2026-09-29T15:08:22.195166+00:00",
+  "source_hashes": {
+    "research/geometry_transfer.py": "2100728ab1647765cb518a9b6f6d63f7b78c1f98ef9e7e9dd3bcea4155ca58d2",
+    "research/geometry_transfer_design.json": "f9ee4595d95389a5fa6e66bbf7e877c75b1570d733a08a320a8ab2fe041a8c90",
+    "research/compare_geometry.py": "20f3bbba1c4652665c38ab9e7092ba4f5535dca8775a36ba4cef5d43446be9e9",
+    "research/FIRST_COMPARISON.md": "12294486bb7e69379f380c7eeb9b5b417611f7126eb9f1943871e97e5f1cc5f0",
+    "research/geometry_inputs.lock.json": "ec382d26150cbefd381849449a950ab3218551da01dae7f1c46b7d8ed4df9635",
+    "research/data_audit.json": "cf4e3276ec5b2a17ae2478de70419d1ad53c8ccbed003c57b9e38ddfc4f7faef",
+    "research/geometry_results_v2.json": "8df757c3198136ed4a98bff4cf804f766b8077aca4b8485844e4d71f8c7829f3"
+  },
+  "synthetic_checks": [
+    {
+      "model": "constant_curvature",
+      "expected_coefficients": [
+        0.02
+      ],
+      "recovered_coefficients": [
+        0.02
+      ],
+      "nonnegative": true,
+      "allclose_rtol": 1e-10,
+      "allclose_atol": 1e-12,
+      "weight_rows": [
+        {
+          "cell_line": "synthetic",
+          "group": "synthetic:g",
+          "n_rows": 5,
+          "squared_weight_per_row": 0.2,
+          "squared_weight_group_total": 1.0
+        }
+      ]
+    },
+    {
+      "model": "constant_area",
+      "expected_coefficients": [
+        0.01
+      ],
+      "recovered_coefficients": [
+        0.010000000000000002
+      ],
+      "nonnegative": true,
+      "allclose_rtol": 1e-10,
+      "allclose_atol": 1e-12,
+      "weight_rows": [
+        {
+          "cell_line": "synthetic",
+          "group": "synthetic:g",
+          "n_rows": 5,
+          "squared_weight_per_row": 0.2,
+          "squared_weight_group_total": 1.0
+        }
+      ]
+    },
+    {
+      "model": "flexible_reference",
+      "expected_coefficients": [
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05
+      ],
+      "recovered_coefficients": [
+        0.009999999999999997,
+        0.020000000000000004,
+        0.03,
+        0.04000000000000001,
+        0.05000000000000001
+      ],
+      "nonnegative": true,
+      "allclose_rtol": 1e-10,
+      "allclose_atol": 1e-12,
+      "weight_rows": [
+        {
+          "cell_line": "synthetic",
+          "group": "synthetic:g",
+          "n_rows": 5,
+          "squared_weight_per_row": 0.2,
+          "squared_weight_group_total": 1.0
+        }
+      ]
+    },
+    {
+      "model": "constant_area",
+      "finite_area_boundary_rejected": true,
+      "error": "Constant-area fit has nonfinite or nonpositive area"
+    }
+  ],
+  "partition_and_weight_checks": {
+    "squared_weight_group_totals": {
+      "a:1": 0.25000000000000006,
+      "a:2": 0.25,
+      "b:1": 0.5
+    },
+    "squared_weight_line_totals": {
+      "train_a": 0.5,
+      "train_b": 0.5
+    },
+    "metadata_group_totals": {
+      "a:1": 0.25,
+      "a:2": 0.25,
+      "b:1": 0.5
+    },
+    "target_leakage_rejected": true
+  },
+  "completed_at_utc": "2026-09-29T15:08:22.210820+00:00"
+}

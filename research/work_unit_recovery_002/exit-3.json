@@ -1,0 +1,9 @@
+{
+  "phase": 3,
+  "status": "completed",
+  "pid": 11680,
+  "parent_pid": 7400,
+  "exit_code": 0,
+  "exit_observed_at_utc": "2026-09-29T17:09:24.709033+00:00",
+  "phase_output_sha256": "e748fd4d0402cf8f2531f880ec4b11c1ca1a5b6e014ef899b7f7d14765ce492a"
+}

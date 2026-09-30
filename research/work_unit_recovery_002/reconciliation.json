@@ -1,0 +1,19 @@
+{
+  "kind": "later_controlled_local_reconciliation",
+  "created_at_utc": "2026-09-29T17:09:12.541338+00:00",
+  "approval_sha256": "3d0936b4a80af1656d8073ae477a952385eaed76069c18b62972b0dbf7c1c682",
+  "original_phase_status": "failed_supervision",
+  "original_attempt": "721c1b8d01b84146a170ab09ddd26bcd",
+  "original_token": 1,
+  "marker_sha256": "2da984910ddba68db1e5002d870003908b25e39fc668bb7a924e2c4016649194",
+  "rationale": "Frozen source uses a synchronous exclusive marker callback without child or external work. Exact marker bytes/hash and completed phase output support callback execution. Later explicit absence of both reported/launched PIDs supports worker no longer running before lead retirement.",
+  "limitations": [
+    "Original wrapper ancestry remains unverified",
+    "Original target Python exit code remains unverified",
+    "Original phase1 supervision stays failed",
+    "No original exit1 receipt may be fabricated"
+  ],
+  "work_state": "reserved_until_phase2_verification",
+  "prior_phase_launches": 1,
+  "prior_dummy_callbacks": 1
+}

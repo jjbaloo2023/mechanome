@@ -1,0 +1,90 @@
+{
+  "task_id": "star-observation-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T17:42:10.082311+00:00",
+  "question": "Under a two-channel exponential observation model, what information and shared uncertainty do inferred coat amount and axial position contain?",
+  "model": "I_g=A_g*N*exp(-a_g*u), I_r=A_r*N*exp(-a_r*u), u=z/d_ref. Log measurements have additive zero-mean independent errors with stated finite variances; amplitudes/attenuation coefficients known and fixed, N>0.",
+  "not_claimed": [
+    "full STAR ratio-of-distributions forward model",
+    "empirical parameter calibration",
+    "independent membrane shape",
+    "observed biological lag or fate",
+    "novel biological result"
+  ],
+  "required_results": [
+    "explicit inverse and nonidentifiability at equal depths",
+    "covariance of estimated logN and u",
+    "covariance of each log-channel with estimated u",
+    "conditioning as attenuation coefficients converge",
+    "explain limitations for distributed axial positions, calibration and threshold timing"
+  ],
+  "checks": {
+    "scientific_invocations": 1,
+    "fixed_cases": [
+      [
+        1,
+        "1/2",
+        1,
+        1
+      ],
+      [
+        1,
+        "1/2",
+        4,
+        1
+      ],
+      [
+        1,
+        "1/2",
+        1,
+        4
+      ],
+      [
+        1,
+        "9/10",
+        1,
+        1
+      ],
+      [
+        1,
+        "999/1000",
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "case_columns": [
+      "a_g",
+      "a_r",
+      "log_noise_variance_g",
+      "log_noise_variance_r"
+    ],
+    "method": "Exact rational 2x2 matrix inverse/covariance identities; equal-coefficient null direction; no Monte Carlo, fitting or sweep.",
+    "additional_source_calls": 0,
+    "pytest": 0,
+    "retries": 0
+  },
+  "ownership": {
+    "theory": [
+      "research/STAR_OBSERVATION_THEORY.md"
+    ],
+    "review": [
+      "research/STAR_OBSERVATION_REVIEW.md"
+    ],
+    "lead": [
+      "research/star_observation_design.json",
+      "research/star_observation_checks.py",
+      "research/star_observation_checks.json",
+      "research/STAR_OBSERVATION_FINDINGS.md"
+    ]
+  },
+  "stop_condition": "One reviewed symbolic observation result and sole exact arithmetic invocation, or exact objection/failure. No temporal-threshold simulation, source rescue, fitting or model expansion.",
+  "theory_deadline_utc": "2026-09-29T17:44:00Z",
+  "evidence_cutoff_utc": "2026-09-29T17:45:39Z",
+  "target_checkpoint_utc": "2026-09-29T17:50:39Z"
+}

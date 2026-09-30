@@ -2,7 +2,51 @@
 
 Start with [FINDINGS.md](FINDINGS.md) for the claim boundaries and [ASSESSMENT.md](ASSESSMENT.md) for the evidence map. The files below retain their original paths to preserve recorded hashes, imports and attempt history. “Accepted” always means within the linked review's stated scope; it does not imply biological-mechanism validation. The next task is in [NEXT_CYCLE.md](NEXT_CYCLE.md).
 
+## Completed observation branch and campaign handoff
+
+[Checkpoint and restart conditions](CAMPAIGN_CHECKPOINT_20260929.md), [independent continuation review](CAMPAIGN_CONTINUATION_REVIEW_20260929.md). No queued execution remains within the assessed inputs and accepted stops; biological questions remain open.
+
+[Final counterexample](STAR_DISTRIBUTION_FINDINGS.md), [theory](STAR_DISTRIBUTION_THEORY.md), [independent review](STAR_DISTRIBUTION_REVIEW.md), [registration](star_distribution_design.json), [exact checker](star_distribution_checks.py), [result](star_distribution_checks.json), [manifest](star_distribution_manifest.json). Same total amount and two calibrated signals, different mean axial heights. One positive fixed pair, one arithmetic invocation; observation branch closed.
+
+## Two-channel observation and new public listing
+
+[Observation finding](STAR_OBSERVATION_FINDINGS.md), [theory](STAR_OBSERVATION_THEORY.md), [review](STAR_OBSERVATION_REVIEW.md), [design](star_observation_design.json), [exact checker](star_observation_checks.py), [six-case result](star_observation_checks.json), [manifest](star_observation_manifest.json). Accepted conditional shared-noise covariance and attenuation-degeneracy result; no empirical timing or mechanism claim.
+
+[Public candidate](PAIRED_SHAPE_PUBLIC_FINDINGS.md), [source](PAIRED_SHAPE_PUBLIC_SOURCE.md), [review](PAIRED_SHAPE_PUBLIC_REVIEW.md), [registration](paired_shape_public_design.json), [calls](paired_shape_public_calls.json), [manifest](paired_shape_public_manifest.json). New Nawara2022 Source Data listing, conditional clathrin axial proxy. [Workbook attempt](STAR_WORKBOOK_SCHEMA_FINDINGS.md), [registration](star_workbook_schema_design.json), [inspector](star_workbook_schema_inventory.py), [ledger](star_workbook_schema_result.json), [review](STAR_WORKBOOK_SCHEMA_REVIEW.md), [manifest](star_workbook_schema_manifest.json): first request failed locally before HTTP response; event schema unverified, acquisition parked.
+
+## Accepted local recovery continuation
+
+[Findings](WORK_UNIT_RECOVERY_REPAIR_FINDINGS.md), [design](work_unit_recovery_repair_design.json), [reconciliation approval](work_unit_recovery_reconciliation_approval.json), [source](work_unit_recovery_repair.py), [execution inputs](work_unit_recovery_repair_inputs.json), [audit](work_unit_recovery_repair_audit.json), [independent review](WORK_UNIT_RECOVERY_REPAIR_REVIEW.md), [snapshot](work_unit_recovery_attempt_002.zip), [manifest](work_unit_recovery_repair_manifest.json). Two remaining phases completed after explicit local reconciliation; cumulative three launches/two callbacks, original supervision failure retained. Operational branch closed.
+
+## Recovery process identity
+
+[Recovery failure](WORK_UNIT_RECOVERY_FINDINGS.md), [review](WORK_UNIT_RECOVERY_REVIEW.md), [failure audit](work_unit_recovery_failure_audit.json), [snapshot](work_unit_recovery_attempt_001.zip), [manifest](work_unit_recovery_manifest.json). Phase1 PID mismatch stopped the demo; one reserved dummy unit remains. [Direct-interpreter preflight](PROCESS_IDENTITY_FINDINGS.md), [review](PROCESS_IDENTITY_REVIEW.md), [result](process_identity_probe_001.json), [manifest](process_identity_manifest.json) establish one normal-exit launch path only. No phase2/3 or counter reset.
+
+## Offline cumulative work-unit guard
+
+[Findings](WORK_UNITS_FINDINGS.md), [design](work_units_design.json), [implementation](WORK_UNITS_IMPLEMENTATION.md), [independent review](WORK_UNITS_REVIEW.md), [17-test log](work_units_pytest_01.log), [execution ledger](work_units_test_runs.json), [accepted source](work_units_source_001.zip), [prior source](work_units_before_001.zip), [static checks](work_units_static_checks.json), [manifest](work_units_manifest.json). Accepted offline primitive; separate-process recovery is the next bounded demo, and live enforcement is not implemented.
+
+## Campaign synthesis
+
+[Current findings](FINDINGS.md), [assessment](ASSESSMENT.md) and [pipeline](PIPELINE_ARCHITECTURE.md) separate evidence tiers and stopped branches. [Registration](campaign_synthesis_design.json), [next-actin-experiment prerequisite](CAMPAIGN_NEXT_EXPERIMENT.md), [independent challenge](CAMPAIGN_SYNTHESIS_REVIEW.md), [accepted navigation snapshot](campaign_navigation_001.zip), [superseded navigation snapshot](campaign_navigation_before_001.zip), [manifest](campaign_synthesis_manifest.json). No new computation or sources in the synthesis; a repeated actin inventory was rejected.
+
 ## Public data and observation contracts
+
+Latest endpoint screen: [findings](ENDPOINT_PUBLIC_FINDINGS.md), [source/call ledger](ENDPOINT_PUBLIC_SOURCE.md), [independent review](ENDPOINT_PUBLIC_REVIEW.md), [design](endpoint_public_design.json), [manifest](endpoint_public_manifest.json). Same-event assay identified at paper level; no verified public event table or new analysis. Screen stopped.
+
+Latest: [geometry transfer findings](GEOMETRY_TRANSFER_FINDINGS.md), [registered design](geometry_transfer_design.json), [implementation](geometry_transfer.py), [results](geometry_transfer_results_001.json), [synthetic checks](geometry_transfer_checks_001.json), [execution ledger](geometry_transfer_execution.json), [pre-fit exact weights](geometry_transfer_weight_reference.json), [no-fit prediction audit](geometry_transfer_prediction_audit.json), [review](GEOMETRY_TRANSFER_REVIEW.md), [figure](geometry_transfer_comparison.png), [manifest](geometry_transfer_manifest.json). One 27-fit empirical grid; target-line and inclusion-policy rank reversals retained. No mechanism selected.
+
+Reference follow-up: [findings](YEAST_REFERENCE_FINDINGS.md), [source/access ledger](YEAST_REFERENCE_SOURCE.md), [review](YEAST_REFERENCE_REVIEW.md), [design](yeast_reference_methods_design.json), [manifest](yeast_reference_methods_manifest.json). Two primary opens returned403; methods applicability unresolved, no additional rescue queued.
+
+Latest: [yeast Figure 6 findings](YEAST_FIGURE6_FINDINGS.md), [source contract](YEAST_FIGURE6_SOURCE.md), [independent review](YEAST_FIGURE6_REVIEW.md), [design](yeast_figure6_contract_design.json), [static table checks](yeast_figure6_table_checks.json), [request ledger](metadata/yeast-figure6-001/REQUEST_LEDGER.md), [manifest](yeast_figure6_contract_manifest.json). Two CSVs verified; the motion comparison is now stopped after the reference-methods check below. No genotype effect estimated.
+
+Prospective test: [duration-null findings](RECRUITMENT_DURATION_FINDINGS.md), [theory](RECRUITMENT_DURATION_THEORY.md), [review](RECRUITMENT_DURATION_REVIEW.md), [design](recruitment_duration_design.json), [exact arithmetic](recruitment_duration_arithmetic.json), [figure PNG](recruitment_duration_illustration.png), [figure SVG](recruitment_duration_illustration.svg), [manifest](recruitment_duration_manifest.json). Prospective test only, no biological fit.
+
+Earlier candidate screen: [yeast findings](YEAST_OBSERVABLES_FINDINGS.md), [source screen](YEAST_OBSERVABLES_SOURCE.md), [review](YEAST_OBSERVABLES_REVIEW.md), [design](yeast_observables_screen_design.json), [manifest](yeast_observables_screen_manifest.json). Publisher listings verified; four-query protocol deviation disclosed. The later two-file contract is linked above.
+
+Myo1E checkpoint: [experimental findings](MYO1E_FINDINGS.md), [primary-source note](MYO1E_SOURCE.md), [feasibility review](MYO1E_REVIEW.md), [feasibility design](myo1e_feasibility_design.json), [feasibility manifest](myo1e_feasibility_manifest.json); [repository findings](MYO1E_REPOSITORY_FINDINGS.md), [table contract](MYO1E_REPOSITORY_SOURCE.md), [repository review](MYO1E_REPOSITORY_REVIEW.md), [inventory design](myo1e_repository_design.json), [inventory manifest](myo1e_repository_manifest.json), [static table checks](myo1e_table_contract_checks.json). Real small table verified; empirical comparison and further acquisition stopped pending authoritative definitions.
+
+Earlier: [actin code findings](ACTIN_CODE_FINDINGS.md), [source inventory](ACTIN_CODE_INVENTORY.md), [independent review](ACTIN_CODE_REVIEW.md), [design](actin_code_inventory_design.json), [manifest](actin_code_inventory_manifest.json), and [request ledger](metadata/actin-inventory-001/REQUEST_LEDGER.md). Accepted partial contract; Figure 7 reproduction eligibility stopped; the subsequent Myo1E assessment is linked above.
 
 | Study | Status and scope | Design, code and source | Results and review |
 | --- | --- | --- | --- |
@@ -12,8 +56,15 @@ Start with [FINDINGS.md](FINDINGS.md) for the claim boundaries and [ASSESSMENT.m
 | Observable permission router | Reviewed local refusal of tag-only force permission; no repository-wide inverse gate | [capability audit](dasc_capability_audit.json), [observable context](SHAPE2FATE_OBSERVABLES.md) | [review and retained gaps](OBSERVABLE_PERMISSION_REVIEW.md) |
 | LocMoFit source and observation contract | Reviewed limits of processed cap fits; missing likelihood/covariance and graph coverage | [source](LOCMOFIT_OBSERVATION_SOURCE.md), [contract](LOCMOFIT_OBSERVATION_CONTRACT.md), [design](locmofit_contract_design.json) | [contract checks](locmofit_contract_checks.json), [review](LOCMOFIT_OBSERVATION_REVIEW.md) |
 | LocMoFit adapter and consumers | Accepted software contract cleanup; raw default preserved, corrected cohort explicit, fits opt-in and exploratory | [design](locmofit_adapter_design.json), [cleanup](LOCMOFIT_ADAPTER_CLEANUP.md), [adapter checks](check_locmofit_adapter.py) | [whole-table validation](locmofit_adapter_validation.json), [review](LOCMOFIT_ADAPTER_REVIEW.md) |
+| Independent experimental controls | Reviewed two-study feasibility; source separation stopped | [design](independent_controls_design.json), [Bucher](INDEPENDENT_CONTROLS_BUCHER.md), [Saleem](INDEPENDENT_CONTROLS_SALEEM.md), [manifest](independent_controls_manifest.json) | [findings](INDEPENDENT_CONTROLS_FINDINGS.md), [review](INDEPENDENT_CONTROLS_REVIEW.md) |
+| Bucher EM workbook contract | Byte-verified schema; unresolved sample-count mapping, no effect estimate | [design](bucher_em_contract_design.json), [inspector](inspect_bucher_em_contract.py), [inventory](bucher_em_contract_001.json) | [contract](BUCHER_EM_CONTRACT.md), [counts](bucher_em_contract_counts_001.json), [review](BUCHER_EM_CONTRACT_REVIEW.md) |
+| Bucher EM inclusion reconciliation | Unresolved after package and bounded supplement check; published-figure reproduction stopped | [design](bucher_inclusion_design.json), [package checker](check_bucher_inclusion.py), [source](BUCHER_INCLUSION_SOURCE.md) | [findings](BUCHER_INCLUSION_FINDINGS.md), [package record](bucher_inclusion_package_001.json), [review](BUCHER_INCLUSION_REVIEW.md), [manifest](bucher_inclusion_manifest.json) |
 
 ## Conditional mechanics and synthetic observation
+
+Latest software correction: [tracking metric findings](TRACKING_METRIC_FINDINGS.md), [registration](tracking_metric_design.json), [implementation](TRACKING_METRIC_IMPLEMENTATION.md), [independent review](TRACKING_METRIC_REVIEW.md), [accepted source snapshot](tracking_metric_source_001.py), [test snapshot](tracking_metric_tests_001.py), [lead test runner](tracking_metric_test_runner.py), [execution ledger](tracking_metric_test_runs.json), [15-test log](tracking_metric_pytest_01.log), [static checks](tracking_metric_static_checks.json), [label-only audit](tracking_metric_label_review.json), [manifest](tracking_metric_manifest.json). One test invocation and one tracker movie; no biological result.
+
+Latest: [synthetic dimming findings](SYNTHETIC_DIMMING_FINDINGS.md), [design](synthetic_dimming_design.json), [executed benchmark](synthetic_dimming_benchmark.py), [frozen tracker](synthetic_dimming_tracker_frozen.py), [results](synthetic_dimming_results.json), [single-run checks](synthetic_dimming_checks.json), [independent review](SYNTHETIC_DIMMING_REVIEW.md), [reanalysis](synthetic_dimming_reanalysis.py), [numeric audit](synthetic_dimming_reanalysis.json), [attempt-level execution failure](synthetic_dimming_execution_audit.json), [manifest](synthetic_dimming_manifest.json). Scoped result accepted;282actual runs exceeded150cap.
 
 | Study | Status and scope | Theory, design and code | Results, figure and review |
 | --- | --- | --- | --- |
@@ -24,7 +75,39 @@ Start with [FINDINGS.md](FINDINGS.md) for the claim boundaries and [ASSESSMENT.m
 | Axisymmetric coordinate repair | Reviewed bounded numerical repair; prior failure retained | [theory](AXISYMMETRIC_RHO_THEORY.md), [frozen design](axisymmetric_rho_design_frozen_002.json), [frozen code](axisymmetric_rho_frozen_002.py) | [findings](AXISYMMETRIC_RHO_FINDINGS.md), [results](axisymmetric_rho_results_002.json), [review](AXISYMMETRIC_RHO_REVIEW.md) |
 | Passive area-sign sampling | Reviewed decreasing apex curvature across sampled material-area labels; no global derivative or stability claim | [theory](PASSIVE_AREA_THEORY.md), [frozen design](passive_area_design_frozen_001.json), [frozen code](passive_area_source_frozen_001.py) | [findings](PASSIVE_AREA_FINDINGS.md), [results](passive_area_results_001.json), [figure](passive_area_comparison.png), [review](PASSIVE_AREA_REVIEW.md) |
 | Finite-window cap-fit surrogate | Corrected attempt 2 accepted; attempt 1 rejected for coordinate-map error | [theory](CAP_OBSERVATION_THEORY.md), [frozen design](cap_observation_design_frozen_002.json), [frozen code](cap_observation_source_frozen_002.py) | [findings](CAP_OBSERVATION_FINDINGS.md), [accepted results](cap_observation_results_002.json), [rejected attempt](cap_observation_results_001.json), [review](CAP_OBSERVATION_REVIEW.md) |
+| Full-membrane curvature and balanced load | Reviewed exact free-field ambiguity; fixed-template rank two, with nearly redundant scalar summaries at one configuration | [theory](LOAD_IDENTIFIABILITY_THEORY.md), [frozen design](load_identifiability_design.json), [numerical design](load_identifiability_numerical_design.json), [checker](check_load_identifiability.py) | [findings](LOAD_IDENTIFIABILITY_FINDINGS.md), [single-configuration results](load_identifiability_results_001.json), [review](LOAD_IDENTIFIABILITY_REVIEW.md) |
+| Exact nonlinear graph source compensation | Conditional two-profile criterion; flat ambiguity survives, no global recovery or solver result | [design](nonlinear_source_design.json), [theory](NONLINEAR_SOURCE_THEORY.md) | [findings](NONLINEAR_SOURCE_FINDINGS.md), [review](NONLINEAR_SOURCE_REVIEW.md), [manifest](nonlinear_source_manifest.json) |
+
+| Compact-source uniqueness | Reviewed sufficient profile-conditional theorem; flat counterexample and global flux constraints retained | [design](nonlinear_uniqueness_design.json), [theory](NONLINEAR_UNIQUENESS_THEORY.md), [compatibility](NONLINEAR_UNIQUENESS_COMPATIBILITY.md) | [findings](NONLINEAR_UNIQUENESS_FINDINGS.md), [review](NONLINEAR_UNIQUENESS_REVIEW.md), [manifest](nonlinear_uniqueness_manifest.json) |
+
+| Actual local nonlinear profiles | Reviewed local existence and strict slope ordering through the source disk; no stability or numeric amplitude threshold | [design](nonlinear_existence_design.json), [theory](NONLINEAR_EXISTENCE_THEORY.md), [ordering](NONLINEAR_EXISTENCE_ORDERING.md) | [findings](NONLINEAR_EXISTENCE_FINDINGS.md), [review](NONLINEAR_EXISTENCE_REVIEW.md), [manifest](nonlinear_existence_manifest.json) |
+
+| Exact graph numerical attempt1 | Stopped implementation failure after one solver call; no usable numerical evidence | [executed source](nonlinear_graph_numerical.py), [execution registration](nonlinear_numerical_execution_001.json), [frozen contract](nonlinear_numerical_design.json) | [findings](NONLINEAR_NUMERICAL_FINDINGS.md), [partial result](nonlinear_numerical_results_001.json), [review](NONLINEAR_NUMERICAL_REVIEW.md), [manifest](nonlinear_numerical_manifest_001.json) |
+
+| Numerical harness repair | Reviewed code readiness; synthetic checks use zero actual BVP calls; attempt2 subsequently executed | [candidate](nonlinear_graph_numerical_002.py), [harness](check_nonlinear_harness_002.py), [repair design](nonlinear_numerical_repair_design.json) | [findings](NONLINEAR_NUMERICAL_REPAIR_FINDINGS.md), [checks](nonlinear_numerical_repair_checks.json), [review](NONLINEAR_NUMERICAL_REPAIR_REVIEW.md), [manifest](nonlinear_numerical_repair_manifest.json) |
+
+| Exact graph numerical attempt 2 | All 26 solves converged; physical residual failed, K suppressed | [executed source](nonlinear_graph_numerical_002.py), [execution](nonlinear_numerical_execution_002.json) | [findings](NONLINEAR_NUMERICAL_FINDINGS_002.md), [results](nonlinear_numerical_results_002.json), [profiles](nonlinear_numerical_profiles_002.npz), [review](NONLINEAR_NUMERICAL_REVIEW_002.md), [manifest](nonlinear_numerical_manifest_002.json) |
+
+| Saved-polynomial residual diagnosis | No new solves; derivative inconsistency accounts for physical defect; one fixed mesh proposal | [checker](nonlinear_residual_postmortem.py), [mesh plan](nonlinear_numerical_mesh_plan.json) | [findings](NONLINEAR_RESIDUAL_POSTMORTEM.md), [results](nonlinear_residual_postmortem.json), [theory](NONLINEAR_RESIDUAL_THEORY.md), [review](NONLINEAR_RESIDUAL_REVIEW.md), [manifest](nonlinear_residual_manifest.json) |
+
+| Final mesh preparation | Interrupted and not accepted; draft corrections and no-BVP tests pending, no attempt 3 run | [design](nonlinear_mesh_preflight_design.json), [preserved drafts](nonlinear_mesh_interrupted_001/) | [checkpoint](NONLINEAR_MESH_PREFLIGHT_FINDINGS.md), [implementation record](NONLINEAR_MESH_IMPLEMENTATION.md), [review](NONLINEAR_MESH_PREFLIGHT_REVIEW.md), [manifest](nonlinear_mesh_interrupted_manifest.json) |
+
+| Resumed final mesh preparation | Accepted code readiness after three synthetic harness runs; zero BVP calls in preparation; attempt 3 subsequently failed | [resume](nonlinear_mesh_preflight_resume_001.json), [frozen source](nonlinear_graph_numerical_003.py), [harness](check_nonlinear_harness_003.py) | [findings](NONLINEAR_MESH_PREFLIGHT_FINDINGS_RESUMED.md), [checks](nonlinear_mesh_preflight_checks.json), [review](NONLINEAR_MESH_PREFLIGHT_REVIEW_RESUMED.md), [manifest](nonlinear_mesh_preflight_manifest.json) |
+
+| Exact graph final numerical attempt 3 | All 26 solves converged; physical residual failed, branch closed, K suppressed | [execution](nonlinear_numerical_execution_003.json), [source](nonlinear_graph_numerical_003.py), [independent reanalysis](nonlinear_numerical_reanalysis_003.py) | [findings](NONLINEAR_NUMERICAL_FINDINGS_003.md), [results](nonlinear_numerical_results_003.json), [profiles](nonlinear_numerical_profiles_003.npz), [review](NONLINEAR_NUMERICAL_REVIEW_003.md), [manifest](nonlinear_numerical_manifest_003.json) |
+
+| Near-flat inverse stability | Accepted analytic failure of a uniform Lipschitz inverse with unknown compact balanced load; no calibrated noise bound | [design](nonlinear_inverse_stability_design.json), [theory](NONLINEAR_INVERSE_STABILITY_THEORY.md) | [findings](NONLINEAR_INVERSE_STABILITY_FINDINGS.md), [review](NONLINEAR_INVERSE_STABILITY_REVIEW.md), [manifest](nonlinear_inverse_stability_manifest.json) |
+
+| Fixed known-load recovery | Accepted same-profile uniqueness and uniform near-flat C1 slope to C0 source bound on compatible stationary range | [design](known_load_recovery_design.json), [theory](KNOWN_LOAD_RECOVERY_THEORY.md) | [findings](KNOWN_LOAD_RECOVERY_FINDINGS.md), [public-data comparison](KNOWN_LOAD_DATA_COMPARISON.md), [review](KNOWN_LOAD_RECOVERY_REVIEW.md), [manifest](known_load_recovery_manifest.json) |
+
+| Actin load-adaptation prediction | Indexed-primary source review accepted; constant-work comparator and simulation observables only | [design](actin_adaptation_prediction_design.json), [source audit](ACTIN_ADAPTATION_SOURCE.md) | [findings](ACTIN_ADAPTATION_FINDINGS.md), [review](ACTIN_ADAPTATION_REVIEW.md), [manifest](actin_adaptation_prediction_manifest.json) |
 
 ## Queued work and historical records
 
-[NEXT_CYCLE.md](NEXT_CYCLE.md) specifies a bounded full-operator curvature-versus-balanced-load identifiability task. It is a plan, with no computed result in this checkpoint. [PROGRESS.md](PROGRESS.md) records campaign execution and clock limitations; [AGENT_LOOP.md](AGENT_LOOP.md) describes the subscription-driven research workflow. Original artifacts and superseded drafts remain available at their paths. The study findings and reviews above state which versions may support claims.
+[NEXT_CYCLE.md](NEXT_CYCLE.md) specifies the next distinct question. Final attempt 3 exhausted the numerical branch; no fourth attempt or numerical K calculation is queued. The [contract](nonlinear_numerical_design.json), [formulation](NONLINEAR_NUMERICAL_FORMULATION.md)
+and [design review](NONLINEAR_NUMERICAL_DESIGN_REVIEW.md) remain fixed. Attempt1
+failed in implementation; the actual-profile existence theorem is complete. [PROGRESS.md](PROGRESS.md) records campaign execution and clock
+limitations; [AGENT_LOOP.md](AGENT_LOOP.md) describes the subscription-driven
+research workflow. Original artifacts and superseded drafts remain available at
+their paths. The study findings and reviews above state which versions may
+support claims.

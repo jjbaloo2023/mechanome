@@ -1,0 +1,29 @@
+{
+  "task_id": "known-load-recovery-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T11:31:39.641874+00:00",
+  "question": "With a fixed known vertical load, known rigidity and one known tension, does a single complete normalized-slope profile recover compact curvature source with a local Lipschitz bound uniform near flatness?",
+  "scope": "Analytic comparison on compatible stationary graphs of the registered projected-source model; separately compare assumptions to existing public-data contracts. Closed numerical branch stays closed.",
+  "input_sha256": {
+    "research/NONLINEAR_SOURCE_THEORY.md": "4159afb38647be0722e7880edfc66dbc9d967c08a3b5e6a8631a315119314851",
+    "research/NONLINEAR_EXISTENCE_THEORY.md": "a9ec0a6dfefa5ba34ab3ade0804aeed5fd2a9d6f6687a6076ff8ae48704ea9c0",
+    "research/NONLINEAR_INVERSE_STABILITY_THEORY.md": "97d060f3207a9737d013c26bf263503101cfd68f6c8304b940ba2559909036ae",
+    "research/LOCMOFIT_OBSERVATION_CONTRACT.md": "c14bd513504c96f26071d614c215dafd6268844893e084ac143f6602e1d57431",
+    "research/INDEPENDENT_CONTROLS_FINDINGS.md": "cdc2c67d28d6641ece821c10685f98f300eeedf20ebe31c44791d2be821b9c81"
+  },
+  "expected_outcomes": [
+    "Conditional uniform recovery theorem with named norms",
+    "Precise regularity/compatibility or identifiability obstruction"
+  ],
+  "acceptance_checks": [
+    "Correct flux sign and fixed-load convention",
+    "Same-profile source uniqueness and nearby-profile stability distinguished",
+    "Regular origin and compact-support terminal condition",
+    "Named source/data norms and constants uniform near flatness",
+    "Existence only on admitted stationary-profile range unless separately proved",
+    "Independent review and explicit gap to empirical controls"
+  ],
+  "stop_condition": "One reviewed theorem or exact gap, plus comparison with current observation contracts; zero BVPs, simulation, numerical K, new searches, bulk downloads or new empirical claims.",
+  "evidence_cutoff_utc": "2026-09-29T11:45:27Z",
+  "target_checkpoint_utc": "2026-09-29T11:50:27Z"
+}

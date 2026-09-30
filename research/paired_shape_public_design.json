@@ -1,0 +1,68 @@
+{
+  "task_id": "paired-shape-public-screen-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T17:31:49.471649+00:00",
+  "question": "Is there a genuinely new reusable public object with membrane orientation/shape plus coat signal through time for the same individual clathrin events?",
+  "rationale": "Address the static-to-dynamic observation gap without reopening prior data/access branches or adding operational infrastructure.",
+  "input_sha256": {
+    "research/NEXT_CYCLE.md": "668a841203c02f61e70f697fc6ffcd75cdf40e6e4920682dcb05ebd0562e551a",
+    "research/ASSESSMENT.md": "329b64f441cebd3679e9fe0a84fc787ae51c3b4921e0707dd9b1347781b9b2df",
+    "research/PUBLIC_DYNAMIC_DATA.md": "bd752f34b26fd2184e158402b78c51bf37b191380ff7a438a988a00f9b2154f4",
+    "research/DATA_AUDIT.md": "700b0a7ccfcfc1913215af61bc5b2a2a3e886f595cdf5d83e3200e3532b447c5",
+    "research/INDEX.md": "a2c9a49ba1461fff6452fa56879b50a792368e4094c7301ba13ff76adaa3bb6a"
+  },
+  "excluded_records": [
+    "Scott2018 request-only microscopy",
+    "Willy2021 request-only microscopy",
+    "S-BIAD566",
+    "Mendeley pfgfbv3rjx.1",
+    "Shape2Fate",
+    "DASC/AP2",
+    "Bucher",
+    "Akamatsu",
+    "Myo1E",
+    "yeast",
+    "endpoint2011 screen"
+  ],
+  "limits": {
+    "team_search_queries": 2,
+    "team_primary_opens": 3,
+    "source_search_queries": 2,
+    "source_primary_opens": 2,
+    "lead_primary_opens": 1,
+    "reviewer_source_calls": 0,
+    "source_minutes": 4,
+    "raw_downloads": 0,
+    "fits": 0,
+    "tracking": 0,
+    "BVP": 0,
+    "author_code": 0,
+    "pytest": 0
+  },
+  "ownership": {
+    "source": [
+      "research/PAIRED_SHAPE_PUBLIC_SOURCE.md"
+    ],
+    "review": [
+      "research/PAIRED_SHAPE_PUBLIC_REVIEW.md"
+    ],
+    "lead": [
+      "research/PAIRED_SHAPE_PUBLIC_FINDINGS.md",
+      "research/paired_shape_public_design.json",
+      "research/paired_shape_public_calls.json"
+    ]
+  },
+  "acceptance_checks": [
+    "exact primary article or repository object identity and observed accessible file listing",
+    "same-event pairing rather than independent population means or qualitative example",
+    "time calibration, channel registration and optical proxy assumptions",
+    "eligibility/censoring and cell/preparation grouping",
+    "public access and reuse limitations distinguished",
+    "new record versus excluded prior records",
+    "claims limited to verified content; missing fields explicit",
+    "cumulative tool counts and actual times recorded"
+  ],
+  "stop_condition": "At most one sourced candidate and exact contract gaps, or one exhausted screen. No raw acquisition/analysis or follow-up access rescue inside this task. If no new verified public object, stop and reassess usefulness of recurring work rather than inventing another nearby screen.",
+  "evidence_cutoff_utc": "2026-09-29T17:45:39Z",
+  "target_checkpoint_utc": "2026-09-29T17:50:39Z"
+}

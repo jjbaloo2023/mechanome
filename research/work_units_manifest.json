@@ -1,0 +1,30 @@
+{
+  "task_id": "offline-work-units-001",
+  "accepted_at_utc": "2026-09-29T16:15:11.428170+00:00",
+  "disposition": "accepted_offline_primitive; separate_process_recovery_not_yet_demonstrated",
+  "artifact_sha256": {
+    "research/work_units_design.json": "b83b46686d76db9b6d45a3c03437ab07c36448b0339e059bc96c1720a0aa7aa5",
+    "research/work_units_before_001.zip": "bcd10f38b83cbfa724d2be2d3416cbfd188db1cbe814656f1acd03b5544cb9d3",
+    "research/work_units_source_001.zip": "8e7007624e71c6d34f43260949d42b695ffd8f67e37e5a9c7115ce993c3cc37d",
+    "research/WORK_UNITS_IMPLEMENTATION.md": "2bdd783ef4ac0d5f238f9e07846603b1be1b32d92f06f34cd11adcc489b4acd4",
+    "research/WORK_UNITS_REVIEW.md": "baffb17caa234f521c5db29e94201504dc553bb75e9987a777fb03285ac8212c",
+    "research/WORK_UNITS_FINDINGS.md": "43fbbf364292cb349f778578b8a1b6d0a8b6ad791d9cbac374ec932dfd2eeee3",
+    "research/work_units_test_runner.py": "75cae2a1ed94c04031c1489122c8903316f13f19b89f217f59cfe9a3df37e8df",
+    "research/work_units_test_runs.json": "68f02d485dcb7e845ef571bac4ac46d3711393eb683026c074387a7f7ef6405a",
+    "research/work_units_pytest_01.log": "b55067114f6a949a87b815faec3d2c1fcf483196996cdc9d6dd2847252ab909d",
+    "research/work_units_static_checks.json": "9dcb5fe0dc120af9056233c5b963595c289b20f7770be05948fcab03fa2ec441"
+  },
+  "working_tree_sha256_at_acceptance": {
+    "mechanome/research/contracts.py": "2fb77e4e3cfbf7276198a42cd590fc4abbb6f409340359871dd2f9f50dfce6ad",
+    "mechanome/research/controller.py": "7870f45139df7a99ce6b069b33adf17276898ec7a9632e02f7574dae1a8b1285",
+    "tests/test_research_controller.py": "320a2dea4d56d6f2b11a4069cffe5105d13110b448d3633ff0730904cf9b90e1",
+    "tests/test_research_work_units.py": "6511a3f7b5164ffd7ec9834689731bf60ebd149102d8fec0c783b3198ecdaee1"
+  },
+  "working_tree_note": "Accepted source/test bytes frozen in work_units_source_001.zip. Current production files may evolve in a separately registered task.",
+  "pytest_invocations": 1,
+  "pytest_cap": 3,
+  "tests_passed": 17,
+  "scientific_calls": 0,
+  "network_requests": 0,
+  "live_enforcement": false
+}

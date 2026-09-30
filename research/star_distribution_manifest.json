@@ -1,0 +1,20 @@
+{
+  "task_id": "star-distribution-001",
+  "accepted_at_utc": "2026-09-29T18:05:57.459848+00:00",
+  "artifact_sha256": {
+    "research/star_distribution_design.json": "4c0df0b8bc6d755939177d8e83217629f9495992cfe6ab60858d3317e8bd5f5c",
+    "research/star_distribution_next_input.md": "da324cd5789dd166874e11aeef4fe5dc64d9be73b395ae29edb25f7f3d30409d",
+    "research/star_distribution_checks.py": "38e1051b77a977a33933909b9671f97e25c42a0fd397f3eb1212de8603aa559e",
+    "research/star_distribution_checks.json": "d6c0106b34ad22759f492cfebcd36c364afcfb8a6256c72fdf7172da81e5551e",
+    "research/STAR_DISTRIBUTION_THEORY.md": "a72f89d0bcaee80fbc779ffa98e40422c8102c50c03418de4a07de9283040ab0",
+    "research/STAR_DISTRIBUTION_REVIEW.md": "68cb4fa8e24ac95c2d5202b0ca7933ce5120400b70a95e318f0dfb868f19d146",
+    "research/STAR_DISTRIBUTION_FINDINGS.md": "3081315e39c87a7eee43cfd6f3a3f64725207e0e5df2f8bbde8762f02fa5b025"
+  },
+  "disposition": "accepted_exact_conditional_counterexample; observation_branch_closed",
+  "scientific_invocations": 1,
+  "distribution_pairs": 1,
+  "source_calls": 0,
+  "pytest": 0,
+  "fits": 0,
+  "budget_compliant": true
+}

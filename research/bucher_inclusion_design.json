@@ -1,0 +1,38 @@
+{
+  "task_id": "bucher-inclusion-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-26T15:49:55.492599+00:00",
+  "scheduled_delivery_utc": "2026-09-26T15:48:04.688Z",
+  "first_observed_utc": "2026-09-26T15:48:14Z",
+  "evidence_cutoff_utc": "2026-09-26T16:03:14Z",
+  "checkpoint_target_utc": "2026-09-26T16:08:14Z",
+  "question": "Do package metadata or the named primary supplement explicitly reconcile EM entry counts with Fig1/Fig7 caption counts?",
+  "expected_outcomes": [
+    "explicit inclusion/missing-area mapping",
+    "demonstrated package reading error with preserved correction",
+    "unresolved discrepancy; stop published-figure reproduction"
+  ],
+  "input_sha256": {
+    "research/BUCHER_EM_CONTRACT.md": "0fabf689ead13145f667a2e4217ae001ef35c9ca623332b9c11bc0034f35a789",
+    "research/BUCHER_EM_CONTRACT_REVIEW.md": "9c0fad70d5ab1f0074fe6c1e28bfde9ab351626bf82b1ad597859ab33c1b6ae2",
+    "research/bucher_em_contract_001.json": "723d9ada73d8c9f2c3906d58d5958465524e199052077f0b30df7bcef6d449c4",
+    "research/bucher_em_contract_counts_001.json": "857115ce140a278cb8cf5c7613167d004d57ed0b1331a92adb3cf9ee78fb4dc6",
+    "research/NEXT_CYCLE.md": "bd2304c77e378d1cf4e453f390d82f14b8bf28d581f3bbaa06a47b60cdff1740"
+  },
+  "bounds": {
+    "workbooks": "two already cached files only; verify hashes before use",
+    "new_payload": "only linked Bucher 2018 supplementary PDF",
+    "max_new_payload_bytes": 1100000,
+    "max_http_attempts": 1,
+    "no_installs": true
+  },
+  "checks": [
+    "all cell types, numeric validity and finite positive area values",
+    "internal blanks versus trailing padding; row and column provenance",
+    "hidden rows/columns, styles, names, comments, package metadata",
+    "source-provided inclusion rules and cell/culture/date/condition mapping",
+    "explicit evidence only for count reconciliation; CLEM exclusion not assumed to apply to EM",
+    "independent review"
+  ],
+  "stop_condition": "One independently reviewed explanation or unresolved discrepancy. No imputation, changed denominators, morphology effects, p-values, trajectories or mechanics fit. If unresolved, stop figure reproduction without another search."
+}

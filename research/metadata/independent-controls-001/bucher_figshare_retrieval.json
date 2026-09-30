@@ -1,0 +1,73 @@
+{
+  "retrieved_at_utc": "2026-09-26T15:23:03.954527+00:00",
+  "url": "https://api.figshare.com/v2/articles/5802903",
+  "path": "research/metadata/independent-controls-001/bucher_figshare.json",
+  "bytes": 6615,
+  "sha256": "4540267e51ed4475fd97cf52858a3ed73a1054ff3164c43d97f02ddb2693d8e0",
+  "id": 5802903,
+  "doi": "10.6084/m9.figshare.5802903.v1",
+  "version": 1,
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "files": [
+    {
+      "id": 10256778,
+      "name": "CLEM BSC-1 AP2.xlsx",
+      "size": 50116,
+      "download_url": "https://ndownloader.figshare.com/files/10256778",
+      "supplied_md5": "308f1e7d296d3f50d59331dff38c35af",
+      "computed_md5": "308f1e7d296d3f50d59331dff38c35af"
+    },
+    {
+      "id": 10256784,
+      "name": "CLEM BSC-1 CHC.xlsx",
+      "size": 56188,
+      "download_url": "https://ndownloader.figshare.com/files/10256784",
+      "supplied_md5": "eedfecb0f63c49d87e61d489883a44ce",
+      "computed_md5": "eedfecb0f63c49d87e61d489883a44ce"
+    },
+    {
+      "id": 10256781,
+      "name": "EM BSC-1.xlsx",
+      "size": 78130,
+      "download_url": "https://ndownloader.figshare.com/files/10256781",
+      "supplied_md5": "ce61ee0d469a291ddcfa193310119905",
+      "computed_md5": "ce61ee0d469a291ddcfa193310119905"
+    },
+    {
+      "id": 10256790,
+      "name": "EM BSC-1 osmotic shock.xlsx",
+      "size": 72748,
+      "download_url": "https://ndownloader.figshare.com/files/10256790",
+      "supplied_md5": "529bbaa8d3cfafc95821a4ea2e354708",
+      "computed_md5": "529bbaa8d3cfafc95821a4ea2e354708"
+    },
+    {
+      "id": 10256787,
+      "name": "Tacking BSC-1 AP2-GFP CLCa-tomato_1.xls",
+      "size": 1310208,
+      "download_url": "https://ndownloader.figshare.com/files/10256787",
+      "supplied_md5": "f17e2cc764b2e91e4133315d7a1d6f47",
+      "computed_md5": "f17e2cc764b2e91e4133315d7a1d6f47"
+    },
+    {
+      "id": 10256793,
+      "name": "Tracking BSC-1 AP2-GFP CLCa-tomato osmotic shock_6.xls",
+      "size": 5139456,
+      "download_url": "https://ndownloader.figshare.com/files/10256793",
+      "supplied_md5": "ac1ca49a45d4ac5ffaf6eb05b669dadc",
+      "computed_md5": "ac1ca49a45d4ac5ffaf6eb05b669dadc"
+    },
+    {
+      "id": 10256796,
+      "name": "Tracking BSC-1 AP2-GFP CLCa-tomato_6.xls",
+      "size": 868864,
+      "download_url": "https://ndownloader.figshare.com/files/10256796",
+      "supplied_md5": "097ccfdbadd277e3db5d05fcf1d4102f",
+      "computed_md5": "097ccfdbadd277e3db5d05fcf1d4102f"
+    }
+  ]
+}

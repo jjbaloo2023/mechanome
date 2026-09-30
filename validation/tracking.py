@@ -132,54 +132,97 @@ def run_tracking(movie, meta, gate_px=20, max_gap=3, min_track_len=4):
 # ------------------------------------------------------- validation ----------
 def validate_tracking(tracks, gt_tracks, meta, match_radius_px=20,
                       coat_floor=25.0, movie=None):
-    """Track-level recovery + detection P/R/F1 on the DETECTABLE subset.
+    """Validate retained track points under explicit full and eligible cohorts.
 
-    match_radius_px ~ 2*PSF: the LoG locks onto the coat's brightness centroid,
-    which sits ~1 PSF off the pit's geometric (GT) center, so a one-PSF match radius
-    would split one structure into an FP+FN pair. PSF sigma is 9 px here, so 2*PSF is
-    18 px; 20 px rounds that up for a small margin and counts one coat detection as
-    one structure.
+    ``all_presence`` scores every GT-present frame.  ``detectable`` restricts
+    TP/FN to the observed-image eligible subset: with a movie, the local coat
+    peak is at least ``coat_floor``; without a movie every present frame is
+    eligible and the fallback is labeled in the returned contract.  Both blocks
+    use one one-to-one per-frame matching pass.  Predictions matched to
+    ineligible GT are ignored by the conditional precision denominator rather
+    than relabeled false positives.  Explicit rates are ``None`` when their
+    denominator is zero; legacy top-level scalar rates retain the prior 0.0
+    fallback and now represent all-presence metrics.
 
-    Recall is reported over DETECTABLE presence only: a pit whose coat has not yet
-    assembled above `coat_floor` (its first ~7 nascent frames) is below the optical
-    detection limit and cannot be found — counting those as misses would penalize the
-    detector for a physical fact, not a failure. When `movie` is given, GT presence
-    is gated on the coat peak; otherwise all GT-present frames count (a lower bound)."""
+    ``lifetime_pairs`` remains a legacy positional diagnostic: it is not a
+    complete-event or continuous-lifetime score.  The event counts below use
+    framewise matches, so missed and wholly ineligible events remain visible.
+    """
     T = meta["T_field"]
     coat_idx = meta["channels"].index("coat") if movie is not None else None
-    # build GT presence: {frame: [(sid, x, y, detectable)]}
+    eligibility_source = "movie_local_coat_peak_ge_floor" if movie is not None else "all_presence_no_movie_fallback"
+    # Build GT presence: {frame: [(sid, x, y, eligible)]}.
     gt_by_frame = {f: [] for f in range(T)}
     for g in gt_tracks:
         for f in range(g["birth"], g["death"]):
-            det = True
+            eligible = True
             if movie is not None:
                 y, x = int(g["y_px"]), int(g["x_px"])
                 peak = movie[f, coat_idx, max(0, y - 8):y + 8, max(0, x - 8):x + 8].max()
-                det = bool(peak >= coat_floor)
-            gt_by_frame[f].append((g["sid"], g["x_px"], g["y_px"], det))
-    # detection P/R on the detectable subset: match each track point to nearest GT
-    tp = fp = fn = 0
+                eligible = bool(peak >= coat_floor)
+            gt_by_frame[f].append((g["sid"], g["x_px"], g["y_px"], eligible))
+    eligible_event_ids = {sid for frame_gts in gt_by_frame.values()
+                          for sid, _, _, eligible in frame_gts if eligible}
+
+    all_tp = all_fp = 0
+    eligible_tp = eligible_fp = ignored_ineligible_matches = 0
+    all_presence_total = eligible_presence_total = 0
+    ever_matched_all, ever_matched_eligible = set(), set()
     for f in range(T):
         preds = [(t.xs[t.frames.index(f)], t.ys[t.frames.index(f)]) for t in tracks if f in t.frames]
         gts = gt_by_frame[f]
-        detectable_idx = [gi for gi, g in enumerate(gts) if g[3]]
+        all_presence_total += len(gts)
+        eligible_presence_total += sum(g[3] for g in gts)
         used = set()
         for (px, py) in preds:
-            best, bestd = None, match_radius_px + 1
+            best, bestd = None, float("inf")
             for gi, (sid, gx, gy, det) in enumerate(gts):
                 if gi in used:
                     continue
                 d = np.hypot(px - gx, py - gy)
-                if d < bestd:
+                # Strictly closer wins; input order resolves an exact distance tie.
+                if d <= match_radius_px and (best is None or d < bestd):
                     best, bestd = gi, d
             if best is not None:
-                tp += 1; used.add(best)
+                sid, _, _, eligible = gts[best]
+                used.add(best)
+                all_tp += 1
+                ever_matched_all.add(sid)
+                if eligible:
+                    eligible_tp += 1
+                    ever_matched_eligible.add(sid)
+                else:
+                    ignored_ineligible_matches += 1
             else:
-                fp += 1
-        fn += sum(1 for gi in detectable_idx if gi not in used)
-    prec = tp / (tp + fp) if (tp + fp) else 0.0
-    rec = tp / (tp + fn) if (tp + fn) else 0.0
-    f1 = 2 * prec * rec / (prec + rec) if (prec + rec) else 0.0
+                all_fp += 1
+                eligible_fp += 1
+    all_fn = all_presence_total - all_tp
+    eligible_fn = eligible_presence_total - eligible_tp
+
+    def metric_block(tp, fp, fn, extra=None):
+        precision = tp / (tp + fp) if (tp + fp) else None
+        recall = tp / (tp + fn) if (tp + fn) else None
+        f1_denominator = 2 * tp + fp + fn
+        f1 = 2 * tp / f1_denominator if f1_denominator else None
+        out = dict(tp=tp, fp=fp, fn=fn, precision=precision, recall=recall, f1=f1)
+        if extra:
+            out.update(extra)
+        return out
+
+    all_presence = metric_block(all_tp, all_fp, all_fn, dict(
+        gt_presence_frames=all_presence_total,
+        gt_events_total=len(gt_tracks),
+        gt_events_ever_matched=len(ever_matched_all),
+        gt_event_detected_frac=(len(ever_matched_all) / len(gt_tracks) if gt_tracks else None),
+    ))
+    detectable = metric_block(eligible_tp, eligible_fp, eligible_fn, dict(
+        eligible_gt_presence_frames=eligible_presence_total,
+        eligible_gt_events_total=len(eligible_event_ids),
+        eligible_gt_events_ever_matched=len(ever_matched_eligible),
+        ignored_ineligible_matches=ignored_ineligible_matches,
+        eligibility_source=eligibility_source,
+        coat_floor=coat_floor if movie is not None else None,
+    ))
 
     # per-GT-structure: assign each recovered track to the GT it best overlaps
     lifetime_pairs = []
@@ -203,11 +246,18 @@ def validate_tracking(tracks, gt_tracks, meta, match_radius_px=20,
         lifetime_pairs.append(dict(sid=g["sid"], gt_life=gt_life,
                                    rec_life=t.lifetime, completeness=completeness,
                                    force=g["active_force_pN"]))
-    detected_frac = len(matched_gt) / len(gt_tracks) if gt_tracks else 0.0
-    return dict(precision=prec, recall=rec, f1=f1, tp=tp, fp=fp, fn=fn,
+    # Compatibility keys are all-presence values.  Legacy scalar rates use 0.0
+    # only where an explicit block reports an undefined (zero-denominator) rate.
+    zero = lambda value: 0.0 if value is None else value
+    return dict(metric_contract_version="tracking-validation-v2",
+                precision=zero(all_presence["precision"]), recall=zero(all_presence["recall"]),
+                f1=zero(all_presence["f1"]), tp=all_tp, fp=all_fp, fn=all_fn,
                 n_gt=len(gt_tracks), n_tracks=len(tracks),
-                gt_structures_detected=len(matched_gt),
-                gt_detected_frac=detected_frac, lifetime_pairs=lifetime_pairs)
+                gt_structures_detected=len(ever_matched_all),
+                gt_detected_frac=zero(all_presence["gt_event_detected_frac"]),
+                all_presence=all_presence, detectable=detectable,
+                lifetime_pairs=lifetime_pairs,
+                lifetime_pairs_scope="legacy positional median-track diagnostic")
 
 
 def tracking_sweep(crowding=(4, 8, 12), photons=(80, 220, 400), seed0=0):
@@ -223,8 +273,14 @@ def tracking_sweep(crowding=(4, 8, 12), photons=(80, 220, 400), seed0=0):
             gt_json = [dataclasses.asdict(g) for g in gts]
             trks, _ = run_tracking(movie, meta)
             val = validate_tracking(trks, gt_json, meta, movie=movie)
-            rows.append(dict(axis=nkind, value=v, f1=val["f1"], precision=val["precision"],
-                             recall=val["recall"], detected_frac=val["gt_detected_frac"],
+            rows.append(dict(axis=nkind, value=v, metric_contract_version=val["metric_contract_version"],
+                             all_presence_f1=val["all_presence"]["f1"],
+                             all_presence_precision=val["all_presence"]["precision"],
+                             all_presence_recall=val["all_presence"]["recall"],
+                             detectable_f1=val["detectable"]["f1"],
+                             detectable_precision=val["detectable"]["precision"],
+                             detectable_recall=val["detectable"]["recall"],
+                             all_presence_gt_event_detected_frac=val["all_presence"]["gt_event_detected_frac"],
                              n_gt=val["n_gt"], n_tracks=val["n_tracks"]))
     return rows
 
@@ -235,9 +291,10 @@ if __name__ == "__main__":
     gt_json = [dataclasses.asdict(g) for g in gts]
     tracks, dets = run_tracking(movie, meta)
     val = validate_tracking(tracks, gt_json, meta, movie=movie)
-    print(f"detection: P={val['precision']:.2f} R={val['recall']:.2f} F1={val['f1']:.2f}")
+    print(f"all-presence detection: P={val['precision']:.2f} R={val['recall']:.2f} F1={val['f1']:.2f}")
     print(f"GT structures detected: {val['gt_structures_detected']}/{val['n_gt']} "
           f"(recovered {val['n_tracks']} tracks)")
+    print("Legacy positional lifetime diagnostic:")
     for lp in val["lifetime_pairs"]:
         print(f"  s{lp['sid']}: gt_life={lp['gt_life']} rec_life={lp['rec_life']} "
               f"completeness={lp['completeness']:.0%}")

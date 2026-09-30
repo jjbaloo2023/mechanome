@@ -1,0 +1,20 @@
+{
+  "task_id": "nonlinear-numerical-001",
+  "attempt_number": 3,
+  "created_at_utc": "2026-09-29T01:08:44.213680+00:00",
+  "disposition": "completed_gate_failed_branch_closed",
+  "BVP_calls": 26,
+  "process_exit_code": null,
+  "process_exit_code_reason": "Nested execution metadata not forwarded; saved computational completion independently verified.",
+  "artifact_sha256": {
+    "research/nonlinear_numerical_execution_003.json": "c08b63923adf59d8f05e4662b2a8378ae0922747c15b4327abc6955ab4c79f28",
+    "research/nonlinear_graph_numerical_003.py": "f9a25845c3cca2dd8dbb88d5d1de0641ce45a3ffd5dc865cb822fc22c26ebbc3",
+    "research/nonlinear_numerical_results_003.json": "1f27f32902b8ddd34991ed32669ec9dc8b3585e31e8636724eae90625c67f2f0",
+    "research/nonlinear_numerical_profiles_003.npz": "8a57001c2e270ee99c7593f435b105f1db9fabc3eca3e03f0402907b0534b73a",
+    "research/NONLINEAR_NUMERICAL_IMPLEMENTATION_003.md": "f82496dc17cd16642ed496492fe1303f63f7ed8af8205d6aef89605f0c05460f",
+    "research/nonlinear_numerical_reanalysis_003.py": "7809854954b126d6c96ab4172cdd47fcd92daa7d84b73720bfc9019e7ec012ab",
+    "research/nonlinear_numerical_reanalysis_003.json": "b4b7b923a2acf9b7846a384036805dc5be3fa2a73f733852d8a99a25b4e3d763",
+    "research/NONLINEAR_NUMERICAL_REVIEW_003.md": "fa04fa841c83da6805dbc7969018303d74c12a1daf3855d77b3d140b63b2d339",
+    "research/NONLINEAR_NUMERICAL_FINDINGS_003.md": "33f381a6e7c94315fde97526e131e3313ca429dde5cb4d06205f84717082e0df"
+  }
+}

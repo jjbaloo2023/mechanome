@@ -1,0 +1,80 @@
+{
+  "task_id": "geometry-transfer-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T15:02:17.385036+00:00",
+  "question": "Does the descriptive curvature-versus-angle ranking transfer when a whole cell line is withheld?",
+  "input_sha256": {
+    "research/compare_geometry.py": "20f3bbba1c4652665c38ab9e7092ba4f5535dca8775a36ba4cef5d43446be9e9",
+    "research/FIRST_COMPARISON.md": "12294486bb7e69379f380c7eeb9b5b417611f7126eb9f1943871e97e5f1cc5f0",
+    "research/geometry_inputs.lock.json": "ec382d26150cbefd381849449a950ab3218551da01dae7f1c46b7d8ed4df9635",
+    "research/data_audit.json": "cf4e3276ec5b2a17ae2478de70419d1ad53c8ccbed003c57b9e38ddfc4f7faef",
+    "research/geometry_results_v2.json": "8df757c3198136ed4a98bff4cf804f766b8077aca4b8485844e4d71f8c7829f3"
+  },
+  "cache_verified_before_registration": {
+    "all_rows": 2831,
+    "policy_rows": {
+      "corrected": 2574,
+      "raw_nonnegative": 2551,
+      "include_flagged": 2831
+    },
+    "groups_by_line_each_policy": {
+      "3T3": 7,
+      "SKMEL2": 13,
+      "U2OS": 3
+    },
+    "checks": "Existing load_verified passed code/protocol/auditlock, sourceSHA256/publishedMD5 and correction/key guards; no fit called."
+  },
+  "fixed_analysis": {
+    "policies": [
+      "corrected",
+      "raw_nonnegative",
+      "include_flagged"
+    ],
+    "held_out_lines": [
+      "3T3",
+      "SKMEL2",
+      "U2OS"
+    ],
+    "models": [
+      "constant_curvature",
+      "constant_area",
+      "flexible_reference"
+    ],
+    "flexible_knots_degrees": [
+      0,
+      45,
+      90,
+      135,
+      180
+    ],
+    "training_weight_squared": "1/(number_of_training_lines * groups_in_row_line * rows_in_row_group)",
+    "fit": "NNLS using existing design basis; rank must be full and constant-area coefficient must yield finite positive area; no retuning. Each policy/heldline/model fit exactly once.",
+    "score": "Curvature MAE per heldoutgroup; equalgroupmean per targetline; equalline grandmean. Retain every coefficient, traininggroup list, targetgroup score and support counts.",
+    "support": "Report train/target angle min/max and count outside training angular range for each fold. Do not remove such rows.",
+    "expected_empirical_fits": 27,
+    "uncertainty": "Descriptive only; fitted-geometry correlation, selection and cell-line/culture limitations remain. No calibrated CIs/p-values or mechanism inference."
+  },
+  "limits": {
+    "empirical_fit_calls_total": 27,
+    "synthetic_fit_calls_total": 6,
+    "empirical_grid_invocations": 1,
+    "source_requests": 0,
+    "BVP_calls": 0,
+    "author_code_executions": 0,
+    "implementation_minutes": 8
+  },
+  "execution_owner": "lead_only",
+  "worker_execution_allowed": false,
+  "required_checks": [
+    "Exact source locks/hash guards",
+    "No heldout target/group in training inputs or normalization",
+    "Weights sum equally by trainingline and withinlinegroup",
+    "Recovery of known synthetic forms, nonnegative coefficients and finite-area boundary",
+    "Explicit missing/rankfailure record; no automaticretry",
+    "Independent leakage/weighting/units/results review"
+  ],
+  "artifact_policy": "Register cumulative ledger before calls; reserve eachNNLS before execution; one immutable empirical invocation/output, separate immutable synthetic check output, sourcehash recorded. No worker executes tests/fits. Preserve partial outputs on failure; never overwrite completed output.",
+  "stop_condition": "One independently reviewed descriptive comparison or exact input/implementation failure, no automatic new model/sensitivity/grid.",
+  "evidence_cutoff_utc": "2026-09-29T15:15:35Z",
+  "target_checkpoint_utc": "2026-09-29T15:20:35Z"
+}

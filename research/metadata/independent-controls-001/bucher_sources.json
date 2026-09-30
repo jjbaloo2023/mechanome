@@ -1,0 +1,107 @@
+{
+  "task_id": "independent-controls-001",
+  "attempt_number": 1,
+  "study_id": "bucher2018",
+  "primary_article": {
+    "doi": "10.1038/s41467-018-03533-0",
+    "url": "https://www.nature.com/articles/s41467-018-03533-0",
+    "citation": "Bucher et al., Nature Communications 9, 1109 (2018)",
+    "license": "CC BY 4.0 (article page)",
+    "locators": [
+      "Figs. 1-7",
+      "Methods: Live-cell microscopy",
+      "Methods: Osmotic shock experiments",
+      "Methods: Transformation of images for CLEM",
+      "Methods: TEM and CLEM analysis",
+      "Data availability"
+    ]
+  },
+  "linked_public_records": [
+    {
+      "type": "dataset_landing_metadata",
+      "url": "https://doi.org/10.6084/m9.figshare.5802903",
+      "identity": "Clathrin-adaptor ratio and membrane tension regulate the flat-to-curved transition of the clathrin coat during endocytosis",
+      "aggregate_size_bytes": 7575710,
+      "aggregate_size_display": "7,575,710 B (Figshare metadata; landing page rounds 7.22 MB)",
+      "license": "CC BY 4.0",
+      "access": "verified local 6,615-B Figshare metadata; listed payloads uninspected",
+      "individual_file_manifest": "resolved from verified Figshare metadata; seven spreadsheet files",
+      "metadata_record": {
+        "sha256": "4540267e51ed4475fd97cf52858a3ed73a1054ff3164c43d97f02ddb2693d8e0",
+        "bytes": 6615,
+        "path": "research/metadata/independent-controls-001/bucher_figshare.json"
+      },
+      "files": [
+        {
+          "bytes": 50116,
+          "name": "CLEM BSC-1 AP2.xlsx"
+        },
+        {
+          "bytes": 56188,
+          "name": "CLEM BSC-1 CHC.xlsx"
+        },
+        {
+          "name": "EM BSC-1.xlsx",
+          "condition": "normal",
+          "bytes": 78130,
+          "id": 10256781,
+          "md5": "ce61ee0d469a291ddcfa193310119905"
+        },
+        {
+          "name": "EM BSC-1 osmotic shock.xlsx",
+          "condition": "osmotic shock",
+          "bytes": 72748,
+          "id": 10256790,
+          "md5": "529bbaa8d3cfafc95821a4ea2e354708"
+        },
+        {
+          "bytes": 1310208,
+          "name": "Tacking BSC-1 AP2-GFP CLCa-tomato_1.xls"
+        },
+        {
+          "bytes": 5139456,
+          "name": "Tracking BSC-1 AP2-GFP CLCa-tomato osmotic shock_6.xls"
+        },
+        {
+          "bytes": 868864,
+          "name": "Tracking BSC-1 AP2-GFP CLCa-tomato_6.xls"
+        }
+      ]
+    },
+    {
+      "type": "supplement",
+      "url": "https://www.nature.com/articles/s41467-018-03533-0",
+      "identity": "Supplementary Information",
+      "size_bytes": 949000,
+      "size_display": "949 kB",
+      "access": "linked, not retrieved; primary HTML and data landing metadata sufficient for bounded eligibility decision",
+      "license": "unresolved; no separately inspected license statement"
+    }
+  ],
+  "observed": [
+    "TEM projected area and visual flat/dome/pit classes",
+    "CLEM integrated fluorescence correlated to EM objects",
+    "live AP2/CLC intensity tracks at 3-s frames"
+  ],
+  "inferred_or_model_derived": [
+    "surface-area conversion from CLEM",
+    "morphology distributions and transition time from fitted growth laws",
+    "contact angle and tip curvature model comparisons"
+  ],
+  "mechanical_controls": {
+    "tension": "hypotonic intervention described as increasing PM tension; no independent numerical calibration found",
+    "rigidity": "no measurement or controlled variation found",
+    "traction": "no spatial magnitude/direction/location measurement or reaction map found"
+  },
+  "source_invariance": "not established: hypotonic treatment changes observed lifetime, AP2/CLC timing and morphology, but such changes may arise from tension alone and do not prove source fields changed",
+  "full_membrane_separation_eligible": false,
+  "narrower_comparison": "descriptive population comparison of unperturbed and hypotonic morphology, with AP2/CLC timing; same-cell before/after applies to live tracking only, while destructive EM normal/shock pairing is unestablished",
+  "minimum_prospective_requirements": [
+    "registered 3-D profiles with scale, pose and noise calibration",
+    "independently calibrated rigidity contrast with invariant sources or a spatial traction/reaction measurement",
+    "known tension",
+    "published condition/replicate mapping and small derivative-ready profiles/calibration"
+  ],
+  "accessed_utc": "2026-09-26",
+  "bounds": "No raw data, movies, payload downloads, additional API, author contact, numerical analysis, or source expansion. Verified lead-provided 6,615-B Figshare metadata was incorporated."
+}

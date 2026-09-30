@@ -1,0 +1,16 @@
+{
+  "task_id": "nonlinear-numerical-001",
+  "attempt_number": 1,
+  "observed_at_utc": "2026-09-27T00:30:20.487079+00:00",
+  "disposition": "implementation_failure_after_one_solver_call_returned_no_physical_result",
+  "artifact_sha256": {
+    "research/nonlinear_numerical_execution_001.json": "2d567d2cf9f382e323bec47364b3017de01ab035c6723ce3c19fb4b4a385d0eb",
+    "research/nonlinear_graph_numerical.py": "2e82959e40d32494a0c8f8a221fb333fea6474ac258bad3643a082a61a9df2b3",
+    "research/nonlinear_numerical_results_001.json": "25cedd4308fbf613390b7e4b1e684526bd8e62c6b1af116322ad65021b50914f",
+    "research/nonlinear_numerical_profiles_001.npz": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+    "research/NONLINEAR_NUMERICAL_IMPLEMENTATION.md": "459a3df8301d3a5a7b2b5679c67e3bbf3d0a09aa2a443526bbdf8737dbfe44ec",
+    "research/NONLINEAR_NUMERICAL_REVIEW.md": "c89fd7ce2f006b823688e1a662ee3e4ec5814f89c631955560207fe65d2b6693",
+    "research/NONLINEAR_NUMERICAL_ASYMPTOTIC.md": "2c4db36ea5e2b389645b11dd20df82797a08daa02f9a7a1d8b0ee5eddfeeb73f",
+    "research/NONLINEAR_NUMERICAL_FINDINGS.md": "69c97bf9487072e171651d8e9aacb1155edcaba6525f434abac411537a65e3dd"
+  }
+}

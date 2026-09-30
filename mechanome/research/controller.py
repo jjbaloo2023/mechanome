@@ -46,6 +46,9 @@ class Campaign:
             CREATE TABLE IF NOT EXISTS attempts (id TEXT PRIMARY KEY, task TEXT NOT NULL REFERENCES tasks(id),
                 state TEXT NOT NULL, reserved INTEGER NOT NULL, cost INTEGER NOT NULL DEFAULT 0,
                 request_id TEXT UNIQUE, result TEXT);
+            CREATE TABLE IF NOT EXISTS work_units (task TEXT NOT NULL REFERENCES tasks(id), call_id TEXT NOT NULL,
+                attempt TEXT NOT NULL REFERENCES attempts(id), kind TEXT NOT NULL, units INTEGER NOT NULL,
+                state TEXT NOT NULL, reconciliation TEXT, PRIMARY KEY(task,call_id));
             CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY, time REAL NOT NULL, kind TEXT NOT NULL, body TEXT NOT NULL);
             CREATE TRIGGER IF NOT EXISTS immutable_event_update BEFORE UPDATE ON events BEGIN SELECT RAISE(ABORT, 'Events are immutable'); END;
             CREATE TRIGGER IF NOT EXISTS immutable_event_delete BEFORE DELETE ON events BEGIN SELECT RAISE(ABORT, 'Events are immutable'); END;
@@ -61,7 +64,7 @@ class Campaign:
                 self.event("charter", payload(charter))
             elif charter is not None:
                 require(
-                    encode(payload(charter)) == row["body"],
+                    Charter(**json.loads(row["body"])) == charter,
                     "Existing charter is immutable; use a new campaign",
                 )
             self.charter = Charter(
@@ -158,7 +161,7 @@ class Campaign:
                     "SELECT body FROM tasks WHERE id=?", (task.id,)
                 ).fetchone()
                 require(
-                    previous is None or previous[0] == body,
+                    previous is None or Task(**json.loads(previous[0])) == task,
                     "Task ID reused with different instructions",
                 )
                 self.db.execute(
@@ -191,6 +194,21 @@ class Campaign:
             "limit_cents": self.charter.budget_cents,
         }
 
+    def work_totals(self, task_id=None):
+        where, values = ("", ()) if task_id is None else (" WHERE task=?", (task_id,))
+        rows = self.db.execute(
+            "SELECT kind, COALESCE(SUM(units),0) AS units FROM work_units" + where + " GROUP BY kind", values
+        ).fetchall()
+        return {row["kind"]: row["units"] for row in rows}
+
+    def _unresolved_work(self, task_id, attempt=None):
+        sql = "SELECT * FROM work_units WHERE task=? AND state IN ('reserved','unknown')"
+        values = [task_id]
+        if attempt is not None:
+            sql += " AND attempt=?"
+            values.append(attempt)
+        return self.db.execute(sql, values).fetchall()
+
     def start(self, token, task_id, retry_reason=None):
         with self.transaction():
             self.fence(token)
@@ -205,6 +223,7 @@ class Campaign:
             previous = self.db.execute(
                 "SELECT * FROM attempts WHERE task=? ORDER BY rowid", (task_id,)
             ).fetchall()
+            require(not self._unresolved_work(task_id), "Reconcile reserved or unknown work before retry")
             require(
                 not any(r["state"] in {"running", "unknown"} for r in previous),
                 "Reconcile outstanding attempt before retry",
@@ -245,6 +264,69 @@ class Campaign:
             )
         return attempt
 
+    def reserve_work(self, token, attempt, call_id, kind, units):
+        """Atomically reserve an offline dummy-work unit before invoking a callback.
+
+        Reservations are lifetime accounting: reconciliation never refunds them.
+        A terminal duplicate returns ``execute=False``; it is not permission to
+        invoke a callback again.  This does not provide exactly-once side effects.
+        """
+        require(isinstance(call_id, str) and bool(call_id.strip()), "Stable call ID required")
+        require(isinstance(kind, str) and kind == kind.strip() and kind.replace("_", "").isalnum(), "Canonical work kind required")
+        require(type(units) is int and units > 0, "Work units must be positive integer")
+        with self.transaction():
+            self.fence(token)
+            attempt_row = self.db.execute("SELECT * FROM attempts WHERE id=?", (attempt,)).fetchone()
+            require(attempt_row is not None and attempt_row["state"] == "running", "Attempt is not running")
+            task = self.task(attempt_row["task"])
+            existing = self.db.execute("SELECT * FROM work_units WHERE task=? AND call_id=?", (task.id, call_id)).fetchone()
+            if existing is not None:
+                require(existing["kind"] == kind and existing["units"] == units, "Conflicting task-scoped call identity")
+                require(existing["state"] not in {"reserved", "unknown"}, "Reconcile unresolved call before replacement")
+                return {"execute": False, "status": "terminal_duplicate", "call_id": call_id,
+                        "state": existing["state"], "attempt": existing["attempt"]}
+            require(not self._unresolved_work(task.id), "Reconcile reserved or unknown work before new call ID")
+            campaign_limits, task_limits = dict(self.charter.work_unit_limits), dict(task.work_unit_limits)
+            require(kind in campaign_limits and kind in task_limits, "Undeclared work kind")
+            campaign_used = self.work_totals().get(kind, 0)
+            task_used = self.work_totals(task.id).get(kind, 0)
+            require(campaign_used + units <= campaign_limits[kind], "Campaign work-unit cap reached")
+            require(task_used + units <= task_limits[kind], "Task work-unit cap reached")
+            self.db.execute("INSERT INTO work_units(task,call_id,attempt,kind,units,state) VALUES (?,?,?,?,?,'reserved')",
+                            (task.id, call_id, attempt, kind, units))
+            self.event("work_reserved", {"token": token, "attempt": attempt, "task": task.id,
+                                         "call_id": call_id, "kind": kind, "units": units})
+            return {"execute": True, "status": "reserved", "call_id": call_id, "attempt": attempt}
+
+    def run_guarded_work(self, token, attempt, call_id, kind, units, callback):
+        """Reserve first, then run a local dummy callback only when execution is allowed."""
+        reservation = self.reserve_work(token, attempt, call_id, kind, units)
+        if not reservation["execute"]:
+            return reservation
+        return {**reservation, "value": callback()}
+
+    def mark_work_unknown(self, token, task_id, call_id, evidence):
+        require(bool(evidence and evidence.strip()), "Unknown work needs evidence")
+        with self.transaction():
+            self.fence(token)
+            row = self.db.execute("SELECT * FROM work_units WHERE task=? AND call_id=?", (task_id, call_id)).fetchone()
+            require(row is not None and row["state"] == "reserved", "Work is not reserved")
+            self.db.execute("UPDATE work_units SET state='unknown', reconciliation=? WHERE task=? AND call_id=?",
+                            (evidence, task_id, call_id))
+            self.event("work_unknown", {"token": token, "task": task_id, "call_id": call_id, "evidence": evidence})
+
+    def reconcile_work(self, token, task_id, call_id, terminal_state, evidence):
+        require(terminal_state in {"completed", "cancelled", "failed"}, "Work reconciliation needs terminal state")
+        require(bool(evidence and evidence.strip()), "Work reconciliation evidence required")
+        with self.transaction():
+            self.fence(token)
+            row = self.db.execute("SELECT * FROM work_units WHERE task=? AND call_id=?", (task_id, call_id)).fetchone()
+            require(row is not None and row["state"] in {"reserved", "unknown"}, "Work is not unresolved")
+            self.db.execute("UPDATE work_units SET state=?, reconciliation=? WHERE task=? AND call_id=?",
+                            (terminal_state, evidence, task_id, call_id))
+            self.event("work_reconciled", {"token": token, "task": task_id, "call_id": call_id,
+                                            "state": terminal_state, "evidence": evidence})
+
     def uncertain(self, attempt, reason, request_id=None):
         with self.transaction():
             row = self.db.execute(
@@ -270,6 +352,7 @@ class Campaign:
                 "SELECT * FROM attempts WHERE id=?", (attempt,)
             ).fetchone()
             require(row is not None, "Unknown attempt")
+            require(not self._unresolved_work(row["task"], attempt), "Reconcile reserved or unknown work before finishing")
             body = encode(payload(result))
             if row["state"] == "finished":
                 require(
@@ -316,7 +399,7 @@ class Campaign:
         """Frozen audit state; rerunning a model is a new attempt, not replay."""
         with self.transaction():
             snapshot = {"charter": payload(self.charter), "budget": self.budget()}
-            for table in ("tasks", "attempts", "events", "lead"):
+            for table in ("tasks", "attempts", "work_units", "events", "lead"):
                 snapshot[table] = [
                     dict(row)
                     for row in self.db.execute(f"SELECT * FROM {table} ORDER BY rowid")
@@ -326,4 +409,5 @@ class Campaign:
             snapshot["artifact_hashes"] = sorted(
                 p.name for p in self.artifacts.iterdir()
             )
+            snapshot["work_totals"] = self.work_totals()
         return snapshot

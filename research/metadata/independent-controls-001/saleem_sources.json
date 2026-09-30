@@ -1,0 +1,49 @@
+{
+  "task_id": "independent-controls-001",
+  "attempt": 1,
+  "study": {
+    "id": "saleem2015",
+    "citation": "Saleem M, Morlot S, Hohendahl A, Manzi J, Lenz M, Roux A. A balance between membrane elasticity and polymerization energy sets the shape of spherical clathrin coats. Nature Communications 6, 6249 (2015).",
+    "doi": "10.1038/ncomms7249",
+    "pmcid": "PMC4346611",
+    "pmid": "25695735"
+  },
+  "accessed_public_records": [
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4346611/",
+      "role": "primary full-text and supplement listing",
+      "license_evidence": "article states CC BY 4.0"
+    },
+    {
+      "url": "https://www.nature.com/articles/ncomms7249",
+      "role": "publisher full text, Results and Methods"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25695735/",
+      "role": "bibliographic public record and figure text"
+    }
+  ],
+  "supplement": {
+    "name": "ncomms7249-s1.pdf",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4346611/bin/ncomms7249-s1.pdf",
+    "type": "PDF",
+    "reported_size": "8.9 MB",
+    "inspection": "not downloaded or inspected; exceeds registered 2 MB payload bound",
+    "contents_as_listed": "Supplementary Figures 1-8, Supplementary Table 1, Supplementary Notes 1-2 and Supplementary Discussion"
+  },
+  "raw_data_access": {
+    "public_small_identifier_evidenced": null,
+    "finding": "No raw-data accession, public force/profile table, or per-replicate mapping was evidenced in the inspected primary/public records."
+  },
+  "decision": "narrow calibration/reproduction precedent only; not eligible for source separation",
+  "hard_limits": [
+    "GUV, membrane nanotube, and clathrin bud are distinct geometries.",
+    "Optical-tweezer tether force is a scalar resultant at a bead; it is not a spatial pit traction map and gives no balancing reaction field.",
+    "Fig. 5 lipid-composition rigidity perturbation explicitly fails to maintain clathrin/AP180 binding under key conditions (primary PubMed figure caption); it cannot preserve curvature or traction sources.",
+    "Reported polymerization/line-tension quantities are model-inferred after clathrin binding."
+  ],
+  "prospective_minimum_routes": [
+    "spatial normal-traction map with explicit balancing reaction",
+    "two known distinct independently measured rigidities with known tensions and invariant curvature/load sources"
+  ]
+}

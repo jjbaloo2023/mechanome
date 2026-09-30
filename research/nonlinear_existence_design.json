@@ -1,0 +1,44 @@
+{
+  "task_id": "nonlinear-existence-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-26T23:21:52.016774+00:00",
+  "evidence_cutoff_utc": "2026-09-26T23:35:11Z",
+  "target_checkpoint_utc": "2026-09-26T23:40:11Z",
+  "question": "Do small compact curvature sources at two positive tensions produce actual exact-graph stationary profiles satisfying the reviewed compact-source uniqueness criterion?",
+  "model_conventions": "Inherited unchanged from nonlinear_source_design.json: projected source coordinates, vertical dead load, regular radial origin and decaying flat reservoir.",
+  "parameters": {
+    "kappa": 1,
+    "sigma": [
+      1,
+      2
+    ],
+    "f": 0,
+    "c": "epsilon*phi(r)",
+    "phi": "exp(1-1/(1-r^2)) for 0<=r<1, else0",
+    "epsilon": "sufficiently small positive; no numeric threshold",
+    "R0": 1
+  },
+  "required_checks": [
+    "Derive Q=0 from f=0 and origin regularity; check exact flux and load convention.",
+    "Derive order-one screened slope operator and handle origin via p/r or radial vector field.",
+    "State a function space and invertibility/regularity argument for an actual nonlinear branch with decaying flat reservoir.",
+    "Prove or precisely block strict normalized-slope ordering on entire 0<r<=1, including endpoints and origin scaling.",
+    "Separate linear-response positivity from nonlinear existence and global or stable branch selection.",
+    "Independent review of the proof or exact blocker; no numeric epsilon, solver, fit or novelty claim."
+  ],
+  "expected_outcomes": [
+    "local nonlinear stationary branch and strict ordered slopes proved within explicit spaces",
+    "only linear branch comparison proved; exact continuation prerequisite identified",
+    "counterexample or formulation defect stops proposed route"
+  ],
+  "stop_condition": "One independently reviewed local existence/ordering proof or precise unresolved analytic prerequisite. No solver, sweep, numerical epsilon, empirical fit, new source audit, stability or global uniqueness/novelty claim.",
+  "input_sha256": {
+    "research/nonlinear_source_design.json": "71f6872dc09287ea7a6ab3cff3cd7782f2f29cfe634a8264e9cf7617b69ebdf8",
+    "research/NONLINEAR_UNIQUENESS_FINDINGS.md": "4b75eeeff1218e4affebc16049fb3cfdda4a9b226e9c29a0234335c06f8e9e48",
+    "research/NONLINEAR_UNIQUENESS_THEORY.md": "a6be241b41ce88712d6dcd2aa88f7cea8abbe6215d12de4b5a081e4114cb61aa",
+    "research/NONLINEAR_UNIQUENESS_COMPATIBILITY.md": "d0fba05716e5a880ff0b2349ea26cbf9b3ebb5bcbd5a3276a4cf99fd1c95bda3",
+    "research/NONLINEAR_UNIQUENESS_REVIEW.md": "69f59339421155169fdbb43969bde879596463b05a60e04f09502583109d0367",
+    "research/nonlinear_existence_next_cycle_input.md": "90afc1a6283b9cd4d56350d990bfa0e543d3242594d5ad4cbc51dc9139b41c5b"
+  },
+  "registration_disclosure": "Chosen route and preliminary linear intuition were discussed in the preceding cycle; this freezes conventions and checks, not blind discovery."
+}

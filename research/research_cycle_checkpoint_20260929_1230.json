@@ -1,0 +1,92 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T12:30:20.060Z",
+  "first_tool_clock_utc": "2026-09-29T12:30:31Z",
+  "evidence_cutoff_utc": "2026-09-29T12:45:31Z",
+  "target_checkpoint_utc": "2026-09-29T12:50:31Z",
+  "checkpoint_saved_at_utc": "2026-09-29T12:46:51.694618+00:00",
+  "status": "completed_bounded_cycle",
+  "tasks": [
+    {
+      "task_id": "myo1e-observable-feasibility-001",
+      "attempt": 1,
+      "registered_at_utc": "2026-09-29T12:31:39.832939+00:00",
+      "source_note_first_read_at_utc": "2026-09-29T12:33:57Z",
+      "review_read_at_utc": "2026-09-29T12:35:50Z",
+      "lead_acceptance_saved_at_utc": "2026-09-29T12:37:16.938716+00:00",
+      "disposition": "Accepted selected-track observable feasibility with public-table access gap; ratio/percentage and baseline pairing corrections retained."
+    },
+    {
+      "task_id": "myo1e-repository-contract-001",
+      "attempt": 1,
+      "registered_at_utc": "2026-09-29T12:37:16.938716+00:00",
+      "http_response_date_range_utc": [
+        "2026-09-29T12:38:11Z",
+        "2026-09-29T12:39:11Z"
+      ],
+      "independent_review_reported_complete_utc": "2026-09-29T12:42:00Z",
+      "review_read_and_lead_acceptance_saved_at_utc": "2026-09-29T12:44:33.332096+00:00",
+      "disposition": "Accepted real pinned table availability; acquisition and empirical comparison stopped due codebook/denominator/pairing/key-integrity gaps."
+    }
+  ],
+  "timing_note": "Observed tool/read/save checkpoints and HTTP response dates are distinct from continuous active-work telemetry. No uninterrupted-operation claim.",
+  "source_access": {
+    "primary_article": "PMC12956820",
+    "parsed_web_access": "Primary article read by source and independently cross-checked by lead; raw byte accounting unavailable for parsed web responses",
+    "initial_repository_landing": "one browser cache miss preserved",
+    "direct_api_recovery": {
+      "requests": 3,
+      "response_body_bytes": 236777,
+      "http_failures": 0,
+      "table_blobs": 1,
+      "repository_commit": "aa43f751b03378783b3226a719b64773bff8e91a",
+      "paper_version_verified": false
+    }
+  },
+  "table_contract": {
+    "rows": 1709,
+    "columns": 17,
+    "raw_group_ids": 49,
+    "condition_1_raw_group_ids": 7,
+    "ambiguous_strings": [
+      "1-1",
+      "1-Jan"
+    ],
+    "date_coercion_proven": false,
+    "repairs": 0,
+    "channel_condition_category_mapping_verified": false,
+    "biological_independence_verified": false,
+    "pre_post_pairing_verified": false,
+    "figure4_denominator_verified": false
+  },
+  "validation": {
+    "checked_at_utc": "2026-09-29T12:45:49.251379+00:00",
+    "frozen_hash_entries": 164,
+    "prior_entries": 147,
+    "new_entries": 17,
+    "hash_failures": 0,
+    "local_links_checked": 394,
+    "broken_links": 0,
+    "current_json_utf8": "passed",
+    "git_diff_check": "passed; existing root README newline warning only",
+    "static_table_checks": "1709 rows,17 columns,zero blanks,exact row duplicates or nonfinite numeric cells; raw grouping ambiguity retained",
+    "artifact": "research/myo1e_table_contract_checks.json",
+    "software_test_suite_run": false,
+    "author_code_executions": 0,
+    "BVP_calls": 0
+  },
+  "outstanding_workers": [],
+  "workers_reconciled_terminal": [
+    "/root/actin_adaptation_source_001",
+    "/root/known_load_review_001",
+    "/root/known_load_theory_001"
+  ],
+  "unknown_execution": false,
+  "reason_for_stopping": "Two bounded reviewed stages complete; acquisition stop honored. Evidence cutoff reached; reserve checkpoint and do not rush a new analytic stage.",
+  "next_decision": "Bounded analytic duration-composition/shared conditional recruitment null with independent review; no source acquisition or empirical fit.",
+  "next_stage_execution_status": "queued_not_running",
+  "api_spending_usd": 0,
+  "external_messages_sent": 0,
+  "git_pushes": 0,
+  "user_action_required": false
+}

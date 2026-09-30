@@ -1,0 +1,30 @@
+{
+  "task_id": "nonlinear-source-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-26T15:57:02.040623+00:00",
+  "evidence_cutoff_utc": "2026-09-26T16:03:14Z",
+  "question": "Does the shallow curvature/load compensation remain a universal source transformation for an exact axisymmetric Helfrich graph, and what condition permits one load correction to preserve two shapes at different tensions?",
+  "status_scope": "Separate conditional analytic task after the inclusion stage stopped. Lead preliminary variational reasoning preceded this registration; this freezes conventions and checks, not blind theorem discovery.",
+  "definitions": {
+    "geometry": "axisymmetric single-valued height h(r), r>=0, p=h_prime, J=sqrt(1+p^2), C=(r*p/J)_prime/r = 2H",
+    "energy": "E=2*pi*integral_0^infinity r*[kappa/2*(C-c)^2*J + sigma*(J-1) - f*h] dr",
+    "coefficients": "known uniform kappa>0, known uniform sigma>0; compare two sigma with the SAME c(r), f(r) and kappa",
+    "source_coordinates": "c and f prescribed in projected radial coordinate r, not material labels; this is a modeling assumption",
+    "load": "f is vertical dead load per projected area, potential -integral f*h dA_projected; signed net vertical force 2*pi*integral r*f dr =0 including prescribed return load",
+    "boundary": "regular origin h_prime(0)=0; h and slope decay to flat reservoir; c and source perturbation g smooth compact support with radial regularity; use compact variations or vanishing boundary work",
+    "perturbation": "c -> c+g, choose delta f(r) to preserve a specified stationary h; check finite g, not only infinitesimal"
+  },
+  "required_checks": [
+    "vary the full square and full area factor, including c^2 J",
+    "derive exact load correction or a counterexample",
+    "check total vertical force and boundary terms",
+    "recover shallow joint-small-source limit delta f=-kappa*radial_Laplacian(g)",
+    "derive criterion for one delta f to preserve TWO specified profiles",
+    "include flat-profile or degenerate control case so broken universal symmetry is not claimed global identifiability",
+    "distinguish actual equilibria from arbitrary test profiles; no numerical equilibrium or stability claim"
+  ],
+  "stop_condition": "One independently checked exact source-compensation criterion or precise derivation blocker. No solver, fit, sweep, biological permission, novelty or global uniqueness claim.",
+  "inputs": {
+    "research/LOAD_IDENTIFIABILITY_FINDINGS.md": "04aefc6d34436afb3f7af1ef8bca50530d4283a70242fc75da66bdccfb49c969"
+  }
+}

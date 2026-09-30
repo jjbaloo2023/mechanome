@@ -1,0 +1,72 @@
+{
+  "task_id": "work-unit-recovery-002",
+  "logical_task": "work-unit-recovery",
+  "attempt_number": 2,
+  "registered_at_utc": "2026-09-29T17:02:14.267676+00:00",
+  "question": "Can a trusted, evidence-bearing reconciliation of the controlled dummy phase permit two remaining phases through the verified direct interpreter while retaining all expenditure?",
+  "scope": "Local dummy-only repaired continuation; not retrospective acceptance of phase1 process supervision. No new production code or scheduler.",
+  "input_sha256": {
+    "research/work_unit_recovery_manifest.json": "06f0f74b7e6158078be19d9bc3ade54b17ee39d18f558f299cf9de15335339f3",
+    "research/work_unit_recovery_attempt_001.zip": "651f0c2e62b1888fb01b7ad50d1f1b6bf571f9c4f193d0c88d15aaf1705394f1",
+    "research/work_unit_recovery_failure_audit.json": "84b9bc0a0ff65b282354a24625724424d2b4911eca074593ba6a45ee53bc5c7c",
+    "research/work_unit_recovery_001/process_lookup_cmdlet.json": "bf708ef1b19b69b66691b8bf536d5f3719f022d3001929dead0917ed4d5ac074",
+    "research/process_identity_manifest.json": "cdea3472d3d150bdecb36a7691b811fd6e748278ace7f5f51bcd252a3d32e5c4",
+    "research/process_identity_probe_001.json": "d67fc2c593bae316d792a2faec87f1c2841e16b36efd0067dcf21cdb97659a97",
+    "mechanome/research/contracts.py": "2fb77e4e3cfbf7276198a42cd590fc4abbb6f409340359871dd2f9f50dfce6ad",
+    "mechanome/research/controller.py": "7870f45139df7a99ce6b069b33adf17276898ec7a9632e02f7574dae1a8b1285",
+    "research/work_unit_recovery.py": "18ebe5f1ac2a079068079de324190548b45b92465ca7f86003b5aead657d218b"
+  },
+  "prior_expenditure": {
+    "phase_launches": 1,
+    "dummy_callbacks": 1,
+    "unreconciled_reserved_units": 1
+  },
+  "limits": {
+    "cumulative_phase_launches": 3,
+    "new_phase_launches": 2,
+    "cumulative_dummy_callbacks": 2,
+    "new_dummy_callbacks": 1,
+    "phase2_invocations": 1,
+    "phase3_invocations": 1,
+    "process_identity_probes": 0,
+    "pytest_invocations": 0,
+    "scientific_calls": 0,
+    "network_requests": 0,
+    "specialists": 2,
+    "implementation_minutes": 7
+  },
+  "reconciliation_proposal": {
+    "evidence": [
+      "exact marker and source hashes; phase1 code has only a synchronous exclusive file-writing callback and no child/network/remote work",
+      "read-only database audit has one reserved unit and same original task/attempt/token",
+      "launcher observed exit0 plus later explicit OS lookup found both reported/launched PIDs absent",
+      "no claim of original process ancestry or target Python exit code"
+    ],
+    "decision": "Independent reviewer must accept or reject this controlled-local reconciliation before any prepare/run. If rejected, stop with unchanged failed campaign.",
+    "actions_if_accepted": "Restore only fixed known campaign database/artifact and marker from frozen ZIP into exclusive work_unit_recovery_002 directory; retain same task/attempt/work rows. Do not copy volatile SHM; original WAL is empty. Save separate reconciliation record with evidence hashes and limitations. Retire token1 using that record, not a fabricated phase1 exit receipt. Work stays reserved until phase2 checks block and verifies marker before terminal reconciliation."
+  },
+  "continuation": [
+    "Phase2 uses explicit reconciliation record instead of demanding fabricated original exit receipt. Acquire token2; assert original reserved row/totals1/attempt. Same/new IDs must be blocked for correct reasons. Verify call1 marker then reconcile completion and terminal replay skips. Exactly one remaining callback writes exclusive call2 marker and reconciles; totals2. Save phase2 audit/PID; normal exit.",
+    "Supervisor direct sys._base_executable observes matching PID and actual exit0, checks active matching token, creates receipt then retires token and saves post-exit audit. Unknown/nonzero/mismatch blocks phase3.",
+    "Phase3 validates authentic phase2 receipt, new token; replays both IDs without work, cap rejects third. Exactly two markers, two completed work rows, one finished original attempt; final supervisor observed matching exit and retired lead."
+  ],
+  "ownership": {
+    "implementation": [
+      "research/work_unit_recovery_repair.py",
+      "research/WORK_UNIT_RECOVERY_REPAIR_IMPLEMENTATION.md"
+    ],
+    "review": [
+      "research/WORK_UNIT_RECOVERY_REPAIR_REVIEW.md"
+    ],
+    "lead": [
+      "research/work_unit_recovery_repair_inputs.json",
+      "research/work_unit_recovery_002/",
+      "research/WORK_UNIT_RECOVERY_REPAIR_FINDINGS.md",
+      "research/work_unit_recovery_repair_manifest.json"
+    ]
+  },
+  "execution_owner": "lead_only",
+  "stop_condition": "One reviewed reconciliation decision and at most two remaining phases, or exact blocker/failure. No automatic third repair, budget reset, phase1 replay or additional operational feature.",
+  "evidence_cutoff_utc": "2026-09-29T17:15:37Z",
+  "target_checkpoint_utc": "2026-09-29T17:20:37Z"
+}

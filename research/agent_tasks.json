@@ -2,6 +2,3004 @@
   "version": 1,
   "tasks": [
     {
+      "task_id": "star-distribution-review-001",
+      "parent_task_id": "star-distribution-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T18:02:00.217077+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/STAR_DISTRIBUTION_REVIEW.md"
+      ],
+      "inputs": [
+        "research/star_distribution_design.json"
+      ],
+      "stop_condition": "One reviewed counterexample and one arithmetic invocation, or exact objection/failure. Close observation branch with minimum additional constraints; no adjacent example/grid/third-channel analysis/source rescue/operational extension.",
+      "completed_observed_at_utc": "2026-09-29T18:05:57.459848+00:00",
+      "lead_disposition": "Accepted independently reviewed fixed-pair counterexample; same known N/two calibrated intensities, unequal mean height. Observation branch closed."
+    },
+    {
+      "task_id": "star-distribution-theory-001",
+      "parent_task_id": "star-distribution-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T18:02:00.217077+00:00",
+      "execution_status": "completed",
+      "role": "theory",
+      "agent_id": "/root/star_observation_theory_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/STAR_DISTRIBUTION_THEORY.md"
+      ],
+      "inputs": [
+        "research/star_distribution_design.json"
+      ],
+      "stop_condition": "One reviewed counterexample and one arithmetic invocation, or exact objection/failure. Close observation branch with minimum additional constraints; no adjacent example/grid/third-channel analysis/source rescue/operational extension.",
+      "completed_observed_at_utc": "2026-09-29T18:05:57.459848+00:00",
+      "lead_disposition": "Accepted independently reviewed fixed-pair counterexample; same known N/two calibrated intensities, unequal mean height. Observation branch closed."
+    },
+    {
+      "task_id": "star-distribution-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T18:02:00.217077+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/star_distribution_design.json",
+        "research/star_distribution_next_input.md",
+        "research/star_distribution_checks.py",
+        "research/star_distribution_checks.json",
+        "research/STAR_DISTRIBUTION_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/star_distribution_design.json"
+      ],
+      "stop_condition": "One reviewed counterexample and one arithmetic invocation, or exact objection/failure. Close observation branch with minimum additional constraints; no adjacent example/grid/third-channel analysis/source rescue/operational extension.",
+      "completed_observed_at_utc": "2026-09-29T18:05:57.459848+00:00",
+      "lead_disposition": "Accepted independently reviewed fixed-pair counterexample; same known N/two calibrated intensities, unequal mean height. Observation branch closed."
+    },
+    {
+      "task_id": "star-observation-review-001",
+      "parent_task_id": "star-observation-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T17:42:10.082311+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "inputs": [
+        "research/star_observation_design.json"
+      ],
+      "stop_condition": "One reviewed symbolic observation result and sole exact arithmetic invocation, or exact objection/failure. No temporal-threshold simulation, source rescue, fitting or model expansion.",
+      "completed_observed_at_utc": "2026-09-29T17:45:55.817531+00:00",
+      "lead_disposition": "Accepted independent symbolic and six-case exact arithmetic review; shared measurement covariance and equality degeneracy only. No empirical biological claim."
+    },
+    {
+      "task_id": "star-observation-theory-001",
+      "parent_task_id": "star-observation-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T17:42:10.082311+00:00",
+      "execution_status": "completed",
+      "role": "theory",
+      "agent_id": "/root/star_observation_theory_001",
+      "inputs": [
+        "research/star_observation_design.json"
+      ],
+      "stop_condition": "One reviewed symbolic observation result and sole exact arithmetic invocation, or exact objection/failure. No temporal-threshold simulation, source rescue, fitting or model expansion.",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "completed_observed_at_utc": "2026-09-29T17:45:55.817531+00:00",
+      "lead_disposition": "Accepted independent symbolic and six-case exact arithmetic review; shared measurement covariance and equality degeneracy only. No empirical biological claim."
+    },
+    {
+      "task_id": "star-observation-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T17:42:10.082311+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "inputs": [
+        "research/star_observation_design.json"
+      ],
+      "stop_condition": "One reviewed symbolic observation result and sole exact arithmetic invocation, or exact objection/failure. No temporal-threshold simulation, source rescue, fitting or model expansion.",
+      "completed_observed_at_utc": "2026-09-29T17:45:55.817531+00:00",
+      "lead_disposition": "Accepted independent symbolic and six-case exact arithmetic review; shared measurement covariance and equality degeneracy only. No empirical biological claim."
+    },
+    {
+      "task_id": "star-workbook-schema-review-001",
+      "parent_task_id": "star-workbook-schema-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T17:38:04.616429+00:00",
+      "execution_status": "stopped_local_access_failure",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "owned_files": [
+        "research/STAR_WORKBOOK_SCHEMA_REVIEW.md"
+      ],
+      "inputs": [
+        "research/star_workbook_schema_design.json"
+      ],
+      "stop_condition": "One schema decision or first access/size/format failure. No retry, fallback endpoint, author contact, raw data or fit. Summary-only object stops empirical path. Event rows do not authorize inference without verified grouping/observation contract.",
+      "completed_observed_at_utc": "2026-09-29T17:42:10.082311+00:00",
+      "lead_disposition": "First request failed locally before HTTP response; no retry, no schema conclusion; independent review accepted exact boundary."
+    },
+    {
+      "task_id": "star-workbook-schema-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T17:38:04.616429+00:00",
+      "execution_status": "stopped_local_access_failure",
+      "role": "lead",
+      "agent_id": "/root",
+      "owned_files": [
+        "research/star_workbook_schema_design.json",
+        "research/star_workbook_schema_inventory.py",
+        "research/star_workbook_schema_result.json",
+        "research/metadata/star-workbook-001/",
+        "research/STAR_WORKBOOK_SCHEMA_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/star_workbook_schema_design.json"
+      ],
+      "stop_condition": "One schema decision or first access/size/format failure. No retry, fallback endpoint, author contact, raw data or fit. Summary-only object stops empirical path. Event rows do not authorize inference without verified grouping/observation contract.",
+      "completed_observed_at_utc": "2026-09-29T17:42:10.082311+00:00",
+      "lead_disposition": "First request failed locally before HTTP response; no retry, no schema conclusion; independent review accepted exact boundary."
+    },
+    {
+      "task_id": "paired-shape-public-screen-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T17:31:49.471649+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/PAIRED_SHAPE_PUBLIC_FINDINGS.md",
+        "research/paired_shape_public_design.json",
+        "research/paired_shape_public_calls.json"
+      ],
+      "inputs": [
+        "research/paired_shape_public_design.json"
+      ],
+      "stop_condition": "At most one sourced candidate and exact contract gaps, or one exhausted screen. No raw acquisition/analysis or follow-up access rescue inside this task. If no new verified public object, stop and reassess usefulness of recurring work rather than inventing another nearby screen.",
+      "completed_observed_at_utc": "2026-09-29T17:38:04.616429+00:00",
+      "lead_disposition": "Accepted scoped public listing and exact schema gap; reviewer corrected unregistered independent-label requirement. Source screen stopped within limits."
+    },
+    {
+      "task_id": "paired-shape-public-source-001",
+      "parent_task_id": "paired-shape-public-screen-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T17:31:49.471649+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "role": "source",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "owned_files": [
+        "research/PAIRED_SHAPE_PUBLIC_SOURCE.md"
+      ],
+      "inputs": [
+        "research/paired_shape_public_design.json"
+      ],
+      "stop_condition": "At most one sourced candidate and exact contract gaps, or one exhausted screen. No raw acquisition/analysis or follow-up access rescue inside this task. If no new verified public object, stop and reassess usefulness of recurring work rather than inventing another nearby screen.",
+      "completed_observed_at_utc": "2026-09-29T17:38:04.616429+00:00",
+      "lead_disposition": "Accepted scoped public listing and exact schema gap; reviewer corrected unregistered independent-label requirement. Source screen stopped within limits."
+    },
+    {
+      "task_id": "paired-shape-public-review-001",
+      "parent_task_id": "paired-shape-public-screen-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T17:31:49.471649+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/known_load_review_001",
+      "role": "independent_review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/PAIRED_SHAPE_PUBLIC_REVIEW.md"
+      ],
+      "inputs": [
+        "research/paired_shape_public_design.json"
+      ],
+      "stop_condition": "At most one sourced candidate and exact contract gaps, or one exhausted screen. No raw acquisition/analysis or follow-up access rescue inside this task. If no new verified public object, stop and reassess usefulness of recurring work rather than inventing another nearby screen.",
+      "completed_observed_at_utc": "2026-09-29T17:38:04.616429+00:00",
+      "lead_disposition": "Accepted scoped public listing and exact schema gap; reviewer corrected unregistered independent-label requirement. Source screen stopped within limits."
+    },
+    {
+      "task_id": "work-unit-recovery-002",
+      "parent_task_id": null,
+      "logical_task": "work-unit-recovery",
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-29T17:02:14.267676+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/work_unit_recovery_repair_inputs.json",
+        "research/work_unit_recovery_002/",
+        "research/WORK_UNIT_RECOVERY_REPAIR_FINDINGS.md",
+        "research/work_unit_recovery_repair_manifest.json",
+        "research/work_unit_recovery_repair.py",
+        "research/WORK_UNIT_RECOVERY_REPAIR_IMPLEMENTATION.md"
+      ],
+      "inputs": [
+        "research/work_unit_recovery_repair_design.json"
+      ],
+      "stop_condition": "One reviewed reconciliation decision and at most two remaining phases, or exact blocker/failure. No automatic third repair, budget reset, phase1 replay or additional operational feature.",
+      "active_status_observed_at_utc": "2026-09-29T17:03:40.082966+00:00",
+      "completed_observed_at_utc": "2026-09-29T17:12:39.110959+00:00",
+      "lead_disposition": "Accepted bounded controlled-local repaired continuation; cumulative3launches/2callbacks, originalfailedphasepreserved. Finiteoperationsbranchclosed."
+    },
+    {
+      "task_id": "work-unit-recovery-implementation-002",
+      "parent_task_id": "work-unit-recovery-002",
+      "logical_task": "work-unit-recovery",
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-29T17:02:14.267676+00:00",
+      "execution_status": "stopped_without_artifact",
+      "agent_id": "/root/synthetic_dimming_numerical_001",
+      "role": "implementation",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [],
+      "inputs": [
+        "research/work_unit_recovery_repair_design.json"
+      ],
+      "stop_condition": "One reviewed reconciliation decision and at most two remaining phases, or exact blocker/failure. No automatic third repair, budget reset, phase1 replay or additional operational feature.",
+      "active_status_observed_at_utc": "2026-09-29T17:03:40.082966+00:00",
+      "lead_disposition": "Worker returned before actual deadline without creating code; no execution. Lead took source ownership within original implementation window."
+    },
+    {
+      "task_id": "work-unit-recovery-review-002",
+      "parent_task_id": "work-unit-recovery-002",
+      "logical_task": "work-unit-recovery",
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-29T17:02:14.267676+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/known_load_review_001",
+      "role": "independent_review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/WORK_UNIT_RECOVERY_REPAIR_REVIEW.md"
+      ],
+      "inputs": [
+        "research/work_unit_recovery_repair_design.json"
+      ],
+      "stop_condition": "One reviewed reconciliation decision and at most two remaining phases, or exact blocker/failure. No automatic third repair, budget reset, phase1 replay or additional operational feature.",
+      "active_status_observed_at_utc": "2026-09-29T17:03:40.082966+00:00",
+      "completed_observed_at_utc": "2026-09-29T17:12:39.110959+00:00",
+      "lead_disposition": "Accepted bounded controlled-local repaired continuation; cumulative3launches/2callbacks, originalfailedphasepreserved. Finiteoperationsbranchclosed."
+    },
+    {
+      "task_id": "process-identity-review-001",
+      "parent_task_id": "process-identity-preflight-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T16:42:45.345656+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "owned_files": [
+        "research/PROCESS_IDENTITY_REVIEW.md"
+      ],
+      "inputs": [
+        "research/process_identity_design.json"
+      ],
+      "stop_condition": "One independently reviewed identity probe or exact failure; no automatic recovery attempt or second probe.",
+      "completed_observed_at_utc": "2026-09-29T16:46:23.315769+00:00",
+      "lead_disposition": "Accept one direct-base-interpreter identity probe only: PID/parent/executable match, exit0. Original failure not validated/reconciled; budget remains charged.",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high"
+    },
+    {
+      "task_id": "process-identity-preflight-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T16:42:45.345656+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "owned_files": [
+        "research/process_identity_probe.py",
+        "research/process_identity_probe_001.json",
+        "research/process_identity_design.json"
+      ],
+      "inputs": [
+        "research/process_identity_design.json"
+      ],
+      "stop_condition": "One independently reviewed identity probe or exact failure; no automatic recovery attempt or second probe.",
+      "completed_observed_at_utc": "2026-09-29T16:46:23.315769+00:00",
+      "lead_disposition": "Accept one direct-base-interpreter identity probe only: PID/parent/executable match, exit0. Original failure not validated/reconciled; budget remains charged.",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested"
+    },
+    {
+      "task_id": "work-unit-recovery-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T16:32:23.704305+00:00",
+      "execution_status": "stopped_supervision_failure",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/work_unit_recovery_supervisor.py",
+        "research/work_unit_recovery_execution.json",
+        "research/work_unit_recovery_001/",
+        "research/WORK_UNIT_RECOVERY_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/work_unit_recovery_design.json"
+      ],
+      "stop_condition": "One reviewed three-process result or exact implementation/execution blocker. Do not repair by resetting phase counts or changing production controller within this task.",
+      "active_status_observed_at_utc": "2026-09-29T16:34:57.832652+00:00",
+      "completed_observed_at_utc": "2026-09-29T16:42:45.345656+00:00",
+      "lead_disposition": "Recovery claim rejected; phase1 PID mismatch. One invocation/callback/reserved unit preserved, phases2/3 not launched. No reset or replacement."
+    },
+    {
+      "task_id": "work-unit-recovery-implementation-001",
+      "parent_task_id": "work-unit-recovery-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T16:32:23.704305+00:00",
+      "execution_status": "stopped_supervision_failure",
+      "role": "implementation",
+      "agent_id": "/root/synthetic_dimming_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/work_unit_recovery.py",
+        "research/WORK_UNIT_RECOVERY_IMPLEMENTATION.md"
+      ],
+      "inputs": [
+        "research/work_unit_recovery_design.json"
+      ],
+      "stop_condition": "One reviewed three-process result or exact implementation/execution blocker. Do not repair by resetting phase counts or changing production controller within this task.",
+      "active_status_observed_at_utc": "2026-09-29T16:34:57.832652+00:00",
+      "completed_observed_at_utc": "2026-09-29T16:42:45.345656+00:00",
+      "lead_disposition": "Recovery claim rejected; phase1 PID mismatch. One invocation/callback/reserved unit preserved, phases2/3 not launched. No reset or replacement."
+    },
+    {
+      "task_id": "work-unit-recovery-review-001",
+      "parent_task_id": "work-unit-recovery-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T16:32:23.704305+00:00",
+      "execution_status": "stopped_supervision_failure",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/WORK_UNIT_RECOVERY_REVIEW.md"
+      ],
+      "inputs": [
+        "research/work_unit_recovery_design.json"
+      ],
+      "stop_condition": "One reviewed three-process result or exact implementation/execution blocker. Do not repair by resetting phase counts or changing production controller within this task.",
+      "active_status_observed_at_utc": "2026-09-29T16:34:57.832652+00:00",
+      "completed_observed_at_utc": "2026-09-29T16:42:45.345656+00:00",
+      "lead_disposition": "Recovery claim rejected; phase1 PID mismatch. One invocation/callback/reserved unit preserved, phases2/3 not launched. No reset or replacement."
+    },
+    {
+      "task_id": "offline-work-units-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T16:02:25.882526+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/WORK_UNITS_FINDINGS.md",
+        "research/work_units_test_runner.py",
+        "research/work_units_test_runs.json"
+      ],
+      "inputs": [
+        "research/work_units_design.json"
+      ],
+      "stop_condition": "One independently reviewed offline extension with bounded dummy-work demonstration, or a precise compatibility/design blocker. No live integration in this task.",
+      "active_status_observed_at_utc": "2026-09-29T16:03:55.101134+00:00",
+      "completed_observed_at_utc": "2026-09-29T16:16:29.687673+00:00",
+      "lead_disposition": "Accept bounded offline extension after unresolved-new-ID and legacy-redelivery corrections. 17 tests passed, one lead invocation, zero scientific calls; no live or separate-process recovery claim.",
+      "next_decision": "Register one bounded separate-process dummy-work recovery demo using the accepted work-unit API; maximum three lead-owned phase subprocesses, zero scientific calls. Stop after one reviewed result or precise blocker."
+    },
+    {
+      "task_id": "offline-work-units-implementation-001",
+      "parent_task_id": "offline-work-units-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T16:02:25.882526+00:00",
+      "execution_status": "completed",
+      "role": "implementation",
+      "agent_id": "/root/synthetic_dimming_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "mechanome/research/contracts.py",
+        "mechanome/research/controller.py",
+        "tests/test_research_work_units.py",
+        "research/WORK_UNITS_IMPLEMENTATION.md"
+      ],
+      "inputs": [
+        "research/work_units_design.json"
+      ],
+      "stop_condition": "One independently reviewed offline extension with bounded dummy-work demonstration, or a precise compatibility/design blocker. No live integration in this task.",
+      "active_status_observed_at_utc": "2026-09-29T16:03:55.101134+00:00",
+      "completed_observed_at_utc": "2026-09-29T16:16:29.687673+00:00",
+      "lead_disposition": "Accept bounded offline extension after unresolved-new-ID and legacy-redelivery corrections. 17 tests passed, one lead invocation, zero scientific calls; no live or separate-process recovery claim.",
+      "next_decision": "Register one bounded separate-process dummy-work recovery demo using the accepted work-unit API; maximum three lead-owned phase subprocesses, zero scientific calls. Stop after one reviewed result or precise blocker."
+    },
+    {
+      "task_id": "offline-work-units-review-001",
+      "parent_task_id": "offline-work-units-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T16:02:25.882526+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/WORK_UNITS_REVIEW.md"
+      ],
+      "inputs": [
+        "research/work_units_design.json"
+      ],
+      "stop_condition": "One independently reviewed offline extension with bounded dummy-work demonstration, or a precise compatibility/design blocker. No live integration in this task.",
+      "active_status_observed_at_utc": "2026-09-29T16:03:55.101134+00:00",
+      "completed_observed_at_utc": "2026-09-29T16:16:29.687673+00:00",
+      "lead_disposition": "Accept bounded offline extension after unresolved-new-ID and legacy-redelivery corrections. 17 tests passed, one lead invocation, zero scientific calls; no live or separate-process recovery claim.",
+      "next_decision": "Register one bounded separate-process dummy-work recovery demo using the accepted work-unit API; maximum three lead-owned phase subprocesses, zero scientific calls. Stop after one reviewed result or precise blocker."
+    },
+    {
+      "task_id": "endpoint-public-screen-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:38:39.702099+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/ENDPOINT_PUBLIC_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/endpoint_public_design.json"
+      ],
+      "stop_condition": "One sourced candidate and explicit remaining contract/access gaps, or one exhausted screen with exact gap. No full-data acquisition or analysis; no retries beyond registered calls.",
+      "active_status_observed_at_utc": "2026-09-29T15:39:43.806283+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:45:12.347063+00:00",
+      "lead_disposition": "Accept corrected paper-level same-event endpoint candidate; no verified public data object/grouping, no reanalysis. Two searches/two primary opens within limits.",
+      "next_decision": "Stop screen; one prospective offline-controller work-unit extension next."
+    },
+    {
+      "task_id": "endpoint-public-source-001",
+      "parent_task_id": "endpoint-public-screen-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:38:39.702099+00:00",
+      "execution_status": "completed",
+      "role": "source",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "owned_files": [
+        "research/ENDPOINT_PUBLIC_SOURCE.md"
+      ],
+      "inputs": [
+        "research/endpoint_public_design.json"
+      ],
+      "stop_condition": "One sourced candidate and explicit remaining contract/access gaps, or one exhausted screen with exact gap. No full-data acquisition or analysis; no retries beyond registered calls.",
+      "active_status_observed_at_utc": "2026-09-29T15:39:43.806283+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:45:12.347063+00:00",
+      "lead_disposition": "Accept corrected paper-level same-event endpoint candidate; no verified public data object/grouping, no reanalysis. Two searches/two primary opens within limits.",
+      "next_decision": "Stop screen; one prospective offline-controller work-unit extension next."
+    },
+    {
+      "task_id": "endpoint-public-review-001",
+      "parent_task_id": "endpoint-public-screen-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:38:39.702099+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/ENDPOINT_PUBLIC_REVIEW.md"
+      ],
+      "inputs": [
+        "research/endpoint_public_design.json"
+      ],
+      "stop_condition": "One sourced candidate and explicit remaining contract/access gaps, or one exhausted screen with exact gap. No full-data acquisition or analysis; no retries beyond registered calls.",
+      "active_status_observed_at_utc": "2026-09-29T15:39:43.806283+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:45:12.347063+00:00",
+      "lead_disposition": "Accept corrected paper-level same-event endpoint candidate; no verified public data object/grouping, no reanalysis. Two searches/two primary opens within limits.",
+      "next_decision": "Stop screen; one prospective offline-controller work-unit extension next."
+    },
+    {
+      "task_id": "campaign-synthesis-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:31:41.733126+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/FINDINGS.md",
+        "research/ASSESSMENT.md",
+        "research/README.md",
+        "research/PIPELINE_ARCHITECTURE.md"
+      ],
+      "inputs": [
+        "research/campaign_synthesis_design.json"
+      ],
+      "stop_condition": "One independently challenged evidence/limitation/measurement synthesis and explicit next decision, or exact missing prerequisite. Do not reopen exhausted branches or repeat grids.",
+      "active_status_observed_at_utc": "2026-09-29T15:34:40.408262+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:39:43.806283+00:00",
+      "lead_disposition": "Accept four-tier synthesis and actin-specific prerequisite. Reject duplicate inventory. New independent endpoint source screen is a distinct, separately registered measurement-validation feasibility step."
+    },
+    {
+      "task_id": "campaign-synthesis-review-001",
+      "parent_task_id": "campaign-synthesis-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:31:41.733126+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/CAMPAIGN_SYNTHESIS_REVIEW.md"
+      ],
+      "inputs": [
+        "research/campaign_synthesis_design.json"
+      ],
+      "stop_condition": "One independently challenged evidence/limitation/measurement synthesis and explicit next decision, or exact missing prerequisite. Do not reopen exhausted branches or repeat grids.",
+      "active_status_observed_at_utc": "2026-09-29T15:34:40.408262+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:39:43.806283+00:00",
+      "lead_disposition": "Accept four-tier synthesis and actin-specific prerequisite. Reject duplicate inventory. New independent endpoint source screen is a distinct, separately registered measurement-validation feasibility step."
+    },
+    {
+      "task_id": "campaign-next-experiment-001",
+      "parent_task_id": "campaign-synthesis-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:31:41.733126+00:00",
+      "execution_status": "completed",
+      "role": "experiment_design_assessment",
+      "agent_id": "/root/synthetic_dimming_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/CAMPAIGN_NEXT_EXPERIMENT.md"
+      ],
+      "inputs": [
+        "research/campaign_synthesis_design.json"
+      ],
+      "stop_condition": "One independently challenged evidence/limitation/measurement synthesis and explicit next decision, or exact missing prerequisite. Do not reopen exhausted branches or repeat grids.",
+      "active_status_observed_at_utc": "2026-09-29T15:34:40.408262+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:39:43.806283+00:00",
+      "lead_disposition": "Accept four-tier synthesis and actin-specific prerequisite. Reject duplicate inventory. New independent endpoint source screen is a distinct, separately registered measurement-validation feasibility step."
+    },
+    {
+      "task_id": "geometry-transfer-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:02:17.385036+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/GEOMETRY_TRANSFER_FINDINGS.md",
+        "research/geometry_transfer_execution.json"
+      ],
+      "inputs": [
+        "research/geometry_transfer_design.json"
+      ],
+      "stop_condition": "One independently reviewed descriptive comparison or exact input/implementation failure, no automatic new model/sensitivity/grid.",
+      "active_status_observed_at_utc": "2026-09-29T15:04:21.413025+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:14:39.682409+00:00",
+      "lead_disposition": "Accepted bounded descriptive transfer;27 empirical fits,4 synthetic, one invocation each. Independent code/results review and207-score no-fit audit passed; line/policy reversals retained.",
+      "next_decision": "Stop this grid. Consolidate existing campaign findings and choose one informative evidence-gap decision."
+    },
+    {
+      "task_id": "geometry-transfer-implementation-001",
+      "parent_task_id": "geometry-transfer-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:02:17.385036+00:00",
+      "execution_status": "completed",
+      "role": "numerical_implementation",
+      "agent_id": "/root/synthetic_dimming_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/geometry_transfer.py",
+        "research/GEOMETRY_TRANSFER_IMPLEMENTATION.md"
+      ],
+      "inputs": [
+        "research/geometry_transfer_design.json"
+      ],
+      "stop_condition": "One independently reviewed descriptive comparison or exact input/implementation failure, no automatic new model/sensitivity/grid.",
+      "active_status_observed_at_utc": "2026-09-29T15:04:21.413025+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:14:39.682409+00:00",
+      "lead_disposition": "Accepted bounded descriptive transfer;27 empirical fits,4 synthetic, one invocation each. Independent code/results review and207-score no-fit audit passed; line/policy reversals retained.",
+      "next_decision": "Stop this grid. Consolidate existing campaign findings and choose one informative evidence-gap decision."
+    },
+    {
+      "task_id": "geometry-transfer-review-001",
+      "parent_task_id": "geometry-transfer-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T15:02:17.385036+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/GEOMETRY_TRANSFER_REVIEW.md"
+      ],
+      "inputs": [
+        "research/geometry_transfer_design.json"
+      ],
+      "stop_condition": "One independently reviewed descriptive comparison or exact input/implementation failure, no automatic new model/sensitivity/grid.",
+      "active_status_observed_at_utc": "2026-09-29T15:04:21.413025+00:00",
+      "completed_observed_at_utc": "2026-09-29T15:14:39.682409+00:00",
+      "lead_disposition": "Accepted bounded descriptive transfer;27 empirical fits,4 synthetic, one invocation each. Independent code/results review and207-score no-fit audit passed; line/policy reversals retained.",
+      "next_decision": "Stop this grid. Consolidate existing campaign findings and choose one informative evidence-gap decision."
+    },
+    {
+      "task_id": "tracking-metric-contract-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T14:32:48.735174+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/TRACKING_METRIC_FINDINGS.md",
+        "research/tracking_metric_test_runs.json"
+      ],
+      "inputs": [
+        "research/tracking_metric_design.json"
+      ],
+      "stop_condition": "One reviewed minimal metric repair with targeted tests or a precise blocker; no detector/linker/inverse changes, empirical work, new simulation grid or edits to frozen research evidence.",
+      "active_status_observed_at_utc": "2026-09-29T14:35:45.959859+00:00",
+      "completed_observed_at_utc": "2026-09-29T14:43:24.854607+00:00",
+      "lead_disposition": "Accept v2 matching/denominator contract and labeled legacy lifetime diagnostic;15tests pass,1test invocation/1tracker movie, final label-only migration verified cryptographically.",
+      "next_decision": "Stop metric repair; separately register descriptive leave-one-cell-line-out geometry comparison."
+    },
+    {
+      "task_id": "tracking-metric-implementation-001",
+      "parent_task_id": "tracking-metric-contract-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T14:32:48.735174+00:00",
+      "execution_status": "completed",
+      "role": "implementation",
+      "agent_id": "/root/synthetic_dimming_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "validation/tracking.py",
+        "tests/test_tracking_validation.py",
+        "research/TRACKING_METRIC_IMPLEMENTATION.md"
+      ],
+      "inputs": [
+        "research/tracking_metric_design.json"
+      ],
+      "stop_condition": "One reviewed minimal metric repair with targeted tests or a precise blocker; no detector/linker/inverse changes, empirical work, new simulation grid or edits to frozen research evidence.",
+      "active_status_observed_at_utc": "2026-09-29T14:35:45.959859+00:00",
+      "completed_observed_at_utc": "2026-09-29T14:43:24.854607+00:00",
+      "lead_disposition": "Accept v2 matching/denominator contract and labeled legacy lifetime diagnostic;15tests pass,1test invocation/1tracker movie, final label-only migration verified cryptographically.",
+      "next_decision": "Stop metric repair; separately register descriptive leave-one-cell-line-out geometry comparison."
+    },
+    {
+      "task_id": "tracking-metric-review-001",
+      "parent_task_id": "tracking-metric-contract-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T14:32:48.735174+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/TRACKING_METRIC_REVIEW.md"
+      ],
+      "inputs": [
+        "research/tracking_metric_design.json"
+      ],
+      "stop_condition": "One reviewed minimal metric repair with targeted tests or a precise blocker; no detector/linker/inverse changes, empirical work, new simulation grid or edits to frozen research evidence.",
+      "active_status_observed_at_utc": "2026-09-29T14:35:45.959859+00:00",
+      "completed_observed_at_utc": "2026-09-29T14:43:24.854607+00:00",
+      "lead_disposition": "Accept v2 matching/denominator contract and labeled legacy lifetime diagnostic;15tests pass,1test invocation/1tracker movie, final label-only migration verified cryptographically.",
+      "next_decision": "Stop metric repair; separately register descriptive leave-one-cell-line-out geometry comparison."
+    },
+    {
+      "task_id": "synthetic-dimming-benchmark-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T14:06:59.959595+00:00",
+      "execution_status": "completed_with_protocol_deviation",
+      "owned_files": [
+        "research/SYNTHETIC_DIMMING_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/synthetic_dimming_design.json"
+      ],
+      "stop_condition": "One reviewed synthetic observation benchmark or precise implementation failure; no empirical calibration, DASC cluster claim, physical inverse or tracker refactor.",
+      "active_status_observed_at_utc": "2026-09-29T14:08:06.049722+00:00",
+      "completed_observed_at_utc": "2026-09-29T14:16:04.068363+00:00",
+      "lead_disposition": "Accept saved synthetic calculation with independent reanalysis; actual282tracker movies exceeds150cap; first run not retained. No strict execution-compliance claim.",
+      "next_decision": "Stop benchmark; separately register minimal validator denominator repair."
+    },
+    {
+      "task_id": "synthetic-dimming-numerical-001",
+      "parent_task_id": "synthetic-dimming-benchmark-001",
+      "attempt_number": 1,
+      "role": "numerical",
+      "agent_id": "/root/synthetic_dimming_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T14:06:59.959595+00:00",
+      "execution_status": "completed_with_protocol_deviation",
+      "owned_files": [
+        "research/synthetic_dimming_benchmark.py",
+        "research/synthetic_dimming_results.json",
+        "research/synthetic_dimming_checks.json",
+        "research/synthetic_dimming.png",
+        "research/synthetic_dimming.svg"
+      ],
+      "inputs": [
+        "research/synthetic_dimming_design.json"
+      ],
+      "stop_condition": "One reviewed synthetic observation benchmark or precise implementation failure; no empirical calibration, DASC cluster claim, physical inverse or tracker refactor.",
+      "active_status_observed_at_utc": "2026-09-29T14:08:06.049722+00:00",
+      "completed_observed_at_utc": "2026-09-29T14:16:04.068363+00:00",
+      "lead_disposition": "Accept saved synthetic calculation with independent reanalysis; actual282tracker movies exceeds150cap; first run not retained. No strict execution-compliance claim.",
+      "next_decision": "Stop benchmark; separately register minimal validator denominator repair."
+    },
+    {
+      "task_id": "synthetic-dimming-review-001",
+      "parent_task_id": "synthetic-dimming-benchmark-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T14:06:59.959595+00:00",
+      "execution_status": "completed_with_protocol_deviation",
+      "owned_files": [
+        "research/SYNTHETIC_DIMMING_REVIEW.md"
+      ],
+      "inputs": [
+        "research/synthetic_dimming_design.json"
+      ],
+      "stop_condition": "One reviewed synthetic observation benchmark or precise implementation failure; no empirical calibration, DASC cluster claim, physical inverse or tracker refactor.",
+      "active_status_observed_at_utc": "2026-09-29T14:08:06.049722+00:00",
+      "completed_observed_at_utc": "2026-09-29T14:16:04.068363+00:00",
+      "lead_disposition": "Accept saved synthetic calculation with independent reanalysis; actual282tracker movies exceeds150cap; first run not retained. No strict execution-compliance claim.",
+      "next_decision": "Stop benchmark; separately register minimal validator denominator repair."
+    },
+    {
+      "task_id": "yeast-reference-methods-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T14:01:30.517736+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_REFERENCE_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/yeast_reference_methods_design.json"
+      ],
+      "stop_condition": "One reviewed definition or exact absence/access gap; sole methods follow-up, no second rescue. No numerical contrast during this task.",
+      "completed_observed_at_utc": "2026-09-29T14:06:59.959595+00:00",
+      "lead_disposition": "Accept access/definition gap; sole follow-up and yeast motion comparison stop. No transit calculated."
+    },
+    {
+      "task_id": "yeast-reference-methods-source-001",
+      "parent_task_id": "yeast-reference-methods-001",
+      "attempt_number": 1,
+      "role": "source",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "registered_at_utc": "2026-09-29T14:01:30.517736+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_REFERENCE_SOURCE.md"
+      ],
+      "inputs": [
+        "research/yeast_reference_methods_design.json"
+      ],
+      "stop_condition": "One reviewed definition or exact absence/access gap; sole methods follow-up, no second rescue. No numerical contrast during this task.",
+      "completed_observed_at_utc": "2026-09-29T14:06:59.959595+00:00",
+      "lead_disposition": "Accept access/definition gap; sole follow-up and yeast motion comparison stop. No transit calculated."
+    },
+    {
+      "task_id": "yeast-reference-methods-review-001",
+      "parent_task_id": "yeast-reference-methods-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T14:01:30.517736+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_REFERENCE_REVIEW.md"
+      ],
+      "inputs": [
+        "research/yeast_reference_methods_design.json"
+      ],
+      "stop_condition": "One reviewed definition or exact absence/access gap; sole methods follow-up, no second rescue. No numerical contrast during this task.",
+      "completed_observed_at_utc": "2026-09-29T14:06:59.959595+00:00",
+      "lead_disposition": "Accept access/definition gap; sole follow-up and yeast motion comparison stop. No transit calculated."
+    },
+    {
+      "task_id": "yeast-figure6-contract-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T13:32:05.745397+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_FIGURE6_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/yeast_figure6_contract_design.json"
+      ],
+      "stop_condition": "One independently reviewed two-file observation contract or precise gap. No unregistered numerical contrast or expansion to other figures/supplements.",
+      "completed_observed_at_utc": "2026-09-29T13:44:21.932793+00:00",
+      "lead_disposition": "Accepted partial genotype-aggregate contract after factual source corrections; no zero n, full-file inward phase unverified. Proposed motion descriptor withheld for unknown common position reference.",
+      "next_decision": "One bounded primary-methods clarification, queued and not running."
+    },
+    {
+      "task_id": "yeast-figure6-source-001",
+      "parent_task_id": "yeast-figure6-contract-001",
+      "attempt_number": 1,
+      "role": "source",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "registered_at_utc": "2026-09-29T13:32:05.745397+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_FIGURE6_SOURCE.md",
+        "research/metadata/yeast-figure6-001/"
+      ],
+      "inputs": [
+        "research/yeast_figure6_contract_design.json"
+      ],
+      "stop_condition": "One independently reviewed two-file observation contract or precise gap. No unregistered numerical contrast or expansion to other figures/supplements.",
+      "completed_observed_at_utc": "2026-09-29T13:44:21.932793+00:00",
+      "lead_disposition": "Accepted partial genotype-aggregate contract after factual source corrections; no zero n, full-file inward phase unverified. Proposed motion descriptor withheld for unknown common position reference.",
+      "next_decision": "One bounded primary-methods clarification, queued and not running.",
+      "post_completion_correction": "Lead repaired zero-n and inward-phase wording after worker completed; independent review had identified both issues."
+    },
+    {
+      "task_id": "yeast-figure6-review-001",
+      "parent_task_id": "yeast-figure6-contract-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T13:32:05.745397+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_FIGURE6_REVIEW.md"
+      ],
+      "inputs": [
+        "research/yeast_figure6_contract_design.json"
+      ],
+      "stop_condition": "One independently reviewed two-file observation contract or precise gap. No unregistered numerical contrast or expansion to other figures/supplements.",
+      "completed_observed_at_utc": "2026-09-29T13:44:21.932793+00:00",
+      "lead_disposition": "Accepted partial genotype-aggregate contract after factual source corrections; no zero n, full-file inward phase unverified. Proposed motion descriptor withheld for unknown common position reference.",
+      "next_decision": "One bounded primary-methods clarification, queued and not running."
+    },
+    {
+      "task_id": "yeast-joint-observables-screen-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T13:07:54.902872+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_OBSERVABLES_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/yeast_observables_screen_design.json"
+      ],
+      "stop_condition": "One screened candidate or exact negative/gap, independent scope review. No iterative searches after query/time limit; no automatic dataset download.",
+      "completed_observed_at_utc": "2026-09-29T13:15:52.449784+00:00",
+      "lead_disposition": "Accept corrected Manenschijn genotype-aggregate candidate and public listings only; same-event schema unverified. Disclose4queries against3cap, no further acquisition.",
+      "next_decision": "Specific Figure6 two-CSV contract, separately registered next cycle."
+    },
+    {
+      "task_id": "yeast-observables-source-001",
+      "parent_task_id": "yeast-joint-observables-screen-001",
+      "attempt_number": 1,
+      "role": "source",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "registered_at_utc": "2026-09-29T13:07:54.902872+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_OBSERVABLES_SOURCE.md"
+      ],
+      "inputs": [
+        "research/yeast_observables_screen_design.json"
+      ],
+      "stop_condition": "One screened candidate or exact negative/gap, independent scope review. No iterative searches after query/time limit; no automatic dataset download.",
+      "completed_observed_at_utc": "2026-09-29T13:15:52.449784+00:00",
+      "lead_disposition": "Accept corrected Manenschijn genotype-aggregate candidate and public listings only; same-event schema unverified. Disclose4queries against3cap, no further acquisition.",
+      "next_decision": "Specific Figure6 two-CSV contract, separately registered next cycle."
+    },
+    {
+      "task_id": "yeast-observables-review-001",
+      "parent_task_id": "yeast-joint-observables-screen-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T13:07:54.902872+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/YEAST_OBSERVABLES_REVIEW.md"
+      ],
+      "inputs": [
+        "research/yeast_observables_screen_design.json"
+      ],
+      "stop_condition": "One screened candidate or exact negative/gap, independent scope review. No iterative searches after query/time limit; no automatic dataset download.",
+      "completed_observed_at_utc": "2026-09-29T13:15:52.449784+00:00",
+      "lead_disposition": "Accept corrected Manenschijn genotype-aggregate candidate and public listings only; same-event schema unverified. Disclose4queries against3cap, no further acquisition.",
+      "next_decision": "Specific Figure6 two-CSV contract, separately registered next cycle."
+    },
+    {
+      "task_id": "recruitment-duration-null-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T13:01:48.406180+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/RECRUITMENT_DURATION_FINDINGS.md",
+        "research/recruitment_duration_arithmetic.json",
+        "research/recruitment_duration_illustration.png",
+        "research/recruitment_duration_illustration.svg"
+      ],
+      "inputs": [
+        "research/recruitment_duration_design.json"
+      ],
+      "stop_condition": "One independently reviewed bound/design or exact gap. No extended theorem sequence. Hypothetical examples only; no tuning to published summary numbers.",
+      "active_status_observed_at_utc": "2026-09-29T13:04:45.290139+00:00",
+      "completed_observed_at_utc": "2026-09-29T13:07:54.902872+00:00",
+      "lead_disposition": "Accept prospective population bound and sharp envelope after independent proof review and exact arithmetic. No current-data test; analytic branch stopped."
+    },
+    {
+      "task_id": "recruitment-duration-theory-001",
+      "parent_task_id": "recruitment-duration-null-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T13:01:48.406180+00:00",
+      "execution_status": "completed",
+      "role": "theory",
+      "agent_id": "/root/known_load_theory_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/RECRUITMENT_DURATION_THEORY.md"
+      ],
+      "inputs": [
+        "research/recruitment_duration_design.json"
+      ],
+      "stop_condition": "One independently reviewed bound/design or exact gap. No extended theorem sequence. Hypothetical examples only; no tuning to published summary numbers.",
+      "active_status_observed_at_utc": "2026-09-29T13:04:45.290139+00:00",
+      "completed_observed_at_utc": "2026-09-29T13:07:54.902872+00:00",
+      "lead_disposition": "Accept prospective population bound and sharp envelope after independent proof review and exact arithmetic. No current-data test; analytic branch stopped."
+    },
+    {
+      "task_id": "recruitment-duration-review-001",
+      "parent_task_id": "recruitment-duration-null-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T13:01:48.406180+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/RECRUITMENT_DURATION_REVIEW.md"
+      ],
+      "inputs": [
+        "research/recruitment_duration_design.json"
+      ],
+      "stop_condition": "One independently reviewed bound/design or exact gap. No extended theorem sequence. Hypothetical examples only; no tuning to published summary numbers.",
+      "active_status_observed_at_utc": "2026-09-29T13:04:45.290139+00:00",
+      "completed_observed_at_utc": "2026-09-29T13:07:54.902872+00:00",
+      "lead_disposition": "Accept prospective population bound and sharp envelope after independent proof review and exact arithmetic. No current-data test; analytic branch stopped."
+    },
+    {
+      "task_id": "myo1e-repository-contract-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T12:37:16.938716+00:00",
+      "execution_status": "completed",
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/MYO1E_REPOSITORY_FINDINGS.md",
+        "research/myo1e_table_contract_checks.json"
+      ],
+      "inputs": [
+        "research/myo1e_repository_design.json"
+      ],
+      "stop_condition": "One bounded pinned availability/contract decision. On direct access failure or no adequate small table, close data acquisition for this candidate; no further endpoint retries this cycle or automatic future retry.",
+      "completed_observed_at_utc": "2026-09-29T12:44:33.332096+00:00",
+      "lead_disposition": "Accept real pinned table availability after independent hash/schema review. Stop acquisition and empirical comparison: unknown codebook/denominator/pairing and date-like key ambiguity. No automatic repair.",
+      "next_decision": "Bounded analytic duration-composition null; queued, no new data acquisition."
+    },
+    {
+      "task_id": "myo1e-repository-source-001",
+      "parent_task_id": "myo1e-repository-contract-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T12:37:16.938716+00:00",
+      "execution_status": "completed",
+      "role": "source",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "owned_files": [
+        "research/MYO1E_REPOSITORY_SOURCE.md",
+        "research/metadata/myo1e-repository-001/"
+      ],
+      "inputs": [
+        "research/myo1e_repository_design.json"
+      ],
+      "stop_condition": "One bounded pinned availability/contract decision. On direct access failure or no adequate small table, close data acquisition for this candidate; no further endpoint retries this cycle or automatic future retry.",
+      "completed_observed_at_utc": "2026-09-29T12:44:33.332096+00:00",
+      "lead_disposition": "Accept real pinned table availability after independent hash/schema review. Stop acquisition and empirical comparison: unknown codebook/denominator/pairing and date-like key ambiguity. No automatic repair.",
+      "next_decision": "Bounded analytic duration-composition null; queued, no new data acquisition."
+    },
+    {
+      "task_id": "myo1e-repository-review-001",
+      "parent_task_id": "myo1e-repository-contract-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-29T12:37:16.938716+00:00",
+      "execution_status": "completed",
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/MYO1E_REPOSITORY_REVIEW.md"
+      ],
+      "inputs": [
+        "research/myo1e_repository_design.json"
+      ],
+      "stop_condition": "One bounded pinned availability/contract decision. On direct access failure or no adequate small table, close data acquisition for this candidate; no further endpoint retries this cycle or automatic future retry.",
+      "completed_observed_at_utc": "2026-09-29T12:44:33.332096+00:00",
+      "lead_disposition": "Accept real pinned table availability after independent hash/schema review. Stop acquisition and empirical comparison: unknown codebook/denominator/pairing and date-like key ambiguity. No automatic repair.",
+      "next_decision": "Bounded analytic duration-composition null; queued, no new data acquisition."
+    },
+    {
+      "task_id": "myo1e-observable-feasibility-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T12:31:39.832939+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/MYO1E_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/myo1e_feasibility_design.json"
+      ],
+      "stop_condition": "One independently reviewed feasibility decision or precise gap. No automatic data download or model implementation; at most eight minutes source acquisition.",
+      "active_status_observed_at_utc": "2026-09-29T12:32:54.854425+00:00",
+      "completed_observed_at_utc": "2026-09-29T12:37:16.938716+00:00",
+      "lead_disposition": "Accept narrow observable feasibility after denominator/pairing corrections; exact public-table access gap. No force/mechanism inference."
+    },
+    {
+      "task_id": "myo1e-source-001",
+      "parent_task_id": "myo1e-observable-feasibility-001",
+      "attempt_number": 1,
+      "role": "source",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "registered_at_utc": "2026-09-29T12:31:39.832939+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/MYO1E_SOURCE.md",
+        "research/metadata/myo1e-feasibility-001/"
+      ],
+      "inputs": [
+        "research/myo1e_feasibility_design.json"
+      ],
+      "stop_condition": "One independently reviewed feasibility decision or precise gap. No automatic data download or model implementation; at most eight minutes source acquisition.",
+      "active_status_observed_at_utc": "2026-09-29T12:32:54.854425+00:00",
+      "completed_observed_at_utc": "2026-09-29T12:37:16.938716+00:00",
+      "lead_disposition": "Accept narrow observable feasibility after denominator/pairing corrections; exact public-table access gap. No force/mechanism inference."
+    },
+    {
+      "task_id": "myo1e-review-001",
+      "parent_task_id": "myo1e-observable-feasibility-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T12:31:39.832939+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/MYO1E_REVIEW.md"
+      ],
+      "inputs": [
+        "research/myo1e_feasibility_design.json"
+      ],
+      "stop_condition": "One independently reviewed feasibility decision or precise gap. No automatic data download or model implementation; at most eight minutes source acquisition.",
+      "active_status_observed_at_utc": "2026-09-29T12:32:54.854425+00:00",
+      "completed_observed_at_utc": "2026-09-29T12:37:16.938716+00:00",
+      "lead_disposition": "Accept narrow observable feasibility after denominator/pairing corrections; exact public-table access gap. No force/mechanism inference."
+    },
+    {
+      "task_id": "actin-code-review-001",
+      "parent_task_id": "actin-code-inventory-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T12:01:49.767736+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/ACTIN_CODE_REVIEW.md"
+      ],
+      "inputs": [
+        "research/actin_code_inventory_design.json"
+      ],
+      "stop_condition": "One metadata/text inventory and independent review; at most8minutes source,5textfiles including README,1MiBtotal. Stop on exhausted bound; no iterative access search, author execution, clone or new study.",
+      "active_status_observed_at_utc": "2026-09-29T12:03:11.576446+00:00",
+      "completed_status_observed_at_utc": "2026-09-29T12:17:54.946168+00:00",
+      "scientific_outcome": "accepted_partial_pinned_contract_no_figure7_reproduction",
+      "lead_disposition": "Accepted after wording corrections; close present reproduction eligibility and queue distinct experimental-observable feasibility.",
+      "limitations": [
+        "Publication working revision not verified",
+        "Exact Figure 7 controls and matched outputs not verified",
+        "Selective tree scope only; no repository-wide absence claim"
+      ],
+      "next_decision": "Separately register 2026 Myo1E experimental-observable feasibility; no repeat metadata loop."
+    },
+    {
+      "task_id": "actin-code-source-001",
+      "parent_task_id": "actin-code-inventory-001",
+      "attempt_number": 1,
+      "role": "source",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "registered_at_utc": "2026-09-29T12:01:49.767736+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/ACTIN_CODE_INVENTORY.md",
+        "research/metadata/actin-inventory-001/"
+      ],
+      "inputs": [
+        "research/actin_code_inventory_design.json"
+      ],
+      "stop_condition": "One metadata/text inventory and independent review; at most8minutes source,5textfiles including README,1MiBtotal. Stop on exhausted bound; no iterative access search, author execution, clone or new study.",
+      "active_status_observed_at_utc": "2026-09-29T12:03:11.576446+00:00",
+      "completed_status_observed_at_utc": "2026-09-29T12:17:54.946168+00:00",
+      "scientific_outcome": "accepted_partial_pinned_contract_no_figure7_reproduction",
+      "lead_disposition": "Accepted after wording corrections; close present reproduction eligibility and queue distinct experimental-observable feasibility.",
+      "limitations": [
+        "Publication working revision not verified",
+        "Exact Figure 7 controls and matched outputs not verified",
+        "Selective tree scope only; no repository-wide absence claim"
+      ],
+      "next_decision": "Separately register 2026 Myo1E experimental-observable feasibility; no repeat metadata loop."
+    },
+    {
+      "task_id": "actin-code-inventory-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T12:01:49.767736+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/ACTIN_CODE_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/actin_code_inventory_design.json"
+      ],
+      "stop_condition": "One metadata/text inventory and independent review; at most8minutes source,5textfiles including README,1MiBtotal. Stop on exhausted bound; no iterative access search, author execution, clone or new study.",
+      "active_status_observed_at_utc": "2026-09-29T12:03:11.576446+00:00",
+      "completed_status_observed_at_utc": "2026-09-29T12:17:54.946168+00:00",
+      "scientific_outcome": "accepted_partial_pinned_contract_no_figure7_reproduction",
+      "lead_disposition": "Accepted after wording corrections; close present reproduction eligibility and queue distinct experimental-observable feasibility.",
+      "limitations": [
+        "Publication working revision not verified",
+        "Exact Figure 7 controls and matched outputs not verified",
+        "Selective tree scope only; no repository-wide absence claim"
+      ],
+      "next_decision": "Separately register 2026 Myo1E experimental-observable feasibility; no repeat metadata loop."
+    },
+    {
+      "task_id": "actin-adaptation-review-001",
+      "parent_task_id": "actin-adaptation-prediction-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T11:36:59.636837+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/ACTIN_ADAPTATION_REVIEW.md"
+      ],
+      "inputs": [
+        "research/actin_adaptation_prediction_design.json"
+      ],
+      "stop_condition": "One source note and independent scope review or precise access/measurement gap; at most five minutes active source work and evidence cutoff. No reproduction or implementation.",
+      "completed_observed_at_utc": "2026-09-29T11:42:20.810321+00:00",
+      "lead_disposition": "Accept indexed-primary simulation prediction and next metadata check after corrections: constant-work comparator only; k distinct from membrane tension; joint experimental test unverified and proposed as synthesis.",
+      "actual_BVP_calls": 0
+    },
+    {
+      "task_id": "actin-adaptation-source-001",
+      "parent_task_id": "actin-adaptation-prediction-001",
+      "attempt_number": 1,
+      "role": "source",
+      "agent_id": "/root/actin_adaptation_source_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "registered_at_utc": "2026-09-29T11:36:59.636837+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/ACTIN_ADAPTATION_SOURCE.md"
+      ],
+      "inputs": [
+        "research/actin_adaptation_prediction_design.json"
+      ],
+      "stop_condition": "One source note and independent scope review or precise access/measurement gap; at most five minutes active source work and evidence cutoff. No reproduction or implementation.",
+      "completed_observed_at_utc": "2026-09-29T11:42:20.810321+00:00",
+      "lead_disposition": "Accept indexed-primary simulation prediction and next metadata check after corrections: constant-work comparator only; k distinct from membrane tension; joint experimental test unverified and proposed as synthesis.",
+      "actual_BVP_calls": 0
+    },
+    {
+      "task_id": "actin-adaptation-prediction-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T11:36:59.636837+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/ACTIN_ADAPTATION_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/actin_adaptation_prediction_design.json"
+      ],
+      "stop_condition": "One source note and independent scope review or precise access/measurement gap; at most five minutes active source work and evidence cutoff. No reproduction or implementation.",
+      "completed_observed_at_utc": "2026-09-29T11:42:20.810321+00:00",
+      "lead_disposition": "Accept indexed-primary simulation prediction and next metadata check after corrections: constant-work comparator only; k distinct from membrane tension; joint experimental test unverified and proposed as synthesis.",
+      "actual_BVP_calls": 0
+    },
+    {
+      "task_id": "known-load-review-001",
+      "parent_task_id": "known-load-recovery-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/known_load_review_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T11:31:39.641874+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/KNOWN_LOAD_RECOVERY_REVIEW.md"
+      ],
+      "inputs": [
+        "research/known_load_recovery_design.json"
+      ],
+      "stop_condition": "One reviewed theorem or exact gap, plus comparison with current observation contracts; zero BVPs, simulation, numerical K, new searches, bulk downloads or new empirical claims.",
+      "completed_observed_at_utc": "2026-09-29T11:36:59.636837+00:00",
+      "lead_disposition": "Accept conditional same-profile uniqueness and uniform near-flat C1 slope to C0 source bound for fixed known load; public-data requirements absent. Close bounded theory sequence.",
+      "actual_BVP_calls": 0,
+      "active_status_observed_at_utc": "2026-09-29T11:33:14.326037+00:00"
+    },
+    {
+      "task_id": "known-load-theory-001",
+      "parent_task_id": "known-load-recovery-001",
+      "attempt_number": 1,
+      "role": "theory",
+      "agent_id": "/root/known_load_theory_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T11:31:39.641874+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/KNOWN_LOAD_RECOVERY_THEORY.md"
+      ],
+      "inputs": [
+        "research/known_load_recovery_design.json"
+      ],
+      "stop_condition": "One reviewed theorem or exact gap, plus comparison with current observation contracts; zero BVPs, simulation, numerical K, new searches, bulk downloads or new empirical claims.",
+      "completed_observed_at_utc": "2026-09-29T11:36:59.636837+00:00",
+      "lead_disposition": "Accept conditional same-profile uniqueness and uniform near-flat C1 slope to C0 source bound for fixed known load; public-data requirements absent. Close bounded theory sequence.",
+      "actual_BVP_calls": 0,
+      "active_status_observed_at_utc": "2026-09-29T11:33:14.326037+00:00"
+    },
+    {
+      "task_id": "known-load-recovery-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T11:31:39.641874+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/KNOWN_LOAD_RECOVERY_FINDINGS.md",
+        "research/KNOWN_LOAD_DATA_COMPARISON.md"
+      ],
+      "inputs": [
+        "research/known_load_recovery_design.json"
+      ],
+      "stop_condition": "One reviewed theorem or exact gap, plus comparison with current observation contracts; zero BVPs, simulation, numerical K, new searches, bulk downloads or new empirical claims.",
+      "completed_observed_at_utc": "2026-09-29T11:36:59.636837+00:00",
+      "lead_disposition": "Accept conditional same-profile uniqueness and uniform near-flat C1 slope to C0 source bound for fixed known load; public-data requirements absent. Close bounded theory sequence.",
+      "actual_BVP_calls": 0,
+      "active_status_observed_at_utc": "2026-09-29T11:33:14.326037+00:00"
+    },
+    {
+      "task_id": "nonlinear-inverse-stability-review-001",
+      "parent_task_id": "nonlinear-inverse-stability-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/checkpoint_findings_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T01:03:58.667495+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/NONLINEAR_INVERSE_STABILITY_REVIEW.md"
+      ],
+      "inputs": [
+        "research/nonlinear_inverse_stability_design.json"
+      ],
+      "stop_condition": "One proof or precise gap; no computational continuation, measurements, fitted data or numerical K.",
+      "completed_observed_at_utc": "2026-09-29T01:12:28.391685+00:00",
+      "lead_disposition": "Accepted after same-attempt shrinking-ball wording correction; actual profile-pair construction proves lack of uniform inverse Lipschitz bound for unknown balanced load. No numerics or empirical precision claim.",
+      "actual_BVP_calls": 0,
+      "dispatched_observed_at_utc_approx": "2026-09-29T01:07:15Z"
+    },
+    {
+      "task_id": "nonlinear-inverse-stability-theory-001",
+      "parent_task_id": "nonlinear-inverse-stability-001",
+      "attempt_number": 1,
+      "role": "theory",
+      "agent_id": "/root/nonlinear_source_theory_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T01:03:58.667495+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/NONLINEAR_INVERSE_STABILITY_THEORY.md"
+      ],
+      "inputs": [
+        "research/nonlinear_inverse_stability_design.json"
+      ],
+      "stop_condition": "One proof or precise gap; no computational continuation, measurements, fitted data or numerical K.",
+      "completed_observed_at_utc": "2026-09-29T01:12:28.391685+00:00",
+      "lead_disposition": "Accepted after same-attempt shrinking-ball wording correction; actual profile-pair construction proves lack of uniform inverse Lipschitz bound for unknown balanced load. No numerics or empirical precision claim.",
+      "actual_BVP_calls": 0,
+      "dispatched_observed_at_utc_approx": "2026-09-29T01:07:15Z"
+    },
+    {
+      "task_id": "nonlinear-inverse-stability-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T01:03:58.667495+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/NONLINEAR_INVERSE_STABILITY_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/nonlinear_inverse_stability_design.json"
+      ],
+      "stop_condition": "One proof or precise gap; no computational continuation, measurements, fitted data or numerical K.",
+      "completed_observed_at_utc": "2026-09-29T01:12:28.391685+00:00",
+      "lead_disposition": "Accepted after same-attempt shrinking-ball wording correction; actual profile-pair construction proves lack of uniform inverse Lipschitz bound for unknown balanced load. No numerics or empirical precision claim.",
+      "actual_BVP_calls": 0,
+      "dispatched_observed_at_utc_approx": "2026-09-29T01:07:15Z"
+    },
+    {
+      "task_id": "nonlinear-numerical-review-003",
+      "parent_task_id": "nonlinear-numerical-001",
+      "attempt_number": 3,
+      "role": "independent_review",
+      "agent_id": "/root/checkpoint_findings_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T00:57:21.602051+00:00",
+      "execution_status": "completed_gate_failed",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_REVIEW_003.md",
+        "research/nonlinear_numerical_reanalysis_003.py",
+        "research/nonlinear_numerical_reanalysis_003.json"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_execution_003.json"
+      ],
+      "stop_condition": "Execute exactly once; at most26calls. Preserve terminal failure and every profile/status. No fourth attempt, mesh/parameter search or code changes. Independently review saved physical residuals. K/K3 only if all mandatory gates pass.",
+      "completed_observed_at_utc": "2026-09-29T01:03:58.667495+00:00",
+      "lead_disposition": "Accept independently reproduced physical residual failure; final computational branch closed. All26solves saved, K/K3 suppressed, no fourth attempt. Process exitcode unavailable; completed artifacts separately verified.",
+      "final_review_received_at_utc": "2026-09-29T01:07:01Z"
+    },
+    {
+      "task_id": "nonlinear-numerical-implementation-003",
+      "parent_task_id": "nonlinear-numerical-001",
+      "attempt_number": 3,
+      "role": "numerical",
+      "agent_id": "/root/nonlinear_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-29T00:57:21.602051+00:00",
+      "execution_status": "completed_gate_failed",
+      "owned_files": [
+        "research/nonlinear_numerical_results_003.json",
+        "research/nonlinear_numerical_profiles_003.npz",
+        "research/NONLINEAR_NUMERICAL_IMPLEMENTATION_003.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_execution_003.json"
+      ],
+      "stop_condition": "Execute exactly once; at most26calls. Preserve terminal failure and every profile/status. No fourth attempt, mesh/parameter search or code changes. Independently review saved physical residuals. K/K3 only if all mandatory gates pass.",
+      "completed_observed_at_utc": "2026-09-29T01:03:58.667495+00:00",
+      "lead_disposition": "Accept independently reproduced physical residual failure; final computational branch closed. All26solves saved, K/K3 suppressed, no fourth attempt. Process exitcode unavailable; completed artifacts separately verified."
+    },
+    {
+      "task_id": "nonlinear-numerical-001",
+      "parent_task_id": null,
+      "attempt_number": 3,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-29T00:57:21.602051+00:00",
+      "execution_status": "completed_gate_failed",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_FINDINGS_003.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_execution_003.json"
+      ],
+      "stop_condition": "Execute exactly once; at most26calls. Preserve terminal failure and every profile/status. No fourth attempt, mesh/parameter search or code changes. Independently review saved physical residuals. K/K3 only if all mandatory gates pass.",
+      "completed_observed_at_utc": "2026-09-29T01:03:58.667495+00:00",
+      "lead_disposition": "Accept independently reproduced physical residual failure; final computational branch closed. All26solves saved, K/K3 suppressed, no fourth attempt. Process exitcode unavailable; completed artifacts separately verified."
+    },
+    {
+      "task_id": "nonlinear-mesh-review-001",
+      "parent_task_id": "nonlinear-mesh-preflight-001",
+      "attempt_number": 1,
+      "role": "independent_review",
+      "agent_id": "/root/checkpoint_findings_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-27T11:32:53.249879+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/NONLINEAR_MESH_PREFLIGHT_REVIEW_RESUMED.md"
+      ],
+      "inputs": [
+        "research/nonlinear_mesh_preflight_design.json"
+      ],
+      "stop_condition": "One reviewed source/harness or explicit blocker. No actual solve until lead separately registers final numerical attempt3.",
+      "status_observed_at_utc": "2026-09-28T20:20:41.184623+00:00",
+      "actual_BVP_calls": 0,
+      "actual_harness_runs": 0,
+      "lead_disposition": "Accepted resumed preflight for exact frozen source/harness; two failed synthetic runs corrected, third passed. Code readiness only.",
+      "next_action": "Separately register and execute final numerical attempt3 next cycle; not running.",
+      "outstanding_session": null,
+      "resumed_at_utc": "2026-09-28T20:24:07.190750+00:00",
+      "resume_specification": "research/nonlinear_mesh_preflight_resume_001.json",
+      "completed_observed_at_utc": "2026-09-28T20:37:58.522361+00:00",
+      "reviewed_harness_runs": 3
+    },
+    {
+      "task_id": "nonlinear-mesh-implementation-001",
+      "parent_task_id": "nonlinear-mesh-preflight-001",
+      "attempt_number": 1,
+      "role": "numerical",
+      "agent_id": "/root/nonlinear_numerical_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "registered_at_utc": "2026-09-27T11:32:53.249879+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/nonlinear_graph_numerical_003.py",
+        "research/check_nonlinear_harness_003.py",
+        "research/nonlinear_mesh_preflight_checks.json",
+        "research/NONLINEAR_MESH_IMPLEMENTATION_RESUMED.md"
+      ],
+      "inputs": [
+        "research/nonlinear_mesh_preflight_design.json"
+      ],
+      "stop_condition": "One reviewed source/harness or explicit blocker. No actual solve until lead separately registers final numerical attempt3.",
+      "status_observed_at_utc": "2026-09-28T20:20:41.184623+00:00",
+      "actual_BVP_calls": 0,
+      "actual_harness_runs": 3,
+      "lead_disposition": "Accepted resumed preflight for exact frozen source/harness; two failed synthetic runs corrected, third passed. Code readiness only.",
+      "next_action": "Separately register and execute final numerical attempt3 next cycle; not running.",
+      "outstanding_session": null,
+      "resumed_at_utc": "2026-09-28T20:24:07.190750+00:00",
+      "resume_specification": "research/nonlinear_mesh_preflight_resume_001.json",
+      "completed_observed_at_utc": "2026-09-28T20:37:58.522361+00:00"
+    },
+    {
+      "task_id": "nonlinear-mesh-preflight-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "registered_at_utc": "2026-09-27T11:32:53.249879+00:00",
+      "execution_status": "completed",
+      "owned_files": [
+        "research/NONLINEAR_MESH_PREFLIGHT_FINDINGS_RESUMED.md"
+      ],
+      "inputs": [
+        "research/nonlinear_mesh_preflight_design.json"
+      ],
+      "stop_condition": "One reviewed source/harness or explicit blocker. No actual solve until lead separately registers final numerical attempt3.",
+      "status_observed_at_utc": "2026-09-28T20:20:41.184623+00:00",
+      "actual_BVP_calls": 0,
+      "actual_harness_runs": 0,
+      "lead_disposition": "Accepted resumed preflight for exact frozen source/harness; two failed synthetic runs corrected, third passed. Code readiness only.",
+      "next_action": "Separately register and execute final numerical attempt3 next cycle; not running.",
+      "outstanding_session": null,
+      "resumed_at_utc": "2026-09-28T20:24:07.190750+00:00",
+      "resume_specification": "research/nonlinear_mesh_preflight_resume_001.json",
+      "completed_observed_at_utc": "2026-09-28T20:37:58.522361+00:00",
+      "campaign_harness_runs": 3
+    },
+    {
+      "task_id": "nonlinear-residual-review-001",
+      "parent_task_id": "nonlinear-residual-postmortem-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:59:57.925488+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/checkpoint_findings_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "role": "independent_review",
+      "owned_files": [
+        "research/NONLINEAR_RESIDUAL_REVIEW.md"
+      ],
+      "inputs": [
+        "research/nonlinear_residual_postmortem.py",
+        "research/nonlinear_residual_postmortem.json",
+        "research/nonlinear_numerical_mesh_plan.json"
+      ],
+      "stop_condition": "One review of saved-coefficient decomposition and fixed mesh proposal; no BVP calls or model/gate changes",
+      "completed_observed_at_utc": "2026-09-27T01:03:24.288792+00:00",
+      "lead_disposition": "Accept within scope: exact identity and diagnostic localization; fixed mesh rationale heuristic, no convergence or biology claim."
+    },
+    {
+      "task_id": "nonlinear-residual-theory-001",
+      "parent_task_id": "nonlinear-residual-postmortem-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:57:24.573873+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_source_theory_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "role": "theory_review",
+      "owned_files": [
+        "research/NONLINEAR_RESIDUAL_THEORY.md"
+      ],
+      "inputs": {
+        "research\\nonlinear_numerical_results_002.json": "c8eebc7b9efdf1e53b0ed0ae6a5f8f7464f838818e46aee84e6ccf73bcbf4cca",
+        "research\\nonlinear_numerical_profiles_002.npz": "8bd02b0b0464b39a9ee1ce9e948417b309a364524d171d7d9d8d1eda39a47523",
+        "research\\nonlinear_graph_numerical_002.py": "6bd9fe5c8fcf268156d7118cdc32dbda601025934f371b07c28aba879527c922"
+      },
+      "stop_condition": "One saved-coefficient diagnosis and candidate remedy; no new solve, no threshold changes, no promotion of rejected profiles",
+      "completed_observed_at_utc": "2026-09-27T01:03:24.288792+00:00",
+      "lead_disposition": "Accept within scope: exact identity and diagnostic localization; fixed mesh rationale heuristic, no convergence or biology claim."
+    },
+    {
+      "task_id": "nonlinear-residual-postmortem-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:57:24.573873+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead_diagnostic",
+      "question": "Does the saved cubic PPoly derivative inconsistency account for the failed physical residual, and what bounded final-attempt plan is justified?",
+      "inputs": {
+        "research\\nonlinear_numerical_results_002.json": "c8eebc7b9efdf1e53b0ed0ae6a5f8f7464f838818e46aee84e6ccf73bcbf4cca",
+        "research\\nonlinear_numerical_profiles_002.npz": "8bd02b0b0464b39a9ee1ce9e948417b309a364524d171d7d9d8d1eda39a47523",
+        "research\\nonlinear_graph_numerical_002.py": "6bd9fe5c8fcf268156d7118cdc32dbda601025934f371b07c28aba879527c922"
+      },
+      "owned_files": [
+        "research/nonlinear_residual_postmortem.py",
+        "research/nonlinear_residual_postmortem.json",
+        "research/NONLINEAR_RESIDUAL_POSTMORTEM.md",
+        "research/nonlinear_numerical_mesh_plan.json"
+      ],
+      "expected_outcomes": [
+        "physical residual explained by interpolation derivative defect",
+        "equation/sign implementation defect",
+        "unresolved cause; no further solve justified"
+      ],
+      "acceptance_checks": [
+        "Recompute actual physical Q from v derivatives",
+        "Decompose using delta=v_prime-w and its actual derivative; do not replace physical residual by ODE RHS",
+        "Inspect interval endpoints, interior and pole separately",
+        "Independent theory review",
+        "Zero new BVP calls; unchanged gate and suppressed K"
+      ],
+      "stop_condition": "One saved-coefficient diagnosis and candidate remedy; no new solve, no threshold changes, no promotion of rejected profiles",
+      "completed_observed_at_utc": "2026-09-27T01:03:24.288792+00:00",
+      "lead_disposition": "Accept exact saved-polynomial defect attribution and one fixed mesh plan for future preparation; physical gate remains failed, K suppressed, no new solves.",
+      "scientific_outcome": "numerical_representation_failure_localized_not_physics_refuted",
+      "next_decision": "New003 code and independent no-BVP preflight before separate final attempt registration"
+    },
+    {
+      "task_id": "nonlinear-numerical-review-002",
+      "parent_task_id": "nonlinear-numerical-001",
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-27T00:53:23.608936+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/checkpoint_findings_001",
+      "role": "independent-review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_REVIEW_002.md",
+        "research/nonlinear_numerical_reanalysis_002.py",
+        "research/nonlinear_numerical_reanalysis_002.json"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_execution_002.json",
+        "research/nonlinear_numerical_design.json",
+        "research/nonlinear_numerical_repair_manifest.json"
+      ],
+      "acceptance_checks": [
+        "Exact code/design hashes, Python/scipy/numpy versions, observed start/end times and input provenance.",
+        "Solver status/node counts, boundary values, max|u| and independent off-mesh residuals from interpolation derivatives, never substituting ODE RHS as the checked derivative.",
+        "Regular-origin residual via analytic limit, exact flux Q and Q/r off the pole, finite reservoir comparisons on the source disk.",
+        "Record v2 minimum and (v1-v2) minimum on4097 source-disk points including origin limits and edge; sampled signs are numerical evidence only.",
+        "Profile tolerance and reservoir refinement changes; linear-reference and zero-source control errors.",
+        "If all equilibrium checks pass, fixed g=c diagnostic K=D[-S*(r*g)_prime+r*(c*g+g\u00b2/2)] on source disk, its norm and K/epsilon\u00b3 across three amplitudes. K is a source-compatibility residual, not observation error or noise tolerance."
+      ],
+      "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+      "lead_disposition": "Accept independently reproduced failed physical gate and passed controls; K remains suppressed.",
+      "completed_observed_at_utc": "2026-09-27T00:59:57.925488+00:00"
+    },
+    {
+      "task_id": "nonlinear-numerical-implementation-002",
+      "parent_task_id": "nonlinear-numerical-001",
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-27T00:53:23.608936+00:00",
+      "execution_status": "completed_gate_failed",
+      "agent_id": "/root/nonlinear_numerical_001",
+      "role": "numerical",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/nonlinear_numerical_results_002.json",
+        "research/nonlinear_numerical_profiles_002.npz",
+        "research/NONLINEAR_NUMERICAL_IMPLEMENTATION_002.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_execution_002.json",
+        "research/nonlinear_numerical_design.json",
+        "research/nonlinear_numerical_repair_manifest.json"
+      ],
+      "acceptance_checks": [
+        "Exact code/design hashes, Python/scipy/numpy versions, observed start/end times and input provenance.",
+        "Solver status/node counts, boundary values, max|u| and independent off-mesh residuals from interpolation derivatives, never substituting ODE RHS as the checked derivative.",
+        "Regular-origin residual via analytic limit, exact flux Q and Q/r off the pole, finite reservoir comparisons on the source disk.",
+        "Record v2 minimum and (v1-v2) minimum on4097 source-disk points including origin limits and edge; sampled signs are numerical evidence only.",
+        "Profile tolerance and reservoir refinement changes; linear-reference and zero-source control errors.",
+        "If all equilibrium checks pass, fixed g=c diagnostic K=D[-S*(r*g)_prime+r*(c*g+g\u00b2/2)] on source disk, its norm and K/epsilon\u00b3 across three amplitudes. K is a source-compatibility residual, not observation error or noise tolerance."
+      ],
+      "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+      "scientific_outcome": "off_mesh_physical_residual_exceeds_frozen_gate_K_suppressed",
+      "lead_disposition": "Accept execution/provenance; reject numerical realization at unchanged Q/r gate. Preserve all saved profiles for separately registered diagnosis.",
+      "completed_observed_at_utc": "2026-09-27T00:57:24.573873+00:00"
+    },
+    {
+      "task_id": "nonlinear-numerical-001",
+      "parent_task_id": null,
+      "attempt_number": 2,
+      "registered_at_utc": "2026-09-27T00:53:23.608936+00:00",
+      "execution_status": "completed_gate_failed",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_FINDINGS_002.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_execution_002.json",
+        "research/nonlinear_numerical_design.json",
+        "research/nonlinear_numerical_repair_manifest.json"
+      ],
+      "acceptance_checks": [
+        "Exact code/design hashes, Python/scipy/numpy versions, observed start/end times and input provenance.",
+        "Solver status/node counts, boundary values, max|u| and independent off-mesh residuals from interpolation derivatives, never substituting ODE RHS as the checked derivative.",
+        "Regular-origin residual via analytic limit, exact flux Q and Q/r off the pole, finite reservoir comparisons on the source disk.",
+        "Record v2 minimum and (v1-v2) minimum on4097 source-disk points including origin limits and edge; sampled signs are numerical evidence only.",
+        "Profile tolerance and reservoir refinement changes; linear-reference and zero-source control errors.",
+        "If all equilibrium checks pass, fixed g=c diagnostic K=D[-S*(r*g)_prime+r*(c*g+g\u00b2/2)] on source disk, its norm and K/epsilon\u00b3 across three amplitudes. K is a source-compatibility residual, not observation error or noise tolerance."
+      ],
+      "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+      "scientific_outcome": "off_mesh_physical_residual_exceeds_frozen_gate_K_suppressed",
+      "lead_disposition": "Accept execution/provenance; reject numerical realization at unchanged Q/r gate. Preserve all saved profiles for separately registered diagnosis.",
+      "completed_observed_at_utc": "2026-09-27T00:57:24.573873+00:00"
+    },
+    {
+      "task_id": "nonlinear-numerical-repair-review-001",
+      "parent_task_id": "nonlinear-numerical-repair-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:30:20.487079+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/checkpoint_findings_001",
+      "role": "independent-review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_REPAIR_REVIEW.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_repair_design.json"
+      ],
+      "stop_condition": "One reviewed repair/preflight artifact or exact code blocker. No BVP solve or actual numerical attempt2 execution this cycle.",
+      "status_observed_at_utc": "2026-09-27T00:40:07.493764+00:00",
+      "lead_disposition": "accepted_code_readiness_after_axis_and_diagnostic_scope_corrections",
+      "scientific_outcome": "none_software_repair_only",
+      "actual_BVP_calls": 0,
+      "next_action": "Register and execute numerical attempt2 in next cycle under unchanged contract."
+    },
+    {
+      "task_id": "nonlinear-numerical-repair-implementation-001",
+      "parent_task_id": "nonlinear-numerical-repair-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:30:20.487079+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_numerical_001",
+      "role": "numerical",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/nonlinear_graph_numerical_002.py",
+        "research/nonlinear_numerical_repair_checks.json",
+        "research/NONLINEAR_NUMERICAL_REPAIR_IMPLEMENTATION.md",
+        "research/check_nonlinear_harness_002.py"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_repair_design.json"
+      ],
+      "stop_condition": "One reviewed repair/preflight artifact or exact code blocker. No BVP solve or actual numerical attempt2 execution this cycle.",
+      "status_observed_at_utc": "2026-09-27T00:40:07.493764+00:00",
+      "lead_disposition": "accepted_code_readiness_after_axis_and_diagnostic_scope_corrections",
+      "scientific_outcome": "none_software_repair_only",
+      "actual_BVP_calls": 0,
+      "next_action": "Register and execute numerical attempt2 in next cycle under unchanged contract."
+    },
+    {
+      "task_id": "nonlinear-numerical-repair-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:30:20.487079+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_REPAIR_FINDINGS.md",
+        "research/nonlinear_numerical_execution_002.json"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_repair_design.json"
+      ],
+      "stop_condition": "One reviewed repair/preflight artifact or exact code blocker. No BVP solve or actual numerical attempt2 execution this cycle.",
+      "status_observed_at_utc": "2026-09-27T00:40:07.493764+00:00",
+      "lead_disposition": "accepted_code_readiness_after_axis_and_diagnostic_scope_corrections",
+      "scientific_outcome": "none_software_repair_only",
+      "actual_BVP_calls": 0,
+      "next_action": "Register and execute numerical attempt2 in next cycle under unchanged contract."
+    },
+    {
+      "task_id": "nonlinear-numerical-asymptotic-001",
+      "parent_task_id": "nonlinear-numerical-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:23:55.810392+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_source_theory_001",
+      "role": "theory",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_ASYMPTOTIC.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_design.json",
+        "research/nonlinear_numerical_execution_001.json"
+      ],
+      "acceptance_checks": [
+        "Exact code/design hashes, Python/scipy/numpy versions, observed start/end times and input provenance.",
+        "Solver status/node counts, boundary values, max|u| and independent off-mesh residuals from interpolation derivatives, never substituting ODE RHS as the checked derivative.",
+        "Regular-origin residual via analytic limit, exact flux Q and Q/r off the pole, finite reservoir comparisons on the source disk.",
+        "Record v2 minimum and (v1-v2) minimum on4097 source-disk points including origin limits and edge; sampled signs are numerical evidence only.",
+        "Profile tolerance and reservoir refinement changes; linear-reference and zero-source control errors.",
+        "If all equilibrium checks pass, fixed g=c diagnostic K=D[-S*(r*g)_prime+r*(c*g+g\u00b2/2)] on source disk, its norm and K/epsilon\u00b3 across three amplitudes. K is a source-compatibility residual, not observation error or noise tolerance."
+      ],
+      "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+      "status_observed_at_utc": "2026-09-27T00:30:20.487079+00:00",
+      "lead_disposition": "accepted_conditional_analytic_prediction",
+      "next_action": "Separate code-repair/preflight stage; no extra attempt1 BVP calls."
+    },
+    {
+      "task_id": "nonlinear-numerical-review-001",
+      "parent_task_id": "nonlinear-numerical-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:23:55.810392+00:00",
+      "execution_status": "completed_invalid_result",
+      "agent_id": "/root/checkpoint_findings_001",
+      "role": "independent-review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_REVIEW.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_design.json",
+        "research/nonlinear_numerical_execution_001.json"
+      ],
+      "acceptance_checks": [
+        "Exact code/design hashes, Python/scipy/numpy versions, observed start/end times and input provenance.",
+        "Solver status/node counts, boundary values, max|u| and independent off-mesh residuals from interpolation derivatives, never substituting ODE RHS as the checked derivative.",
+        "Regular-origin residual via analytic limit, exact flux Q and Q/r off the pole, finite reservoir comparisons on the source disk.",
+        "Record v2 minimum and (v1-v2) minimum on4097 source-disk points including origin limits and edge; sampled signs are numerical evidence only.",
+        "Profile tolerance and reservoir refinement changes; linear-reference and zero-source control errors.",
+        "If all equilibrium checks pass, fixed g=c diagnostic K=D[-S*(r*g)_prime+r*(c*g+g\u00b2/2)] on source disk, its norm and K/epsilon\u00b3 across three amplitudes. K is a source-compatibility residual, not observation error or noise tolerance."
+      ],
+      "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+      "status_observed_at_utc": "2026-09-27T00:30:20.487079+00:00",
+      "lead_disposition": "stopped_implementation_failure_physics_unassessed",
+      "next_action": "Separate code-repair/preflight stage; no extra attempt1 BVP calls."
+    },
+    {
+      "task_id": "nonlinear-numerical-implementation-001",
+      "parent_task_id": "nonlinear-numerical-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:23:55.810392+00:00",
+      "execution_status": "completed_invalid_result",
+      "agent_id": "/root/nonlinear_numerical_001",
+      "role": "numerical",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/nonlinear_graph_numerical.py",
+        "research/nonlinear_numerical_results_001.json",
+        "research/nonlinear_numerical_profiles_001.npz",
+        "research/NONLINEAR_NUMERICAL_IMPLEMENTATION.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_design.json",
+        "research/nonlinear_numerical_execution_001.json"
+      ],
+      "acceptance_checks": [
+        "Exact code/design hashes, Python/scipy/numpy versions, observed start/end times and input provenance.",
+        "Solver status/node counts, boundary values, max|u| and independent off-mesh residuals from interpolation derivatives, never substituting ODE RHS as the checked derivative.",
+        "Regular-origin residual via analytic limit, exact flux Q and Q/r off the pole, finite reservoir comparisons on the source disk.",
+        "Record v2 minimum and (v1-v2) minimum on4097 source-disk points including origin limits and edge; sampled signs are numerical evidence only.",
+        "Profile tolerance and reservoir refinement changes; linear-reference and zero-source control errors.",
+        "If all equilibrium checks pass, fixed g=c diagnostic K=D[-S*(r*g)_prime+r*(c*g+g\u00b2/2)] on source disk, its norm and K/epsilon\u00b3 across three amplitudes. K is a source-compatibility residual, not observation error or noise tolerance."
+      ],
+      "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+      "status_observed_at_utc": "2026-09-27T00:30:20.487079+00:00",
+      "lead_disposition": "stopped_implementation_failure_physics_unassessed",
+      "next_action": "Separate code-repair/preflight stage; no extra attempt1 BVP calls."
+    },
+    {
+      "task_id": "nonlinear-numerical-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-27T00:23:55.810392+00:00",
+      "execution_status": "completed_invalid_result",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_FINDINGS.md",
+        "research/nonlinear_numerical_execution_001.json"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_design.json",
+        "research/nonlinear_numerical_execution_001.json"
+      ],
+      "acceptance_checks": [
+        "Exact code/design hashes, Python/scipy/numpy versions, observed start/end times and input provenance.",
+        "Solver status/node counts, boundary values, max|u| and independent off-mesh residuals from interpolation derivatives, never substituting ODE RHS as the checked derivative.",
+        "Regular-origin residual via analytic limit, exact flux Q and Q/r off the pole, finite reservoir comparisons on the source disk.",
+        "Record v2 minimum and (v1-v2) minimum on4097 source-disk points including origin limits and edge; sampled signs are numerical evidence only.",
+        "Profile tolerance and reservoir refinement changes; linear-reference and zero-source control errors.",
+        "If all equilibrium checks pass, fixed g=c diagnostic K=D[-S*(r*g)_prime+r*(c*g+g\u00b2/2)] on source disk, its norm and K/epsilon\u00b3 across three amplitudes. K is a source-compatibility residual, not observation error or noise tolerance."
+      ],
+      "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+      "status_observed_at_utc": "2026-09-27T00:30:20.487079+00:00",
+      "lead_disposition": "stopped_implementation_failure_physics_unassessed",
+      "next_action": "Separate code-repair/preflight stage; no extra attempt1 BVP calls."
+    },
+    {
+      "task_id": "nonlinear-numerical-design-review-001",
+      "parent_task_id": "nonlinear-numerical-design-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T23:29:56.522303+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/checkpoint_findings_001",
+      "role": "independent-review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_DESIGN_REVIEW.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_design_review.json"
+      ],
+      "stop_condition": "One independently checked ODE and frozen queued numerical contract, or precise formulation blocker. No numerical execution during this design stage.",
+      "status_observed_at_utc": "2026-09-27T00:21:16.550086+00:00",
+      "lead_disposition": "accepted_after_profile_norm_and_margin_units_correction",
+      "scientific_outcome": "regular_BVP_and_frozen_computational_contract_ready",
+      "remaining_uncertainty": "Finite amplitude, finite reservoir and convergence outcomes are uncomputed.",
+      "next_action": "One bounded numerical realization queued; no solver started."
+    },
+    {
+      "task_id": "nonlinear-numerical-design-theory-001",
+      "parent_task_id": "nonlinear-numerical-design-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T23:29:56.522303+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_source_theory_001",
+      "role": "theory",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_NUMERICAL_FORMULATION.md"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_design_review.json"
+      ],
+      "stop_condition": "One independently checked ODE and frozen queued numerical contract, or precise formulation blocker. No numerical execution during this design stage.",
+      "status_observed_at_utc": "2026-09-27T00:21:16.550086+00:00",
+      "lead_disposition": "accepted_after_profile_norm_and_margin_units_correction",
+      "scientific_outcome": "regular_BVP_and_frozen_computational_contract_ready",
+      "remaining_uncertainty": "Finite amplitude, finite reservoir and convergence outcomes are uncomputed.",
+      "next_action": "One bounded numerical realization queued; no solver started."
+    },
+    {
+      "task_id": "nonlinear-numerical-design-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T23:29:56.522303+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/nonlinear_numerical_design.json"
+      ],
+      "inputs": [
+        "research/nonlinear_numerical_design_review.json"
+      ],
+      "stop_condition": "One independently checked ODE and frozen queued numerical contract, or precise formulation blocker. No numerical execution during this design stage.",
+      "status_observed_at_utc": "2026-09-27T00:21:16.550086+00:00",
+      "lead_disposition": "accepted_after_profile_norm_and_margin_units_correction",
+      "scientific_outcome": "regular_BVP_and_frozen_computational_contract_ready",
+      "remaining_uncertainty": "Finite amplitude, finite reservoir and convergence outcomes are uncomputed.",
+      "next_action": "One bounded numerical realization queued; no solver started."
+    },
+    {
+      "task_id": "nonlinear-existence-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T23:21:52.016774+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/NONLINEAR_EXISTENCE_FINDINGS.md",
+        "research/nonlinear_existence_design.json"
+      ],
+      "inputs": [
+        "research/nonlinear_existence_design.json"
+      ],
+      "question": "Do small compact curvature sources at two positive tensions produce actual exact-graph stationary profiles satisfying the reviewed compact-source uniqueness criterion?",
+      "acceptance_checks": [
+        "Derive Q=0 from f=0 and origin regularity; check exact flux and load convention.",
+        "Derive order-one screened slope operator and handle origin via p/r or radial vector field.",
+        "State a function space and invertibility/regularity argument for an actual nonlinear branch with decaying flat reservoir.",
+        "Prove or precisely block strict normalized-slope ordering on entire 0<r<=1, including endpoints and origin scaling.",
+        "Separate linear-response positivity from nonlinear existence and global or stable branch selection.",
+        "Independent review of the proof or exact blocker; no numeric epsilon, solver, fit or novelty claim."
+      ],
+      "stop_condition": "One independently reviewed local existence/ordering proof or precise unresolved analytic prerequisite. No solver, sweep, numerical epsilon, empirical fit, new source audit, stability or global uniqueness/novelty claim.",
+      "status_observed_at_utc": "2026-09-26T23:29:56.522303+00:00",
+      "lead_disposition": "accepted_after_equation_transcription_correction",
+      "scientific_outcome": "local_actual_stationary_branch_and_strict_source_disk_slope_ordering",
+      "remaining_uncertainty": "No numerical epsilon threshold, stability, global branch selection, or practical precision follows."
+    },
+    {
+      "task_id": "nonlinear-existence-theory-001",
+      "parent_task_id": "nonlinear-existence-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T23:21:52.016774+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_source_theory_001",
+      "role": "theory",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_EXISTENCE_THEORY.md"
+      ],
+      "inputs": [
+        "research/nonlinear_existence_design.json"
+      ],
+      "question": "Do small compact curvature sources at two positive tensions produce actual exact-graph stationary profiles satisfying the reviewed compact-source uniqueness criterion?",
+      "acceptance_checks": [
+        "Derive Q=0 from f=0 and origin regularity; check exact flux and load convention.",
+        "Derive order-one screened slope operator and handle origin via p/r or radial vector field.",
+        "State a function space and invertibility/regularity argument for an actual nonlinear branch with decaying flat reservoir.",
+        "Prove or precisely block strict normalized-slope ordering on entire 0<r<=1, including endpoints and origin scaling.",
+        "Separate linear-response positivity from nonlinear existence and global or stable branch selection.",
+        "Independent review of the proof or exact blocker; no numeric epsilon, solver, fit or novelty claim."
+      ],
+      "stop_condition": "One independently reviewed local existence/ordering proof or precise unresolved analytic prerequisite. No solver, sweep, numerical epsilon, empirical fit, new source audit, stability or global uniqueness/novelty claim.",
+      "status_observed_at_utc": "2026-09-26T23:29:56.522303+00:00",
+      "lead_disposition": "accepted_after_equation_transcription_correction",
+      "scientific_outcome": "local_actual_stationary_branch_and_strict_source_disk_slope_ordering",
+      "remaining_uncertainty": "No numerical epsilon threshold, stability, global branch selection, or practical precision follows."
+    },
+    {
+      "task_id": "nonlinear-existence-review-001",
+      "parent_task_id": "nonlinear-existence-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T23:21:52.016774+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/checkpoint_findings_001",
+      "role": "independent-review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_EXISTENCE_REVIEW.md"
+      ],
+      "inputs": [
+        "research/nonlinear_existence_design.json"
+      ],
+      "question": "Do small compact curvature sources at two positive tensions produce actual exact-graph stationary profiles satisfying the reviewed compact-source uniqueness criterion?",
+      "acceptance_checks": [
+        "Derive Q=0 from f=0 and origin regularity; check exact flux and load convention.",
+        "Derive order-one screened slope operator and handle origin via p/r or radial vector field.",
+        "State a function space and invertibility/regularity argument for an actual nonlinear branch with decaying flat reservoir.",
+        "Prove or precisely block strict normalized-slope ordering on entire 0<r<=1, including endpoints and origin scaling.",
+        "Separate linear-response positivity from nonlinear existence and global or stable branch selection.",
+        "Independent review of the proof or exact blocker; no numeric epsilon, solver, fit or novelty claim."
+      ],
+      "stop_condition": "One independently reviewed local existence/ordering proof or precise unresolved analytic prerequisite. No solver, sweep, numerical epsilon, empirical fit, new source audit, stability or global uniqueness/novelty claim.",
+      "status_observed_at_utc": "2026-09-26T23:29:56.522303+00:00",
+      "lead_disposition": "accepted_after_equation_transcription_correction",
+      "scientific_outcome": "local_actual_stationary_branch_and_strict_source_disk_slope_ordering",
+      "remaining_uncertainty": "No numerical epsilon threshold, stability, global branch selection, or practical precision follows."
+    },
+    {
+      "task_id": "nonlinear-existence-ordering-001",
+      "parent_task_id": "nonlinear-existence-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T23:21:52.016774+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_uniqueness_compatibility_001",
+      "role": "theory-ordering",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_EXISTENCE_ORDERING.md"
+      ],
+      "inputs": [
+        "research/nonlinear_existence_design.json"
+      ],
+      "question": "Do small compact curvature sources at two positive tensions produce actual exact-graph stationary profiles satisfying the reviewed compact-source uniqueness criterion?",
+      "acceptance_checks": [
+        "Derive Q=0 from f=0 and origin regularity; check exact flux and load convention.",
+        "Derive order-one screened slope operator and handle origin via p/r or radial vector field.",
+        "State a function space and invertibility/regularity argument for an actual nonlinear branch with decaying flat reservoir.",
+        "Prove or precisely block strict normalized-slope ordering on entire 0<r<=1, including endpoints and origin scaling.",
+        "Separate linear-response positivity from nonlinear existence and global or stable branch selection.",
+        "Independent review of the proof or exact blocker; no numeric epsilon, solver, fit or novelty claim."
+      ],
+      "stop_condition": "One independently reviewed local existence/ordering proof or precise unresolved analytic prerequisite. No solver, sweep, numerical epsilon, empirical fit, new source audit, stability or global uniqueness/novelty claim.",
+      "status_observed_at_utc": "2026-09-26T23:29:56.522303+00:00",
+      "lead_disposition": "accepted_after_equation_transcription_correction",
+      "scientific_outcome": "local_actual_stationary_branch_and_strict_source_disk_slope_ordering",
+      "remaining_uncertainty": "No numerical epsilon threshold, stability, global branch selection, or practical precision follows."
+    },
+    {
+      "task_id": "nonlinear-uniqueness-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T16:22:46.734192+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/nonlinear_uniqueness_design.json",
+        "research/NONLINEAR_UNIQUENESS_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/nonlinear_uniqueness_design.json"
+      ],
+      "question": "Under what explicit support and slope conditions does the exact two-profile compatibility equation force a compact curvature-source change to vanish?",
+      "acceptance_checks": [
+        "finite Riccati equation and infinitesimal equation with explicit assumptions",
+        "sufficient uniqueness theorem on a declared source support, not global identifiability",
+        "origin limit and propagation from source-support boundary",
+        "isolated coefficient zeros, equal slopes, opposite slopes and intervals of equality",
+        "flat-family actual-stationarity counterexample retained",
+        "algebraic degeneracies distinct from jointly realizable equilibrium profiles",
+        "conditioning and joint-small-source order distinct from uniqueness",
+        "independent theory/review and physical-compatibility challenge"
+      ],
+      "expected_outcomes": [
+        "conditional sufficient uniqueness criterion with classified exceptions",
+        "nontrivial allowed compact source degeneracy",
+        "precise unresolved coefficient/equilibrium prerequisite"
+      ],
+      "stop_condition": "One independently reviewed criterion or counterexample and explicit remaining prerequisite. No solver, empirical fit, parameter sweep, new source search, or practical precision/novelty claim. Any next stage requires a new decision after this one closes.",
+      "status_observed_at_utc": "2026-09-26T16:38:38.769024+00:00",
+      "scientific_outcome": "conditional_compact_source_uniqueness_with_flat_counterexample",
+      "lead_disposition": "accepted_with_scope_and_global_flux_correction",
+      "remaining_uncertainty": "Actual nonflat common-source profiles meeting the criterion and practical noise stability remain unproved.",
+      "next_action": "Actual equilibrium existence and slope-ordering gate queued; user architecture request addressed first."
+    },
+    {
+      "task_id": "nonlinear-uniqueness-theory-001",
+      "parent_task_id": "nonlinear-uniqueness-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T16:22:46.734192+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_source_theory_001",
+      "role": "theory",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_UNIQUENESS_THEORY.md"
+      ],
+      "inputs": [
+        "research/nonlinear_uniqueness_design.json"
+      ],
+      "question": "Under what explicit support and slope conditions does the exact two-profile compatibility equation force a compact curvature-source change to vanish?",
+      "acceptance_checks": [
+        "finite Riccati equation and infinitesimal equation with explicit assumptions",
+        "sufficient uniqueness theorem on a declared source support, not global identifiability",
+        "origin limit and propagation from source-support boundary",
+        "isolated coefficient zeros, equal slopes, opposite slopes and intervals of equality",
+        "flat-family actual-stationarity counterexample retained",
+        "algebraic degeneracies distinct from jointly realizable equilibrium profiles",
+        "conditioning and joint-small-source order distinct from uniqueness",
+        "independent theory/review and physical-compatibility challenge"
+      ],
+      "expected_outcomes": [
+        "conditional sufficient uniqueness criterion with classified exceptions",
+        "nontrivial allowed compact source degeneracy",
+        "precise unresolved coefficient/equilibrium prerequisite"
+      ],
+      "stop_condition": "One independently reviewed criterion or counterexample and explicit remaining prerequisite. No solver, empirical fit, parameter sweep, new source search, or practical precision/novelty claim. Any next stage requires a new decision after this one closes.",
+      "status_observed_at_utc": "2026-09-26T16:38:38.769024+00:00",
+      "scientific_outcome": "conditional_compact_source_uniqueness_with_flat_counterexample",
+      "lead_disposition": "accepted_with_scope_and_global_flux_correction",
+      "remaining_uncertainty": "Actual nonflat common-source profiles meeting the criterion and practical noise stability remain unproved.",
+      "next_action": "Actual equilibrium existence and slope-ordering gate queued; user architecture request addressed first."
+    },
+    {
+      "task_id": "nonlinear-uniqueness-review-001",
+      "parent_task_id": "nonlinear-uniqueness-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T16:22:46.734192+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/checkpoint_findings_001",
+      "role": "independent-review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_UNIQUENESS_REVIEW.md"
+      ],
+      "inputs": [
+        "research/nonlinear_uniqueness_design.json"
+      ],
+      "question": "Under what explicit support and slope conditions does the exact two-profile compatibility equation force a compact curvature-source change to vanish?",
+      "acceptance_checks": [
+        "finite Riccati equation and infinitesimal equation with explicit assumptions",
+        "sufficient uniqueness theorem on a declared source support, not global identifiability",
+        "origin limit and propagation from source-support boundary",
+        "isolated coefficient zeros, equal slopes, opposite slopes and intervals of equality",
+        "flat-family actual-stationarity counterexample retained",
+        "algebraic degeneracies distinct from jointly realizable equilibrium profiles",
+        "conditioning and joint-small-source order distinct from uniqueness",
+        "independent theory/review and physical-compatibility challenge"
+      ],
+      "expected_outcomes": [
+        "conditional sufficient uniqueness criterion with classified exceptions",
+        "nontrivial allowed compact source degeneracy",
+        "precise unresolved coefficient/equilibrium prerequisite"
+      ],
+      "stop_condition": "One independently reviewed criterion or counterexample and explicit remaining prerequisite. No solver, empirical fit, parameter sweep, new source search, or practical precision/novelty claim. Any next stage requires a new decision after this one closes.",
+      "status_observed_at_utc": "2026-09-26T16:38:38.769024+00:00",
+      "scientific_outcome": "conditional_compact_source_uniqueness_with_flat_counterexample",
+      "lead_disposition": "accepted_with_scope_and_global_flux_correction",
+      "remaining_uncertainty": "Actual nonflat common-source profiles meeting the criterion and practical noise stability remain unproved.",
+      "next_action": "Actual equilibrium existence and slope-ordering gate queued; user architecture request addressed first."
+    },
+    {
+      "task_id": "nonlinear-uniqueness-compatibility-001",
+      "parent_task_id": "nonlinear-uniqueness-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T16:22:46.734192+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_uniqueness_compatibility_001",
+      "role": "theory-compatibility",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_UNIQUENESS_COMPATIBILITY.md"
+      ],
+      "inputs": [
+        "research/nonlinear_uniqueness_design.json"
+      ],
+      "question": "Under what explicit support and slope conditions does the exact two-profile compatibility equation force a compact curvature-source change to vanish?",
+      "acceptance_checks": [
+        "finite Riccati equation and infinitesimal equation with explicit assumptions",
+        "sufficient uniqueness theorem on a declared source support, not global identifiability",
+        "origin limit and propagation from source-support boundary",
+        "isolated coefficient zeros, equal slopes, opposite slopes and intervals of equality",
+        "flat-family actual-stationarity counterexample retained",
+        "algebraic degeneracies distinct from jointly realizable equilibrium profiles",
+        "conditioning and joint-small-source order distinct from uniqueness",
+        "independent theory/review and physical-compatibility challenge"
+      ],
+      "expected_outcomes": [
+        "conditional sufficient uniqueness criterion with classified exceptions",
+        "nontrivial allowed compact source degeneracy",
+        "precise unresolved coefficient/equilibrium prerequisite"
+      ],
+      "stop_condition": "One independently reviewed criterion or counterexample and explicit remaining prerequisite. No solver, empirical fit, parameter sweep, new source search, or practical precision/novelty claim. Any next stage requires a new decision after this one closes.",
+      "status_observed_at_utc": "2026-09-26T16:38:38.769024+00:00",
+      "scientific_outcome": "conditional_compact_source_uniqueness_with_flat_counterexample",
+      "lead_disposition": "accepted_with_scope_and_global_flux_correction",
+      "remaining_uncertainty": "Actual nonflat common-source profiles meeting the criterion and practical noise stability remain unproved.",
+      "next_action": "Actual equilibrium existence and slope-ordering gate queued; user architecture request addressed first."
+    },
+    {
+      "task_id": "nonlinear-source-review-001",
+      "parent_task_id": "nonlinear-source-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:57:02.040623+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/checkpoint_findings_001",
+      "role": "independent-review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_SOURCE_REVIEW.md"
+      ],
+      "inputs": [
+        "research/nonlinear_source_design.json",
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md"
+      ],
+      "stop_condition": "One independently checked exact source-compensation criterion or precise derivation blocker. No solver, fit, sweep, biological permission, novelty or global uniqueness claim.",
+      "status_observed_at_utc": "2026-09-26T16:03:57.359517+00:00",
+      "scientific_outcome": "exact_slope_dependent_balanced_source_correction_with_two_profile_compatibility_and_flat_degeneracy",
+      "lead_disposition": "Accept independent theory/review and lead algebra, including finite g square, force balance, joint shallow limit and final synthesis. No solver, empirical permission, global uniqueness, stability or novelty claim.",
+      "artifact_paths": [
+        "research/NONLINEAR_SOURCE_REVIEW.md"
+      ],
+      "next_decision": "Characterize compact-support source changes satisfying the exact two-profile condition, including coefficient degeneracies; queued."
+    },
+    {
+      "task_id": "nonlinear-source-theory-001",
+      "parent_task_id": "nonlinear-source-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:57:02.040623+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root/nonlinear_source_theory_001",
+      "role": "theory",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/NONLINEAR_SOURCE_THEORY.md"
+      ],
+      "inputs": [
+        "research/nonlinear_source_design.json",
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md"
+      ],
+      "stop_condition": "One independently checked exact source-compensation criterion or precise derivation blocker. No solver, fit, sweep, biological permission, novelty or global uniqueness claim.",
+      "status_observed_at_utc": "2026-09-26T16:03:57.359517+00:00",
+      "scientific_outcome": "exact_slope_dependent_balanced_source_correction_with_two_profile_compatibility_and_flat_degeneracy",
+      "lead_disposition": "Accept independent theory/review and lead algebra, including finite g square, force balance, joint shallow limit and final synthesis. No solver, empirical permission, global uniqueness, stability or novelty claim.",
+      "artifact_paths": [
+        "research/NONLINEAR_SOURCE_THEORY.md"
+      ],
+      "next_decision": "Characterize compact-support source changes satisfying the exact two-profile condition, including coefficient degeneracies; queued."
+    },
+    {
+      "task_id": "nonlinear-source-001",
+      "parent_task_id": null,
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:57:02.040623+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/nonlinear_source_design.json",
+        "research/NONLINEAR_SOURCE_FINDINGS.md"
+      ],
+      "inputs": [
+        "research/nonlinear_source_design.json",
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md"
+      ],
+      "stop_condition": "One independently checked exact source-compensation criterion or precise derivation blocker. No solver, fit, sweep, biological permission, novelty or global uniqueness claim.",
+      "status_observed_at_utc": "2026-09-26T16:03:57.359517+00:00",
+      "scientific_outcome": "exact_slope_dependent_balanced_source_correction_with_two_profile_compatibility_and_flat_degeneracy",
+      "lead_disposition": "Accept independent theory/review and lead algebra, including finite g square, force balance, joint shallow limit and final synthesis. No solver, empirical permission, global uniqueness, stability or novelty claim.",
+      "artifact_paths": [
+        "research/nonlinear_source_design.json",
+        "research/NONLINEAR_SOURCE_FINDINGS.md"
+      ],
+      "next_decision": "Characterize compact-support source changes satisfying the exact two-profile condition, including coefficient degeneracies; queued."
+    },
+    {
+      "task_id": "bucher-inclusion-001",
+      "parent_task_id": null,
+      "role": "lead",
+      "agent_id": "/root",
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "owned_files": [
+        "research/bucher_inclusion_design.json",
+        "research/BUCHER_INCLUSION_FINDINGS.md"
+      ],
+      "execution_status": "completed",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:49:55.492599+00:00",
+      "question": "Do package metadata or the named primary supplement explicitly reconcile EM entry counts with Fig1/Fig7 caption counts?",
+      "inputs": [
+        "research/bucher_inclusion_design.json",
+        "research/BUCHER_EM_CONTRACT.md",
+        "research/BUCHER_EM_CONTRACT_REVIEW.md",
+        "research/bucher_em_contract_001.json",
+        "research/bucher_em_contract_counts_001.json",
+        "research/NEXT_CYCLE.md"
+      ],
+      "acceptance_checks": [
+        "all cell types, numeric validity and finite positive area values",
+        "internal blanks versus trailing padding; row and column provenance",
+        "hidden rows/columns, styles, names, comments, package metadata",
+        "source-provided inclusion rules and cell/culture/date/condition mapping",
+        "explicit evidence only for count reconciliation; CLEM exclusion not assumed to apply to EM",
+        "independent review"
+      ],
+      "expected_outcomes": [
+        "explicit inclusion/missing-area mapping",
+        "demonstrated package reading error with preserved correction",
+        "unresolved discrepancy; stop published-figure reproduction"
+      ],
+      "stop_condition": "One independently reviewed explanation or unresolved discrepancy. No imputation, changed denominators, morphology effects, p-values, trajectories or mechanics fit. If unresolved, stop figure reproduction without another search.",
+      "status_observed_at_utc": "2026-09-26T16:03:57.359517+00:00",
+      "scientific_outcome": "unresolved_inclusion_mapping_stop_published_figure_reproduction",
+      "lead_disposition": "Accept package/source/independent review: exact headers and complete numeric coverage, no internal gaps or explicit inclusion mapping. Stop reproduction; do not assume subset or independent culture labels.",
+      "artifact_paths": [
+        "research/bucher_inclusion_design.json",
+        "research/BUCHER_INCLUSION_FINDINGS.md"
+      ],
+      "next_decision": "Stopped empirical branch; separate nonlinear analytic task completed in the same cycle."
+    },
+    {
+      "task_id": "bucher-inclusion-package-001",
+      "parent_task_id": "bucher-inclusion-001",
+      "role": "numerical",
+      "agent_id": "/root/bucher_inclusion_package_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/check_bucher_inclusion.py",
+        "research/bucher_inclusion_package_001.json",
+        "research/BUCHER_INCLUSION_PACKAGE.md"
+      ],
+      "execution_status": "completed",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:49:55.492599+00:00",
+      "question": "Do package metadata or the named primary supplement explicitly reconcile EM entry counts with Fig1/Fig7 caption counts?",
+      "inputs": [
+        "research/bucher_inclusion_design.json",
+        "research/BUCHER_EM_CONTRACT.md",
+        "research/BUCHER_EM_CONTRACT_REVIEW.md",
+        "research/bucher_em_contract_001.json",
+        "research/bucher_em_contract_counts_001.json",
+        "research/NEXT_CYCLE.md"
+      ],
+      "acceptance_checks": [
+        "all cell types, numeric validity and finite positive area values",
+        "internal blanks versus trailing padding; row and column provenance",
+        "hidden rows/columns, styles, names, comments, package metadata",
+        "source-provided inclusion rules and cell/culture/date/condition mapping",
+        "explicit evidence only for count reconciliation; CLEM exclusion not assumed to apply to EM",
+        "independent review"
+      ],
+      "expected_outcomes": [
+        "explicit inclusion/missing-area mapping",
+        "demonstrated package reading error with preserved correction",
+        "unresolved discrepancy; stop published-figure reproduction"
+      ],
+      "stop_condition": "One independently reviewed explanation or unresolved discrepancy. No imputation, changed denominators, morphology effects, p-values, trajectories or mechanics fit. If unresolved, stop figure reproduction without another search.",
+      "status_observed_at_utc": "2026-09-26T16:03:57.359517+00:00",
+      "scientific_outcome": "unresolved_inclusion_mapping_stop_published_figure_reproduction",
+      "lead_disposition": "Accept package/source/independent review: exact headers and complete numeric coverage, no internal gaps or explicit inclusion mapping. Stop reproduction; do not assume subset or independent culture labels.",
+      "artifact_paths": [
+        "research/check_bucher_inclusion.py",
+        "research/bucher_inclusion_package_001.json",
+        "research/BUCHER_INCLUSION_PACKAGE.md"
+      ],
+      "next_decision": "Stopped empirical branch; separate nonlinear analytic task completed in the same cycle."
+    },
+    {
+      "task_id": "bucher-inclusion-source-001",
+      "parent_task_id": "bucher-inclusion-001",
+      "role": "source",
+      "agent_id": "/root/independent_controls_bucher_001",
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "owned_files": [
+        "research/BUCHER_INCLUSION_SOURCE.md",
+        "research/metadata/bucher-inclusion-001/",
+        "research/.cache-bucher-reconcile-001/"
+      ],
+      "execution_status": "completed",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:49:55.492599+00:00",
+      "question": "Do package metadata or the named primary supplement explicitly reconcile EM entry counts with Fig1/Fig7 caption counts?",
+      "inputs": [
+        "research/bucher_inclusion_design.json",
+        "research/BUCHER_EM_CONTRACT.md",
+        "research/BUCHER_EM_CONTRACT_REVIEW.md",
+        "research/bucher_em_contract_001.json",
+        "research/bucher_em_contract_counts_001.json",
+        "research/NEXT_CYCLE.md"
+      ],
+      "acceptance_checks": [
+        "all cell types, numeric validity and finite positive area values",
+        "internal blanks versus trailing padding; row and column provenance",
+        "hidden rows/columns, styles, names, comments, package metadata",
+        "source-provided inclusion rules and cell/culture/date/condition mapping",
+        "explicit evidence only for count reconciliation; CLEM exclusion not assumed to apply to EM",
+        "independent review"
+      ],
+      "expected_outcomes": [
+        "explicit inclusion/missing-area mapping",
+        "demonstrated package reading error with preserved correction",
+        "unresolved discrepancy; stop published-figure reproduction"
+      ],
+      "stop_condition": "One independently reviewed explanation or unresolved discrepancy. No imputation, changed denominators, morphology effects, p-values, trajectories or mechanics fit. If unresolved, stop figure reproduction without another search.",
+      "status_observed_at_utc": "2026-09-26T16:03:57.359517+00:00",
+      "scientific_outcome": "unresolved_inclusion_mapping_stop_published_figure_reproduction",
+      "lead_disposition": "Accept package/source/independent review: exact headers and complete numeric coverage, no internal gaps or explicit inclusion mapping. Stop reproduction; do not assume subset or independent culture labels.",
+      "artifact_paths": [
+        "research/BUCHER_INCLUSION_SOURCE.md",
+        "research/metadata/bucher-inclusion-001/",
+        "research/.cache-bucher-reconcile-001/"
+      ],
+      "next_decision": "Stopped empirical branch; separate nonlinear analytic task completed in the same cycle."
+    },
+    {
+      "task_id": "bucher-inclusion-review-001",
+      "parent_task_id": "bucher-inclusion-001",
+      "role": "independent-review",
+      "agent_id": "/root/checkpoint_findings_001",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/BUCHER_INCLUSION_REVIEW.md"
+      ],
+      "execution_status": "completed",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:49:55.492599+00:00",
+      "question": "Do package metadata or the named primary supplement explicitly reconcile EM entry counts with Fig1/Fig7 caption counts?",
+      "inputs": [
+        "research/bucher_inclusion_design.json",
+        "research/BUCHER_EM_CONTRACT.md",
+        "research/BUCHER_EM_CONTRACT_REVIEW.md",
+        "research/bucher_em_contract_001.json",
+        "research/bucher_em_contract_counts_001.json",
+        "research/NEXT_CYCLE.md"
+      ],
+      "acceptance_checks": [
+        "all cell types, numeric validity and finite positive area values",
+        "internal blanks versus trailing padding; row and column provenance",
+        "hidden rows/columns, styles, names, comments, package metadata",
+        "source-provided inclusion rules and cell/culture/date/condition mapping",
+        "explicit evidence only for count reconciliation; CLEM exclusion not assumed to apply to EM",
+        "independent review"
+      ],
+      "expected_outcomes": [
+        "explicit inclusion/missing-area mapping",
+        "demonstrated package reading error with preserved correction",
+        "unresolved discrepancy; stop published-figure reproduction"
+      ],
+      "stop_condition": "One independently reviewed explanation or unresolved discrepancy. No imputation, changed denominators, morphology effects, p-values, trajectories or mechanics fit. If unresolved, stop figure reproduction without another search.",
+      "status_observed_at_utc": "2026-09-26T16:03:57.359517+00:00",
+      "scientific_outcome": "unresolved_inclusion_mapping_stop_published_figure_reproduction",
+      "lead_disposition": "Accept package/source/independent review: exact headers and complete numeric coverage, no internal gaps or explicit inclusion mapping. Stop reproduction; do not assume subset or independent culture labels.",
+      "artifact_paths": [
+        "research/BUCHER_INCLUSION_REVIEW.md"
+      ],
+      "next_decision": "Stopped empirical branch; separate nonlinear analytic task completed in the same cycle."
+    },
+    {
+      "task_id": "bucher-em-contract-review-001",
+      "parent_task_id": "bucher-em-contract-001",
+      "attempt_number": 1,
+      "execution_status": "completed",
+      "registration_note": "Follow-up assigned to the existing reviewer during this stage; exact dispatch UTC was not separately recorded. This record is checkpoint bookkeeping, not a retrospective preregistration.",
+      "status_observed_at_utc": "2026-09-26T15:35:36.174570+00:00",
+      "reported_completed_by_utc": "2026-09-26T15:33:13Z",
+      "agent_id": "/root/checkpoint_findings_001",
+      "role": "independent-review",
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "owned_files": [
+        "research/BUCHER_EM_CONTRACT_REVIEW.md"
+      ],
+      "lead_disposition": "Accept schema-only decision and independent counts; preserve discrepancy and unknown inclusion/culture mapping.",
+      "scientific_outcome": "descriptive_reproduction_deferred_pending_inclusion_reconciliation"
+    },
+    {
+      "task_id": "bucher-em-contract-001",
+      "parent_task_id": "independent-controls-001",
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:29:30.095641+00:00",
+      "execution_status": "completed",
+      "agent_id": "/root",
+      "role": "lead",
+      "owned_files": [
+        "research/bucher_em_contract_design.json",
+        "research/inspect_bucher_em_contract.py",
+        "research/bucher_em_contract_001.json",
+        "research/BUCHER_EM_CONTRACT.md"
+      ],
+      "stop_condition": "One schema inventory and independent review; queue descriptive reproduction only if units and membrane mapping are justified. No aggregate hypothesis test or model fit.",
+      "inputs": [
+        "research/bucher_em_contract_design.json"
+      ],
+      "status_observed_at_utc": "2026-09-26T15:35:36.174570+00:00",
+      "scientific_outcome": "verified_schema_with_unresolved_published_sample_count_mapping",
+      "lead_disposition": "Accept verified provenance/schema and independent count audit; stop descriptive figure reproduction pending explicit inclusion/membrane mapping.",
+      "evidence_quality": "two_exact_size_and_MD5_checks_plus_independent_schema_review",
+      "limitations": [
+        "No established normal/shock pairing or culture/date mapping",
+        "All eight Fig7 entry totals below caption counts; cause unresolved",
+        "No numeric-value or missingness audit beyond saved structural inventory",
+        "No effect estimate, trajectory or source-separated mechanics inference"
+      ],
+      "artifact_paths": [
+        "research/BUCHER_EM_CONTRACT.md",
+        "research/BUCHER_EM_CONTRACT_REVIEW.md",
+        "research/bucher_em_contract_design.json",
+        "research/bucher_em_contract_001.json",
+        "research/bucher_em_contract_counts_001.json",
+        "research/inspect_bucher_em_contract.py"
+      ],
+      "next_decision": "One bounded package metadata/supplement inclusion reconciliation; stop figure reproduction if unresolved."
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:20:34.475888+00:00",
+      "execution_status": "completed",
+      "question": "Can either public experimental system supply independent mechanical controls and observations for separating curvature from balanced load, or a defensible narrower calibration comparison?",
+      "inputs": [
+        "research/independent_controls_design.json",
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md",
+        "research/LOAD_IDENTIFIABILITY_REVIEW.md"
+      ],
+      "expected_outcomes": [
+        "eligible public comparison with exact controls",
+        "only narrower conditional reproduction",
+        "insufficient controls or inaccessible data"
+      ],
+      "acceptance_checks": [
+        "measured vs model-inferred quantities and actual observable geometry",
+        "independent kappa/tension/traction calibration and reaction mapping",
+        "evidence that perturbations preserve required source fields",
+        "spatial traction or two distinct known rigidities with invariant fields, or explicit alternative identifiability argument",
+        "registered profiles, scale/pose/covariance and replicate mapping",
+        "public data access, sizes and licenses; no request-only data treated as accessible"
+      ],
+      "stop_condition": "One independently reviewed eligibility table and precise proposed small-data comparison or stopped empirical branch with minimum prospective requirements. No fit, numerical model, raw pipeline, broad search or biological preference.",
+      "task_id": "independent-controls-001",
+      "parent_task_id": null,
+      "role": "lead",
+      "agent_id": "/root",
+      "owned_files": [
+        "research/INDEPENDENT_CONTROLS_FINDINGS.md",
+        "research/independent_controls_design.json"
+      ],
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "status_observed_at_utc": "2026-09-26T15:35:36.174570+00:00",
+      "scientific_outcome": "insufficient_independent_controls_with_narrower_public_EM_contract_candidate",
+      "lead_disposition": "Accept within source-separation scope after same-attempt pairing, figure, source-invariance and alternative-route wording corrections; no fit warranted.",
+      "artifact_paths": [
+        "research/INDEPENDENT_CONTROLS_FINDINGS.md",
+        "research/independent_controls_design.json"
+      ],
+      "next_decision": "Bounded Bucher EM workbook contract audit completed in same cycle; unresolved count mapping now queued for reconciliation."
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:20:34.475888+00:00",
+      "execution_status": "completed",
+      "question": "Can either public experimental system supply independent mechanical controls and observations for separating curvature from balanced load, or a defensible narrower calibration comparison?",
+      "inputs": [
+        "research/independent_controls_design.json",
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md",
+        "research/LOAD_IDENTIFIABILITY_REVIEW.md"
+      ],
+      "expected_outcomes": [
+        "eligible public comparison with exact controls",
+        "only narrower conditional reproduction",
+        "insufficient controls or inaccessible data"
+      ],
+      "acceptance_checks": [
+        "measured vs model-inferred quantities and actual observable geometry",
+        "independent kappa/tension/traction calibration and reaction mapping",
+        "evidence that perturbations preserve required source fields",
+        "spatial traction or two distinct known rigidities with invariant fields, or explicit alternative identifiability argument",
+        "registered profiles, scale/pose/covariance and replicate mapping",
+        "public data access, sizes and licenses; no request-only data treated as accessible"
+      ],
+      "stop_condition": "One independently reviewed eligibility table and precise proposed small-data comparison or stopped empirical branch with minimum prospective requirements. No fit, numerical model, raw pipeline, broad search or biological preference.",
+      "task_id": "independent-controls-bucher-001",
+      "parent_task_id": "independent-controls-001",
+      "role": "source",
+      "agent_id": "/root/independent_controls_bucher_001",
+      "owned_files": [
+        "research/INDEPENDENT_CONTROLS_BUCHER.md",
+        "research/metadata/independent-controls-001/bucher_sources.json"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "status_observed_at_utc": "2026-09-26T15:35:36.174570+00:00",
+      "scientific_outcome": "insufficient_independent_controls_with_narrower_public_EM_contract_candidate",
+      "lead_disposition": "Accept within source-separation scope after same-attempt pairing, figure, source-invariance and alternative-route wording corrections; no fit warranted.",
+      "artifact_paths": [
+        "research/INDEPENDENT_CONTROLS_BUCHER.md",
+        "research/metadata/independent-controls-001/bucher_sources.json"
+      ],
+      "next_decision": "Bounded Bucher EM workbook contract audit completed in same cycle; unresolved count mapping now queued for reconciliation."
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:20:34.475888+00:00",
+      "execution_status": "completed",
+      "question": "Can either public experimental system supply independent mechanical controls and observations for separating curvature from balanced load, or a defensible narrower calibration comparison?",
+      "inputs": [
+        "research/independent_controls_design.json",
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md",
+        "research/LOAD_IDENTIFIABILITY_REVIEW.md"
+      ],
+      "expected_outcomes": [
+        "eligible public comparison with exact controls",
+        "only narrower conditional reproduction",
+        "insufficient controls or inaccessible data"
+      ],
+      "acceptance_checks": [
+        "measured vs model-inferred quantities and actual observable geometry",
+        "independent kappa/tension/traction calibration and reaction mapping",
+        "evidence that perturbations preserve required source fields",
+        "spatial traction or two distinct known rigidities with invariant fields, or explicit alternative identifiability argument",
+        "registered profiles, scale/pose/covariance and replicate mapping",
+        "public data access, sizes and licenses; no request-only data treated as accessible"
+      ],
+      "stop_condition": "One independently reviewed eligibility table and precise proposed small-data comparison or stopped empirical branch with minimum prospective requirements. No fit, numerical model, raw pipeline, broad search or biological preference.",
+      "task_id": "independent-controls-saleem-001",
+      "parent_task_id": "independent-controls-001",
+      "role": "source",
+      "agent_id": "/root/independent_controls_saleem_001",
+      "owned_files": [
+        "research/INDEPENDENT_CONTROLS_SALEEM.md",
+        "research/metadata/independent-controls-001/saleem_sources.json"
+      ],
+      "requested_model": "gpt-5.6-terra",
+      "requested_effort": "medium",
+      "status_observed_at_utc": "2026-09-26T15:35:36.174570+00:00",
+      "scientific_outcome": "insufficient_independent_controls_with_narrower_public_EM_contract_candidate",
+      "lead_disposition": "Accept within source-separation scope after same-attempt pairing, figure, source-invariance and alternative-route wording corrections; no fit warranted.",
+      "artifact_paths": [
+        "research/INDEPENDENT_CONTROLS_SALEEM.md",
+        "research/metadata/independent-controls-001/saleem_sources.json"
+      ],
+      "next_decision": "Bounded Bucher EM workbook contract audit completed in same cycle; unresolved count mapping now queued for reconciliation."
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T15:20:34.475888+00:00",
+      "execution_status": "completed",
+      "question": "Can either public experimental system supply independent mechanical controls and observations for separating curvature from balanced load, or a defensible narrower calibration comparison?",
+      "inputs": [
+        "research/independent_controls_design.json",
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md",
+        "research/LOAD_IDENTIFIABILITY_REVIEW.md"
+      ],
+      "expected_outcomes": [
+        "eligible public comparison with exact controls",
+        "only narrower conditional reproduction",
+        "insufficient controls or inaccessible data"
+      ],
+      "acceptance_checks": [
+        "measured vs model-inferred quantities and actual observable geometry",
+        "independent kappa/tension/traction calibration and reaction mapping",
+        "evidence that perturbations preserve required source fields",
+        "spatial traction or two distinct known rigidities with invariant fields, or explicit alternative identifiability argument",
+        "registered profiles, scale/pose/covariance and replicate mapping",
+        "public data access, sizes and licenses; no request-only data treated as accessible"
+      ],
+      "stop_condition": "One independently reviewed eligibility table and precise proposed small-data comparison or stopped empirical branch with minimum prospective requirements. No fit, numerical model, raw pipeline, broad search or biological preference.",
+      "task_id": "independent-controls-review-001",
+      "parent_task_id": "independent-controls-001",
+      "role": "independent-review",
+      "agent_id": "/root/checkpoint_findings_001",
+      "owned_files": [
+        "research/INDEPENDENT_CONTROLS_REVIEW.md"
+      ],
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "dispatch_note": "Restart of former locmofit reviewer failed with agent thread limit before execution; reused available Sol/high specialist as independent reviewer. No unknown attempt duplicated.",
+      "status_observed_at_utc": "2026-09-26T15:35:36.174570+00:00",
+      "scientific_outcome": "insufficient_independent_controls_with_narrower_public_EM_contract_candidate",
+      "lead_disposition": "Accept within source-separation scope after same-attempt pairing, figure, source-invariance and alternative-route wording corrections; no fit warranted.",
+      "artifact_paths": [
+        "research/INDEPENDENT_CONTROLS_REVIEW.md"
+      ],
+      "next_decision": "Bounded Bucher EM workbook contract audit completed in same cycle; unresolved count mapping now queued for reconciliation."
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T14:50:23.955599+00:00",
+      "execution_status": "completed",
+      "question": "Can ideal full membrane shape or two declared summaries distinguish spontaneous curvature and balanced normal load?",
+      "inputs": [
+        "research/load_identifiability_design.json",
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/TWO_AREA_FINDINGS.md"
+      ],
+      "expected_outcomes": [
+        "exact ambiguity with conditional template rank",
+        "remaining prerequisite or counterexample to rank"
+      ],
+      "acceptance_checks": [
+        "derive energy variation and force sign",
+        "balanced reaction and boundary conditions",
+        "unrestricted versus prescribed templates",
+        "independent review before numerical checks",
+        "one calibrated prospective protocol"
+      ],
+      "stop_condition": "One independently checked counterexample/rank criterion and concrete discriminating protocol, or precise mathematical blocker. No next stage, nonlinear solver, raw download, biological preference, novelty or force-calibration claim.",
+      "task_id": "load-identifiability-001",
+      "parent_task_id": null,
+      "role": "lead",
+      "agent_id": "/root",
+      "owned_files": [
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md",
+        "research/load_identifiability_design.json",
+        "research/load_identifiability_numerical_design.json",
+        "research/check_load_identifiability.py",
+        "research/load_identifiability_results_001.json",
+        "research/load_identifiability_manifest.json"
+      ],
+      "requested_model": "inherited_not_attested",
+      "requested_effort": "inherited_not_attested",
+      "status_observed_at_utc": "2026-09-26T15:01:25.593572+00:00",
+      "scientific_outcome": "exact_unrestricted_source_ambiguity_and_conditional_template_identifiability",
+      "evidence_quality": "independent_analytic_review_and_registered_single_configuration_quadrature",
+      "limitations": [
+        "Linear shallow membrane, known uniform coefficients and registered spatial templates",
+        "Unrestricted source ambiguity survives tension changes",
+        "Nearly redundant summaries and unknown measurement noise",
+        "No empirical mechanism preference or force calibration"
+      ],
+      "next_decision": "Assess at most two public primary studies for required independent mechanical controls and observation calibration.",
+      "lead_disposition": "Accept independently reviewed signs/nullspace, resolved rank at one registered configuration and two-known-rigidity protocol within controls; close this mathematical task and queue experimental-control feasibility.",
+      "artifact_paths": [
+        "research/LOAD_IDENTIFIABILITY_FINDINGS.md",
+        "research/LOAD_IDENTIFIABILITY_THEORY.md",
+        "research/LOAD_IDENTIFIABILITY_REVIEW.md",
+        "research/load_identifiability_design.json",
+        "research/load_identifiability_numerical_design.json",
+        "research/check_load_identifiability.py",
+        "research/load_identifiability_results_001.json",
+        "research/load_identifiability_manifest.json"
+      ],
+      "source_locators": [
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/TWO_AREA_FINDINGS.md",
+        "research/load_identifiability_design.json"
+      ]
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T14:50:23.955599+00:00",
+      "execution_status": "completed",
+      "question": "Can ideal full membrane shape or two declared summaries distinguish spontaneous curvature and balanced normal load?",
+      "inputs": [
+        "research/load_identifiability_design.json",
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/TWO_AREA_FINDINGS.md"
+      ],
+      "expected_outcomes": [
+        "exact ambiguity with conditional template rank",
+        "remaining prerequisite or counterexample to rank"
+      ],
+      "acceptance_checks": [
+        "derive energy variation and force sign",
+        "balanced reaction and boundary conditions",
+        "unrestricted versus prescribed templates",
+        "independent review before numerical checks",
+        "one calibrated prospective protocol"
+      ],
+      "stop_condition": "One independently checked counterexample/rank criterion and concrete discriminating protocol, or precise mathematical blocker. No next stage, nonlinear solver, raw download, biological preference, novelty or force-calibration claim.",
+      "task_id": "load-identifiability-theory-001",
+      "parent_task_id": "load-identifiability-001",
+      "role": "theory",
+      "agent_id": "/root/checkpoint_findings_001",
+      "owned_files": [
+        "research/LOAD_IDENTIFIABILITY_THEORY.md"
+      ],
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-26T15:01:25.593572+00:00",
+      "scientific_outcome": "exact_unrestricted_source_ambiguity_and_conditional_template_identifiability",
+      "evidence_quality": "independent_analytic_review_and_registered_single_configuration_quadrature",
+      "limitations": [
+        "Linear shallow membrane, known uniform coefficients and registered spatial templates",
+        "Unrestricted source ambiguity survives tension changes",
+        "Nearly redundant summaries and unknown measurement noise",
+        "No empirical mechanism preference or force calibration"
+      ],
+      "next_decision": "Assess at most two public primary studies for required independent mechanical controls and observation calibration.",
+      "artifact_paths": [
+        "research/LOAD_IDENTIFIABILITY_THEORY.md"
+      ],
+      "lead_disposition": "Accept variational sign, explicit balanced Gaussian nullspace, full-field rank and two-summary determinant criterion. Lead numerical check evaluated the latter separately; no change to frozen templates.",
+      "source_locators": [
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/TWO_AREA_FINDINGS.md",
+        "research/load_identifiability_design.json"
+      ]
+    },
+    {
+      "attempt_number": 1,
+      "registered_at_utc": "2026-09-26T14:50:23.955599+00:00",
+      "execution_status": "completed",
+      "question": "Can ideal full membrane shape or two declared summaries distinguish spontaneous curvature and balanced normal load?",
+      "inputs": [
+        "research/load_identifiability_design.json",
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/TWO_AREA_FINDINGS.md"
+      ],
+      "expected_outcomes": [
+        "exact ambiguity with conditional template rank",
+        "remaining prerequisite or counterexample to rank"
+      ],
+      "acceptance_checks": [
+        "derive energy variation and force sign",
+        "balanced reaction and boundary conditions",
+        "unrestricted versus prescribed templates",
+        "independent review before numerical checks",
+        "one calibrated prospective protocol"
+      ],
+      "stop_condition": "One independently checked counterexample/rank criterion and concrete discriminating protocol, or precise mathematical blocker. No next stage, nonlinear solver, raw download, biological preference, novelty or force-calibration claim.",
+      "task_id": "load-identifiability-review-001",
+      "parent_task_id": "load-identifiability-001",
+      "role": "independent-review",
+      "agent_id": "/root/locmofit_adapter_review_001",
+      "owned_files": [
+        "research/LOAD_IDENTIFIABILITY_REVIEW.md"
+      ],
+      "requested_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "status_observed_at_utc": "2026-09-26T15:01:25.593572+00:00",
+      "scientific_outcome": "exact_unrestricted_source_ambiguity_and_conditional_template_identifiability",
+      "evidence_quality": "independent_analytic_review_and_registered_single_configuration_quadrature",
+      "limitations": [
+        "Linear shallow membrane, known uniform coefficients and registered spatial templates",
+        "Unrestricted source ambiguity survives tension changes",
+        "Nearly redundant summaries and unknown measurement noise",
+        "No empirical mechanism preference or force calibration"
+      ],
+      "next_decision": "Assess at most two public primary studies for required independent mechanical controls and observation calibration.",
+      "artifact_paths": [
+        "research/LOAD_IDENTIFIABILITY_REVIEW.md"
+      ],
+      "lead_disposition": "Accept independent gate before computation and final theory/numerical/synthesis review. Preserve all conditioning, scale and empirical-feasibility limitations.",
+      "source_locators": [
+        "research/FULL_SHAPE_MAPPING.md",
+        "research/TWO_AREA_FINDINGS.md",
+        "research/load_identifiability_design.json"
+      ]
+    },
+    {
       "attempt_number": 1,
       "registered_at_utc": "2026-09-26T14:10:04.790134+00:00",
       "execution_status": "completed",

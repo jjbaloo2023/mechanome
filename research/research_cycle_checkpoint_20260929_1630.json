@@ -1,0 +1,128 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T16:30:24.553Z",
+  "first_tool_clock_utc": "2026-09-29T16:30:35Z",
+  "evidence_cutoff_utc": "2026-09-29T16:45:35Z",
+  "target_checkpoint_utc": "2026-09-29T16:50:35Z",
+  "checkpoint_utc": "2026-09-29T16:48:33.992019+00:00",
+  "status": "completed_dated_checkpoint_with_preserved_failure",
+  "continuous_activity_claim": false,
+  "observed_events": [
+    {
+      "at": "2026-09-29T16:32:23.704305+00:00",
+      "event": "Registered three-phase recovery after worker reconciliation and10frozen/4currenthash checks."
+    },
+    {
+      "at": "2026-09-29T16:34:57.832652+00:00",
+      "event": "Two reused specialists active; lead owns all subprocess execution."
+    },
+    {
+      "at": "2026-09-29T16:38:30.647095+00:00",
+      "event": "Final code corrected and independently approved; AST/Ruff passed; inputs frozen."
+    },
+    {
+      "between": [
+        "2026-09-29T16:38:37.249233+00:00",
+        "2026-09-29T16:38:37.489082+00:00"
+      ],
+      "event": "Sole phase1 launcher PID12896 exited0; phase output PID6280 mismatched. Supervisor failed closed, no receipt/retirement/later phase."
+    },
+    {
+      "at": "2026-09-29T16:40:05.1985086Z",
+      "event": "Get-Process returned explicit not-found for bothPIDs. Earlier CIM and .NET failures retained, invalid emptiness rejected as absence evidence."
+    },
+    {
+      "at": "2026-09-29T16:41:27.482478+00:00",
+      "event": "Read-only failure audit confirmed one marker/reserved unit, active lead and running attempt; source hashes unchanged."
+    },
+    {
+      "at": "2026-09-29T16:42:45.345656+00:00",
+      "event": "Recovery stopped; distinct one-shot zero-work process-identity preflight registered."
+    },
+    {
+      "at": "2026-09-29T16:43:54.294878+00:00",
+      "event": "Failure frozen:11artifact manifest plus12-entry snapshotZIP."
+    },
+    {
+      "between": [
+        "2026-09-29T16:44:00.797655+00:00",
+        "2026-09-29T16:44:00.874122+00:00"
+      ],
+      "event": "Sole direct-base-interpreter probe: child/PopenPID18908,parent17360,executablematch, observedexit0."
+    },
+    {
+      "file_modified_at_utc": "2026-09-29T16:44:45.422209+00:00",
+      "lead_received_after": "2026-09-29T16:45:38.979080+00:00",
+      "event": "Independent final probe review completed on disk before evidencecutoff; lead received after documentation operation. No further execution."
+    },
+    {
+      "at": "2026-09-29T16:46:23.315769+00:00",
+      "event": "Probe narrowly accepted and eight artifacts frozen; documentation/nextdirection only."
+    },
+    {
+      "at": "2026-09-29T16:47:19.460582+00:00",
+      "event": "32manifests/261hashes/503links/12ZIPentries and unchanged controller/testsha verified."
+    }
+  ],
+  "lead_dispositions": {
+    "recovery": "Reject completed recovery claim; failed process identity supervision. Preserve one invoked phase, one dummy callback and unreconciled reservation; no retry/reset.",
+    "process_lookup": "Both PIDs absent at later instant; no original ancestry or target-process exit code inferred.",
+    "preflight": "Accept one normal-exit direct-interpreter identity check only; no work/campaign touched.",
+    "next": "Review explicit repair/reconciliation preserving original accounting, not a fresh clean demo. New scientific source screen deferred until finite operations branch resolved."
+  },
+  "completed_or_stopped_tasks": [
+    "work-unit-recovery-001",
+    "work-unit-recovery-implementation-001",
+    "work-unit-recovery-review-001",
+    "process-identity-preflight-001",
+    "process-identity-review-001"
+  ],
+  "artifact_manifests": [
+    "research/work_unit_recovery_manifest.json",
+    "research/process_identity_manifest.json"
+  ],
+  "validation": "research/research_cycle_validation_20260929_1630.json",
+  "counters": {
+    "recovery_phase_invocations": 1,
+    "recovery_phase_cap": 3,
+    "dummy_callbacks": 1,
+    "dummy_callback_cap": 2,
+    "separate_zero_work_probe_invocations": 1,
+    "zero_work_probe_cap": 1,
+    "pytest_invocations": 0,
+    "worker_executions": 0,
+    "scientific_calls": 0,
+    "source_requests": 0,
+    "new_agents": 0,
+    "reused_specialists": 2
+  },
+  "budget_compliant": true,
+  "outstanding_agents": [],
+  "unresolved_execution_records": [
+    {
+      "task_id": "work-unit-recovery-001",
+      "phase": 1,
+      "status": "failed_supervision",
+      "original_ancestry_or_child_exit_unverified": true,
+      "later_both_pid_lookup": "not_found",
+      "database_protocol_state": {
+        "lead": "active",
+        "attempt": "running",
+        "work": "reserved",
+        "units": 1
+      },
+      "replacement_authorized": false
+    }
+  ],
+  "workers_reconciled": "All three roster specialists terminal; reviewer reused for distinct bounded probe after stopping recovery. No new agent or scheduler.",
+  "reason_for_stopping": "Recovery failure stop honored; useful independent zero-work diagnostic completed within remaining evidence window. Repair/reconciliation requires a new reviewed design and remains queued; no further execution after cutoff.",
+  "next_executable_decision": "Register and review repair/reconciliation design preserving failed phase and one charged unit, two remaining phase launches and one remaining dummy callback. Do not reset or rerun phase1.",
+  "next_task_status": "queued_not_running",
+  "direct_api_spend_usd": 0,
+  "external_messages": 0,
+  "commits": 0,
+  "git_pushes": 0,
+  "published": false,
+  "notification_decision": "NOTIFY",
+  "notification_reason": "Recovery supervision failed safely and a separate zero-work direct-interpreter identity probe passed; failure and unresolved accounting retained."
+}

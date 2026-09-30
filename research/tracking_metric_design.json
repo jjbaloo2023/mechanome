@@ -1,0 +1,56 @@
+{
+  "task_id": "tracking-metric-contract-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T14:32:48.735174+00:00",
+  "question": "Repair mixed-population TP/FN in validate_tracking while making full-cohort and eligibility-conditioned performance explicit to its callers.",
+  "input_sha256": {
+    "validation/tracking.py": "c6660ef35be77a8b106cfe558dce39e3970161fbf85916d14fd4515f6af0bea4",
+    "tests/test_orchestration.py": "04eba722db6d61dee12d56a868aab2c27148535296df9d3f0a8c1711010b3c08"
+  },
+  "proposed_contract": {
+    "single_matching_pass": "Match retained prediction points one-to-one to present ground truth at each frame; spatial gate must actually enforce <= match_radius_px. Classify matches by GT eligibility.",
+    "all_presence": "TP=all matched presence, FN=all unmatched presence, FP=unmatched predictions; frame recall uses fixed totalGTpresence. Report total and ever-matched ground-truth events including completely ineligible events.",
+    "detectable": "TP and FN restricted to eligibleGTpresence; predictions matched to ineligibleGT are excluded from conditional precision denominator, not counted physicalFP. Unmatched predictions remainFP; document ignored-ineligible-matches.",
+    "eligibility": "With movie: observed coat-channel local peak within existing8pixel radius window >=coat_floor. This is observed/movie-dependent, not noiseless truth. Without movie: allGTpresence eligible, clearly tagged.",
+    "migration_proposal": "Correct legacy top-level precision/recall/f1/tp/fp/fn to all-presence semantics, add contract version and explicit all_presence/detectable metric blocks; update repository sweep/CLI consumers with labeled metrics. Reviewer may recommend equally minimal explicit migration before acceptance.",
+    "undefined_rates": "New explicit metrics use null for zero denominator; compatibility top-level scalar zero fallback if retained, documented.",
+    "lifetime_pairs": "Preserve existing lifetime diagnostic scope unless a directly required minimal consistency change is justified; do not claim mean biological lifetime."
+  },
+  "required_tests": [
+    "Below-threshold matchedGT plus above-threshold missedGT separates all-presence andconditionalcounts",
+    "Add missedineligible frame: only full-cohort denominator changes",
+    "All-visibleGT metrics agree; no-movie fallback tagged",
+    "All-ineligibleGT and missing events retained, empty conditional denominators explicit",
+    "No truth/no predictions and unmatched prediction cases",
+    "Duplicate predictedpoints one-to-one matching; out-of-presence matching excluded",
+    "Spatial boundary exactlyat and justoutside match_radius"
+  ],
+  "ownership": {
+    "implementation": [
+      "validation/tracking.py",
+      "tests/test_tracking_validation.py",
+      "research/TRACKING_METRIC_IMPLEMENTATION.md"
+    ],
+    "review": [
+      "research/TRACKING_METRIC_REVIEW.md"
+    ],
+    "lead": [
+      "research/TRACKING_METRIC_FINDINGS.md",
+      "research/tracking_metric_test_runs.json"
+    ]
+  },
+  "execution_owner": "lead_only",
+  "limits": {
+    "implementation_minutes": 8,
+    "test_invocations_max": 3,
+    "tracker_movie_runs_max": 3,
+    "new_benchmark_grids": 0,
+    "source_requests": 0,
+    "BVP_calls": 0,
+    "author_code_executions": 0
+  },
+  "checks": "Lead owns targeted pytest tests/test_tracking_validation.py plus tests/test_orchestration.py, with separately numbered logs per invocation. One current orchestration tracker run per invocation; direct Track fixture tests are not movie runs. No worker executes tests or benchmarks. Check relevant syntax/lint and gitdiffcheck.",
+  "stop_condition": "One reviewed minimal metric repair with targeted tests or a precise blocker; no detector/linker/inverse changes, empirical work, new simulation grid or edits to frozen research evidence.",
+  "evidence_cutoff_utc": "2026-09-29T14:45:34Z",
+  "target_checkpoint_utc": "2026-09-29T14:50:34Z"
+}

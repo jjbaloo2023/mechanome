@@ -1,0 +1,27 @@
+{
+  "actual_solve_bvp_calls": 0,
+  "command": ".venv\\Scripts\\python.exe research\\check_nonlinear_harness_002.py",
+  "import_safe": true,
+  "linear_nonlin_branch_distinct": true,
+  "linear_rhs_exact_match": true,
+  "linear_rhs_expected": -2.1476668820401397,
+  "linear_rhs_value": -2.1476668820401397,
+  "observed_finished_at_utc": "2026-09-27T00:37:25.631295+00:00",
+  "observed_started_at_utc": "2026-09-27T00:37:25.603688+00:00",
+  "post_return_failure_checkpoint": {
+    "outcome": "postprocessing_failure_stop",
+    "solver_returned": true,
+    "solver_status": 0,
+    "status": "failed_postprocessing_after_solver_return",
+    "traceback_recorded": true
+  },
+  "ppoly_axis_persisted": 1,
+  "ppoly_derivative_roundtrip": true,
+  "saved_breakpoints_and_coefficients": true,
+  "singular_matrix_is_only_in_bvp_wrapper": true,
+  "synthetic_stub_calls": 1,
+  "task_id": "nonlinear-numerical-repair-001",
+  "tested_harness_sha256": "6288647509fc15ad0cb61eb145941404a38742b0590eb1bcbf2b0fc9bc94ff0e",
+  "tested_source_sha256": "6bd9fe5c8fcf268156d7118cdc32dbda601025934f371b07c28aba879527c922",
+  "wrapper_ppoly_result_sol_access": true
+}

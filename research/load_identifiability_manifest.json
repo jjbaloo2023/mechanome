@@ -1,0 +1,40 @@
+{
+  "task_id": "load-identifiability-001",
+  "attempt_number": 1,
+  "checkpoint_at_utc": "2026-09-26T15:01:25.593572+00:00",
+  "lead_disposition": "Accepted conditional source-nullspace, fixed-template rank and prospective independent-control protocol; no empirical promotion.",
+  "artifacts": [
+    {
+      "path": "research/LOAD_IDENTIFIABILITY_FINDINGS.md",
+      "sha256": "04aefc6d34436afb3f7af1ef8bca50530d4283a70242fc75da66bdccfb49c969"
+    },
+    {
+      "path": "research/LOAD_IDENTIFIABILITY_THEORY.md",
+      "sha256": "d8d7caa4ade59d8c8c6fc6d5408257a74e73230a302ecbc7cbf67addb0e17596"
+    },
+    {
+      "path": "research/LOAD_IDENTIFIABILITY_REVIEW.md",
+      "sha256": "808fe7217c94b177b723c30293cd4cfe0f05850cc00b4bf733cdf126c6f31b4d"
+    },
+    {
+      "path": "research/load_identifiability_design.json",
+      "sha256": "392cee31b923518007cfb2e859c77f6b0c33e99d3189d4f83a9de09379a5d917"
+    },
+    {
+      "path": "research/load_identifiability_numerical_design.json",
+      "sha256": "8efcd4495469f468d669ff1cb56fdb03eeaa483059cb744f1f86945cd66799b1"
+    },
+    {
+      "path": "research/check_load_identifiability.py",
+      "sha256": "79961f498c532f09c05543e5c41265dfb2f81aeed811afb7b837dc4dcff2c761"
+    },
+    {
+      "path": "research/load_identifiability_results_001.json",
+      "sha256": "b5493dbdaff8e23b731d871cfddf4262125f75f9d5bdf755fcbb5d07fb0e7500"
+    }
+  ],
+  "validation": "Two registered basis integrals plus precision repeat; force-balance and independent E1 apex checks; independent theory and final synthesis review; result/design hashes and Python/JSON parsing. No new pytest suite or production change.",
+  "no_active_research_workers": true,
+  "pending_nonresearch_operation": "Previously authorized interactive push session39522 still running at last read, formerly observed at GitHub sign-in. No new push in this heartbeat.",
+  "next_executable_decision": "Bounded primary-source assessment of independent experimental controls; at most two studies, no raw download or fit."
+}

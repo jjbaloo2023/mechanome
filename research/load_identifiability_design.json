@@ -1,0 +1,45 @@
+{
+  "task_id": "load-identifiability-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-26T14:50:23.955599+00:00",
+  "first_tool_clock_utc": "2026-09-26T14:48:17Z",
+  "implementation_cutoff_utc": "2026-09-26T15:03:17Z",
+  "checkpoint_target_utc": "2026-09-26T15:08:17Z",
+  "question": "Can ideal full membrane shape or two declared summaries distinguish spontaneous curvature and balanced normal load?",
+  "energy": "E=integral[kappa/2*(Delta h-c(x))^2 + sigma/2*|grad h|^2 - f(x)*h(x)] d^2x",
+  "conventions": {
+    "H": "Delta h/2 at small slope",
+    "f": "signed normal traction doing positive work for positive h",
+    "c": "preferred total curvature",
+    "domain": "R^2, axisymmetric regular origin, h and slope vanish at infinity, positive uniform kappa and sigma",
+    "force_balance": "integral f d^2x=0; no unspecified remote net-load reaction"
+  },
+  "unrestricted_question": "Explicit nullspace for unknown smooth localized curvature and balanced force fields; does varying only tension remove it if kappa is fixed?",
+  "prescribed_pair": {
+    "curvature": "c(r)=C*exp(-r^2/(2*a^2))",
+    "load": "f(r)=F*[exp(-r^2/(2*a^2))/(2*pi*a^2)-exp(-r^2/(2*b^2))/(2*pi*b^2)]",
+    "known_controls": "a>0,b=2*a,kappa>0,sigma>0; C and F are unknown signed amplitudes; same templates across controlled repeats",
+    "support": "both Gaussians decay on an infinite reservoir; two equal and opposite integrated components F and -F, not compact support or net force",
+    "coat_size": "a is an externally prescribed Gaussian width, not a fitted cap area or finite material coat boundary",
+    "choice_rationale": "Smooth curvature patch and explicit broader compensating reaction avoid an unbalanced load; widths fixed before inspecting rank or conditioning."
+  },
+  "summary_pair": [
+    "H_apex=Delta h(0)/2",
+    "d_a=h(a)-h(0), height referenced at the known characteristic coat radius"
+  ],
+  "rank_questions": [
+    "injectivity on span of the two response fields",
+    "rank of the declared 2x2 summary response matrix",
+    "height/pose/scale and unknown rigidity or tension nuisances; structural rank is not practical precision"
+  ],
+  "prospective_protocol": "One controlled perturbation or independent observable that separates a demonstrated ambiguity; state required calibration and template invariance.",
+  "numerical_gate": "No numerical execution until independent review accepts energy signs and prescribed templates. If needed, at most two basis responses at a=sqrt(kappa/sigma)=1,b=2,kappa=sigma=1 plus one precision check, using integrals only; no sweep or empirical inverse.",
+  "stop_condition": "One independently checked counterexample/rank criterion and concrete discriminating protocol, or precise mathematical blocker. No next stage, nonlinear solver, raw download, biological preference, novelty or force-calibration claim.",
+  "source_hashes": {
+    "research/FULL_SHAPE_MAPPING.md": "cda41842a6c79f76a7344208acb324a17bce3d6e82b68357b6ab493eeac6344e",
+    "research/FULL_SHAPE_FINDINGS.md": "030ff4851d2119bfa2fc243f37ca3862b690ec5aa08bdc692966491d02011efc",
+    "research/FULL_SHAPE_SOURCE.md": "3b82d72df46917b76c71aa251ab7d11fa3be45e52d67914c5c2f6f2b9df17461",
+    "research/TWO_AREA_FINDINGS.md": "f02f828c764aa57e83620b0126e9bd4a5fe86d89676409f41ca9a1cf1219f8b6",
+    "research/linear_patch_benchmark.py": "6e43e5c68fb4d5e9574f8b0c70c4e8ad5d3c9659e217092d892c88042929809a"
+  }
+}

@@ -1,0 +1,1202 @@
+{
+  "task_id": "bucher-inclusion-package-001",
+  "attempt_number": 1,
+  "started_at_utc": "2026-09-26T15:55:40.102223+00:00",
+  "design_sha256": "998803d2773d28cf09ff3e85f0aba20328c7fc3442580c554f8188e5e54b4edd",
+  "script_sha256": "71d2becc528ee9f60af919041a9fc4e79ff3110666535155b6a9fadd0cfc27ea",
+  "method": "Read-only OOXML ZIP/XML inspection; numeric cells require finite value > 0. No formula execution, imputation, biological inference, effect calculation, or figure reproduction.",
+  "workbooks": [
+    {
+      "file": "EM BSC-1.xlsx",
+      "source_path": "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\.cache-bucher-em-001\\EM BSC-1.xlsx",
+      "digest": {
+        "bytes": 78130,
+        "md5": "ce61ee0d469a291ddcfa193310119905",
+        "sha256": "da13bd3044c7d8a51f2c32aea0c404b36b68c06cde1cc79383c83aaa103ff216",
+        "registered_match": true
+      },
+      "package_metadata": {
+        "zip_member_count": 13,
+        "expanded_bytes": 181172,
+        "macros_present": false,
+        "defined_names": [],
+        "comment_files": [],
+        "comment_count": 0,
+        "document_properties": {
+          "docProps/core.xml": {
+            "creator": "Delia Bucher",
+            "lastModifiedBy": "Delia Bucher",
+            "created": "2018-01-17T15:44:20Z",
+            "modified": "2018-01-17T15:48:53Z"
+          },
+          "docProps/app.xml": {
+            "Application": "Microsoft Macintosh Excel",
+            "DocSecurity": "0",
+            "ScaleCrop": "false",
+            "HeadingPairs": "Worksheets3",
+            "TitlesOfParts": "Sheet1Sheet2Sheet3",
+            "LinksUpToDate": "false",
+            "SharedDoc": "false",
+            "HyperlinksChanged": "false",
+            "AppVersion": "14.0300"
+          }
+        },
+        "styles": {
+          "cell_xf_count": 3,
+          "custom_number_formats": []
+        }
+      },
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "dimension": "A1:K445",
+          "stored_cells_by_column": {
+            "A": 303,
+            "B": 303,
+            "C": 303,
+            "D": 1,
+            "E": 345,
+            "F": 345,
+            "G": 345,
+            "H": 1,
+            "I": 445,
+            "J": 445,
+            "K": 445
+          },
+          "formulas": [],
+          "hidden_rows": [],
+          "hidden_columns": [],
+          "merged_ranges": [
+            "A2:C2",
+            "E2:G2",
+            "I2:K2",
+            "A1:K1"
+          ],
+          "sheet_protection_present": false
+        },
+        {
+          "name": "Sheet2",
+          "dimension": "A1",
+          "stored_cells_by_column": {},
+          "formulas": [],
+          "hidden_rows": [],
+          "hidden_columns": [],
+          "merged_ranges": [],
+          "sheet_protection_present": false
+        },
+        {
+          "name": "Sheet3",
+          "dimension": "A1",
+          "stored_cells_by_column": {},
+          "formulas": [],
+          "hidden_rows": [],
+          "hidden_columns": [],
+          "merged_ranges": [],
+          "sheet_protection_present": false
+        }
+      ],
+      "groups": [
+        {
+          "condition": null,
+          "cell_label": 1,
+          "columns": [
+            "A",
+            "B",
+            "C"
+          ],
+          "data_start_row": 4,
+          "column_audit": [
+            {
+              "column": "A",
+              "numeric_positive_finite_count": 300,
+              "first_numeric_row": 4,
+              "last_numeric_row": 303,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 300
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "B",
+              "numeric_positive_finite_count": 155,
+              "first_numeric_row": 4,
+              "last_numeric_row": 158,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "B159:B303"
+              ],
+              "numeric_style_counts": {
+                "1": 155
+              },
+              "stored_blank_style_counts": {
+                "1": 145
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 145,
+              "trailing_padding_row_ranges_to_group_end": [
+                "B159:B303"
+              ]
+            },
+            {
+              "column": "C",
+              "numeric_positive_finite_count": 280,
+              "first_numeric_row": 4,
+              "last_numeric_row": 283,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "C284:C303"
+              ],
+              "numeric_style_counts": {
+                "1": 280
+              },
+              "stored_blank_style_counts": {
+                "1": 20
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 20,
+              "trailing_padding_row_ranges_to_group_end": [
+                "C284:C303"
+              ]
+            }
+          ],
+          "deposited_total": 735,
+          "published_caption_total": 746,
+          "published_minus_deposited": 11,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 165
+        },
+        {
+          "condition": null,
+          "cell_label": 2,
+          "columns": [
+            "E",
+            "F",
+            "G"
+          ],
+          "data_start_row": 4,
+          "column_audit": [
+            {
+              "column": "E",
+              "numeric_positive_finite_count": 342,
+              "first_numeric_row": 4,
+              "last_numeric_row": 345,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 342
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "F",
+              "numeric_positive_finite_count": 221,
+              "first_numeric_row": 4,
+              "last_numeric_row": 224,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "F225:F345"
+              ],
+              "numeric_style_counts": {
+                "1": 221
+              },
+              "stored_blank_style_counts": {
+                "1": 121
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 121,
+              "trailing_padding_row_ranges_to_group_end": [
+                "F225:F345"
+              ]
+            },
+            {
+              "column": "G",
+              "numeric_positive_finite_count": 294,
+              "first_numeric_row": 4,
+              "last_numeric_row": 297,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "G298:G345"
+              ],
+              "numeric_style_counts": {
+                "1": 294
+              },
+              "stored_blank_style_counts": {
+                "1": 48
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 48,
+              "trailing_padding_row_ranges_to_group_end": [
+                "G298:G345"
+              ]
+            }
+          ],
+          "deposited_total": 857,
+          "published_caption_total": 869,
+          "published_minus_deposited": 12,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 169
+        },
+        {
+          "condition": null,
+          "cell_label": 3,
+          "columns": [
+            "I",
+            "J",
+            "K"
+          ],
+          "data_start_row": 4,
+          "column_audit": [
+            {
+              "column": "I",
+              "numeric_positive_finite_count": 442,
+              "first_numeric_row": 4,
+              "last_numeric_row": 445,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 442
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "J",
+              "numeric_positive_finite_count": 126,
+              "first_numeric_row": 4,
+              "last_numeric_row": 129,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "J130:J445"
+              ],
+              "numeric_style_counts": {
+                "1": 126
+              },
+              "stored_blank_style_counts": {
+                "1": 316
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 316,
+              "trailing_padding_row_ranges_to_group_end": [
+                "J130:J445"
+              ]
+            },
+            {
+              "column": "K",
+              "numeric_positive_finite_count": 158,
+              "first_numeric_row": 4,
+              "last_numeric_row": 161,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "K162:K445"
+              ],
+              "numeric_style_counts": {
+                "1": 158
+              },
+              "stored_blank_style_counts": {
+                "1": 284
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 284,
+              "trailing_padding_row_ranges_to_group_end": [
+                "K162:K445"
+              ]
+            }
+          ],
+          "deposited_total": 726,
+          "published_caption_total": 739,
+          "published_minus_deposited": 13,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 600
+        }
+      ],
+      "numeric_entry_total": 2318,
+      "all_numeric_entries_positive_finite": true,
+      "all_formula_count": 0,
+      "header_mapping": {
+        "observed": {
+          "unit": "Projected area (nm^2)",
+          "cell_labels": [
+            "Cell 1",
+            "Cell 2",
+            "Cell 3"
+          ],
+          "morphology_labels": [
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ]
+          ]
+        },
+        "valid": true
+      },
+      "numeric_cell_coverage": {
+        "numeric_cells_in_entire_workbook": 2318,
+        "assigned_to_declared_area_blocks": 2318,
+        "numeric_cells_outside_declared_area_blocks": [],
+        "complete": true
+      }
+    },
+    {
+      "file": "EM BSC-1 osmotic shock.xlsx",
+      "source_path": "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\.cache-bucher-em-001\\EM BSC-1 osmotic shock.xlsx",
+      "digest": {
+        "bytes": 72748,
+        "md5": "529bbaa8d3cfafc95821a4ea2e354708",
+        "sha256": "6f9acae5fd3f7e0d737f13b2eec8496623e40de4a6912967099d822b1c6219ed",
+        "registered_match": true
+      },
+      "package_metadata": {
+        "zip_member_count": 11,
+        "expanded_bytes": 175423,
+        "macros_present": false,
+        "defined_names": [],
+        "comment_files": [],
+        "comment_count": 0,
+        "document_properties": {
+          "docProps/core.xml": {
+            "creator": "Delia Bucher",
+            "lastModifiedBy": "Delia Bucher",
+            "created": "2018-01-17T15:52:49Z",
+            "modified": "2018-01-17T15:57:25Z"
+          },
+          "docProps/app.xml": {
+            "Application": "Microsoft Macintosh Excel",
+            "DocSecurity": "0",
+            "ScaleCrop": "false",
+            "HeadingPairs": "Worksheets1",
+            "TitlesOfParts": "Sheet1",
+            "LinksUpToDate": "false",
+            "SharedDoc": "false",
+            "HyperlinksChanged": "false",
+            "AppVersion": "14.0300"
+          }
+        },
+        "styles": {
+          "cell_xf_count": 3,
+          "custom_number_formats": []
+        }
+      },
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "dimension": "A1:AE273",
+          "stored_cells_by_column": {
+            "A": 114,
+            "B": 114,
+            "C": 114,
+            "D": 2,
+            "E": 139,
+            "F": 139,
+            "G": 139,
+            "H": 2,
+            "I": 155,
+            "J": 155,
+            "K": 155,
+            "L": 2,
+            "M": 136,
+            "N": 136,
+            "O": 136,
+            "P": 1,
+            "Q": 273,
+            "R": 273,
+            "S": 273,
+            "T": 2,
+            "U": 55,
+            "V": 55,
+            "W": 55,
+            "X": 2,
+            "Y": 241,
+            "Z": 241,
+            "AA": 241,
+            "AB": 2,
+            "AC": 150,
+            "AD": 150,
+            "AE": 150
+          },
+          "formulas": [],
+          "hidden_rows": [],
+          "hidden_columns": [],
+          "merged_ranges": [
+            "A1:AE1",
+            "Q3:S3",
+            "U3:W3",
+            "Y3:AA3",
+            "AC3:AE3",
+            "A2:O2",
+            "Q2:AE2",
+            "A3:C3",
+            "E3:G3",
+            "I3:K3",
+            "M3:O3"
+          ],
+          "sheet_protection_present": false
+        }
+      ],
+      "groups": [
+        {
+          "condition": "Control",
+          "cell_label": 1,
+          "columns": [
+            "A",
+            "B",
+            "C"
+          ],
+          "data_start_row": 5,
+          "column_audit": [
+            {
+              "column": "A",
+              "numeric_positive_finite_count": 110,
+              "first_numeric_row": 5,
+              "last_numeric_row": 114,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 110
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "B",
+              "numeric_positive_finite_count": 48,
+              "first_numeric_row": 5,
+              "last_numeric_row": 52,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "B53:B114"
+              ],
+              "numeric_style_counts": {
+                "1": 48
+              },
+              "stored_blank_style_counts": {
+                "1": 62
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 62,
+              "trailing_padding_row_ranges_to_group_end": [
+                "B53:B114"
+              ]
+            },
+            {
+              "column": "C",
+              "numeric_positive_finite_count": 99,
+              "first_numeric_row": 5,
+              "last_numeric_row": 103,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "C104:C114"
+              ],
+              "numeric_style_counts": {
+                "1": 99
+              },
+              "stored_blank_style_counts": {
+                "1": 11
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 11,
+              "trailing_padding_row_ranges_to_group_end": [
+                "C104:C114"
+              ]
+            }
+          ],
+          "deposited_total": 257,
+          "published_caption_total": 267,
+          "published_minus_deposited": 10,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 73
+        },
+        {
+          "condition": "Control",
+          "cell_label": 2,
+          "columns": [
+            "E",
+            "F",
+            "G"
+          ],
+          "data_start_row": 5,
+          "column_audit": [
+            {
+              "column": "E",
+              "numeric_positive_finite_count": 135,
+              "first_numeric_row": 5,
+              "last_numeric_row": 139,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 135
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "F",
+              "numeric_positive_finite_count": 64,
+              "first_numeric_row": 5,
+              "last_numeric_row": 68,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "F69:F139"
+              ],
+              "numeric_style_counts": {
+                "1": 64
+              },
+              "stored_blank_style_counts": {
+                "1": 71
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 71,
+              "trailing_padding_row_ranges_to_group_end": [
+                "F69:F139"
+              ]
+            },
+            {
+              "column": "G",
+              "numeric_positive_finite_count": 100,
+              "first_numeric_row": 5,
+              "last_numeric_row": 104,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "G105:G139"
+              ],
+              "numeric_style_counts": {
+                "1": 100
+              },
+              "stored_blank_style_counts": {
+                "1": 35
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 35,
+              "trailing_padding_row_ranges_to_group_end": [
+                "G105:G139"
+              ]
+            }
+          ],
+          "deposited_total": 299,
+          "published_caption_total": 308,
+          "published_minus_deposited": 9,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 106
+        },
+        {
+          "condition": "Control",
+          "cell_label": 3,
+          "columns": [
+            "I",
+            "J",
+            "K"
+          ],
+          "data_start_row": 5,
+          "column_audit": [
+            {
+              "column": "I",
+              "numeric_positive_finite_count": 151,
+              "first_numeric_row": 5,
+              "last_numeric_row": 155,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 151
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "J",
+              "numeric_positive_finite_count": 35,
+              "first_numeric_row": 5,
+              "last_numeric_row": 39,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "J40:J155"
+              ],
+              "numeric_style_counts": {
+                "1": 35
+              },
+              "stored_blank_style_counts": {
+                "1": 116
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 116,
+              "trailing_padding_row_ranges_to_group_end": [
+                "J40:J155"
+              ]
+            },
+            {
+              "column": "K",
+              "numeric_positive_finite_count": 40,
+              "first_numeric_row": 5,
+              "last_numeric_row": 44,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "K45:K155"
+              ],
+              "numeric_style_counts": {
+                "1": 40
+              },
+              "stored_blank_style_counts": {
+                "1": 111
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 111,
+              "trailing_padding_row_ranges_to_group_end": [
+                "K45:K155"
+              ]
+            }
+          ],
+          "deposited_total": 226,
+          "published_caption_total": 229,
+          "published_minus_deposited": 3,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 227
+        },
+        {
+          "condition": "Control",
+          "cell_label": 4,
+          "columns": [
+            "M",
+            "N",
+            "O"
+          ],
+          "data_start_row": 5,
+          "column_audit": [
+            {
+              "column": "M",
+              "numeric_positive_finite_count": 132,
+              "first_numeric_row": 5,
+              "last_numeric_row": 136,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 132
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "N",
+              "numeric_positive_finite_count": 91,
+              "first_numeric_row": 5,
+              "last_numeric_row": 95,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "N96:N136"
+              ],
+              "numeric_style_counts": {
+                "1": 91
+              },
+              "stored_blank_style_counts": {
+                "1": 41
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 41,
+              "trailing_padding_row_ranges_to_group_end": [
+                "N96:N136"
+              ]
+            },
+            {
+              "column": "O",
+              "numeric_positive_finite_count": 98,
+              "first_numeric_row": 5,
+              "last_numeric_row": 102,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "O103:O136"
+              ],
+              "numeric_style_counts": {
+                "1": 98
+              },
+              "stored_blank_style_counts": {
+                "1": 34
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 34,
+              "trailing_padding_row_ranges_to_group_end": [
+                "O103:O136"
+              ]
+            }
+          ],
+          "deposited_total": 321,
+          "published_caption_total": 323,
+          "published_minus_deposited": 2,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 75
+        },
+        {
+          "condition": "osmotic shock",
+          "cell_label": 1,
+          "columns": [
+            "Q",
+            "R",
+            "S"
+          ],
+          "data_start_row": 5,
+          "column_audit": [
+            {
+              "column": "Q",
+              "numeric_positive_finite_count": 269,
+              "first_numeric_row": 5,
+              "last_numeric_row": 273,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 269
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "R",
+              "numeric_positive_finite_count": 54,
+              "first_numeric_row": 5,
+              "last_numeric_row": 58,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "R59:R273"
+              ],
+              "numeric_style_counts": {
+                "1": 54
+              },
+              "stored_blank_style_counts": {
+                "1": 215
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 215,
+              "trailing_padding_row_ranges_to_group_end": [
+                "R59:R273"
+              ]
+            },
+            {
+              "column": "S",
+              "numeric_positive_finite_count": 67,
+              "first_numeric_row": 5,
+              "last_numeric_row": 71,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "S72:S273"
+              ],
+              "numeric_style_counts": {
+                "1": 67
+              },
+              "stored_blank_style_counts": {
+                "1": 202
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 202,
+              "trailing_padding_row_ranges_to_group_end": [
+                "S72:S273"
+              ]
+            }
+          ],
+          "deposited_total": 390,
+          "published_caption_total": 395,
+          "published_minus_deposited": 5,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 417
+        },
+        {
+          "condition": "osmotic shock",
+          "cell_label": 2,
+          "columns": [
+            "U",
+            "V",
+            "W"
+          ],
+          "data_start_row": 5,
+          "column_audit": [
+            {
+              "column": "U",
+              "numeric_positive_finite_count": 51,
+              "first_numeric_row": 5,
+              "last_numeric_row": 55,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 51
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "V",
+              "numeric_positive_finite_count": 23,
+              "first_numeric_row": 5,
+              "last_numeric_row": 27,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "V28:V55"
+              ],
+              "numeric_style_counts": {
+                "1": 23
+              },
+              "stored_blank_style_counts": {
+                "1": 28
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 28,
+              "trailing_padding_row_ranges_to_group_end": [
+                "V28:V55"
+              ]
+            },
+            {
+              "column": "W",
+              "numeric_positive_finite_count": 21,
+              "first_numeric_row": 5,
+              "last_numeric_row": 25,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "W26:W55"
+              ],
+              "numeric_style_counts": {
+                "1": 21
+              },
+              "stored_blank_style_counts": {
+                "1": 30
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 30,
+              "trailing_padding_row_ranges_to_group_end": [
+                "W26:W55"
+              ]
+            }
+          ],
+          "deposited_total": 95,
+          "published_caption_total": 99,
+          "published_minus_deposited": 4,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 58
+        },
+        {
+          "condition": "osmotic shock",
+          "cell_label": 3,
+          "columns": [
+            "Y",
+            "Z",
+            "AA"
+          ],
+          "data_start_row": 5,
+          "column_audit": [
+            {
+              "column": "Y",
+              "numeric_positive_finite_count": 237,
+              "first_numeric_row": 5,
+              "last_numeric_row": 241,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 237
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "Z",
+              "numeric_positive_finite_count": 30,
+              "first_numeric_row": 5,
+              "last_numeric_row": 34,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "Z35:Z241"
+              ],
+              "numeric_style_counts": {
+                "1": 30
+              },
+              "stored_blank_style_counts": {
+                "1": 207
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 207,
+              "trailing_padding_row_ranges_to_group_end": [
+                "Z35:Z241"
+              ]
+            },
+            {
+              "column": "AA",
+              "numeric_positive_finite_count": 80,
+              "first_numeric_row": 5,
+              "last_numeric_row": 84,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "AA85:AA241"
+              ],
+              "numeric_style_counts": {
+                "1": 80
+              },
+              "stored_blank_style_counts": {
+                "1": 157
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 157,
+              "trailing_padding_row_ranges_to_group_end": [
+                "AA85:AA241"
+              ]
+            }
+          ],
+          "deposited_total": 347,
+          "published_caption_total": 351,
+          "published_minus_deposited": 4,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 364
+        },
+        {
+          "condition": "osmotic shock",
+          "cell_label": 4,
+          "columns": [
+            "AC",
+            "AD",
+            "AE"
+          ],
+          "data_start_row": 5,
+          "column_audit": [
+            {
+              "column": "AC",
+              "numeric_positive_finite_count": 146,
+              "first_numeric_row": 5,
+              "last_numeric_row": 150,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [],
+              "numeric_style_counts": {
+                "1": 146
+              },
+              "stored_blank_style_counts": {},
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 0,
+              "trailing_padding_row_ranges_to_group_end": []
+            },
+            {
+              "column": "AD",
+              "numeric_positive_finite_count": 19,
+              "first_numeric_row": 5,
+              "last_numeric_row": 23,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "AD24:AD150"
+              ],
+              "numeric_style_counts": {
+                "1": 19
+              },
+              "stored_blank_style_counts": {
+                "1": 127
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 127,
+              "trailing_padding_row_ranges_to_group_end": [
+                "AD24:AD150"
+              ]
+            },
+            {
+              "column": "AE",
+              "numeric_positive_finite_count": 35,
+              "first_numeric_row": 5,
+              "last_numeric_row": 39,
+              "internal_blank_count": 0,
+              "internal_blank_row_ranges": [],
+              "stored_blank_cell_ranges": [
+                "AE40:AE150"
+              ],
+              "numeric_style_counts": {
+                "1": 35
+              },
+              "stored_blank_style_counts": {
+                "1": 111
+              },
+              "non_numeric_cells": [],
+              "invalid_numeric_cells": [],
+              "trailing_padding_count": 111,
+              "trailing_padding_row_ranges_to_group_end": [
+                "AE40:AE150"
+              ]
+            }
+          ],
+          "deposited_total": 200,
+          "published_caption_total": 201,
+          "published_minus_deposited": 1,
+          "all_numeric_entries_are_finite_and_positive": true,
+          "internal_blank_count": 0,
+          "trailing_padding_count": 238
+        }
+      ],
+      "numeric_entry_total": 2135,
+      "all_numeric_entries_positive_finite": true,
+      "all_formula_count": 0,
+      "header_mapping": {
+        "observed": {
+          "unit": "Projected area (nm^2)",
+          "conditions": [
+            "Control",
+            "osmotic shock"
+          ],
+          "cell_labels": [
+            "Cell 1",
+            "Cell 2",
+            "Cell 3",
+            "Cell 4",
+            "Cell 1",
+            "Cell 2",
+            "Cell 3",
+            "Cell 4"
+          ],
+          "morphology_labels": [
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ],
+            [
+              "Flat",
+              "Dome",
+              "Pit"
+            ]
+          ]
+        },
+        "valid": true
+      },
+      "numeric_cell_coverage": {
+        "numeric_cells_in_entire_workbook": 2135,
+        "assigned_to_declared_area_blocks": 2135,
+        "numeric_cells_outside_declared_area_blocks": [],
+        "complete": true
+      }
+    }
+  ],
+  "decision": "Both registered packages contain fewer finite positive deposited entries than the published Fig. 1/Fig. 7 caption totals. No package-level inclusion explanation was found; the discrepancy remains unresolved and published-figure reproduction must stop.",
+  "finished_at_utc": "2026-09-26T15:56:00.479395+00:00"
+}

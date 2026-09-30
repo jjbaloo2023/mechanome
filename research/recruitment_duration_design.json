@@ -1,0 +1,37 @@
+{
+  "task_id": "recruitment-duration-null-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T13:01:48.406180+00:00",
+  "question": "Can a fixed conditional recruitment probability g(t) explain different marginal positivity via different observed-duration distributions, and what observable bound could falsify this restricted null?",
+  "inputs_sha256": {
+    "research/MYO1E_FINDINGS.md": "b3e95ee3cd916b664b8e5dd5c072b73ab98d42f5e0d2be91791f5f73d1901276",
+    "research/MYO1E_REPOSITORY_FINDINGS.md": "8634c40647c5197f9d4209ca2927f5da727f070b7ba44a4736cd76096f05b9bd",
+    "research/DASC_OBSERVATION_DECISION.md": "69e55c597f7f1b73fbb634420f7c97c4f0a96ac8e756b6639a735ead07f5cb68"
+  },
+  "scope": "Analytic selected-observation null, not causal recruitment mechanism, biology fit, force law or a new claim of mathematical novelty.",
+  "required_checks": [
+    "Define eligible observed tracks, positivity denominator and probability distributions",
+    "0<=g<=1 common across conditions; total variation convention and bound proved",
+    "Sharp baseline-constrained envelope or explicit conceptual limitation, including atoms/zero-support cases",
+    "Any binned version explicitly assumes common within-bin positivity, not arbitrary continuous null",
+    "Distinguish duration opportunity from endpoint affected by recruitment and selection/censoring/collider bias",
+    "Data requirements for positive+negative cohort, independent units, mapping, overlap and uncertainty",
+    "Do not infer conditional difference solely from marginal excess under finite empirical noise without valid uncertainty control",
+    "Contrast useful falsification criterion with existing unrestricted-selection DASC impossibility"
+  ],
+  "limits": {
+    "theory_active_minutes": 8,
+    "new_source_acquisition": 0,
+    "empirical_fits": 0,
+    "BVP_calls": 0,
+    "author_code_executions": 0
+  },
+  "expected_outcomes": [
+    "Reviewed observable null and falsification envelope",
+    "Precise conceptual failure",
+    "Redundant result with no informative test; stop branch"
+  ],
+  "stop_condition": "One independently reviewed bound/design or exact gap. No extended theorem sequence. Hypothetical examples only; no tuning to published summary numbers.",
+  "evidence_cutoff_utc": "2026-09-29T13:15:30Z",
+  "target_checkpoint_utc": "2026-09-29T13:20:30Z"
+}

@@ -1,0 +1,13 @@
+{
+  "task_id": "nonlinear-residual-postmortem-001",
+  "checkpoint_at_utc": "2026-09-27T01:03:24.288792+00:00",
+  "lead_disposition": "diagnosis_and_bounded_preparation_plan_accepted_no_new_BVP",
+  "artifact_sha256": {
+    "research/nonlinear_residual_postmortem.py": "e34a35d529b2dff89b7fcde0f80d3ac7cd86a9c2730508705aacbdb75af45e28",
+    "research/nonlinear_residual_postmortem.json": "6258f64e5ae2c8e9d6e864df53e15ee027632e968a604521b52f904fc4c91021",
+    "research/NONLINEAR_RESIDUAL_POSTMORTEM.md": "9c22937d14e73c6c68a053becc9a245a4557eab7d37b6864a2ada19407273ca7",
+    "research/NONLINEAR_RESIDUAL_THEORY.md": "9bd28e7083a9f2aa900955fa4ba093fcef7c6aae511b910ab72bd9c04d807352",
+    "research/NONLINEAR_RESIDUAL_REVIEW.md": "cece9637021b9916a72b04570c9682e2d0779300adfc0c3636ee462c46a68c6f",
+    "research/nonlinear_numerical_mesh_plan.json": "24cdf6b799a476c20071973c64fee000c0b9f1c100e7c83673076f57a0dcd3a5"
+  }
+}

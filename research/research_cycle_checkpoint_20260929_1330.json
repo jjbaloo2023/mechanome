@@ -1,0 +1,66 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T13:30:21.246Z",
+  "first_tool_clock_utc": "2026-09-29T13:30:35Z",
+  "evidence_cutoff_utc": "2026-09-29T13:45:35Z",
+  "target_checkpoint_utc": "2026-09-29T13:50:35Z",
+  "checkpoint_saved_at_utc": "2026-09-29T13:45:54.766220+00:00",
+  "status": "completed_bounded_cycle",
+  "tasks": [
+    {
+      "task_id": "yeast-figure6-contract-001",
+      "attempt": 1,
+      "registered_at_utc": "2026-09-29T13:32:05.745397+00:00",
+      "source_http_response_dates_utc": [
+        "2026-09-29T13:32:52Z",
+        "2026-09-29T13:33:16Z"
+      ],
+      "corrected_review_read_at_utc": "2026-09-29T13:40:25Z",
+      "lead_corrections_acceptance_and_freeze_at_utc": "2026-09-29T13:42:30.689860+00:00",
+      "disposition": "Accepted partial genotype-aggregate contract; proposed motion descriptor not executed because a common positional reference is unverified."
+    }
+  ],
+  "timing_note": "Read/save/tool observations are not uninterrupted activity telemetry. Scheduled delivery, active bounded work, queued follow-up and this dated checkpoint are distinct.",
+  "corrections": [
+    "False zero-n statement removed after independent and lead parsing: 1106 rows, minimum n=3, no zero n.",
+    "Full-file inward-phase estimand narrowed to stored mean centroid curves.",
+    "BBC1 positive-only stored time range preserved; no silent alignment.",
+    "Double-deletion gene order normalized conceptually, without claiming linked cells or events."
+  ],
+  "protocol_deviations": [],
+  "validation": {
+    "checked_at_utc": "2026-09-29T13:45:01.436117+00:00",
+    "manifests": 23,
+    "hash_entries_checked": 185,
+    "hash_failures": [],
+    "navigation_links_checked": 421,
+    "broken_links": [],
+    "replacement_character_files": [],
+    "current_json_utf8": "passed",
+    "git_diff_check_exit_code": 0,
+    "git_diff_check_output": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it",
+    "all_four_source_cache_files_ignored": true,
+    "scientific_validation": "Independent source/scope review plus independent and lead static CSV checks. No genotype contrasts or empirical fits.",
+    "software_test_suite_run": false,
+    "BVP_calls": 0,
+    "author_code_executions": 0
+  },
+  "outstanding_workers": [],
+  "workers_reconciled_terminal": [
+    "/root/actin_adaptation_source_001",
+    "/root/known_load_review_001",
+    "/root/known_load_theory_001"
+  ],
+  "unknown_research_execution": false,
+  "queued_work": "One primary-methods check of Sla1 spatial reference/alignment; separately register, at most6minutes,2parsed-primaryopens,1teamquery,zero local downloads. Stop if unavailable; no second rescue stage.",
+  "queued_work_running": false,
+  "reason_for_stopping": "Two-file contract stop reached. Necessary positional-reference prerequisite prevents the proposed descriptive calculation. Remaining evidence time did not fit a complete six-minute source stage plus independent review; integrity and checkpoint completed instead.",
+  "new_biological_mechanism_claim": false,
+  "api_spending_usd": 0,
+  "external_messages": 0,
+  "git_pushes": 0,
+  "publishing": false,
+  "next_executable_specification": "research/NEXT_CYCLE.md",
+  "notification_decision": "DONT_NOTIFY",
+  "notification_rationale": "Routine partial observation contract with a specific bounded next action; no new biological finding or user action required."
+}

@@ -1,0 +1,41 @@
+{
+  "attempt_number": 1,
+  "max_total_solves": 26,
+  "provenance": {
+    "design_sha256": "069c4136f8c01b3d98f592c7afb2bc9040fe9473d22202a4d7e5e4beafebf901",
+    "execution_sha256": "2d567d2cf9f382e323bec47364b3017de01ab035c6723ce3c19fb4b4a385d0eb",
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "scipy": "1.18.1",
+    "script_sha256": "2e82959e40d32494a0c8f8a221fb333fea6474ac258bad3643a082a61a9df2b3"
+  },
+  "solves": [
+    {
+      "R": 8,
+      "epsilon": 0.025,
+      "finished_at_utc": null,
+      "index": 1,
+      "kind": "nonlinear",
+      "label": "nonlinear_s1_e0.025_R8_tol1e-06",
+      "outcome": "solver_returned_postprocessing_failed",
+      "solver_returned": true,
+      "solver_status_recorded": false,
+      "process_exit_code": 1,
+      "failure": {
+        "exception": "AttributeError: c",
+        "location": "ppoly_arrays: attempted sol.c on solve_bvp result instead of sol.sol.c",
+        "consequence": "The first solve had returned to Python but coefficients, status, and node count were not recorded. Its completed/failed solver state is unknown and cannot be safely retried within this attempt."
+      },
+      "sigma": 1,
+      "started_at_utc": "2026-09-27T00:27:13.294459+00:00",
+      "tol": 1e-06
+    }
+  ],
+  "started_at_utc": "2026-09-27T00:27:13.231170+00:00",
+  "status": "failed_implementation_after_solver_return",
+  "stopped_at_utc": "2026-09-27T00:28:19.293091+00:00",
+  "stop_reason": "The mandatory PPoly checkpoint failed after solve #1 returned. The BVP solver's convergence status, node count, and coefficients were not persisted, so rerunning would duplicate a solver call with unknown numerical outcome. The Python process exited with unhandled AttributeError (exit code 1). No comparisons, controls, gates, or optional K diagnostic were run.",
+  "task_id": "nonlinear-numerical-001",
+  "updated_at_utc": "2026-09-27T00:28:19.293091+00:00"
+}

@@ -1,0 +1,28 @@
+{
+  "task_id": "tracking-metric-contract-001",
+  "attempt_number": 1,
+  "accepted_at_utc": "2026-09-29T14:43:24.854607+00:00",
+  "disposition": "accepted_minimal_metric_contract_repair",
+  "tests_passed": 15,
+  "test_invocations": 1,
+  "tracker_movie_calls": 1,
+  "budget_compliant": true,
+  "artifact_sha256": {
+    "research/tracking_metric_design.json": "9e664dd765ff7738e41154fa60b3550f15397e8a1933289914fb23290ec08e08",
+    "research/tracking_metric_source_001.py": "43da3b672d332ed4b6ba9422822cca3812f74fbb8a91e26d7fd827d360681f41",
+    "research/tracking_metric_tests_001.py": "47bad5bd1a28721c2239ab1717467838a5464af0af0f857280b258fd83ce8d54",
+    "research/TRACKING_METRIC_IMPLEMENTATION.md": "e638e219eb13220f55ab389c981fb16ff723a7bd04fa74f59745ed8829301cca",
+    "research/TRACKING_METRIC_REVIEW.md": "87950512b7760d9b00778da438f64ec82c0ba8b94982a52db6ead8976736a28c",
+    "research/TRACKING_METRIC_FINDINGS.md": "a63102f8388186d63b0a9580a54a4ccaec481d00b59c476b3bfe3a15c1228956",
+    "research/tracking_metric_test_runner.py": "b1531a3484bf9d5ebf13f048f59ece1f9bcb741ed629e5077784f552670ffec1",
+    "research/tracking_metric_test_runs.json": "86f0d4b96d896ba639a1a8b40acc04db91da4d9fd04703d4cc73e0e2dfb385e2",
+    "research/tracking_metric_pytest_01.log": "bcd12c2a3cc823145e5bec75bb27cf9d13c473f8d1c0f3608762f243d58d37a7",
+    "research/tracking_metric_static_checks.json": "9c20a88028f82bfb0488e42148da4326966e7223782551502cf193d42ab7a794",
+    "research/tracking_metric_label_review.json": "139660f1656d81e5f437a85bdd42968cf25bd17b31ab05fe59c4a0e0ed054ed6"
+  },
+  "working_tree_sha256_at_acceptance": {
+    "validation/tracking.py": "43da3b672d332ed4b6ba9422822cca3812f74fbb8a91e26d7fd827d360681f41",
+    "tests/test_tracking_validation.py": "47bad5bd1a28721c2239ab1717467838a5464af0af0f857280b258fd83ce8d54"
+  },
+  "snapshot_policy": "Frozen research copies preserve accepted source/tests; working-tree hashes are dated observations, not a prohibition on future registered repairs."
+}

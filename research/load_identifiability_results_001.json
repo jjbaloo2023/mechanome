@@ -1,0 +1,99 @@
+{
+  "task_id": "load-identifiability-001",
+  "attempt_number": 1,
+  "started_at_utc": "2026-09-26T14:54:17.476488+00:00",
+  "finished_at_utc": "2026-09-26T14:54:17.480482+00:00",
+  "elapsed_seconds": 0.0035920999944210052,
+  "configuration": {
+    "a": 1.0,
+    "b": 2.0,
+    "kappa": 1.0,
+    "sigma": 1.0
+  },
+  "column_amplitudes": [
+    "C*a",
+    "F*a/kappa"
+  ],
+  "row_observables": [
+    "a*H_apex",
+    "(h(a)-h(0))/a"
+  ],
+  "baseline_matrix": [
+    [
+      0.2692723418790674,
+      -0.02234463843338373
+    ],
+    [
+      0.11437934283585115,
+      -0.010096040328866029
+    ]
+  ],
+  "baseline_quad_errors": [
+    [
+      2.0856483522303693e-11,
+      4.457057481616258e-11
+    ],
+    [
+      6.067598265006264e-13,
+      1.1272160278433346e-12
+    ]
+  ],
+  "precision_matrix": [
+    [
+      0.2692723418790674,
+      -0.022344638433383735
+    ],
+    [
+      0.11437934283585115,
+      -0.010096040328866029
+    ]
+  ],
+  "precision_quad_errors": [
+    [
+      5.592817048351607e-13,
+      1.3677144651444312e-13
+    ],
+    [
+      6.067598265006264e-13,
+      4.661395314739214e-14
+    ]
+  ],
+  "max_matrix_precision_difference": 3.469446951953614e-18,
+  "determinant": -0.00016281936314413106,
+  "determinant_quad_error_bound": 4.74000360856511e-14,
+  "baseline_determinant": -0.00016281936314413133,
+  "column_angle_sine": 0.022697593586242477,
+  "matrix_condition_number_2": 529.3666049744858,
+  "conditioning_scope": "Declared dimensionless axes only; no observation-noise model or empirical precision.",
+  "analytic_apex": [
+    0.26927234187906735,
+    -0.02234463843338373
+  ],
+  "max_apex_crosscheck_error": 5.551115123125783e-17,
+  "unit_load_integral": -6.5052130349130266e-18,
+  "unit_load_integral_quad_error": 5.667605664394336e-13,
+  "gates": {
+    "force_balanced": true,
+    "analytic_apex_agreement": true,
+    "precision_agreement": true,
+    "resolved_summary_rank": true,
+    "finished_before_deadline": true
+  },
+  "all_gates_passed": true,
+  "source_hashes": {
+    "research/check_load_identifiability.py": "79961f498c532f09c05543e5c41265dfb2f81aeed811afb7b837dc4dcff2c761",
+    "research/load_identifiability_numerical_design.json": "8efcd4495469f468d669ff1cb56fdb03eeaa483059cb744f1f86945cd66799b1",
+    "research/load_identifiability_design.json": "392cee31b923518007cfb2e859c77f6b0c33e99d3189d4f83a9de09379a5d917"
+  },
+  "limitations": [
+    "biological mechanism preference",
+    "empirical precision",
+    "absolute force calibration",
+    "novelty",
+    "global rank across all widths/tensions",
+    "Full-profile rank is a separate analytic result; this checks only the declared two summaries.",
+    "Quadrature error estimates are numerical diagnostics, not rigorous interval certificates.",
+    "Templates, center, scales, tension and rigidity are prescribed; free fields retain the exact source ambiguity.",
+    "Unit basis amplitudes are linear derivatives, not validated finite-slope physical states."
+  ]
+}

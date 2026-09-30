@@ -1,0 +1,64 @@
+{
+  "task_id": "offline-work-units-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T16:02:25.882526+00:00",
+  "question": "Can the existing offline transactional controller prevent duplicate or over-budget guarded dummy work across restart, attempt retries and competing reservations?",
+  "input_sha256": {
+    "mechanome/research/contracts.py": "1b8d4621befc1ed92956a7dc7a475499d558b6e581b27c41e4c9a32409110545",
+    "mechanome/research/controller.py": "55a985bef1fd00e3d99cb12e7bf99feaa1daacf03d725eb8aa8f96d8ab6cfb32",
+    "mechanome/research/demo.py": "e2a23dfc0e0b044851a5ff47fd44a739d1aaff9eddde6d24e0b723ab8cacd13a",
+    "tests/test_research_controller.py": "320a2dea4d56d6f2b11a4069cffe5105d13110b448d3633ff0730904cf9b90e1"
+  },
+  "requirements": [
+    "Immutable campaign and task per-kind nonnegative integer work-unit limits; undeclared kinds cannot execute guarded work. Old charters/tasks missing new optional fields continue to load/redeliver unchanged.",
+    "Persistent atomic reservation before each dummy call, positive integer units, stable task-scoped call identity across attempts; terminal duplicate is read-only/non-executing, conflicting identity rejected.",
+    "Task and campaign lifetime totals count reservations across attempts and restart, including failed/unknown work. Conservative never-refund accounting is acceptable if explicit.",
+    "Unresolved work blocks automatic replacement or identity-changing bypass. Require explicit evidence to reconcile unknown status before finalizing the attempt/retrying.",
+    "Lead fencing on reservation and state transitions; atomic concurrent cap behavior. Persist immutable events and include work state in export.",
+    "Preserve money/review reserve/attempt/artifact semantics; do not imply exactly-once external side effects or live-agent integration."
+  ],
+  "scope": "Small readable extension in existing contracts/controller with local dummy-work tests. No separate framework/scheduler, provider or real scientific computation.",
+  "ownership": {
+    "implementation": [
+      "mechanome/research/contracts.py",
+      "mechanome/research/controller.py",
+      "tests/test_research_work_units.py",
+      "research/WORK_UNITS_IMPLEMENTATION.md"
+    ],
+    "review": [
+      "research/WORK_UNITS_REVIEW.md"
+    ],
+    "lead": [
+      "research/WORK_UNITS_FINDINGS.md",
+      "research/work_units_test_runner.py",
+      "research/work_units_test_runs.json"
+    ]
+  },
+  "limits": {
+    "implementation_minutes": 8,
+    "specialists": 2,
+    "lead_pytest_invocations": 3,
+    "fits": 0,
+    "tracking_calls": 0,
+    "BVP_calls": 0,
+    "network_requests": 0,
+    "author_code_executions": 0
+  },
+  "targeted_tests": [
+    "tests/test_research_controller.py",
+    "tests/test_research_work_units.py"
+  ],
+  "required_checks": [
+    "cap rejection before dummy callback",
+    "stable call IDs and conflicting duplicate rejection",
+    "retry/restart cumulative counting",
+    "unknown/reserved work blocks replacement until reconciliation",
+    "concurrent atomic budget or stale-lead rejection",
+    "legacy JSON optional-field compatibility",
+    "existing controller regressions"
+  ],
+  "execution_owner": "lead_only",
+  "stop_condition": "One independently reviewed offline extension with bounded dummy-work demonstration, or a precise compatibility/design blocker. No live integration in this task.",
+  "evidence_cutoff_utc": "2026-09-29T16:15:33Z",
+  "target_checkpoint_utc": "2026-09-29T16:20:33Z"
+}

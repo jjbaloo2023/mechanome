@@ -1,0 +1,39 @@
+{
+  "sha": "60756719f1cc57e9afdf427d3fa439af4638f1a8",
+  "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/60756719f1cc57e9afdf427d3fa439af4638f1a8",
+  "tree": [
+    {
+      "path": ".DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5008ddfcf53c02e82d7eee2e57c38e5672ef89f6",
+      "size": 6148,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6"
+    },
+    {
+      "path": "Icon\r",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "configGenerator.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "67462028140501cc4cd512d32c688cf6e81b9de0",
+      "size": 1009,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/67462028140501cc4cd512d32c688cf6e81b9de0"
+    },
+    {
+      "path": "sphericalCoordinateGenerator_Akamatsu2019.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41f4f8f620b20ad27a6d1ee4aaea3f28642ea416",
+      "size": 2869,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/41f4f8f620b20ad27a6d1ee4aaea3f28642ea416"
+    }
+  ],
+  "truncated": false
+}

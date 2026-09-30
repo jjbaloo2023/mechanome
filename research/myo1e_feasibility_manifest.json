@@ -1,0 +1,13 @@
+{
+  "task_id": "myo1e-observable-feasibility-001",
+  "attempt_number": 1,
+  "created_at_utc": "2026-09-29T12:37:16.938716+00:00",
+  "disposition": "accepted_selected_track_observable_feasibility_public_table_access_unresolved",
+  "artifact_sha256": {
+    "research/myo1e_feasibility_design.json": "5e20f5fa793733516c97e92469e8420ce6ba52ededbb1a1aea11a5dc58d6db50",
+    "research/MYO1E_SOURCE.md": "a49b3cd42b94cea8734e421d5c1a2e5e3b452c919ad81087b03e8f4641cac29b",
+    "research/MYO1E_REVIEW.md": "0fc22fc72dc703dad347d33939eee9b3a6efc18470c14b11112ecd4450954f2f",
+    "research/MYO1E_FINDINGS.md": "b3e95ee3cd916b664b8e5dd5c072b73ab98d42f5e0d2be91791f5f73d1901276",
+    "research/metadata/myo1e-feasibility-001/ACCESS_LEDGER.md": "8d115df4a9ffaf52cf60f90af3f2504a00acbdb70e7ef388ca4d94c8615728e8"
+  }
+}

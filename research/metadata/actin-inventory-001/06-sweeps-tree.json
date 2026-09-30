@@ -1,0 +1,22 @@
+{
+  "sha": "0c0d6ee84efc52cfe9010ec112d170b0842ee220",
+  "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/0c0d6ee84efc52cfe9010ec112d170b0842ee220",
+  "tree": [
+    {
+      "path": ".DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb955794b060c253a57b857ceb1f09e93c9e80a3",
+      "size": 8196,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/cb955794b060c253a57b857ceb1f09e93c9e80a3"
+    },
+    {
+      "path": "simulations",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "002a1f7d16a11500d94c3efc39ddc86db951daef",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/002a1f7d16a11500d94c3efc39ddc86db951daef"
+    }
+  ],
+  "truncated": false
+}

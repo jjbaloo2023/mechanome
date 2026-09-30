@@ -1,0 +1,73 @@
+{
+  "sha": "2e4b1ece0abb8ac05e36e423199e5b0b2a6c8607",
+  "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/2e4b1ece0abb8ac05e36e423199e5b0b2a6c8607",
+  "tree": [
+    {
+      "path": ".DS_Store",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d415a312e2b32364511391ca38afedf02110963a",
+      "size": 10244,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/d415a312e2b32364511391ca38afedf02110963a"
+    },
+    {
+      "path": "Icon\r",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "bin",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "240c9b3a6126c2fedf13934cd78425c44294244a",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/240c9b3a6126c2fedf13934cd78425c44294244a"
+    },
+    {
+      "path": "build",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fc2191a0e1074005d42b953959325e040a04d06e",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/fc2191a0e1074005d42b953959325e040a04d06e"
+    },
+    {
+      "path": "configs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "60756719f1cc57e9afdf427d3fa439af4638f1a8",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/60756719f1cc57e9afdf427d3fa439af4638f1a8"
+    },
+    {
+      "path": "endocytosis.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9101d2bca8c800f832417d6456c43c15c1ab931d",
+      "size": 20850,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/9101d2bca8c800f832417d6456c43c15c1ab931d"
+    },
+    {
+      "path": "parameter_sweeps_pythonReporting",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0c0d6ee84efc52cfe9010ec112d170b0842ee220",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/0c0d6ee84efc52cfe9010ec112d170b0842ee220"
+    },
+    {
+      "path": "plotting_python",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c222b1ffb0b983b25d962d25bbe63d9995e55c64",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/c222b1ffb0b983b25d962d25bbe63d9995e55c64"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f3ac73f532b6af41bcefdaefbfd2129a48066e2d",
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/f3ac73f532b6af41bcefdaefbfd2129a48066e2d"
+    }
+  ],
+  "truncated": false
+}

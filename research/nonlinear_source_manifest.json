@@ -1,0 +1,11 @@
+{
+  "task_id": "nonlinear-source-001",
+  "checkpoint_at_utc": "2026-09-26T16:03:57.359517+00:00",
+  "lead_disposition": "Accepted exact finite compensation and two-profile criterion, conditional stationarity only.",
+  "artifact_sha256": {
+    "research/nonlinear_source_design.json": "71f6872dc09287ea7a6ab3cff3cd7782f2f29cfe634a8264e9cf7617b69ebdf8",
+    "research/NONLINEAR_SOURCE_THEORY.md": "4159afb38647be0722e7880edfc66dbc9d967c08a3b5e6a8631a315119314851",
+    "research/NONLINEAR_SOURCE_FINDINGS.md": "974403d3ee9254a36b3097940c753288f6dd05b8f6759d838db785508a760fc3",
+    "research/NONLINEAR_SOURCE_REVIEW.md": "17822d5215cd704e79b27f0e196f16bac3a678e7056a5db0d942910f3cd076e7"
+  }
+}

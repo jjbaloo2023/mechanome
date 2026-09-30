@@ -1,0 +1,24 @@
+{
+  "task_id": "work-unit-recovery-002",
+  "logical_task": "work-unit-recovery",
+  "attempt_number": 2,
+  "accepted_at_utc": "2026-09-29T17:12:39.110959+00:00",
+  "disposition": "accepted_bounded_repaired_local_continuation; original_phase1_supervision_failure_preserved",
+  "artifact_sha256": {
+    "research/work_unit_recovery_repair_design.json": "0e2010ac7749aa06674ec7e20a651e00f8ea1e9820227d355ce98a9e87b53871",
+    "research/work_unit_recovery_reconciliation_approval.json": "3d0936b4a80af1656d8073ae477a952385eaed76069c18b62972b0dbf7c1c682",
+    "research/work_unit_recovery_repair_inputs.json": "b8857334426d9481b2554ddfba8f052199afd424d38a80ec247fef61b906e65b",
+    "research/work_unit_recovery_repair.py": "8db35f154c6f3bed27d0efc691222c7be0b239fa76e1b159559099e936a938be",
+    "research/WORK_UNIT_RECOVERY_REPAIR_IMPLEMENTATION.md": "8b26ae65a3b21fa03450fde7c151a43044004dd4ee167e6611ab9f0b739e4daa",
+    "research/WORK_UNIT_RECOVERY_REPAIR_REVIEW.md": "e857330d42ec41e120cc97d6e425fd881f8b0a65499785c1b4b77974d3eff411",
+    "research/WORK_UNIT_RECOVERY_REPAIR_FINDINGS.md": "a31df60fdf2c470244ad807d33342b0d579284ed13afbd665d50e1f2c066aaa4",
+    "research/work_unit_recovery_repair_audit.json": "4f30af04f63b74faa1317ec64f376e6861e79ed7c542a82f864b06bee0102874",
+    "research/work_unit_recovery_attempt_002.zip": "b12756bc2214d1743889440a113b5f72a952ffe13c0c55d5dcf3d808e261ae85"
+  },
+  "cumulative_phase_launches": 3,
+  "cumulative_dummy_callbacks": 2,
+  "new_phase_launches": 2,
+  "new_dummy_callbacks": 1,
+  "scientific_calls": 0,
+  "production_changes": false
+}

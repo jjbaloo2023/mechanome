@@ -1,0 +1,17 @@
+{
+  "task_id": "nonlinear-mesh-preflight-001",
+  "attempt_number": 1,
+  "resume_number": 1,
+  "accepted_at_utc": "2026-09-28T20:37:58.522361+00:00",
+  "disposition": "accepted_code_readiness_zero_BVP_final_attempt3_queued",
+  "artifact_sha256": {
+    "research/nonlinear_mesh_preflight_design.json": "10385b39adc2071e1d5a0fe0127e626e1ba9ccb43bdabb952e3250a7d009747e",
+    "research/nonlinear_mesh_preflight_resume_001.json": "0020c5fcc64f70afd9d33d88f7ec8d94a5635f3dadc8fa8c192c989fb763a73a",
+    "research/nonlinear_graph_numerical_003.py": "f9a25845c3cca2dd8dbb88d5d1de0641ce45a3ffd5dc865cb822fc22c26ebbc3",
+    "research/check_nonlinear_harness_003.py": "fc7915894b9a2e203da5f8256062ad319b6751305e46f49bae85270be7bee374",
+    "research/nonlinear_mesh_preflight_checks.json": "c6df3e9b17b00af6261be049630c53e26fd54ee5a1ed50fc7a5929acee3d2094",
+    "research/NONLINEAR_MESH_IMPLEMENTATION_RESUMED.md": "7f9b2f58a80fc9634611ef34673740b226d357472de93b9e07cc086cf2ec30ae",
+    "research/NONLINEAR_MESH_PREFLIGHT_REVIEW_RESUMED.md": "3b8b5a9af4e9955a23a1b6611de9ff3efec150c5d11bcd394ece7a5d1608680f",
+    "research/NONLINEAR_MESH_PREFLIGHT_FINDINGS_RESUMED.md": "0aaf095ea0924f12e50bd7a68da4c89fa18698bd198b1594514473f878043fcd"
+  }
+}

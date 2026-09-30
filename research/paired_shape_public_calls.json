@@ -1,0 +1,29 @@
+{
+  "task_id": "paired-shape-public-screen-001",
+  "allocated": {
+    "source_queries": 2,
+    "source_opens": 2,
+    "lead_opens": 1
+  },
+  "lead_calls": [
+    {
+      "kind": "primary_open",
+      "url": "https://www.nature.com/articles/s41467-022-29317-1",
+      "reserved_at_utc": "2026-09-29T17:33:14.020665+00:00",
+      "status": "completed",
+      "observed_at_utc": "2026-09-29T17:33:59.704949+00:00",
+      "result": "Primary article body verified: dual-tag CLCa STAR is axial-distribution proxy, indirect membrane shape, same two channels support ratio/intensity. No file/schema inspected."
+    }
+  ],
+  "source_ledger": "research/PAIRED_SHAPE_PUBLIC_SOURCE.md",
+  "scientific_calls": 0,
+  "team_totals": {
+    "search_queries": 2,
+    "primary_opens": 3,
+    "source_queries": 2,
+    "source_opens": 2,
+    "lead_opens": 1,
+    "raw_downloads": 0,
+    "scientific_calls": 0
+  }
+}

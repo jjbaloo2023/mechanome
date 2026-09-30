@@ -1,0 +1,23 @@
+{
+  "task_id": "actin-adaptation-prediction-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T11:36:59.636837+00:00",
+  "question": "Does Akamatsu2020 expose a concrete load-adaptation versus non-adapting prediction involving network structure and internalization, and which observable/control and small public artifact could test it?",
+  "reason": "Close reviewed source-recovery sequence; return to distinct active-network observable already nominated in CAP_LITERATURE, avoiding repeat theorem variants and missing-input audits.",
+  "inputs": [
+    "research/CAP_LITERATURE.md",
+    "research/KNOWN_LOAD_RECOVERY_FINDINGS.md",
+    "https://elifesciences.org/articles/49840"
+  ],
+  "scope": "Bounded primary-source reading: exact comparison/control, simulation output versus experimental observable, one most informative follow-up or explicit inability. Primary article plus at most one linked public code/data landing page. No archive payloads, code execution, movies, installs, API costs or contacting authors.",
+  "acceptance_checks": [
+    "Primary full-method/figure locator, label inference if only excerpt available",
+    "Actual adaptive/non-adaptive control and held-fixed quantities",
+    "Measured quantities versus simulated barbed-end/force variables",
+    "Data/code availability only as directly verified",
+    "No mechanism selection from a cap parameter subset or uncalibrated actin intensity",
+    "Independent review of proposed next experiment/data action"
+  ],
+  "stop_condition": "One source note and independent scope review or precise access/measurement gap; at most five minutes active source work and evidence cutoff. No reproduction or implementation.",
+  "evidence_cutoff_utc": "2026-09-29T11:45:27Z"
+}

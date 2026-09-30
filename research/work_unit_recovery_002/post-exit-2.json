@@ -1,0 +1,145 @@
+{
+  "charter": {
+    "name": "work-unit-recovery",
+    "goal": "offline dummy recovery",
+    "frozen_commit": "e2fee6b46b790f113849de237d5f7ab849530714",
+    "budget_cents": 0,
+    "review_reserve_cents": 0,
+    "max_workers": 1,
+    "max_attempts": 3,
+    "version": 1,
+    "mode": "offline",
+    "work_unit_limits": [
+      [
+        "dummy",
+        2
+      ]
+    ]
+  },
+  "budget": {
+    "spent_cents": 0,
+    "reserved_cents": 0,
+    "limit_cents": 0
+  },
+  "tasks": [
+    {
+      "id": "work-unit-recovery-task",
+      "body": "{\"alternatives\": [\"stop after unresolved reservation\"], \"cost_cents\": 0, \"expected_outcomes\": [\"persisted reservation blocks replacement\"], \"id\": \"work-unit-recovery-task\", \"inputs\": [\"c186d271cb593d037e3d29e6e0fdeb7a0217aa392e5bdd88df4d0c82f6eff2ff\"], \"purpose\": \"exploration\", \"question\": \"Do guarded dummy reservations survive ordinary process exits?\", \"rationale\": \"Bounded offline recovery demonstration\", \"required_checks\": [\"exit receipt\", \"marker hash\", \"work cap\"], \"stop_condition\": \"Three supervised phases or a preserved failure\", \"uncertainty\": \"Callback acknowledgement may be lost after evidence is written.\", \"work_unit_limits\": [[\"dummy\", 2]], \"worker\": \"lead-supervised-dummy\"}",
+      "result": null
+    }
+  ],
+  "attempts": [
+    {
+      "id": "721c1b8d01b84146a170ab09ddd26bcd",
+      "task": "work-unit-recovery-task",
+      "state": "running",
+      "reserved": 0,
+      "cost": 0,
+      "request_id": null,
+      "result": null
+    }
+  ],
+  "work_units": [
+    {
+      "task": "work-unit-recovery-task",
+      "call_id": "call-1",
+      "attempt": "721c1b8d01b84146a170ab09ddd26bcd",
+      "kind": "dummy",
+      "units": 1,
+      "state": "completed",
+      "reconciliation": "Verified exact original marker; later reconciliation record 0e31b640b697eb94d8c0123a6caec95b49225a7d6b787fd6acd0adf146697760"
+    },
+    {
+      "task": "work-unit-recovery-task",
+      "call_id": "call-2",
+      "attempt": "721c1b8d01b84146a170ab09ddd26bcd",
+      "kind": "dummy",
+      "units": 1,
+      "state": "completed",
+      "reconciliation": "Verified exact marker SHA256 0367b361632054456682e9c8ca5fc70742680c7ffd656f04ca8b7830ba277385"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "time": 1790699917.4337487,
+      "kind": "charter",
+      "body": "{\"budget_cents\": 0, \"frozen_commit\": \"e2fee6b46b790f113849de237d5f7ab849530714\", \"goal\": \"offline dummy recovery\", \"max_attempts\": 3, \"max_workers\": 1, \"mode\": \"offline\", \"name\": \"work-unit-recovery\", \"review_reserve_cents\": 0, \"version\": 1, \"work_unit_limits\": [[\"dummy\", 2]]}"
+    },
+    {
+      "id": 2,
+      "time": 1790699917.4348705,
+      "kind": "lead_acquired",
+      "body": "{\"owner\": \"phase-1\", \"token\": 1}"
+    },
+    {
+      "id": 3,
+      "time": 1790699917.4384,
+      "kind": "decision",
+      "body": "{\"charter_version\": 1, \"rationale\": \"create one shared recovery attempt\", \"tasks\": [\"work-unit-recovery-task\"], \"token\": 1}"
+    },
+    {
+      "id": 4,
+      "time": 1790699917.4384,
+      "kind": "attempt_started",
+      "body": "{\"attempt\": \"721c1b8d01b84146a170ab09ddd26bcd\", \"retry_reason\": null, \"task\": \"work-unit-recovery-task\", \"worker\": \"lead-supervised-dummy\"}"
+    },
+    {
+      "id": 5,
+      "time": 1790699917.4542441,
+      "kind": "work_reserved",
+      "body": "{\"attempt\": \"721c1b8d01b84146a170ab09ddd26bcd\", \"call_id\": \"call-1\", \"kind\": \"dummy\", \"task\": \"work-unit-recovery-task\", \"token\": 1, \"units\": 1}"
+    },
+    {
+      "id": 6,
+      "time": 1790701752.5528862,
+      "kind": "lead_terminated",
+      "body": "{\"evidence\": \"Later independently reviewed local reconciliation; original target exit code/ancestry unverified; record SHA256 0e31b640b697eb94d8c0123a6caec95b49225a7d6b787fd6acd0adf146697760\", \"token\": 1}"
+    },
+    {
+      "id": 7,
+      "time": 1790701759.035383,
+      "kind": "lead_acquired",
+      "body": "{\"owner\": \"repair-phase-2\", \"token\": 2}"
+    },
+    {
+      "id": 8,
+      "time": 1790701759.050543,
+      "kind": "work_reconciled",
+      "body": "{\"call_id\": \"call-1\", \"evidence\": \"Verified exact original marker; later reconciliation record 0e31b640b697eb94d8c0123a6caec95b49225a7d6b787fd6acd0adf146697760\", \"state\": \"completed\", \"task\": \"work-unit-recovery-task\", \"token\": 2}"
+    },
+    {
+      "id": 9,
+      "time": 1790701759.050543,
+      "kind": "work_reserved",
+      "body": "{\"attempt\": \"721c1b8d01b84146a170ab09ddd26bcd\", \"call_id\": \"call-2\", \"kind\": \"dummy\", \"task\": \"work-unit-recovery-task\", \"token\": 2, \"units\": 1}"
+    },
+    {
+      "id": 10,
+      "time": 1790701759.05886,
+      "kind": "work_reconciled",
+      "body": "{\"call_id\": \"call-2\", \"evidence\": \"Verified exact marker SHA256 0367b361632054456682e9c8ca5fc70742680c7ffd656f04ca8b7830ba277385\", \"state\": \"completed\", \"task\": \"work-unit-recovery-task\", \"token\": 2}"
+    },
+    {
+      "id": 11,
+      "time": 1790701759.0917344,
+      "kind": "lead_terminated",
+      "body": "{\"evidence\": \"Parent observed matching child PID and exit0; receipt SHA256 1d62a8d8ffc861e0d15a163ea9790ba4d5a2bb9887f80257747e4a5ebd28d3d9\", \"token\": 2}"
+    }
+  ],
+  "lead": [
+    {
+      "id": 1,
+      "token": 2,
+      "owner": "repair-phase-2",
+      "expires": 1790702059.035383,
+      "state": "terminated"
+    }
+  ],
+  "artifact_hashes": [
+    "c186d271cb593d037e3d29e6e0fdeb7a0217aa392e5bdd88df4d0c82f6eff2ff"
+  ],
+  "work_totals": {
+    "dummy": 2
+  }
+}

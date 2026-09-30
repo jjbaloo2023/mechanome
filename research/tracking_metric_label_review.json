@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-09-29T14:40:44.549580+00:00",
+  "tested_full_source_sha256": "9485c1b1cfbd35f807c35e569c7b41635df35d248639178897bcd7b52e324c51",
+  "final_full_source_sha256": "43da3b672d332ed4b6ba9422822cca3812f74fbb8a91e26d7fd827d360681f41",
+  "only_change_since_test": "tracking_sweep output key detected_frac renamed all_presence_gt_event_detected_frac",
+  "restoring_only_label_exactly_matches_tested_source_sha256": true,
+  "final_ruff_F_exit_code": 0,
+  "ruff_diagnostics": [],
+  "extra_test_or_tracker_runs": 0,
+  "rationale": "Cryptographic equality after reversing one literal key rename establishes all tested validator logic is byte-identical; no movie rerun needed."
+}

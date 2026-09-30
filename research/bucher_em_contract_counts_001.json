@@ -1,0 +1,145 @@
+{
+  "created_at_utc": "2026-09-26T15:32:19.229198+00:00",
+  "inventory_sha256": "723d9ada73d8c9f2c3906d58d5958465524e199052077f0b30df7bcef6d449c4",
+  "algorithm": "For each morphology column subtract text/header cell count from all nonempty cells; no formulas in inventory. This is a structural entry count, not a matched figure inclusion list.",
+  "published_source": "https://www.nature.com/articles/s41467-018-03533-0#Fig7",
+  "rows": [
+    {
+      "condition": "Control",
+      "cell_label": 1,
+      "columns": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deposited_flat_dome_pit_entries": [
+        110,
+        48,
+        99
+      ],
+      "deposited_total": 257,
+      "fig7_caption_total": 267,
+      "unresolved_difference": 10
+    },
+    {
+      "condition": "Control",
+      "cell_label": 2,
+      "columns": [
+        "E",
+        "F",
+        "G"
+      ],
+      "deposited_flat_dome_pit_entries": [
+        135,
+        64,
+        100
+      ],
+      "deposited_total": 299,
+      "fig7_caption_total": 308,
+      "unresolved_difference": 9
+    },
+    {
+      "condition": "Control",
+      "cell_label": 3,
+      "columns": [
+        "I",
+        "J",
+        "K"
+      ],
+      "deposited_flat_dome_pit_entries": [
+        151,
+        35,
+        40
+      ],
+      "deposited_total": 226,
+      "fig7_caption_total": 229,
+      "unresolved_difference": 3
+    },
+    {
+      "condition": "Control",
+      "cell_label": 4,
+      "columns": [
+        "M",
+        "N",
+        "O"
+      ],
+      "deposited_flat_dome_pit_entries": [
+        132,
+        91,
+        98
+      ],
+      "deposited_total": 321,
+      "fig7_caption_total": 323,
+      "unresolved_difference": 2
+    },
+    {
+      "condition": "osmotic shock",
+      "cell_label": 1,
+      "columns": [
+        "Q",
+        "R",
+        "S"
+      ],
+      "deposited_flat_dome_pit_entries": [
+        269,
+        54,
+        67
+      ],
+      "deposited_total": 390,
+      "fig7_caption_total": 395,
+      "unresolved_difference": 5
+    },
+    {
+      "condition": "osmotic shock",
+      "cell_label": 2,
+      "columns": [
+        "U",
+        "V",
+        "W"
+      ],
+      "deposited_flat_dome_pit_entries": [
+        51,
+        23,
+        21
+      ],
+      "deposited_total": 95,
+      "fig7_caption_total": 99,
+      "unresolved_difference": 4
+    },
+    {
+      "condition": "osmotic shock",
+      "cell_label": 3,
+      "columns": [
+        "Y",
+        "Z",
+        "AA"
+      ],
+      "deposited_flat_dome_pit_entries": [
+        237,
+        30,
+        80
+      ],
+      "deposited_total": 347,
+      "fig7_caption_total": 351,
+      "unresolved_difference": 4
+    },
+    {
+      "condition": "osmotic shock",
+      "cell_label": 4,
+      "columns": [
+        "AC",
+        "AD",
+        "AE"
+      ],
+      "deposited_flat_dome_pit_entries": [
+        146,
+        19,
+        35
+      ],
+      "deposited_total": 200,
+      "fig7_caption_total": 201,
+      "unresolved_difference": 1
+    }
+  ],
+  "decision": "All eight deposited totals are lower; no inclusion mapping explains differences. Do not fit or claim figure reproduction."
+}

@@ -1,0 +1,556 @@
+{
+  "task_id": "bucher-em-contract-001",
+  "started_at_utc": "2026-09-26T15:30:30.959212+00:00",
+  "design_sha256": "216de3765a37394f41010c018212bd25c4ff39fb922abbd5bc680e86f048d9d3",
+  "script_sha256": "8a87ad8a3d4578f799e0e4a9ea549186e3d18061947939584f616473a5160452",
+  "files": [
+    {
+      "id": 10256781,
+      "name": "EM BSC-1.xlsx",
+      "url": "https://ndownloader.figshare.com/files/10256781",
+      "expected_bytes": 78130,
+      "expected_md5": "ce61ee0d469a291ddcfa193310119905",
+      "started_at_utc": "2026-09-26T15:30:30.959212+00:00",
+      "resolved_url": "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/10256781/EMBSC1.xlsx?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIYCQYOYV5JSSROOA/20260926/eu-west-1/s3/aws4_request&X-Amz-Date=20260926T153031Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=a4bb636fd3b2a204f90187d28012e4b75be990b3a3c6f1ddd708bfa550948f7c",
+      "bytes": 78130,
+      "md5": "ce61ee0d469a291ddcfa193310119905",
+      "sha256": "da13bd3044c7d8a51f2c32aea0c404b36b68c06cde1cc79383c83aaa103ff216",
+      "status": "verified",
+      "cache_path": "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\.cache-bucher-em-001\\EM BSC-1.xlsx",
+      "inventory": {
+        "expanded_bytes": 181172,
+        "sheets": [
+          {
+            "name": "Sheet1",
+            "dimension": "A1:K445",
+            "nonempty_rows": 445,
+            "nonempty_cells_by_column": {
+              "A": 303,
+              "E": 344,
+              "I": 444,
+              "B": 156,
+              "C": 281,
+              "F": 222,
+              "G": 295,
+              "J": 127,
+              "K": 159
+            },
+            "first_8_rows": [
+              {
+                "A1": "Projected area (nm^2)"
+              },
+              {
+                "A2": "Cell 1",
+                "E2": "Cell 2",
+                "I2": "Cell 3"
+              },
+              {
+                "A3": "Flat",
+                "B3": "Dome",
+                "C3": "Pit",
+                "E3": "Flat",
+                "F3": "Dome",
+                "G3": "Pit",
+                "I3": "Flat",
+                "J3": "Dome",
+                "K3": "Pit"
+              },
+              {
+                "A4": "22607.13",
+                "B4": "21113.24",
+                "C4": "18354.009999999998",
+                "E4": "28079.22",
+                "F4": "22242.77",
+                "G4": "15680.9",
+                "I4": "22252.7",
+                "J4": "21504.1",
+                "K4": "18645.5"
+              },
+              {
+                "A5": "9599.3349999999991",
+                "B5": "14687.18",
+                "C5": "11888.2",
+                "E5": "15240.35",
+                "F5": "13948.52",
+                "G5": "13017.73",
+                "I5": "22355.39",
+                "J5": "13885.58",
+                "K5": "12587.12"
+              },
+              {
+                "A6": "14011.45",
+                "B6": "18499.75",
+                "C6": "16210.89",
+                "E6": "28211.71",
+                "F6": "22259.33",
+                "G6": "7992.8209999999999",
+                "I6": "12179.69",
+                "J6": "14541.44",
+                "K6": "15429.16"
+              },
+              {
+                "A7": "24087.77",
+                "B7": "17761.09",
+                "C7": "19682.28",
+                "E7": "34094.53",
+                "F7": "21576.97",
+                "G7": "15926.02",
+                "I7": "10225.379999999999",
+                "J7": "17963.150000000001",
+                "K7": "12047.2"
+              },
+              {
+                "A8": "15730.59",
+                "B8": "20715.75",
+                "C8": "22570.69",
+                "E8": "24064.59",
+                "F8": "28778.13",
+                "G8": "13951.83",
+                "I8": "18824.37",
+                "J8": "10771.93",
+                "K8": "15250.29"
+              }
+            ],
+            "last_2_rows": [
+              {
+                "I444": "11931.27"
+              },
+              {
+                "I445": "10708.99"
+              }
+            ],
+            "text_cells": [
+              {
+                "cell": "A1",
+                "text": "Projected area (nm^2)"
+              },
+              {
+                "cell": "A2",
+                "text": "Cell 1"
+              },
+              {
+                "cell": "E2",
+                "text": "Cell 2"
+              },
+              {
+                "cell": "I2",
+                "text": "Cell 3"
+              },
+              {
+                "cell": "A3",
+                "text": "Flat"
+              },
+              {
+                "cell": "B3",
+                "text": "Dome"
+              },
+              {
+                "cell": "C3",
+                "text": "Pit"
+              },
+              {
+                "cell": "E3",
+                "text": "Flat"
+              },
+              {
+                "cell": "F3",
+                "text": "Dome"
+              },
+              {
+                "cell": "G3",
+                "text": "Pit"
+              },
+              {
+                "cell": "I3",
+                "text": "Flat"
+              },
+              {
+                "cell": "J3",
+                "text": "Dome"
+              },
+              {
+                "cell": "K3",
+                "text": "Pit"
+              }
+            ],
+            "formulas": []
+          },
+          {
+            "name": "Sheet2",
+            "dimension": "A1",
+            "nonempty_rows": 0,
+            "nonempty_cells_by_column": {},
+            "first_8_rows": [],
+            "last_2_rows": [],
+            "text_cells": [],
+            "formulas": []
+          },
+          {
+            "name": "Sheet3",
+            "dimension": "A1",
+            "nonempty_rows": 0,
+            "nonempty_cells_by_column": {},
+            "first_8_rows": [],
+            "last_2_rows": [],
+            "text_cells": [],
+            "formulas": []
+          }
+        ]
+      },
+      "finished_at_utc": "2026-09-26T15:30:32.008769+00:00"
+    },
+    {
+      "id": 10256790,
+      "name": "EM BSC-1 osmotic shock.xlsx",
+      "url": "https://ndownloader.figshare.com/files/10256790",
+      "expected_bytes": 72748,
+      "expected_md5": "529bbaa8d3cfafc95821a4ea2e354708",
+      "started_at_utc": "2026-09-26T15:30:32.008769+00:00",
+      "resolved_url": "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/10256790/EMBSC1osmoticshock.xlsx?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIYCQYOYV5JSSROOA/20260926/eu-west-1/s3/aws4_request&X-Amz-Date=20260926T153032Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=28e75de762202e5fe54e4123ebacfe57809bdbcd30d21ed0a971f742142ece3b",
+      "bytes": 72748,
+      "md5": "529bbaa8d3cfafc95821a4ea2e354708",
+      "sha256": "6f9acae5fd3f7e0d737f13b2eec8496623e40de4a6912967099d822b1c6219ed",
+      "status": "verified",
+      "cache_path": "C:\\Users\\Jophi\\Documents\\Codex\\2026-09-05\\can-x20\\mechanome\\research\\.cache-bucher-em-001\\EM BSC-1 osmotic shock.xlsx",
+      "inventory": {
+        "expanded_bytes": 175423,
+        "sheets": [
+          {
+            "name": "Sheet1",
+            "dimension": "A1:AE273",
+            "nonempty_rows": 273,
+            "nonempty_cells_by_column": {
+              "A": 114,
+              "Q": 272,
+              "E": 137,
+              "I": 153,
+              "M": 134,
+              "U": 53,
+              "Y": 239,
+              "AC": 148,
+              "B": 49,
+              "C": 100,
+              "F": 65,
+              "G": 101,
+              "J": 36,
+              "K": 41,
+              "N": 92,
+              "O": 99,
+              "R": 55,
+              "S": 68,
+              "V": 24,
+              "W": 22,
+              "Z": 31,
+              "AA": 81,
+              "AD": 20,
+              "AE": 36
+            },
+            "first_8_rows": [
+              {
+                "A1": "Projected area (nm^2)"
+              },
+              {
+                "A2": "Control",
+                "Q2": "osmotic shock"
+              },
+              {
+                "A3": "Cell 1",
+                "E3": "Cell 2",
+                "I3": "Cell 3",
+                "M3": "Cell 4",
+                "Q3": "Cell 1",
+                "U3": "Cell 2",
+                "Y3": "Cell 3",
+                "AC3": "Cell 4"
+              },
+              {
+                "A4": "Flat",
+                "B4": "Dome",
+                "C4": "Pit",
+                "E4": "Flat",
+                "F4": "Dome",
+                "G4": "Pit",
+                "I4": "Flat",
+                "J4": "Dome",
+                "K4": "Pit",
+                "M4": "Flat",
+                "N4": "Dome",
+                "O4": "Pit",
+                "Q4": "Flat",
+                "R4": "Dome",
+                "S4": "Pit",
+                "U4": "Flat",
+                "V4": "Dome",
+                "W4": "Pit",
+                "Y4": "Flat",
+                "Z4": "Dome",
+                "AA4": "Pit",
+                "AC4": "Flat",
+                "AD4": "Dome",
+                "AE4": "Pit"
+              },
+              {
+                "A5": "2985.12",
+                "B5": "18681.12",
+                "C5": "13186.08",
+                "E5": "29521.439999999999",
+                "F5": "16094.88",
+                "G5": "14267.52",
+                "I5": "10728",
+                "J5": "31224.959999999999",
+                "K5": "6397.92",
+                "M5": "4821.12",
+                "N5": "13138.56",
+                "O5": "13147.2",
+                "Q5": "4085.28",
+                "R5": "28668.959999999999",
+                "S5": "10751.04",
+                "U5": "32130.720000000001",
+                "V5": "14459.04",
+                "W5": "15261.12",
+                "Y5": "15698.88",
+                "Z5": "7457.76",
+                "AA5": "9516.9599999999991",
+                "AC5": "16914.240000000002",
+                "AD5": "18972",
+                "AE5": "11666.88"
+              },
+              {
+                "A6": "5621.76",
+                "B6": "14086.08",
+                "C6": "16382.88",
+                "E6": "6432.48",
+                "F6": "15677.28",
+                "G6": "12290.4",
+                "I6": "15572.16",
+                "J6": "6397.92",
+                "K6": "12228.48",
+                "M6": "9469.44",
+                "N6": "7345.44",
+                "O6": "11280.96",
+                "Q6": "4000.32",
+                "R6": "24305.759999999998",
+                "S6": "15036.48",
+                "U6": "7391.52",
+                "V6": "15383.52",
+                "W6": "14361.12",
+                "Y6": "8506.08",
+                "Z6": "9479.52",
+                "AA6": "10189.44",
+                "AC6": "15665.76",
+                "AD6": "23963.040000000001",
+                "AE6": "16670.88"
+              },
+              {
+                "A7": "7426.08",
+                "B7": "11926.08",
+                "C7": "11452.32",
+                "E7": "17880.48",
+                "F7": "15063.84",
+                "G7": "15403.68",
+                "I7": "9915.84",
+                "J7": "20851.2",
+                "K7": "11057.76",
+                "M7": "6030.72",
+                "N7": "6147.36",
+                "O7": "20766.240000000002",
+                "Q7": "9316.7999999999993",
+                "R7": "9263.52",
+                "S7": "11907.36",
+                "U7": "8601.1200000000008",
+                "V7": "25356.959999999999",
+                "W7": "20992.32",
+                "Y7": "18999.36",
+                "Z7": "19095.84",
+                "AA7": "15395.04",
+                "AC7": "12178.08",
+                "AD7": "14068.8",
+                "AE7": "10946.88"
+              },
+              {
+                "A8": "18348.48",
+                "B8": "9508.32",
+                "C8": "12093.12",
+                "E8": "9987.84",
+                "F8": "15433.92",
+                "G8": "11292.48",
+                "I8": "12345.12",
+                "J8": "13190.4",
+                "K8": "11825.28",
+                "M8": "11142.72",
+                "N8": "7426.08",
+                "O8": "13016.16",
+                "Q8": "11524.32",
+                "R8": "9908.64",
+                "S8": "15317.28",
+                "U8": "11420.64",
+                "V8": "14725.44",
+                "W8": "12173.76",
+                "Y8": "12660.48",
+                "Z8": "18797.759999999998",
+                "AA8": "13026.24",
+                "AC8": "9156.9599999999991",
+                "AD8": "18417.599999999999",
+                "AE8": "9048.9599999999991"
+              }
+            ],
+            "last_2_rows": [
+              {
+                "Q272": "12794.4"
+              },
+              {
+                "Q273": "31512.959999999999"
+              }
+            ],
+            "text_cells": [
+              {
+                "cell": "A1",
+                "text": "Projected area (nm^2)"
+              },
+              {
+                "cell": "A2",
+                "text": "Control"
+              },
+              {
+                "cell": "Q2",
+                "text": "osmotic shock"
+              },
+              {
+                "cell": "A3",
+                "text": "Cell 1"
+              },
+              {
+                "cell": "E3",
+                "text": "Cell 2"
+              },
+              {
+                "cell": "I3",
+                "text": "Cell 3"
+              },
+              {
+                "cell": "M3",
+                "text": "Cell 4"
+              },
+              {
+                "cell": "Q3",
+                "text": "Cell 1"
+              },
+              {
+                "cell": "U3",
+                "text": "Cell 2"
+              },
+              {
+                "cell": "Y3",
+                "text": "Cell 3"
+              },
+              {
+                "cell": "AC3",
+                "text": "Cell 4"
+              },
+              {
+                "cell": "A4",
+                "text": "Flat"
+              },
+              {
+                "cell": "B4",
+                "text": "Dome"
+              },
+              {
+                "cell": "C4",
+                "text": "Pit"
+              },
+              {
+                "cell": "E4",
+                "text": "Flat"
+              },
+              {
+                "cell": "F4",
+                "text": "Dome"
+              },
+              {
+                "cell": "G4",
+                "text": "Pit"
+              },
+              {
+                "cell": "I4",
+                "text": "Flat"
+              },
+              {
+                "cell": "J4",
+                "text": "Dome"
+              },
+              {
+                "cell": "K4",
+                "text": "Pit"
+              },
+              {
+                "cell": "M4",
+                "text": "Flat"
+              },
+              {
+                "cell": "N4",
+                "text": "Dome"
+              },
+              {
+                "cell": "O4",
+                "text": "Pit"
+              },
+              {
+                "cell": "Q4",
+                "text": "Flat"
+              },
+              {
+                "cell": "R4",
+                "text": "Dome"
+              },
+              {
+                "cell": "S4",
+                "text": "Pit"
+              },
+              {
+                "cell": "U4",
+                "text": "Flat"
+              },
+              {
+                "cell": "V4",
+                "text": "Dome"
+              },
+              {
+                "cell": "W4",
+                "text": "Pit"
+              },
+              {
+                "cell": "Y4",
+                "text": "Flat"
+              },
+              {
+                "cell": "Z4",
+                "text": "Dome"
+              },
+              {
+                "cell": "AA4",
+                "text": "Pit"
+              },
+              {
+                "cell": "AC4",
+                "text": "Flat"
+              },
+              {
+                "cell": "AD4",
+                "text": "Dome"
+              },
+              {
+                "cell": "AE4",
+                "text": "Pit"
+              }
+            ],
+            "formulas": []
+          }
+        ]
+      },
+      "finished_at_utc": "2026-09-26T15:30:32.884131+00:00"
+    }
+  ],
+  "interpretation": "Structure only; labels and counts are not independently validated biological sampling or effects.",
+  "finished_at_utc": "2026-09-26T15:30:32.884131+00:00"
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "yeast-reference-methods-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T14:01:30.517736+00:00",
+  "question": "Does the primary method establish a common Sla1 positional reference and curve alignment adequate for a fixed-interval descriptor of the four Figure6 stored mean curves?",
+  "primary_locators": [
+    "https://elifesciences.org/articles/44215",
+    "https://elifesciences.org/articles/44215/figures"
+  ],
+  "input_sha256": {
+    "research/YEAST_FIGURE6_FINDINGS.md": "045bf7e1dcd0c92694ea4686690663eb45a4be6e641c9d521e717a89e2a2ea00"
+  },
+  "limits": {
+    "source_minutes": 6,
+    "parsed_primary_opens_team": 2,
+    "search_queries_team": 1,
+    "local_body_downloads": 0,
+    "new_data_files": 0,
+    "author_code_executions": 0,
+    "BVP_calls": 0
+  },
+  "acquisition_owner": "/root/actin_adaptation_source_001",
+  "reviewer_remote_requests": 0,
+  "acceptance": [
+    "Exact primary spatial origin and direction",
+    "Trajectory alignment and averaging scope, including relevance to Figure6",
+    "Can the same40-80nm interval be compared as stored-curve descriptor?",
+    "Distinguish paper-method definitions from CSV-time anomaly and biological replication",
+    "Independent source-scope review"
+  ],
+  "stop_condition": "One reviewed definition or exact absence/access gap; sole methods follow-up, no second rescue. No numerical contrast during this task.",
+  "evidence_cutoff_utc": "2026-09-29T14:15:33Z",
+  "target_checkpoint_utc": "2026-09-29T14:20:33Z"
+}

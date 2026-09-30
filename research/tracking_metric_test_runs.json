@@ -1,0 +1,32 @@
+{
+  "task_id": "tracking-metric-contract-001",
+  "attempt_number": 1,
+  "test_invocation_cap": 3,
+  "tracker_movie_run_cap": 3,
+  "test_invocations": [
+    {
+      "invocation": 1,
+      "started_at_utc": "2026-09-29T14:37:45.190424+00:00",
+      "status": "completed",
+      "log": "research/tracking_metric_pytest_01.log",
+      "tracker_calls": [
+        {
+          "started_at_utc": "2026-09-29T14:38:16.719444+00:00",
+          "status": "completed",
+          "finished_at_utc": "2026-09-29T14:38:16.845758+00:00"
+        }
+      ],
+      "input_sha256": {
+        "validation/tracking.py": "9485c1b1cfbd35f807c35e569c7b41635df35d248639178897bcd7b52e324c51",
+        "tests/test_tracking_validation.py": "47bad5bd1a28721c2239ab1717467838a5464af0af0f857280b258fd83ce8d54",
+        "tests/test_orchestration.py": "04eba722db6d61dee12d56a868aab2c27148535296df9d3f0a8c1711010b3c08"
+      },
+      "exit_code": 0,
+      "finished_at_utc": "2026-09-29T14:38:32.220680+00:00"
+    }
+  ],
+  "tracker_movie_runs_reserved": 1,
+  "tracker_movie_runs_completed": 1,
+  "budget_owner": "lead_only",
+  "worker_execution_allowed": false
+}

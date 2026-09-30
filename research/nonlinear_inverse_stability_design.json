@@ -1,0 +1,27 @@
+{
+  "task_id": "nonlinear-inverse-stability-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T01:03:58.667495+00:00",
+  "question": "Does the analytically accepted nonflat uniqueness family nevertheless lack a uniform Lipschitz source-recovery bound as amplitude approaches zero?",
+  "scope": "Pure analytic question from accepted source-compensation and existence theorems. Closed numerical branch remains closed; no use of failed profiles, no BVPs, no numerical K or noise calibration.",
+  "input_sha256": {
+    "research/NONLINEAR_SOURCE_THEORY.md": "4159afb38647be0722e7880edfc66dbc9d967c08a3b5e6a8631a315119314851",
+    "research/NONLINEAR_EXISTENCE_THEORY.md": "a9ec0a6dfefa5ba34ab3ade0804aeed5fd2a9d6f6687a6076ff8ae48704ea9c0",
+    "research/NONLINEAR_EXISTENCE_FINDINGS.md": "aa29b81c07d6b15b453ca6135f212d05e52d83538c689fe621f2736fbf93aa9e",
+    "research/NONLINEAR_UNIQUENESS_THEORY.md": "a6be241b41ce88712d6dcd2aa88f7cea8abbe6215d12de4b5a081e4114cb61aa"
+  },
+  "candidate_argument": "For c=epsilon*phi,f0 profiles U1,U2, let g=c and choose exact compact balanced load change preserving U1 under c->2c. Extend local elliptic inverse to common forcing; prove altered U2 differs by O(epsilon^3) while curvature source changes by O(epsilon). If rigorous in named norms with constants uniform, uniform inverse Lipschitz constant must grow at least epsilon^-2. Otherwise state exact missing estimate.",
+  "acceptance_checks": [
+    "Exact load sign and projected-area convention",
+    "Actual perturbed second equilibrium existence, not residual alone",
+    "Named source and data norms, regularity/origin/compact load/net force",
+    "Uniform small-amplitude constants and no reliance on failed numerical output",
+    "Independent challenge; distinguish lower bound on conditioning from attainable noise precision or stability"
+  ],
+  "expected_outcomes": [
+    "conditional analytic lack of uniform inverse stability",
+    "precise norm/existence blocker"
+  ],
+  "stop_condition": "One proof or precise gap; no computational continuation, measurements, fitted data or numerical K.",
+  "evidence_cutoff_utc": "2026-09-29T01:11:16Z"
+}

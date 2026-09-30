@@ -1,0 +1,13 @@
+# A bounded actin-network prediction to investigate
+
+**Reviewed source decision, 29 September 2026.** The next useful branch concerns a joint network and internalization prediction, beyond the completed source-recovery theorems. It is not a new biological finding or a completed reproduction.
+
+Akamatsu et al. Figure 7 compares network simulations with a constant-work internalization reference, E=1/2 k x^2. The simulations retain more internalization at higher load than that reference predicts, with changes in base-proximal filament organization and bending. The 7.5-nm proximity definition is a simulation analysis metric. These statements were checked in indexed primary Results, Figure 7 and Methods; direct eLife/PMC page opens returned browser challenges. See the [primary article](https://elifesciences.org/articles/49840), [source note](ACTIN_ADAPTATION_SOURCE.md) and [independent review](ACTIN_ADAPTATION_REVIEW.md).
+
+The comparison rejects neither all prescribed-force histories nor every non-adaptive mechanism. The constant-work reference is one explicit constraint. Our proposed follow-up is to assess internalization together with a spatially localized network observable under controlled load; this is a synthesis for a future test, not a verified paired experiment from the source pass.
+
+Review corrected two potential overclaims before acceptance. First, membrane tension and the spring resistance k are distinct quantities even though both use pN/nm. Their different reported numbers are not an established source inconsistency; the conversion needs checking. Second, baseline fluorescence/molecule counting and cryo-electron tomography do not establish measured displacement and network metrics matched to the tension-conditioned simulation curves. No biological force estimate follows.
+
+The [article-linked repository](https://github.com/DrubinBarnes/Akamatsu_CME_manuscript) is publicly visible, with simulation and image-analysis directories. Its landing page does not establish that Figure 7 can be reproduced from deposited data. The next task is a small read-only inventory: pin a revision, locate the analysis/configuration metadata, check the tension-to-spring mapping and otherwise-fixed parameters, and identify any small tabular output. Stop if this cannot be established within the declared metadata budget; do not clone, install, run Cytosim, download movies or fabricate missing inputs.
+
+This source/review task is complete and preserved by the [manifest](actin_adaptation_prediction_manifest.json). The [design](actin_adaptation_prediction_design.json) limits its claims. The prior numerical branch remains closed, and no currently assessed public table gains permission for calibrated source inference.

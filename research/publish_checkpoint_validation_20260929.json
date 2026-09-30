@@ -1,0 +1,65 @@
+{
+  "checked_at_utc": "2026-09-30T01:35:07.552828+00:00",
+  "purpose": "User-authorized paused research checkpoint publication; no scientific reruns.",
+  "manifests": 38,
+  "hash_entries_checked": 297,
+  "local_cache_hash_entries": 26,
+  "hash_failures": [],
+  "navigation_links_checked": 583,
+  "broken_links": [],
+  "unchanged_accepted_controller_and_test_hashes": true,
+  "tracking_matches_accepted_source_snapshot": true,
+  "candidate_paths_scanned": 385,
+  "secret_pattern_file_matches": [
+    "research/bucher_em_contract_001.json"
+  ],
+  "files_above_50_MB": [],
+  "json_python_parse_errors": [],
+  "git_diff_check_exit_code": 0,
+  "git_diff_check_output": "warning: in the working copy of 'mechanome/research/contracts.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'mechanome/research/controller.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'validation/tracking.py', LF will be replaced by CRLF the next time Git touches it\n",
+  "new_tests_run": 0,
+  "reason_no_test_rerun": "Summary/pause changes only; accepted production and test bytes checked against prior reviewed validation, with no new implementation changes.",
+  "scientific_invocations": 0,
+  "target_branch": "refactor/readable-pipelines",
+  "other_branch": "feature/mesoscopic-two-body",
+  "other_branch_touched": false,
+  "automatic_restart": false,
+  "secret_pattern_review": {
+    "unresolved_matches": 0,
+    "classification": "Two publisher-generated signed public Figshare URLs, issued2026-09-26 with10-second expiry; AWS access-key identifiers without any secret-access-key value. Expired source provenance retained unchanged to preserve frozen hashes.",
+    "live_private_credential_found": false
+  },
+  "frozen_whitespace_preservation": {
+    "initial_staged_diff_check": 2,
+    "files": {
+      "research/NONLINEAR_INVERSE_STABILITY_REVIEW.md": [
+        "new blank line at EOF."
+      ],
+      "research/NONLINEAR_MESH_PREFLIGHT_REVIEW.md": [
+        "new blank line at EOF."
+      ],
+      "research/NONLINEAR_NUMERICAL_DESIGN_REVIEW.md": [
+        "new blank line at EOF."
+      ],
+      "research/NONLINEAR_NUMERICAL_REPAIR_REVIEW.md": [
+        "new blank line at EOF."
+      ],
+      "research/NONLINEAR_UNIQUENESS_REVIEW.md": [
+        "new blank line at EOF."
+      ],
+      "research/RECRUITMENT_DURATION_THEORY.md": [
+        "trailing whitespace."
+      ],
+      "research/geometry_transfer_comparison.svg": [
+        "trailing whitespace."
+      ],
+      "research/nonlinear_numerical_reanalysis_003.py": [
+        "new blank line at EOF."
+      ],
+      "research/recruitment_duration_illustration.svg": [
+        "trailing whitespace."
+      ]
+    },
+    "resolution": "Path-specific whitespace attributes retain exact accepted evidence bytes; no frozen source or artifact edited."
+  }
+}

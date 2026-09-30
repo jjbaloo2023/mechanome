@@ -1,0 +1,12 @@
+{
+  "task_id": "nonlinear-existence-001",
+  "accepted_at_utc": "2026-09-26T23:29:56.522303+00:00",
+  "artifact_sha256": {
+    "research/nonlinear_existence_design.json": "14645c6491f78e87498c662a08fad8fa78addd7a5938279b86a50ea9d3c90aaf",
+    "research/nonlinear_existence_next_cycle_input.md": "90afc1a6283b9cd4d56350d990bfa0e543d3242594d5ad4cbc51dc9139b41c5b",
+    "research/NONLINEAR_EXISTENCE_THEORY.md": "a9ec0a6dfefa5ba34ab3ade0804aeed5fd2a9d6f6687a6076ff8ae48704ea9c0",
+    "research/NONLINEAR_EXISTENCE_ORDERING.md": "cd7059d287dc32ff90e8e71484f7a6817ec7b3d5702888669d81b8043cdada45",
+    "research/NONLINEAR_EXISTENCE_REVIEW.md": "960cabdd5095ec9d4e054ba774b7431f1b9d397f537deb3a24dc2cc474690e0a",
+    "research/NONLINEAR_EXISTENCE_FINDINGS.md": "aa29b81c07d6b15b453ca6135f212d05e52d83538c689fe621f2736fbf93aa9e"
+  }
+}

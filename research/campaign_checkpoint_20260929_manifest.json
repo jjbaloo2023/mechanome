@@ -1,0 +1,12 @@
+{
+  "accepted_at_utc": "2026-09-29T18:08:37.299626+00:00",
+  "disposition": "dated_checkpoint; schedule_deleted; biological_questions_open",
+  "artifact_sha256": {
+    "research/CAMPAIGN_CHECKPOINT_20260929.md": "d7d3516aa6969364c74939fe235b69323d276a80d5da2c8fb8ceb92188e1dbb4",
+    "research/CAMPAIGN_CONTINUATION_REVIEW_20260929.md": "1d547a0d492859390755a9352cce29997bdab915f24e2a714776a5db8a853f51",
+    "research/automation_retirement_20260929.json": "457337125fc84680d550c1025e912f20f610a428ab92326a78d70aa59a50238d"
+  },
+  "new_scientific_calls": 0,
+  "automation_id": "mechanome-research-loop",
+  "automation_deleted": true
+}

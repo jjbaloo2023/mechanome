@@ -1,0 +1,16 @@
+{
+  "task_id": "nonlinear-numerical-001",
+  "checkpoint_at_utc": "2026-09-27T01:03:24.288792+00:00",
+  "lead_disposition": "completed_gate_failed_K_suppressed",
+  "artifact_sha256": {
+    "research/nonlinear_numerical_execution_002.json": "8f8b3ac57a4363f76ff3b4b67d5db9b8ba5be86872a96df050ddb2c59182cb9c",
+    "research/nonlinear_graph_numerical_002.py": "6bd9fe5c8fcf268156d7118cdc32dbda601025934f371b07c28aba879527c922",
+    "research/nonlinear_numerical_results_002.json": "c8eebc7b9efdf1e53b0ed0ae6a5f8f7464f838818e46aee84e6ccf73bcbf4cca",
+    "research/nonlinear_numerical_profiles_002.npz": "8bd02b0b0464b39a9ee1ce9e948417b309a364524d171d7d9d8d1eda39a47523",
+    "research/NONLINEAR_NUMERICAL_IMPLEMENTATION_002.md": "af1e9d477e348405495e7a81bbf783e8ec393252e9055b84cbc07dd515f94516",
+    "research/NONLINEAR_NUMERICAL_REVIEW_002.md": "794e4fd85772cf24906110bab59915b7dcab00f5e3d3fea51c09e12cca0deb0f",
+    "research/nonlinear_numerical_reanalysis_002.py": "92b07aa7b46207f7fd4cae1940c23b0cbc047902ad6f428a7b0403254c27c2cc",
+    "research/nonlinear_numerical_reanalysis_002.json": "e13dd1dc8a565c4cbff05cdb0fdac27b41ca110e523e42fa1fea8f2a801d75bf",
+    "research/NONLINEAR_NUMERICAL_FINDINGS_002.md": "97dcb219414c4c7660e2d8fdf5f779e7275198064a8c023346ebc0d588abe8db"
+  }
+}

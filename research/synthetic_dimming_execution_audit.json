@@ -1,0 +1,34 @@
+{
+  "task_id": "synthetic-dimming-benchmark-001",
+  "attempt_number": 1,
+  "recorded_at_utc": "2026-09-29T14:14:13.338227+00:00",
+  "registered_tracker_movie_cap": 150,
+  "actual_tracker_movies_across_attempt": 282,
+  "cap_exceeded_by": 132,
+  "execution_budget_compliant": false,
+  "runs": [
+    {
+      "invocation": 1,
+      "tracker_movies": 141,
+      "exit_code": 0,
+      "tool_wall_seconds_reported_by_worker": 5.8,
+      "start_utc": null,
+      "end_utc": null,
+      "source_and_results_preserved": false,
+      "limitation": "First outputs overwritten by worker rerun; first source version not preserved."
+    },
+    {
+      "invocation": 2,
+      "tracker_movies": 141,
+      "exit_code": 0,
+      "started_at_utc": "2026-09-29T14:10:01.189246+00:00",
+      "completed_at_utc": "2026-09-29T14:10:02.305832+00:00",
+      "source_and_results_preserved": true,
+      "results_sha256": "f75ed55f49d66dffda4454b214c05489af4b1019621a793f90919c6eaccefc98"
+    }
+  ],
+  "reason_reported_by_worker": "Reran main after a small retained-track-support/validation edit. No parameter change reported; first version cannot be independently checked.",
+  "additional_tracking_in_lead_reanalysis": 0,
+  "warning": "synthetic_dimming_checks.json total_movie_runs=141 and total_runs_within_150=true describe only the saved invocation, not the full attempt. This audit supersedes that claim for attempt-level compliance.",
+  "response": "Stop further tracking; disclose overrun, retain saved quantitative output with scoped independent review and no strict preregistration-compliance claim. Queue separately registered metric-contract repair, not benchmark rerun."
+}

@@ -1,56 +1,63 @@
-# Clathrin research checkpoint
+# Clathrin research campaign
 
-**Reviewed through 26 September 2026.** The campaign has a descriptive result
-from public cap-fit tables, conditional mechanics results, and a reviewed
-software boundary for exploratory fits. It does not yet identify a biological
-mechanism or calibrate force from those tables.
+**Current status: paused by the user, 29 September 2026.** Start with the
+[overview](OVERVIEW.md) for the research story, workflow and restart steps.
+The recurring loop is deleted; no automatic restart is scheduled. The separate
+mesoscopic branch is outside this campaign pause.
 
-## Read in this order
+**Reviewed checkpoint: 29 September 2026.** We have descriptive results from
+public geometry tables, conditional mechanics results, and tested observation
+software. We have not selected a biological mechanism or recovered forces from
+these public data. The latest geometry comparison shows that the preferred
+curve changes with the held-out cell line and inclusion policy.
 
-1. [Findings](FINDINGS.md): what the evidence supports, what failed, and what is still missing.
-2. [Study index](INDEX.md): grouped links to each design, implementation, result, figure and review.
-3. [Reproduce and verify](REPRODUCE.md): offline checks, external inputs, and frozen-run conventions.
-4. [Assessment](ASSESSMENT.md): the detailed theory/data decision and remaining gaps.
-5. [Next decision](NEXT_CYCLE.md): the queued full-membrane curvature-versus-load question; no result yet.
+The latest operational milestone is an [offline cumulative work-unit guard](WORK_UNITS_FINDINGS.md):
+17 tests passed, with independent review. It retains limits across retries and
+database reopens, rejects duplicates and blocks unresolved replacement. It is
+not yet wired into live agent work.
 
-The latest completed implementation is the [LocMoFit adapter and consumer
-cleanup](LOCMOFIT_ADAPTER_CLEANUP.md). Missing uncertainty is explicit, raw and
-corrected cohorts are distinct, and the two legacy static fitting consumers
-require exploratory opt-in. These changes do not validate earlier biological
-interpretations or the generic inverse pipeline.
+The [separate-process follow-up](WORK_UNIT_RECOVERY_FINDINGS.md) stopped at a
+process-ID mismatch. A [direct-interpreter probe](PROCESS_IDENTITY_FINDINGS.md)
+and [reviewed local reconciliation](WORK_UNIT_RECOVERY_REPAIR_FINDINGS.md) enabled
+the two remaining phases to finish without resetting the budget. The original
+failure remains preserved; this does not establish live-agent or reboot recovery.
 
-## Where things live
+The newest [observation result](STAR_OBSERVATION_FINDINGS.md) shows, under a
+stated two-channel model, that inferred coat amount and axial position have
+shared measurement error and become unstable as attenuation coefficients
+converge. Six exact arithmetic cases and independent review passed. A new
+[public workbook listing](PAIRED_SHAPE_PUBLIC_FINDINGS.md) was found, but its
+schema remains unverified after a local network-permission failure.
 
-| Location | Purpose |
+## Start here
+
+1. [Findings](FINDINGS.md): the evidence, its limits, and what would change the conclusion.
+2. [Assessment](ASSESSMENT.md): competing explanations, data requirements and branch decisions.
+3. [Pipeline architecture](PIPELINE_ARCHITECTURE.md): how one lead and bounded specialists resume, review and steer the work.
+4. [Study index](INDEX.md): original designs, code, results, figures, reviews and failed attempts.
+5. [Reproduce and verify](REPRODUCE.md): input provenance, checks and protected historical outputs.
+6. [Next decision](NEXT_CYCLE.md): the current executable direction and stopping rules.
+
+## What belongs where
+
+| Records | Purpose |
 | --- | --- |
-| This directory's study notes, scripts, JSONs, figures and synthetic states | Reviewed scientific evidence and retained attempts; navigate through the study index |
-| `*_frozen_*`, `*_before_*`, numbered result/record directories | Historical source, designs and outputs; a stored file is not automatically an accepted result |
-| `metadata/` | Source inventories, access records, locators and checksums; downloaded payloads stay outside Git |
-| [PROGRESS.md](PROGRESS.md), [agent_tasks.json](agent_tasks.json) | Dated activity, result dispositions, corrections and execution limitations |
-| [campaign.json](campaign.json), [NEXT_CYCLE.md](NEXT_CYCLE.md), [AGENT_LOOP.md](AGENT_LOOP.md) | Current direction and subscription-driven operating protocol |
-| [mechanome/research](../mechanome/research/) | Separate offline SQLite controller and restart demo |
-| [validation/realdata](../validation/realdata/), [tests](../tests/) | Dataset adapters, exploratory consumers and regression checks |
+| Study notes, scripts, results and figures linked from the index | Evidence, assumptions, interpretation and independent challenge |
+| Designs and hash manifests | Registered limits and exact artifact identity |
+| [Progress](PROGRESS.md) and [task register](agent_tasks.json) | Actual observed activity, ownership, corrections and dispositions |
+| [Campaign](campaign.json), next decision and [agent protocol](AGENT_LOOP.md) | Current direction and operating limits |
+| `metadata/` | Public locators, access records and checksums; downloaded caches are excluded from Git |
+| [Offline controller](../mechanome/research/) | Separate SQLite persistence/restart demonstration |
 
-Original evidence paths remain stable because code, manifests and reviews refer
-to them. Rejected attempts are retained and labeled in the index; generated
-caches and downloaded payload copies are ignored. Git preserves the exact bytes
-of the research archive and the adapter files covered by its hash manifest.
+Original study paths remain stable. Rejected and inconclusive attempts stay
+available with their dispositions; they are not silently replaced by successful
+runs. The earlier navigation pages are preserved in the [synthesis snapshot](campaign_navigation_before_001.zip).
 
-## Operation and its limits
+The campaign used subscription tools and local computation with zero direct
+API spending. A 30-minute heartbeat requested bounded cycles before retirement. Scheduled
+delivery, active work, queued work and a dated checkpoint are different states;
+saved files do not demonstrate uninterrupted execution or a remote backup.
 
-The active research workflow uses a coordinating Codex task and bounded
-subscription subagents. Heartbeats request another cycle; they do not establish
-continuous execution. The progress log distinguishes observed work, scheduling
-gaps, stopped runs and queued decisions. Direct API spending remains zero.
-
-The Python controller is an **offline persistence demonstration**. Its flow is
-`acquire_lead -> decide -> start -> finish`; it records attempts, reservations,
-fenced ownership and hashed artifacts. Unknown execution blocks replacement,
-and valid negative outcomes are retained. It does not launch the subscription
-agents, choose research questions, enforce provider budgets or run a service.
-`quality="valid"` is a trusted caller assertion. SQLite and its artifact directory
-must be backed up together. See the reproduction guide for its two-process demo.
-
-The older [scientific reference](../RESEARCH.md) and [manuscript](../MANUSCRIPT.md)
-contain historical demonstrations. Use this checkpoint's findings and reviews
-for the current public-data claim boundary.
+Older [research notes](../RESEARCH.md) and the [manuscript](../MANUSCRIPT.md)
+contain historical demonstrations. Use the reviewed findings for current claim
+boundaries. Publishing and Git pushes are outside this heartbeat's authorization.

@@ -1,0 +1,35 @@
+{
+  "task_id": "nonlinear-numerical-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-27T00:23:55.810392+00:00",
+  "status": "registered",
+  "scheduled_trigger_utc": "2026-09-27T00:22:29.988Z",
+  "actual_start_utc": "2026-09-27T00:22:41Z",
+  "evidence_cutoff_utc": "2026-09-27T00:37:41Z",
+  "target_checkpoint_utc": "2026-09-27T00:42:41Z",
+  "frozen_design_sha256": "069c4136f8c01b3d98f592c7afb2bc9040fe9473d22202a4d7e5e4beafebf901",
+  "constraint": "One bounded 26-solve execution; record each solve before/after and preserve partial output on failure. Do not rerun unknown work or escalate fixed parameters.",
+  "expected_outcomes": [
+    "converged finite-case realization within declared gates",
+    "precise numerical or code failure with scope retained"
+  ],
+  "stop_condition": "One independently reviewed numerical realization with declared convergence/controls or exact failure; no empirical inference or broader continuation sweep.",
+  "ownership": {
+    "lead": [
+      "research/NONLINEAR_NUMERICAL_FINDINGS.md",
+      "research/nonlinear_numerical_execution_001.json"
+    ],
+    "numerical": [
+      "research/nonlinear_graph_numerical.py",
+      "research/nonlinear_numerical_results_001.json",
+      "research/nonlinear_numerical_profiles_001.npz",
+      "research/NONLINEAR_NUMERICAL_IMPLEMENTATION.md"
+    ],
+    "review": [
+      "research/NONLINEAR_NUMERICAL_REVIEW.md"
+    ],
+    "asymptotic": [
+      "research/NONLINEAR_NUMERICAL_ASYMPTOTIC.md"
+    ]
+  }
+}

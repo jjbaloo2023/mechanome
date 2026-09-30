@@ -1,0 +1,27 @@
+{
+  "task_id": "geometry-transfer-001",
+  "accepted_at_utc": "2026-09-29T15:14:39.682409+00:00",
+  "disposition": "accepted_descriptive_with_target_line_and_policy_rank_reversals",
+  "artifact_sha256": {
+    "research/geometry_transfer_design.json": "f9ee4595d95389a5fa6e66bbf7e877c75b1570d733a08a320a8ab2fe041a8c90",
+    "research/geometry_transfer.py": "2100728ab1647765cb518a9b6f6d63f7b78c1f98ef9e7e9dd3bcea4155ca58d2",
+    "research/GEOMETRY_TRANSFER_IMPLEMENTATION.md": "6669376ce29db127e284202ea0070e3ac15ff34cdcd1efc038ad1bd639e3a5b7",
+    "research/geometry_transfer_checks_001.json": "a22313bc1bb7b6052faa09a956966cc27d3d5ce6135899cfbc8fab0ff65928c0",
+    "research/geometry_transfer_results_001.json": "65c8235f01c35e0f403f7bdcee1af22066bd6ee0fbedf06e1fa8f8f7d25b4400",
+    "research/geometry_transfer_execution.json": "5b1245fff6177b1b57b9941e6aa6d8ad7843a67686a953805dd8278390ac8f19",
+    "research/geometry_transfer_weight_reference.json": "b39238cae7e16daeb0fe2a2118ce7fcdd8c4881e1efc7451dd7ca0b004a4c036",
+    "research/check_geometry_transfer.py": "7796ce19f05b182f0958f7377c197a10bed1b8ee74ca9eaff70b877ebc258b7c",
+    "research/geometry_transfer_prediction_audit.json": "2002cd14732717bc7e79c2aa554cfbdeb5b73571cb7361166c699a2dece5a8ae",
+    "research/GEOMETRY_TRANSFER_REVIEW.md": "46551aca069fa84aad870517a50f35e4d431b9b78593dc5253838ed5acf20797",
+    "research/GEOMETRY_TRANSFER_FINDINGS.md": "2166f8f36f19ce0befbd970c3bf649cdd52bfc71737a38c40d26772a1c47a647",
+    "research/geometry_transfer_comparison.png": "e01cdb08a63488de134fce492c76af301098ec29e655e0921ed9e975a1dbd4b6",
+    "research/geometry_transfer_comparison.svg": "60ed2fdc9da8042b4e9375044dfa1025179c796950b7691e414355214c0b109f"
+  },
+  "empirical_fit_calls": 27,
+  "synthetic_fit_calls": 4,
+  "empirical_invocations": 1,
+  "additional_fit_calls_in_prediction_audit": 0,
+  "cumulative_limits_complied": true,
+  "independent_review": "research/GEOMETRY_TRANSFER_REVIEW.md",
+  "stopping_decision": "Registered comparison complete; no more fits. Next: campaign synthesis and evidence-gap decision."
+}

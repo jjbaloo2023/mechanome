@@ -1,0 +1,92 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T18:00:26.168Z",
+  "first_tool_clock_utc": "2026-09-29T18:00:33Z",
+  "evidence_cutoff_utc": "2026-09-29T18:15:33Z",
+  "target_checkpoint_utc": "2026-09-29T18:20:33Z",
+  "checkpoint_utc": "2026-09-29T18:10:29.259218+00:00",
+  "status": "completed_dated_checkpoint",
+  "continuous_activity_claim": false,
+  "observed_events": [
+    {
+      "at": "2026-09-29T18:00:33Z",
+      "event": "Read current campaign/direction/protocol/tasks/progress; reconciled terminal workers; no unknown execution."
+    },
+    {
+      "at": "2026-09-29T18:02:00.217077+00:00",
+      "event": "Registered fixed positive four-support counterexample after17prior artifact hash checks and repo write grant."
+    },
+    {
+      "at": "2026-09-29T18:02:56.909640+00:00",
+      "event": "Sole exact-rational invocation passed one registered pair; no searches, simulations, log approximations or rerun."
+    },
+    {
+      "observed_by_utc": "2026-09-29T18:03:57Z",
+      "theory_file_modified_utc": "2026-09-29T18:03:26.592191+00:00",
+      "review_file_modified_utc": "2026-09-29T18:03:53.704508+00:00",
+      "event": "Lead inspected theory and independent acceptance of exact example and scope."
+    },
+    {
+      "at": "2026-09-29T18:05:57.459848+00:00",
+      "event": "Seven artifacts frozen; observation branch closed. Independent continuation review finds no distinct next action within assessed inputs/stops."
+    },
+    {
+      "at": "2026-09-29T18:07:31Z",
+      "event": "Requested deletion of recurring heartbeat after saving concrete handoff; app returned deleteStatus deleted."
+    },
+    {
+      "at": "2026-09-29T18:08:37.299626+00:00",
+      "event": "Recorded deletion receipt, retired current scheduling state and froze handoff/continuation review/receipt."
+    },
+    {
+      "at": "2026-09-29T18:09:30.878920+00:00",
+      "event": "38manifests/297hashentries/570links passed; no hash or broken-link failures. JSON/UTF8/PythonAST and gitdiffcheck passed; production/controller/tests unchanged."
+    }
+  ],
+  "lead_dispositions": {
+    "counterexample": "Accept exact model-conditional nonidentifiability of mean axial height despite known amount and two calibrated noiseless intensities.",
+    "review": "Accepted proof, fixed-pair arithmetic and finite-support extra-constraint boundary; no empirical shape or biological inference.",
+    "continuation": "Accept scoped lack of distinct evidence-supported next task; broad biological goal unresolved, suitable public data elsewhere not excluded.",
+    "schedule": "Deleted through app tool; files preserved, no second schedule. Restart requires a concrete changed input or user direction."
+  },
+  "completed_tasks": [
+    "star-distribution-001",
+    "star-distribution-theory-001",
+    "star-distribution-review-001"
+  ],
+  "artifact_manifests": [
+    "research/star_distribution_manifest.json",
+    "research/campaign_checkpoint_20260929_manifest.json"
+  ],
+  "handoff": "research/CAMPAIGN_CHECKPOINT_20260929.md",
+  "validation": "research/research_cycle_validation_20260929_1800.json",
+  "automation_receipt": "research/automation_retirement_20260929.json",
+  "counters": {
+    "scientific_invocations": 1,
+    "distribution_pairs": 1,
+    "source_requests": 0,
+    "network_downloads": 0,
+    "fits": 0,
+    "tracking": 0,
+    "BVP": 0,
+    "pytest_invocations": 0,
+    "new_agents": 0,
+    "reused_specialists": 2,
+    "automation_deletions": 1
+  },
+  "budget_compliant": true,
+  "outstanding_agents": [],
+  "unresolved_active_execution": [],
+  "workers_reconciled": "Source, theory and independent reviewer terminal; one lead. No surviving science process or queued worker.",
+  "reason_for_stopping": "Registered final observation task reached reviewed stop condition. Bounded continuation assessment found no distinct next action supported by current inputs/stops; recurring schedule deleted. No work added to fill remaining time.",
+  "next_executable_decision": "Requires concrete new input or changed user direction. Most direct route is a deliberately reopened bounded STAR workbook schema check with a working permitted retrieval route or supplied workbook; preserve earlier failure and verify per-event observation/grouping contract.",
+  "next_task_status": "none_queued",
+  "biological_goal_achieved": false,
+  "direct_api_spend_usd": 0,
+  "external_messages": 0,
+  "commits": 0,
+  "git_pushes": 0,
+  "published": false,
+  "notification_decision": "NOTIFY",
+  "notification_reason": "Final conditional observation result completed and recurring heartbeat deleted at reviewed campaign checkpoint."
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "process-identity-preflight-001",
+  "accepted_at_utc": "2026-09-29T16:46:23.315769+00:00",
+  "disposition": "one_normal_exit_identity_check_accepted; prior_recovery_failure_unresolved",
+  "artifact_sha256": {
+    "research/process_identity_design.json": "54dbe26d8529764db78659ef1fc7bb7350716f431497cce1c55663c85a85ec58",
+    "research/process_identity_probe.py": "b416ca30137315d8bd1f49c3855b0812d1676f2be7c8109e7899fa6617ed165c",
+    "research/process_identity_probe_reservation.json": "2e22eae37d0dd3c9d5870ad4ea7dac6ff5068bb94c1bacee11752f0264756b45",
+    "research/process_identity_probe_started.json": "afa8fb22ca271725a9292b3ce90e63547cb0d1356b31f6f4bb5dbc290ab537fd",
+    "research/process_identity_probe_001.json": "d67fc2c593bae316d792a2faec87f1c2841e16b36efd0067dcf21cdb97659a97",
+    "research/process_identity_probe_001.log": "61c0126a97748fb5b33526a28c6248550f47424b54b98165e303240922081912",
+    "research/PROCESS_IDENTITY_FINDINGS.md": "f66aad8e58b27576f90df66af1122826148d7bed98580189098f05b7768e8caa",
+    "research/PROCESS_IDENTITY_REVIEW.md": "04054d9adfb8326005c328f6d4bbf7d67f403f3bca4156decad3ce668a69738b"
+  },
+  "probe_subprocesses": 1,
+  "probe_subprocess_cap": 1,
+  "dummy_callbacks": 0,
+  "scientific_calls": 0,
+  "prior_reservation_mutated": false
+}

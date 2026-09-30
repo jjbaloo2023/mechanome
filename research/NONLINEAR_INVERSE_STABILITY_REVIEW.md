@@ -1,0 +1,10 @@
+# Independent review of nonlinear inverse stability
+
+**Disposition: accepted analytic argument.** The construction is independent of the closed numerical branch. It establishes failure of a uniform inverse Lipschitz constant for complete normalized-slope profiles when a smooth compact balanced vertical load is an unknown source. It does not quantify experimental noise or establish stability of stationary graphs.
+
+I independently subtracted the exact vector flux. With `t=div U-c`, changing `c` to `c+g` gives `(1-|U|^2) grad g + g(DU)U - g(div U)U + (cg+g^2/2)U`. Its radial component is `(1-u^2)g' - g u^2/r + (cg+g^2/2)u`. Thus defining `M e_r` from the first baseline profile and `f_tilde=-div(M e_r)` has the correct Euler sign: `div F=-f`, and `F(U_1,2c)=M e_r`. Since `g=epsilon phi` is smooth compact radial, `u_1=O(r)`, and `g'=O(r)`, `M e_r` extends smoothly through the pole, is compactly supported, and its load has zero net projected-area force.
+
+The second baseline profile under the changed sources has a flux residual `Delta F(U_2)-Delta F(U_1)`. The common leading `grad g` cancels; all remaining terms are at least cubic in the source amplitude in weighted `C^{1,alpha}`. This yields `O(epsilon^3)`, but a residual alone is insufficient. The theory note uses the screened isomorphism `-Delta+2: C^{3,alpha}_mu -> C^{1,alpha}_mu` and the implicit-function theorem to construct an actual perturbed second stationary profile. A uniform local inverse for sufficiently small amplitude gives `||U_2_tilde-U_2||_X <= C epsilon^3`; the first profile is preserved exactly. With the nonzero curvature change `epsilon phi` in `C^{2,alpha}_mu`, any inverse Lipschitz bound on a set containing both admissible source pairs must have constant at least order `epsilon^-2`. The argument applies to unknown balanced load; it does not apply with the load fixed to zero.
+
+The theory author corrected the local inverse statement in the same attempt: the `O(epsilon)` derivative perturbation is asserted on a radius `C epsilon` ball containing the two nearby profiles. This resolves the earlier fixed-radius wording issue.
+

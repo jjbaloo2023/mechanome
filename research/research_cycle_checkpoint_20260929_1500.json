@@ -1,0 +1,88 @@
+{
+  "automation_id": "mechanome-research-loop",
+  "scheduled_delivery_utc": "2026-09-29T15:00:23.016Z",
+  "first_tool_clock_utc": "2026-09-29T15:00:35Z",
+  "evidence_cutoff_utc": "2026-09-29T15:15:35Z",
+  "target_checkpoint_utc": "2026-09-29T15:20:35Z",
+  "checkpoint_utc": "2026-09-29T15:16:15.836383+00:00",
+  "status": "completed_dated_checkpoint",
+  "continuous_activity_claim": false,
+  "observed_events": [
+    {
+      "at": "2026-09-29T15:02:17.385036+00:00",
+      "event": "Registered design and persistent execution ledger before fits."
+    },
+    {
+      "at": "2026-09-29T15:04:21.413025+00:00",
+      "event": "Exact rational pre-fit weighting and support reference saved; zero fits."
+    },
+    {
+      "at": "2026-09-29T15:08:22.195166+00:00",
+      "end": "2026-09-29T15:08:22.210820+00:00",
+      "event": "Lead synthetic-check invocation;4 NNLS calls, expected boundary rejection; exit0."
+    },
+    {
+      "at": "2026-09-29T15:08:36.246581+00:00",
+      "end": "2026-09-29T15:08:36.629701+00:00",
+      "event": "Only empirical grid;27 NNLS calls, all complete; exit0."
+    },
+    {
+      "at": "2026-09-29T15:09:33.779661+00:00",
+      "event": "207 group/model scores independently recomputed without fitting; pass."
+    },
+    {
+      "at": "2026-09-29T15:10:06.936814+00:00",
+      "event": "Saved static figure; subsequently visually checked."
+    },
+    {
+      "at": "2026-09-29T15:11:34Z",
+      "event": "Reviewer reported final acceptance, later inspected by lead."
+    },
+    {
+      "at": "2026-09-29T15:14:39.682409+00:00",
+      "event": "Lead acceptance,13-artifact manifest and updated direction saved."
+    },
+    {
+      "at": "2026-09-29T15:15:19.128190+00:00",
+      "event": "27 manifests/223 frozen-cache hashes and481 navigation links passed."
+    }
+  ],
+  "completed_tasks": [
+    "geometry-transfer-001",
+    "geometry-transfer-implementation-001",
+    "geometry-transfer-review-001"
+  ],
+  "disposition": "Accepted descriptive transfer with target-line and policy rank reversals; no mechanism selected.",
+  "artifacts_manifest": "research/geometry_transfer_manifest.json",
+  "validation": "research/research_cycle_validation_20260929_1500.json",
+  "fit_counters": {
+    "empirical": 27,
+    "empirical_cap": 27,
+    "empirical_invocations": 1,
+    "synthetic": 4,
+    "synthetic_cap": 6,
+    "synthetic_invocations": 1,
+    "audit_additional_fits": 0
+  },
+  "attempt_failures_or_deviations": [
+    "Expected synthetic finite-area boundary rejection is a passing negative control.",
+    "Two documentation edit commands exited1 due to default encoding and an already-applied paragraph guard; inspected partial state and completed in UTF-8. No scientific run repeated."
+  ],
+  "budget_compliant": true,
+  "outstanding_agents": [],
+  "unknown_execution": [],
+  "workers_reconciled": "All three currently listed specialists terminal at exit; two reused for this task, no new agents.",
+  "reason_for_stopping": "Registered comparison and review completed. Further fitting would violate branch stop; next eight-minute specialist synthesis plus integration does not fit remaining evidence window. Checkpoint without repetitive work.",
+  "next_executable_decision": "Consolidate current campaign findings into evidence/limitations/needed-observable table and independently challenge one distinct next-research proposal, per NEXT_CYCLE.md.",
+  "next_task_status": "queued_not_running",
+  "direct_api_spend_usd": 0,
+  "new_source_requests": 0,
+  "BVP_calls": 0,
+  "author_code_executions": 0,
+  "tracking_calls": 0,
+  "external_messages": 0,
+  "commits": 0,
+  "git_pushes": 0,
+  "notification_decision": "NOTIFY",
+  "notification_reason": "Completed independent cross-cell-line comparison reveals target and inclusion-policy rank reversals."
+}

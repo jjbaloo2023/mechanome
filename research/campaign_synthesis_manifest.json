@@ -1,0 +1,23 @@
+{
+  "task_id": "campaign-synthesis-001",
+  "accepted_at_utc": "2026-09-29T15:39:43.806283+00:00",
+  "disposition": "accepted_four_tier_evidence_synthesis; repeated_actin_inventory_rejected; new_endpoint_source_screen_separately_registered",
+  "artifact_sha256": {
+    "research/campaign_synthesis_design.json": "50988e80a1392ad16c93bf9145fff85fa899f6343d494f89005c2d026fe3f7e4",
+    "research/CAMPAIGN_NEXT_EXPERIMENT.md": "c9e26a78974228b06794e166aca9e43b667ca19573a7c62a3b0a121381cb1e89",
+    "research/CAMPAIGN_SYNTHESIS_REVIEW.md": "b50c46fd8713e87a6f9010f4b34bff4d001e540abeb34c0226a88c16eb1b6ce1",
+    "research/campaign_navigation_before_001.zip": "78de0bcc5f2ea814a8b032b473fa10a449333fca2956dd09d018e4a82a493d48",
+    "research/campaign_navigation_001.zip": "62ebbc114fb994dfc593b501b8af3d97333912247fd9efb9ec659eb9621bde5a"
+  },
+  "working_tree_sha256_at_acceptance": {
+    "research/README.md": "df2f7a4f062242f162f8dca448aa81fdf4209b88829a203f8a16d47085263330",
+    "research/FINDINGS.md": "63fb7f6db01cbb9935ac6b4b417775d70650f0c3fffece1874d35abd9193d965",
+    "research/ASSESSMENT.md": "329b64f441cebd3679e9fe0a84fc787ae51c3b4921e0707dd9b1347781b9b2df",
+    "research/PIPELINE_ARCHITECTURE.md": "ec9e8dc34cbc7e92f79353c308f11f7c8457ecb6573661871a4f5ca1244b33d4"
+  },
+  "working_tree_note": "Mutable navigation files; exact accepted bytes retained in campaign_navigation_001.zip. Prior versions retained separately.",
+  "source_requests": 0,
+  "fits": 0,
+  "tracking_calls": 0,
+  "BVP_calls": 0
+}

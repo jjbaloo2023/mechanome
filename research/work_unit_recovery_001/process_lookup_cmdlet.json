@@ -1,0 +1,19 @@
+{
+  "observed_at_utc": "2026-09-29T16:40:05.1985086Z",
+  "queried_pids": [
+    12896,
+    6280
+  ],
+  "matches": [],
+  "errors": [
+    {
+      "id": "NoProcessFoundForGivenId,Microsoft.PowerShell.Commands.GetProcessCommand",
+      "message": "Cannot find a process with the process identifier 12896."
+    },
+    {
+      "id": "NoProcessFoundForGivenId,Microsoft.PowerShell.Commands.GetProcessCommand",
+      "message": "Cannot find a process with the process identifier 6280."
+    }
+  ],
+  "preceding_methods": "CIM access denied; .NET invocation blocked by constrained language, so earlier empty processes array was NOT a valid absence check"
+}

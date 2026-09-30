@@ -1,0 +1,49 @@
+{
+  "task_id": "load-identifiability-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-26T14:52:50.010494+00:00",
+  "gate": "Independent reviewer accepted variational signs, balanced Gaussian templates and full-profile independence in message at14:51UTC; no two-summary rank claimed before calculation.",
+  "parent_design": "research/load_identifiability_design.json",
+  "configuration": {
+    "a": 1.0,
+    "b": 2.0,
+    "kappa": 1.0,
+    "sigma": 1.0
+  },
+  "unknown_dimensionless_amplitudes": [
+    "C*a",
+    "F*a/kappa"
+  ],
+  "dimensionless_observables": [
+    "a*H_apex",
+    "(h(a)-h(0))/a"
+  ],
+  "calculation": "Two unit-amplitude Hankel response columns at this one configuration; repeat only with tighter quadrature tolerance. Basis coefficients are derivatives, not physical finite-amplitude states.",
+  "quadrature": {
+    "baseline_eps": 1e-10,
+    "precision_eps": 1e-12,
+    "interval": [
+      0,
+      "infinity"
+    ],
+    "limit": 200
+  },
+  "checks": [
+    "zero integrated Gaussian-difference force",
+    "analytic exponential-integral apex responses for both columns",
+    "agreement of matrix and determinant between tolerances",
+    "determinant >1e-10 in magnitude and >100 times propagated quadrature error to certify this summary pair at this configuration"
+  ],
+  "rank_failure_action": "Retain inconclusive/failed scalar-summary rank; no template/width/observable substitutions or sweep. Full-profile theory is distinct.",
+  "deadline_utc": "2026-09-26T15:03:17Z",
+  "process_timeout_seconds": 45,
+  "output": "research/load_identifiability_results_001.json",
+  "source": "research/check_load_identifiability.py",
+  "no_claims": [
+    "biological mechanism preference",
+    "empirical precision",
+    "absolute force calibration",
+    "novelty",
+    "global rank across all widths/tensions"
+  ]
+}

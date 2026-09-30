@@ -1,0 +1,13 @@
+{
+  "checked_at_utc": "2026-09-29T14:38:29.753456+00:00",
+  "untouched_detection_linking_api_ast": {
+    "Track": true,
+    "detect_blobs": true,
+    "link_tracks": true,
+    "run_tracking": true
+  },
+  "ruff_rules": "F",
+  "ruff_exit_code": 0,
+  "ruff_diagnostics": [],
+  "ruff_stderr": ""
+}

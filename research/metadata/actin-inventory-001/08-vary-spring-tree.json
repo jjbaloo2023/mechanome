@@ -1,0 +1,87 @@
+{
+  "sha": "59c361f5a4e5b9e3a72b20989c4b856dbc2881f4",
+  "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/trees/59c361f5a4e5b9e3a72b20989c4b856dbc2881f4",
+  "tree": [
+    {
+      "path": "Icon\r",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "vary_spring_stiffness0000.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff728ebcc796c1761d3baa5b5d54204cd4d484d0",
+      "size": 20869,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/ff728ebcc796c1761d3baa5b5d54204cd4d484d0"
+    },
+    {
+      "path": "vary_spring_stiffness0001.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62479656384059ff927b6ccfbe6ec81f35f8b169",
+      "size": 20870,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/62479656384059ff927b6ccfbe6ec81f35f8b169"
+    },
+    {
+      "path": "vary_spring_stiffness0002.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "089a3ecbe46982a285b27a553e9331a70add1200",
+      "size": 20871,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/089a3ecbe46982a285b27a553e9331a70add1200"
+    },
+    {
+      "path": "vary_spring_stiffness0003.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83611c34840c3cc646dc6aa7f4752d48f83b2342",
+      "size": 20871,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/83611c34840c3cc646dc6aa7f4752d48f83b2342"
+    },
+    {
+      "path": "vary_spring_stiffness0004.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fec01a890f06e6bc2fa04220de5b496310560b3",
+      "size": 20871,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/9fec01a890f06e6bc2fa04220de5b496310560b3"
+    },
+    {
+      "path": "vary_spring_stiffness0005.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27cc538d756e70a306c0e2a759715ea8e36c66c8",
+      "size": 20871,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/27cc538d756e70a306c0e2a759715ea8e36c66c8"
+    },
+    {
+      "path": "vary_spring_stiffness0006.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "091fd092abf43ae86d70ebfcf707d4ff5937215d",
+      "size": 20872,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/091fd092abf43ae86d70ebfcf707d4ff5937215d"
+    },
+    {
+      "path": "vary_spring_stiffness0007.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "768e31b3411818bebfd20405f0a8b3c9f57ccd62",
+      "size": 20872,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/768e31b3411818bebfd20405f0a8b3c9f57ccd62"
+    },
+    {
+      "path": "vary_spring_stiffness0008.cym",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b04b928ca84b7d6d268a140cebdecf5410e2a6fc",
+      "size": 20873,
+      "url": "https://api.github.com/repos/DrubinBarnes/Akamatsu_CME_manuscript/git/blobs/b04b928ca84b7d6d268a140cebdecf5410e2a6fc"
+    }
+  ],
+  "truncated": false
+}

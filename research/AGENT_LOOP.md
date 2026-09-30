@@ -1,5 +1,12 @@
 # Recurring subscription research loop
 
+**Schedule status, 29 September 2026:** the recurring heartbeat was deleted after
+the assessed task sequence reached its stopping conditions. No worker remains
+active at the dated [campaign checkpoint](CAMPAIGN_CHECKPOINT_20260929.md).
+The design and operating procedure below are retained for a future explicit
+restart; they do not imply a currently running schedule.
+
+
 Execution: same-task Codex heartbeat, requested every 30 minutes. This is a
 recurring local research loop, not an always-running Python model service.
 The computer must be awake and the app running; usage limits or missing resources
@@ -104,3 +111,25 @@ Persistence levels: bounded worker attempts; campaign records spanning cycles;
 project specifications/results retained across campaigns. Four-hour, 24-hour,
 72-hour and multiweek operation remain progressively tested targets, not claims
 of demonstrated uptime.
+
+## Latest user steering takes priority
+
+A heartbeat wakes this task; it does not reset the objective. Read the latest
+applicable user messages before acting on NEXT_CYCLE.md. When a user requests a
+deliverable or changes constraints, record it in campaign.json and finish or
+checkpoint that work before dispatching another queued research stage. A status
+question can be answered while existing bounded work finishes; it does not
+authorize abandoning the original task. Reconcile workers before replacement.
+This is an operating rule, not a claim that the app scheduler enforces a priority
+queue or guarantees non-overlap. Do not change cadence merely to hide stale state.
+
+## Cumulative execution accounting
+
+The synthetic dimming attempt exposed an unenforced run limit: a worker rerun
+doubled141movie calls to282against a150cap and overwrote first-run evidence.
+For every bounded scientific computation, record cumulative calls before each
+invocation; repeats and validation reruns count against the same attempt budget.
+Save each invocation under a distinct path and refuse another run that would
+exceed the remaining allowance. A code edit does not reset the counter. Missing
+first-run artifacts and any overrun must remain explicit in the attempt audit.
+This protocol requirement is not a claim that the scheduler enforces it.

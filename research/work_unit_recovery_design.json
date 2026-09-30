@@ -1,0 +1,70 @@
+{
+  "task_id": "work-unit-recovery-001",
+  "attempt_number": 1,
+  "registered_at_utc": "2026-09-29T16:32:23.704305+00:00",
+  "question": "Do cumulative reservations, unresolved replacement blocking and terminal replay survive separately observed normal process exits?",
+  "scope": "Simulated lost acknowledgment, three supervised dummy-only phases; no forced crash, host reboot, live agent integration or real scientific work.",
+  "input_sha256": {
+    "mechanome/research/contracts.py": "2fb77e4e3cfbf7276198a42cd590fc4abbb6f409340359871dd2f9f50dfce6ad",
+    "mechanome/research/controller.py": "7870f45139df7a99ce6b069b33adf17276898ec7a9632e02f7574dae1a8b1285",
+    "research/work_units_manifest.json": "3ede1d875fa69fc5275988aed26dcdc49ea2021c4c7b02148bb70c5d79c962d8",
+    "research/NEXT_CYCLE.md": "50d623380ba8c1d52bbb68ff54b6e6880ad824837a694b4c699cc0fa083706f3"
+  },
+  "limits": {
+    "phase_subprocesses": 3,
+    "invocations_per_phase": 1,
+    "dummy_callbacks": 2,
+    "pytest_invocations": 0,
+    "scientific_calls": 0,
+    "network_requests": 0,
+    "implementation_minutes": 7,
+    "specialists": 2
+  },
+  "ownership": {
+    "implementation": [
+      "research/work_unit_recovery.py",
+      "research/WORK_UNIT_RECOVERY_IMPLEMENTATION.md"
+    ],
+    "review": [
+      "research/WORK_UNIT_RECOVERY_REVIEW.md"
+    ],
+    "lead": [
+      "research/work_unit_recovery_supervisor.py",
+      "research/work_unit_recovery_execution.json",
+      "research/work_unit_recovery_001/",
+      "research/WORK_UNIT_RECOVERY_FINDINGS.md"
+    ]
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "actions": "Create new campaign and task caps dummy=2, one running attempt. Guard call-1 writes exclusive deterministic evidence then remains reserved (simulated lost acknowledgment). Save phase output with pid/token/attempt, audit and callback count1; exit normally."
+    },
+    {
+      "phase": 2,
+      "actions": "Only after supervisor records phase1 actual exit0 and terminates its lead, reopen and acquire new token. Validate prior exit/output identity. Show same/new IDs blocked while unresolved, verify exact marker content/hash, reconcile call-1. Terminal replay skips callback. Guard call-2, verify evidence and reconcile. Save output/audit, two cumulative units; exit normally."
+    },
+    {
+      "phase": 3,
+      "actions": "Only after phase2 observed exit0/lead termination, reopen and acquire. Replay both terminal IDs without callback and reject new ID at cap. Verify exact two evidence files and charged units2, finish one attempt with hashed audit artifact. Save phase output/audit; exit normally."
+    }
+  ],
+  "supervision": "Lead-only supervisor exclusively reserves each phase invocation before launch and records source hashes/PID/actual exit in unique receipt. Prior status unknown or nonzero blocks later phases. Timeout records unknown without inferring termination or relaunching. After observed successful exit, verify phase output identity and terminate that token with receipt evidence; save post-exit audit. Three phases only. No process self-attests its own termination.",
+  "acceptance_checks": [
+    "separate PID per sequential phase",
+    "one successful invocation per phase; no reset",
+    "actual parent-observed exits before new leader",
+    "persisted unresolved and cap2 state",
+    "same/new unresolved rejection before callbacks",
+    "verified deterministic marker evidence before reconciliation",
+    "terminal duplicates skip callbacks",
+    "over-cap request rejected before callbacks",
+    "two total exclusive evidence files",
+    "one finished attempt; no unresolved work; final lead terminated",
+    "unchanged accepted controller/test hashes",
+    "independent review of design and final evidence"
+  ],
+  "stop_condition": "One reviewed three-process result or exact implementation/execution blocker. Do not repair by resetting phase counts or changing production controller within this task.",
+  "evidence_cutoff_utc": "2026-09-29T16:45:35Z",
+  "target_checkpoint_utc": "2026-09-29T16:50:35Z"
+}

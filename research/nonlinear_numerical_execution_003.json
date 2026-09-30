@@ -1,0 +1,37 @@
+{
+  "task_id": "nonlinear-numerical-001",
+  "attempt_number": 3,
+  "status": "registered_for_actual_execution",
+  "registered_at_utc": "2026-09-29T00:57:21.602051+00:00",
+  "actual_cycle_start_utc": "2026-09-29T00:56:16Z",
+  "evidence_cutoff_utc": "2026-09-29T01:11:16Z",
+  "target_checkpoint_utc": "2026-09-29T01:16:16Z",
+  "max_total_solves": 26,
+  "initial_mesh_nodes": 5761,
+  "max_nodes": 20000,
+  "previous_actual_BVP_calls": 27,
+  "retry_rationale": "Final fixed mesh refinement of diagnosed interpolation second-derivative defect; same scientific model/cases/thresholds, stricter interval and exact pole checks. Reviewed source readiness accepted, no guarantee of convergence.",
+  "input_sha256": {
+    "research/nonlinear_numerical_design.json": "069c4136f8c01b3d98f592c7afb2bc9040fe9473d22202a4d7e5e4beafebf901",
+    "research/nonlinear_numerical_mesh_plan.json": "24cdf6b799a476c20071973c64fee000c0b9f1c100e7c83673076f57a0dcd3a5",
+    "research/nonlinear_mesh_preflight_manifest.json": "7fb14368017954faa025347f2bf392d2f841c265d950eab76614a085bc2f2986",
+    "research/nonlinear_graph_numerical_003.py": "f9a25845c3cca2dd8dbb88d5d1de0641ce45a3ffd5dc865cb822fc22c26ebbc3"
+  },
+  "source_sha256": "f9a25845c3cca2dd8dbb88d5d1de0641ce45a3ffd5dc865cb822fc22c26ebbc3",
+  "stop_condition": "Execute exactly once; at most26calls. Preserve terminal failure and every profile/status. No fourth attempt, mesh/parameter search or code changes. Independently review saved physical residuals. K/K3 only if all mandatory gates pass.",
+  "ownership": {
+    "numerical": [
+      "research/nonlinear_numerical_results_003.json",
+      "research/nonlinear_numerical_profiles_003.npz",
+      "research/NONLINEAR_NUMERICAL_IMPLEMENTATION_003.md"
+    ],
+    "review": [
+      "research/NONLINEAR_NUMERICAL_REVIEW_003.md",
+      "research/nonlinear_numerical_reanalysis_003.py",
+      "research/nonlinear_numerical_reanalysis_003.json"
+    ],
+    "lead": [
+      "research/NONLINEAR_NUMERICAL_FINDINGS_003.md"
+    ]
+  }
+}

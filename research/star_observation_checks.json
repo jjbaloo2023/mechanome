@@ -1,0 +1,230 @@
+{
+  "task_id": "star-observation-001",
+  "started_at_utc": "2026-09-29T17:43:12.014839+00:00",
+  "scientific_invocations": 1,
+  "invocation_cap": 1,
+  "status": "passed",
+  "cases": [
+    {
+      "case": 1,
+      "inputs": [
+        "1",
+        "1/2",
+        "1",
+        "1"
+      ],
+      "difference": "1/2",
+      "status": "passed",
+      "inverse": [
+        [
+          "-1",
+          "2"
+        ],
+        [
+          "-2",
+          "2"
+        ]
+      ],
+      "covariance": [
+        [
+          "5",
+          "6"
+        ],
+        [
+          "6",
+          "8"
+        ]
+      ],
+      "covariance_determinant": "4",
+      "channel_u_covariance": [
+        "-2",
+        "2"
+      ],
+      "inverse_infinity_norm": "4",
+      "inverse_identity_passed": true,
+      "covariance_identity_passed": true,
+      "positive_definite": true
+    },
+    {
+      "case": 2,
+      "inputs": [
+        "1",
+        "1/2",
+        "4",
+        "1"
+      ],
+      "difference": "1/2",
+      "status": "passed",
+      "inverse": [
+        [
+          "-1",
+          "2"
+        ],
+        [
+          "-2",
+          "2"
+        ]
+      ],
+      "covariance": [
+        [
+          "8",
+          "12"
+        ],
+        [
+          "12",
+          "20"
+        ]
+      ],
+      "covariance_determinant": "16",
+      "channel_u_covariance": [
+        "-8",
+        "2"
+      ],
+      "inverse_infinity_norm": "4",
+      "inverse_identity_passed": true,
+      "covariance_identity_passed": true,
+      "positive_definite": true
+    },
+    {
+      "case": 3,
+      "inputs": [
+        "1",
+        "1/2",
+        "1",
+        "4"
+      ],
+      "difference": "1/2",
+      "status": "passed",
+      "inverse": [
+        [
+          "-1",
+          "2"
+        ],
+        [
+          "-2",
+          "2"
+        ]
+      ],
+      "covariance": [
+        [
+          "17",
+          "18"
+        ],
+        [
+          "18",
+          "20"
+        ]
+      ],
+      "covariance_determinant": "16",
+      "channel_u_covariance": [
+        "-2",
+        "8"
+      ],
+      "inverse_infinity_norm": "4",
+      "inverse_identity_passed": true,
+      "covariance_identity_passed": true,
+      "positive_definite": true
+    },
+    {
+      "case": 4,
+      "inputs": [
+        "1",
+        "9/10",
+        "1",
+        "1"
+      ],
+      "difference": "1/10",
+      "status": "passed",
+      "inverse": [
+        [
+          "-9",
+          "10"
+        ],
+        [
+          "-10",
+          "10"
+        ]
+      ],
+      "covariance": [
+        [
+          "181",
+          "190"
+        ],
+        [
+          "190",
+          "200"
+        ]
+      ],
+      "covariance_determinant": "100",
+      "channel_u_covariance": [
+        "-10",
+        "10"
+      ],
+      "inverse_infinity_norm": "20",
+      "inverse_identity_passed": true,
+      "covariance_identity_passed": true,
+      "positive_definite": true
+    },
+    {
+      "case": 5,
+      "inputs": [
+        "1",
+        "999/1000",
+        "1",
+        "1"
+      ],
+      "difference": "1/1000",
+      "status": "passed",
+      "inverse": [
+        [
+          "-999",
+          "1000"
+        ],
+        [
+          "-1000",
+          "1000"
+        ]
+      ],
+      "covariance": [
+        [
+          "1998001",
+          "1999000"
+        ],
+        [
+          "1999000",
+          "2000000"
+        ]
+      ],
+      "covariance_determinant": "1000000",
+      "channel_u_covariance": [
+        "-1000",
+        "1000"
+      ],
+      "inverse_infinity_norm": "2000",
+      "inverse_identity_passed": true,
+      "covariance_identity_passed": true,
+      "positive_definite": true
+    },
+    {
+      "case": 6,
+      "inputs": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "difference": "0",
+      "status": "nonidentifiable",
+      "null_direction": [
+        [
+          "1"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "null_identity_passed": true
+    }
+  ],
+  "finished_at_utc": "2026-09-29T17:43:12.018852+00:00"
+}
