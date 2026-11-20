@@ -1,13 +1,13 @@
 cff-version: 1.2.0
-message: "If you use curvo, please cite it as below."
-title: "curvo: a curvature-orchestration and mechanistic-inference pipeline for membrane biology"
+message: "If you use Mechanome/curvo, cite this software and record the exact commit used."
+title: "Mechanome/curvo: models and inference tools for cell mechanics"
 abstract: >-
-  curvo searches over physical representations of membrane-curvature players
-  (amphipathic-helix wedge, disordered-region crowding, clathrin coat, tension,
-  cortical active stress) against a cheap analytic evaluator, using physics rules
-  as guardrails rather than fixed decisions. It runs both forward
-  (players + parameters -> shape) and inverse (observed shape(t) -> forces +
-  favored mechanism + calibrated uncertainty + a disambiguating experiment).
+  Mechanome develops models and inference tools for cell mechanics. Its curvo
+  engine searches membrane-curvature models and performs conditional inverse
+  inference with synthetic recovery checks. The CME campaign reports descriptive
+  geometry results and mathematical identifiability limits. The assessed public
+  cap-fit tables do not establish biological mechanism selection or calibrated
+  force recovery. Synthetic calibration is conditional on the observation model.
 type: software
 authors:
   - family-names: Joseph

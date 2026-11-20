@@ -1,10 +1,10 @@
 """
 perception_benchmark.py — held-out image benchmark for curvo's perception module.
 
-The capability under test is PERCEPTION: pixels -> geometry. Everything downstream
-(inverse, mechanism, tiering) was validated earlier; the STED force-paired test
-used the paper's REPORTED radii, not radii curvo extracted from an image. This
-benchmark closes that gap by rendering single clathrin-coated-pit (CCP) images
+The capability under test is PERCEPTION: pixels -> geometry. The separate
+tether/STED example uses model-generated radii and forces; it does not test
+image extraction or experimental force recovery. This benchmark renders
+single clathrin-coated-pit (CCP) images
 under conditions OUTSIDE the calibration set and measuring how well the extractor
 recovers the KNOWN geometry (mean curvature H, neck radius).
 

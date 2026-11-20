@@ -55,7 +55,7 @@ def test_channel_anchor_parameters():
 # --- registry promotion invariants ------------------------------------------
 def test_registry_four_modules_analytic():
     status = reg.module_status()
-    assert status["membrane"]["status"] == "built_validated"
+    assert status["membrane"]["status"] == "built_analytic"
     for m in ("tissue", "cortex", "bond", "channel"):
         assert status[m]["status"] == "built_analytic"
 
@@ -69,8 +69,8 @@ def test_registry_forward_models_registered():
 
 
 def test_grounded_gate_is_real_only():
-    # only the real force-paired module may emit REAL-data grounded claims
-    assert reg.can_emit_grounded("membrane")
+    # Synthetic recovery does not qualify as independent force-paired validation.
+    assert not reg.can_emit_grounded("membrane")
     for m in ("tissue", "cortex", "bond", "channel"):
         assert not reg.can_emit_grounded(m)
 
@@ -78,7 +78,7 @@ def test_grounded_gate_is_real_only():
 def test_analytic_gate_and_provenance():
     for m in ("membrane", "tissue", "cortex", "bond", "channel"):
         assert reg.can_emit_analytic(m)
-    assert reg.validation_provenance("membrane") == "real_force_paired"
+    assert reg.validation_provenance("membrane") == "analytic_limit"
     assert reg.validation_provenance("tissue") == "analytic_limit"
     assert reg.validation_provenance("nonexistent") == "unregistered"
 
@@ -167,3 +167,12 @@ def test_structural_screen_channel_link():
     for c in cl.channels_from_screen():
         for key in (c["protein"], c["channel"]):
             assert 0.0 <= cl.link_channel_to_gating(key, 11.8)["open_probability"] <= 1.0
+
+
+def test_tether_claim_preserves_synthetic_input_provenance():
+    claim = emit.emit_tether_force_claim()
+    assert "input=synthetic" in claim.evidence
+    assert "validation=analytic_limit" in claim.evidence
+    assert any("model-generated tube diameter" in item for item in claim.evidence)
+    assert not any("real_force_paired" in item for item in claim.evidence)
+    assert "not a measured force pair" in claim.reasoning_trace

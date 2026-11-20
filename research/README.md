@@ -1,9 +1,8 @@
 # Clathrin research campaign
 
-**Current status: paused by the user, 29 September 2026.** Start with the
-[overview](OVERVIEW.md) for the research story, workflow and restart steps.
-The recurring loop is deleted; no automatic restart is scheduled. The separate
-mesoscopic branch is outside this campaign pause.
+For operational status and restart conditions, use [NEXT_CYCLE.md](NEXT_CYCLE.md).
+The summaries below describe the dated scientific checkpoint, not live job state.
+Start with the [overview](OVERVIEW.md) for the research story and workflow.
 
 **Reviewed checkpoint: 29 September 2026.** We have descriptive results from
 public geometry tables, conditional mechanics results, and tested observation

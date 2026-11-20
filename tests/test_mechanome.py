@@ -68,7 +68,7 @@ def test_emit_grounded_from_curvo():
         assert c.value is not None and c.identifiability is not None
         # every GROUNDED claim names a registered forward model
         assert c.forward_model in valid_fms
-    # the real force-paired membrane claim (helfrich_v1) is present
+    # the model-based membrane claim (helfrich_v1) is present
     assert any(c.forward_model == "helfrich_v1" for c in claims)
 
 
@@ -90,12 +90,10 @@ def test_yap_link_is_valueless_with_experiment():
 
 # --- registry: one real model, the rest honest stubs ------------------------
 def test_registry_membrane_grounded_analytic_modules_not():
-    # only the membrane module is force-paired (GROUNDED-emittable); the analytic
-    # modules validate against an analytic limit + published anchor, not raw data,
-    # so they emit at the analytic tier and can_emit_grounded is False for them.
+    # All implemented modules use analytic or synthetic checks, not force pairs.
     fms = registry.registered_forward_models()
     assert "helfrich_v1" in fms and fms["helfrich_v1"]["status"] == "executable"
-    assert registry.can_emit_grounded("membrane") is True
+    assert registry.can_emit_grounded("membrane") is False
     for analytic in ("tissue", "cortex", "bond", "channel"):
         assert registry.can_emit_grounded(analytic) is False
 

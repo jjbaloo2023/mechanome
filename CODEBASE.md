@@ -76,6 +76,11 @@ Comments should explain assumptions, units, or scientific constraints.
 
 ## Boundaries worth keeping visible
 
+- The tether/STED example generates its own radius and reference force using
+  published parameters. Its emitter records `input=synthetic`; the membrane
+  registry has `built_analytic` status. This is synthetic recovery, not an
+  independent force-paired experimental validation. Historical plots retain
+  earlier labels and are not current evidence of measured-force agreement.
 - `analyze()` and the inference defaults currently assume a 24-frame model.
   Supporting arbitrary movie lengths needs an explicit model-context change
   through both full and restricted fits, plus recovery validation.

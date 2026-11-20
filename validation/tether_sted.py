@@ -1,32 +1,12 @@
-"""
-tether_sted.py — curvo inverse validation against force-paired real-membrane data.
+"""Synthetic tube-force recovery using published membrane parameters.
 
-Dataset (T1, force-paired gold standard):
-    Roy, Steinkuehler, Zhao, Lipowsky & Dimova (2020)
-    "Mechanical Tension of Biomembranes Can Be Measured by Super Resolution
-     (STED) Microscopy of Force-Induced Nanotubes"
-    Nano Letters 20:3185-3191.  doi:10.1021/acs.nanolett.9b05232
+Reference: Roy et al. (2020), Nano Letters 20:3185-3191,
+doi:10.1021/acs.nanolett.9b05232.
 
-Why this dataset: a POPC giant unilamellar vesicle (symmetric bilayer,
-spontaneous curvature ~0, so curvo's forward map applies exactly) is pulled into
-a membrane nanotube. The tube RADIUS is measured directly by super-resolution
-STED; the membrane TENSION is set independently by micropipette aspiration
-(15-140 uN/m); and the bending rigidity kappa is measured two independent ways
-(23+/-2 kBT by thermal fluctuation analysis, 23+/-5 kBT by tube-pulling). The
-tether force, tube radius and tension are linked by the Helfrich closed forms
-
-    R = sqrt(kappa / (2 sigma)),     f = 2*pi*sqrt(2 sigma kappa)
-
-This is exactly curvo's forward map, which makes it the cleanest real test of the
-inverse: feed curvo the STED radius (with realistic noise) + kappa as a prior,
-infer the tension, propagate to the holding force, and check the recovered force
-against the independent aspiration-tension ground truth.
-
-SCOPE: this validates the forward map + Bayesian inverse machinery on the
-TUBE/tether geometry (the helfrich_tube evaluator). It is distinct from the CCS
-spherical-cap analyze() pipeline (validated separately in recovery.py). The
-tether system has no wedge/actin actors -- it is the pure force<->geometry
-inference check on real measured forces.
+validate() generates tube radii and reference forces from the Helfrich model,
+adds simulated radius noise, and inverts the radii. No experimental radius/force
+pairs are loaded. Recovery is conditional on this model and noise assumptions.
+The tube geometry is separate from the spherical-cap analyze() pipeline.
 """
 from __future__ import annotations
 
@@ -37,7 +17,7 @@ from scipy import stats
 from curvo import evaluator_tier0 as ev
 
 
-# --- paper ground-truth constants -------------------------------------------
+# --- published parameters for synthetic recovery ----------------------------
 DOI = "10.1021/acs.nanolett.9b05232"
 CITATION = ("Roy, Steinkuehler, Zhao, Lipowsky, Dimova (2020) Nano Lett. "
             "20:3185, doi:10.1021/acs.nanolett.9b05232")

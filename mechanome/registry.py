@@ -1,25 +1,9 @@
-"""
-mechanome/registry.py — the Forward-Model and Module registries.
+"""Forward-model registry and validation provenance.
 
-The registry is what makes the schema *executable* rather than descriptive: each
-ForwardModel entry tells the orchestrator how to actually run an edge (governing
-law, inverse method, validation anchor, data bindings). Registering a new forward
-model is how a mechanome edge is added.
-
-HONESTY RULE (two validation tiers, machine-readable):
-  * ONE module is real-data force-paired: membrane / curvo (helfrich_v1),
-    status 'built_validated'. Only it may emit GROUNDED claims backed by REAL
-    measured force (can_emit_grounded).
-  * FOUR modules are analytic-limit validated: tissue (vertex_v1), cortex
-    (active_gel_v1), bond (catch_slip_v1), channel (ms_gating_v1), status
-    'built_analytic'. Each reproduces a known closed-form limit and a canonical
-    published anchor's parameters, but is NOT paired against a raw dataset
-    acquired here. They may emit analytic-tier GROUNDED claims (can_emit_analytic)
-    whose evidence carries validation=analytic_limit on its face.
-  * Any further planned module is a 'registered_stub' and may emit only
-    MEASURED / LINKED claims until it passes validation.
-The registry makes this validation tier explicit and machine-readable via
-validation_provenance() -> 'real_force_paired' | 'analytic_limit' | 'none'.
+Implemented modules have analytic-limit or synthetic recovery checks. The
+membrane tether example uses generated radii and reference forces, not measured
+force pairs. No current module has real force-paired validation. The
+built_validated tier remains available for future independent validation.
 """
 from __future__ import annotations
 
@@ -64,7 +48,7 @@ HELFRICH_V1 = ForwardModel(
     validation_anchor="a* = 4*kappa/lambda (budding) ; R=sqrt(kappa/2sigma), "
                       "f=2*pi*sqrt(2 sigma kappa) (tube) ; synthetic recovery gate",
     data_bindings=["AlphaFold DB (structure)", "NMRlipids / MDDB (elastic params)",
-                   "STED tether (Roy et al. 2020, real force-paired validation)"],
+                   "Synthetic tube recovery with Roy et al. 2020 parameter reference"],
     status="executable")
 
 # --- four analytic-validated forward models (built this session) ------------
@@ -129,10 +113,10 @@ FORWARD_MODELS: Dict[str, ForwardModel] = {fm.name: fm for fm in [
     STRUCTURAL_SCREEN_V1]}
 
 
-# --- module registry: one built, the rest honest stubs ----------------------
+# --- module registry: implemented analytic and synthetic checks -------------
 MODULES: Dict[str, Module] = {m.name: m for m in [
-    Module("membrane", "membrane", "helfrich_v1", "built_validated",
-           "curvo. Synthetic-recovery + real force-paired (STED tether) validated."),
+    Module("membrane", "membrane", "helfrich_v1", "built_analytic",
+           "curvo. Analytic limits and synthetic tube recovery; no measured force pairs."),
     Module("tissue", "tissue", "vertex_v1", "built_analytic",
            "vertex junction-tension inference. Analytic-limit validated (120 deg force "
            "balance); anchor Ishihara 2012. NOT real-data force-paired."),

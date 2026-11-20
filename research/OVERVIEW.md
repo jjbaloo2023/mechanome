@@ -1,9 +1,8 @@
 # Mechanome research overview
 
-**Status: paused at the user's request, 29 September 2026.** The recurring loop
-has been deleted and no research workers remain active in this campaign. We may
-return to it next week; no automatic restart is scheduled. The separate mesoscopic
-work on `feature/mesoscopic-two-body` is outside this pause and checkpoint.
+**Scientific summary: 29 September 2026.** For operational status and restart
+conditions, use [NEXT_CYCLE.md](NEXT_CYCLE.md). This page describes the research
+story at that checkpoint; it does not report live workers or scheduled jobs.
 
 ## What we set out to do
 

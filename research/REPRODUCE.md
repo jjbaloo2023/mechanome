@@ -31,6 +31,49 @@ also has external-service, sampling and cache-dependent tests and is a separate
 validation scope. Tested versions and this checkpoint's outcome are recorded
 in [PROGRESS.md](PROGRESS.md).
 
+## Independently check one exact result
+
+The [distributed-signal counterexample](STAR_DISTRIBUTION_FINDINGS.md) can be
+checked with Python's standard library alone. From the repository root, run this
+PowerShell block. It reads the retained design and uses exact rational arithmetic;
+it makes no network requests, writes no files, and does not invoke or reset the
+protected historical runner. This is a new read-only verification, not another
+invocation of the registered original attempt.
+
+```powershell
+@'
+from fractions import Fraction as F
+from pathlib import Path
+import json
+
+spec = json.loads(Path("research/star_distribution_design.json").read_text(
+    encoding="utf-8"))["assumptions"]
+t = list(map(F, spec["t_values"]))
+p = list(map(F, spec["weights_p"]))
+q = list(map(F, spec["weights_q"]))
+assert len(t) == len(p) == len(q) == 4
+assert all(0 < x <= 1 for x in t)
+assert all(w > 0 for w in p + q) and sum(p) == sum(q) == 1
+moments = lambda w: [sum(a*x**k for a, x in zip(w, t)) for k in (1, 2)]
+assert moments(p) == moments(q) == [F(5, 8), F(15, 32)]
+product = F(1)
+for x, a, b in zip(t, p, q):
+    exponent = 12*(a-b)
+    assert exponent.denominator == 1
+    product *= x**int(exponent)
+assert product == F(27, 32) and 0 < product < 1
+print("signals: 5/8, 15/32; log-product: 27/32")
+print("mean height P-Q = log(32/27)/12 > 0")
+'@ | .\.venv\Scripts\python.exe -
+```
+
+The two printed lines are the expected output; exact arithmetic needs no numerical
+tolerance or optional packages. Since the mean-height difference is
+`-log(product)/12`, the verified product strictly between zero and one proves a
+positive difference. The [theory](STAR_DISTRIBUTION_THEORY.md) explains why these
+moments correspond to two calibrated channels. This verifies an idealized
+observation limit, not an empirical height, force, or biological mechanism.
+
 ## Inspect or repeat a study
 
 Each row of the index links assumptions, code, outputs and review. Synthetic

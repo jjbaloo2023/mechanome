@@ -1,24 +1,7 @@
-"""
-mechanome/emit.py — convert curvo's VALIDATED outputs into GROUNDED MechanoClaims.
+"""Emit model-based claims with explicit evidence provenance.
 
-Two real sources, each carrying its epistemic tier:
-
-  1. emit_tether_force_claim()  — the FORCE-PAIRED real anchor. curvo's Bayesian
-     inverse recovers the holding force of a POPC membrane nanotube from its
-     STED-measured radius; validated against micropipette-aspiration ground truth
-     (Roy et al. 2020). identifiability='constrained' (the force is recovered with
-     honest, calibrated CIs). This is GROUNDED on REAL measured force.
-
-  2. emit_family_capacity_claims() — the epsin/ANTH family capacity ranking. This
-     is GROUNDED on SYNTHETIC-RECOVERY (the forward model + closed-form anchor),
-     NOT on an EPN1 curvature trajectory (that imaging has never been in hand).
-     Every claim says so: evidence carries 'synthetic_recovery:pass' and NOT any
-     'EPN1 trajectory' provenance, and the identifiability reflects the MC 68% CI
-     — prior_dominated when the Omega-crossing probability straddles the threshold.
-
-The distinction between (1) and (2) is exactly what the epistemic-tier field
-exists to make visible: both are GROUNDED, but on different evidence, and the
-schema records which.
+The tether example inverts a generated radius using published parameters.
+GROUNDED is a schema tier; it does not establish experimental measurement.
 """
 from __future__ import annotations
 
@@ -31,11 +14,9 @@ from validation import tether_sted as _tether
 
 
 def emit_tether_force_claim(tension_uN_m: float = 72.0) -> MechanoClaim:
-    """GROUNDED claim: a POPC bilayer BEARS a holding force at a pulled nanotube.
+    """Invert a synthetic tube radius and report a model-conditional 68% CI.
 
-    Runs curvo's closed-form forward + Bayesian inverse for the given aspiration
-    tension and reports the recovered holding force with its 68% CI. Real
-    force-paired validation (Roy et al. 2020, doi:10.1021/acs.nanolett.9b05232).
+    No experimental radius or independently measured force is loaded.
     """
     R_true, f_true = _tether.tube_forward(tension_uN_m)
     post = _tether.invert_radius(R_true)     # noiseless radius -> force posterior
@@ -47,19 +28,19 @@ def emit_tether_force_claim(tension_uN_m: float = 72.0) -> MechanoClaim:
         object="tether_force",
         epistemic_tier=EpistemicTier.GROUNDED,
         context=Context(scale="membrane",
-                        mech_environment=f"tension={tension_uN_m:.0f}uN/m (aspiration-set)"),
+                        mech_environment=f"tension={tension_uN_m:.0f}uN/m (model input)"),
         forward_model="helfrich_v1",
         value=Value(round(float(f_med), 2), round(float(unc), 2), "pN"),
         identifiability=Identifiability.CONSTRAINED,
-        evidence=[f"STED tube diameter {2*R_true:.0f} nm (Roy et al. 2020, "
-                  "doi:10.1021/acs.nanolett.9b05232)",
+        evidence=[f"model-generated tube diameter {2*R_true:.0f} nm",
+                  "parameter reference: Roy et al. 2020, doi:10.1021/acs.nanolett.9b05232",
                   "kappa prior 23+/-5 kBT (tube-pulling, same paper)",
-                  "curvo:inverse", "synthetic_recovery:pass",
-                  "real_force_paired_validation:pass (mean |bias| 3.8%, cov68 0.90-0.98)"],
-        reasoning_trace=(f"aspiration tension {tension_uN_m:.0f} uN/m -> STED radius "
+                  "curvo:inverse", "validation=analytic_limit", "input=synthetic"],
+        reasoning_trace=(f"input tension {tension_uN_m:.0f} uN/m -> generated radius "
                          f"{R_true:.1f} nm -> Bayesian inverse -> force "
                          f"{f_med:.1f} pN [{f_lo:.1f},{f_hi:.1f}] (68%); "
-                         f"ground-truth aspiration force {f_true:.1f} pN lies in CI."))
+                         f"forward-model reference force {f_true:.1f} pN. "
+                         "This is a synthetic round trip, not a measured force pair."))
 
 
 def emit_family_capacity_claims(cache_dir: str = "cache",
@@ -104,14 +85,14 @@ def emit_family_capacity_claims(cache_dir: str = "cache",
 
 
 def emit_from_module(module_name: str) -> MechanoClaim:
-    """GROUNDED (analytic_limit tier) claim from one of the four analytic modules.
+    """GROUNDED (analytic_limit tier) claim from an analytic module.
 
     Each claim is GROUNDED — it carries a forward model, a physical value with an
     uncertainty, and an identifiability — but its evidence wears
     'validation=analytic_limit' on its face: the value is the module's published
     ANCHOR parameter, reproduced by the forward model to the analytic recovery
-    error (NOT a real-data-derived measurement scatter). This is a deliberately
-    weaker bar than the membrane module's real force-paired STED claim.
+    error (NOT a real-data-derived measurement scatter). The membrane tether
+    example likewise has analytic and synthetic evidence, not measured force pairs.
     """
     from . import registry as _reg
     from . import forward_tissue as _ti, forward_cortex as _co
@@ -245,8 +226,7 @@ def emit_analytic_module_claims() -> List[MechanoClaim]:
 
 
 def emit_all(cache_dir: str = "cache") -> List[MechanoClaim]:
-    """Every GROUNDED claim curvo can currently stand behind — the real
-    force-paired membrane claims plus the four analytic-tier module claims."""
+    """Collect synthetic membrane and analytic-tier module claims."""
     return ([emit_tether_force_claim()]
             + emit_family_capacity_claims(cache_dir=cache_dir)
             + emit_analytic_module_claims())

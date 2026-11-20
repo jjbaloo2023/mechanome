@@ -6,6 +6,9 @@
 > within-pit trajectory or decisive biological mechanism evidence. Numerical
 > figures here have not been regenerated. Read the [current findings](research/FINDINGS.md)
 > and [evidence index](research/INDEX.md) before using this draft's conclusions.
+> The tether/STED example is synthetic recovery using published parameters, not
+> validation against measured force pairs. This draft is retained as history;
+> its abstract and mechanism claims are not the project's current conclusions.
 
 *A structure-based model predicts the division of labor between curvature-generating adaptors and actin force that commits a clathrin-coated pit.*
 

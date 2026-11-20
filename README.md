@@ -5,11 +5,17 @@ protein contributions that meet a curvature target and infers mechanical
 parameters from microscopy movies. The `mechanome` package adds claim schemas,
 forward models at other scales, and a structure-based protein screen.
 
+This is research software for computational mechanobiologists developing and
+testing model-based hypotheses. It combines representation search, observation
+models, and explicit inference limits in one workspace. It is not a calibrated
+force-measurement tool for arbitrary microscopy movies.
+
 ## Start here
 
-- [Research overview](research/OVERVIEW.md): findings, persistent workflow, pause status and restart steps.
+- [Research findings](research/FINDINGS.md): supported conclusions and evidence limits.
+- [Research overview](research/OVERVIEW.md): scientific story and persistent workflow.
 - [Codebase guide](CODEBASE.md): call paths, reporting rules, and development.
-- [Scientific reference](RESEARCH.md): equations, validation, results, and reproduction.
+- [Methods and evidence guide](RESEARCH.md): models, units, validation scope, and reproduction.
 - [Manuscript](MANUSCRIPT.md): historical paper draft; see the campaign for current claim boundaries.
 - [Pipeline architecture](research/PIPELINE_ARCHITECTURE.md): agents, persistent operation, steering and research progress.
 - [Research campaign](research/README.md): reviewed findings, study index, reproducibility, and next decisions.
@@ -32,27 +38,38 @@ Bayesian samplers; `plots` adds figure rendering; `dev` adds test/style tools.
 
 ## Run
 
-```powershell
-.\.venv\Scripts\python.exe run_demo.py
-```
-
-The demo uses the deterministic proposer by default. Protein structures and
-parameter adapters may need network access on a fresh cache. It writes results
-to `outputs/` when run; importing modules does not create that directory.
-
-The two main entry points are:
+After installation, this complete Python example runs offline and writes no
+result files. It searches a simplified membrane model for a synthetic target:
 
 ```python
-from curvo.analyze import analyze
-from curvo.orchestrator import search
+from curvo.orchestrator import Case, search
 
-# analyze(movie, question): pixels -> geometry -> posterior -> mechanism -> report
-# search(case): propose -> validate -> evaluate -> refine -> record
+case = Case(
+    name="synthetic target",
+    target_curvature_inv_nm=0.02,
+    sigma_kBT_nm2=0.02,
+    A_coat_nm2=11310.0,
+    kappa_kBT=20.0,
+)
+result = search(case, use_llm=False, verbose=False)[-1]["evaluator_result"]
+print(round(result["observables"]["achieved_mean_curvature_inv_nm"], 4))
+print(result["target_met"])
 ```
 
-Movies use `[frame, channel, height, width]` order. The current inference model
-defaults to 24 frames. A force gets a point estimate only when identifiability
-and recovery calibration both pass. See the codebase guide for limitations.
+Expected output is approximately `0.0166` nm^-1 and `True`: the model reaches
+the requested curvature within the default tolerance of `0.004` nm^-1. This
+shows a feasible parameter combination, not a unique protein mechanism.
+
+For the structure-backed demonstration, run `python run_demo.py`. It uses a
+deterministic proposer by default, may fetch external inputs on a fresh cache,
+and writes results to `outputs/`.
+
+The inverse entry point is `curvo.analyze.analyze(movie, question)`. It assumes
+24-frame side-view movies in `[frame, channel, height, width]` order and an
+observation model matching the synthetic renderer. Active-force calibration
+depends on that renderer's actin-intensity mapping. Identifiability and synthetic
+recovery do not establish experimental calibration. See [CODEBASE.md](CODEBASE.md)
+for reporting limitations, including incomplete-sampling handling.
 
 ## Check changes
 
@@ -83,3 +100,18 @@ cached microscopy data or optional Gymnasium.
 
 Scientific artifacts are retained for reproducibility. Duplicate generated
 figures are ignored; documentation uses the canonical copies in `figures/`.
+
+## Contribute, cite, and release
+
+Report problems or seek support through [GitHub issues](https://github.com/jjbaloo2023/mechanome/issues).
+Include the commit, environment, minimal input, command, and expected versus
+observed behavior. For contributions, open a focused pull request and follow
+[CODEBASE.md](CODEBASE.md). Keep frozen study artifacts unchanged; new scientific
+results need separate outputs, assumptions, provenance, and validation.
+
+The code uses the [MIT license](LICENSE); third-party inputs retain their source
+terms. Cite the software using [CITATION.cff](CITATION.cff), together with the
+exact commit used. The declared package version alone does not identify a
+reproducible snapshot. For a release, update package and citation versions
+together, pass the documented checks, and tag the reviewed commit. An archived
+release DOI should be added to the citation metadata when one is available.

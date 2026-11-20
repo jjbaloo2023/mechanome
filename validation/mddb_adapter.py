@@ -16,9 +16,9 @@ WHAT MDDB ACTUALLY SERVES (verified against the live API, 2026):
     time series. Extracting a stress profile would require the per-atom virial
     from the full trajectory, which the API does not expose. So MDDB is an
     independent MD source for curvo's membrane elastic PARAMETERS (thickness,
-    area-per-lipid), NOT a direct force ground truth. The real force-paired
-    validation in this package is validation/tether_sted.py (STED nanotubes with
-    micropipette-set tension). This adapter's role is provenance breadth:
+    area-per-lipid), NOT a direct force ground truth. The separate
+    validation/tether_sted.py example uses synthetic tube radii and reference
+    forces with published parameters. This adapter's role is provenance breadth:
     a second, orthogonal source for the structural inputs that set kappa.
 
 The force connection is therefore INDIRECT and stated as such: bilayer thickness
