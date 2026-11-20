@@ -35,6 +35,9 @@ python -m venv .venv
 
 For a minimal installation, use `pip install -e .`. The `inference` extra adds
 Bayesian samplers; `plots` adds figure rendering; `dev` adds test/style tools.
+Pandas is limited to 2.x because the frozen ranking's integrity check depends
+on that series' CSV parsing and serialization. These dependency ranges are
+installation constraints, not a fully frozen scientific environment.
 
 ## Run
 
