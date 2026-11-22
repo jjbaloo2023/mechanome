@@ -41,11 +41,42 @@ DEFAULT_PARAMS = [
 FIXED = dict(kappa_kBT=20.0, coat_rigidity_factor=3.0, T=24)
 
 
+@dataclasses.dataclass(frozen=True)
+class ObservationContext:
+    """Declared observation assumptions, not an experimental certification.
+
+    Custom coverage replaces the synthetic assembly clock in every hypothesis.
+    Its measurement uncertainty is not propagated by this conditional model.
+    """
+    input_kind: str = "unknown"
+    calibration_id: str | None = None
+    coverage: tuple[float, ...] | None = None
+    actin_force_scale_pN: float = sm.ACTIN_CALIB_PN
+
+    def __post_init__(self):
+        if self.coverage is not None:
+            values = np.asarray(self.coverage, float)
+            if values.ndim != 1:
+                raise ValueError("coverage must be a one-dimensional trace")
+            object.__setattr__(self, "coverage", tuple(map(float, values)))
+
+    def coverage_array(self, n_frames):
+        if self.input_kind not in ("unknown", "synthetic", "experimental"):
+            raise ValueError("input_kind must be unknown, synthetic, or experimental")
+        if not np.isfinite(self.actin_force_scale_pN) or self.actin_force_scale_pN <= 0:
+            raise ValueError("actin force scale must be finite and positive")
+        values = _coverage_ramp(n_frames) if self.coverage is None else np.asarray(self.coverage, float)
+        if values.shape != (n_frames,) or not np.all(np.isfinite(values) & (values >= 0) & (values <= 1)):
+            raise ValueError("coverage must match frames and contain finite fractions in [0, 1]")
+        return values
+
+
 _PSI = np.linspace(0.02, np.pi - 0.001, 400)  # cap opening-angle grid
 
 
 def _fast_H_trajectory(
-    sigma, c_eff_max, active_max, kappa, coat_rig, A, T, ramp_mid=0.45, ramp_width=0.12
+    sigma, c_eff_max, active_max, kappa, coat_rig, A, T, ramp_mid=0.45, ramp_width=0.12,
+    coverage=None,
 ):
     """Vectorized H(t): the same spherical-cap energy minimization as the
     evaluator's ccs_curvature, but computed as numpy array ops over the whole
@@ -54,7 +85,7 @@ def _fast_H_trajectory(
     evaluator_tier0._cap_energy exactly (bending + line(=0) + tension + active).
     """
     kBT = ev.kBT_zJ
-    coverage = _coverage_ramp(T, ramp_mid, ramp_width)
+    coverage = _coverage_ramp(T, ramp_mid, ramp_width) if coverage is None else coverage
     c_eff = c_eff_max * coverage  # (T,)
     active_force = active_max * coverage  # (T,)
     rigidity = 1.0 + (coat_rig - 1.0) * coverage  # (T,)
@@ -74,7 +105,7 @@ def _fast_H_trajectory(
     return 1.0 / optimal_radius  # H(t)
 
 
-def predict_H(theta, params, A_coat_nm2, fixed=FIXED):
+def predict_H(theta, params, A_coat_nm2, fixed=FIXED, context=None):
     """Forward model: force vector theta -> mean-curvature trajectory H(t)."""
     parameter_values = {p.name: v for p, v in zip(params, theta)}
     return _fast_H_trajectory(
@@ -85,10 +116,34 @@ def predict_H(theta, params, A_coat_nm2, fixed=FIXED):
         coat_rig=fixed["coat_rigidity_factor"],
         A=A_coat_nm2,
         T=fixed["T"],
+        coverage=(context or ObservationContext()).coverage_array(fixed["T"]),
     )
 
 
 # ---------------------------------------------------------- likelihood -------
+def _gaussian_term(values, sigma, mask, n_frames, floor):
+    """Validate observations once and return their masked Gaussian likelihood."""
+    values, sigma = np.asarray(values, float), np.asarray(sigma, float)
+    if values.shape != (n_frames,) or sigma.shape != (n_frames,):
+        raise ValueError(
+            f"observations and uncertainties must have shape {(n_frames,)}"
+        )
+    values, sigma = values[mask], sigma[mask]
+    if not np.all(np.isfinite(values)):
+        raise ValueError("selected observations must be finite")
+    if not np.all(np.isfinite(sigma) & (sigma > 0)):
+        raise ValueError("selected uncertainties must be finite and positive")
+    sigma = np.clip(sigma, floor, None)
+    log_sigma = np.sum(np.log(sigma))
+    normalization = 0.5 * len(values) * np.log(2 * np.pi)
+
+    def score(prediction):
+        residual = (prediction[mask] - values) / sigma
+        return float(-0.5 * np.sum(residual * residual) - log_sigma - normalization)
+
+    return score
+
+
 def make_loglike(
     H_obs,
     H_sigma,
@@ -98,61 +153,37 @@ def make_loglike(
     mask=None,
     actin_obs=None,
     actin_sigma=None,
+    context=None,
 ):
-    """Gaussian log-likelihood in H(t) with per-frame sigma; masked frames dropped.
+    """Score curvature and optional actin data on the same selected frames.
 
-    If an ACTIN-density channel is supplied (actin_obs/actin_sigma, normalized to
-    [0,1]), an extra Gaussian term ties active_force_max to the observed actin
-    intensity: actin recruitment is proportional to the cortical force the machine
-    can exert, so the coat-assembly-scaled active force predicts the normalized
-    actin trace. This independent observable is what BREAKS the c_eff/active
-    degeneracy that H(t) alone cannot resolve. Without an actin channel the term
-    is absent and the degeneracy stands (correctly reported by identifiability()).
+    Actin density follows the renderer's force calibration. Every hypothesis
+    scores that channel, including models whose active force is fixed at zero.
     """
-    H_obs = np.asarray(H_obs, float)
-    H_sigma = np.clip(np.asarray(H_sigma, float), 1e-4, None)
-    if mask is None:
-        mask = np.ones(len(H_obs), bool)
-    frame_indices = np.where(mask)[0]
-    use_actin = actin_obs is not None
-    if use_actin:
-        actin_values = np.asarray(actin_obs, float)
-        actin_uncertainty = np.clip(np.asarray(actin_sigma, float), 1e-3, None)
-        coverage = _coverage_ramp(fixed["T"])
+    if not np.isfinite(A_coat_nm2) or A_coat_nm2 <= 0:
+        raise ValueError("coat area must be finite and positive")
+    n_frames = fixed["T"]
+    context = context or ObservationContext()
+    coverage = context.coverage_array(n_frames)
+    mask = np.ones(n_frames, bool) if mask is None else np.asarray(mask, dtype=bool)
+    if mask.shape != (n_frames,) or not mask.any():
+        raise ValueError(
+            "mask must match the observations and select at least one frame"
+        )
+    curvature_term = _gaussian_term(H_obs, H_sigma, mask, n_frames, 1e-4)
+    if (actin_obs is None) != (actin_sigma is None):
+        raise ValueError("actin_obs and actin_sigma must be supplied together")
+    actin_term = None
+    if actin_obs is not None:
+        actin_term = _gaussian_term(actin_obs, actin_sigma, mask, n_frames, 1e-3)
 
     def loglike(theta):
-        predicted_curvature = predict_H(theta, params, A_coat_nm2, fixed)
-        curvature_residual = (
-            predicted_curvature[frame_indices] - H_obs[frame_indices]
-        ) / H_sigma[frame_indices]
-        log_likelihood = float(
-            -0.5 * np.sum(curvature_residual * curvature_residual)
-            - np.sum(np.log(H_sigma[frame_indices]))
-            - 0.5 * len(frame_indices) * np.log(2 * np.pi)
-        )
-        if use_actin:
-            # predicted calibrated actin = assembly ramp * (active_force/ACTIN_CALIB).
-            # This matches the perception observable (peak actin / peak_photons ==
-            # force/ACTIN_CALIB_PN), so the channel constrains force MAGNITUDE.
-            # CRUCIAL for model comparison: this term applies to EVERY hypothesis,
-            # using active_force_max=0 when that actor is not free. A wedge-only
-            # model then predicts ZERO actin and is correctly PENALIZED against a
-            # real actin signal -- so all models are scored on the same data (a
-            # requirement for valid Bayesian evidence comparison).
-            parameter_values = {p.name: v for p, v in zip(params, theta)}
-            calibrated_force = (
-                parameter_values.get("active_force_max", 0.0) / sm.ACTIN_CALIB_PN
-            )
-            predicted_actin = coverage * calibrated_force
-            actin_residual = (
-                predicted_actin[frame_indices] - actin_values[frame_indices]
-            ) / actin_uncertainty[frame_indices]
-            log_likelihood += float(
-                -0.5 * np.sum(actin_residual * actin_residual)
-                - np.sum(np.log(actin_uncertainty[frame_indices]))
-                - 0.5 * len(frame_indices) * np.log(2 * np.pi)
-            )
-        return log_likelihood
+        total = curvature_term(predict_H(theta, params, A_coat_nm2, fixed, context))
+        if actin_term is not None:
+            values = {p.name: v for p, v in zip(params, theta)}
+            force_fraction = values.get("active_force_max", 0.0) / context.actin_force_scale_pN
+            total += actin_term(coverage * force_fraction)
+        return total
 
     return loglike
 
@@ -183,27 +214,13 @@ def run_nested(
     dlogz=0.05,
     maxcall=500_000,
     maxiter=None,
+    context=None,
 ):
-    """dynesty static nested sampling -> posterior samples + log-evidence.
+    """Return posterior samples and evidence from dynesty static sampling.
 
-    Plateau guard: the loglikelihood can plateau (e.g. an actin channel that is
-    flat across a whole restricted model, or a near-degenerate direction). Without
-    stopping caps, dynesty can spin for hours on such a run. We therefore pass
-    explicit, deterministic bounds:
-      * dlogz    -- early stop when the estimated remaining evidence is negligible.
-                    0.05 is well below the lnB~0.3 resolution the model-comparison
-                    decisions need, so it does not affect a verdict. It is TIGHTER
-                    than dynesty's own nlive-dependent default (1e-3*(nlive-1)+0.01,
-                    ~0.16-0.26 here), so the run samples at least as long as before
-                    the explicit cap -- the guard bounds runaway cost, it does not
-                    truncate a healthy run early.
-      * maxcall  -- hard cap on likelihood evaluations (~0.2 ms each, so 500k bounds
-                    worst-case wall-clock to a few minutes; a healthy run uses
-                    ~10-30k and stops on dlogz long before this).
-      * maxiter  -- optional hard iteration cap (None = governed by dlogz/maxcall).
-    `stopped_early` in the result flags when a cap (not dlogz) terminated the run,
-    so a caller can widen the cap or down-weight that fit rather than trust a
-    truncated evidence.
+    dlogz controls the remaining-evidence tolerance. maxcall and maxiter limit
+    sampling cost. stopped_early flags a reached cap; downstream reporting treats
+    that posterior as provisional and withholds decisive claims.
     """
     from dynesty import NestedSampler
     from dynesty.utils import resample_equal
@@ -218,6 +235,7 @@ def run_nested(
         mask,
         actin_obs=actin_obs,
         actin_sigma=actin_sigma,
+        context=context,
     )
     ndim = len(params)
     rng = np.random.default_rng(seed)
@@ -236,7 +254,7 @@ def run_nested(
     )
     logwt = res.logwt - res.logz[-1]
     weights = np.exp(logwt)
-    samples = resample_equal(res.samples, weights)
+    samples = resample_equal(res.samples, weights, rstate=rng)
     return dict(
         samples=samples,
         logz=float(res.logz[-1]),
@@ -246,6 +264,7 @@ def run_nested(
         ncall=ncall,
         niter=niter,
         stopped_early=stopped_early,
+        observation_context=dataclasses.asdict(context or ObservationContext()),
     )
 
 
@@ -263,6 +282,7 @@ def run_mcmc(
     fixed=FIXED,
     actin_obs=None,
     actin_sigma=None,
+    context=None,
 ):
     """emcee affine-invariant MCMC -> posterior samples (independent cross-check)."""
     import emcee
@@ -277,6 +297,7 @@ def run_mcmc(
         mask,
         actin_obs=actin_obs,
         actin_sigma=actin_sigma,
+        context=context,
     )
     ndim = len(params)
 

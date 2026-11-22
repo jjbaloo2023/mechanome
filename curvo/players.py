@@ -18,6 +18,8 @@ antagonism (additive only if dilute/uncoupled) is enforced in combine().
 """
 from __future__ import annotations
 
+import math
+
 
 
 # ==========================================================================
@@ -35,6 +37,13 @@ class WedgePlayer:
     plausibility_range = {"c0_contribution_inv_nm": (0.0, 0.08)}
 
     def validate(self, rep: str, params: dict, context: dict) -> tuple[bool, str]:
+        if rep not in self.candidate_representations:
+            return False, f"unknown {self.name} representation: {rep!r}"
+        if not isinstance(params, dict) or any(
+            isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v)
+            for v in params.values()
+        ):
+            return False, "parameters must contain finite numeric values"
         # Guardrail 1: a shallow amphipathic helix has no orientational order ->
         # anisotropic representation is physically wrong.
         if rep == "anisotropic_inclusion":
@@ -50,6 +59,10 @@ class WedgePlayer:
         lo, hi = self.plausibility_range["c0_contribution_inv_nm"]
         if not (lo <= c0 <= hi):
             return False, f"c0={c0} outside plausibility {self.plausibility_range}"
+        if params.get("tension_half_kBT_nm2", 0.02) <= 0:
+            return False, "tension half-value must be positive"
+        if not 0 < params.get("kappa_softening_factor", 0.9) <= 1:
+            return False, "wedge stiffness factor must be in (0, 1]"
         return True, "wedge representation admissible"
 
     def contribution(self, params: dict, sigma: float) -> dict:
@@ -79,6 +92,13 @@ class CrowdingPlayer:
     plausibility_range = {"c0_contribution_inv_nm": (0.0, 0.05)}
 
     def validate(self, rep: str, params: dict, context: dict) -> tuple[bool, str]:
+        if rep not in self.candidate_representations:
+            return False, f"unknown {self.name} representation: {rep!r}"
+        if not isinstance(params, dict) or any(
+            isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v)
+            for v in params.values()
+        ):
+            return False, "parameters must contain finite numeric values"
         # Guardrail: crowding is entropic/steric and saturates -> a FIXED c0 is wrong.
         if rep == "fixed_c0":
             return False, "crowding is density-dependent & saturates; fixed c0 is wrong (§4 rule)"
@@ -86,6 +106,12 @@ class CrowdingPlayer:
         if context.get("is_disordered") and rep not in (
                 "saturating_surface_pressure", "polymer_brush_ensemble"):
             return False, "disordered tail must be brush/ensemble, not a folded representation"
+        if not 0 <= params.get("coverage", 0.5) <= 1:
+            return False, "coverage must be in [0, 1]"
+        if not 0 <= params.get("c_max_inv_nm", 0.04) <= 0.05:
+            return False, "crowding curvature must be in [0, 0.05]"
+        if params.get("phi_half", 0.3) <= 0:
+            return False, "half-saturation coverage must be positive"
         return True, "crowding representation admissible"
 
     def contribution(self, params: dict, sigma: float) -> dict:
@@ -114,6 +140,13 @@ class CoatPlayer:
     plausibility_range = {"rigidity_factor": (1.0, 6.0)}
 
     def validate(self, rep: str, params: dict, context: dict) -> tuple[bool, str]:
+        if rep not in self.candidate_representations:
+            return False, f"unknown {self.name} representation: {rep!r}"
+        if not isinstance(params, dict) or any(
+            isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v)
+            for v in params.values()
+        ):
+            return False, "parameters must contain finite numeric values"
         # Guardrail (Kaksonen subtlety): if the coat's role is size/regularity, a
         # c0 source is the wrong representation.
         if rep == "isotropic_c0_source" and context.get("coat_role") == "size_regularity":
@@ -122,6 +155,8 @@ class CoatPlayer:
         lo, hi = self.plausibility_range["rigidity_factor"]
         if not (lo <= rf <= hi):
             return False, f"rigidity_factor={rf} outside {self.plausibility_range}"
+        if not 0 <= params.get("intrinsic_c0_inv_nm", 0.0) <= 0.08:
+            return False, "coat curvature must be in [0, 0.08]"
         return True, "coat representation admissible"
 
     def contribution(self, params: dict, sigma: float) -> dict:
@@ -143,6 +178,13 @@ class TensionPlayer:
     plausibility_range = {"sigma_kBT_nm2": (0.0, 0.1)}
 
     def validate(self, rep: str, params: dict, context: dict) -> tuple[bool, str]:
+        if rep not in self.candidate_representations:
+            return False, f"unknown {self.name} representation: {rep!r}"
+        if not isinstance(params, dict) or any(
+            isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v)
+            for v in params.values()
+        ):
+            return False, "parameters must contain finite numeric values"
         s = params.get("sigma_kBT_nm2", 0.0)
         lo, hi = self.plausibility_range["sigma_kBT_nm2"]
         if not (lo <= s <= hi):
@@ -167,6 +209,10 @@ def combine_curvature(contribs: dict, coupling_correction: float = 0.0) -> dict:
     concentrates it — the correction captures the >additive synergy the epsin
     system is documented to show (H0 alone insufficient without the coat).
     """
+    # This model permits up to a doubling of curvature by phenomenological
+    # synergy. It is an implementation domain, not an experimentally fitted bound.
+    if not isinstance(coupling_correction, (int, float)) or not math.isfinite(coupling_correction) or not 0 <= coupling_correction <= 1:
+        raise ValueError("coupling correction must be finite and in [0, 1]")
     c_total = sum(c.get("c0_contribution_inv_nm", 0.0) for c in contribs.values())
     active = set(contribs.keys())
     coupled_present = any(p[0] in active and p[1] in active for p in COUPLED_PAIRS)

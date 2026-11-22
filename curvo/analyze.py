@@ -1,8 +1,8 @@
 """Run a microscopy movie through perception, inference, and mechanism ranking.
 
 The flow in analyze() is pixels -> geometry -> posterior -> mechanism -> report.
-_report_forces() enforces the reporting rule: a point estimate needs both
-single-run identifiability and successful recovery calibration. Other forces
+_report_forces() requires completed sampling, single-run identifiability,
+and successful synthetic recovery calibration for point estimates. Other forces
 keep their posterior intervals and an explanation of what remains unknown.
 
 Input movies use [frame, channel, height, width] order. Output dictionaries keep
@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import hashlib
 import time
+import dataclasses
 
 import numpy as np
 
@@ -21,17 +22,10 @@ from . import inverse
 from . import mechanism
 from .schemas import version_hashes_of
 
-# Forces the SYNTHETIC RECOVERY VALIDATION (Step 5) demonstrated are calibrated
-# (posterior median tracks truth with correct CI coverage across the noise grid).
-# Only these may be returned as POINT estimates; every other actor is returned as
-# a posterior flagged underdetermined, EVEN IF a single-shot identifiability report
-# looks narrow -- a per-analysis posterior can be narrow yet biased (perception
-# bias absorbed into the parameter), and only the recovery grid, which knows the
-# truth, can certify calibration. This is the hard credibility gate.
-#   active_force_max: recovery cov68|identified=0.96, rel_bias +2.0%  -> CALIBRATED
-#   c_eff_max:        recovery identified  0/40 (degenerate from geometry) -> NOT
-#   sigma:            recovery identified  0/40 (uninformative)            -> NOT
-RECOVERY_CALIBRATED = {"active_force_max"}
+# The historical active-force calibration predates the geometry validity gate.
+# A single successful recovery is not a current-version calibration grid.
+# Keep point estimates disabled until that qualification is recorded and reviewed.
+RECOVERY_CALIBRATED = set()
 
 
 def _hash_movie(movie):
@@ -39,13 +33,7 @@ def _hash_movie(movie):
 
 
 def _question_to_hypotheses(question):
-    """Map a plain-language question to the hypothesis set to compare.
-
-    Kept deliberately simple/transparent (keyword routing); an LLM orchestrator
-    can override by passing `hypotheses=` explicitly. The point is that the
-    physics/evidence machinery is fixed and auditable — only the hypothesis
-    SELECTION is language-driven.
-    """
+    """Route question keywords to a hypothesis set; callers can supply their own."""
     q = (question or "").lower()
     full = ["tension_only", "wedge_only", "actin_only", "wedge+actin"]
     if "actin" in q and (
@@ -55,14 +43,13 @@ def _question_to_hypotheses(question):
     return full
 
 
-def _report_forces(identifiability: dict) -> dict:
-    """Allow point estimates only for identified, recovery-calibrated forces."""
+def _report_forces(identifiability: dict, *, stopped_early: bool = False,
+                   calibration_supported: bool = False) -> dict:
+    """Require completed sampling, identifiability, and recovery calibration."""
     forces = {}
     for name, info in identifiability.items():
-        # a point value is licensed only if the single-shot report says identified
-        # AND recovery validation certified this force calibrated
-        recovery_ok = name in RECOVERY_CALIBRATED
-        identified = bool(info["identified"] and recovery_ok)
+        recovery_ok = name in RECOVERY_CALIBRATED and calibration_supported
+        identified = bool(info["identified"] and recovery_ok and not stopped_early)
         entry = dict(
             units=info["units"],
             posterior_median=info["median"],
@@ -71,15 +58,19 @@ def _report_forces(identifiability: dict) -> dict:
             identified=identified,
             single_shot_identified=bool(info["identified"]),
             recovery_calibrated=recovery_ok,
+            sampling_stopped_early=stopped_early,
         )
         if identified:
             entry["point_estimate"] = info["median"]
             entry["status"] = "identified"
         else:
-            # GUARDRAIL: refuse a point value; return the posterior + why
             entry["point_estimate"] = None
             entry["status"] = "underdetermined"
             reasons = []
+            if stopped_early:
+                reasons.append("sampling reached its limit; posterior is provisional")
+            if not calibration_supported:
+                reasons.append("observation context is outside the declared synthetic recovery calibration")
             if info.get("degenerate_with"):
                 reasons.append(
                     "degenerate with "
@@ -93,15 +84,33 @@ def _report_forces(identifiability: dict) -> dict:
                 reasons.append("posterior ~ prior (no information gain)")
             if info["identified"] and not recovery_ok:
                 reasons.append(
-                    "single-shot posterior looks narrow but recovery "
-                    "validation shows this actor is NOT calibrated from "
-                    "this observable set (biased); returning posterior, "
-                    "not a point value"
+                    "synthetic recovery does not support a point estimate "
+                    "for this parameter"
                 )
             entry["reason"] = "; ".join(reasons) or "not constrained by the data"
         forces[name] = entry
 
     return forces
+
+
+def _calibration_issues(context, video, nm_per_px, psf_sigma_nm, peak_photons, area, has_actin):
+    """Check declared synthetic conditions; this does not certify real images."""
+    issues = []
+    if not RECOVERY_CALIBRATED:
+        issues.append("current extraction/inference revision awaits recovery qualification")
+    if context.input_kind != "synthetic" or context.calibration_id != "synthetic_renderer_v1":
+        issues.append("no supported synthetic calibration declaration")
+    if context.coverage is not None:
+        issues.append("custom coverage has not passed recovery calibration")
+    if context.actin_force_scale_pN != inverse.sm.ACTIN_CALIB_PN:
+        issues.append("changed fluorescence-to-force scale")
+    if video.shape[2:] != (128, 128) or (nm_per_px, psf_sigma_nm, peak_photons) != (2.0, 18.0, 220.0):
+        issues.append("imaging conditions differ from the recovery grid")
+    if not np.isclose(area, np.pi * 60.0**2):
+        issues.append("coat area differs from the recovery grid")
+    if not has_actin:
+        issues.append("no calibrated actin channel")
+    return issues
 
 
 def analyze(
@@ -118,6 +127,7 @@ def analyze(
     nlive=200,
     seed=0,
     verbose=False,
+    context=None,
 ):
     """Run the full pixels->forces->mechanism pipeline; return a structured result.
 
@@ -126,12 +136,44 @@ def analyze(
     """
     t_start = time.time()
     video = np.asarray(video, float)
+    if video.ndim != 4 or any(size == 0 for size in video.shape):
+        raise ValueError(
+            "video must have nonempty [frame, channel, height, width] axes"
+        )
     n_frames, n_channels = video.shape[0], video.shape[1]
+    if n_frames != inverse.FIXED["T"]:
+        raise ValueError(
+            f"analyze requires {inverse.FIXED['T']} frames; got {n_frames}"
+        )
+    if not np.all(np.isfinite(video)):
+        raise ValueError("video must contain only finite values")
     if channels is None:
-        channels = ["membrane", "coat"] + (["actin"] if n_channels >= 3 else [])
+        if n_channels not in (2, 3):
+            raise ValueError(
+                "provide channel names for movies with other than 2 or 3 channels"
+            )
+        channels = ["membrane", "coat"] + (["actin"] if n_channels == 3 else [])
+    if (
+        len(channels) != n_channels
+        or len(set(channels)) != n_channels
+        or channels[0] != "membrane"
+        or "coat" not in channels
+    ):
+        raise ValueError(
+            "channels must be unique, match the movie, and include membrane first and coat"
+        )
     has_actin = "actin" in channels
     if A_coat_nm2 is None:
         A_coat_nm2 = np.pi * 60.0**2
+    for name, value in (("nm_per_px", nm_per_px), ("psf_sigma_nm", psf_sigma_nm),
+                        ("peak_photons", peak_photons), ("A_coat_nm2", A_coat_nm2)):
+        if not np.isfinite(value) or value <= 0:
+            raise ValueError(f"{name} must be finite and positive")
+    context = context or inverse.ObservationContext()
+    context.coverage_array(n_frames)
+    calibration_issues = _calibration_issues(
+        context, video, nm_per_px, psf_sigma_nm, peak_photons, A_coat_nm2, has_actin
+    )
 
     # 1) PERCEPTION: pixels -> geometry(t) with per-frame uncertainty
     metadata = dict(
@@ -140,15 +182,29 @@ def analyze(
         psf_sigma_nm=psf_sigma_nm,
         peak_photons=peak_photons,
         movie_id=_hash_movie(video),
+        input_kind=context.input_kind,
     )
     trace = perception.PerceptionProvider(host=host).extract(video, metadata, seed=seed)
     curvature = trace.arr("H_inv_nm")
     curvature_sigma = trace.arr("H_sigma_inv_nm")
     depth_nm = trace.arr("depth_nm")
-    resolved_frames = depth_nm >= psf_sigma_nm
+    resolved_frames = (depth_nm >= psf_sigma_nm) & trace.arr("geometry_valid").astype(bool)
     actin_obs = trace.arr("actin_density") if has_actin else None
     actin_sigma = trace.arr("actin_sigma") if has_actin else None
     n_resolved = int(resolved_frames.sum())
+    if not n_resolved:
+        return dict(
+            question=question, analysis_status="unsupported", forces={}, identifiability={},
+            favored_mechanism=dict(favored="UNDETERMINED", decisive=False, ranking=[],
+                                   ln_bayes_factor=None, incomplete_fits=[]),
+            uncertainty=dict(n_frames=n_frames, n_resolved_frames=0,
+                             note="no valid resolved geometry; sampling was not run"),
+            suggested_experiment=dict(observable="resolved sub-hemisphere membrane geometry"),
+            provenance=dict(movie_sha256_16=metadata["movie_id"],
+                            observation_context=dataclasses.asdict(context),
+                            calibration_issues=calibration_issues, extractor=trace.extractor,
+                            extraction_quality=[f.quality_reason for f in trace.frames]),
+        )
 
     # 2) INVERSE: full-model posterior over forces + identifiability
     posterior = inverse.run_nested(
@@ -160,11 +216,14 @@ def analyze(
         seed=seed,
         actin_obs=actin_obs,
         actin_sigma=actin_sigma,
+        context=context,
     )
     identifiability = inverse.identifiability(posterior["samples"], posterior["params"])
 
     # 3) MECHANISM: evidence ranking + (if needed) disambiguating experiment
-    selected_hypotheses = hypotheses or _question_to_hypotheses(question)
+    selected_hypotheses = (
+        _question_to_hypotheses(question) if hypotheses is None else hypotheses
+    )
     verdict, _fits = mechanism.discriminate(
         curvature,
         curvature_sigma,
@@ -175,23 +234,36 @@ def analyze(
         hypotheses=selected_hypotheses,
         nlive=nlive,
         seed=seed,
+        context=context,
     )
 
     # 4) Report only what the data and recovery validation support.
-    forces = _report_forces(identifiability)
+    forces = _report_forces(identifiability, stopped_early=posterior["stopped_early"],
+                            calibration_supported=not calibration_issues)
+    if calibration_issues or posterior["stopped_early"]:
+        verdict["favored"], verdict["decisive"] = "UNDETERMINED", False
+        verdict.setdefault("suggested_experiment", dict(
+            observable="independent calibration and validated observation model",
+            rationale="conditional fit scores do not validate this observation context",
+        ))
 
     result = dict(
         question=question,
+        analysis_status="exploratory" if calibration_issues else (
+            "provisional" if posterior["stopped_early"] else "synthetic_model_conditional"),
         forces=forces,
         favored_mechanism=dict(
             favored=verdict["favored"],
             decisive=verdict["decisive"],
             ln_bayes_factor=verdict["ln_bayes_factor"],
             ranking=verdict["ranking"],
+            incomplete_fits=verdict["incomplete_fits"],
+            numerical_gap_lower_bound=verdict["numerical_gap_lower_bound"],
         ),
         uncertainty=dict(
             n_frames=n_frames,
             n_resolved_frames=n_resolved,
+            extraction_quality=[f.quality_reason for f in trace.frames],
             note=(
                 "unresolved frames (cap shallower than the PSF) are excluded "
                 "from the likelihood, not trusted as point values"
@@ -219,11 +291,15 @@ def analyze(
             engine="dynesty-nested+identifiability",
             module_versions=version_hashes_of(perception, inverse, mechanism),
             logz_full_model=posterior["logz"],
+            full_model_stopped_early=posterior["stopped_early"],
+            observation_context=dataclasses.asdict(context),
+            calibration_issues=calibration_issues,
+            coverage_source="fixed_synthetic_ramp" if context.coverage is None else "supplied_conditional_trace",
+            extracted_coat_coverage=trace.arr("coat_coverage").tolist(),
             runtime_s=round(time.time() - t_start, 2),
             credibility_note=(
-                "force point-estimates are returned ONLY for actors the "
-                "recovery-validation gate shows calibrated; all others are "
-                "returned as posteriors flagged underdetermined"
+                "point estimates require completed sampling, identifiability, "
+                "and synthetic recovery calibration under the model assumptions"
             ),
         ),
     )

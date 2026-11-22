@@ -76,6 +76,16 @@ class Case:
     context: dict = None  # amphipathic flags etc. from structure_provider
     lam_kBT_nm: float = 0.0
 
+    def __post_init__(self):
+        import math
+        for name in ("target_curvature_inv_nm", "sigma_kBT_nm2", "lam_kBT_nm", "tol"):
+            value = getattr(self, name)
+            if not math.isfinite(value) or value < 0:
+                raise ValueError(f"{name} must be finite and nonnegative")
+        for name in ("A_coat_nm2", "kappa_kBT"):
+            if not math.isfinite(getattr(self, name)) or getattr(self, name) <= 0:
+                raise ValueError(f"{name} must be finite and positive")
+
 
 def _system_prompt(case: Case) -> str:
     return (
@@ -268,6 +278,9 @@ def evaluate_proposal(case: Case, proposal: dict):
         if name not in player_models.PLAYERS:
             rejections.append({"player": name, "reason": "unknown player"})
             continue
+        if name not in case.active_players or name in contributions:
+            rejections.append({"player": name, "reason": "inactive or duplicate player"})
+            continue
         player_proposal.setdefault("parameters", {})
         player_proposal.setdefault("representation", "")
         player = player_models.PLAYERS[name]
@@ -323,10 +336,9 @@ def _compose_trace(proposal: dict, text: str = "") -> str:
             )
     if proposal.get("coupling_correction"):
         parts.append(
-            f"coupling_correction={proposal['coupling_correction']} "
-            "(coat concentrates wedge/crowd → >additive synergy)"
+            f"coupling_correction={proposal['coupling_correction']}"
         )
-    if text:
+    if text and text not in parts:
         parts.append(text)
     return " || ".join(parts)
 

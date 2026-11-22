@@ -1,17 +1,15 @@
-"""
-curvo.schemas — core data contracts for the curvature-orchestration pipeline.
+"""Data records for parameters, structures, and model evaluations.
 
-Every object here is a frozen-ish dataclass with a to_dict() so that any record
-can be serialized into an OrchestrationRecord and, ultimately, into the SVG
-schematic and provenance log. The design rule from the sprint plan is enforced
-structurally: *every stored parameter carries provenance + validity range +
-uncertainty*. You cannot construct a ParameterRecord without them.
+Records retain source, uncertainty, and optional validity bounds. Applicability
+checks distinguish matched conditions, mismatches, and missing information.
+These mutable records do not verify the scientific truth of a cited source.
 """
 from __future__ import annotations
 
 import hashlib
 import json
 import time
+import math
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 
@@ -49,9 +47,8 @@ class Provenance:
 class ParameterRecord:
     """Uniform record for every physical parameter in the store.
 
-    Construction requires value, uncertainty, state_point, provenance and a
-    validity range — this is what lets the orchestrator decide whether existing
-    data actually applies or whether it must flag an MD gap.
+    Value, uncertainty, state point, and source are required. Validity bounds
+    are optional; absence of bounds does not establish general applicability.
     """
     param: str                                  # canonical name, e.g. "c0", "kappa", "lambda_line"
     value: float
@@ -65,20 +62,37 @@ class ParameterRecord:
     def applies_at(self, target: StatePoint, tol: dict | None = None) -> tuple[bool, str]:
         """Does this record apply at the target state point (within valid_range)?
 
-        Returns (ok, reason). The orchestrator uses this to decide use-data vs
-        flag-MD. Kept deliberately simple: numeric fields must fall inside
-        valid_range (if that field's range is stored).
+        Return (ok, reason), including an explicit unknown-applicability reason.
+        Free-text compositions must match; unspecified conditions are not proof
+        of compatibility. Numeric bounds apply only to their declared fields.
         """
         tol = tol or {}
+        if "simulation_metadata_unverified" in self.flags:
+            return False, "unknown applicability: simulation metadata is unverified"
+        source_comp, target_comp = self.state_point.composition, target.composition
+        if not source_comp or not target_comp:
+            return False, "unknown applicability: source and target composition are required"
+        if source_comp.strip().casefold() != target_comp.strip().casefold():
+            return False, "composition mismatch"
         for fld, rng in self.valid_range.items():
             tv = getattr(target, fld, None)
             if tv is None:
-                continue
+                return False, f"unknown applicability: target {fld} is missing"
             lo, hi = rng
             pad = tol.get(fld, 0.0)
-            if tv < lo - pad or tv > hi + pad:
+            if not math.isfinite(tv) or tv < lo - pad or tv > hi + pad:
                 return False, f"{fld}={tv} outside valid_range {rng} (+/-{pad})"
-        return True, "within valid_range"
+        for fld in ("temperature_K", "tension_mN_per_m"):
+            tv = getattr(target, fld)
+            if tv is not None and fld not in self.valid_range:
+                source_value = getattr(self.state_point, fld)
+                if source_value is None:
+                    return False, f"unknown applicability: source {fld} is missing"
+                if not math.isfinite(tv) or not math.isclose(tv, source_value, abs_tol=tol.get(fld, 0.0)):
+                    return False, f"{fld} differs from source; no validated range"
+        if not self.valid_range and target.temperature_K is None and target.tension_mN_per_m is None:
+            return False, "unknown applicability: no thermodynamic conditions supplied"
+        return True, "composition and supplied conditions match"
 
     def to_dict(self) -> dict:
         d = asdict(self)

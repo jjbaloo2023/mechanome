@@ -1,25 +1,15 @@
-"""
-mechanome/schema.py — the MechanoClaim data contract with structural tier enforcement.
+"""Validate claim structure, numeric values, and declared evidence provenance.
 
-The whole design rests on one invariant:
-
-    Every claim is GROUNDED (a forward-model inverse run against data, carrying
-    value + uncertainty + identifiability), MEASURED (a cited experimental value
-    with provenance), or LINKED (a flagged mechanotransduction hypothesis with an
-    explicit causal chain and a proposed test, and NO physical value). The system
-    never silently promotes a lower tier to a higher one. Tier is always visible.
-
-This is curvo's ParameterRecord discipline (provenance + validity + uncertainty)
-promoted to the organizing principle of the whole system. The GROUNDED<->LINKED
-boundary is the credibility firewall: force-to-shape is force balance (a
-well-posed inverse); force-to-transcription-factor-activity is multi-step
-signaling (correlative). Mixing them is how a knowledge graph launders
-correlation into physics — this schema forbids it structurally, in __post_init__,
-by raising rather than emitting an invalid claim.
+GROUNDED requires an executable registered model and a validation tier compatible
+with its module. It does not mean that an input was experimentally measured.
+LINKED records cannot carry physical values. Checks run at construction and
+serialization; they cannot verify the truth of user-supplied scientific evidence.
 """
 from __future__ import annotations
 
 import time
+import math
+from numbers import Real
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 from typing import Optional, List, Dict, Any
@@ -76,7 +66,8 @@ class MechanoClaim:
     """A single edge of the mechanome, wearing its epistemic tier on its face.
 
     Tier rules (enforced in __post_init__, raising TierViolation on breach):
-      GROUNDED : requires forward_model, value, and identifiability
+      GROUNDED : requires executable model, value, identifiability, evidence,
+                 and structured input/validation provenance
       MEASURED : requires value AND >=1 citation in evidence
       LINKED   : requires a causal chain (in evidence) AND a proposed experiment
                  (reasoning_trace), and FORBIDS a physical value
@@ -92,6 +83,8 @@ class MechanoClaim:
     evidence: List[str] = field(default_factory=list)   # provenance strings / citations / chains
     reasoning_trace: str = ""
     created_at: float = field(default_factory=time.time)
+    input_kind: Optional[str] = None
+    validation: Optional[str] = None
 
     def __post_init__(self):
         # normalize enums passed as strings
@@ -101,6 +94,13 @@ class MechanoClaim:
             self.identifiability = Identifiability(self.identifiability)
         if self.relation not in RELATIONS:
             raise TierViolation(f"relation {self.relation!r} not in {RELATIONS}")
+        if self.value is not None:
+            numeric = (self.value.estimate, self.value.uncertainty) if isinstance(self.value, Value) else ()
+            if (not numeric or not all(isinstance(v, Real) and not isinstance(v, bool) and math.isfinite(v) for v in numeric)
+                    or self.value.uncertainty < 0 or not isinstance(self.value.units, str) or not self.value.units.strip()):
+                raise TierViolation("value requires finite estimate, nonnegative uncertainty, and units")
+        if not all(isinstance(item, str) and item.strip() for item in self.evidence):
+            raise TierViolation("evidence must contain nonempty strings")
         self._enforce_tier()
 
     # --- the credibility firewall -------------------------------------------
@@ -115,6 +115,21 @@ class MechanoClaim:
                                       ("identifiability", self.identifiability)) if v is None]
             if missing:
                 raise TierViolation(f"GROUNDED claim missing required field(s): {missing}")
+            from . import registry
+            models = registry.FORWARD_MODELS
+            if self.forward_model not in models or models[self.forward_model].status != "executable":
+                raise TierViolation("GROUNDED claim requires a registered executable model")
+            if not self.evidence:
+                raise TierViolation("GROUNDED claim requires evidence")
+            allowed = {("synthetic", "synthetic_recovery"),
+                       ("synthetic", "analytic_limit"), ("analytic", "analytic_limit"),
+                       ("experimental", "real_force_paired")}
+            if (self.input_kind, self.validation) not in allowed:
+                raise TierViolation("GROUNDED claim requires explicit compatible input and validation provenance")
+            modules = [m for m in registry.MODULES.values() if m.forward_model == self.forward_model]
+            permitted = registry.can_emit_grounded if self.validation == "real_force_paired" else registry.can_emit_analytic
+            if not any(permitted(m.name) for m in modules):
+                raise TierViolation("model registry does not support the claimed validation tier")
 
         elif t is EpistemicTier.MEASURED:
             if self.value is None:
@@ -133,6 +148,7 @@ class MechanoClaim:
                 raise TierViolation("LINKED claim requires a proposed experiment in reasoning_trace")
 
     def to_dict(self) -> Dict[str, Any]:
+        self.__post_init__()  # Revalidate mutable fields at the emission boundary.
         d = dict(
             subject=self.subject.to_dict() if isinstance(self.subject, Actor) else self.subject,
             relation=self.relation, object=self.object,
@@ -141,6 +157,7 @@ class MechanoClaim:
             value=self.value.to_dict() if self.value else None,
             identifiability=self.identifiability.value if self.identifiability else None,
             epistemic_tier=self.epistemic_tier.value,
+            input_kind=self.input_kind, validation=self.validation,
             evidence=list(self.evidence),
             reasoning_trace=self.reasoning_trace)
         return d

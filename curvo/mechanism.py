@@ -37,6 +37,7 @@ def fit_hypothesis(
     seed=0,
     actin_obs=None,
     actin_sigma=None,
+    context=None,
 ):
     """Fit one restricted hypothesis; return posterior + log Z + identifiability."""
     free = HYPOTHESES[name]
@@ -51,6 +52,7 @@ def fit_hypothesis(
         seed=seed,
         actin_obs=actin_obs,
         actin_sigma=actin_sigma,
+        context=context,
     )
     identifiability = inverse.identifiability(posterior["samples"], params)
     return dict(
@@ -58,6 +60,7 @@ def fit_hypothesis(
         free=free,
         logz=posterior["logz"],
         logz_err=posterior["logz_err"],
+        stopped_early=posterior["stopped_early"],
         identifiability=identifiability,
         n_params=len(params),
     )
@@ -97,6 +100,7 @@ def discriminate(
     seed=0,
     decisive_lnB=2.5,
     verbose=False,
+    context=None,
 ):
     """Rank hypotheses by evidence; return favored mechanism or UNDETERMINED.
 
@@ -105,7 +109,14 @@ def discriminate(
     scale). Below this the verdict is UNDETERMINED and a disambiguating experiment
     is proposed.
     """
-    selected_hypotheses = hypotheses or list(HYPOTHESES.keys())
+    selected_hypotheses = list(HYPOTHESES) if hypotheses is None else list(hypotheses)
+    if len(selected_hypotheses) < 2 or len(set(selected_hypotheses)) != len(
+        selected_hypotheses
+    ):
+        raise ValueError("provide at least two distinct hypotheses for comparison")
+    unknown = set(selected_hypotheses) - HYPOTHESES.keys()
+    if unknown:
+        raise ValueError(f"unknown hypotheses: {sorted(unknown)}")
     fits = []
     for i, hypothesis in enumerate(selected_hypotheses):
         fit = fit_hypothesis(
@@ -118,12 +129,15 @@ def discriminate(
             seed=seed + i,
             actin_obs=actin_obs,
             actin_sigma=actin_sigma,
+            context=context,
         )
         fits.append(fit)
         if verbose:
             print(
                 f"  {hypothesis:14s} logZ={fit['logz']:.2f} +/- {fit['logz_err']:.2f} ({fit['n_params']} params)"
             )
+    if any(not np.isfinite(f["logz"]) or not np.isfinite(f["logz_err"]) or f["logz_err"] < 0 for f in fits):
+        raise ValueError("model evidence and its nonnegative error must be finite")
     fits.sort(key=lambda d: d["logz"], reverse=True)
     log_evidence = np.array([fit["logz"] for fit in fits])
     # posterior model probabilities (equal prior over hypotheses)
@@ -133,7 +147,11 @@ def discriminate(
         fit["model_prob"] = float(probability)
     top, second = fits[0], fits[1]
     log_bayes_factor = top["logz"] - second["logz"]
-    decisive = log_bayes_factor >= decisive_lnB
+    incomplete_fits = [fit["name"] for fit in fits if fit["stopped_early"]]
+    # Conservative numerical screen, not a confidence interval: do not assume
+    # independent evidence errors. Every competitor must clear the margin.
+    robust_gap = min(top["logz"] - f["logz"] - 2 * (top["logz_err"] + f["logz_err"]) for f in fits[1:])
+    decisive = robust_gap >= decisive_lnB and not incomplete_fits
 
     overfit_flag = _overfit_downgrade(top, second) if decisive else None
     if overfit_flag:
@@ -145,12 +163,17 @@ def discriminate(
         ln_bayes_factor=float(log_bayes_factor),
         decisive=bool(decisive),
         decisive_threshold=decisive_lnB,
+        numerical_gap_lower_bound=float(robust_gap),
+        evidence_error_multiplier=2.0,
+        incomplete_fits=incomplete_fits,
         ranking=[
             dict(
                 name=fit["name"],
                 logz=fit["logz"],
+                logz_err=fit["logz_err"],
                 model_prob=fit["model_prob"],
                 n_params=fit["n_params"],
+                stopped_early=fit["stopped_early"],
             )
             for fit in fits
         ],
@@ -183,8 +206,9 @@ def propose_experiment(top, second):
             rationale=(
                 "c_eff_max and active_force_max are degenerate from geometry(t) alone "
                 "(they trade off in the cap energy). An independent actin readout or a "
-                "targeted perturbation breaks the degeneracy, which the recovery "
-                "validation shows lifts active_force to identified."
+                "targeted perturbation may add information about the missing actor. "
+                "An actin readout needs independent calibration; the updated pipeline "
+                "awaits recovery qualification before reporting force point estimates."
             ),
         )
     # tension vs a force actor
@@ -193,9 +217,9 @@ def propose_experiment(top, second):
             question="Is curvature change driven by a membrane force actor or by tension change alone?",
             observable="membrane tension (e.g. tether-pulling / Flipper-TR lifetime) time course",
             intervention="osmotic / micropipette tension clamp",
-            predicted_contrast="a force-actor model predicts curvature grows at fixed tension; "
-            "tension_only predicts curvature tracks the measured tension drop.",
-            rationale="clamping tension removes the tension_only explanatory pathway.",
+            predicted_contrast="the current hypotheses assume constant tension; predicting "
+            "a response to a tension time course requires an explicit time-varying model.",
+            rationale="an independent tension control tests the fixed-tension assumption.",
         )
     return dict(
         question="Which mechanism dominates?",

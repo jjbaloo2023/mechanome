@@ -36,18 +36,20 @@ def _wedge_movie(seed=1):
     return mv, gt
 
 
-def test_identifiable_force_returns_point_estimate():
+def test_synthetic_force_requires_current_recovery_qualification():
     mv, gt = _actin_movie()
-    r = az.analyze(mv, question="wedge or actin?", channels=gt.channels, seed=0)
+    r = az.analyze(mv, question="wedge or actin?", channels=gt.channels, seed=0, context=az.inverse.ObservationContext(
+        input_kind="synthetic", calibration_id="synthetic_renderer_v1"))
     af = r["forces"]["active_force_max"]
-    assert af["status"] == "identified", af
-    assert af["point_estimate"] is not None
-    assert 25.0 <= af["point_estimate"] <= 55.0, af["point_estimate"]  # truth 40
+    assert af["status"] == "underdetermined", af
+    assert af["point_estimate"] is None
+    assert af["recovery_calibrated"] is False
 
 
 def test_uncalibrated_force_never_point_estimate():
     mv, gt = _actin_movie()
-    r = az.analyze(mv, question="wedge or actin?", channels=gt.channels, seed=0)
+    r = az.analyze(mv, question="wedge or actin?", channels=gt.channels, seed=0, context=az.inverse.ObservationContext(
+        input_kind="synthetic", calibration_id="synthetic_renderer_v1"))
     ce = r["forces"]["c_eff_max"]
     # c_eff is not recovery-calibrated from this observable set -> no point value,
     # regardless of how narrow the single-shot posterior is
@@ -58,7 +60,8 @@ def test_uncalibrated_force_never_point_estimate():
 
 def test_geometry_only_is_undetermined_and_suggests_experiment():
     mv, gt = _wedge_movie()
-    r = az.analyze(mv, question="wedge or actin?", channels=gt.channels, seed=0)
+    r = az.analyze(mv, question="wedge or actin?", channels=gt.channels, seed=0, context=az.inverse.ObservationContext(
+        input_kind="synthetic", calibration_id="synthetic_renderer_v1"))
     assert r["favored_mechanism"]["favored"] == "UNDETERMINED", r["favored_mechanism"]
     assert r["suggested_experiment"] is not None
     assert "actin" in r["suggested_experiment"]["observable"].lower()
@@ -68,7 +71,8 @@ def test_geometry_only_is_undetermined_and_suggests_experiment():
 
 def test_provenance_recorded():
     mv, gt = _actin_movie()
-    r = az.analyze(mv, question="wedge or actin?", channels=gt.channels, seed=0)
+    r = az.analyze(mv, question="wedge or actin?", channels=gt.channels, seed=0, context=az.inverse.ObservationContext(
+        input_kind="synthetic", calibration_id="synthetic_renderer_v1"))
     p = r["provenance"]
     assert len(p["movie_sha256_16"]) == 16
     assert "dynesty" in p["engine"]
@@ -77,7 +81,7 @@ def test_provenance_recorded():
 
 if __name__ == "__main__":
     import traceback
-    tests = [test_identifiable_force_returns_point_estimate,
+    tests = [test_synthetic_force_requires_current_recovery_qualification,
              test_uncalibrated_force_never_point_estimate,
              test_geometry_only_is_undetermined_and_suggests_experiment,
              test_provenance_recorded]

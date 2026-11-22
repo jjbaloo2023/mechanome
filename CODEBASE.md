@@ -84,9 +84,35 @@ Comments should explain assumptions, units, or scientific constraints.
 - `analyze()` and the inference defaults currently assume a 24-frame model.
   Supporting arbitrary movie lengths needs an explicit model-context change
   through both full and restricted fits, plus recovery validation.
-- `run_nested()` reports `stopped_early`, but downstream mechanism/reporting
-  code does not yet propagate it as a reporting gate. That is a separate
-  scientific behavior change, not part of the readability refactor.
+- `stopped_early` propagates through force reporting and every restricted fit.
+  Capped sampling cannot support point estimates or a decisive verdict.
+- `ObservationContext` records input kind, calibration identity, optional
+  coverage, and fluorescence-to-force scale. Without an explicit supported
+  synthetic context, reports remain exploratory. The existing recovery grid
+  uses 128-by-128 images, 2 nm pixels, 18 nm PSF sigma, 220 peak photons,
+  coat area pi*60^2 nm^2, the default assembly ramp, and a 60 pN actin scale.
+  Declaring those assumptions does not certify measured data.
+  The historical force calibration predates the geometry-validity repair and
+  is retired. Current analyze() force reports remain intervals. Before enabling
+  point estimates, qualify and independently review the updated pipeline's
+  recovery grid, binding its source/dependency identities and supported conditions.
+- Supply `ObservationContext(coverage=tuple(values))` to use a conditional coat
+  coverage trace in both full and restricted fits. Its uncertainty is not
+  propagated, so custom coverage has no recovery-calibrated point estimates.
+  Extracted coat coverage remains a reported diagnostic until supplied explicitly.
+- Extraction quality excludes failed bootstraps, unresolved caps, and inferred
+  depth greater than rim radius. All-invalid observations return unsupported.
+- Mechanism decisions require a numerical margin over every competitor:
+  evidence gap minus twice the sum of reported evidence errors must exceed 2.5.
+  This conservative screen is not a formal confidence interval. Ranking entries
+  retain evidence errors and sampling status.
+- Parameter caches store simulation identity and payload checksum. Unidentified
+  legacy caches are ignored. Applicability requires matching composition and
+  known thermodynamic conditions; missing metadata is reported as unknown.
+- GROUNDED claim construction requires a registered executable model, finite
+  values, nonnegative uncertainty, evidence, and structured `input_kind` and
+  `validation` fields compatible with the registry. These are consistency checks;
+  they cannot verify that a caller's scientific assertions are true.
 - The structural screen is a frozen research result. Its adapter verifies the
   saved hash; ordinary imports and channel lookups do not rerun the screen or
   fetch structures. Do not regenerate frozen results during a refactor.

@@ -36,10 +36,11 @@ def _one_recovery(gt_forces, A_coat_nm2, has_actin, seed, nlive=200,
     movie, gt = sm.render_movie(gt_forces, field_px=128, nm_per_px=2.0,
                                 psf_sigma_nm=18.0, has_actin=has_actin, seed=seed)
     meta = dict(nm_per_px=2.0, channels=gt.channels, psf_sigma_nm=18.0,
-                peak_photons=220.0, movie_id="rec%d" % seed)
+                peak_photons=220.0, movie_id="rec%d" % seed, input_kind="synthetic")
     trace = pcp.PerceptionProvider(host=None).extract(movie, meta, seed=seed + 100)
     H = trace.arr("H_inv_nm"); Hs = trace.arr("H_sigma_inv_nm")
-    depth = trace.arr("depth_nm"); mask = depth >= 18.0
+    depth = trace.arr("depth_nm")
+    mask = (depth >= 18.0) & trace.arr("geometry_valid").astype(bool)
     kw = {}
     if has_actin and use_actin_channel:
         kw = dict(actin_obs=trace.arr("actin_density"),
@@ -75,7 +76,7 @@ def recovery_grid(A_coat_nm2=np.pi * 60 ** 2, n_noise=8, seed0=0, verbose=True):
             res, truth, nmask = _one_recovery(gtf, A_coat_nm2, has_actin, seed)
             ident = inv.identifiability(res["samples"], res["params"])
             row = dict(label=label, has_actin=has_actin, seed=seed, nmask=nmask,
-                       logz=res["logz"])
+                       logz=res["logz"], stopped_early=res["stopped_early"])
             for p in res["params"]:
                 nm = p.name
                 info = ident[nm]
@@ -84,7 +85,7 @@ def recovery_grid(A_coat_nm2=np.pi * 60 ** 2, n_noise=8, seed0=0, verbose=True):
                 row[nm] = dict(
                     truth=tv, median=info["median"],
                     in68=bool(lo68 <= tv <= hi68), in95=bool(lo95 <= tv <= hi95),
-                    identified=info["identified"],
+                    identified=info["identified"] and not res["stopped_early"],
                     degenerate=bool(info["degenerate_with"]))
             records.append(row)
         if verbose:

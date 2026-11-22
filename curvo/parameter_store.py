@@ -1,25 +1,14 @@
-"""
-curvo.parameter_store — the "use existing data" backbone.
+"""Resolve cited parameters and record their source, uncertainty, and validity.
 
-Adapters return uniform ParameterRecords {value, uncertainty, units,
-state_point, provenance, valid_range}. Every record knows the state point it
-was measured at and the range it is valid over, so the orchestrator can decide
-use-data vs flag-MD (schemas.ParameterRecord.applies_at).
-
-Adapter status this sprint:
-  - NMRlipids/FAIRMD : LIVE (GitHub-hosted databank data; example bilayer set)
-  - AlphaFold DB     : LIVE (structure_provider.py)
-  - OPM              : SPA (no open JSON on the allowlisted host) -> curated insertion depth
-  - MemProtMD        : host not on allowlist -> stubbed deformation context (P2, not a demo player)
-  - literature table : CURATED (Rand-Fuller c0, kappa per lipid, line tensions) -- always the
-                       physically load-bearing anchor for c0/lambda, which no open API serves cleanly.
-
-Nothing is silently faked: access="live_api"|"cached"|"stub" is stamped on every record.
+The NMRlipids adapter reads a time series over HTTP or from a local cache.
+Insertion depth and the literature table use curated values. Unimplemented
+sources raise KeyError; coverage() lists them as missing.
 """
 from __future__ import annotations
 
 import json
-import os
+import hashlib
+from pathlib import Path
 import numpy as np
 import requests
 
@@ -78,32 +67,68 @@ def literature(param: str, system: str) -> ParameterRecord:
 # LIVE adapter: NMRlipids / FAIRMD databank (area/leaflet, thickness)
 # --------------------------------------------------------------------------
 _DEFAULT_SIM = "src/fairmd/lipids/data/ToyData/Simulations.2/aa2"
+# Source composition and temperature are recorded in this simulation's README:
+# https://raw.githubusercontent.com/NMRLipids/Databank/main/src/fairmd/lipids/data/ToyData/Simulations.2/aa2/README.yaml
+_DEFAULT_COMPOSITION = "POPC:CHOL 120:8"
 
 
 def nmrlipids_area_per_lipid(sim_path: str = _DEFAULT_SIM, cache_dir: str = "cache",
                              lipid: str = "POPC") -> ParameterRecord:
-    """LIVE: pull area-per-lipid time series from the NMRlipids databank and
-    reduce to a value+uncertainty (equilibrated mean, first 20% discarded)."""
-    os.makedirs(cache_dir, exist_ok=True)
-    cache = os.path.join(cache_dir, "nmrlipids_apl.json")
+    """Average the time series after discarding its first 20%.
+
+    Keep each simulation's cache separate. HTTP and JSON failures may use a
+    previously validated cache; filesystem and data-shape errors propagate.
+    The default example contains cholesterol. Custom simulation metadata is
+    caller-supplied; this adapter does not retrieve its composition or temperature.
+    """
+    default_simulation = sim_path == _DEFAULT_SIM
+    if default_simulation and lipid != "POPC":
+        raise ValueError(f"default simulation is {_DEFAULT_COMPOSITION}; cannot relabel it as {lipid}")
+    cache_root = Path(cache_dir)
+    cache_root.mkdir(parents=True, exist_ok=True)
+    cache_name = f"nmrlipids_apl_{hashlib.sha256(sim_path.encode()).hexdigest()}.json"
+    cache = cache_root / cache_name
     access = "live_api"
     try:
-        apl = requests.get(GH_RAW.format(sim_path + "/apl.json"), timeout=15).json()
-        json.dump(apl, open(cache, "w"))
-    except Exception:
-        apl = json.load(open(cache))  # fall back to cache if rate-limited
+        response = requests.get(GH_RAW.format(sim_path + "/apl.json"), timeout=15)
+        response.raise_for_status()
+        apl = response.json()
+    except (requests.RequestException, ValueError):
+        if not cache.is_file():
+            raise
+        saved = json.loads(cache.read_text(encoding="utf-8"))
+        if not isinstance(saved, dict) or saved.get("simulation") != sim_path:
+            raise ValueError("cached simulation identity mismatch")
+        apl = saved["data"]
+        digest = hashlib.sha256(json.dumps(apl, sort_keys=True, allow_nan=False).encode()).hexdigest()
+        if saved.get("sha256") != digest:
+            raise ValueError("cached payload checksum mismatch")
         access = "cached"
-    arr = np.array([v for _, v in apl])
+    series = np.asarray(apl, dtype=float)
+    if (
+        series.ndim != 2 or series.shape[0] == 0 or series.shape[1] != 2
+        or not np.all(np.isfinite(series)) or np.any(series[:, 1] <= 0)
+    ):
+        raise ValueError("area-per-lipid data must be finite [time, positive area] pairs")
+    digest = hashlib.sha256(json.dumps(apl, sort_keys=True, allow_nan=False).encode()).hexdigest()
+    if access == "live_api":
+        cache.write_text(json.dumps(dict(simulation=sim_path, sha256=digest, data=apl)), encoding="utf-8")
+    arr = series[:, 1]
     eq = arr[len(arr) // 5:]
     mean, sd = eq.mean() / 100.0, eq.std() / 100.0   # A^2 -> nm^2
     return ParameterRecord(
         param="area_per_lipid", value=round(float(mean), 4), uncertainty=round(float(sd), 4),
-        units="nm^2", state_point=StatePoint(temperature_K=303, composition=lipid,
-                                             notes="atomistic MD, equilibrated"),
+        units="nm^2", state_point=StatePoint(
+            temperature_K=303 if default_simulation else None,
+            composition=_DEFAULT_COMPOSITION if default_simulation else lipid,
+            notes="MD time-series mean after discarding 20%; uncertainty is temporal SD",
+        ),
         provenance=Provenance(source="NMRlipids/FAIRMD databank", access=access,
                               identifier=sim_path,
+                              model_version=f"payload_sha256:{digest}",
                               citation="Kiirikki et al. 2024 Nat Commun (NMRlipids Databank)"),
-        valid_range={"temperature_K": [298, 320]},
+        valid_range={},
+        flags=["example_mixed_bilayer"] if default_simulation else ["simulation_metadata_unverified"],
     )
 
 
@@ -126,19 +151,6 @@ def opm_insertion_depth(system: str = "ENTH_H0") -> ParameterRecord:
 
 
 # --------------------------------------------------------------------------
-# MemProtMD adapter: STUBBED (host not on allowlist; P2 scaffold, not a demo player)
-# --------------------------------------------------------------------------
-def memprotmd_deformation(system: str = "ENTH") -> ParameterRecord:
-    return ParameterRecord(
-        param="scaffold_deformation", value=0.0, uncertainty=0.5, units="nm",
-        state_point=StatePoint(notes="CG self-assembly bilayer deformation context"),
-        provenance=Provenance(source="MemProtMD", access="stub", identifier=system,
-                              citation="Newport et al. 2019 NAR (MemProtMD) — host not reachable this sprint"),
-        valid_range={}, flags=["stub_domain_not_on_allowlist", "P2_not_a_demo_player"],
-    )
-
-
-# --------------------------------------------------------------------------
 # The store
 # --------------------------------------------------------------------------
 class ParameterStore:
@@ -147,10 +159,6 @@ class ParameterStore:
     def __init__(self, cache_dir: str = "cache"):
         self.cache_dir = cache_dir
         self.records: list[ParameterRecord] = []
-
-    def _log(self, rec: ParameterRecord) -> ParameterRecord:
-        self.records.append(rec)
-        return rec
 
     def get(self, param: str, system: str, target: StatePoint | None = None) -> ParameterRecord:
         """Resolve a parameter, preferring live adapters, falling back to literature.
@@ -162,22 +170,22 @@ class ParameterStore:
         if target is not None:
             ok, why = rec.applies_at(target)
             if not ok:
-                rec.flags = list(rec.flags) + [f"state_point_mismatch:{why}"]
-        return self._log(rec)
+                flag = "applicability_unknown" if why.startswith("unknown applicability") else "state_point_mismatch"
+                rec.flags = list(rec.flags) + [f"{flag}:{why}"]
+        self.records.append(rec)
+        return rec
 
     def _resolve(self, param: str, system: str) -> ParameterRecord:
         if param == "area_per_lipid":
             return nmrlipids_area_per_lipid(lipid=system, cache_dir=self.cache_dir)
         if param == "insertion_depth":
             return opm_insertion_depth(system)
-        if param == "scaffold_deformation":
-            return memprotmd_deformation(system)
         if (param, system) in LITERATURE:
             return literature(param, system)
         raise KeyError(f"No adapter or literature entry for ({param}, {system})")
 
     def coverage(self) -> list[dict]:
-        """What is covered live vs cached vs stubbed — for the coverage figure."""
+        """List resolved sources and missing adapters for the coverage figure."""
         rows = []
         catalogue = [
             ("area_per_lipid", "POPC", "P1 lipid"),

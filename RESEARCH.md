@@ -53,8 +53,14 @@ Posterior widths, correlations, and prior bounds assess identifiability.
 Synthetic recovery checks whether known simulation inputs can be recovered under
 the tested model and noise assumptions. Neither a narrow posterior nor synthetic
 recovery alone establishes experimental accuracy. Model preference is conditional
-on the hypotheses and observation likelihood. This committed checkpoint also has
-an incomplete-sampling reporting limitation; see [CODEBASE.md](CODEBASE.md).
+on the hypotheses and observation likelihood. Capped fits remain provisional.
+Point estimates additionally require an explicit supported synthetic observation
+context. Custom coverage or calibration conditions remain exploratory; see
+[CODEBASE.md](CODEBASE.md). Numerical evidence errors are retained and must leave
+a conservative separation from every competitor before a decisive verdict.
+The old force calibration predates the geometry-validity repair and is retired;
+current analyses withhold point estimates and decisive mechanisms pending a
+reviewed recovery qualification of the updated pipeline.
 
 [validation/tether_sted.py](validation/tether_sted.py) uses published membrane
 parameters from Roy et al. (2020), doi:10.1021/acs.nanolett.9b05232, to generate

@@ -4,7 +4,20 @@ Start with [FINDINGS.md](FINDINGS.md) and [INDEX.md](INDEX.md). Passing the chec
 below verifies software contracts and bounded synthetic cases. It does not
 repeat the public-data audit or validate biological mechanisms.
 
-## Install and run the offline checks
+## Current software checks
+
+Use the six-file selection in the root [README](../README.md) or GitHub CI for
+the current inference, observation, cache, and provenance contracts. The mismatch
+controls use rendered images and mocked fits; they do not establish recovery
+calibration. The old active-force calibration is retired after the geometry gate
+changed. A new qualification must record current source/dependency identities,
+supported conditions, coverage, bias, and failures before enabling point estimates.
+
+## Historical checkpoint checks
+
+The following selection belongs to checkpoint `47f66f8`. Use that revision with
+its recorded inputs to verify the historical checkpoint; it predates the runtime
+guard repairs. Running it against newer code does not reproduce that version.
 
 From the repository root, with Python 3.10 or newer:
 

@@ -51,6 +51,8 @@ class GeometryFrame:
     actin_density: float
     actin_sigma: float
     n_edge_px: int
+    geometry_valid: bool = False
+    quality_reason: str = "unverified geometry"
 
 
 @dataclasses.dataclass
@@ -187,6 +189,7 @@ def extract_geometry_analytic(movie, gt_meta, n_boot=40, seed=0):
 
     frames = []
     for i in range(T):
+        geometry_valid, quality_reason = False, "no resolved membrane edge"
         mem = movie[i, 0]
         edge = _membrane_edge(mem, nm_per_px)
         if edge is None:
@@ -228,18 +231,25 @@ def extract_geometry_analytic(movie, gt_meta, n_boot=40, seed=0):
                 R, Rs = 3000.0, 500.0
                 neck, necks = float(np.max(np.abs(x_nm))), 5.0
                 depth, depths = float(np.max(z_nm)), 5.0
-                H_val, Hs = 1.0 / R, 0.0
+                H_val, Hs = 1.0 / R, 1.0 / R
+                quality_reason = "bootstrap failed"
             else:
                 R, Rs = float(np.median(Rb)), float(np.std(Rb))
                 H_val, Hs = float(np.median(Hb)), float(np.std(Hb))
                 neck, necks = float(np.median(neckb)), float(np.std(neckb))
                 depth, depths = float(np.median(depthb)), float(np.std(depthb))
+                geometry_valid = bool(
+                    np.all(np.isfinite([R, H_val, Hs, neck, depth]))
+                    and Hs > 0 and neck > 0 and 0 < depth <= neck
+                )
+                quality_reason = "valid sub-hemisphere cap" if geometry_valid else "invalid or over-hemisphere cap"
                 # Resolvability gate: a cap shallower than ~1 PSF sigma is at/below
                 # the optical resolution limit; report it but INFLATE the H
                 # uncertainty so the downstream likelihood down-weights it rather
                 # than trusting a spurious point value (anti-"force-astrology").
                 if psf > 0 and depth < psf:
                     Hs = max(Hs, 0.5 * H_val)   # >=50% uncertainty when unresolved
+                    geometry_valid, quality_reason = False, "below optical resolution"
         # densities
         cov = float(coat_tot[i] / coat_ref)
         # coverage uncertainty ~ Poisson on integrated photons
@@ -261,8 +271,9 @@ def extract_geometry_analytic(movie, gt_meta, n_boot=40, seed=0):
             t=float(i / (T - 1)), R_nm=R, R_sigma_nm=Rs, H_inv_nm=H_val,
             H_sigma_inv_nm=Hs, neck_nm=neck, neck_sigma_nm=necks, depth_nm=depth,
             depth_sigma_nm=depths, coat_coverage=cov, coat_sigma=cov_s,
-            actin_density=ad, actin_sigma=ad_s, n_edge_px=int(n_edge)))
-    prov = Provenance(source="synthetic_movie", access="computed",
+            actin_density=ad, actin_sigma=ad_s, n_edge_px=int(n_edge),
+            geometry_valid=geometry_valid, quality_reason=quality_reason))
+    prov = Provenance(source=gt_meta.get("input_kind", "unknown_movie"), access="computed",
                       identifier=gt_meta.get("movie_id", ""),
                       citation="curvo analytic extractor v0.2")
     return GeometryTrace(frames=frames, channels=channels, nm_per_px=nm_per_px,

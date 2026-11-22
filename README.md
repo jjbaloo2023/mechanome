@@ -67,12 +67,29 @@ For the structure-backed demonstration, run `python run_demo.py`. It uses a
 deterministic proposer by default, may fetch external inputs on a fresh cache,
 and writes results to `outputs/`.
 
-The inverse entry point is `curvo.analyze.analyze(movie, question)`. It assumes
-24-frame side-view movies in `[frame, channel, height, width]` order and an
-observation model matching the synthetic renderer. Active-force calibration
-depends on that renderer's actin-intensity mapping. Identifiability and synthetic
-recovery do not establish experimental calibration. See [CODEBASE.md](CODEBASE.md)
-for reporting limitations, including incomplete-sampling handling.
+The inverse entry point is `curvo.analyze.analyze(movie, question)`. It accepts
+24-frame side-view movies in `[frame, channel, height, width]` order. Unknown
+or experimental observation contexts return exploratory intervals, without
+force point estimates or decisive mechanism claims. No valid resolved geometry
+returns `analysis_status="unsupported"` without running a sampler.
+
+Synthetic analyses can explicitly declare the renderer-specific context:
+
+```python
+from curvo.inverse import ObservationContext
+
+context = ObservationContext(
+    input_kind="synthetic", calibration_id="synthetic_renderer_v1"
+)
+# analyze(movie, question, context=context)
+```
+
+That declaration applies only to the documented synthetic conditions; it does
+not certify an experiment. The geometry-validity repair retires the old force
+calibration: point estimates remain disabled pending a reviewed recovery grid
+for the updated pipeline. Changed imaging conditions, coat area, coverage, or
+actin-force scale also remain exploratory. See [CODEBASE.md](CODEBASE.md) for the
+conditions and [RESEARCH.md](RESEARCH.md) for scientific limits.
 
 ## Check changes
 
@@ -80,7 +97,7 @@ For the reviewed research checkpoint, use the bounded offline selection in
 [research/REPRODUCE.md](research/REPRODUCE.md). General development checks:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest -q tests/test_pipeline_contracts.py tests/test_imports.py tests/test_players.py tests/test_mechanome_modules.py
+.\.venv\Scripts\python.exe -m pytest -q tests/test_pipeline_contracts.py tests/test_imports.py tests/test_players.py tests/test_mechanome_modules.py tests/test_parameter_store.py tests/test_scientific_guards.py
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
